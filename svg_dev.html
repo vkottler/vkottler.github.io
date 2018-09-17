@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SVG Sandbox</title>
+
+        <!-- icons -->
+        <link rel="icon" href="favicon.ico" type="image/icon">
+        <link rel="shortcut icon" href="favicon.ico" type="image/icon">
+
+        <style>
+            iframe {
+                border: 0;
+            }
+
+            body {
+                margin: 0;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            #container {
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .svg-container {
+                padding: 1em;
+                border: solid 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>SVG Development and Viewing Page</h1>
+            <h2>Logo Standalone</h2>
+            <div class="svg-container">
+                <iframe src="im/svg/logo.svg"
+                    width="300px" height="300px">
+                </iframe>
+            </div>
+            <h2>Desktop Background</h2>
+            <div class="svg-container">
+                <iframe src="im/svg/desktop.svg"
+                    width="960px" height="540px">
+                </iframe>
+            </div>
+            <h2>Logo with Background</h2>
+            <div class="svg-container">
+                <iframe src="im/svg/logo_background.svg"
+                    width="300px" height="300px">
+                </iframe>
+            </div>
+        </div>
+    </body>
+</html>

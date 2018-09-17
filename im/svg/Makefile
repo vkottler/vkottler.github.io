@@ -1,7 +1,7 @@
 .PHONY: all clean
-.DEFAULT_GOAL = logo.ico
+.DEFAULT_GOAL = logo_background.ico
 
-IMAGE_NAME = logo
+IMAGE_NAME = logo_background
 
 $(IMAGE_NAME)_%.png: $(IMAGE_NAME).svg
 	@inkscape $< -e $@ -w $* -h $*
