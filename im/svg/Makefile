@@ -15,4 +15,10 @@ logo_outline_black_%.png: logo_outline_black.svg
 desktop.png: desktop.svg
 	@inkscape $< -e $@ -w 1920 -h 1080
 
-all: desktop.png logo_background.ico logo_outline_black.ico logo.ico
+DEPS  = desktop.png
+DEPS += logo_background.ico
+DEPS += logo_outline_black.ico
+DEPS += logo.ico
+DEPS += logo_outline_black_500.png
+
+all: $(DEPS)
