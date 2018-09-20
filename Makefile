@@ -7,4 +7,4 @@ serve:
 	@$(PYTHON_BIN) -m http.server
 
 view:
-	@$(BROWSER) http://localhost:8000/index.html
+	@$(BROWSER) http://localhost:8000/index.html &
