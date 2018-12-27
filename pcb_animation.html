@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- metadata -->
+        <meta charset="utf-8">
+        <title>Animation Sandbox</title>
+        <meta name="description" content="Experimenting with CSS animations.">
+        <meta name="author" content="Vaughn Kottler">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- icons -->
+        <link rel="icon" href="favicon.ico" type="image/icon">
+        <link rel="shortcut icon" href="favicon.ico" type="image/icon">
+
+        <!-- styles -->
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/svg.css">
+
+        <!-- fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono|Roboto+Slab" rel="stylesheet">
+    </head>
+    <body>
+        <div class="center-col-container">
+            <h1>Animation Development and Viewing Page</h1>
+            <h2>PCB Graphic</h2>
+            <div class="svg-container half-size-rect">
+                <iframe class="anchored" src="im/svg/pcb.svg"
+                    width="960px" height="540px">
+                </iframe>
+                <iframe class="anchored center-me" src="im/svg/logo_pads.svg"
+                    width="300px" height="300px">
+                </iframe>
+                <iframe class="anchored center-me" src="im/svg/logo.svg"
+                    width="300px" height="300px">
+                </iframe>
+            </div>
+
+            <h2>LED Primitive</h2>
+            <div class="svg-container half-size-rect">
+                <iframe class="anchored center-me" src="im/svg/passive_pads.svg"
+                    width="540px" height="540px">
+                </iframe>
+                <iframe class="anchored center-me" src="im/svg/led_only.svg"
+                    width="540px" height="540px">
+                </iframe>
+                <iframe class="anchored move-me" src="im/svg/tented_via.svg"
+                    width="100px" height="100px" dx="150" dy="225">
+                </iframe>
+                <iframe class="anchored move-me" src="im/svg/tented_via.svg"
+                    width="100px" height="100px" dx="700" dy="225">
+                </iframe>
+                <iframe class="anchored move-me" src="im/svg/test_point.svg"
+                    width="100px" height="100px" dx="700" dy="100">
+                </iframe>
+                <iframe class="anchored move-me" src="im/svg/via.svg"
+                    width="100px" height="100px" dx="150" dy="100">
+                </iframe>
+            </div>
+
+            <h2>Pin Header</h2>
+            <div class="svg-container half-size-rect">
+                <iframe class="anchored move-me" src="im/svg/pin_header.svg"
+                    width="200px" height="200px" dx="100" dy="25">
+                </iframe>
+                <iframe class="anchored move-me" src="im/svg/pin_header_ra.svg"
+                    width="500px" height="200px" dx="400" dy="25">
+                </iframe>
+                <iframe class="anchored move-me" src="im/svg/mosfet_pads.svg"
+                    width="300px" height="300px" dx="150" dy="225">
+                </iframe>
+                <iframe class="anchored move-me" src="im/svg/mosfet.svg"
+                    width="300px" height="300px" dx="150" dy="225">
+                </iframe>
+                <iframe class="anchored move-me" src="im/svg/mosfet_pads.svg"
+                    width="300px" height="300px" dx="450" dy="225">
+                </iframe>
+            </div>
+
+            <h2>Micro USB</h2>
+            <div class="svg-container quarter-size-square">
+                <iframe class="anchored center-me" src="im/svg/micro_usb_pads.svg"
+                    width="480px" height="480px">
+                </iframe>
+                <iframe class="anchored center-me" src="im/svg/micro_usb.svg"
+                    width="480px" height="480px">
+                </iframe>
+            </div>
+
+            <h2>Electrolytic Capacitor</h2>
+            <div class="svg-container quarter-size-square">
+                <iframe class="anchored center-me" src="im/svg/electrolytic_cap_pads.svg"
+                    width="480px" height="480px">
+                </iframe>
+                <iframe class="anchored center-me" src="im/svg/electrolytic_cap.svg"
+                    width="480px" height="480px">
+                </iframe>
+            </div>
+
+            <h2>Linear Regulator</h2>
+            <div class="svg-container quarter-size-square">
+                <iframe class="anchored center-me" src="im/svg/linear_regulator_pads.svg"
+                    width="480px" height="480px">
+                </iframe>
+                <iframe class="anchored center-me" src="im/svg/linear_regulator.svg"
+                    width="480px" height="480px">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- code -->
+        <script src="js/util.js"></script>
+        <script src="js/center.js"></script>
+        <script src="js/move.js"></script>
+        <script src="js/pcb_animation.js"></script>
+    </body>
+</html>
