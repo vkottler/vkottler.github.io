@@ -19,6 +19,9 @@ logo_outline_white_%.png: logo_outline_white.svg
 desktop.png: desktop.svg
 	@inkscape $< -e $@ -w 1920 -h 1080
 
+desktop_hires.png: desktop_hires.svg
+	@inkscape $(shell pwd)/$< -e $(shell pwd)/$@ -w 2880 -h 1800
+
 banner.png: banner.svg
 	@inkscape $< -e $@ -w 1584 -h 396
 
