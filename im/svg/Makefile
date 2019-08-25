@@ -31,7 +31,7 @@ logo_circular_%.png: logo_circular.svg
 DEPS  = desktop.png
 DEPS += logo_background.ico
 DEPS += logo_outline_black.ico
-DEPS += logo.ico
+DEPS += logo.ico logo_circular.ico
 DEPS += logo_500.png
 DEPS += logo_outline_black_500.png
 DEPS += logo_outline_white_500.png
