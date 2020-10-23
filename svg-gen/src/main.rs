@@ -1,29 +1,11 @@
 use std::path::PathBuf;
-use std::str::FromStr;
 use structopt::StructOpt;
 
-#[derive(Debug)]
-enum FileType {
-    JSON,
-    TOML,
-    YAML,
-    SVG,
-}
+mod file_type;
+use file_type::FileType;
 
-impl FromStr for FileType {
-    type Err = std::string::String;
-    fn from_str(file_type: &str) -> Result<Self, Self::Err> {
-        let mut str_type = String::from(file_type);
-        str_type.make_ascii_lowercase();
-        match str_type.as_str() {
-            "json" => Ok(FileType::JSON),
-            "svg" => Ok(FileType::SVG),
-            "toml" => Ok(FileType::TOML),
-            "yaml" => Ok(FileType::YAML),
-            _ => Err(format!("'{}' not a valid file type", file_type)),
-        }
-    }
-}
+mod svg;
+use svg::Document;
 
 #[derive(Debug, StructOpt)]
 #[structopt(
@@ -56,6 +38,13 @@ fn main() -> std::io::Result<()> {
     let opt = Opt::from_args();
 
     println!("{:?}", opt);
+
+    let mut doc = Document::new();
+    println!("{:?}", doc);
+
+    doc.set_viewbox(0, 0, (0, 0));
+
+    println!("{}", doc.serialize());
 
     Ok(())
 }
