@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .PHONY: help run test
 
 help:
@@ -9,3 +10,8 @@ run:
 
 test:
 	cargo test
+=======
+test:
+	cargo build
+	cargo run -- --help
+>>>>>>> start the Python SVG generator
