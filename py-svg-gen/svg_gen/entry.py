@@ -68,7 +68,6 @@ def main(argv=None):
         package_root, _ = os.path.split(__file__)
         args.configs = load(args.config_dir,
                             os.path.join(package_root, "configs", "default"))
-        LOG.debug("%s", args.configs)
 
         # execute command
         result = args.command_exec(args)
@@ -94,7 +93,7 @@ def init_base_arguments(parser):
                         version="%(prog)s {0}".format(VERSION))
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="set to increase logging verbosity")
-    parser.add_argument("-c", "--config-dir", default="config",
+    parser.add_argument("-c", "--config-dir", default="configs",
                         help="configuration file directory")
     parser.add_argument("-o", "--output-dir", default="build",
                         help=("output directory for generated files " +
