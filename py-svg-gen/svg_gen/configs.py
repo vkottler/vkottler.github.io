@@ -93,7 +93,10 @@ def load_dir(path, existing_data=None):
 def load(config_dir, defaults_dir):
     """ TODO """
 
+    # load raw data
     data = load_dir(defaults_dir)
     load_dir(config_dir, data)
+
+    # resolve variables used in configs
     template = jinja2.Template(yaml.dump(data))
     return yaml.full_load(template.render(data["variables"]))
