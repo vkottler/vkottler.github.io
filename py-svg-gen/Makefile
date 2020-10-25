@@ -21,7 +21,7 @@ $(BUILD_DIR)/venv.txt: $(BUILD_DIR)/req-requirements.txt $(BUILD_DIR)/req-dev_re
 	@date > $@
 
 lint-%: $(BUILD_DIR)/venv.txt
-	$(PYTHON_BIN)/$* svg_gen main.py
+	$(PYTHON_BIN)/$* svg_gen tests main.py
 
 lint: lint-flake8 lint-pylint
 
@@ -29,10 +29,15 @@ run: $(BUILD_DIR)/venv.txt
 	$(SVG_GEN_DIR)/main.py -o $(BUILD_DIR) render
 	@cat $(BUILD_DIR)/out.svg
 
+test: $(BUILD_DIR)/venv.txt
+	$(PYTHON_BIN)/pytest --cov=svg_gen --cov-report html
+	@$(BROWSER) htmlcov/index.html
+
 clean:
 	find -iname '*.pyc' -delete
 	find -iname '__pycache__' -delete
-	rm -rf cover .coverage build dist *.egg-info
+	rm -rf $(BUILD_DIR)
+	rm -rf cover .coverage build dist *.egg-info htmlcov .pytest_cache
 
 clean-venv:
 	rm -rf $(VENV_DIR) $(BUILD_DIR)/venv.txt
