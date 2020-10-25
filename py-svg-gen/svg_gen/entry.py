@@ -6,11 +6,13 @@ TODO
 # built-in
 import argparse
 import logging
+import os
 import sys
 
 # internal
 from . import VERSION, DESCRIPTION, COMMANDS
 from .commands.render import add_command as add_render_command
+from .configs import load
 
 LOG = logging.getLogger(__name__)
 
@@ -54,18 +56,28 @@ def main(argv=None):
         # initialize logging
         log_level = logging.DEBUG if args.verbose else logging.INFO
         logging.basicConfig(level=log_level,
-                            format=("%(name)-30s - %(levelname)-8s - "
+                            format=("%(name)-20s - %(levelname)-8s - "
                                     "%(message)s"))
 
-        # execute command
+        # log some argument information
         LOG.debug("%s", argv)
+        LOG.debug("output_dir: '%s'", args.output_dir)
+        LOG.debug("config_dir: '%s'", args.config_dir)
+
+        # parse configs
+        package_root, _ = os.path.split(__file__)
+        args.configs = load(args.config_dir,
+                            os.path.join(package_root, "configs", "default"))
+        LOG.debug("%s", args.configs)
+
+        # execute command
         result = args.command_exec(args)
     except SystemExit as exc:
         result = 1
         if exc.code is not None:
             result = exc.code
 
-    LOG.debug("%s", result)
+    LOG.debug("result: '%s'", result)
     return result
 
 
@@ -82,6 +94,8 @@ def init_base_arguments(parser):
                         version="%(prog)s {0}".format(VERSION))
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="set to increase logging verbosity")
-    parser.add_argument("-o", "--output_dir", default="build",
+    parser.add_argument("-c", "--config-dir", default="config",
+                        help="configuration file directory")
+    parser.add_argument("-o", "--output-dir", default="build",
                         help=("output directory for generated files " +
                               "(default: '%(default)s')"))

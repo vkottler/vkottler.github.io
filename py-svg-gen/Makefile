@@ -26,8 +26,8 @@ lint-%: $(BUILD_DIR)/venv.txt
 lint: lint-flake8 lint-pylint
 
 run: $(BUILD_DIR)/venv.txt
-	$(SVG_GEN_DIR)/main.py -o $(BUILD_DIR) render
-	@cat $(BUILD_DIR)/out.svg
+	$(SVG_GEN_DIR)/main.py -v -o $(BUILD_DIR) render test
+	@cat $(BUILD_DIR)/test.svg
 
 test: $(BUILD_DIR)/venv.txt
 	$(PYTHON_BIN)/pytest --cov=svg_gen --cov-report html
