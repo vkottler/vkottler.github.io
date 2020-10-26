@@ -13,6 +13,7 @@ import sys
 from . import VERSION, DESCRIPTION, COMMANDS
 from .commands.render import add_command as add_render_command
 from .configs import load
+from .schemas import validate_configs
 
 LOG = logging.getLogger(__name__)
 
@@ -69,8 +70,12 @@ def main(argv=None):
         args.configs = load(args.config_dir,
                             os.path.join(package_root, "configs", "default"))
 
-        # execute command
-        result = args.command_exec(args)
+        # validate config data and execute
+        if validate_configs(args.configs):
+            result = args.command_exec(args)
+        else:
+            LOG.error("config validation failed")
+            result = 1
     except SystemExit as exc:
         result = 1
         if exc.code is not None:
