@@ -5,11 +5,12 @@ TODO
 
 # built-in
 import logging
+import os
 
 # third-party
 import jinja2
 
-PKG_LOADER = jinja2.PackageLoader("svg_gen", "templates")
+PKG_LOADER = jinja2.PackageLoader("svg_gen", os.path.join("data", "templates"))
 ENV = jinja2.Environment(loader=PKG_LOADER, trim_blocks=True,
                          lstrip_blocks=True)
 LOG = logging.getLogger(__name__)

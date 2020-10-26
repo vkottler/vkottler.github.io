@@ -12,7 +12,7 @@ import sys
 # internal
 from . import VERSION, DESCRIPTION, COMMANDS
 from .commands.render import add_command as add_render_command
-from .configs import load
+from .configs import load, load_dir
 from .schemas import validate_configs
 
 LOG = logging.getLogger(__name__)
@@ -67,11 +67,13 @@ def main(argv=None):
 
         # parse configs
         package_root, _ = os.path.split(__file__)
+        data_root = os.path.join(package_root, "data")
         args.configs = load(args.config_dir,
-                            os.path.join(package_root, "configs", "default"))
+                            os.path.join(data_root, "configs", "default"))
 
         # validate config data and execute
-        if validate_configs(args.configs):
+        schema_data = load_dir(os.path.join(data_root, "schemas"))
+        if validate_configs(args.configs, schema_data):
             result = args.command_exec(args)
         else:
             LOG.error("config validation failed")

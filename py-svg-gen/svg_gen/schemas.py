@@ -11,18 +11,6 @@ from cerberus import Validator
 
 LOG = logging.getLogger(__name__)
 
-VIEWBOX_SCHEMA = {
-    "height": {"type": ["string", "integer"]},
-    "width": {"type": ["string", "integer"]},
-    "origin": {
-        "type": "dict",
-        "schema": {
-            "x": {"type": ["string", "integer"]},
-            "y": {"type": ["string", "integer"]},
-        },
-    },
-}
-
 
 def validate(schema, data):
     """ TODO """
@@ -35,7 +23,7 @@ def validate(schema, data):
     return result
 
 
-def validate_configs(config_data, schema_dirs=None):
+def validate_configs(config_data, schema_data):
     """ TODO """
 
-    return validate(VIEWBOX_SCHEMA, config_data["viewbox"])
+    return validate(schema_data["viewbox"], config_data["viewbox"])

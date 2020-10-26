@@ -9,6 +9,7 @@ import logging
 import os
 
 # internal
+from svg_gen.parsing import load as load_raw
 
 # third-party
 import jinja2
@@ -17,45 +18,23 @@ import yaml
 LOG = logging.getLogger(__name__)
 
 
-def get_json_data(data_file):
-    """ TODO """
-
-    data = None
-    try:
-        data = json.load(data_file)
-    except json.decoder.JSONDecodeError as exc:
-        LOG.error("couldn't parse '%s' as JSON: %s", data_file.name, exc)
-    return data
-
-
-def get_yaml_data(data_file):
-    """ TODO """
-
-    data = None
-    try:
-        data = yaml.full_load(data_file)
-    except (yaml.scanner.ScannerError, yaml.parser.ParserError) as exc:
-        LOG.error("couldn't parse '%s' as YAML: %s", data_file.name, exc)
-    return data
-
-
 def meld_file(existing_data, full_path):
     """ TODO """
 
     name = os.path.basename(full_path)
-    name_split = os.path.splitext(name)
+    name_split = name.split(".")
     key = name_split[0]
-    ext = name_split[1][1:].lower()
 
-    if key not in existing_data:
-        existing_data[key] = {}
+    # allow directory/.{file_type} to be equivalent to directory.{file_type}
+    if not key:
+        data_dict = existing_data
+    else:
+        if key not in existing_data:
+            existing_data[key] = {}
+        data_dict = existing_data[key]
 
     # meld the data
-    with open(full_path) as config_file:
-        if ext == "json":
-            existing_data[key].update(get_json_data(config_file))
-        elif ext == "yaml":
-            existing_data[key].update(get_yaml_data(config_file))
+    load_raw(full_path, name_split[1].lower(), data_dict)
 
 
 def load_dir(path, existing_data=None):
