@@ -12,7 +12,7 @@ from typing import TextIO
 
 # third-party
 import jinja2
-from ruamel import yaml
+from ruamel import yaml  # type: ignore
 
 LOG = logging.getLogger(__name__)
 
@@ -20,7 +20,7 @@ LOG = logging.getLogger(__name__)
 def get_json_data(data_file: TextIO) -> dict:
     """ Load JSON data from a text stream. """
 
-    data = None
+    data = {}
     try:
         data = json.load(data_file)
     except json.decoder.JSONDecodeError as exc:
@@ -31,7 +31,7 @@ def get_json_data(data_file: TextIO) -> dict:
 def get_yaml_data(data_file: TextIO) -> dict:
     """ Load YAML data from a text stream. """
 
-    data = None
+    data = {}
     try:
         data = yaml.load(data_file)
     except (yaml.scanner.ScannerError, yaml.parser.ParserError) as exc:
@@ -84,4 +84,4 @@ def load_and_resolve(data_path: str, variables: dict,
 def load(data_path: str, dict_to_update: dict = None) -> dict:
     """ Load raw file data, optionally update an existing dictionary. """
 
-    return load_and_resolve(data_path, None, dict_to_update)
+    return load_and_resolve(data_path, {}, dict_to_update)

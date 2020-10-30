@@ -1,4 +1,4 @@
-.PHONY: lint test clean clean-venv
+.PHONY: lint sa test clean clean-venv
 
 .DEFAULT_GOAL  := test
 PYTHON_VERSION := 3.8
@@ -26,6 +26,8 @@ lint-%: $(BUILD_DIR)/$(VENV_NAME).txt
 	$(PYTHON_BIN)/$* $(PROJ) tests
 
 lint: lint-flake8 lint-pylint
+
+sa: lint-mypy
 
 test: $(BUILD_DIR)/venv.txt
 	$(PYTHON_BIN)/pytest --cov=$(PROJ) --cov-report html

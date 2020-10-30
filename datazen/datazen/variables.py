@@ -16,7 +16,7 @@ LOG = logging.getLogger(__name__)
 def load(directories: List[str]) -> dict:
     """ Load variable data from a list of directories. """
 
-    result = {}
+    result: dict = {}
     for directory in directories:
         LOG.info("loading variables from '%s'", directory)
         load_dir(directory, result)

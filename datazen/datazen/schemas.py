@@ -8,7 +8,7 @@ import logging
 from typing import List
 
 # third-party
-from cerberus import Validator
+from cerberus import Validator  # type: ignore
 
 # internal
 from datazen.load import load_dir
@@ -19,7 +19,7 @@ LOG = logging.getLogger(__name__)
 def load(directories: List[str], require_all: bool) -> dict:
     """ Load schemas from a list of directories. """
 
-    result = {}
+    result: dict = {}
 
     # load raw data
     for directory in directories:

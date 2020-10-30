@@ -21,6 +21,9 @@ def meld_and_resolve(full_path: str, existing_data: dict,
     existing data is a template and attempt to resolve variables.
     """
 
+    if variables is None:
+        variables = {}
+
     key = os.path.basename(full_path).split(".")[0]
 
     # allow directory/.{file_type} to be equivalent to directory.{file_type}

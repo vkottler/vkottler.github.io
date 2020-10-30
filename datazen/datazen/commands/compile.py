@@ -31,7 +31,8 @@ def str_compile(configs: dict, data_type: str) -> str:
     if data_type == "json":
         result = json.dumps(configs, indent=4)
     if data_type == "yaml":
-        result = yaml.dump(configs)
+        raw_result = yaml.dump(configs)
+        result = raw_result if raw_result else ""
     else:
         LOG.error("can't serialize '%s' data (unknown type)", data_type)
         return ""
