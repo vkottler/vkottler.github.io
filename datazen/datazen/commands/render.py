@@ -14,23 +14,9 @@ import jinja2
 
 # internal
 from datazen.parsing import update_dict_from_stream
+from datazen.templates import get_template
 
 LOG = logging.getLogger(__name__)
-
-
-def get_template(template_dirs: List[str],
-                 template_name: str) -> jinja2.Template:
-    """
-    Load a jinja2 template from a list of directories where templates may
-    exist, and a name of a template to load.
-    """
-
-    # load specific template
-    return jinja2.Environment(
-            loader=jinja2.FileSystemLoader(template_dirs, followlinks=True),
-            trim_blocks=True,
-            lstrip_blocks=True
-    ).get_template(template_name)
 
 
 def str_render(template: jinja2.Template, config_data_path: str) -> str:
