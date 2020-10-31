@@ -12,6 +12,7 @@ from cerberus import Validator  # type: ignore
 
 # internal
 from datazen.load import load_dir
+from datazen.classes.valid_dict import ValidDict
 
 LOG = logging.getLogger(__name__)
 
@@ -42,11 +43,8 @@ def validate(schema_data: dict, data: dict) -> bool:
     for item in schema_data.items():
         key = item[0]
         if key in data:
-            result = item[1].validate(data[key])
-            if not result:
-                LOG.error("validation error(s) for '%s': %s", key,
-                          result.errors)
-                LOG.error("data: %s", data[key])
+            data[key] = ValidDict(key, data[key], item[1])
+            if not data[key].valid:
                 return False
 
     return True
