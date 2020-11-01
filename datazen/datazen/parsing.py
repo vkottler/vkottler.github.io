@@ -17,14 +17,28 @@ from ruamel import yaml  # type: ignore
 LOG = logging.getLogger(__name__)
 
 
+def get_file_name(full_path: str) -> str:
+    """ TODO """
+
+    return os.path.basename(full_path).split(".")[0]
+
+
+def get_file_ext(full_path: str) -> str:
+    """ TODO """
+
+    return os.path.basename(full_path).split(".")[1]
+
+
 def get_json_data(data_file: TextIO) -> dict:
     """ Load JSON data from a text stream. """
 
     data = {}
     try:
         data = json.load(data_file)
+        if not data:
+            data = {}
     except json.decoder.JSONDecodeError as exc:
-        LOG.error("couldn't parse '%s' as json: %s", data_file.name, exc)
+        LOG.error("json-load error: %s", exc)
     return data
 
 
@@ -33,9 +47,11 @@ def get_yaml_data(data_file: TextIO) -> dict:
 
     data = {}
     try:
-        data = yaml.load(data_file)
+        data = yaml.safe_load(data_file)
+        if not data:
+            data = {}
     except (yaml.scanner.ScannerError, yaml.parser.ParserError) as exc:
-        LOG.error("couldn't parse '%s' as yaml: %s", data_file.name, exc)
+        LOG.error("yaml-load error: %s", exc)
     return data
 
 
@@ -45,13 +61,11 @@ def update_dict_from_stream(data_stream: TextIO, data_path: str,
     Load arbitrary data from a text stream, update an existing dictionary.
     """
 
-    if not dict_to_update:
+    if dict_to_update is None:
         dict_to_update = {}
 
-    # get extension
-    ext = os.path.splitext(os.path.basename(data_path))[1][1:].lower()
-
     # update the dictionary
+    ext = get_file_ext(data_path)
     if ext == "json":
         dict_to_update.update(get_json_data(data_stream))
     elif ext == "yaml":
@@ -62,6 +76,8 @@ def update_dict_from_stream(data_stream: TextIO, data_path: str,
 
     if dict_to_update:
         LOG.debug("loaded '%s' data from '%s'", ext, data_path)
+    else:
+        LOG.error("loaded no '%s' data from '%s'", ext, data_path)
 
     return dict_to_update
 

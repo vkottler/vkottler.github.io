@@ -29,8 +29,8 @@ lint: lint-flake8 lint-pylint
 
 sa: lint-mypy
 
-test: $(BUILD_DIR)/venv.txt
-	$(PYTHON_BIN)/pytest --cov=$(PROJ) --cov-report html
+test: $(BUILD_DIR)/$(VENV_NAME).txt
+	$(PYTHON_BIN)/pytest --log-cli-level=10 --cov=$(PROJ) --cov-report html
 	@$(BROWSER) htmlcov/index.html
 
 clean:

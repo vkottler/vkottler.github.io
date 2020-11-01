@@ -16,15 +16,15 @@ LOG = logging.getLogger(__name__)
 class ValidDict(UserDict):
     """ TODO """
 
-    def __init__(self, name, data, schema):
+    def __init__(self, name: str, data: dict, schema: Validator):
         """ TODO """
 
         # initialize the dict
         super().__init__(data)
 
-        self.validator = Validator(schema, require_all=True)
         self.name = name
-        self.valid = self.validator.validate(self)
+        self.validator = schema
+        self.valid = self.validator.validate(self.data)
         if not self.valid:
             LOG.error("validation error(s) for '%s': %s", self.name,
                       self.validator.errors)

@@ -8,6 +8,7 @@ import logging
 import os
 
 # internal
+from datazen.parsing import get_file_name
 from datazen.parsing import load as load_raw
 from datazen.parsing import load_and_resolve as load_raw_resolve
 
@@ -24,9 +25,8 @@ def meld_and_resolve(full_path: str, existing_data: dict,
     if variables is None:
         variables = {}
 
-    key = os.path.basename(full_path).split(".")[0]
-
     # allow directory/.{file_type} to be equivalent to directory.{file_type}
+    key = get_file_name(full_path)
     if not key:
         data_dict = existing_data
     else:
@@ -47,10 +47,10 @@ def load_dir(path: str, existing_data: dict = None,
              variables: dict = None) -> dict:
     """ Load a directory tree into a dictionary, optionally meld. """
 
-    if not existing_data:
+    if existing_data is None:
         existing_data = {}
 
-    if not variables:
+    if variables is None:
         variables = {}
 
     root_base = os.path.basename(os.path.abspath(path))

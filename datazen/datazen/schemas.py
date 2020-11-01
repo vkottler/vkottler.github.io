@@ -5,7 +5,7 @@ datazen - Top-level APIs for loading and interacting with schema definitions.
 
 # built-in
 import logging
-from typing import List
+from typing import List, Dict
 
 # third-party
 from cerberus import Validator  # type: ignore
@@ -17,7 +17,7 @@ from datazen.classes.valid_dict import ValidDict
 LOG = logging.getLogger(__name__)
 
 
-def load(directories: List[str], require_all: bool) -> dict:
+def load(directories: List[str], require_all: bool = True) -> dict:
     """ Load schemas from a list of directories. """
 
     result: dict = {}
@@ -34,7 +34,7 @@ def load(directories: List[str], require_all: bool) -> dict:
     return schemas
 
 
-def validate(schema_data: dict, data: dict) -> bool:
+def validate(schema_data: Dict[str, Validator], data: dict) -> bool:
     """
     For every top-level key in the schema data, attempt to validate the
     provided data.
