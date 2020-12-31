@@ -1,4 +1,4 @@
-.PHONY: all
+.PHONY: all host
 .DEFAULT_GOAL = all
 
 # haven't found a good way to avoid this duplication
@@ -19,6 +19,9 @@ logo_outline_white_%.png: logo_outline_white.svg
 desktop.png: desktop.svg
 	@inkscape $< -e $@ -w 1920 -h 1080
 
+desktop_1440.png: desktop.svg
+	@inkscape $< -e $@ -w 2560 -h 1440
+
 desktop_hires.png: desktop_hires.svg
 	@inkscape $(shell pwd)/$< -e $(shell pwd)/$@ -w 2880 -h 1800
 
@@ -31,7 +34,10 @@ business_card_%.png: business_card_%.svg
 logo_circular_%.png: logo_circular.svg
 	@inkscape $< -e $@ -w $* -h $*
 
-DEPS  = desktop.png
+host:
+	python -m http.server 8080
+
+DEPS  = desktop.png desktop_1440.png
 DEPS += logo_background.ico
 DEPS += logo_outline_black.ico
 DEPS += logo.ico logo_circular.ico
