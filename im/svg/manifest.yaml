@@ -1,0 +1,60 @@
+default_target: "groups-all"
+
+params:
+  template: "template.svg"
+  width: 500
+  height: 500
+
+compiles:
+- name: "local"
+- name: "logo"
+  configs:
+  - "local/logo/configs"
+  variables:
+  - "local/logo/variables"
+
+configs:
+- "config/configs"
+
+schemas:
+- "config/schemas"
+
+variables:
+- "local/variables"
+
+templates:
+- "config/templates"
+
+renders:
+- name: "logo_base"
+  as: "svg_content"
+  no_file: true
+  indent: 4
+  templates:
+  - "local/logo/templates"
+  dependencies:
+  - "logo"
+- name: "{{template}}"
+  output_dir: "."
+  dependencies:
+  - "local"
+  - "renders-logo_base"
+
+commands:
+- name: "png"
+  command: "inkscape"
+  arguments:
+  - "{{template}}"
+  - "-e"
+  - "template.png"
+  - "-w"
+  - "{{width}}"
+  - "-h"
+  - "{{height}}"
+  dependencies:
+  - "renders-{{template}}"
+
+groups:
+- name: "all"
+  dependencies:
+  - "commands-png"
