@@ -5,22 +5,18 @@ params:
   width: 500
   height: 500
 
-compiles:
-- name: "local"
-- name: "logo"
-  configs:
-  - "local/logo/configs"
-  variables:
-  - "local/logo/variables"
-
 configs:
 - "config/configs"
 
 schemas:
 - "config/schemas"
 
-variables:
-- "local/variables"
+compiles:
+- name: "logo"
+  configs:
+  - "local/logo/configs"
+  variables:
+  - "local/logo/variables"
 
 templates:
 - "config/templates"
@@ -37,7 +33,7 @@ renders:
 - name: "{{template}}"
   output_dir: "."
   dependencies:
-  - "local"
+  - "logo"
   - "renders-logo_base"
 
 commands:
