@@ -1,58 +1,80 @@
+{% set pin_margin = logo.canvas.height / 15 %}
+{% set start_coord = (logo.canvas.height / 4) + (logo.pin.height / 2) - (pin_margin / 2) %}
 
 <!-- left pins -->
-<rect x="20" y="77.5" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.width}}" height="{{logo.pin.height}}" fill="{{logo.pin.color}}" />
-<rect x="20" y="117.5" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.width}}" height="{{logo.pin.height}}" fill="{{logo.pin.color}}" />
-<rect x="20" y="157.5" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.width}}" height="{{logo.pin.height}}" fill="{{logo.pin.color}}" />
-<rect x="20" y="197.5" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.width}}" height="{{logo.pin.height}}" fill="{{logo.pin.color}}" />
+{% for i in range(logo.pin.count) %}
+<rect x="{{pin_margin}}" y="{{start_coord + (logo.pin.spacing * i)}}"
+      rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
+      width="{{logo.pin.width}}" height="{{logo.pin.height}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
 
 <!-- right pins -->
-<rect x="220" y="77.5" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.width}}" height="{{logo.pin.height}}" fill="{{logo.pin.color}}" />
-<rect x="220" y="117.5" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.width}}" height="{{logo.pin.height}}" fill="{{logo.pin.color}}" />
-<rect x="220" y="157.5" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.width}}" height="{{logo.pin.height}}" fill="{{logo.pin.color}}" />
-<rect x="220" y="197.5" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.width}}" height="{{logo.pin.height}}" fill="{{logo.pin.color}}" />
+{% for i in range(logo.pin.count) %}
+<rect x="{{pin_margin + logo.body.side}}" y="{{start_coord + (logo.pin.spacing * i)}}"
+      rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
+      width="{{logo.pin.width}}" height="{{logo.pin.height}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
 
 <!-- top pins -->
-<rect x="77.5" y="220" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.height}}" height="{{logo.pin.width}}" fill="{{logo.pin.color}}" />
-<rect x="117.5" y="220" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.height}}" height="{{logo.pin.width}}" fill="{{logo.pin.color}}" />
-<rect x="157.5" y="220" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.height}}" height="{{logo.pin.width}}" fill="{{logo.pin.color}}" />
-<rect x="197.5" y="220" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.height}}" height="{{logo.pin.width}}" fill="{{logo.pin.color}}" />
+{% for i in range(logo.pin.count) %}
+<rect x="{{start_coord + (logo.pin.spacing * i)}}" y="{{pin_margin + logo.body.side}}"
+      rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
+      width="{{logo.pin.height}}" height="{{logo.pin.width}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
 
 <!-- bottom pins -->
-<rect x="77.5" y="20" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.height}}" height="{{logo.pin.width}}" fill="{{logo.pin.color}}" />
-<rect x="117.5" y="20" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.height}}" height="{{logo.pin.width}}" fill="{{logo.pin.color}}" />
-<rect x="157.5" y="20" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.height}}" height="{{logo.pin.width}}" fill="{{logo.pin.color}}" />
-<rect x="197.5" y="20" rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
-    width="{{logo.pin.height}}" height="{{logo.pin.width}}" fill="{{logo.pin.color}}" />
+{% for i in range(logo.pin.count) %}
+<rect x="{{start_coord + (logo.pin.spacing * i)}}" y="{{pin_margin}}"
+      rx="{{logo.pin.radius}}" ry="{{logo.pin.radius}}"
+      width="{{logo.pin.height}}" height="{{logo.pin.width}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
 
 <!-- body -->
-<rect x="50" y="50" rx="{{logo.pin.height}}" ry="{{logo.pin.height}}"
-    width="{{logo.body.side}}" height="{{logo.body.side}}" fill="black" />
+{% set body_x = (logo.canvas.width - logo.body.side) / 2 %}
+{% set body_y = (logo.canvas.height - logo.body.side) / 2 %}
+<rect x="{{body_x}}" y="{{body_y}}"
+      rx="{{logo.pin.height}}" ry="{{logo.pin.height}}"
+      width="{{logo.body.side}}" height="{{logo.body.side}}"
+      fill="{{logo.body.fill}}" />
 
 <!-- symbol -->
-<line x1="70" y1="150" x2="105" y2="110"
-    stroke-linecap="round" style="stroke:white;stroke-width:{{logo.symbol.stroke}}" />
-<line x1="70" y1="150" x2="105" y2="190"
-    stroke-linecap="round" style="stroke:white;stroke-width:{{logo.symbol.stroke}}" />
-<line x1="230" y1="150" x2="195" y2="110"
-    stroke-linecap="round" style="stroke:white;stroke-width:{{logo.symbol.stroke}}" />
-<line x1="230" y1="150" x2="195" y2="190"
-    stroke-linecap="round" style="stroke:white;stroke-width:{{logo.symbol.stroke}}" />
-<line x1="150" y1="150" x2="175" y2="100"
-    stroke-linecap="round" style="stroke:white;stroke-width:{{logo.symbol.stroke}}" />
-<line x1="150" y1="150" x2="125" y2="200"
-    stroke-linecap="round" style="stroke:white;stroke-width:{{logo.symbol.stroke}}" />
+<line x1="70" y1="{{logo.canvas.height / 2}}"
+      x2="105" y2="110"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{logo.symbol.stroke}}" />
+
+<line x1="70" y1="{{logo.canvas.height / 2}}"
+      x2="105" y2="190"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{logo.symbol.stroke}}" />
+
+<line x1="230" y1="{{logo.canvas.height / 2}}"
+      x2="195" y2="110"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{logo.symbol.stroke}}" />
+
+<line x1="230" y1="{{logo.canvas.height / 2}}"
+      x2="195" y2="190"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{logo.symbol.stroke}}" />
+
+<line x1="{{logo.canvas.width / 2}}" y1="{{logo.canvas.height / 2}}"
+      x2="175" y2="100"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{logo.symbol.stroke}}" />
+
+<line x1="{{logo.canvas.width / 2}}" y1="{{logo.canvas.height / 2}}"
+      x2="125" y2="200"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{logo.symbol.stroke}}" />
+
+<line x1="0" y1="{{logo.canvas.height / 2}}"
+      x2="{{logo.canvas.width}}" y2="{{logo.canvas.height / 2}}"
+      style="stroke:blue;stroke-width:2" />
+<line x1="{{logo.canvas.width / 2}}" y1="0"
+      x2="{{logo.canvas.width / 2}}" y2="{{logo.canvas.height}}"
+      style="stroke:blue;stroke-width:2" />

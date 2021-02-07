@@ -1,9 +1,16 @@
 pin:
   color: "#263238"
-  height: {{body.side / (pin.count * 2)}}
-  width: {{(body.side / (pin.count * 2)) * 2.4}}
-  radius: {{(body.side / (pin.count * 2)) / 2}}
+  spacing: {{((canvas.height * 2) / 3) / (pin.count + 1)}}
+  count: {{pin.count}}
+  height: {{((canvas.height * 2) / 3) / (pin.count * 2)}}
+  width: {{(((canvas.height * 2) / 3) / (pin.count * 2)) * 2.4}}
+  radius: {{(((canvas.height * 2) / 3) / (pin.count * 2)) / 2}}
 body:
-  side: {{body.side}}
+  side: {{(canvas.height * 2) / 3}}
+  fill: "black"
 symbol:
-  stroke: {{body.side / 20}}
+  stroke: {{((canvas.height * 2) / 3) / 20}}
+  color: "white"
+canvas:
+  width: {{canvas.width}}
+  height: {{canvas.height}}
