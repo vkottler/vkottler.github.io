@@ -26,6 +26,11 @@ renders:
   dependencies:
   - "logo"
   - "renders-logo_base"
+- name: "logo.svg"
+  key: "{{template}}"
+  dependencies:
+  - "logo2"
+  - "renders-logo_base2"
 
 commands:
 - name: "png"
@@ -44,4 +49,5 @@ commands:
 groups:
 - name: "all"
   dependencies:
+  - "renders-logo.svg"
   - "commands-png"

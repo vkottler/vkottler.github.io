@@ -1,15 +1,16 @@
+{% set body_width = (canvas.height * 2) / 3 %}
 pin:
   color: "#263238"
-  spacing: {{((canvas.height * 2) / 3) / (pin.count + 1)}}
+  spacing: {{body_width / (pin.count + 1)}}
   count: {{pin.count}}
-  height: {{((canvas.height * 2) / 3) / (pin.count * 2)}}
-  width: {{(((canvas.height * 2) / 3) / (pin.count * 2)) * 2.4}}
-  radius: {{(((canvas.height * 2) / 3) / (pin.count * 2)) / 2}}
+  height: {{body_width / (pin.count * 2)}}
+  width: {{(body_width / (pin.count * 2)) * 2.4}}
+  radius: {{(body_width / (pin.count * 2)) / 2}}
 body:
-  side: {{(canvas.height * 2) / 3}}
+  side: {{body_width}}
   fill: "black"
 symbol:
-  stroke: {{((canvas.height * 2) / 3) / 20}}
+  stroke: {{body_width / 20}}
   color: "white"
 canvas:
   width: {{canvas.width}}
