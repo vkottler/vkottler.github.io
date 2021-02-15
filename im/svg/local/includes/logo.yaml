@@ -2,47 +2,10 @@ configs:
 - "../logo/configs"
 
 templates:
-- "../logo/templates"
+- "../templates"
 
-compiles:
-- name: "logo"
-  variables:
-  - "local/logo/variables"
-- name: "logo_circular"
-  variables:
-  - "local/logo_circular"
-
-renders:
-- name: "logo_symbol"
-  no_file: true
-  dependencies:
-  - "logo"
-- name: "logo_symbol_circular"
-  as: "logo_symbol"
-  key: "logo_symbol"
-  no_file: true
-  dependencies:
-  - "logo_circular"
-
-- name: "logo_base"
-  as: "svg_content"
-  no_file: true
-  indent: 4
-  dependencies:
-  - "logo"
-  - "renders-logo_symbol"
-- name: "logo_base_circular"
-  key: "logo_base"
-  as: "logo_base"
-  no_file: true
-  dependencies:
-  - "logo_circular"
-  - "renders-logo_symbol_circular"
-
-- name: "logo_circle"
-  as: "svg_content"
-  no_file: true
-  indent: 4
-  dependencies:
-  - "logo_circular"
-  - "renders-logo_base_circular"
+includes:
+- "compiles.yaml"
+- "render_symbols.yaml"
+- "render_bases.yaml"
+- "render_circles.yaml"

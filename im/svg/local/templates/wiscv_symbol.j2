@@ -1,0 +1,30 @@
+{% set pin_width = logo.size / 4 %}
+{% set body_side = logo.size - pin_width %}
+
+<!-- symbol -->
+{% set symbol_x = logo.x_offset + (pin_width / 2) %}
+{% set symbol_y = logo.y_offset + (pin_width / 2) %}
+{% set symbol_x_margin = body_side / 6 %}
+{% set symbol_y_margin = body_side * 7 / 24 %}
+{% set symbol_stroke = body_side / 9 %}
+{% set symbol_height = body_side - (2 * symbol_y_margin) %}
+
+<line x1="{{symbol_x + symbol_x_margin}}" y1="{{symbol_y + symbol_y_margin}}"
+      x2="{{symbol_x + 2 * symbol_x_margin}}" y2="{{symbol_y + symbol_y_margin + symbol_height}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+
+<line x1="{{symbol_x + 2 * symbol_x_margin}}" y1="{{symbol_y + symbol_y_margin + symbol_height}}"
+      x2="{{symbol_x + 3 * symbol_x_margin}}" y2="{{symbol_y + symbol_y_margin}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+
+<line x1="{{symbol_x + 3 * symbol_x_margin}}" y1="{{symbol_y + symbol_y_margin}}"
+      x2="{{symbol_x + 4 * symbol_x_margin}}" y2="{{symbol_y + symbol_y_margin + symbol_height}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color2}};stroke-width:{{symbol_stroke}}" />
+
+<line x1="{{symbol_x + 4 * symbol_x_margin}}" y1="{{symbol_y + symbol_y_margin + symbol_height}}"
+      x2="{{symbol_x + 5 * symbol_x_margin}}" y2="{{symbol_y + symbol_y_margin}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color2}};stroke-width:{{symbol_stroke}}" />
