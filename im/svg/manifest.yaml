@@ -1,10 +1,5 @@
 default_target: "groups-all"
 
-params:
-  template: "template.svg"
-  width: 500
-  height: 500
-
 configs:
 - "config/configs"
 
@@ -14,46 +9,26 @@ variables:
 schemas:
 - "config/schemas"
 
-includes:
-- "local/includes/logo.yaml"
-
 templates:
 - "config/templates"
 
+includes:
+- "local/includes/logo.yaml"
+
 renders:
-- name: "{{template}}"
-  output_dir: "."
+- name: "logo.svg"
+  key: "template.svg"
   dependencies:
   - "logo"
   - "renders-logo_base"
-- name: "logo.svg"
-  key: "{{template}}"
-  dependencies:
-  - "logo2"
-  - "renders-logo_base2"
 - name: "logo_circle.svg"
-  key: "{{template}}"
+  key: "template.svg"
   dependencies:
   - "logo_circular"
   - "renders-logo_circle"
-
-commands:
-- name: "png"
-  command: "inkscape"
-  arguments:
-  - "{{template}}"
-  - "-e"
-  - "template.png"
-  - "-w"
-  - "{{width}}"
-  - "-h"
-  - "{{height}}"
-  dependencies:
-  - "renders-{{template}}"
 
 groups:
 - name: "all"
   dependencies:
   - "renders-logo.svg"
   - "renders-logo_circle.svg"
-  - "commands-png"

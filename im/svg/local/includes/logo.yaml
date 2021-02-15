@@ -1,56 +1,48 @@
+configs:
+- "../logo/configs"
+
+templates:
+- "../logo/templates"
+
 compiles:
 - name: "logo"
-  configs:
-  - "local/logo/configs"
   variables:
   - "local/logo/variables"
-
-- name: "logo2"
-  configs:
-  - "local/logo2/configs"
-  variables:
-  - "local/logo2/variables"
-
 - name: "logo_circular"
-  configs:
-  - "local/logo2/configs"
   variables:
-  - "local/logo_circular/variables"
+  - "local/logo_circular"
 
 renders:
+- name: "logo_symbol"
+  no_file: true
+  dependencies:
+  - "logo"
+- name: "logo_symbol_circular"
+  as: "logo_symbol"
+  key: "logo_symbol"
+  no_file: true
+  dependencies:
+  - "logo_circular"
+
 - name: "logo_base"
   as: "svg_content"
   no_file: true
   indent: 4
-  templates:
-  - "local/logo/templates"
   dependencies:
   - "logo"
-
-- name: "logo_base2"
-  as: "svg_content"
-  no_file: true
-  indent: 4
-  templates:
-  - "local/logo/templates"
-  dependencies:
-  - "logo2"
-
-- name: "logo_base3"
-  key: "logo_base2"
+  - "renders-logo_symbol"
+- name: "logo_base_circular"
+  key: "logo_base"
   as: "logo_base"
   no_file: true
-  templates:
-  - "local/logo/templates"
   dependencies:
   - "logo_circular"
+  - "renders-logo_symbol_circular"
 
 - name: "logo_circle"
   as: "svg_content"
   no_file: true
   indent: 4
-  templates:
-  - "local/logo/templates"
   dependencies:
   - "logo_circular"
-  - "renders-logo_base3"
+  - "renders-logo_base_circular"

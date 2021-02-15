@@ -1,17 +1,10 @@
-{% set body_width = (canvas.height * 2) / 3 %}
+size: {{size|default(global.svg.height, true)}}
+x_offset: {{x_offset|default(0, true)}}
+y_offset: {{y_offset|default(0, true)}}
 pin:
-  color: "#263238"
-  spacing: {{body_width / (pin.count + 1)}}
-  count: {{pin.count}}
-  height: {{body_width / (pin.count * 2)}}
-  width: {{(body_width / (pin.count * 2)) * 2.4}}
-  radius: {{(body_width / (pin.count * 2)) / 2}}
+  count: {{pin.count|default(4, true)}}
+  color: {{pin.color|default('"#263238"', true)}}
 body:
-  side: {{body_width}}
-  fill: "black"
-symbol:
-  stroke: {{body_width / 20}}
-  color: "white"
-canvas:
-  width: {{canvas.width}}
-  height: {{canvas.height}}
+  color: {{body.color|default('"black"', true)}}
+background:
+  color: {{background.color|default('"#607d8b"', true)}}
