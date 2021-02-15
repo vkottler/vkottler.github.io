@@ -11,6 +11,12 @@ compiles:
   variables:
   - "local/logo2/variables"
 
+- name: "logo_circular"
+  configs:
+  - "local/logo2/configs"
+  variables:
+  - "local/logo_circular/variables"
+
 renders:
 - name: "logo_base"
   as: "svg_content"
@@ -29,3 +35,22 @@ renders:
   - "local/logo/templates"
   dependencies:
   - "logo2"
+
+- name: "logo_base3"
+  key: "logo_base2"
+  as: "logo_base"
+  no_file: true
+  templates:
+  - "local/logo/templates"
+  dependencies:
+  - "logo_circular"
+
+- name: "logo_circle"
+  as: "svg_content"
+  no_file: true
+  indent: 4
+  templates:
+  - "local/logo/templates"
+  dependencies:
+  - "logo_circular"
+  - "renders-logo_base3"

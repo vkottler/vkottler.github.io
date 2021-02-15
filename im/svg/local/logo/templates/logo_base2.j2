@@ -1,2 +1,90 @@
-<!-- logo background -->
-<circle cx="200" cy="200" r="200" fill="#607d8b" />
+{% set pin_width = logo.size / 4 %}
+
+{% set pin_height = (pin_width / logo.pin.count) * 3 / 2 %}
+{% set pin_y_offset = logo.y_offset + (pin_width / 2) + pin_height %}
+{% set pin_x_offset = logo.x_offset + (pin_width / 2) + pin_height %}
+
+{% set body_side = logo.size - pin_width %}
+{% set pin_spacing = ((body_side - (2 * pin_height) - (pin_height * logo.pin.count)) / (logo.pin.count - 1)) + pin_height %}
+
+<!-- left pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{logo.x_offset}}" y="{{pin_y_offset + (i * pin_spacing)}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_width}}" height="{{pin_height}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- right pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{logo.x_offset + body_side}}" y="{{pin_y_offset + (i * pin_spacing)}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_width}}" height="{{pin_height}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- top pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{pin_x_offset + (i * pin_spacing)}}" y="{{logo.y_offset}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_height}}" height="{{pin_width}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- bottom pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{pin_x_offset + (i * pin_spacing)}}" y="{{logo.y_offset + body_side}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_height}}" height="{{pin_width}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- body -->
+<rect x="{{logo.x_offset + (pin_width / 2)}}" y="{{logo.y_offset + (pin_width / 2)}}"
+      rx="{{pin_height}}" ry="{{pin_height}}"
+      width="{{body_side}}" height="{{body_side}}"
+      fill="{{logo.body.color}}" />
+
+<!-- symbol -->
+{% set symbol_x = logo.x_offset + (pin_width / 2) %}
+{% set symbol_x_margin = body_side / 8 %}
+{% set symbol_y = logo.y_offset + (logo.size / 2) %}
+{% set symbol_x_len = body_side * 3 / 16 %}
+{% set symbol_y_len = body_side * 3 / 16 %}
+{% set symbol_stroke = body_side / 16 %}
+<line x1="{{symbol_x + symbol_x_margin}}"
+      y1="{{symbol_y}}"
+      x2="{{symbol_x + symbol_x_margin + symbol_x_len}}"
+      y2="{{symbol_y - symbol_y_len}}"
+      stroke-linecap="round"
+      style="stroke:white;stroke-width:{{symbol_stroke}}" />
+<line x1="{{symbol_x + symbol_x_margin}}"
+      y1="{{symbol_y}}"
+      x2="{{symbol_x + symbol_x_margin + symbol_x_len}}"
+      y2="{{symbol_y + symbol_y_len}}"
+      stroke-linecap="round"
+      style="stroke:white;stroke-width:{{symbol_stroke}}" />
+
+<line x1="{{body_side + symbol_x - symbol_x_margin}}"
+      y1="{{symbol_y}}"
+      x2="{{body_side + symbol_x - (symbol_x_margin + symbol_x_len)}}"
+      y2="{{symbol_y - symbol_y_len}}"
+      stroke-linecap="round"
+      style="stroke:white;stroke-width:{{symbol_stroke}}" />
+<line x1="{{body_side + symbol_x - symbol_x_margin}}"
+      y1="{{symbol_y}}"
+      x2="{{body_side + symbol_x - (symbol_x_margin + symbol_x_len)}}"
+      y2="{{symbol_y + symbol_y_len}}"
+      stroke-linecap="round"
+      style="stroke:white;stroke-width:{{symbol_stroke}}" />
+
+{% set symbol_x_center = logo.x_offset + (logo.size / 2) %}
+<line x1="{{symbol_x_center}}" y1="{{symbol_y}}"
+      x2="{{symbol_x_center - (symbol_x_len / 2)}}" y2="{{symbol_y + (symbol_y_len * 5 / 4)}}"
+      stroke-linecap="round"
+      style="stroke:white;stroke-width:{{symbol_stroke}}" />
+
+<line x1="{{symbol_x_center}}" y1="{{symbol_y}}"
+      x2="{{symbol_x_center + (symbol_x_len / 2)}}" y2="{{symbol_y - (symbol_y_len * 5 / 4)}}"
+      stroke-linecap="round"
+      style="stroke:white;stroke-width:{{symbol_stroke}}" />

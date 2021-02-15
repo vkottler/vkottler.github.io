@@ -31,6 +31,11 @@ renders:
   dependencies:
   - "logo2"
   - "renders-logo_base2"
+- name: "logo_circle.svg"
+  key: "{{template}}"
+  dependencies:
+  - "logo_circular"
+  - "renders-logo_circle"
 
 commands:
 - name: "png"
@@ -50,4 +55,5 @@ groups:
 - name: "all"
   dependencies:
   - "renders-logo.svg"
+  - "renders-logo_circle.svg"
   - "commands-png"
