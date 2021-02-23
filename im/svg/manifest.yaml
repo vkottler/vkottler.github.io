@@ -25,13 +25,14 @@ renders:
 - name: "logo_circle.svg"
   key: "template.svg"
   dependencies:
-  - "logo_circular"
+  - "logo_circle"
   - "renders-logo_circle"
-- name: "logo_circle_wiscv.svg"
+
+- name: "logo_{type}_{variant}.svg"
   key: "template.svg"
   dependencies:
-  - "logo_wiscv"
-  - "renders-logo_circle_wiscv"
+  - "logo_{variant}"
+  - "renders-logo_{type}_{variant}"
 
 groups:
 - name: "all"
