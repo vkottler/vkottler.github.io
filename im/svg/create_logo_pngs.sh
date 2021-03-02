@@ -6,7 +6,7 @@ SVG=.svg
 
 mkdir -p $OUT_LOC
 
-for LOGO_SIZE in 16 24 32 64 128 256 512
+for LOGO_SIZE in 16 24 32 64 128 256 512 1024
 do
 	for FILE in $SVG_LOC/logo*$SVG
 	do
@@ -16,3 +16,8 @@ do
 done
 
 # TODO, use icotool to create icons, probably just do this in make
+for FILE in $SVG_LOC/logo*$SVG
+do
+	BASENAME="$(basename -- $FILE $SVG)"
+	make -C $OUT_LOC $BASENAME.ico
+done
