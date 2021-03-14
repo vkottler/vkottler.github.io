@@ -6,10 +6,24 @@ params:
 includes:
 - "{{config_dir}}/includes/svg.yaml"
 
+commands:
+- name: "minify-svgs"
+  command: "svgo"
+  arguments:
+  - "-f"
+  - "datazen-out"
+  - "-o"
+  - "svg-minified"
+  dependencies:
+  - "groups-renders"
+
 groups:
-- name: "all"
+- name: "renders"
   dependencies:
   - "renders-w300_h300_bg-red_grid-none.svg"
   - "renders-w200_h100_bg-blue_grid-none.svg"
   - "renders-w300_h300_bg-red_grid-3-5.svg"
   - "renders-w200_h100_bg-blue_grid-1-10.svg"
+- name: "all"
+  dependencies:
+  - "commands-minify-svgs"
