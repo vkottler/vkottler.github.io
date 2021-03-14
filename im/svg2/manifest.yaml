@@ -1,0 +1,15 @@
+default_target: "groups-all"
+
+params:
+  config_dir: "../svg/config"
+
+includes:
+- "{{config_dir}}/includes/svg.yaml"
+
+groups:
+- name: "all"
+  dependencies:
+  - "renders-w300_h300_bg-red_grid-none.svg"
+  - "renders-w200_h100_bg-blue_grid-none.svg"
+  - "renders-w300_h300_bg-red_grid-3-5.svg"
+  - "renders-w200_h100_bg-blue_grid-1-10.svg"

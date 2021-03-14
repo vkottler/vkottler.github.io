@@ -1,10 +1,17 @@
+compiles:
+- name: "desktop"
+  configs:
+  - "local/desktop"
+
 renders:
-  - name: "desktop_w{width}_h{height}_bg{color}.svg"
+  - name: "desktop_w{width}_h{height}_bg{color}-{content}.svg"
     key: "template.svg"
     dependencies:
+    - "desktop"
     - "w{width}_h{height}_bg{color}"
+    - "renders-{content}"
 
 groups:
 - name: "desktops"
   dependencies:
-  - "renders-desktop_w16_h9_bgdefault.svg"
+  - "renders-desktop_w16_h9_bgdefault-logo_circle.svg"
