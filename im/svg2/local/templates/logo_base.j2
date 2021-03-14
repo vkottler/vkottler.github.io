@@ -1,0 +1,53 @@
+{% set logo_size = logo.scale * svg.height %}
+{% set scale_x_offset = (svg.width - logo_size) / 2 %}
+{% set scale_y_offset = (svg.height - logo_size) / 2 %}
+{% set logo_x_offset = scale_x_offset + logo.x_offset %}
+{% set logo_y_offset = scale_y_offset + logo.y_offset %}
+{% set pin_width = logo_size / 4 %}
+
+{% set pin_height = (pin_width / logo.pin.count) * 3 / 2 %}
+{% set pin_y_offset = logo_y_offset + (pin_width / 2) + pin_height %}
+{% set pin_x_offset = logo_x_offset + (pin_width / 2) + pin_height %}
+
+{% set body_side = logo_size - pin_width %}
+{% set pin_spacing = ((body_side - (2 * pin_height) - (pin_height * logo.pin.count)) / (logo.pin.count - 1)) + pin_height %}
+
+<!-- left pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{logo_x_offset}}" y="{{pin_y_offset + (i * pin_spacing)}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_width}}" height="{{pin_height}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- right pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{logo_x_offset + body_side}}" y="{{pin_y_offset + (i * pin_spacing)}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_width}}" height="{{pin_height}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- top pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{pin_x_offset + (i * pin_spacing)}}" y="{{logo_y_offset}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_height}}" height="{{pin_width}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- bottom pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{pin_x_offset + (i * pin_spacing)}}" y="{{logo_y_offset + body_side}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_height}}" height="{{pin_width}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- body -->
+<rect x="{{logo_x_offset + (pin_width / 2)}}" y="{{logo_y_offset + (pin_width / 2)}}"
+      rx="{{pin_height}}" ry="{{pin_height}}"
+      width="{{body_side}}" height="{{body_side}}"
+      fill="{{logo.body.color}}" />
+
+{{logo_symbol}}

@@ -1,0 +1,51 @@
+{% set logo_size = logo.scale * svg.height %}
+{% set scale_x_offset = (svg.width - logo_size) / 2 %}
+{% set scale_y_offset = (svg.height - logo_size) / 2 %}
+{% set logo_x_offset = scale_x_offset + logo.x_offset %}
+{% set logo_y_offset = scale_y_offset + logo.y_offset %}
+{% set pin_width = logo_size / 4 %}
+{% set body_side = logo_size - pin_width %}
+
+<!-- symbol -->
+{% set symbol_x = logo_x_offset + (pin_width / 2) %}
+{% set symbol_x_margin = body_side / 8 %}
+{% set symbol_y = logo_y_offset + (logo_size / 2) %}
+{% set symbol_x_len = body_side * 3 / 16 %}
+{% set symbol_y_len = body_side * 3 / 16 %}
+{% set symbol_stroke = body_side / 16 %}
+<line x1="{{symbol_x + symbol_x_margin}}"
+      y1="{{symbol_y}}"
+      x2="{{symbol_x + symbol_x_margin + symbol_x_len}}"
+      y2="{{symbol_y - symbol_y_len}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+<line x1="{{symbol_x + symbol_x_margin}}"
+      y1="{{symbol_y}}"
+      x2="{{symbol_x + symbol_x_margin + symbol_x_len}}"
+      y2="{{symbol_y + symbol_y_len}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+
+<line x1="{{body_side + symbol_x - symbol_x_margin}}"
+      y1="{{symbol_y}}"
+      x2="{{body_side + symbol_x - (symbol_x_margin + symbol_x_len)}}"
+      y2="{{symbol_y - symbol_y_len}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+<line x1="{{body_side + symbol_x - symbol_x_margin}}"
+      y1="{{symbol_y}}"
+      x2="{{body_side + symbol_x - (symbol_x_margin + symbol_x_len)}}"
+      y2="{{symbol_y + symbol_y_len}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+
+{% set symbol_x_center = logo_x_offset + (logo_size / 2) %}
+<line x1="{{symbol_x_center}}" y1="{{symbol_y}}"
+      x2="{{symbol_x_center - (symbol_x_len / 2)}}" y2="{{symbol_y + (symbol_y_len * 5 / 4)}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+
+<line x1="{{symbol_x_center}}" y1="{{symbol_y}}"
+      x2="{{symbol_x_center + (symbol_x_len / 2)}}" y2="{{symbol_y - (symbol_y_len * 5 / 4)}}"
+      stroke-linecap="round"
+      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />

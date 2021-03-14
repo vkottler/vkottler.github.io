@@ -1,4 +1,5 @@
-default_target: "groups-all"
+# default_target: "groups-all"
+default_target: "groups-logo-renders"
 
 params:
   config_dir: "../svg/config"
@@ -17,7 +18,66 @@ commands:
   dependencies:
   - "groups-renders"
 
+templates:
+- "local/templates"
+
+compiles:
+- name: "logo_base-x{scale}-w{_width}_h{_height}"
+  override_path: "logo"
+  configs:
+  - "local/logo_base/configs"
+  variables:
+  - "local/logo_base/variables"
+  dependencies:
+  - "compiles-svg-w{_width}_h{_height}_none"
+
+# logo variants:
+# - logo-{container}-{variant}
+# - logo-none-vdoer
+# - logo-circle-vdoer
+# - logo-none-wisc
+# - logo-circle-wisc
+#
+# TODO: split up 'base' and 'circular' logo backgrounds, find a way to
+#       apply the correct styling for each
+renders:
+- name: "logo_base-x{scale}-w{width}_h{height}_none"
+  key: "logo_base"
+  as: "svg_content"
+  dependencies:
+  - "compiles-logo_base-x{scale}-w{width}_h{height}"
+
+- name: "symbol_{symbol}-x{scale}-w{width}_h{height}"
+  key: "symbol_{symbol}"
+  as: "logo_symbol"
+  dependencies:
+  - "compiles-logo_base-x{scale}-w{width}_h{height}"
+
+- name: "logo_base-symb-{symbol}-x{scale}-w{width}_h{height}_none"
+  key: "logo_base"
+  as: "svg_content"
+  dependencies:
+  - "compiles-logo_base-x{scale}-w{width}_h{height}"
+  - "renders-symbol_{symbol}-x{scale}-w{width}_h{height}"
+
 groups:
+- name: "logo-renders"
+  dependencies:
+  - "renders-logo_base-symb-vdoer-x1.0-w300_h300_none.svg"
+  - "renders-logo_base-symb-vdoer-x1.0-w600_h300_none.svg"
+  - "renders-logo_base-symb-wiscv-x1.0-w300_h300_none.svg"
+  - "renders-logo_base-symb-wiscv-x1.0-w600_h300_none.svg"
+
+  - "renders-logo_base-x1.0-w300_h300_bg-red_grid-none.svg"
+  - "renders-logo_base-x1.0-w600_h300_bg-blue_grid-none.svg"
+  - "renders-logo_base-x0.5-w300_h300_bg-red_grid-none.svg"
+  - "renders-logo_base-x0.5-w600_h300_bg-blue_grid-none.svg"
+
+  - "renders-logo_base-symb-vdoer-x1.0-w300_h300_bg-red_grid-none.svg"
+  - "renders-logo_base-symb-vdoer-x1.0-w600_h300_bg-blue_grid-none.svg"
+  - "renders-logo_base-symb-wiscv-x1.0-w300_h300_bg-red_grid-none.svg"
+  - "renders-logo_base-symb-wiscv-x1.0-w600_h300_bg-blue_grid-none.svg"
+
 - name: "renders"
   dependencies:
   - "renders-w300_h300_bg-red_grid-none.svg"
