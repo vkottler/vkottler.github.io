@@ -22,14 +22,14 @@ templates:
 - "local/templates"
 
 compiles:
-- name: "logo_base-x{scale}-w{_width}_h{_height}"
+- name: "logo_base:x{scale}:w{_width}:h{_height}:"
   override_path: "logo"
   configs:
   - "local/logo_base/configs"
   variables:
   - "local/logo_base/variables"
   dependencies:
-  - "compiles-svg-w{_width}_h{_height}_none"
+  - "compiles-svg:w-{_width}:h-{_height}:"
 
 # logo variants:
 # - logo-{container}-{variant}
@@ -41,49 +41,49 @@ compiles:
 # TODO: split up 'base' and 'circular' logo backgrounds, find a way to
 #       apply the correct styling for each
 renders:
-- name: "logo_base-x{scale}-w{width}_h{height}_none"
+- name: "logo_base-x{scale}:w{width}:h{height}:"
   key: "logo_base"
   as: "svg_content"
   dependencies:
-  - "compiles-logo_base-x{scale}-w{width}_h{height}"
+  - "compiles-logo_base:x{scale}:w{width}:h{height}:"
 
-- name: "symbol_{symbol}-x{scale}-w{width}_h{height}"
+- name: "symbol_{symbol}-x{scale}:w{width}:h{height}:"
   key: "symbol_{symbol}"
   as: "logo_symbol"
   dependencies:
-  - "compiles-logo_base-x{scale}-w{width}_h{height}"
+  - "compiles-logo_base:x{scale}:w{width}:h{height}:"
 
-- name: "logo_base-symb-{symbol}-x{scale}-w{width}_h{height}_none"
+- name: "logo_base-symb-{symbol}-x{scale}:w{width}:h{height}:"
   key: "logo_base"
   as: "svg_content"
   dependencies:
-  - "compiles-logo_base-x{scale}-w{width}_h{height}"
-  - "renders-symbol_{symbol}-x{scale}-w{width}_h{height}"
+  - "compiles-logo_base:x{scale}:w{width}:h{height}:"
+  - "renders-symbol_{symbol}-x{scale}:w{width}:h{height}:"
 
 groups:
 - name: "logo-renders"
   dependencies:
-  - "renders-logo_base-symb-vdoer-x1.0-w300_h300_none.svg"
-  - "renders-logo_base-symb-vdoer-x1.0-w600_h300_none.svg"
-  - "renders-logo_base-symb-wiscv-x1.0-w300_h300_none.svg"
-  - "renders-logo_base-symb-wiscv-x1.0-w600_h300_none.svg"
+  - "renders-logo_base-symb-vdoer-x1.0:w300:h300.svg"
+  - "renders-logo_base-symb-vdoer-x1.0:w600:h300.svg"
+  - "renders-logo_base-symb-wiscv-x1.0:w300:h300.svg"
+  - "renders-logo_base-symb-wiscv-x1.0:w600:h300.svg"
 
-  - "renders-logo_base-x1.0-w300_h300_bg-red_grid-none.svg"
-  - "renders-logo_base-x1.0-w600_h300_bg-blue_grid-none.svg"
-  - "renders-logo_base-x0.5-w300_h300_bg-red_grid-none.svg"
-  - "renders-logo_base-x0.5-w600_h300_bg-blue_grid-none.svg"
+  - "renders-logo_base-x1.0:w300:h300:bg-red.svg"
+  - "renders-logo_base-x1.0:w600:h300:bg-blue.svg"
+  - "renders-logo_base-x0.5:w300:h300:bg-red.svg"
+  - "renders-logo_base-x0.5:w600:h300:bg-blue.svg"
 
-  - "renders-logo_base-symb-vdoer-x1.0-w300_h300_bg-red_grid-none.svg"
-  - "renders-logo_base-symb-vdoer-x1.0-w600_h300_bg-blue_grid-none.svg"
-  - "renders-logo_base-symb-wiscv-x1.0-w300_h300_bg-red_grid-none.svg"
-  - "renders-logo_base-symb-wiscv-x1.0-w600_h300_bg-blue_grid-none.svg"
+  - "renders-logo_base-symb-vdoer-x1.0:w300:h300:bg-red.svg"
+  - "renders-logo_base-symb-vdoer-x1.0:w600:h300:bg-blue.svg"
+  - "renders-logo_base-symb-wiscv-x1.0:w300:h300:bg-red.svg"
+  - "renders-logo_base-symb-wiscv-x1.0:w600:h300:bg-blue.svg"
 
 - name: "renders"
   dependencies:
-  - "renders-w300_h300_bg-red_grid-none.svg"
-  - "renders-w200_h100_bg-blue_grid-none.svg"
-  - "renders-w300_h300_bg-red_grid-3-5.svg"
-  - "renders-w200_h100_bg-blue_grid-1-10.svg"
+  - "renders-w300:h300:bg-red.svg"
+  - "renders-w200:h100:bg-blue.svg"
+  - "renders-w300:h300:bg-red:grid-3-5.svg"
+  - "renders-w200:h100:bg-blue:grid-1-10.svg"
 - name: "all"
   dependencies:
   - "commands-minify-svgs"
