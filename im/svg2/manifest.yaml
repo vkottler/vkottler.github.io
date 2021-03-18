@@ -47,7 +47,7 @@ renders:
   dependencies:
   - "compiles-logo_base:x{scale}:w{width}:h{height}:"
 
-- name: "symbol_{symbol}-x{scale}:w{width}:h{height}:"
+- name: "symb-{symbol}-x{scale}:w{width}:h{height}:"
   key: "symbol_{symbol}"
   as: "logo_symbol"
   dependencies:
@@ -58,7 +58,7 @@ renders:
   as: "svg_content"
   dependencies:
   - "compiles-logo_base:x{scale}:w{width}:h{height}:"
-  - "renders-symbol_{symbol}-x{scale}:w{width}:h{height}:"
+  - "renders-symb-{symbol}-x{scale}:w{width}:h{height}:"
 
 groups:
 - name: "logo-renders"
