@@ -20,4 +20,6 @@ endif
 include $($(PROJ)_DIR)/env.mk
 
 bapi-sync: $(VENV_CONC) check-env
-	$(PYTHON_BIN)/bapi -v -o $(BUILD_DIR)
+	$(PYTHON_BIN)/bapi -v -o $(BUILD_DIR)/cache
+	mkdir -p $(BUILD_DIR)/blizzard
+	cp $(BUILD_DIR)/cache/*.json $(BUILD_DIR)/blizzard
