@@ -1,3 +1,10 @@
-{{name}}
-
-{{icon}}
+<div>
+  {{name}}
+  <br>
+  <img src="{{icon}}">
+  <br>
+  {% for spec in specs %}
+  <img src="{{spec["icon"]}}">
+  <br>
+  {% endfor %}
+</div>

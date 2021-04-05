@@ -6,11 +6,19 @@ params:
 configs:
 - "build/blizzard"
 
+variables:
+- "local/variables"
+
 templates:
 - "local/templates"
 - "{{config_dir}}/templates"
 
 compiles:
+- name: "html"
+  configs:
+  - "{{config_dir}}/configs"
+  variables:
+  - "{{config_dir}}/variables"
 - name: "blizzard"
   configs:
   - "local/configs"
@@ -18,15 +26,36 @@ compiles:
   index_path: "{class_name}"
 
 renders:
-- name: "{class_name}.html"
-  output_dir: "static"
+- name: "{class_name}-base"
   key: "class_page.html"
+  as: "html_content"
+  indent: 4
+  no_file: true
   dependencies:
   - "compiles-blizzard-{class_name}"
-- name: "index.html"
-  output_dir: "static"
+
+- name: "index-base"
+  key: "index.html"
+  as: "html_content"
+  indent: 4
+  no_file: true
   dependencies:
   - "blizzard"
+
+- name: "{title}.html"
+  output_dir: "static"
+  key: "basic.html"
+  override_path: "html"
+  dependencies:
+  - "renders-{title}-base"
+  - "html"
+
+- name: "index.html"
+  output_dir: "static"
+  key: "basic.html"
+  dependencies:
+  - "renders-index-base"
+  - "html"
 
 groups:
 - name: "all"
