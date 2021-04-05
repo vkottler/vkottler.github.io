@@ -1,12 +1,46 @@
 default_target: "groups-all"
 
+params:
+  config_dir: "../im/svg/config"
+
 configs:
-- "./build/blizzard"
+- "build/blizzard"
+
+templates:
+- "local/templates"
+- "{{config_dir}}/templates"
 
 compiles:
 - name: "blizzard"
+  configs:
+  - "local/configs"
+- name: "blizzard-{class_name}"
+  index_path: "{class_name}"
+
+renders:
+- name: "{class_name}.html"
+  output_dir: "static"
+  key: "class_page.html"
+  dependencies:
+  - "compiles-blizzard-{class_name}"
+- name: "index.html"
+  output_dir: "static"
+  dependencies:
+  - "blizzard"
 
 groups:
 - name: "all"
   dependencies:
-  - "blizzard"
+  - "renders-index.html"
+  - "renders-death_knight.html"
+  - "renders-demon_hunter.html"
+  - "renders-druid.html"
+  - "renders-hunter.html"
+  - "renders-mage.html"
+  - "renders-monk.html"
+  - "renders-paladin.html"
+  - "renders-priest.html"
+  - "renders-rogue.html"
+  - "renders-shaman.html"
+  - "renders-warlock.html"
+  - "renders-warrior.html"
