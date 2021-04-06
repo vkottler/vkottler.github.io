@@ -26,3 +26,6 @@ bapi-sync: $(VENV_CONC) check-env
 
 host:
 	cd $($(PROJ)_DIR)/static  && python -m http.server
+
+config:
+	ln -s ../im/svg/$@ $@

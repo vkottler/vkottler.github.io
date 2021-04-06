@@ -16,9 +16,8 @@ templates:
 compiles:
 - name: "html"
   configs:
+  - "local/configs"
   - "{{config_dir}}/configs"
-  variables:
-  - "{{config_dir}}/variables"
 - name: "blizzard"
   configs:
   - "local/configs"
@@ -58,9 +57,8 @@ renders:
   - "html"
 
 groups:
-- name: "all"
+- name: "sub-pages"
   dependencies:
-  - "renders-index.html"
   - "renders-death_knight.html"
   - "renders-demon_hunter.html"
   - "renders-druid.html"
@@ -73,3 +71,7 @@ groups:
   - "renders-shaman.html"
   - "renders-warlock.html"
   - "renders-warrior.html"
+- name: "all"
+  dependencies:
+  - "renders-index.html"
+  - "groups-sub-pages"
