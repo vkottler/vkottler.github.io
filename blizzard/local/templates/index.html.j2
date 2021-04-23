@@ -1,13 +1,20 @@
-<div class="rows" style="height:100%;">
+<div class="rows {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_900">
   <div class="spacer"></div>
   <div class="columns">
     <div class="spacer"></div>
     <h1 class="center">Useful Macros</h1>
-    <div class="mono">
-      {% for key in classes["keys"] %}
-      <a href="{{key}}.html">{{key}}</a><br>
-      {% endfor %}
+    {% for key in classes["keys"] %}
+    <div class="rows">
+      <a href="{{key}}.html">
+        <img class="pad" src="{{global[key]["icon"]}}" alt="{{global[key]["name"]}} Icon">
+      </a>
+      <div class="mono columns">
+        <div class="spacer"></div>
+        <a href="{{key}}.html">{{key}}</a>
+        <div class="spacer"></div>
+      </div>
     </div>
+    {% endfor %}
     <div class="spacer"></div>
   </div>
   <div class="spacer"></div>

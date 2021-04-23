@@ -18,6 +18,9 @@ compiles:
   configs:
   - "local/configs"
   - "{{config_dir}}/configs"
+- name: "colors"
+  configs:
+  - "{{config_dir}}/colors"
 - name: "blizzard"
   configs:
   - "local/configs"
@@ -32,6 +35,7 @@ renders:
   no_file: true
   dependencies:
   - "compiles-blizzard-{class_name}"
+  - "html"
 
 - name: "index-base"
   key: "index.html"
@@ -47,6 +51,8 @@ renders:
   override_path: "html"
   dependencies:
   - "renders-{title}-base"
+  - "renders-colors.css"
+  - "renders-theme.css"
   - "html"
 
 - name: "index.html"
@@ -54,6 +60,19 @@ renders:
   key: "basic.html"
   dependencies:
   - "renders-index-base"
+  - "renders-colors.css"
+  - "renders-theme.css"
+  - "html"
+
+- name: "colors.css"
+  output_dir: "static/css"
+  dependencies:
+  - "colors"
+
+- name: "theme.css"
+  output_dir: "static/css"
+  dependencies:
+  - "colors"
   - "html"
 
 groups:
