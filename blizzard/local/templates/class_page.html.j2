@@ -86,7 +86,7 @@
       </div>
       <div class="rows">
         <div class="spacer"></div>
-        <textarea readonly cols="80" rows="4" id="{{name}}_{{spec["name"]}}_{{row["level"]}}"
+        <textarea readonly cols="80" rows="4" id="{{slug}}_{{spec["slug"]}}_{{row["level"]}}"
          class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
         </textarea>
         <div class="spacer"></div>
@@ -106,7 +106,7 @@
   let inner
   {% for spec in specs %}
   {% for row in spec["talent_rows"] %}
-  elem = document.getElementById("{{name}}_{{spec["name"]}}_{{row["level"]}}");
+  elem = document.getElementById("{{slug}}_{{spec["slug"]}}_{{row["level"]}}");
   if (elem != null) {
     inner = "";
     {% for line in row["macro_lines"] %}
