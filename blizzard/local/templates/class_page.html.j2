@@ -51,6 +51,18 @@
       </div>
       <div class="rows">
         <div class="spacer"></div>
+        {% for talent_idx, talent_data in row["talents"].items() %}
+        <div class="columns">
+          <div class="spacer"></div>
+          <div class="mono"><b>{{talent_idx}}</b></div>
+          <div class="spacer"></div>
+        </div>
+        <img class="pad wow_icon" src="{{talent_data["icon"]}}" alt="{{name}} {{talent_data["name"]}} Icon">
+        {% endfor %}
+        <div class="spacer"></div>
+      </div>
+      <div class="rows">
+        <div class="spacer"></div>
         <textarea readonly cols="80" rows="4" id="{{name}}_{{spec["name"]}}_{{row["level"]}}"
          class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
         </textarea>
