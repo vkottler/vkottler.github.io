@@ -4,7 +4,7 @@
     <div class="spacer"></div>
     <div class="rows">
       <div class="spacer"></div>
-      <img class="pad wow_icon" src="{{icon}}" alt="{{name}} Icon">
+      <img class="wow_icon" src="{{icon}}" alt="{{name}} Icon">
       <h1>{{name}}</h1>
       <div class="spacer"></div>
     </div>
@@ -14,16 +14,32 @@
         Macros for each class's specialization are either gleaned from the
         talent tree itself (using the
         <a class="mono" href="https://pypi.org/project/blizzard-api/">blizzard-api</a>
-        Python package) or have been manually curated.
+        Python package) or have been manually curated. Not every specialization
+        needs a "multiplex macro" for even a single talent row, so a "Generated"
+        section may not be present.
       </div>
       <div class="spacer"></div>
     </div>
+    {% if generic %}
+    <div class="columns">
+      <div class="rows">
+        <div class="spacer"></div>
+        <h2>Generic Macros</h1>
+        <div class="spacer"></div>
+      </div>
+      <div class="rows">
+        <div class="spacer"></div>
+        <div>TODO</div>
+        <div class="spacer"></div>
+      </div>
+    </div>
+    {% endif %}
     <hr class="bg_{{html["theme"]}}_primary_200">
     <div class="columns">
     {% for spec in specs %}
       <div class="rows">
         <div class="spacer"></div>
-        <img class="pad wow_icon" src="{{spec["icon"]}}" alt="{{name}} {{spec["name"]}} Icon">
+        <img class="wow_icon" src="{{spec["icon"]}}" alt="{{name}} {{spec["name"]}} Icon">
         <h2>{{spec["name"]}} ({{spec["role"]}})</h1>
         <div class="spacer"></div>
       </div>
@@ -37,6 +53,7 @@
         <div>TODO</div>
         <div class="spacer"></div>
       </div>
+      {% if spec["has_macros"] %}
       <div class="rows">
         <div class="spacer"></div>
         <h3>Generated</h3>
@@ -57,7 +74,13 @@
           <div class="mono"><b>{{talent_idx}}</b></div>
           <div class="spacer"></div>
         </div>
-        <img class="pad wow_icon" src="{{talent_data["icon"]}}" alt="{{name}} {{talent_data["name"]}} Icon">
+        {% if talent_data["active"] %}
+        <img class="wow_icon highlighted" src="{{talent_data["icon"]}}"
+             alt="{{name}} {{talent_data["name"]}} Icon">
+        {% else %}
+        <img class="wow_icon" src="{{talent_data["icon"]}}"
+             alt="{{name}} {{talent_data["name"]}} Icon">
+        {% endif %}
         {% endfor %}
         <div class="spacer"></div>
       </div>
@@ -70,6 +93,7 @@
       </div>
       {% endif %}
       {% endfor %}
+      {% endif %}
       <hr class="bg_{{html["theme"]}}_primary_200">
     {% endfor %}
     </div>

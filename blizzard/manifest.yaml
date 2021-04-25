@@ -3,9 +3,6 @@ default_target: "groups-all"
 params:
   config_dir: "../im/svg/config"
 
-configs:
-- "build/blizzard"
-
 variables:
 - "local/variables"
 
@@ -24,8 +21,15 @@ compiles:
 - name: "blizzard"
   configs:
   - "local/configs"
+  - "build/blizzard"
 - name: "blizzard-{class_name}"
   index_path: "{class_name}"
+  configs:
+  - "build/blizzard"
+- name: "macros-{class_name}"
+  index_path: "{class_name}"
+  configs:
+  - "local/macros"
 
 renders:
 - name: "{class_name}-base"
@@ -35,6 +39,7 @@ renders:
   no_file: true
   dependencies:
   - "compiles-blizzard-{class_name}"
+  - "compiles-macros-{class_name}"
   - "html"
 
 - name: "index-base"
