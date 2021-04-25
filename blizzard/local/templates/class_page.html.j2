@@ -1,10 +1,83 @@
-<div class="{{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_900">
-  <h1>{{name}}</h1>
-  <br>
-  <img src="{{icon}}">
-  <br>
-  {% for spec in specs %}
-  <img src="{{spec["icon"]}}">
-  <br>
-  {% endfor %}
+<div class="rows {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_900">
+  <div class="spacer"></div>
+  <div class="columns">
+    <div class="spacer"></div>
+    <div class="rows">
+      <div class="spacer"></div>
+      <img class="pad wow_icon" src="{{icon}}" alt="{{name}} Icon">
+      <h1>{{name}}</h1>
+      <div class="spacer"></div>
+    </div>
+    <div class="rows">
+      <div class="spacer"></div>
+      <div>
+        Macros for each class's specialization are either gleaned from the
+        talent tree itself (using the
+        <a class="mono" href="https://pypi.org/project/blizzard-api/">blizzard-api</a>
+        Python package) or have been manually curated.
+      </div>
+      <div class="spacer"></div>
+    </div>
+    <hr class="bg_{{html["theme"]}}_primary_200">
+    <div class="columns">
+    {% for spec in specs %}
+      <div class="rows">
+        <div class="spacer"></div>
+        <img class="pad wow_icon" src="{{spec["icon"]}}" alt="{{name}} {{spec["name"]}} Icon">
+        <h2>{{spec["name"]}} ({{spec["role"]}})</h1>
+        <div class="spacer"></div>
+      </div>
+      <div class="rows">
+        <div class="spacer"></div>
+        <h3>Manually Added</h3>
+        <div class="spacer"></div>
+      </div>
+      <div class="rows">
+        <div class="spacer"></div>
+        <div>TODO</div>
+        <div class="spacer"></div>
+      </div>
+      <div class="rows">
+        <div class="spacer"></div>
+        <h3>Generated</h3>
+        <div class="spacer"></div>
+      </div>
+      {% for row in spec["talent_rows"] %}
+      {% if row["macro"] %}
+      <div class="rows">
+        <div class="spacer"></div>
+        <h4>Level {{row["level"]}} Row</h4>
+        <div class="spacer"></div>
+      </div>
+      <div class="rows">
+        <div class="spacer"></div>
+        <textarea readonly cols="80" rows="4" id="{{name}}_{{spec["name"]}}_{{row["level"]}}"
+         class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
+        </textarea>
+        <div class="spacer"></div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      <hr class="bg_{{html["theme"]}}_primary_200">
+    {% endfor %}
+    </div>
+    <div class="spacer"></div>
+  </div>
+  <div class="spacer"></div>
 </div>
+<script>
+  let elem;
+  let inner
+  {% for spec in specs %}
+  {% for row in spec["talent_rows"] %}
+  elem = document.getElementById("{{name}}_{{spec["name"]}}_{{row["level"]}}");
+  if (elem != null) {
+    inner = "";
+    {% for line in row["macro_lines"] %}
+    inner += "{{line}}" + String.fromCharCode(13, 10);
+    {% endfor %}
+    elem.innerHTML = inner;
+  }
+  {% endfor %}
+  {% endfor %}
+</script>
