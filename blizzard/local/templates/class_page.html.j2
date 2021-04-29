@@ -78,10 +78,20 @@
         <img class="wow_icon highlighted" src="{{talent_data["icon"]}}"
              alt="{{name}} {{talent_data["name"]}} Icon">
         {% else %}
-        <img class="wow_icon" src="{{talent_data["icon"]}}"
-             alt="{{name}} {{talent_data["name"]}} Icon">
+        <div class="columns">
+          <div class="spacer"></div>
+          <img class="wow_icon" src="{{talent_data["icon"]}}"
+               alt="{{name}} {{talent_data["name"]}} Icon">
+          <div class="spacer"></div>
+        </div>
         {% endif %}
         {% endfor %}
+        <div class="columns">
+          <div class="spacer"></div>
+          <button onclick="copy_macro('{{slug}}_{{spec["slug"]}}_{{row["level"]}}')"
+                  type="button" class="mono">Copy Macro</button>
+          <div class="spacer"></div>
+        </div>
         <div class="spacer"></div>
       </div>
       <div class="rows">
@@ -102,6 +112,14 @@
   <div class="spacer"></div>
 </div>
 <script>
+  function copy_macro(elem_id) {
+    let elem = document.getElementById(elem_id);
+    elem.select();
+    elem.setSelectionRange(0, 255);
+    document.execCommand("copy");
+    console.log(`copied '${elem_id}'`);
+  }
+
   let elem;
   let inner
   {% for spec in specs %}
@@ -110,7 +128,7 @@
   if (elem != null) {
     inner = "";
     {% for line in row["macro_lines"] %}
-    inner += "{{line}}" + String.fromCharCode(13, 10);
+    inner += "{{line}}"{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
     {% endfor %}
     elem.innerHTML = inner;
   }

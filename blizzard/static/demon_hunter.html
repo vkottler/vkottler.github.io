@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.2
-    hash=d70f304b1abb5e0147c9dd542afdb76e
+    hash=ff4fa0dbadc7dc750c3ba3876c966523
     =====================================
 -->
 
@@ -86,6 +86,14 @@
       <div class="spacer"></div>
     </div>
     <script>
+      function copy_macro(elem_id) {
+        let elem = document.getElementById(elem_id);
+        elem.select();
+        elem.setSelectionRange(0, 255);
+        document.execCommand("copy");
+        console.log(`copied '${elem_id}'`);
+      }
+
       let elem;
       let inner
       elem = document.getElementById("demon_hunter_havoc_15");

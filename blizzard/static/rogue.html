@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.2
-    hash=d6411089f52c9da0875c11c2a835fd3a
+    hash=db72ae568e8892df55dae6b8d5dcc738
     =====================================
 -->
 
@@ -96,8 +96,12 @@
               <div class="mono"><b>1</b></div>
               <div class="spacer"></div>
             </div>
-            <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/ability_warrior_punishingblow.jpg"
-                 alt="Rogue Dancing Steel Icon">
+            <div class="columns">
+              <div class="spacer"></div>
+              <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/ability_warrior_punishingblow.jpg"
+                   alt="Rogue Dancing Steel Icon">
+              <div class="spacer"></div>
+            </div>
             <div class="columns">
               <div class="spacer"></div>
               <div class="mono"><b>2</b></div>
@@ -112,6 +116,12 @@
             </div>
             <img class="wow_icon highlighted" src="https://render-us.worldofwarcraft.com/icons/56/ability_rogue_murderspree.jpg"
                  alt="Rogue Killing Spree Icon">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('rogue_outlaw_50')"
+                      type="button" class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -155,8 +165,12 @@
               <div class="mono"><b>1</b></div>
               <div class="spacer"></div>
             </div>
-            <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_shadow_charm.jpg"
-                 alt="Rogue Master of Shadows Icon">
+            <div class="columns">
+              <div class="spacer"></div>
+              <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_shadow_charm.jpg"
+                   alt="Rogue Master of Shadows Icon">
+              <div class="spacer"></div>
+            </div>
             <div class="columns">
               <div class="spacer"></div>
               <div class="mono"><b>2</b></div>
@@ -171,6 +185,12 @@
             </div>
             <img class="wow_icon highlighted" src="https://render-us.worldofwarcraft.com/icons/56/ability_rogue_throwingspecialization.jpg"
                  alt="Rogue Shuriken Tornado Icon">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('rogue_subtlety_50')"
+                      type="button" class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -187,6 +207,14 @@
       <div class="spacer"></div>
     </div>
     <script>
+      function copy_macro(elem_id) {
+        let elem = document.getElementById(elem_id);
+        elem.select();
+        elem.setSelectionRange(0, 255);
+        document.execCommand("copy");
+        console.log(`copied '${elem_id}'`);
+      }
+
       let elem;
       let inner
       elem = document.getElementById("rogue_assassination_15");
@@ -258,7 +286,7 @@
       if (elem != null) {
         inner = "";
         inner += "#showtooltip" + String.fromCharCode(13, 10);
-        inner += "/cast [talent:7/2] Blade Rush; [talent:7/3] Killing Spree;" + String.fromCharCode(13, 10);
+        inner += "/cast [talent:7/2] Blade Rush; [talent:7/3] Killing Spree;";
         elem.innerHTML = inner;
       }
       elem = document.getElementById("rogue_subtlety_15");
@@ -295,7 +323,7 @@
       if (elem != null) {
         inner = "";
         inner += "#showtooltip" + String.fromCharCode(13, 10);
-        inner += "/cast [talent:7/2] Secret Technique; [talent:7/3] Shuriken Tornado;" + String.fromCharCode(13, 10);
+        inner += "/cast [talent:7/2] Secret Technique; [talent:7/3] Shuriken Tornado;";
         elem.innerHTML = inner;
       }
     </script>
