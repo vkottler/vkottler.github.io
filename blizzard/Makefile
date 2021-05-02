@@ -19,13 +19,19 @@ endif
 
 include $($(PROJ)_DIR)/env.mk
 
-bapi-sync: $(VENV_CONC) check-env
+$(BUILD_DIR)/blizzard:
+	@mkdir -p $@
+	@touch $@
+
+$(BUILD_DIR)/blizzard/generic.json: $($(PROJ)_DIR)/generic.json | $(BUILD_DIR)/blizzard
+	cp -f $< $@
+
+bapi-sync: $(VENV_CONC) check-env | $(BUILD_DIR)/blizzard/generic.json
 	$(PYTHON_BIN)/bapi -v -o $(BUILD_DIR)/cache
-	mkdir -p $(BUILD_DIR)/blizzard
 	cp $(BUILD_DIR)/cache/*.json $(BUILD_DIR)/blizzard
 
 host:
 	cd $($(PROJ)_DIR)/static  && python -m http.server
 
-config:
+config: $(BUILD_DIR)/blizzard/generic.json
 	ln -s ../im/svg/$@ $@

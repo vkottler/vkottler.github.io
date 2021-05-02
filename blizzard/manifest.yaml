@@ -50,6 +50,14 @@ renders:
   dependencies:
   - "blizzard"
 
+- name: "add_macro-base"
+  key: "add_macro.html"
+  as: "html_content"
+  indent: 4
+  no_file: true
+  dependencies:
+  - "blizzard"
+
 - name: "{title}.html"
   output_dir: "static"
   key: "basic.html"
@@ -69,6 +77,15 @@ renders:
   - "renders-theme.css"
   - "html"
 
+- name: "add_macro.html"
+  output_dir: "static"
+  key: "basic.html"
+  dependencies:
+  - "renders-add_macro-base"
+  - "renders-colors.css"
+  - "renders-theme.css"
+  - "html"
+
 - name: "colors.css"
   output_dir: "static/css"
   dependencies:
@@ -83,6 +100,7 @@ renders:
 groups:
 - name: "sub-pages"
   dependencies:
+  - "renders-generic.html"
   - "renders-death_knight.html"
   - "renders-demon_hunter.html"
   - "renders-druid.html"
@@ -98,4 +116,5 @@ groups:
 - name: "all"
   dependencies:
   - "renders-index.html"
+  - "renders-add_macro.html"
   - "groups-sub-pages"
