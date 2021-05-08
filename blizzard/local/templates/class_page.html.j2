@@ -10,6 +10,11 @@
     </div>
     <div class="rows">
       <div class="spacer"></div>
+      <div class="pad">(<a class="mono" href="index.html">back</a>)</div>
+      <div class="spacer"></div>
+    </div>
+    <div class="rows">
+      <div class="spacer"></div>
       <div class="hmargin">
         Macros for each class's specialization are either gleaned from the
         talent tree itself (using the
@@ -20,39 +25,92 @@
       </div>
       <div class="spacer"></div>
     </div>
-    {% if generic %}
+    <hr class="bg_{{html["theme"]}}_primary_200">
     <div class="columns">
       <div class="rows">
         <div class="spacer"></div>
-        <h2>Generic Macros</h1>
+        <h2>
+          Generic Macros
+          (<a class="mono" href="add_macro.html?class=generic">add_new</a>)
+        </h2>
+        <div class="spacer"></div>
+      </div>
+      {% if generic %}
+      {% for item in generic %}
+      <div class="rows">
+        <div class="spacer"></div>
+        <div class="columns">
+          <div class="spacer"></div>
+          <h3>{{item["name"]}}</h3>
+          <div class="spacer"></div>
+        </div>
+        <img class="wow_icon"
+             src="https://render-us.worldofwarcraft.com/icons/56/{{item["icon"]}}.jpg"
+             alt="'{{item["icon"]}}' Icon for Generic '{{item["name"]}}'">
+        <div class="columns">
+          <div class="spacer"></div>
+          <button onclick="copy_macro('generic_{{loop.index}}')" type="button"
+                  class="mono">Copy Macro</button>
+          <div class="spacer"></div>
+        </div>
         <div class="spacer"></div>
       </div>
       <div class="rows">
         <div class="spacer"></div>
-        <div>TODO</div>
+        <textarea readonly cols="80" rows="4" id="generic_{{loop.index}}"
+         class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
+        </textarea>
         <div class="spacer"></div>
       </div>
+      {% endfor %}
     </div>
-    {% endif %}
     <hr class="bg_{{html["theme"]}}_primary_200">
+    {% endif %}
     <div class="columns">
     {% for spec in specs %}
       <div class="rows">
         <div class="spacer"></div>
         <img class="wow_icon" src="{{spec["icon"]}}" alt="{{name}} {{spec["name"]}} Icon">
-        <h2>{{spec["name"]}} ({{spec["role"]}})</h1>
+        <h2>{{spec["name"]}} ({{spec["role"]}})</h2>
         <div class="spacer"></div>
       </div>
       <div class="rows">
         <div class="spacer"></div>
-        <h3>Manually Added</h3>
+        <h3>
+          Manually Added
+          (<a class="mono" href="add_macro.html?class={{slug}}&spec={{spec["slug"]}}">add_new</a>)
+        </h3>
+        <div class="spacer"></div>
+      </div>
+      {% if spec["slug"] in global and global[spec["slug"]] %}
+      {% for item in global[spec["slug"]] %}
+      <div class="rows">
+        <div class="spacer"></div>
+        <div class="columns">
+          <div class="spacer"></div>
+          <h3>{{item["name"]}}</h3>
+          <div class="spacer"></div>
+        </div>
+        <img class="wow_icon"
+             src="https://render-us.worldofwarcraft.com/icons/56/{{item["icon"]}}.jpg"
+             alt="'{{item["icon"]}}' Icon for {{spec["name"]}} '{{item["name"]}}'">
+        <div class="columns">
+          <div class="spacer"></div>
+          <button onclick="copy_macro('{{spec["slug"]}}_{{loop.index}}')" type="button"
+                  class="mono">Copy Macro</button>
+          <div class="spacer"></div>
+        </div>
         <div class="spacer"></div>
       </div>
       <div class="rows">
         <div class="spacer"></div>
-        <div>TODO</div>
+        <textarea readonly cols="80" rows="4" id="{{spec["slug"]}}_{{loop.index}}"
+         class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
+        </textarea>
         <div class="spacer"></div>
       </div>
+      {% endfor %}
+      {% endif %}
       {% if spec["has_macros"] %}
       <div class="rows">
         <div class="spacer"></div>
@@ -122,6 +180,20 @@
 
   let elem;
   let inner
+
+  {% if generic %}
+  {% for item in generic %}
+  elem = document.getElementById("generic_{{loop.index}}");
+  if (elem != null) {
+    inner = "";
+    {% for line in item["lines"] %}
+    inner += "{{line}}"{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
+    {% endfor %}
+    elem.innerHTML = inner;
+  }
+  {% endfor %}
+  {% endif %}
+
   {% for spec in specs %}
   {% for row in spec["talent_rows"] %}
   elem = document.getElementById("{{slug}}_{{spec["slug"]}}_{{row["level"]}}");
@@ -133,5 +205,18 @@
     elem.innerHTML = inner;
   }
   {% endfor %}
+
+  {% if spec["slug"] in global %}
+  {% for item in global[spec["slug"]] %}
+  elem = document.getElementById("{{spec["slug"]}}_{{loop.index}}");
+  if (elem != null) {
+    inner = "";
+    {% for line in item["lines"] %}
+    inner += "{{line}}"{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
+    {% endfor %}
+    elem.innerHTML = inner;
+  }
+  {% endfor %}
+  {% endif %}
   {% endfor %}
 </script>

@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.2
-    hash=b5acb6f9996f8a25949cae9cfa2842b5
+    hash=dd5566734fdf8243df760c0a883d5fbc
     =====================================
 -->
 
@@ -34,6 +34,11 @@
         </div>
         <div class="rows">
           <div class="spacer"></div>
+          <div class="pad">(<a class="mono" href="index.html">back</a>)</div>
+          <div class="spacer"></div>
+        </div>
+        <div class="rows">
+          <div class="spacer"></div>
           <div class="hmargin">
             Macros for each class's specialization are either gleaned from the
             talent tree itself (using the
@@ -48,18 +53,52 @@
         <div class="columns">
           <div class="rows">
             <div class="spacer"></div>
+            <h2>
+              Generic Macros
+              (<a class="mono" href="add_macro.html?class=generic">add_new</a>)
+            </h2>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>f</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/spell_holy_rebuke.jpg"
+                 alt="'spell_holy_rebuke' Icon for Generic 'f'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('generic_1')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="80" rows="4" id="generic_1"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+        </div>
+        <hr class="bg_gray_primary_200">
+        <div class="columns">
+          <div class="rows">
+            <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_holy_holybolt.jpg" alt="Paladin Holy Icon">
-            <h2>Holy (Healer)</h1>
+            <h2>Holy (Healer)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=paladin&spec=holy">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -259,17 +298,15 @@
           <div class="rows">
             <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/ability_paladin_shieldofthetemplar.jpg" alt="Paladin Protection Icon">
-            <h2>Protection (Tank)</h1>
+            <h2>Protection (Tank)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=paladin&spec=protection">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -375,17 +412,15 @@
           <div class="rows">
             <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_holy_auraoflight.jpg" alt="Paladin Retribution Icon">
-            <h2>Retribution (Damage)</h1>
+            <h2>Retribution (Damage)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=paladin&spec=retribution">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -551,6 +586,15 @@
 
       let elem;
       let inner
+
+      elem = document.getElementById("generic_1");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast [target=focus,exists] Rebuke";
+        elem.innerHTML = inner;
+      }
+
       elem = document.getElementById("paladin_holy_15");
       if (elem != null) {
         inner = "";
@@ -594,6 +638,7 @@
         inner += "/cast [talent:7/2] Beacon of Faith; [talent:7/3] Beacon of Virtue;";
         elem.innerHTML = inner;
       }
+
       elem = document.getElementById("paladin_protection_15");
       if (elem != null) {
         inner = "";
@@ -633,6 +678,7 @@
         inner = "";
         elem.innerHTML = inner;
       }
+
       elem = document.getElementById("paladin_retribution_15");
       if (elem != null) {
         inner = "";
@@ -674,6 +720,7 @@
         inner += "/cast [talent:7/2] Crusade; [talent:7/3] Final Reckoning;";
         elem.innerHTML = inner;
       }
+
     </script>
 
   </body>

@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.2
-    hash=46495679803d95a9dcfda93a84e0baf0
+    hash=2232e362807ed5c8e1e32df52a167843
     =====================================
 -->
 
@@ -34,6 +34,11 @@
         </div>
         <div class="rows">
           <div class="spacer"></div>
+          <div class="pad">(<a class="mono" href="index.html">back</a>)</div>
+          <div class="spacer"></div>
+        </div>
+        <div class="rows">
+          <div class="spacer"></div>
           <div class="hmargin">
             Macros for each class's specialization are either gleaned from the
             talent tree itself (using the
@@ -48,18 +53,25 @@
         <div class="columns">
           <div class="rows">
             <div class="spacer"></div>
+            <h2>
+              Generic Macros
+              (<a class="mono" href="add_macro.html?class=generic">add_new</a>)
+            </h2>
+            <div class="spacer"></div>
+          </div>
+        <div class="columns">
+          <div class="rows">
+            <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_nature_lightning.jpg" alt="Shaman Elemental Icon">
-            <h2>Elemental (Damage)</h1>
+            <h2>Elemental (Damage)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=shaman&spec=elemental">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -259,17 +271,15 @@
           <div class="rows">
             <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_shaman_improvedstormstrike.jpg" alt="Shaman Enhancement Icon">
-            <h2>Enhancement (Damage)</h1>
+            <h2>Enhancement (Damage)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=shaman&spec=enhancement">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -422,17 +432,15 @@
           <div class="rows">
             <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_nature_magicimmunity.jpg" alt="Shaman Restoration Icon">
-            <h2>Restoration (Healer)</h1>
+            <h2>Restoration (Healer)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=shaman&spec=restoration">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -598,6 +606,8 @@
 
       let elem;
       let inner
+
+
       elem = document.getElementById("shaman_elemental_15");
       if (elem != null) {
         inner = "";
@@ -641,6 +651,7 @@
         inner += "/cast [talent:7/2] Stormkeeper; [talent:7/3] Ascendance;";
         elem.innerHTML = inner;
       }
+
       elem = document.getElementById("shaman_enhancement_15");
       if (elem != null) {
         inner = "";
@@ -682,6 +693,7 @@
         inner += "/cast [talent:7/2] Earthen Spike; [talent:7/3] Ascendance;";
         elem.innerHTML = inner;
       }
+
       elem = document.getElementById("shaman_restoration_15");
       if (elem != null) {
         inner = "";
@@ -723,6 +735,7 @@
         inner += "/cast [talent:7/2] Wellspring; [talent:7/3] Ascendance;";
         elem.innerHTML = inner;
       }
+
     </script>
 
   </body>

@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.2
-    hash=fcd02d644b6da8fcf9d907714734ae2b
+    hash=81842db8c9b1c6ad833925543c785d71
     =====================================
 -->
 
@@ -34,6 +34,11 @@
         </div>
         <div class="rows">
           <div class="spacer"></div>
+          <div class="pad">(<a class="mono" href="index.html">back</a>)</div>
+          <div class="spacer"></div>
+        </div>
+        <div class="rows">
+          <div class="spacer"></div>
           <div class="hmargin">
             Macros for each class's specialization are either gleaned from the
             talent tree itself (using the
@@ -48,18 +53,25 @@
         <div class="columns">
           <div class="rows">
             <div class="spacer"></div>
+            <h2>
+              Generic Macros
+              (<a class="mono" href="add_macro.html?class=generic">add_new</a>)
+            </h2>
+            <div class="spacer"></div>
+          </div>
+        <div class="columns">
+          <div class="rows">
+            <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_holy_powerwordshield.jpg" alt="Priest Discipline Icon">
-            <h2>Discipline (Healer)</h1>
+            <h2>Discipline (Healer)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=priest&spec=discipline">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -208,17 +220,15 @@
           <div class="rows">
             <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_holy_guardianspirit.jpg" alt="Priest Holy Icon">
-            <h2>Holy (Healer)</h1>
+            <h2>Holy (Healer)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=priest&spec=holy">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -324,17 +334,15 @@
           <div class="rows">
             <div class="spacer"></div>
             <img class="wow_icon" src="https://render-us.worldofwarcraft.com/icons/56/spell_shadow_shadowwordpain.jpg" alt="Priest Shadow Icon">
-            <h2>Shadow (Damage)</h1>
+            <h2>Shadow (Damage)</h2>
             <div class="spacer"></div>
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <h3>Manually Added</h3>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <div>TODO</div>
+            <h3>
+              Manually Added
+              (<a class="mono" href="add_macro.html?class=priest&spec=shadow">add_new</a>)
+            </h3>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -449,6 +457,8 @@
 
       let elem;
       let inner
+
+
       elem = document.getElementById("priest_discipline_15");
       if (elem != null) {
         inner = "";
@@ -490,6 +500,7 @@
         inner += "/cast [talent:7/2] Spirit Shell; [talent:7/3] Evangelism;";
         elem.innerHTML = inner;
       }
+
       elem = document.getElementById("priest_holy_15");
       if (elem != null) {
         inner = "";
@@ -529,6 +540,7 @@
         inner += "/cast [talent:7/2] Apotheosis; [talent:7/3] Holy Word: Salvation;";
         elem.innerHTML = inner;
       }
+
       elem = document.getElementById("priest_shadow_15");
       if (elem != null) {
         inner = "";
@@ -568,6 +580,7 @@
         inner = "";
         elem.innerHTML = inner;
       }
+
     </script>
 
   </body>
