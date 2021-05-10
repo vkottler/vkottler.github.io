@@ -31,7 +31,7 @@
         <div class="spacer"></div>
         <h2>
           Generic Macros
-          (<a class="mono" href="add_macro.html?class=generic">add_new</a>)
+          (<a class="mono" href="add_macro.html?class={{slug}}">add_new</a>)
         </h2>
         <div class="spacer"></div>
       </div>
@@ -55,9 +55,16 @@
         </div>
         <div class="spacer"></div>
       </div>
+      {% if item["description"] %}
+      <div class="rows pad">
+        <div class="spacer"></div>
+        <div>{{item["description"]}}</div>
+        <div class="spacer"></div>
+      </div>
+      {% endif %}
       <div class="rows">
         <div class="spacer"></div>
-        <textarea readonly cols="80" rows="4" id="generic_{{loop.index}}"
+        <textarea readonly cols="60" rows="4" id="generic_{{loop.index}}"
          class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
         </textarea>
         <div class="spacer"></div>
@@ -102,9 +109,16 @@
         </div>
         <div class="spacer"></div>
       </div>
+      {% if item["description"] %}
+      <div class="rows pad">
+        <div class="spacer"></div>
+        <div>{{item["description"]}}</div>
+        <div class="spacer"></div>
+      </div>
+      {% endif %}
       <div class="rows">
         <div class="spacer"></div>
-        <textarea readonly cols="80" rows="4" id="{{spec["slug"]}}_{{loop.index}}"
+        <textarea readonly cols="60" rows="4" id="{{spec["slug"]}}_{{loop.index}}"
          class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
         </textarea>
         <div class="spacer"></div>
@@ -154,7 +168,7 @@
       </div>
       <div class="rows">
         <div class="spacer"></div>
-        <textarea readonly cols="80" rows="4" id="{{slug}}_{{spec["slug"]}}_{{row["level"]}}"
+        <textarea readonly cols="60" rows="4" id="{{slug}}_{{spec["slug"]}}_{{row["level"]}}"
          class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
         </textarea>
         <div class="spacer"></div>

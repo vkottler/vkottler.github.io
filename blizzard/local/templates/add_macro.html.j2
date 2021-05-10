@@ -1,3 +1,238 @@
+<!-- inv_misc_questionmark -->
 <div class="rows {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_900">
-  UNDER CONSTRUCTION
+  <div class="spacer"></div>
+  <div class="columns">
+    <div class="spacer"></div>
+    <div class="rows">
+      <div class="spacer"></div>
+      <img class="wow_icon"
+           src="https://render-us.worldofwarcraft.com/icons/56/inv_scroll_03.jpg"
+           alt="Question Mark Icon">
+      <h1>Add Macro</h1>
+      <div class="spacer"></div>
+    </div>
+    <div class="rows">
+      <div class="spacer"></div>
+      <div>(<a class="mono" href="index.html">back</a>)</div>
+      <div class="spacer"></div>
+    </div>
+    <div class="rows">
+      <div class="spacer"></div>
+      <div class="hmargin pad">
+        Use <a href="https://www.wowhead.com/">Wowhead</a>'s
+        <a class="mono" href="https://www.wowhead.com/icons/">icon database</a>
+        to find an icon that will be used when displaying it in the browser.
+        This tool can't discern this automatically like the game can with the
+        <span class="mono">#show</span> or <span class="mono">#showtooltip</span>
+        directives.
+      </div>
+      <div class="spacer"></div>
+    </div>
+    <hr class="bg_{{html["theme"]}}_primary_200">
+    <div class="rows">
+      <div class="spacer"></div>
+      <!-- TODO update 'action' -->
+      <form action="index.html" class="pad columns">
+        <div class="rows" style="margin:0.25em;">
+          <label class="mono" for="class">class:</label>
+          <div class="spacer"></div>
+          <select name="class" id="class"
+                  class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
+            {% for item in classes["keys"] %}
+            <option value="{{item}}">{{global[item]["name"]}}</option> 
+            {% endfor %}
+          </select>
+        </div>
+        <div class="rows" style="margin:0.25em;">
+          <label class="mono" for="spec">spec:</label>
+          <div class="spacer"></div>
+          <select name="spec" id="spec"
+                  class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700">
+            <option value="todo1">TODO 1</option> 
+            <option value="todo2">TODO 2</option> 
+          </select>
+        </div>
+        <div class="rows" style="margin:0.25em;">
+          <label class="mono" for="name">name:</label>
+          <div class="spacer"></div>
+          <input class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700"
+                 type="text" id="name" name="name" value="name" size="40">
+        </div>
+        <div class="rows" style="margin:0.25em;">
+          <label class="mono" for="icon">
+            <a href="https://www.wowhead.com/icons/">icon</a>:
+          </label>
+          <div class="spacer"></div>
+          <input class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700"
+                 type="text" id="icon" name="icon" value="inv_misc_questionmark"
+                 size="40">
+        </div>
+        <div class="rows" style="margin:0.25em;">
+          <label class="mono" for="description">
+            description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </label>
+          <div class="spacer"></div>
+          <input class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700"
+                 type="text" id="description" name="description" value="What this macro is for."
+                 size="40">
+        </div>
+        <div class="rows" style="margin:0.25em;">
+          <label class="mono" for="lines">lines:</label>
+          <div class="spacer"></div>
+        </div>
+        <div class="rows" style="margin:0.25em;">
+          <textarea class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700"
+                    id="lines" name="lines" rows="4" cols="60"></textarea>
+        </div>
+        <div class="rows" style="margin:0.25em;">
+          <input class="mono button" type="submit" value="submit">
+          <div class="spacer"></div>
+        </div>
+      </form>
+      <div class="spacer"></div>
+    </div>
+    <div class="rows">
+      <div class="spacer"></div>
+      <h2>Preview</h2>
+      <div class="spacer"></div>
+    </div>
+    <div class="rows">
+      <div class="spacer"></div>
+      <div class="columns">
+        <div class="spacer"></div>
+        <h3 id="name_preview">name</h3>
+        <div class="spacer"></div>
+      </div>
+      <img class="wow_icon" id="icon_preview" src="" alt="">
+      <div class="columns">
+        <div class="spacer"></div>
+        <button onclick="copy_macro('lines_preview')" type="button"
+                class="mono">Copy Macro</button>
+        <div class="spacer"></div>
+      </div>
+      <div class="spacer"></div>
+    </div>
+    <div class="rows pad">
+      <div class="spacer"></div>
+      <div id="description_preview"></div>
+      <div class="spacer"></div>
+    </div>
+    <div class="rows">
+      <div class="spacer"></div>
+      <textarea readonly cols="60" rows="4" id="lines_preview"
+       class="mono {{html["theme"]}}_primary_200 bg_{{html["theme"]}}_primary_700"></textarea>
+      <div class="spacer"></div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+  <div class="spacer"></div>
 </div>
+<script>
+  function copy_macro(elem_id) {
+    let elem = document.getElementById(elem_id);
+    elem.select();
+    elem.setSelectionRange(0, 255);
+    document.execCommand("copy");
+    console.log(`copied '${elem_id}'`);
+  }
+
+  function sync_inner_html(src, dst) {
+    let src_elem = document.getElementById(src);
+    let dst_elem = document.getElementById(dst);
+    if ((src_elem != null) && (dst_elem != null)) {
+      dst_elem.innerHTML = src_elem.value;
+    }
+  }
+
+  function sync_icon(src, dst) {
+    let src_elem = document.getElementById(src);
+    let dst_elem = document.getElementById(dst);
+    if ((src_elem != null) && (dst_elem != null)) {
+      let icon = src_elem.value;
+      dst_elem.src = `https://render-us.worldofwarcraft.com/icons/56/${icon}.jpg`
+      dst_elem.alt = `'${icon}' Icon`;
+      dst_elem.style.display = "block";
+      dst_elem.onerror = () => {
+        dst_elem.style.display = "none";
+      };
+    }
+  }
+
+  /* sync text fields */
+  let to_sync = ["name", "description", "lines"];
+  for (index in to_sync) {
+    let item = to_sync[index];
+    let src = document.getElementById(item);
+    src.oninput = () => {
+      sync_inner_html(item, item + "_preview");
+    };
+    sync_inner_html(item, item + "_preview");
+  }
+
+  /* sync icon preview */
+  let icon_sync = ["icon"];
+  for (index in icon_sync) {
+    let item = icon_sync[index];
+    let src = document.getElementById(item);
+    src.oninput = () => {
+      sync_icon(item, item + "_preview");
+    };
+    sync_icon(item, item + "_preview");
+  }
+
+  /* dynamic spec lists */
+  let specs = {};
+  {% for item in classes["keys"] %}
+  specs["{{item}}"] = [];
+  {% if item in global and "specs" in global[item] %}
+  {% for spec in global[item]["specs"] %}
+  specs["{{item}}"].push({"name": "{{spec["name"]}}", "slug": "{{spec["slug"]}}"});
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  let class_select = document.getElementById("class");
+  let spec_select = document.getElementById("spec");
+  function update_specs() {
+    let new_class = class_select.value;
+
+    /* remove all existing options */
+    while (spec_select.firstChild) {
+      spec_select.removeChild(spec_select.firstChild)
+    }
+
+    /* add new options */
+    for (index in specs[new_class]) {
+      let spec = specs[new_class][index];
+      let new_option = document.createElement("option");
+      new_option.value = spec["slug"];
+      new_option.text = spec["name"];
+      spec_select.appendChild(new_option);
+    }
+  }
+  class_select.oninput = update_specs;
+  update_specs();
+
+  /* set initial values if we came from another page */
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("class") != null) {
+    let options = class_select.options;
+    for (index in options) {
+      let elem = options[index];
+      if (elem.value == params.get("class")) {
+        elem.selected = true;
+        update_specs();
+        break;
+      }
+    }
+  }
+  if (params.get("spec") != null) {
+    let options = spec_select.options;
+    for (index in options) {
+      let elem = options[index];
+      if (elem.value == params.get("spec")) {
+        elem.selected = true;
+        break;
+      }
+    }
+  }
+</script>
