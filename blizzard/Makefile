@@ -13,7 +13,7 @@ $(error target this Makefile with 'mk', not '$(MAKE)' ($(MK_INFO)))
 endif
 ###############################################################################
 
-.PHONY: bapi-sync host
+.PHONY: bapi-sync host validate
 
 .DEFAULT_GOAL := bapi-sync
 
@@ -32,6 +32,9 @@ bapi-sync: $(VENV_CONC) check-env | $(BUILD_DIR)/blizzard/generic.json
 
 host:
 	cd $($(PROJ)_DIR)/static  && python -m http.server
+
+validate: $(VENV_CONC)
+	$(PYTHON_BIN)/html5validator --root $($(PROJ)_DIR)/static --also-check-css
 
 config: $(BUILD_DIR)/blizzard/generic.json
 	ln -s ../im/svg/$@ $@
