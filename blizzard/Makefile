@@ -13,7 +13,7 @@ $(error target this Makefile with 'mk', not '$(MAKE)' ($(MK_INFO)))
 endif
 ###############################################################################
 
-.PHONY: bapi-sync host validate
+.PHONY: bapi-sync host validate start
 
 .DEFAULT_GOAL := bapi-sync
 
@@ -25,6 +25,9 @@ $(BUILD_DIR)/blizzard:
 
 $(BUILD_DIR)/blizzard/generic.json: $($(PROJ)_DIR)/generic.json | $(BUILD_DIR)/blizzard
 	cp -f $< $@
+
+start: $(VENV_CONC)
+	$(PYTHON_BIN)/python server.py
 
 bapi-sync: $(VENV_CONC) check-env | $(BUILD_DIR)/blizzard/generic.json
 	$(PYTHON_BIN)/bapi -v -o $(BUILD_DIR)/cache
