@@ -24,14 +24,7 @@ def main(_: List[str]) -> int:
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
     server = HttpDaemon("blizzard", ("0.0.0.0", 8000),
                         MapperAwareRequestHandler)
-    try:
-        server.start()
-        while True:
-            time.sleep(2**32)
-    except KeyboardInterrupt:
-        server.stop()
-        server.close()
-    return 0
+    return server.serve()
 
 
 if __name__ == "__main__":
