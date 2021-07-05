@@ -5,18 +5,25 @@ server - A simple API endpoint to support updating WoW macros.
 """
 
 # built-in
+from contextlib import contextmanager
 from http.server import BaseHTTPRequestHandler
 from datetime import datetime
 import logging
+import os
+import subprocess
 import sys
 from threading import RLock
-from typing import List, Tuple
+from typing import List, Iterator, Optional, Tuple
 
 # third-party
+import git
+from datazen.classes.data_repository import DataRepository
 from vtelem.classes.http_daemon import HttpDaemon
 from vtelem.classes.http_request_mapper import MapperAwareRequestHandler
 
 REPO_LOCK = RLock()
+REPO: Optional[DataRepository] = None
+REQUEST_NUM = 0
 RESPONSE = """
 <!doctype html>
 <html>
@@ -30,11 +37,68 @@ RESPONSE = """
 """
 
 
+@contextmanager
+def temporary_branch(repo: git.Repo, name: str = "temp",
+                     remote: str = "origin",
+                     main_branch: str = "master") -> Iterator[None]:
+    """
+    Given a repository object, attempt to switch to a new branch based on the
+    latest main branch from some origin (fetched first).
+
+    If the repsitory is in a dirty state, changes will be stashed and
+    unstashed.
+    """
+
+    return_branch = repo.active_branch
+    stashed = False
+    try:
+        # stash changes if we're in a dirty state
+        if repo.is_dirty() or repo.untracked_files:
+            repo.git.stash("push")
+            stashed = True
+
+        # fetch origin so we can put our temporary HEAD on the latest of the
+        # primary branch
+        repo.remotes[remote].fetch()
+        temp_branch = repo.create_head(name, "{}/{}".format(remote,
+                                                            main_branch))
+        temp_branch.checkout()
+        yield
+    finally:
+        return_branch.checkout()
+        if stashed:
+            repo.git.stash("apply")
+
+        # delete the temporary branch
+        repo.git.branch("-D", name)
+
+
+def meld_and_push(repo: DataRepository, branch: str, data: dict,
+                  remote: str = "origin") -> None:
+    """
+    Given the repo object, a branch name and new data, meld it and commit it
+    and push the new branch to the remote.
+    """
+
+    with temporary_branch(repo.repo, branch, remote):
+        with repo.meld(data, os.path.join("blizzard", "local", "macros")):
+            subprocess.run(["mk", "dz-sync"], check=True)
+            repo.repo.git.add(all=True)
+            repo.repo.git.commit("-m", "automated macro add")
+            repo.repo.git.push("-u", remote, branch)
+
+        # create pull request, get url of pull request
+        # https://docs.github.com/en/rest/reference/pulls#create-a-pull-request
+
+
+# pylint:disable=global-statement
 def add_macro_handler(_: BaseHTTPRequestHandler,
                       data: dict) -> Tuple[bool, str]:
     """ Handle a request from 'add_macro.html' so we can add content. """
 
+    global REQUEST_NUM
     redirect = "https://vkottler.github.io/blizzard/static/add_macro.html"
+    assert REPO is not None
 
     # validate the request
     keys = ["class", "name", "icon", "description", "lines"]
@@ -43,7 +107,6 @@ def add_macro_handler(_: BaseHTTPRequestHandler,
 
         # make sure we don't handle concurrent requests
         with REPO_LOCK:
-
             # build the macro content
             macro = {
                 "name": data["name"][0].strip(),
@@ -51,23 +114,13 @@ def add_macro_handler(_: BaseHTTPRequestHandler,
                 "icon": data["icon"][0].strip(),
                 "lines": [x.strip() for x in data["lines"][0].split("\r\n")],
             }
-            print(macro)
+            klass = data["class"][0] if "class" in data else "generic"
+            spec = data["spec"][0] if "spec" in data else "generic"
 
-            # fetch the repository, pull main branch, create branch
-
-            # determine the destination, load it, add our entry, write back
-            print(data["class"][0])
-            if "spec" in data:
-                print(data["spec"][0])
-
-            # run 'mk dz-sync' on the checkout
-
-            # commit changes to branch, push
-
-            # create pull request, get url of pull request
-            # https://docs.github.com/en/rest/reference/pulls#create-a-pull-request
-
-            # checkout main brainch
+            # on a new, temporary branch, meld the macro into existing data
+            temp_branch = "macro-{}".format(REQUEST_NUM)
+            meld_and_push(REPO, temp_branch, {klass: {spec: [macro]}})
+            REQUEST_NUM += 1
 
     return True, RESPONSE.format(redirect).strip()
 
@@ -75,13 +128,16 @@ def add_macro_handler(_: BaseHTTPRequestHandler,
 def main(_: List[str]) -> int:
     """ Start a simple web server that runs the update routine. """
 
+    global REPO
     log = "{}.log".format(datetime.now().strftime("%d-%m-%Y-%H:%M:%S"))
-    logging.basicConfig(level=logging.INFO, filename=log)
+    logging.basicConfig(level=logging.DEBUG, filename=log)
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
     server = HttpDaemon("blizzard", ("0.0.0.0", 8080),
                         MapperAwareRequestHandler)
     server.add_handler("POST", "add_macro", add_macro_handler,
                        response_type="text/html")
+    repo_loc = os.path.realpath(os.path.join(os.path.dirname(__file__), ".."))
+    REPO = DataRepository(repo_loc)
     return server.serve()
 
 
