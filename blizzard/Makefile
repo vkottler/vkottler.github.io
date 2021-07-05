@@ -26,17 +26,17 @@ $(BUILD_DIR)/blizzard:
 $(BUILD_DIR)/blizzard/generic.json: $($(PROJ)_DIR)/generic.json | $(BUILD_DIR)/blizzard
 	cp -f $< $@
 
-start: $(VENV_CONC)
+start: check-env | $(VENV_CONC)
 	$(PYTHON_BIN)/python server.py
 
-bapi-sync: $(VENV_CONC) check-env | $(BUILD_DIR)/blizzard/generic.json
+bapi-sync: check-env | $(VENV_CONC) $(BUILD_DIR)/blizzard/generic.json
 	$(PYTHON_BIN)/bapi -v -o $(BUILD_DIR)/cache
 	cp $(BUILD_DIR)/cache/*.json $(BUILD_DIR)/blizzard
 
 host:
 	cd $($(PROJ)_DIR)/static  && python -m http.server
 
-validate: $(VENV_CONC)
+validate: | $(VENV_CONC)
 	$(PYTHON_BIN)/html5validator --root $($(PROJ)_DIR)/static --also-check-css
 
 config: $(BUILD_DIR)/blizzard/generic.json
