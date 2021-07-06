@@ -65,9 +65,13 @@ def temporary_branch(repo: git.Repo, name: str = "temp",
         temp_branch = repo.create_head(name, "{}/{}".format(remote,
                                                             main_branch))
         temp_branch.checkout()
+        repo.git.reset("HEAD", hard=True)
+        repo.git.clean("-fd")
         yield
     finally:
         return_branch.checkout()
+        repo.git.reset("HEAD", hard=True)
+        repo.git.clean("-fd")
         if stashed:
             repo.git.stash("apply")
 
