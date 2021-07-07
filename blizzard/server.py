@@ -165,6 +165,15 @@ def main(_: List[str]) -> int:
     assert "GITHUB_API_TOKEN" in os.environ
     server = HttpDaemon("blizzard", ("0.0.0.0", 8080),
                         MapperAwareRequestHandler)
+    if os.environ.get("BLIZZARD_HOSTNAME", ""):
+        hostname = os.environ["BLIZZARD_HOSTNAME"]
+        cert_root = os.path.join(
+            os.sep, "etc", "letsencrypt", "live", hostname
+        )
+        server.use_tls(
+            os.path.join(cert_root, "privkey.pem"),
+            os.path.join(cert_root, "fullchain.pem"),
+        )
     server.add_handler("POST", "add_macro", add_macro_handler,
                        response_type="text/html")
     repo_loc = os.path.realpath(os.path.join(os.path.dirname(__file__), ".."))

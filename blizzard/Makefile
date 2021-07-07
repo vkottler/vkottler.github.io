@@ -27,7 +27,7 @@ $(BUILD_DIR)/blizzard/generic.json: $($(PROJ)_DIR)/generic.json | $(BUILD_DIR)/b
 	cp -f $< $@
 
 start: check-env | $(VENV_CONC)
-	$(PYTHON_BIN)/python server.py
+	sudo -E $(PYTHON_BIN)/python server.py
 
 bapi-sync: check-env | $(VENV_CONC) $(BUILD_DIR)/blizzard/generic.json
 	$(PYTHON_BIN)/bapi -v -o $(BUILD_DIR)/cache
@@ -41,3 +41,6 @@ validate: | $(VENV_CONC)
 
 config: $(BUILD_DIR)/blizzard/generic.json
 	ln -s ../im/svg/$@ $@
+
+clean-logs:
+	rm $($(PROJ)_DIR)/*.log
