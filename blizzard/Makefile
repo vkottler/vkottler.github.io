@@ -13,7 +13,7 @@ $(error target this Makefile with 'mk', not '$(MAKE)' ($(MK_INFO)))
 endif
 ###############################################################################
 
-.PHONY: bapi-sync host validate start
+.PHONY: bapi-sync host validate start clean-logs cert-perms
 
 .DEFAULT_GOAL := bapi-sync
 
@@ -26,8 +26,15 @@ $(BUILD_DIR)/blizzard:
 $(BUILD_DIR)/blizzard/generic.json: $($(PROJ)_DIR)/generic.json | $(BUILD_DIR)/blizzard
 	cp -f $< $@
 
+HOSTNAME := vaughnkottler.com
+cert-perms:
+	sudo chown root:sudo /etc/letsencrypt/live/$(HOSTNAME)/privkey.pem
+	sudo chown root:sudo /etc/letsencrypt/live/$(HOSTNAME)/fullchain.pem
+	sudo chmod g+r /etc/letsencrypt/live/$(HOSTNAME)/privkey.pem
+	sudo chmod g+r /etc/letsencrypt/live/$(HOSTNAME)/fullchain.pem
+
 start: check-env | $(VENV_CONC)
-	sudo -E $(PYTHON_BIN)/python server.py
+	$(PYTHON_BIN)/python server.py
 
 bapi-sync: check-env | $(VENV_CONC) $(BUILD_DIR)/blizzard/generic.json
 	$(PYTHON_BIN)/bapi -v -o $(BUILD_DIR)/cache
