@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.6
-    hash=8d8c65ceea266bdb8c9760a3540ac632
+    hash=457db2dc9faa08cd0656f4daeb43fcc6
     =====================================
 -->
 
@@ -89,6 +89,36 @@
             </textarea>
             <div class="spacer"></div>
           </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>STOP</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/spell_nature_swiftness.jpg"
+                 alt="'spell_nature_swiftness' Icon for Generic 'STOP'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('generic_2')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>Cancel immunities and stop casting. Kind of a panic button.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="generic_2"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
           <hr class="bg_gray_primary_200">
         </div>
         <div class="columns">
@@ -113,6 +143,21 @@
       if (elem != null) {
         inner = "";
         inner += "/run local U=UnitIsUnit  hooksecurefunc(\"CompactUnitFrame_UpdateName\", function(F) if IsActiveBattlefieldArena() and F.unit:find(\"nameplate\") then for i=1,5 do if U(F.unit,\"arena\"..i) then F.name:SetText(i)F.name:SetTextColor(1,1,0) break end end end end)";
+        elem.innerHTML = inner;
+      }
+      elem = document.getElementById("generic_2");
+      if (elem != null) {
+        inner = "";
+        inner += "/stopcasting" + String.fromCharCode(13, 10);
+        inner += "/dismount" + String.fromCharCode(13, 10);
+        inner += "/cancelaura Ice Block" + String.fromCharCode(13, 10);
+        inner += "/cancelaura Slow Fall" + String.fromCharCode(13, 10);
+        inner += "/cancelaura Levitate" + String.fromCharCode(13, 10);
+        inner += "/cancelaura Burning Rush" + String.fromCharCode(13, 10);
+        inner += "/cancelaura Divine Shield" + String.fromCharCode(13, 10);
+        inner += "/cancelaura Blessing of Protection" + String.fromCharCode(13, 10);
+        inner += "/cancelaura Aspect of the Turtle" + String.fromCharCode(13, 10);
+        inner += "/cancelaura Eye of Kilrogg";
         elem.innerHTML = inner;
       }
 
