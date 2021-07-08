@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.6
-    hash=5177a235b1815afbe9e29fc0d50a6db7
+    hash=d5d4a15c6f1332761a384b5ec9fb156c
     =====================================
 -->
 
@@ -119,6 +119,36 @@
             </textarea>
             <div class="spacer"></div>
           </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>hs</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/warlock_healthstone.jpg"
+                 alt="'warlock_healthstone' Icon for Generic 'hs'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('generic_3')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>Use a healthstone, macro is useful for allocating a bind for this when you don't have one.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="generic_3"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
           <hr class="bg_gray_primary_200">
         </div>
         <div class="columns">
@@ -158,6 +188,13 @@
         inner += "/cancelaura Blessing of Protection" + String.fromCharCode(13, 10);
         inner += "/cancelaura Aspect of the Turtle" + String.fromCharCode(13, 10);
         inner += "/cancelaura Eye of Kilrogg";
+        elem.innerHTML = inner;
+      }
+      elem = document.getElementById("generic_3");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip Healthstone" + String.fromCharCode(13, 10);
+        inner += "/use Healthstone";
         elem.innerHTML = inner;
       }
 
