@@ -190,6 +190,7 @@
   {% for spec in global[item]["specs"] %}
   specs["{{item}}"].push({"name": "{{spec["name"]}}", "slug": "{{spec["slug"]}}"});
   {% endfor %}
+  specs["{{item}}"].push({"name": "Generic", "slug": "generic"});
   {% endif %}
   {% endfor %}
   let class_select = document.getElementById("class");

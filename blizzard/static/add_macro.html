@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.6
-    hash=2127c0b77f9d051839a40c2e7629e756
+    hash=a12d3443ed8c56822a57cd7e132b0663
     =====================================
 -->
 
@@ -219,54 +219,67 @@
       /* dynamic spec lists */
       let specs = {};
       specs["generic"] = [];
+      specs["generic"].push({"name": "Generic", "slug": "generic"});
       specs["death_knight"] = [];
       specs["death_knight"].push({"name": "Blood", "slug": "blood"});
       specs["death_knight"].push({"name": "Frost", "slug": "frost"});
       specs["death_knight"].push({"name": "Unholy", "slug": "unholy"});
+      specs["death_knight"].push({"name": "Generic", "slug": "generic"});
       specs["demon_hunter"] = [];
       specs["demon_hunter"].push({"name": "Havoc", "slug": "havoc"});
       specs["demon_hunter"].push({"name": "Vengeance", "slug": "vengeance"});
+      specs["demon_hunter"].push({"name": "Generic", "slug": "generic"});
       specs["druid"] = [];
       specs["druid"].push({"name": "Balance", "slug": "balance"});
       specs["druid"].push({"name": "Feral", "slug": "feral"});
       specs["druid"].push({"name": "Guardian", "slug": "guardian"});
       specs["druid"].push({"name": "Restoration", "slug": "restoration"});
+      specs["druid"].push({"name": "Generic", "slug": "generic"});
       specs["hunter"] = [];
       specs["hunter"].push({"name": "Beast Mastery", "slug": "beast_mastery"});
       specs["hunter"].push({"name": "Marksmanship", "slug": "marksmanship"});
       specs["hunter"].push({"name": "Survival", "slug": "survival"});
+      specs["hunter"].push({"name": "Generic", "slug": "generic"});
       specs["mage"] = [];
       specs["mage"].push({"name": "Arcane", "slug": "arcane"});
       specs["mage"].push({"name": "Fire", "slug": "fire"});
       specs["mage"].push({"name": "Frost", "slug": "frost"});
+      specs["mage"].push({"name": "Generic", "slug": "generic"});
       specs["monk"] = [];
       specs["monk"].push({"name": "Brewmaster", "slug": "brewmaster"});
       specs["monk"].push({"name": "Windwalker", "slug": "windwalker"});
       specs["monk"].push({"name": "Mistweaver", "slug": "mistweaver"});
+      specs["monk"].push({"name": "Generic", "slug": "generic"});
       specs["paladin"] = [];
       specs["paladin"].push({"name": "Holy", "slug": "holy"});
       specs["paladin"].push({"name": "Protection", "slug": "protection"});
       specs["paladin"].push({"name": "Retribution", "slug": "retribution"});
+      specs["paladin"].push({"name": "Generic", "slug": "generic"});
       specs["priest"] = [];
       specs["priest"].push({"name": "Discipline", "slug": "discipline"});
       specs["priest"].push({"name": "Holy", "slug": "holy"});
       specs["priest"].push({"name": "Shadow", "slug": "shadow"});
+      specs["priest"].push({"name": "Generic", "slug": "generic"});
       specs["rogue"] = [];
       specs["rogue"].push({"name": "Assassination", "slug": "assassination"});
       specs["rogue"].push({"name": "Outlaw", "slug": "outlaw"});
       specs["rogue"].push({"name": "Subtlety", "slug": "subtlety"});
+      specs["rogue"].push({"name": "Generic", "slug": "generic"});
       specs["shaman"] = [];
       specs["shaman"].push({"name": "Elemental", "slug": "elemental"});
       specs["shaman"].push({"name": "Enhancement", "slug": "enhancement"});
       specs["shaman"].push({"name": "Restoration", "slug": "restoration"});
+      specs["shaman"].push({"name": "Generic", "slug": "generic"});
       specs["warlock"] = [];
       specs["warlock"].push({"name": "Affliction", "slug": "affliction"});
       specs["warlock"].push({"name": "Demonology", "slug": "demonology"});
       specs["warlock"].push({"name": "Destruction", "slug": "destruction"});
+      specs["warlock"].push({"name": "Generic", "slug": "generic"});
       specs["warrior"] = [];
       specs["warrior"].push({"name": "Arms", "slug": "arms"});
       specs["warrior"].push({"name": "Fury", "slug": "fury"});
       specs["warrior"].push({"name": "Protection", "slug": "protection"});
+      specs["warrior"].push({"name": "Generic", "slug": "generic"});
       let class_select = document.getElementById("class");
       let spec_select = document.getElementById("spec");
       function update_specs() {
