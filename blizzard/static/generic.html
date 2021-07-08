@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.6
-    hash=d2940abc0af7dbaf7775265b7c2fed3c
+    hash=6ecf343c1aed3cce1f6148c9a63db932
     =====================================
 -->
 
@@ -179,6 +179,36 @@
             </textarea>
             <div class="spacer"></div>
           </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>14</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/ability_warrior_endlessrage.jpg"
+                 alt="'ability_warrior_endlessrage' Icon for Generic '14'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('generic_5')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>Use your second trinket.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="generic_5"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
           <hr class="bg_gray_primary_200">
         </div>
         <div class="columns">
@@ -232,6 +262,13 @@
         inner = "";
         inner += "#showtooltip 13" + String.fromCharCode(13, 10);
         inner += "/use 13";
+        elem.innerHTML = inner;
+      }
+      elem = document.getElementById("generic_5");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip 14" + String.fromCharCode(13, 10);
+        inner += "/use 14";
         elem.innerHTML = inner;
       }
 
