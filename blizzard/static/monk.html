@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.6
-    hash=43bd5d40faad71e899e372ab5d7d6191
+    hash=f3895bdc92b252806e76eade858e2104
     =====================================
 -->
 
@@ -59,6 +59,37 @@
             </h2>
             <div class="spacer"></div>
           </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>stl</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/ability_monk_tigerslust.jpg"
+                 alt="'ability_monk_tigerslust' Icon for Generic 'stl'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('generic_1')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>Cast tiger's lust on yourself.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="generic_1"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+          <hr class="bg_gray_primary_200">
         </div>
         <div class="columns">
           <div class="rows">
@@ -835,6 +866,13 @@
       let elem;
       let inner
 
+      elem = document.getElementById("generic_1");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip Tiger\u0027s Lust" + String.fromCharCode(13, 10);
+        inner += "/cast [target=player] Tiger\u0027s Lust";
+        elem.innerHTML = inner;
+      }
 
       elem = document.getElementById("monk_brewmaster_15");
       if (elem != null) {
