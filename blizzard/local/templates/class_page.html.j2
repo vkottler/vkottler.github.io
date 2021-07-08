@@ -201,7 +201,7 @@
   if (elem != null) {
     inner = "";
     {% for line in item["lines"] %}
-    inner += "{{line}}"{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
+    inner += {{line|tojson}}{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
     {% endfor %}
     elem.innerHTML = inner;
   }
@@ -214,7 +214,7 @@
   if (elem != null) {
     inner = "";
     {% for line in row["macro_lines"] %}
-    inner += "{{line}}"{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
+    inner += {{line|tojson}}{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
     {% endfor %}
     elem.innerHTML = inner;
   }
@@ -226,7 +226,7 @@
   if (elem != null) {
     inner = "";
     {% for line in item["lines"] %}
-    inner += "{{line}}"{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
+    inner += {{line|tojson}}{% if loop.index != loop.length %} + String.fromCharCode(13, 10){% endif %};
     {% endfor %}
     elem.innerHTML = inner;
   }

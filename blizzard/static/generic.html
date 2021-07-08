@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.7.6
-    hash=68b9a7157bc40f2f9098636c064d41b5
+    hash=8d8c65ceea266bdb8c9760a3540ac632
     =====================================
 -->
 
@@ -112,7 +112,7 @@
       elem = document.getElementById("generic_1");
       if (elem != null) {
         inner = "";
-        inner += "/run local U=UnitIsUnit  hooksecurefunc("CompactUnitFrame_UpdateName", function(F) if IsActiveBattlefieldArena() and F.unit:find("nameplate") then for i=1,5 do if U(F.unit,"arena"..i) then F.name:SetText(i)F.name:SetTextColor(1,1,0) break end end end end)";
+        inner += "/run local U=UnitIsUnit  hooksecurefunc(\"CompactUnitFrame_UpdateName\", function(F) if IsActiveBattlefieldArena() and F.unit:find(\"nameplate\") then for i=1,5 do if U(F.unit,\"arena\"..i) then F.name:SetText(i)F.name:SetTextColor(1,1,0) break end end end end)";
         elem.innerHTML = inner;
       }
 
