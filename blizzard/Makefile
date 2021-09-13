@@ -47,6 +47,7 @@ validate: | $(VENV_CONC)
 	$(PYTHON_BIN)/html5validator --root $($(PROJ)_DIR)/static --also-check-css
 
 config: $(BUILD_DIR)/blizzard/generic.json
+	rm -f $@
 	ln -s ../im/svg/$@ $@
 
 clean-logs:
