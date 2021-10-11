@@ -1,0 +1,18 @@
+params:
+  canvas: local/canvas
+  variant: local/variant
+
+compiles:
+- name: logo-{variant}-variant
+  configs:
+  - "{{variant}}/configs/{variant}"
+  variables:
+  - "{{variant}}/variables/{variant}"
+
+- name: logo-{canvas}-canvas
+  configs:
+  - config/configs
+  - "{{canvas}}/configs/{canvas}"
+  variables:
+  - config/variables
+  - "{{canvas}}/variables/{canvas}"

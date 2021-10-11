@@ -1,0 +1,17 @@
+default_target: groups-all
+
+templates:
+- local/templates
+- config/templates
+
+schemas:
+- config/schemas
+
+includes:
+- local/includes/compiles.yaml
+- local/includes/renders.yaml
+
+groups:
+- name: all
+  dependencies:
+  - renders-logo-vdoer-base.svg
