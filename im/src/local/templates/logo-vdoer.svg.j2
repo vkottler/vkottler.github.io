@@ -1,2 +1,22 @@
-vdoer
 {% extends __templates__["logo-" ~ logo.canvas ~ ".svg"] %}
+{%- block svg_body %}
+{{super()}}
+{%- filter indent(width=4) %}
+
+{%- set pin_width = logo.size / 4 %}
+
+{%- set pin_height = (pin_width / logo.pin.count) * 3 / 2 %}
+{%- set pin_y_offset = logo.y_offset + (pin_width / 2) + pin_height %}
+{%- set pin_x_offset = logo.x_offset + (pin_width / 2) + pin_height %}
+
+{%- set body_side = logo.size - pin_width %}
+{%- set pin_spacing = ((body_side - (2 * pin_height) - (pin_height * logo.pin.count)) / (logo.pin.count - 1)) + pin_height %}
+
+{% include __templates__["pins.svg"] %}
+
+{% include __templates__["body.svg"] %}
+
+{% include __templates__[logo.variant ~ ".svg"] %}
+
+{% endfilter %}
+{% endblock svg_body %}

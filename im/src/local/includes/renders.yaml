@@ -3,4 +3,10 @@ renders:
   key: logo-{variant}.svg
   dependencies:
   - compiles-logo-{variant}-variant
+  # append '-debug' for lines, background etc.
   - compiles-logo-{canvas}-canvas
+  template_dependencies:
+  - "logo-{canvas}.svg"
+  - "{variant}.svg"
+  - body.svg
+  - pins.svg

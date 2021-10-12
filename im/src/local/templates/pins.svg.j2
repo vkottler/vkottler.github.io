@@ -1,0 +1,31 @@
+<!-- left pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{logo.x_offset}}" y="{{pin_y_offset + (i * pin_spacing)}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_width}}" height="{{pin_height}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- right pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{logo.x_offset + body_side}}" y="{{pin_y_offset + (i * pin_spacing)}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_width}}" height="{{pin_height}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- top pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{pin_x_offset + (i * pin_spacing)}}" y="{{logo.y_offset}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_height}}" height="{{pin_width}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
+
+<!-- bottom pins -->
+{% for i in range(logo.pin.count) %}
+<rect x="{{pin_x_offset + (i * pin_spacing)}}" y="{{logo.y_offset + body_side}}"
+      rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
+      width="{{pin_height}}" height="{{pin_width}}"
+      fill="{{logo.pin.color}}" />
+{% endfor %}
