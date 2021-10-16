@@ -16,7 +16,9 @@ all: sync
 $($(PROJ)_DIR)/config:
 	ln -s $($(PROJ)_DIR)/../svg/config $@
 
-sync: $(DZ_PREFIX)sync | $($(PROJ)_DIR)/config
+$(DZ_PREFIX)sync: | $($(PROJ)_DIR)/config
+
+sync: $(DZ_PREFIX)sync
 
 clean: $(DZ_PREFIX)clean
 
