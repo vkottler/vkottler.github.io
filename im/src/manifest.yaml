@@ -13,9 +13,13 @@ includes:
 - "{{config_root}}/includes/color.yaml"
 
 groups:
+- name: logo-{variant}
+  dependencies:
+  - renders-logo-{variant}:base.svg
+  - renders-logo-{variant}:circle.svg
+  - renders-logo-{variant}:circle-16_9.svg
+  - renders-logo-{variant}:16_9.svg
 - name: all
   dependencies:
-  - renders-logo-vdoer:base.svg
-  - renders-logo-vdoer:circle.svg
-  - renders-logo-vdoer:circle-16_9.svg
-  - renders-logo-vdoer:16_9.svg
+  - groups-logo-vdoer
+  - groups-logo-wiscv
