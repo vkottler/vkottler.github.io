@@ -2,5 +2,6 @@
 {% block svg_body %}
     <!-- logo background -->
     <circle cx="{{svg.width / 2}}" cy="{{svg.height / 2}}"
-            r="{{3 * logo.size / 4}}" fill="{{logo.background.color}}" />
+            r="{{3 * logo.size / 4}}"
+            fill="{{macros.get_color(logo.background.color, color)}}" />
 {% endblock svg_body %}

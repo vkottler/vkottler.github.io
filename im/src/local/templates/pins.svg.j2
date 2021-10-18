@@ -1,9 +1,10 @@
+{% set pin_color = macros.get_color(logo.pin.color, color) %}
 <!-- left pins -->
 {% for i in range(logo.pin.count) %}
 <rect x="{{logo.x_offset}}" y="{{pin_y_offset + (i * pin_spacing)}}"
       rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
       width="{{pin_width}}" height="{{pin_height}}"
-      fill="{{logo.pin.color}}" />
+      fill="{{pin_color}}" />
 {% endfor %}
 
 <!-- right pins -->
@@ -11,7 +12,7 @@
 <rect x="{{logo.x_offset + body_side}}" y="{{pin_y_offset + (i * pin_spacing)}}"
       rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
       width="{{pin_width}}" height="{{pin_height}}"
-      fill="{{logo.pin.color}}" />
+      fill="{{pin_color}}" />
 {% endfor %}
 
 <!-- top pins -->
@@ -19,7 +20,7 @@
 <rect x="{{pin_x_offset + (i * pin_spacing)}}" y="{{logo.y_offset}}"
       rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
       width="{{pin_height}}" height="{{pin_width}}"
-      fill="{{logo.pin.color}}" />
+      fill="{{pin_color}}" />
 {% endfor %}
 
 <!-- bottom pins -->
@@ -27,5 +28,5 @@
 <rect x="{{pin_x_offset + (i * pin_spacing)}}" y="{{logo.y_offset + body_side}}"
       rx="{{pin_height / 2}}" ry="{{pin_height / 2}}"
       width="{{pin_height}}" height="{{pin_width}}"
-      fill="{{logo.pin.color}}" />
+      fill="{{pin_color}}" />
 {% endfor %}

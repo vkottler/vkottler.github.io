@@ -5,39 +5,40 @@
 {% set symbol_x_len = body_side * 3 / 16 %}
 {% set symbol_y_len = body_side * 3 / 16 %}
 {% set symbol_stroke = body_side / 16 %}
+{% set symbol_color = macros.get_color(logo.symbol.color, color) %}
 <line x1="{{symbol_x + symbol_x_margin}}"
       y1="{{symbol_y}}"
       x2="{{symbol_x + symbol_x_margin + symbol_x_len}}"
       y2="{{symbol_y - symbol_y_len}}"
       stroke-linecap="round"
-      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+      style="stroke:{{symbol_color}};stroke-width:{{symbol_stroke}}" />
 <line x1="{{symbol_x + symbol_x_margin}}"
       y1="{{symbol_y}}"
       x2="{{symbol_x + symbol_x_margin + symbol_x_len}}"
       y2="{{symbol_y + symbol_y_len}}"
       stroke-linecap="round"
-      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+      style="stroke:{{symbol_color}};stroke-width:{{symbol_stroke}}" />
 
 <line x1="{{body_side + symbol_x - symbol_x_margin}}"
       y1="{{symbol_y}}"
       x2="{{body_side + symbol_x - (symbol_x_margin + symbol_x_len)}}"
       y2="{{symbol_y - symbol_y_len}}"
       stroke-linecap="round"
-      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+      style="stroke:{{symbol_color}};stroke-width:{{symbol_stroke}}" />
 <line x1="{{body_side + symbol_x - symbol_x_margin}}"
       y1="{{symbol_y}}"
       x2="{{body_side + symbol_x - (symbol_x_margin + symbol_x_len)}}"
       y2="{{symbol_y + symbol_y_len}}"
       stroke-linecap="round"
-      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+      style="stroke:{{symbol_color}};stroke-width:{{symbol_stroke}}" />
 
 {% set symbol_x_center = logo.x_offset + (logo.size / 2) %}
 <line x1="{{symbol_x_center}}" y1="{{symbol_y}}"
       x2="{{symbol_x_center - (symbol_x_len / 2)}}" y2="{{symbol_y + (symbol_y_len * 5 / 4)}}"
       stroke-linecap="round"
-      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+      style="stroke:{{symbol_color}};stroke-width:{{symbol_stroke}}" />
 
 <line x1="{{symbol_x_center}}" y1="{{symbol_y}}"
       x2="{{symbol_x_center + (symbol_x_len / 2)}}" y2="{{symbol_y - (symbol_y_len * 5 / 4)}}"
       stroke-linecap="round"
-      style="stroke:{{logo.symbol.color}};stroke-width:{{symbol_stroke}}" />
+      style="stroke:{{symbol_color}};stroke-width:{{symbol_stroke}}" />

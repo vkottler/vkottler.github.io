@@ -1,11 +1,26 @@
 size: {{size}}
 pin:
   count: {{pin.count|default(4, true)}}
-  color: "{{pin.color|default(global.color.blue_gray.primary.800, true)}}"
+  color:
+    theme: {{theme}}
+    variant: primary
+    hue: 800
 body:
-  color: "{{body.color|default(global.color.gray.primary.800, true)}}"
+  color:
+    theme: gray
+    variant: primary
+    hue: 800
 background:
-  color: "{{background.color|default(global.color.blue_gray.primary.500, true)}}"
+  color:
+    theme: {{theme}}
+    variant: primary
+    hue: 500
 symbol:
-  color: "{{symbol.color|default(global.color.blue_gray.primary.50, true)}}"
-  color2: "{{symbol.color2|default(global.color.blue_gray.primary.100, true)}}"
+  color:
+    theme: {{theme}}
+    variant: primary
+    hue: 50
+  color2:
+    theme: {{theme}}
+    variant: primary
+    hue: 100
