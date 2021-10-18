@@ -1,15 +1,19 @@
 default_target: groups-all
 
+params:
+  config_root: config
+
 templates:
 - local/templates
-- config/templates
+- "{{config_root}}/templates"
 
 schemas:
-- config/schemas
+- "{{config_root}}/schemas"
 
 includes:
 - local/includes/compiles.yaml
 - local/includes/renders.yaml
+- "{{config_root}}/includes/color.yaml"
 
 groups:
 - name: all
@@ -18,3 +22,4 @@ groups:
   - renders-logo-vdoer:circle.svg
   - renders-logo-vdoer:circle-16_9.svg
   - renders-logo-vdoer:16_9.svg
+  - compiles-colors

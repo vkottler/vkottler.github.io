@@ -9,23 +9,23 @@ compiles:
   - "{{variant}}/configs/{variant}"
   variables:
   - "{{variant}}/variables/{variant}"
-  - config/colors
+  - "{{config_root}}/color/configs"
 
 - name: logo-{canvas}-canvas
   override_path: logo
   configs:
-  - config/configs
+  - "{{config_root}}/configs"
   - "{{canvas}}/configs/{canvas}"
   variables:
-  - config/variables
+  - "{{config_root}}/variables"
   - "{{canvas}}/variables/{canvas}"
 
 - name: logo-{canvas}-canvas-debug
   override_path: logo
   configs:
-  - config/configs
+  - "{{config_root}}/configs"
   - "{{canvas}}/configs/{canvas}"
   variables:
-  - config/variables
+  - "{{config_root}}/variables"
   - "{{canvas}}/variables/{canvas}"
   - local/debug
