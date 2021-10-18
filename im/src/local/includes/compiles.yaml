@@ -9,6 +9,7 @@ compiles:
   - "{{variant}}/configs/{variant}"
   variables:
   - "{{variant}}/variables/{variant}"
+  # TODO: remove this
   - "{{config_root}}/color/configs"
 
 - name: logo-{canvas}-canvas
@@ -19,6 +20,10 @@ compiles:
   variables:
   - "{{config_root}}/variables"
   - "{{canvas}}/variables/{canvas}"
+  schemas:
+  - "{{config_root}}/schemas"
+  schema_types:
+  - "{{config_root}}/schema_types"
 
 - name: logo-{canvas}-canvas-debug
   override_path: logo
@@ -29,3 +34,7 @@ compiles:
   - "{{config_root}}/variables"
   - "{{canvas}}/variables/{canvas}"
   - local/debug
+  schemas:
+  - "{{config_root}}/schemas"
+  schema_types:
+  - "{{config_root}}/schema_types"
