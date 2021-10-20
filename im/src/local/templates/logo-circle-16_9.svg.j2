@@ -1,7 +1,16 @@
 {% extends __templates__["template.svg"] %}
 {% block svg_body %}
+    <defs>
+      <filter id="shadow">
+        <feDropShadow dx="0" dy="0"
+                      stdDeviation="{{logo.size / 16}}"
+                      flood-color="{{macros.get_color(logo.body.color, color)}}" />
+      </filter>
+    </defs>
+
     <!-- logo background -->
     <circle cx="{{svg.width / 2}}" cy="{{svg.height / 2}}"
             r="{{3 * logo.size / 4}}"
-            fill="{{macros.get_color(logo.background.color, color)}}" />
+            fill="{{macros.get_color(logo.background.color, color)}}"
+            style="filter:url(#shadow)" />
 {% endblock svg_body %}

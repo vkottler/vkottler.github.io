@@ -1,5 +1,8 @@
 {% extends __templates__["template.svg"] %}
 {% block svg_body %}
 
-    <!-- base logo doesn't add anything -->
+    <!-- background -->
+    <rect x="{{svg.x_offset}}" y="{{svg.y_offset}}"
+          width="{{svg.width}}" height="{{svg.height}}"
+          style="fill:{{macros.get_color(logo.background.color, color)}}" />
 {% endblock svg_body %}

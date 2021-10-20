@@ -8,7 +8,7 @@ $(error target this Makefile with 'mk', not '$(MAKE)' ($(MK_INFO)))
 endif
 ###############################################################################
 
-.PHONY: all sync clean serve
+.PHONY: all sync clean serve unpack
 .DEFAULT_GOAL = all
 
 SVG_TAR := $(BUILD_DIR)/svg.tar.gz
@@ -25,7 +25,10 @@ sync: $(DZ_PREFIX)sync
 $(SVG_TAR): $(DZ_PREFIX)sync | $(BUILD_DIR)
 	@rm -f $@
 	cd $(BUILD_DIR)/svg-minified && tar -czvf $@ *.svg
-	cd $(BUILD_DIR) && tar xvf $@
+
+unpack: $(SVG_TAR)
+	cd $(BUILD_DIR) && tar xvf $<
+	cd $(BUILD_DIR) && $(PYTHON_BIN)/python -m http.server 0
 
 clean: $(DZ_PREFIX)clean
 	@rm -rf $(BUILD_DIR)/svg-minified
@@ -33,4 +36,4 @@ clean: $(DZ_PREFIX)clean
 	@rm -f $(SVG_TAR)
 
 serve:
-	cd $($(PROJ)_DIR)/datazen-out && python -m http.server 0
+	cd $($(PROJ)_DIR)/datazen-out && $(PYTHON_BIN)/python -m http.server 0
