@@ -25,8 +25,11 @@ sync: $(DZ_PREFIX)sync
 $(SVG_TAR): $(DZ_PREFIX)sync | $(BUILD_DIR)
 	@rm -f $@
 	cd $(BUILD_DIR)/svg-minified && tar -czvf $@ *.svg
+	cd $(BUILD_DIR) && tar xvf $@
 
 clean: $(DZ_PREFIX)clean
+	@rm -rf $(BUILD_DIR)/svg-minified
+	@rm -rf $(BUILD_DIR)/*.svg
 	@rm -f $(SVG_TAR)
 
 serve:
