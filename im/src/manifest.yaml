@@ -12,6 +12,18 @@ includes:
 - local/includes/renders.yaml
 - "{{config_root}}/includes/color.yaml"
 
+commands:
+- name: "minify-svgs"
+  command: "svgo"
+  arguments:
+  - "-f"
+  - "datazen-out"
+  - "-o"
+  - "build/svg-minified"
+  dependencies:
+  - groups-logo-vdoer
+  - groups-logo-wiscv
+
 groups:
 - name: logo-{variant}
   dependencies:
@@ -21,5 +33,4 @@ groups:
   - renders-logo-{variant}:16_9.svg
 - name: all
   dependencies:
-  - groups-logo-vdoer
-  - groups-logo-wiscv
+  - commands-minify-svgs

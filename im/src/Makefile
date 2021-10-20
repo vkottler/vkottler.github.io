@@ -11,7 +11,9 @@ endif
 .PHONY: all sync clean serve
 .DEFAULT_GOAL = all
 
-all: sync
+SVG_TAR := $(BUILD_DIR)/svg.tar.gz
+
+all: $(SVG_TAR)
 
 $($(PROJ)_DIR)/config:
 	ln -s $($(PROJ)_DIR)/../svg/config $@
@@ -20,7 +22,12 @@ $(DZ_PREFIX)sync: | $($(PROJ)_DIR)/config
 
 sync: $(DZ_PREFIX)sync
 
+$(SVG_TAR): $(DZ_PREFIX)sync | $(BUILD_DIR)
+	@rm -f $@
+	cd $(BUILD_DIR)/svg-minified && tar -czvf $@ *.svg
+
 clean: $(DZ_PREFIX)clean
+	@rm -f $(SVG_TAR)
 
 serve:
 	cd $($(PROJ)_DIR)/datazen-out && python -m http.server 0
