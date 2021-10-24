@@ -1,0 +1,25 @@
+commands:
+- name: "to_png-{variant}:{canvas}:{width}:{height}"
+  command: inkscape
+  arguments:
+  - "{{out_dir}}/logo-{variant}:{canvas}.svg"
+  - "-e"
+  - "{{out_dir}}/logo-{variant}:{canvas}:{width}:{height}.png"
+  - "-w"
+  - "{width}"
+  - "-h"
+  - "{height}"
+  dependencies:
+  - "renders-logo-{variant}:{canvas}.svg"
+
+groups:
+- name: logo-{variant}:{canvas}:square:pngs
+  dependencies:
+  - commands-to_png-{variant}:{canvas}:16:16
+  - commands-to_png-{variant}:{canvas}:24:24
+  - commands-to_png-{variant}:{canvas}:32:32
+  - commands-to_png-{variant}:{canvas}:64:64
+  - commands-to_png-{variant}:{canvas}:128:128
+  - commands-to_png-{variant}:{canvas}:256:256
+  - commands-to_png-{variant}:{canvas}:512:512
+  - commands-to_png-{variant}:{canvas}:1024:1024

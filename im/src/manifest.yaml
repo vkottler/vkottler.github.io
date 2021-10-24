@@ -2,6 +2,7 @@ default_target: groups-all
 
 params:
   config_root: config
+  out_dir: datazen-out
 
 templates:
 - local/templates
@@ -10,6 +11,7 @@ templates:
 includes:
 - local/includes/compiles.yaml
 - local/includes/renders.yaml
+- local/includes/commands.yaml
 - "{{config_root}}/includes/color.yaml"
 
 commands:
@@ -17,14 +19,13 @@ commands:
   command: "svgo"
   arguments:
   - "-f"
-  - "datazen-out"
+  - "{{out_dir}}"
   - "--config"
   - "svgo.config.js"
   - "-o"
   - "build/svg-minified"
   dependencies:
-  - groups-logo-vdoer
-  - groups-logo-wiscv
+  - groups-all-renders
 
 groups:
 - name: logo-{variant}
@@ -33,6 +34,20 @@ groups:
   - renders-logo-{variant}:circle.svg
   - renders-logo-{variant}:circle-16_9.svg
   - renders-logo-{variant}:16_9.svg
+
+- name: logo-{variant}:pngs
+  dependencies:
+  - groups-logo-{variant}:base:square:pngs
+  - groups-logo-{variant}:circle:square:pngs
+
+- name: all-renders
+  dependencies:
+  - groups-logo-vdoer
+  - groups-logo-wiscv
+- name: all-pngs
+  dependencies:
+  - groups-logo-vdoer:pngs
+  - groups-logo-wiscv:pngs
 - name: all
   dependencies:
   - commands-minify-svgs
