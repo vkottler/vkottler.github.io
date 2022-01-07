@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.9.5
-    hash=363670874d6b509de4769dd80fbfb12d
+    hash=bdd1689e9eb838ecdc479da7f9f3f504
     =====================================
 -->
 
@@ -59,6 +59,37 @@
             </h2>
             <div class="spacer"></div>
           </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>Shadow Mend + Mind Blast</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/spell_shadow_shadowmend.jpg"
+                 alt="'spell_shadow_shadowmend' Icon for Generic 'Shadow Mend + Mind Blast'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('generic_1')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>A useful help/harm macro.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="generic_1"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+          <hr class="bg_gray_primary_200">
         </div>
         <div class="columns">
           <div class="rows">
@@ -378,36 +409,6 @@
           </div>
           <div class="rows">
             <div class="spacer"></div>
-            <div class="columns">
-              <div class="spacer"></div>
-              <h3>Shadow Mend + Mind Blast</h3>
-              <div class="spacer"></div>
-            </div>
-            <img class="wow_icon"
-                 src="https://render-us.worldofwarcraft.com/icons/56/spell_shadow_shadowmend.jpg"
-                 alt="'spell_shadow_shadowmend' Icon for Shadow 'Shadow Mend + Mind Blast'">
-            <div class="columns">
-              <div class="spacer"></div>
-              <button onclick="copy_macro('shadow_1')" type="button"
-                      class="mono">Copy Macro</button>
-              <div class="spacer"></div>
-            </div>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows pad">
-            <div class="spacer"></div>
-            <div>A useful help/harm macro.</div>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
-            <textarea readonly cols="60" rows="4" id="shadow_1"
-             class="mono gray_primary_200 bg_gray_primary_700">
-            </textarea>
-            <div class="spacer"></div>
-          </div>
-          <div class="rows">
-            <div class="spacer"></div>
             <h3>Generated</h3>
             <div class="spacer"></div>
           </div>
@@ -519,6 +520,13 @@
       let elem;
       let inner
 
+      elem = document.getElementById("generic_1");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast [help] Shadow Mend; Mind Blast";
+        elem.innerHTML = inner;
+      }
 
       elem = document.getElementById("priest_discipline_15");
       if (elem != null) {
@@ -649,13 +657,6 @@
         elem.innerHTML = inner;
       }
 
-      elem = document.getElementById("shadow_1");
-      if (elem != null) {
-        inner = "";
-        inner += "#showtooltip" + String.fromCharCode(13, 10);
-        inner += "/cast [help] Shadow Mend; Mind Blast";
-        elem.innerHTML = inner;
-      }
     </script>
 
   </body>
