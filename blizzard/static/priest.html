@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.9.5
-    hash=406e14f08b1ee491645bec34289a90cf
+    hash=0e4bfc64058f3153a9fa2f3d4dbe5cb9
     =====================================
 -->
 
@@ -145,6 +145,36 @@
           <div class="rows">
             <div class="spacer"></div>
             <textarea readonly cols="60" rows="4" id="generic_3"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>disp</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/spell_holy_dispelmagic.jpg"
+                 alt="'spell_holy_dispelmagic' Icon for Generic 'disp'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('generic_4')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>A useful help/harm macro.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="generic_4"
              class="mono gray_primary_200 bg_gray_primary_700">
             </textarea>
             <div class="spacer"></div>
@@ -629,6 +659,13 @@
         inner = "";
         inner += "#showtooltip" + String.fromCharCode(13, 10);
         inner += "/cast [help] Purify Disease; Dispel Magic";
+        elem.innerHTML = inner;
+      }
+      elem = document.getElementById("generic_4");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast [help] Purify; Dispel Magic";
         elem.innerHTML = inner;
       }
 
