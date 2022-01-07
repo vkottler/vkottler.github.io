@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.9.5
-    hash=bdd1689e9eb838ecdc479da7f9f3f504
+    hash=3e28726917bad38df49b6577b816da42
     =====================================
 -->
 
@@ -409,6 +409,36 @@
           </div>
           <div class="rows">
             <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>sform</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/spell_shadow_shadowform.jpg"
+                 alt="'spell_shadow_shadowform' Icon for Shadow 'sform'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('shadow_1')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>Prevent toggling Shadowform.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="shadow_1"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
             <h3>Generated</h3>
             <div class="spacer"></div>
           </div>
@@ -657,6 +687,13 @@
         elem.innerHTML = inner;
       }
 
+      elem = document.getElementById("shadow_1");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast !Shadowform";
+        elem.innerHTML = inner;
+      }
     </script>
 
   </body>
