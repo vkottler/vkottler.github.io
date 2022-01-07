@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.9.5
-    hash=0e4bfc64058f3153a9fa2f3d4dbe5cb9
+    hash=bb9e30fc513c7ae232142865f5ddad71
     =====================================
 -->
 
@@ -529,6 +529,36 @@
           </div>
           <div class="rows">
             <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>sc</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/spell_shadow_shadowfury.jpg"
+                 alt="'spell_shadow_shadowfury' Icon for Shadow 'sc'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('shadow_2')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>A useful cursor macro.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="shadow_2"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
             <h3>Generated</h3>
             <div class="spacer"></div>
           </div>
@@ -803,6 +833,13 @@
         inner = "";
         inner += "#showtooltip" + String.fromCharCode(13, 10);
         inner += "/cast !Shadowform";
+        elem.innerHTML = inner;
+      }
+      elem = document.getElementById("shadow_2");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast [@cursor] Shadow Crash";
         elem.innerHTML = inner;
       }
     </script>
