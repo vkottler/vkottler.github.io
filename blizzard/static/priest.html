@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.9.5
-    hash=ec287ceb99a0e40b5d9b5233ff15118e
+    hash=b0e68c8d75f9479a393dbbe65f34d681
     =====================================
 -->
 
@@ -709,6 +709,36 @@
           </div>
           <div class="rows">
             <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>fsil</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/ability_priest_silence.jpg"
+                 alt="'ability_priest_silence' Icon for Shadow 'fsil'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('shadow_3')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>A useful focus macro.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="shadow_3"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
             <h3>Generated</h3>
             <div class="spacer"></div>
           </div>
@@ -1025,6 +1055,13 @@
         inner = "";
         inner += "#showtooltip" + String.fromCharCode(13, 10);
         inner += "/cast [@cursor] Shadow Crash";
+        elem.innerHTML = inner;
+      }
+      elem = document.getElementById("shadow_3");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast [target=focus] Silence";
         elem.innerHTML = inner;
       }
     </script>
