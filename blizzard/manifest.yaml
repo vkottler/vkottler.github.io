@@ -1,120 +1,121 @@
+---
 default_target: "groups-all"
 
 params:
   config_dir: "../im/svg/config"
 
 variables:
-- "local/variables"
+  - "local/variables"
 
 templates:
-- "local/templates"
-- "{{config_dir}}/templates"
+  - "local/templates"
+  - "{{config_dir}}/templates"
 
 compiles:
-- name: "html"
-  configs:
-  - "local/configs"
-  - "{{config_dir}}/configs"
-- name: "colors"
-  configs:
-  - "{{config_dir}}/colors"
-- name: "blizzard"
-  configs:
-  - "local/configs"
-  - "build/blizzard"
-- name: "blizzard-{class_name}"
-  index_path: "{class_name}"
-  configs:
-  - "build/blizzard"
-- name: "macros-{class_name}"
-  index_path: "{class_name}"
-  configs:
-  - "local/macros"
+  - name: "html"
+    configs:
+      - "local/configs"
+      - "{{config_dir}}/configs"
+  - name: "colors"
+    configs:
+      - "{{config_dir}}/color/configs"
+  - name: "blizzard"
+    configs:
+      - "local/configs"
+      - "build/blizzard"
+  - name: "blizzard-{class_name}"
+    index_path: "{class_name}"
+    configs:
+      - "build/blizzard"
+  - name: "macros-{class_name}"
+    index_path: "{class_name}"
+    configs:
+      - "local/macros"
 
 renders:
-- name: "{class_name}-base"
-  key: "class_page.html"
-  as: "html_content"
-  indent: 4
-  no_file: true
-  dependencies:
-  - "compiles-blizzard-{class_name}"
-  - "compiles-macros-{class_name}"
-  - "html"
+  - name: "{class_name}-base"
+    key: "class_page.html"
+    as: "html_content"
+    indent: 4
+    no_file: true
+    dependencies:
+      - "compiles-blizzard-{class_name}"
+      - "compiles-macros-{class_name}"
+      - "html"
 
-- name: "index-base"
-  key: "index.html"
-  as: "html_content"
-  indent: 4
-  no_file: true
-  dependencies:
-  - "blizzard"
+  - name: "index-base"
+    key: "index.html"
+    as: "html_content"
+    indent: 4
+    no_file: true
+    dependencies:
+      - "blizzard"
 
-- name: "add_macro-base"
-  key: "add_macro.html"
-  as: "html_content"
-  indent: 4
-  no_file: true
-  dependencies:
-  - "blizzard"
+  - name: "add_macro-base"
+    key: "add_macro.html"
+    as: "html_content"
+    indent: 4
+    no_file: true
+    dependencies:
+      - "blizzard"
 
-- name: "{title}.html"
-  output_dir: "static"
-  key: "basic.html"
-  override_path: "html"
-  dependencies:
-  - "renders-{title}-base"
-  - "renders-colors.css"
-  - "renders-theme.css"
-  - "html"
+  - name: "{title}.html"
+    output_dir: "static"
+    key: "basic.html"
+    override_path: "html"
+    dependencies:
+      - "renders-{title}-base"
+      - "renders-colors.css"
+      - "renders-theme.css"
+      - "html"
 
-- name: "index.html"
-  output_dir: "static"
-  key: "basic.html"
-  dependencies:
-  - "renders-index-base"
-  - "renders-colors.css"
-  - "renders-theme.css"
-  - "html"
+  - name: "index.html"
+    output_dir: "static"
+    key: "basic.html"
+    dependencies:
+      - "renders-index-base"
+      - "renders-colors.css"
+      - "renders-theme.css"
+      - "html"
 
-- name: "add_macro.html"
-  output_dir: "static"
-  key: "basic.html"
-  dependencies:
-  - "renders-add_macro-base"
-  - "renders-colors.css"
-  - "renders-theme.css"
-  - "html"
+  - name: "add_macro.html"
+    output_dir: "static"
+    key: "basic.html"
+    dependencies:
+      - "renders-add_macro-base"
+      - "renders-colors.css"
+      - "renders-theme.css"
+      - "html"
 
-- name: "colors.css"
-  output_dir: "static/css"
-  dependencies:
-  - "colors"
+  - name: "colors.css"
+    output_dir: "static/css"
+    dependencies:
+      - "colors"
 
-- name: "theme.css"
-  output_dir: "static/css"
-  dependencies:
-  - "colors"
-  - "html"
+  - name: "theme.css"
+    output_dir: "static/css"
+    dependencies:
+      - "colors"
+      - "html"
 
 groups:
-- name: "sub-pages"
-  dependencies:
-  - "renders-generic.html"
-  - "renders-death_knight.html"
-  - "renders-demon_hunter.html"
-  - "renders-druid.html"
-  - "renders-hunter.html"
-  - "renders-mage.html"
-  - "renders-monk.html"
-  - "renders-paladin.html"
-  - "renders-priest.html"
-  - "renders-rogue.html"
-  - "renders-shaman.html"
-  - "renders-warlock.html"
-  - "renders-warrior.html"
-- name: "all"
-  dependencies:
-  - "renders-index.html"
-  - "renders-add_macro.html"
-  - "groups-sub-pages"
+  - name: "sub-pages"
+    dependencies:
+      - "renders-generic.html"
+      - "renders-death_knight.html"
+      - "renders-demon_hunter.html"
+      - "renders-druid.html"
+      - "renders-hunter.html"
+      - "renders-mage.html"
+      - "renders-monk.html"
+      - "renders-paladin.html"
+      - "renders-priest.html"
+      - "renders-rogue.html"
+      - "renders-shaman.html"
+      - "renders-warlock.html"
+      - "renders-warrior.html"
+  - name: "all"
+    dependencies:
+      - "renders-index.html"
+      - "renders-add_macro.html"
+      - "groups-sub-pages"
