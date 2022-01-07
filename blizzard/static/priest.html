@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.9.5
-    hash=3e28726917bad38df49b6577b816da42
+    hash=3256c29aaaf4d0912e68fabdee3122ce
     =====================================
 -->
 
@@ -85,6 +85,36 @@
           <div class="rows">
             <div class="spacer"></div>
             <textarea readonly cols="60" rows="4" id="generic_1"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>sfeth</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/ability_priest_angelicfeather.jpg"
+                 alt="'ability_priest_angelicfeather' Icon for Generic 'sfeth'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('generic_2')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>Cast Angelic Feather on yourself.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="generic_2"
              class="mono gray_primary_200 bg_gray_primary_700">
             </textarea>
             <div class="spacer"></div>
@@ -555,6 +585,13 @@
         inner = "";
         inner += "#showtooltip" + String.fromCharCode(13, 10);
         inner += "/cast [help] Shadow Mend; Mind Blast";
+        elem.innerHTML = inner;
+      }
+      elem = document.getElementById("generic_2");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast [@player] Angelic Feather";
         elem.innerHTML = inner;
       }
 
