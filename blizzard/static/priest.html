@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.9.5
-    hash=bb9e30fc513c7ae232142865f5ddad71
+    hash=3d05033a0a872efc77afb334fde3f0a5
     =====================================
 -->
 
@@ -194,6 +194,36 @@
               Manually Added
               (<a class="mono" href="add_macro.html?class=priest&spec=discipline">add_new</a>)
             </h3>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>pwb</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/spell_holy_powerwordbarrier.jpg"
+                 alt="'spell_holy_powerwordbarrier' Icon for Discipline 'pwb'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('discipline_1')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>A useful cursor macro.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="discipline_1"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
             <div class="spacer"></div>
           </div>
           <div class="rows">
@@ -741,6 +771,13 @@
         elem.innerHTML = inner;
       }
 
+      elem = document.getElementById("discipline_1");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast [@cursor] Power Word: Barrier";
+        elem.innerHTML = inner;
+      }
       elem = document.getElementById("priest_holy_15");
       if (elem != null) {
         inner = "";
