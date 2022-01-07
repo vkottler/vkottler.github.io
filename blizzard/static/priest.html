@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=1.9.5
-    hash=0f3c7d8d7b346641da87daa4bdc2cf9e
+    hash=8ab9c49aac81be35ff555f703bb44e70
     =====================================
 -->
 
@@ -445,6 +445,36 @@
           </div>
           <div class="rows">
             <div class="spacer"></div>
+            <div class="columns">
+              <div class="spacer"></div>
+              <h3>hws</h3>
+              <div class="spacer"></div>
+            </div>
+            <img class="wow_icon"
+                 src="https://render-us.worldofwarcraft.com/icons/56/spell_holy_divineprovidence.jpg"
+                 alt="'spell_holy_divineprovidence' Icon for Holy 'hws'">
+            <div class="columns">
+              <div class="spacer"></div>
+              <button onclick="copy_macro('holy_2')" type="button"
+                      class="mono">Copy Macro</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows pad">
+            <div class="spacer"></div>
+            <div>A useful cursor macro.</div>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
+            <textarea readonly cols="60" rows="4" id="holy_2"
+             class="mono gray_primary_200 bg_gray_primary_700">
+            </textarea>
+            <div class="spacer"></div>
+          </div>
+          <div class="rows">
+            <div class="spacer"></div>
             <h3>Generated</h3>
             <div class="spacer"></div>
           </div>
@@ -860,6 +890,13 @@
         inner = "";
         inner += "#showtooltip" + String.fromCharCode(13, 10);
         inner += "/cast [help] Renew; Shadow Word: Pain";
+        elem.innerHTML = inner;
+      }
+      elem = document.getElementById("holy_2");
+      if (elem != null) {
+        inner = "";
+        inner += "#showtooltip" + String.fromCharCode(13, 10);
+        inner += "/cast [@cursor] Holy Word: Sanctify";
         elem.innerHTML = inner;
       }
       elem = document.getElementById("priest_shadow_15");
