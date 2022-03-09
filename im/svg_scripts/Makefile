@@ -13,7 +13,7 @@ $(error target this Makefile with 'mk', not '$(MAKE)' ($(MK_INFO)))
 endif
 ###############################################################################
 
-.PHONY: edit setup
+.PHONY: edit setup host-svg
 
 .DEFAULT_GOAL := setup
 
@@ -36,3 +36,19 @@ $(SVGEN_CONC): | $(VENV_CONC) $(MK_CONC)
 setup: $($(PROJ)_DIR)/svgen $($(PROJ)_DIR)/config $(SVGEN_CONC)
 
 edit: setup $(PY_PREFIX)edit
+
+SCRIPT_DIR := $($(PROJ)_DIR)/$(PROJ)
+SVG_DIR := $(BUILD_DIR)/svg
+
+$(SVG_DIR):
+	mkdir -p $@
+
+host-svg: | $(SVG_DIR)
+	cd $(SVG_DIR) && \
+		$(PYTHON) -m http.server 0
+
+script-%: | setup $(SVG_DIR)
+	$(PYTHON_BIN)/svgen \
+		-c $(SCRIPT_DIR)/$*/json \
+		-o $(SVG_DIR)/$*.svg \
+		$(SCRIPT_DIR)/$*.py
