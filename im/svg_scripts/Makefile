@@ -48,7 +48,7 @@ host-svg: | $(SVG_DIR)
 		$(PYTHON) -m http.server 0
 
 script-%: | setup $(SVG_DIR)
-	$(PYTHON_BIN)/svgen \
-		-c $(SCRIPT_DIR)/$*/json \
+	@$(PYTHON_BIN)/svgen \
+		-c $(SCRIPT_DIR)/$*.json \
 		-o $(SVG_DIR)/$*.svg \
 		$(SCRIPT_DIR)/$*.py
