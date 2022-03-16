@@ -17,11 +17,11 @@ endif
 
 .DEFAULT_GOAL := setup
 
-$($(PROJ)_DIR)/svgen:
-	ln -s $(GIT_ROOT)/../svgen $@
-
 $($(PROJ)_DIR)/config:
 	ln -s $($(PROJ)_DIR)/../svg/config $@
+
+$($(PROJ)_DIR)/%:
+	ln -s $(GIT_ROOT)/../svgen/$* $@
 
 MK_CONC := $(call to_concrete, vmklib-install)
 $(MK_CONC): | $(VENV_CONC)
@@ -33,7 +33,12 @@ $(SVGEN_CONC): | $(VENV_CONC) $(MK_CONC)
 	$(PIP) install -e $(GIT_ROOT)/../svgen
 	$(call generic_concrete,$@)
 
-setup: $($(PROJ)_DIR)/svgen $($(PROJ)_DIR)/config $(SVGEN_CONC)
+LINKS := $($(PROJ)_DIR)/svgen \
+	 $($(PROJ)_DIR)/config \
+	 $($(PROJ)_DIR)/.flake8 \
+	 $($(PROJ)_DIR)/.pylintrc
+
+setup: $(LINKS) $(SVGEN_CONC)
 
 edit: setup $(PY_PREFIX)edit
 
