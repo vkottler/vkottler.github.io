@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.classes.state_machine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.classes.html"><font color="#ffffff">classes</font></a>.state_machine</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/classes/state_machine.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/classes/state_machine.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;A&nbsp;module&nbsp;for&nbsp;orchestrating&nbsp;state-machine&nbsp;implementation.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.classes.state_machine.html#StateMachine">StateMachine</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="StateMachine">class <strong>StateMachine</strong></a>(<a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#StateMachine">StateMachine</a>(name:&nbsp;str,&nbsp;states:&nbsp;List[vtelem.classes.state.State],&nbsp;initial_state:&nbsp;vtelem.classes.state.State&nbsp;=&nbsp;None,&nbsp;initial_data:&nbsp;dict&nbsp;=&nbsp;None,&nbsp;env:&nbsp;vtelem.telemetry.environment.TelemetryEnvironment&nbsp;=&nbsp;None,&nbsp;rate:&nbsp;float&nbsp;=&nbsp;1.0)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;supports&nbsp;structuring&nbsp;execution&nbsp;of&nbsp;code&nbsp;as&nbsp;a&nbsp;state&nbsp;machine.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vtelem.classes.state_machine.html#StateMachine">StateMachine</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="StateMachine-__init__"><strong>__init__</strong></a>(self, name: str, states: List[vtelem.classes.state.State], initial_state: vtelem.classes.state.State = None, initial_data: dict = None, env: vtelem.telemetry.environment.TelemetryEnvironment = None, rate: float = 1.0) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;state&nbsp;machine.</tt></dd></dl>
+
+<dl><dt><a name="StateMachine-data"><strong>data</strong></a>(self) -&gt; Iterator[dict]</dt><dd><tt>Acquire&nbsp;stateful&nbsp;data&nbsp;in&nbsp;a&nbsp;locked&nbsp;context.</tt></dd></dl>
+
+<dl><dt><a name="StateMachine-run"><strong>run</strong></a>(self, new_data: dict = None) -&gt; Tuple[vtelem.classes.state.State, vtelem.classes.state.State]</dt><dd><tt>Run&nbsp;an&nbsp;iteration&nbsp;of&nbsp;the&nbsp;state&nbsp;machine,&nbsp;return&nbsp;the&nbsp;starting&nbsp;and&nbsp;ending<br>
+states.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEFAULTS</strong> = {'count': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7ff73dfab160&gt;)&gt;, 'crc': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7ff73dfab160&gt;)&gt;, 'enum': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7ff73dfab160&gt;)&gt;, 'id': &lt;Primitive.UINT16: BasePrimitive(fmt='H', type=&lt;...e=&lt;function integer_can_hold at 0x7ff73dfab160&gt;)&gt;, 'metric': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7ff73dfab160&gt;)&gt;, 'timestamp': &lt;Primitive.UINT64: BasePrimitive(fmt='Q', type=&lt;...e=&lt;function integer_can_hold at 0x7ff73dfab160&gt;)&gt;, 'version': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7ff73dfab160&gt;)&gt;}<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>Iterator</strong> = typing.Iterator<br>
+<strong>LOG</strong> = &lt;Logger vtelem.classes.state_machine (WARNING)&gt;<br>
+<strong>List</strong> = typing.List<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>

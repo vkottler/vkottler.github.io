@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.parsing.frames</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.parsing.html"><font color="#ffffff">parsing</font></a>.frames</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/parsing/frames.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/parsing/frames.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;Parsing&nbsp;specific&nbsp;frame&nbsp;payloads.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-parse_data_frame"><strong>parse_data_frame</strong></a>(header: vtelem.types.frame.FrameHeader, buf: vtelem.classes.byte_buffer.ByteBuffer, registry: vtelem.channel.registry.ChannelRegistry) -&gt; dict</dt><dd><tt>Attempt&nbsp;to&nbsp;parse&nbsp;a&nbsp;data&nbsp;frame&nbsp;from&nbsp;the&nbsp;remaining&nbsp;byte-buffer.</tt></dd></dl>
+ <dl><dt><a name="-parse_event_frame"><strong>parse_event_frame</strong></a>(header: vtelem.types.frame.FrameHeader, buf: vtelem.classes.byte_buffer.ByteBuffer, registry: vtelem.channel.registry.ChannelRegistry) -&gt; dict</dt><dd><tt>Attempt&nbsp;to&nbsp;parse&nbsp;an&nbsp;event&nbsp;frame&nbsp;from&nbsp;the&nbsp;remaining&nbsp;byte-buffer.</tt></dd></dl>
+ <dl><dt><a name="-parse_invalid_frame"><strong>parse_invalid_frame</strong></a>(header: vtelem.types.frame.FrameHeader, buf: vtelem.classes.byte_buffer.ByteBuffer, ___: vtelem.channel.registry.ChannelRegistry) -&gt; dict</dt><dd><tt>A&nbsp;default&nbsp;parser&nbsp;for&nbsp;frames&nbsp;we&nbsp;can't&nbsp;interpret.</tt></dd></dl>
+ <dl><dt><a name="-parse_message_frame"><strong>parse_message_frame</strong></a>(header: vtelem.types.frame.FrameHeader, buf: vtelem.classes.byte_buffer.ByteBuffer, _: vtelem.channel.registry.ChannelRegistry) -&gt; dict</dt><dd><tt>Attempt&nbsp;to&nbsp;parse&nbsp;a&nbsp;message&nbsp;frame&nbsp;from&nbsp;the&nbsp;remaining&nbsp;byte-buffer.</tt></dd></dl>
+ <dl><dt><a name="-parse_stream_frame"><strong>parse_stream_frame</strong></a>(header: vtelem.types.frame.FrameHeader, buf: vtelem.classes.byte_buffer.ByteBuffer, registry: vtelem.channel.registry.ChannelRegistry) -&gt; dict</dt><dd><tt>Attempt&nbsp;to&nbsp;parse&nbsp;a&nbsp;stream&nbsp;frame&nbsp;from&nbsp;the&nbsp;remaining&nbsp;byte-buffer.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEFAULTS</strong> = {'count': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;, 'crc': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;, 'enum': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;, 'id': &lt;Primitive.UINT16: BasePrimitive(fmt='H', type=&lt;...e=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;, 'metric': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;, 'timestamp': &lt;Primitive.UINT64: BasePrimitive(fmt='Q', type=&lt;...e=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;, 'version': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;}<br>
+<strong>LOG</strong> = &lt;Logger vtelem.parsing.frames (WARNING)&gt;<br>
+<strong>MESSAGE_FIELDS</strong> = [FieldType(name='message_type', type=&lt;Primitive.U...=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;), FieldType(name='message_number', type=&lt;Primitive...=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;), FieldType(name='message_crc', type=&lt;Primitive.UI...=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;), FieldType(name='fragment_index', type=&lt;Primitive...=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;), FieldType(name='total_fragments', type=&lt;Primitiv...=&lt;function integer_can_hold at 0x7facd4aa3700&gt;)&gt;)]</td></tr></table>
+</body></html>

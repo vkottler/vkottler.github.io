@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.registry.enum_retry</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.registry.html"><font color="#ffffff">registry</font></a>.enum_retry</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/registry/enum_retry.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/registry/enum_retry.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;A&nbsp;module&nbsp;providing&nbsp;assets&nbsp;for&nbsp;managing&nbsp;enumerations&nbsp;at&nbsp;runtime.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.registry.enum_retry.html#EnumRegistry">EnumRegistry</a>(<a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>, <a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.registry.enum_retry.html#EnumRegistry">EnumRegistry</a>(<a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>, <a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="EnumRegistry">class <strong>EnumRegistry</strong></a>(<a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>, <a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#EnumRegistry">EnumRegistry</a>(data:&nbsp;Dict[Union[int,&nbsp;str],&nbsp;Union[float,&nbsp;int,&nbsp;str,&nbsp;bool,&nbsp;NoneType,&nbsp;List[Union[float,&nbsp;int,&nbsp;str,&nbsp;bool,&nbsp;NoneType]],&nbsp;Dict[Union[int,&nbsp;str],&nbsp;Union[float,&nbsp;int,&nbsp;str,&nbsp;bool,&nbsp;NoneType]]]]&nbsp;=&nbsp;None,&nbsp;params:&nbsp;vtelem.classes.serdes.SerializableParams&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;&amp;lt;Logger&nbsp;vtelem.classes.serdes&nbsp;(WARNING)&amp;gt;,&nbsp;manager:&nbsp;vtelem.schema.manager.SchemaManager&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;managing&nbsp;runtime&nbsp;enumerations,&nbsp;so&nbsp;that&nbsp;enumerations&nbsp;can&nbsp;be<br>
+referenced&nbsp;by&nbsp;integer&nbsp;values.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vtelem.registry.enum_retry.html#EnumRegistry">EnumRegistry</a></dd>
+<dd><a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="EnumRegistry-add"><strong>add</strong></a>(self, enum: vtelem.classes.user_enum.UserEnum) -&gt; int</dt><dd><tt>Add&nbsp;an&nbsp;enum&nbsp;to&nbsp;the&nbsp;registry.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-add_from_enum"><strong>add_from_enum</strong></a>(self, enum_cls: Type[enum.IntEnum]) -&gt; int</dt><dd><tt>Register&nbsp;an&nbsp;enum&nbsp;from&nbsp;an&nbsp;enum&nbsp;class.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-get_enum"><strong>get_enum</strong></a>(self, enum_id: int) -&gt; vtelem.classes.user_enum.UserEnum</dt><dd><tt>Get&nbsp;a&nbsp;user&nbsp;enum&nbsp;by&nbsp;its&nbsp;integer&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-init"><strong>init</strong></a>(self, data: Dict[Union[int, str], Union[float, int, str, bool, NoneType, List[Union[float, int, str, bool, NoneType]], Dict[Union[int, str], Union[float, int, str, bool, NoneType]]]]) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;enum&nbsp;registry&nbsp;from&nbsp;object&nbsp;data.</tt></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>enum_data</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;mapping&nbsp;of&nbsp;enum&nbsp;name&nbsp;to&nbsp;underlying&nbsp;enum&nbsp;data.</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>:<br>
+<dl><dt><a name="EnumRegistry-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Check&nbsp;if&nbsp;two&nbsp;serializables&nbsp;are&nbsp;equivalent.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Allow&nbsp;serializables&nbsp;to&nbsp;be&nbsp;hashable&nbsp;by&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-__init__"><strong>__init__</strong></a>(self, data: Dict[Union[int, str], Union[float, int, str, bool, NoneType, List[Union[float, int, str, bool, NoneType]], Dict[Union[int, str], Union[float, int, str, bool, NoneType]]]] = None, params: vtelem.classes.serdes.SerializableParams = None, log: logging.Logger = &lt;Logger vtelem.classes.serdes (WARNING)&gt;, manager: vtelem.schema.manager.SchemaManager = None) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;serializable&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-coerce_int_keys"><strong>coerce_int_keys</strong></a>(self, paths: List[Union[int, str]], data: Dict[Union[int, str], Union[float, int, str, bool, NoneType, List[Union[float, int, str, bool, NoneType]], Dict[Union[int, str], Union[float, int, str, bool, NoneType]]]] = None) -&gt; None</dt><dd><tt>Coerce&nbsp;keys&nbsp;in&nbsp;a&nbsp;mapping&nbsp;at&nbsp;some&nbsp;path&nbsp;(from&nbsp;'data'&nbsp;root)&nbsp;to&nbsp;integers.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-json"><strong>json</strong></a>(self, stream: &lt;class 'TextIO'&gt;, indent: int = None, **dump_kwargs) -&gt; None</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;as&nbsp;JSON&nbsp;to&nbsp;the&nbsp;provided&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-json_str"><strong>json_str</strong></a>(self, indent: int = None, **dump_kwargs) -&gt; str</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;as&nbsp;a&nbsp;JSON&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-load"><strong>load</strong></a>(self, stream: &lt;class 'TextIO'&gt;, **load_kwargs) -&gt; 'Serializable'</dt><dd><tt>Create&nbsp;a&nbsp;serializable&nbsp;from&nbsp;a&nbsp;text&nbsp;stream&nbsp;loaded&nbsp;as&nbsp;JSON.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-load_str"><strong>load_str</strong></a>(self, data: str, **load_kwargs) -&gt; 'Serializable'</dt><dd><tt>Create&nbsp;a&nbsp;serializable&nbsp;from&nbsp;a&nbsp;String&nbsp;loaded&nbsp;as&nbsp;JSON.</tt></dd></dl>
+
+<dl><dt><a name="EnumRegistry-validate"><strong>validate</strong></a>(self, log: bool = True, manager: vtelem.schema.manager.SchemaManager = None) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;validate&nbsp;this&nbsp;object's&nbsp;data&nbsp;against&nbsp;a&nbsp;schema,&nbsp;if&nbsp;one&nbsp;was<br>
+provided&nbsp;at&nbsp;initialization.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>:<br>
+<dl><dt><a name="EnumRegistry-schema"><strong>schema</strong></a>(manager: vtelem.schema.manager.SchemaManager) -&gt; cerberus.validator.Validator<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Get&nbsp;the&nbsp;schema&nbsp;for&nbsp;this&nbsp;class&nbsp;from&nbsp;a&nbsp;schema&nbsp;manager.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>:<br>
+<dl><dt><a name="EnumRegistry-int_keys"><strong>int_keys</strong></a>(data: Dict[Union[int, str], Union[float, int, str, bool, NoneType]]) -&gt; Dict[Union[int, str], Union[float, int, str, bool, NoneType]]</dt><dd><tt>Coerce&nbsp;keys&nbsp;in&nbsp;a&nbsp;map&nbsp;to&nbsp;integer.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>:<br>
+<dl><dt><strong>name</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;name&nbsp;of&nbsp;this&nbsp;object.</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="vtelem.classes.serdes.html#Serializable">vtelem.classes.serdes.Serializable</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Dict</strong> = typing.Dict<br>
+<strong>ObjectData</strong> = typing.Dict[typing.Union[int, str], typing.Union... typing.Union[float, int, str, bool, NoneType]]]]<br>
+<strong>ObjectMap</strong> = typing.Dict[typing.Union[int, str], typing.Union[float, int, str, bool, NoneType]]<br>
+<strong>Type</strong> = typing.Type</td></tr></table>
+</body></html>

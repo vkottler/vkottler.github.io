@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module datazen.targets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.targets</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/targets.py">/home/vkottler/Documents/git/workspace/datazen/datazen/targets.py</a></font></td></tr></table>
+    <p><tt>datazen&nbsp;-&nbsp;An&nbsp;interface&nbsp;for&nbsp;parsing&nbsp;and&nbsp;matching&nbsp;targets.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#tuple">builtins.tuple</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="datazen.targets.html#ParseResult">ParseResult</a>
+</font></dt><dt><font face="helvetica, arial"><a href="datazen.targets.html#TargetMatch">TargetMatch</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ParseResult">class <strong>ParseResult</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ParseResult">ParseResult</a>(pattern:&nbsp;re.Pattern,&nbsp;keys:&nbsp;List[str])<br>
+&nbsp;<br>
+An&nbsp;encapsulation&nbsp;for&nbsp;a&nbsp;regular&nbsp;expression&nbsp;and&nbsp;the&nbsp;in-order&nbsp;keywords&nbsp;that<br>
+can&nbsp;be&nbsp;mapped&nbsp;to&nbsp;'group'&nbsp;indices.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="datazen.targets.html#ParseResult">ParseResult</a></dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ParseResult-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><tt>Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#ParseResult">ParseResult</a>&nbsp;object&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="ParseResult-_make"><strong>_make</strong></a>(iterable)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Make&nbsp;a&nbsp;new&nbsp;<a href="#ParseResult">ParseResult</a>&nbsp;object&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="ParseResult-__new__"><strong>__new__</strong></a>(_cls, pattern: re.Pattern, keys: List[str])</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#ParseResult">ParseResult</a>(pattern,&nbsp;keys)</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>pattern</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</tt></dd>
+</dl>
+<dl><dt><strong>keys</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'keys': typing.List[str], 'pattern': &lt;class 're.Pattern'&gt;}</dl>
+
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
+
+<dl><dt><strong>_field_types</strong> = {'keys': typing.List[str], 'pattern': &lt;class 're.Pattern'&gt;}</dl>
+
+<dl><dt><strong>_fields</strong> = ('pattern', 'keys')</dl>
+
+<dl><dt><strong>_fields_defaults</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="ParseResult-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self+value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;key&nbsp;in&nbsp;self.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;=value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;self[key].</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><tt>Implement&nbsp;iter(self).</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;=value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;len(self).</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self*value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self!=value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value*self.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-count"><strong>count</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="ParseResult-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><tt>Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TargetMatch">class <strong>TargetMatch</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#TargetMatch">TargetMatch</a>(found:&nbsp;bool,&nbsp;substitutions:&nbsp;Dict[str,&nbsp;str])<br>
+&nbsp;<br>
+An&nbsp;encapsulation&nbsp;of&nbsp;results&nbsp;when&nbsp;attempting&nbsp;to&nbsp;patch&nbsp;a&nbsp;target&nbsp;name&nbsp;to&nbsp;a<br>
+pattern.&nbsp;If&nbsp;a&nbsp;target&nbsp;was&nbsp;matched&nbsp;and&nbsp;had&nbsp;keyword&nbsp;substitutions,&nbsp;the&nbsp;actual<br>
+values&nbsp;used&nbsp;will&nbsp;be&nbsp;set&nbsp;as&nbsp;match&nbsp;data.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="datazen.targets.html#TargetMatch">TargetMatch</a></dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TargetMatch-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><tt>Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#TargetMatch">TargetMatch</a>&nbsp;object&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="TargetMatch-_make"><strong>_make</strong></a>(iterable)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Make&nbsp;a&nbsp;new&nbsp;<a href="#TargetMatch">TargetMatch</a>&nbsp;object&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="TargetMatch-__new__"><strong>__new__</strong></a>(_cls, found: bool, substitutions: Dict[str, str])</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#TargetMatch">TargetMatch</a>(found,&nbsp;substitutions)</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>found</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</tt></dd>
+</dl>
+<dl><dt><strong>substitutions</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'found': &lt;class 'bool'&gt;, 'substitutions': typing.Dict[str, str]}</dl>
+
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
+
+<dl><dt><strong>_field_types</strong> = {'found': &lt;class 'bool'&gt;, 'substitutions': typing.Dict[str, str]}</dl>
+
+<dl><dt><strong>_fields</strong> = ('found', 'substitutions')</dl>
+
+<dl><dt><strong>_fields_defaults</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="TargetMatch-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self+value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;key&nbsp;in&nbsp;self.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;=value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;self[key].</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><tt>Implement&nbsp;iter(self).</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;=value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;len(self).</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self*value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self!=value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value*self.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-count"><strong>count</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="TargetMatch-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><tt>Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-match_target"><strong>match_target</strong></a>(name: str, pattern: re.Pattern, keys: List[str]) -&gt; datazen.targets.TargetMatch</dt><dd><tt>From&nbsp;a&nbsp;target&nbsp;name,&nbsp;attempt&nbsp;to&nbsp;match&nbsp;against&nbsp;a&nbsp;pattern&nbsp;and&nbsp;resolve&nbsp;a&nbsp;set<br>
+of&nbsp;key&nbsp;names.</tt></dd></dl>
+ <dl><dt><a name="-parse_target"><strong>parse_target</strong></a>(name: str) -&gt; datazen.targets.ParseResult</dt><dd><tt>From&nbsp;a&nbsp;target&nbsp;name,&nbsp;provide&nbsp;a&nbsp;compiled&nbsp;pattern&nbsp;and&nbsp;an&nbsp;in-order&nbsp;list&nbsp;of<br>
+the&nbsp;names&nbsp;of&nbsp;the&nbsp;keyword&nbsp;arguments&nbsp;that&nbsp;will&nbsp;appear&nbsp;(group&nbsp;order).</tt></dd></dl>
+ <dl><dt><a name="-parse_targets"><strong>parse_targets</strong></a>(targets: List[dict]) -&gt; Tuple[Dict[str, dict], Dict[str, dict]]</dt><dd><tt>From&nbsp;a&nbsp;list&nbsp;of&nbsp;target&nbsp;structures,&nbsp;parse&nbsp;them&nbsp;into&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;keys<br>
+as&nbsp;target&nbsp;names&nbsp;and&nbsp;data&nbsp;initialization&nbsp;to&nbsp;support&nbsp;future&nbsp;interaction.</tt></dd></dl>
+ <dl><dt><a name="-resolve_dep_data"><strong>resolve_dep_data</strong></a>(entry: dict, data: dict) -&gt; dict</dt><dd><tt>Implements&nbsp;the&nbsp;business&nbsp;logic&nbsp;for&nbsp;applying&nbsp;match&nbsp;data&nbsp;to&nbsp;manifest&nbsp;entries.</tt></dd></dl>
+ <dl><dt><a name="-resolve_target_data"><strong>resolve_target_data</strong></a>(target_data: dict, match_data: Dict[str, str]) -&gt; dict</dt><dd><tt>Resolve&nbsp;matched-target&nbsp;data&nbsp;into&nbsp;a&nbsp;target's&nbsp;data&nbsp;from&nbsp;a&nbsp;manifest.</tt></dd></dl>
+ <dl><dt><a name="-resolve_target_list"><strong>resolve_target_list</strong></a>(target_list: list, match_data: Dict[str, str]) -&gt; list</dt><dd><tt>Resovle&nbsp;matched-target&nbsp;data&nbsp;into&nbsp;a&nbsp;list&nbsp;form&nbsp;of&nbsp;target&nbsp;data&nbsp;from&nbsp;a<br>
+manifest.</tt></dd></dl>
+ <dl><dt><a name="-target_is_literal"><strong>target_is_literal</strong></a>(name: str) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;named&nbsp;target&nbsp;has&nbsp;keywords&nbsp;or&nbsp;not&nbsp;(is&nbsp;otherwise&nbsp;literal).</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Dict</strong> = typing.Dict<br>
+<strong>KW_CLOSE</strong> = '}'<br>
+<strong>KW_OPEN</strong> = '{'<br>
+<strong>KW_PATTERN</strong> = '[a-zA-Z0-9-_.]+'<br>
+<strong>List</strong> = typing.List<br>
+<strong>MatchData</strong> = typing.Dict[str, str]<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>

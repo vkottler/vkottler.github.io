@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module datazen.environment.manifest_cache</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.environment.html"><font color="#ffffff">environment</font></a>.manifest_cache</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/environment/manifest_cache.py">/home/vkottler/Documents/git/workspace/datazen/datazen/environment/manifest_cache.py</a></font></td></tr></table>
+    <p><tt>datazen&nbsp;-&nbsp;A&nbsp;class&nbsp;for&nbsp;adding&nbsp;caching&nbsp;to&nbsp;the&nbsp;manifest-loading&nbsp;environment.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="jinja2.html">jinja2</a><br>
+</td><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="datazen.environment.manifest.html#ManifestEnvironment">datazen.environment.manifest.ManifestEnvironment</a>(<a href="datazen.environment.config.html#ConfigEnvironment">datazen.environment.config.ConfigEnvironment</a>, <a href="datazen.environment.template.html#TemplateEnvironment">datazen.environment.template.TemplateEnvironment</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="datazen.environment.manifest_cache.html#ManifestCacheEnvironment">ManifestCacheEnvironment</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ManifestCacheEnvironment">class <strong>ManifestCacheEnvironment</strong></a>(<a href="datazen.environment.manifest.html#ManifestEnvironment">datazen.environment.manifest.ManifestEnvironment</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;wrapper&nbsp;for&nbsp;the&nbsp;cache&nbsp;functionality&nbsp;for&nbsp;an&nbsp;environment.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="datazen.environment.manifest_cache.html#ManifestCacheEnvironment">ManifestCacheEnvironment</a></dd>
+<dd><a href="datazen.environment.manifest.html#ManifestEnvironment">datazen.environment.manifest.ManifestEnvironment</a></dd>
+<dd><a href="datazen.environment.config.html#ConfigEnvironment">datazen.environment.config.ConfigEnvironment</a></dd>
+<dd><a href="datazen.environment.variable.html#VariableEnvironment">datazen.environment.variable.VariableEnvironment</a></dd>
+<dd><a href="datazen.environment.schema.html#SchemaEnvironment">datazen.environment.schema.SchemaEnvironment</a></dd>
+<dd><a href="datazen.environment.template.html#TemplateEnvironment">datazen.environment.template.TemplateEnvironment</a></dd>
+<dd><a href="datazen.environment.base.html#BaseEnvironment">datazen.environment.base.BaseEnvironment</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ManifestCacheEnvironment-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Extend&nbsp;the&nbsp;environment&nbsp;with&nbsp;a&nbsp;notion&nbsp;of&nbsp;the&nbsp;cache&nbsp;being&nbsp;loaded.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-cached_enforce_schemas"><strong>cached_enforce_schemas</strong></a>(self, data: dict, require_all: bool = True, name: str = '__root__') -&gt; bool</dt><dd><tt>Enforce&nbsp;schemas,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-cached_load_configs"><strong>cached_load_configs</strong></a>(self, name: str = '__root__') -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configs,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-cached_load_schemas"><strong>cached_load_schemas</strong></a>(self, require_all: bool = True, name: str = '__root__') -&gt; dict</dt><dd><tt>Load&nbsp;schemas,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-cached_load_templates"><strong>cached_load_templates</strong></a>(self, name: str = '__root__') -&gt; Dict[str, jinja2.environment.Template]</dt><dd><tt>Load&nbsp;templates,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-cached_load_variables"><strong>cached_load_variables</strong></a>(self, name: str = '__root__') -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;variables,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-clean_cache"><strong>clean_cache</strong></a>(self, purge_data: bool = True) -&gt; None</dt><dd><tt>Remove&nbsp;cached&nbsp;data&nbsp;from&nbsp;the&nbsp;file-system.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-describe_cache"><strong>describe_cache</strong></a>(self) -&gt; None</dt><dd><tt>Describe&nbsp;the&nbsp;[initial]&nbsp;cache&nbsp;for&nbsp;debugging&nbsp;purposes.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-get_new_loaded"><strong>get_new_loaded</strong></a>(self, types: List[str], load_checks: Dict[str, List[str]] = None) -&gt; int</dt><dd><tt>Compute&nbsp;the&nbsp;number&nbsp;of&nbsp;new&nbsp;files&nbsp;loaded&nbsp;(since&nbsp;the&nbsp;initial&nbsp;load)<br>
+for&nbsp;a&nbsp;set&nbsp;of&nbsp;types;</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_manifest_with_cache"><strong>load_manifest_with_cache</strong></a>(self, path: str = 'manifest.yaml', logger: logging.Logger = &lt;Logger datazen.environment.manifest_cache (WARNING)&gt;) -&gt; bool</dt><dd><tt>Load&nbsp;a&nbsp;manifest&nbsp;and&nbsp;its&nbsp;cache,&nbsp;or&nbsp;set&nbsp;up&nbsp;a&nbsp;new&nbsp;cache&nbsp;if&nbsp;one&nbsp;doesn't<br>
+exist.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-restore_cache"><strong>restore_cache</strong></a>(self) -&gt; None</dt><dd><tt>Return&nbsp;the&nbsp;cache&nbsp;to&nbsp;its&nbsp;initially-loaded&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-write_cache"><strong>write_cache</strong></a>(self) -&gt; None</dt><dd><tt>Commit&nbsp;cached&nbsp;data&nbsp;to&nbsp;the&nbsp;file-system.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="datazen.environment.manifest.html#ManifestEnvironment">datazen.environment.manifest.ManifestEnvironment</a>:<br>
+<dl><dt><a name="ManifestCacheEnvironment-default_target"><strong>default_target</strong></a>(self) -&gt; str</dt><dd><tt>Retrieve&nbsp;a&nbsp;configured&nbsp;default&nbsp;target&nbsp;for&nbsp;a&nbsp;manifest,&nbsp;otherwise&nbsp;an<br>
+empty&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_dirs"><strong>load_dirs</strong></a>(self, data: dict, rel_path: str, namespace: str = '__root__', allow_dup: bool = False) -&gt; None</dt><dd><tt>Looks&nbsp;for&nbsp;keys&nbsp;matching&nbsp;types&nbsp;of&nbsp;directories&nbsp;that&nbsp;can&nbsp;be&nbsp;loaded<br>
+into&nbsp;an&nbsp;environment&nbsp;and&nbsp;tries&nbsp;to&nbsp;load&nbsp;them.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_manifest"><strong>load_manifest</strong></a>(self, path: str = 'manifest.yaml', logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;load&nbsp;manifest&nbsp;data&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_manifest_reent"><strong>load_manifest_reent</strong></a>(self, path: str, manifest_dir: str, params: dict, files: List[str], logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; Tuple[dict, bool]</dt><dd><tt>Load&nbsp;a&nbsp;manifest&nbsp;recursively&nbsp;by&nbsp;resolving&nbsp;includes&nbsp;and&nbsp;merging&nbsp;the<br>
+results.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="datazen.environment.manifest.html#ManifestEnvironment">datazen.environment.manifest.ManifestEnvironment</a>:<br>
+<dl><dt><a name="ManifestCacheEnvironment-update_task_dirs"><strong>update_task_dirs</strong></a>(data: dict, rel_path: str) -&gt; None</dt><dd><tt>Update&nbsp;path&nbsp;definitions&nbsp;in&nbsp;the&nbsp;provided&nbsp;manifest&nbsp;chunk&nbsp;to&nbsp;respect&nbsp;a<br>
+relative&nbsp;path&nbsp;(e.g.&nbsp;the&nbsp;directory&nbsp;that&nbsp;the&nbsp;manifest&nbsp;chunk&nbsp;was&nbsp;loaded<br>
+from).</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="datazen.environment.manifest.html#ManifestEnvironment">datazen.environment.manifest.ManifestEnvironment</a>:<br>
+<dl><dt><strong>path_fields</strong> = ['configs', 'schemas', 'schema_types', 'variables', 'templates']</dl>
+
+<dl><dt><strong>targets_with_paths</strong> = ['compiles', 'renders']</dl>
+
+<hr>
+Methods inherited from <a href="datazen.environment.config.html#ConfigEnvironment">datazen.environment.config.ConfigEnvironment</a>:<br>
+<dl><dt><a name="ManifestCacheEnvironment-add_config_dirs"><strong>add_config_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;configuration-data&nbsp;directories,&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;directories<br>
+added.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_configs"><strong>load_configs</strong></a>(self, cfg_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), var_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', logger: logging.Logger = &lt;Logger datazen.environment.config (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configuration&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;configuration<br>
+directories.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="datazen.environment.variable.html#VariableEnvironment">datazen.environment.variable.VariableEnvironment</a>:<br>
+<dl><dt><a name="ManifestCacheEnvironment-add_variable_dirs"><strong>add_variable_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;variable-data&nbsp;directories,&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;directories&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_variables"><strong>load_variables</strong></a>(self, var_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;variable&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;variable&nbsp;directories.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="datazen.environment.schema.html#SchemaEnvironment">datazen.environment.schema.SchemaEnvironment</a>:<br>
+<dl><dt><a name="ManifestCacheEnvironment-add_schema_dirs"><strong>add_schema_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;schema-data&nbsp;directories,&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;directories&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-add_schema_type_dirs"><strong>add_schema_type_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;directories&nbsp;containing&nbsp;schema-type&nbsp;data&nbsp;(to&nbsp;be&nbsp;registered&nbsp;at<br>
+runtime).</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-enforce_schemas"><strong>enforce_schemas</strong></a>(self, data: dict, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; bool</dt><dd><tt>Perform&nbsp;schema-validation&nbsp;on&nbsp;provided&nbsp;data&nbsp;and&nbsp;return&nbsp;the&nbsp;boolean<br>
+result.&nbsp;Adds&nbsp;(and&nbsp;removes)&nbsp;namespaced&nbsp;types&nbsp;if&nbsp;applicable.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_schema_types"><strong>load_schema_types</strong></a>(self, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; dict</dt><dd><tt>Load&nbsp;custom&nbsp;schema&nbsp;types&nbsp;and&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;directories.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_schemas"><strong>load_schemas</strong></a>(self, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', modify_registry: bool = True) -&gt; dict</dt><dd><tt>Load&nbsp;schema&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;schema&nbsp;directories.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="datazen.environment.template.html#TemplateEnvironment">datazen.environment.template.TemplateEnvironment</a>:<br>
+<dl><dt><a name="ManifestCacheEnvironment-add_template_dirs"><strong>add_template_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;template&nbsp;directories,&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;directories&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-load_templates"><strong>load_templates</strong></a>(self, template_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; Dict[str, jinja2.environment.Template]</dt><dd><tt>Load&nbsp;templates,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;template&nbsp;directories.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="datazen.environment.base.html#BaseEnvironment">datazen.environment.base.BaseEnvironment</a>:<br>
+<dl><dt><a name="ManifestCacheEnvironment-add_dir"><strong>add_dir</strong></a>(self, dir_type: datazen.enums.DataType, dir_path: str, rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; bool</dt><dd><tt>Proxy&nbsp;for&nbsp;add_dir&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-add_dirs"><strong>add_dirs</strong></a>(self, dir_type: datazen.enums.DataType, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Proxy&nbsp;for&nbsp;add_dirs&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-add_namespace"><strong>add_namespace</strong></a>(self, name: str, clone_root: bool = True) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;namespace,&nbsp;optionally&nbsp;clone&nbsp;from&nbsp;the&nbsp;existing&nbsp;root.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; dict</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: dict) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
+all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&nbsp;anything&nbsp;new.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[str]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-get_valid"><strong>get_valid</strong></a>(self, name: str = '__root__') -&gt; bool</dt><dd><tt>Get&nbsp;the&nbsp;'valid'&nbsp;flag&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-set_valid"><strong>set_valid</strong></a>(self, value: bool, name: str = '__root__') -&gt; None</dt><dd><tt>Set&nbsp;the&nbsp;'valid'&nbsp;flag&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-unload_all"><strong>unload_all</strong></a>(self, name: str = '__root__') -&gt; None</dt><dd><tt>Unload&nbsp;all&nbsp;of&nbsp;the&nbsp;directories&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="ManifestCacheEnvironment-update_load_state"><strong>update_load_state</strong></a>(self, dir_type: datazen.enums.DataType, to_load: List[str], name: str = '__root__') -&gt; int</dt><dd><tt>Proxy&nbsp;for&nbsp;update_load_state&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="datazen.environment.base.html#BaseEnvironment">datazen.environment.base.BaseEnvironment</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-manifest_cache_dir"><strong>manifest_cache_dir</strong></a>(path: str, manifest: dict) -&gt; str</dt><dd><tt>Find&nbsp;a&nbsp;manifest&nbsp;cache&nbsp;(path)&nbsp;from&nbsp;its&nbsp;path&nbsp;and&nbsp;data.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>CACHE_SUFFIX</strong> = '_cache'<br>
+<strong>DEFAULT_MANIFEST</strong> = 'manifest.yaml'<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>LOG</strong> = &lt;Logger datazen.environment.manifest_cache (WARNING)&gt;<br>
+<strong>List</strong> = typing.List<br>
+<strong>ROOT_NAMESPACE</strong> = '__root__'</td></tr></table>
+</body></html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.factories.telemetry_environment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.factories.html"><font color="#ffffff">factories</font></a>.telemetry_environment</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/factories/telemetry_environment.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/factories/telemetry_environment.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;A&nbsp;module&nbsp;for&nbsp;creating&nbsp;functions&nbsp;based&nbsp;on&nbsp;telemetry&nbsp;environment<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instances.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-channel_decrement"><strong>channel_decrement</strong></a>(chan: Tuple[vtelem.channel.Channel, int], cmd: dict, time: float, env: vtelem.telemetry.environment.TelemetryEnvironment) -&gt; Tuple[bool, str]</dt><dd><tt>Attempt&nbsp;to&nbsp;decrement&nbsp;a&nbsp;channel&nbsp;by&nbsp;a&nbsp;certain&nbsp;amount.</tt></dd></dl>
+ <dl><dt><a name="-channel_get"><strong>channel_get</strong></a>(chan: Tuple[vtelem.channel.Channel, int], _: dict, __: float, env: vtelem.telemetry.environment.TelemetryEnvironment) -&gt; Tuple[bool, str]</dt><dd><tt>Return&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;channel.</tt></dd></dl>
+ <dl><dt><a name="-channel_increment"><strong>channel_increment</strong></a>(chan: Tuple[vtelem.channel.Channel, int], cmd: dict, time: float, env: vtelem.telemetry.environment.TelemetryEnvironment) -&gt; Tuple[bool, str]</dt><dd><tt>Attempt&nbsp;to&nbsp;increment&nbsp;a&nbsp;channel&nbsp;by&nbsp;a&nbsp;certain&nbsp;amount.</tt></dd></dl>
+ <dl><dt><a name="-channel_set"><strong>channel_set</strong></a>(chan: Tuple[vtelem.channel.Channel, int], cmd: dict, time: float, env: vtelem.telemetry.environment.TelemetryEnvironment) -&gt; Tuple[bool, str]</dt><dd><tt>Attempt&nbsp;to&nbsp;set&nbsp;a&nbsp;channel&nbsp;from&nbsp;a&nbsp;command.</tt></dd></dl>
+ <dl><dt><a name="-create_channel_commander"><strong>create_channel_commander</strong></a>(env: vtelem.telemetry.environment.TelemetryEnvironment, daemon: vtelem.daemon.command_queue.CommandQueueDaemon, result_cb: Callable[[bool, str], NoneType] = None, command_name: str = 'channel') -&gt; None</dt><dd><tt>Register&nbsp;a&nbsp;handler&nbsp;to&nbsp;a&nbsp;command&nbsp;queue&nbsp;for&nbsp;a&nbsp;telemetry&nbsp;environment.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ResultCbType</strong> = typing.Callable[[bool, str], NoneType]<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>

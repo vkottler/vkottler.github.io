@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.telemetry.server</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.telemetry.html"><font color="#ffffff">telemetry</font></a>.server</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/telemetry/server.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/telemetry/server.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;An&nbsp;interface&nbsp;for&nbsp;creating&nbsp;telemetered&nbsp;applications.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="socket.html">socket</a><br>
+</td><td width="25%" valign=top><a href="threading.html">threading</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="vtelem.daemon.http.html#HttpDaemon">vtelem.daemon.http.HttpDaemon</a>(<a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.telemetry.server.html#TelemetryServer">TelemetryServer</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TelemetryServer">class <strong>TelemetryServer</strong></a>(<a href="vtelem.daemon.http.html#HttpDaemon">vtelem.daemon.http.HttpDaemon</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#TelemetryServer">TelemetryServer</a>(tick_length:&nbsp;float,&nbsp;telem_rate:&nbsp;float,&nbsp;metrics_rate:&nbsp;float&nbsp;=&nbsp;None,&nbsp;app_id_basis:&nbsp;float&nbsp;=&nbsp;None,&nbsp;services:&nbsp;vtelem.types.telemetry_server.TelemetryServices&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;application-level&nbsp;telemetry&nbsp;integration.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vtelem.telemetry.server.html#TelemetryServer">TelemetryServer</a></dd>
+<dd><a href="vtelem.daemon.http.html#HttpDaemon">vtelem.daemon.http.HttpDaemon</a></dd>
+<dd><a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#TimeEntity">vtelem.classes.time_entity.TimeEntity</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TelemetryServer-__init__"><strong>__init__</strong></a>(self, tick_length: float, telem_rate: float, metrics_rate: float = None, app_id_basis: float = None, services: vtelem.types.telemetry_server.TelemetryServices = None) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;telemetry&nbsp;server&nbsp;that&nbsp;can&nbsp;be&nbsp;commanded&nbsp;over&nbsp;http.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-await_shutdown"><strong>await_shutdown</strong></a>(self, timeout: float = None) -&gt; None</dt><dd><tt>Wait&nbsp;for&nbsp;startup,&nbsp;then&nbsp;shutdown&nbsp;of&nbsp;this&nbsp;server.&nbsp;Otherwise&nbsp;attempt&nbsp;a<br>
+manual&nbsp;shutdown&nbsp;if&nbsp;this&nbsp;is&nbsp;interrupted.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-booted"><strong>booted</strong></a>(self, *_, **__) -&gt; Iterator[NoneType]</dt><dd><tt>Provide&nbsp;a&nbsp;context&nbsp;manager&nbsp;that&nbsp;yields&nbsp;when&nbsp;this&nbsp;daemon&nbsp;is&nbsp;running&nbsp;and<br>
+automatically&nbsp;stops&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-register_application"><strong>register_application</strong></a>(self, name: str, rate: float, setup: Callable[[vtelem.channel.group_registry.ChannelGroupRegistry, Dict[str, Any]], NoneType], loop: Callable[[vtelem.channel.group_registry.ChannelGroupRegistry, Dict[str, Any]], NoneType]) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;register&nbsp;a&nbsp;new&nbsp;application&nbsp;thread.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-scale_speed"><strong>scale_speed</strong></a>(self, scalar: float) -&gt; None</dt><dd><tt>Change&nbsp;the&nbsp;time&nbsp;scaling&nbsp;for&nbsp;the&nbsp;time&nbsp;keeper.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-start_all"><strong>start_all</strong></a>(self) -&gt; None</dt><dd><tt>Start&nbsp;everything.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-stop_all"><strong>stop_all</strong></a>(self) -&gt; None</dt><dd><tt>Stop&nbsp;everything.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vtelem.daemon.http.html#HttpDaemon">vtelem.daemon.http.HttpDaemon</a>:<br>
+<dl><dt><a name="TelemetryServer-add_handler"><strong>add_handler</strong></a>(self, request_type: str, path: str, handle: Callable[[http.server.BaseHTTPRequestHandler, dict], Tuple[bool, str]], description: str = 'no description', data: dict = None, response_type: str = 'application/json') -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;handler&nbsp;for&nbsp;a&nbsp;specific&nbsp;request-type&nbsp;and&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-close"><strong>close</strong></a>(self) -&gt; bool</dt><dd><tt>Close&nbsp;the&nbsp;server&nbsp;and&nbsp;clean&nbsp;up&nbsp;its&nbsp;resources.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-get_base_url"><strong>get_base_url</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;server's&nbsp;root&nbsp;url&nbsp;as&nbsp;a&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-run"><strong>run</strong></a>(self, *_, **kwargs) -&gt; None</dt><dd><tt>Serve&nbsp;traffic.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-serve"><strong>serve</strong></a>(self, *args, main_thread: Callable[..., int] = None, **kwargs) -&gt; int</dt><dd><tt>Run&nbsp;this&nbsp;daemon&nbsp;with&nbsp;an&nbsp;optionally-provided&nbsp;main-thread&nbsp;function.<br>
+Stops&nbsp;serving&nbsp;and&nbsp;closes&nbsp;server&nbsp;resources&nbsp;when&nbsp;the&nbsp;main-thread<br>
+function&nbsp;returns.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-use_tls"><strong>use_tls</strong></a>(self, keyfile_path: str, certfile_path: str) -&gt; None</dt><dd><tt>Set&nbsp;up&nbsp;a&nbsp;secure-socket&nbsp;layer&nbsp;for&nbsp;this&nbsp;server.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>:<br>
+<dl><dt><a name="TelemetryServer-begin_stop"><strong>begin_stop</strong></a>(self) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;we're&nbsp;in&nbsp;the&nbsp;correct&nbsp;state&nbsp;to&nbsp;stop,&nbsp;mutate&nbsp;state&nbsp;if&nbsp;so.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-decrement_metric"><strong>decrement_metric</strong></a>(self, name: str, value: Any = 1) -&gt; None</dt><dd><tt>Decrement&nbsp;a&nbsp;named&nbsp;metric.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-get_metric_name"><strong>get_metric_name</strong></a>(self, channel_name: str) -&gt; str</dt><dd><tt>Build&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;metric&nbsp;channel&nbsp;for&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-get_state"><strong>get_state</strong></a>(self) -&gt; vtelem.enums.daemon.DaemonState</dt><dd><tt>Query&nbsp;this&nbsp;daemon's&nbsp;current&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-get_state_str"><strong>get_state_str</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;state&nbsp;as&nbsp;a&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-increment_metric"><strong>increment_metric</strong></a>(self, name: str, value: Any = 1) -&gt; None</dt><dd><tt>Increment&nbsp;a&nbsp;named&nbsp;metric.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-pause"><strong>pause</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;pause&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-paused"><strong>paused</strong></a>(self) -&gt; Iterator[NoneType]</dt><dd><tt>Exposes&nbsp;pausing&nbsp;and&nbsp;unpausing&nbsp;while&nbsp;yielded.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-perform"><strong>perform</strong></a>(self, action: vtelem.enums.daemon.DaemonOperation, *args, **kwargs) -&gt; bool</dt><dd><tt>Perform&nbsp;an&nbsp;action&nbsp;by&nbsp;enum.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-perform_str"><strong>perform_str</strong></a>(self, action: str, *args, **kwargs) -&gt; bool</dt><dd><tt>Perform&nbsp;an&nbsp;action&nbsp;on&nbsp;this&nbsp;daemon&nbsp;by&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-reset_metric"><strong>reset_metric</strong></a>(self, name: str) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;back&nbsp;to&nbsp;zero.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-restart"><strong>restart</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;restart&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-run_harness"><strong>run_harness</strong></a>(self, *args, **kwargs) -&gt; None</dt><dd><tt>Execute&nbsp;'run'&nbsp;and&nbsp;ensure&nbsp;that&nbsp;the&nbsp;correct&nbsp;state&nbsp;transitions&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-set_env_metric"><strong>set_env_metric</strong></a>(self, name: str, value: Any, prim: vtelem.enums.primitive.Primitive = &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;class 'int'&gt;, size=4, name='uint32', signed=False, min=0, max=4294967295, validate=&lt;function integer_can_hold at 0x7f6a20679310&gt;)&gt;) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;channel&nbsp;value&nbsp;if&nbsp;an&nbsp;environment&nbsp;is&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-set_state"><strong>set_state</strong></a>(self, state: vtelem.enums.daemon.DaemonState) -&gt; bool</dt><dd><tt>Assigns&nbsp;a&nbsp;new&nbsp;run-state&nbsp;to&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-start"><strong>start</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;start&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-stop"><strong>stop</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;stop&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-unpause"><strong>unpause</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;un-pause&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>:<br>
+<dl><dt><strong>operations</strong> = &lt;vtelem.classes.user_enum.UserEnum object&gt;</dl>
+
+<dl><dt><strong>states</strong> = &lt;vtelem.classes.user_enum.UserEnum object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="vtelem.classes.time_entity.html#TimeEntity">vtelem.classes.time_entity.TimeEntity</a>:<br>
+<dl><dt><a name="TelemetryServer-advance_time"><strong>advance_time</strong></a>(self, amount: float) -&gt; None</dt><dd><tt>Advance&nbsp;this&nbsp;entity's&nbsp;time&nbsp;by&nbsp;a&nbsp;specified&nbsp;amount.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-get_time"><strong>get_time</strong></a>(self) -&gt; float</dt><dd><tt>Return&nbsp;this&nbsp;entity's&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryServer-set_time"><strong>set_time</strong></a>(self, time: float) -&gt; None</dt><dd><tt>Set&nbsp;this&nbsp;entity's&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Any</strong> = typing.Any<br>
+<strong>AppLoop</strong> = typing.Callable[[vtelem.channel.group_registry.C...egistry, typing.Dict[str, typing.Any]], NoneType]<br>
+<strong>AppSetup</strong> = typing.Callable[[vtelem.channel.group_registry.C...egistry, typing.Dict[str, typing.Any]], NoneType]<br>
+<strong>DEFAULT_MTU</strong> = 1428<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>Iterator</strong> = typing.Iterator</td></tr></table>
+</body></html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.client.udp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.client.html"><font color="#ffffff">client</font></a>.udp</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/client/udp.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/client/udp.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;A&nbsp;daemon&nbsp;that&nbsp;provides&nbsp;decoded&nbsp;telemetry&nbsp;frames&nbsp;into&nbsp;a&nbsp;queue,&nbsp;from&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;udp&nbsp;listener.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="socket.html">socket</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="vtelem.client.socket.html#SocketClient">vtelem.client.socket.SocketClient</a>(<a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>, <a href="vtelem.client.html#TelemetryClient">vtelem.client.TelemetryClient</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.client.udp.html#UdpClient">UdpClient</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="UdpClient">class <strong>UdpClient</strong></a>(<a href="vtelem.client.socket.html#SocketClient">vtelem.client.socket.SocketClient</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#UdpClient">UdpClient</a>(host:&nbsp;vtelem.mtu.Host,&nbsp;output_stream:&nbsp;queue.Queue,&nbsp;channel_registry:&nbsp;vtelem.channel.registry.ChannelRegistry,&nbsp;app_id:&nbsp;vtelem.classes.type_primitive.TypePrimitive&nbsp;=&nbsp;None,&nbsp;env:&nbsp;vtelem.telemetry.environment.TelemetryEnvironment&nbsp;=&nbsp;None,&nbsp;mtu:&nbsp;int&nbsp;=&nbsp;1428)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;publishing&nbsp;decoded&nbsp;telemetry&nbsp;frames&nbsp;into&nbsp;a&nbsp;queue&nbsp;as&nbsp;a&nbsp;daemon,<br>
+from&nbsp;a&nbsp;udp&nbsp;socket.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vtelem.client.udp.html#UdpClient">UdpClient</a></dd>
+<dd><a href="vtelem.client.socket.html#SocketClient">vtelem.client.socket.SocketClient</a></dd>
+<dd><a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#TimeEntity">vtelem.classes.time_entity.TimeEntity</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a></dd>
+<dd><a href="vtelem.client.html#TelemetryClient">vtelem.client.TelemetryClient</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="UdpClient-__init__"><strong>__init__</strong></a>(self, host: vtelem.mtu.Host, output_stream: queue.Queue, channel_registry: vtelem.channel.registry.ChannelRegistry, app_id: vtelem.classes.type_primitive.TypePrimitive = None, env: vtelem.telemetry.environment.TelemetryEnvironment = None, mtu: int = 1428) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;udp&nbsp;client.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vtelem.client.socket.html#SocketClient">vtelem.client.socket.SocketClient</a>:<br>
+<dl><dt><a name="UdpClient-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><tt>Attempt&nbsp;to&nbsp;close&nbsp;this&nbsp;client&nbsp;connection.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-run"><strong>run</strong></a>(self, *_, **__) -&gt; None</dt><dd><tt>Read&nbsp;from&nbsp;the&nbsp;listener&nbsp;and&nbsp;enqueue&nbsp;decoded&nbsp;frames.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-update_name"><strong>update_name</strong></a>(self, sock: _socket.socket) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;new&nbsp;name&nbsp;attribute&nbsp;based&nbsp;on&nbsp;the&nbsp;provided&nbsp;socket.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>:<br>
+<dl><dt><a name="UdpClient-begin_stop"><strong>begin_stop</strong></a>(self) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;we're&nbsp;in&nbsp;the&nbsp;correct&nbsp;state&nbsp;to&nbsp;stop,&nbsp;mutate&nbsp;state&nbsp;if&nbsp;so.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-booted"><strong>booted</strong></a>(self, *args, require_stop: bool = True, **kwargs) -&gt; Iterator[NoneType]</dt><dd><tt>Provide&nbsp;a&nbsp;context&nbsp;manager&nbsp;that&nbsp;yields&nbsp;when&nbsp;this&nbsp;daemon&nbsp;is&nbsp;running&nbsp;and<br>
+automatically&nbsp;stops&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-decrement_metric"><strong>decrement_metric</strong></a>(self, name: str, value: Any = 1) -&gt; None</dt><dd><tt>Decrement&nbsp;a&nbsp;named&nbsp;metric.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-get_metric_name"><strong>get_metric_name</strong></a>(self, channel_name: str) -&gt; str</dt><dd><tt>Build&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;metric&nbsp;channel&nbsp;for&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-get_state"><strong>get_state</strong></a>(self) -&gt; vtelem.enums.daemon.DaemonState</dt><dd><tt>Query&nbsp;this&nbsp;daemon's&nbsp;current&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-get_state_str"><strong>get_state_str</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;state&nbsp;as&nbsp;a&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-increment_metric"><strong>increment_metric</strong></a>(self, name: str, value: Any = 1) -&gt; None</dt><dd><tt>Increment&nbsp;a&nbsp;named&nbsp;metric.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-pause"><strong>pause</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;pause&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-paused"><strong>paused</strong></a>(self) -&gt; Iterator[NoneType]</dt><dd><tt>Exposes&nbsp;pausing&nbsp;and&nbsp;unpausing&nbsp;while&nbsp;yielded.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-perform"><strong>perform</strong></a>(self, action: vtelem.enums.daemon.DaemonOperation, *args, **kwargs) -&gt; bool</dt><dd><tt>Perform&nbsp;an&nbsp;action&nbsp;by&nbsp;enum.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-perform_str"><strong>perform_str</strong></a>(self, action: str, *args, **kwargs) -&gt; bool</dt><dd><tt>Perform&nbsp;an&nbsp;action&nbsp;on&nbsp;this&nbsp;daemon&nbsp;by&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-reset_metric"><strong>reset_metric</strong></a>(self, name: str) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;back&nbsp;to&nbsp;zero.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-restart"><strong>restart</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;restart&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-run_harness"><strong>run_harness</strong></a>(self, *args, **kwargs) -&gt; None</dt><dd><tt>Execute&nbsp;'run'&nbsp;and&nbsp;ensure&nbsp;that&nbsp;the&nbsp;correct&nbsp;state&nbsp;transitions&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-serve"><strong>serve</strong></a>(self, *args, main_thread: Callable[..., int] = None, **kwargs) -&gt; int</dt><dd><tt>Run&nbsp;this&nbsp;daemon&nbsp;with&nbsp;an&nbsp;optionally-provided&nbsp;main-thread&nbsp;function,<br>
+return&nbsp;the&nbsp;main-thread&nbsp;function's&nbsp;result&nbsp;and&nbsp;shut&nbsp;down&nbsp;the&nbsp;daemon&nbsp;when<br>
+it&nbsp;returns.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-set_env_metric"><strong>set_env_metric</strong></a>(self, name: str, value: Any, prim: vtelem.enums.primitive.Primitive = &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;class 'int'&gt;, size=4, name='uint32', signed=False, min=0, max=4294967295, validate=&lt;function integer_can_hold at 0x7fcd045e88b0&gt;)&gt;) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;channel&nbsp;value&nbsp;if&nbsp;an&nbsp;environment&nbsp;is&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-set_state"><strong>set_state</strong></a>(self, state: vtelem.enums.daemon.DaemonState) -&gt; bool</dt><dd><tt>Assigns&nbsp;a&nbsp;new&nbsp;run-state&nbsp;to&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-start"><strong>start</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;start&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-stop"><strong>stop</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;stop&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-unpause"><strong>unpause</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;un-pause&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>:<br>
+<dl><dt><strong>operations</strong> = &lt;vtelem.classes.user_enum.UserEnum object&gt;</dl>
+
+<dl><dt><strong>states</strong> = &lt;vtelem.classes.user_enum.UserEnum object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="vtelem.classes.time_entity.html#TimeEntity">vtelem.classes.time_entity.TimeEntity</a>:<br>
+<dl><dt><a name="UdpClient-advance_time"><strong>advance_time</strong></a>(self, amount: float) -&gt; None</dt><dd><tt>Advance&nbsp;this&nbsp;entity's&nbsp;time&nbsp;by&nbsp;a&nbsp;specified&nbsp;amount.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-get_time"><strong>get_time</strong></a>(self) -&gt; float</dt><dd><tt>Return&nbsp;this&nbsp;entity's&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-set_time"><strong>set_time</strong></a>(self, time: float) -&gt; None</dt><dd><tt>Set&nbsp;this&nbsp;entity's&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="vtelem.client.html#TelemetryClient">vtelem.client.TelemetryClient</a>:<br>
+<dl><dt><a name="UdpClient-handle_frames"><strong>handle_frames</strong></a>(self, new_frames: List[bytes]) -&gt; int</dt><dd><tt>Attempt&nbsp;to&nbsp;decode&nbsp;any&nbsp;new&nbsp;frames&nbsp;and&nbsp;publish&nbsp;them&nbsp;to&nbsp;the&nbsp;upstream<br>
+consumer.<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;number&nbsp;of&nbsp;successfully&nbsp;decoded&nbsp;frames.</tt></dd></dl>
+
+<dl><dt><a name="UdpClient-update_mtu"><strong>update_mtu</strong></a>(self, new_mtu: int) -&gt; None</dt><dd><tt>Update&nbsp;this&nbsp;proxy's&nbsp;understanding&nbsp;of&nbsp;the&nbsp;maximum&nbsp;transmission-unit<br>
+size.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-create"><strong>create</strong></a>(manager: vtelem.classes.udp_client_manager.UdpClientManager, env: vtelem.telemetry.environment.TelemetryEnvironment, test_port: int = 0, mtu: int = 1428, local_addr: str = '0.0.0.0') -&gt; Iterator[Tuple[vtelem.client.udp.UdpClient, queue.Queue]]</dt><dd><tt>Create&nbsp;a&nbsp;udp&nbsp;client&nbsp;from&nbsp;a&nbsp;client&nbsp;manager&nbsp;and&nbsp;telemetry&nbsp;environment.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEFAULT_MTU</strong> = 1428<br>
+<strong>Iterator</strong> = typing.Iterator<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>

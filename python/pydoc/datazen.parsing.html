@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module datazen.parsing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.parsing</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/parsing.py">/home/vkottler/Documents/git/workspace/datazen/datazen/parsing.py</a></font></td></tr></table>
+    <p><tt>datazen&nbsp;-&nbsp;APIs&nbsp;for&nbsp;loading&nbsp;raw&nbsp;data&nbsp;from&nbsp;files.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="hashlib.html">hashlib</a><br>
+</td><td width="25%" valign=top><a href="jinja2.html">jinja2</a><br>
+</td><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-dedup_dict_lists"><strong>dedup_dict_lists</strong></a>(data: dict) -&gt; dict</dt><dd><tt>Finds&nbsp;list&nbsp;elements&nbsp;in&nbsp;a&nbsp;dictionary&nbsp;and&nbsp;removes&nbsp;duplicate&nbsp;entries,&nbsp;mutates<br>
+the&nbsp;original&nbsp;list.</tt></dd></dl>
+ <dl><dt><a name="-get_file_hash"><strong>get_file_hash</strong></a>(path: Union[pathlib.Path, str]) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;MD5&nbsp;of&nbsp;a&nbsp;file&nbsp;by&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-get_hash"><strong>get_hash</strong></a>(data: str, encoding: str = 'utf-8') -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;MD5&nbsp;of&nbsp;String&nbsp;data.</tt></dd></dl>
+ <dl><dt><a name="-load"><strong>load</strong></a>(path: Union[pathlib.Path, str], variables: dict, dict_to_update: dict, expect_overwrite: bool = False, is_template: bool = True, logger: logging.Logger = &lt;Logger datazen.parsing (WARNING)&gt;, **kwargs) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;raw&nbsp;file&nbsp;data&nbsp;and&nbsp;meld&nbsp;it&nbsp;into&nbsp;an&nbsp;existing&nbsp;dictionary.&nbsp;Update<br>
+the&nbsp;result&nbsp;as&nbsp;if&nbsp;it's&nbsp;a&nbsp;template&nbsp;using&nbsp;the&nbsp;provided&nbsp;variables.</tt></dd></dl>
+ <dl><dt><a name="-set_file_hash"><strong>set_file_hash</strong></a>(hashes: dict, path: Union[pathlib.Path, str], set_new: bool = True) -&gt; bool</dt><dd><tt>Evaluate&nbsp;a&nbsp;hash&nbsp;dictionary&nbsp;and&nbsp;update&nbsp;it&nbsp;on&nbsp;a&nbsp;miss.</tt></dd></dl>
+ <dl><dt><a name="-template_preprocessor_factory"><strong>template_preprocessor_factory</strong></a>(variables: dict, is_template: bool, stack: contextlib.ExitStack) -&gt; Callable[[Union[TextIO, _io.StringIO]], Union[TextIO, _io.StringIO]]</dt><dd><tt>Create&nbsp;a&nbsp;stream-processing&nbsp;function&nbsp;for&nbsp;data&nbsp;decoding.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ARBITER</strong> = &lt;vcorelib.io.DataArbiter object&gt;<br>
+<strong>DataStream</strong> = typing.Union[typing.TextIO, _io.StringIO]<br>
+<strong>LOG</strong> = &lt;Logger datazen.parsing (WARNING)&gt;<br>
+<strong>StreamProcessor</strong> = typing.Callable[[typing.Union[typing.TextIO, _io...gIO]], typing.Union[typing.TextIO, _io.StringIO]]<br>
+<strong>Union</strong> = typing.Union</td></tr></table>
+</body></html>

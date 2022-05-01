@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.frame.framer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.frame.html"><font color="#ffffff">frame</font></a>.framer</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/frame/framer.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/frame/framer.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;A&nbsp;module&nbsp;containing&nbsp;generic&nbsp;utilities&nbsp;for&nbsp;building&nbsp;frames.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.frame.framer.html#Framer">Framer</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Framer">class <strong>Framer</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Framer">Framer</a>(mtu:&nbsp;int,&nbsp;app_id_basis:&nbsp;float&nbsp;=&nbsp;None,&nbsp;use_crc:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;capable&nbsp;of&nbsp;building&nbsp;frames&nbsp;of&nbsp;a&nbsp;specified&nbsp;type.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Framer-__init__"><strong>__init__</strong></a>(self, mtu: int, app_id_basis: float = None, use_crc: bool = True) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;framer.</tt></dd></dl>
+
+<dl><dt><a name="Framer-new_frame"><strong>new_frame</strong></a>(self, frame_type: str, time: float = None) -&gt; vtelem.frame.Frame</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;frame&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Framer-create_app_id"><strong>create_app_id</strong></a>(basis: float = None) -&gt; vtelem.classes.type_primitive.TypePrimitive</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;application&nbsp;identifier,&nbsp;use&nbsp;a&nbsp;provided&nbsp;basis&nbsp;value&nbsp;if<br>
+provided.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-basis_to_int"><strong>basis_to_int</strong></a>(basis: float) -&gt; int</dt><dd><tt>Convert&nbsp;some&nbsp;basis&nbsp;floating-point&nbsp;number&nbsp;into&nbsp;a&nbsp;valid&nbsp;integer&nbsp;for&nbsp;an<br>
+application&nbsp;identifier.</tt></dd></dl>
+ <dl><dt><a name="-build_dummy_frame"><strong>build_dummy_frame</strong></a>(overall_size: int, frame_type: str = 'invalid', frame_builder: Callable[[vtelem.frame.Frame], NoneType] = None, app_id_basis: float = None, bad_crc: bool = False) -&gt; vtelem.frame.channel.ChannelFrame</dt><dd><tt>Build&nbsp;an&nbsp;empty&nbsp;frame&nbsp;of&nbsp;a&nbsp;specified&nbsp;size.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Callable</strong> = typing.Callable<br>
+<strong>DEFAULTS</strong> = {'count': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f85c5b06310&gt;)&gt;, 'crc': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f85c5b06310&gt;)&gt;, 'enum': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7f85c5b06310&gt;)&gt;, 'id': &lt;Primitive.UINT16: BasePrimitive(fmt='H', type=&lt;...e=&lt;function integer_can_hold at 0x7f85c5b06310&gt;)&gt;, 'metric': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f85c5b06310&gt;)&gt;, 'timestamp': &lt;Primitive.UINT64: BasePrimitive(fmt='Q', type=&lt;...e=&lt;function integer_can_hold at 0x7f85c5b06310&gt;)&gt;, 'version': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7f85c5b06310&gt;)&gt;}<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>FRAME_CLASS_MAP</strong> = defaultdict(&lt;function &lt;lambda&gt; at 0x7f85c5a691f0...e': &lt;class 'vtelem.frame.message.MessageFrame'&gt;})<br>
+<strong>FRAME_TYPES</strong> = &lt;vtelem.classes.user_enum.UserEnum object&gt;<br>
+<strong>LOG</strong> = &lt;Logger vtelem.frame.framer (WARNING)&gt;<br>
+<strong>Type</strong> = typing.Type<br>
+<strong>__annotations__</strong> = {'FRAME_CLASS_MAP': typing.Dict[str, typing.Type]}</td></tr></table>
+</body></html>

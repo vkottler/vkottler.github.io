@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.parsing.encapsulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.parsing.html"><font color="#ffffff">parsing</font></a>.encapsulation</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/parsing/encapsulation.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/parsing/encapsulation.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;Parsing&nbsp;frames&nbsp;into&nbsp;runtime&nbsp;data.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-decode_frame"><strong>decode_frame</strong></a>(channel_registry: vtelem.channel.registry.ChannelRegistry, data: bytes, size: int, expected_id: Union[vtelem.classes.type_primitive.TypePrimitive, NoneType] = None) -&gt; Union[vtelem.types.frame.ParsedFrame, NoneType]</dt><dd><tt>Unpack&nbsp;a&nbsp;frame&nbsp;from&nbsp;an&nbsp;array&nbsp;of&nbsp;bytes.</tt></dd></dl>
+ <dl><dt><a name="-parse_frame_footer"><strong>parse_frame_footer</strong></a>(buf: vtelem.classes.byte_buffer.ByteBuffer) -&gt; vtelem.types.frame.FrameFooter</dt><dd><tt>Attempt&nbsp;to&nbsp;parse&nbsp;a&nbsp;channel&nbsp;fram&nbsp;footer&nbsp;from&nbsp;a&nbsp;buffer.</tt></dd></dl>
+ <dl><dt><a name="-parse_frame_header"><strong>parse_frame_header</strong></a>(buf: vtelem.classes.byte_buffer.ByteBuffer, expected_id: Union[vtelem.classes.type_primitive.TypePrimitive, NoneType] = None) -&gt; Tuple[int, Union[vtelem.types.frame.FrameHeader, NoneType]]</dt><dd><tt>Attempt&nbsp;to&nbsp;parse&nbsp;a&nbsp;channel&nbsp;frame&nbsp;from&nbsp;a&nbsp;buffer.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEFAULTS</strong> = {'count': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f80996d3670&gt;)&gt;, 'crc': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f80996d3670&gt;)&gt;, 'enum': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7f80996d3670&gt;)&gt;, 'id': &lt;Primitive.UINT16: BasePrimitive(fmt='H', type=&lt;...e=&lt;function integer_can_hold at 0x7f80996d3670&gt;)&gt;, 'metric': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f80996d3670&gt;)&gt;, 'timestamp': &lt;Primitive.UINT64: BasePrimitive(fmt='Q', type=&lt;...e=&lt;function integer_can_hold at 0x7f80996d3670&gt;)&gt;, 'version': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7f80996d3670&gt;)&gt;}<br>
+<strong>LOG</strong> = &lt;Logger vtelem.parsing.encapsulation (WARNING)&gt;<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>PARSERS</strong> = {&lt;FrameType.INVALID: 0&gt;: &lt;function parse_invalid_frame&gt;, &lt;FrameType.DATA: 1&gt;: &lt;function parse_data_frame&gt;, &lt;FrameType.EVENT: 2&gt;: &lt;function parse_event_frame&gt;, &lt;FrameType.MESSAGE: 3&gt;: &lt;function parse_message_frame&gt;, &lt;FrameType.STREAM: 4&gt;: &lt;function parse_stream_frame&gt;}<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>

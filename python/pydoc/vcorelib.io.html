@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package vcorelib.io</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.io</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/__init__.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/__init__.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;exposing&nbsp;data-file&nbsp;encoders&nbsp;and&nbsp;decoders.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="vcorelib.io.archive.html"><strong>archive</strong>&nbsp;(package)</a><br>
+<a href="vcorelib.io.cache.html">cache</a><br>
+</td><td width="25%" valign=top><a href="vcorelib.io.decode.html">decode</a><br>
+<a href="vcorelib.io.encode.html">encode</a><br>
+</td><td width="25%" valign=top><a href="vcorelib.io.types.html">types</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.io.html#DataArbiter">DataArbiter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="vcorelib.io.html#DataMapping">DataMapping</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DataArbiter">class <strong>DataArbiter</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DataArbiter">DataArbiter</a>(logger:&nbsp;logging.Logger&nbsp;=&nbsp;&amp;lt;Logger&nbsp;vcorelib.io&nbsp;(WARNING)&amp;gt;,&nbsp;encoding:&nbsp;str&nbsp;=&nbsp;'utf-8')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;looking&nbsp;up&nbsp;encode&nbsp;and&nbsp;decode&nbsp;functions&nbsp;for&nbsp;given&nbsp;data&nbsp;types.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DataArbiter-__init__"><strong>__init__</strong></a>(self, logger: logging.Logger = &lt;Logger vcorelib.io (WARNING)&gt;, encoding: str = 'utf-8') -&gt; None</dt><dd><tt>Initialize&nbsp;a&nbsp;new&nbsp;data&nbsp;arbiter.</tt></dd></dl>
+
+<dl><dt><a name="DataArbiter-decode"><strong>decode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], logger: logging.Logger = None, require_success: bool = False, includes_key: Any = None, preprocessor: Callable[[Union[TextIO, _io.StringIO]], Union[TextIO, _io.StringIO]] = None, maxsplit: int = 1, **kwargs) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Attempt&nbsp;to&nbsp;load&nbsp;data&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="DataArbiter-decode_directory"><strong>decode_directory</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], logger: logging.Logger = None, require_success: bool = False, path_filter: Callable[[pathlib.Path], bool] = None, recurse: bool = False, **kwargs) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Attempt&nbsp;to&nbsp;decode&nbsp;data&nbsp;files&nbsp;in&nbsp;a&nbsp;directory.&nbsp;Assigns&nbsp;data&nbsp;loaded&nbsp;from<br>
+each&nbsp;file&nbsp;to&nbsp;a&nbsp;key,&nbsp;returns&nbsp;whether&nbsp;or&nbsp;not&nbsp;any&nbsp;files&nbsp;failed&nbsp;to&nbsp;load<br>
+and&nbsp;the&nbsp;cumulative&nbsp;time&nbsp;that&nbsp;each&nbsp;file-load&nbsp;took.</tt></dd></dl>
+
+<dl><dt><a name="DataArbiter-decode_stream"><strong>decode_stream</strong></a>(self, ext: str, stream: Union[TextIO, _io.StringIO], logger: logging.Logger = None, **kwargs) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Attempt&nbsp;to&nbsp;load&nbsp;data&nbsp;from&nbsp;a&nbsp;text&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="DataArbiter-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], data: dict, logger: logging.Logger = None, maxsplit: int = 1, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;data&nbsp;to&nbsp;a&nbsp;file&nbsp;on&nbsp;disk.</tt></dd></dl>
+
+<dl><dt><a name="DataArbiter-encode_directory"><strong>encode_directory</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], data: dict, ext: str = 'json', logger: logging.Logger = None, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;data&nbsp;to&nbsp;a&nbsp;directory&nbsp;where&nbsp;every&nbsp;key&nbsp;becomes&nbsp;a&nbsp;file&nbsp;with&nbsp;the<br>
+provided&nbsp;extension.&nbsp;The&nbsp;encoding&nbsp;scheme&nbsp;is&nbsp;implied&nbsp;by&nbsp;the&nbsp;extension.</tt></dd></dl>
+
+<dl><dt><a name="DataArbiter-encode_stream"><strong>encode_stream</strong></a>(self, ext: str, stream: Union[TextIO, _io.StringIO], data: dict, logger: logging.Logger = None, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Serialize&nbsp;data&nbsp;to&nbsp;an&nbsp;output&nbsp;stream.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DataMapping">class <strong>DataMapping</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Map&nbsp;interfaces&nbsp;that&nbsp;read&nbsp;and&nbsp;write&nbsp;data&nbsp;formats&nbsp;to&nbsp;the&nbsp;file&nbsp;extensions<br>
+that&nbsp;most-likely&nbsp;indicate&nbsp;the&nbsp;desire&nbsp;for&nbsp;that&nbsp;kind&nbsp;of&nbsp;format.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Static methods defined here:<br>
+<dl><dt><a name="DataMapping-from_ext"><strong>from_ext</strong></a>(ext: vcorelib.io.types.FileExtension = None) -&gt; Union[ForwardRef('DataType'), NoneType]</dt><dd><tt>Map&nbsp;a&nbsp;file&nbsp;extension&nbsp;to&nbsp;a&nbsp;data&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="DataMapping-from_ext_str"><strong>from_ext_str</strong></a>(ext: str) -&gt; Union[ForwardRef('DataType'), NoneType]</dt><dd><tt>Get&nbsp;a&nbsp;data&nbsp;type&nbsp;from&nbsp;a&nbsp;file-extension&nbsp;string.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DataType</strong> = &lt;enum 'DataType'&gt;<dd><tt>An&nbsp;aggregation&nbsp;of&nbsp;all&nbsp;known&nbsp;data&nbsp;types.</tt></dl>
+
+<dl><dt><strong>mapping</strong> = {&lt;FileExtension.INI: ['ini', 'cfg']&gt;: &lt;DataType.INI: _DataHandle(decoder=&lt;function dec...encoder=&lt;function encode_ini at 0x7fa2f6fafd30&gt;)&gt;, &lt;FileExtension.JSON: ['json']&gt;: &lt;DataType.JSON: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_json at 0x7fa2f6f8eb80&gt;)&gt;, &lt;FileExtension.YAML: ['yaml', 'yml', 'eyaml']&gt;: &lt;DataType.YAML: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_yaml at 0x7fa2f6f8eca0&gt;)&gt;, &lt;FileExtension.TOML: ['toml']&gt;: &lt;DataType.TOML: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_toml at 0x7fa2f6fafdc0&gt;)&gt;}</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ARBITER</strong> = &lt;vcorelib.io.DataArbiter object&gt;</td></tr></table>
+</body></html>

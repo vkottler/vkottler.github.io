@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.classes.time_entity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.classes.html"><font color="#ffffff">classes</font></a>.time_entity</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/classes/time_entity.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/classes/time_entity.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;Implements&nbsp;an&nbsp;interface&nbsp;for&nbsp;getting&nbsp;and&nbsp;setting&nbsp;time&nbsp;on&nbsp;an&nbsp;<a href="builtins.html#object">object</a>.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.classes.time_entity.html#LockEntity">LockEntity</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.classes.time_entity.html#TimeEntity">TimeEntity</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="contextlib.html#AbstractContextManager">contextlib.AbstractContextManager</a>(<a href="abc.html#ABC">abc.ABC</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.classes.time_entity.html#OptionalRLock">OptionalRLock</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LockEntity">class <strong>LockEntity</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#LockEntity">LockEntity</a>(make_lock:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;mix-in&nbsp;for&nbsp;adding&nbsp;a&nbsp;lock&nbsp;attribute&nbsp;to&nbsp;a&nbsp;class.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="LockEntity-__init__"><strong>__init__</strong></a>(self, make_lock: bool = True) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;locked&nbsp;entity.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="OptionalRLock">class <strong>OptionalRLock</strong></a>(<a href="contextlib.html#AbstractContextManager">contextlib.AbstractContextManager</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#OptionalRLock">OptionalRLock</a>(make_lock:&nbsp;bool,&nbsp;item:&nbsp;Union[Any,&nbsp;NoneType]&nbsp;=&nbsp;None,&nbsp;lock_cls:&nbsp;Type[RLock]&nbsp;=&nbsp;&amp;lt;function&nbsp;RLock&nbsp;at&nbsp;0x7f5877407c10&amp;gt;)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;allowing&nbsp;easy&nbsp;transitions&nbsp;from&nbsp;using&nbsp;actual&nbsp;locking&nbsp;mechanisms&nbsp;or<br>
+opting&nbsp;out,&nbsp;but&nbsp;keeping&nbsp;the&nbsp;context-manager&nbsp;semantics.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vtelem.classes.time_entity.html#OptionalRLock">OptionalRLock</a></dd>
+<dd><a href="contextlib.html#AbstractContextManager">contextlib.AbstractContextManager</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="OptionalRLock-__enter__"><strong>__enter__</strong></a>(self) -&gt; Union[Any, NoneType]</dt><dd><tt>Acquire&nbsp;the&nbsp;lock&nbsp;(if&nbsp;we&nbsp;have&nbsp;one)&nbsp;and&nbsp;return&nbsp;the&nbsp;locked&nbsp;item.</tt></dd></dl>
+
+<dl><dt><a name="OptionalRLock-__exit__"><strong>__exit__</strong></a>(self, exc_type, __, ___) -&gt; Literal[False]</dt><dd><tt>Release&nbsp;the&nbsp;lock&nbsp;if&nbsp;no&nbsp;exception&nbsp;was&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="OptionalRLock-__init__"><strong>__init__</strong></a>(self, make_lock: bool, item: Union[Any, NoneType] = None, lock_cls: Type[RLock] = &lt;function RLock at 0x7f5877407c10&gt;) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;optional&nbsp;lock.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Class methods inherited from <a href="contextlib.html#AbstractContextManager">contextlib.AbstractContextManager</a>:<br>
+<dl><dt><a name="OptionalRLock-__subclasshook__"><strong>__subclasshook__</strong></a>(C)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Abstract&nbsp;classes&nbsp;can&nbsp;override&nbsp;this&nbsp;to&nbsp;customize&nbsp;issubclass().<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;invoked&nbsp;early&nbsp;on&nbsp;by&nbsp;abc.ABCMeta.__subclasscheck__().<br>
+It&nbsp;should&nbsp;return&nbsp;True,&nbsp;False&nbsp;or&nbsp;NotImplemented.&nbsp;&nbsp;If&nbsp;it&nbsp;returns<br>
+NotImplemented,&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;is&nbsp;used.&nbsp;&nbsp;Otherwise,&nbsp;it<br>
+overrides&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;(and&nbsp;the&nbsp;outcome&nbsp;is&nbsp;cached).</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="contextlib.html#AbstractContextManager">contextlib.AbstractContextManager</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TimeEntity">class <strong>TimeEntity</strong></a>(<a href="vtelem.classes.time_entity.html#LockEntity">LockEntity</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#TimeEntity">TimeEntity</a>(init_time:&nbsp;float&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;class&nbsp;for&nbsp;adding&nbsp;time-keeping&nbsp;to&nbsp;a&nbsp;parent.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vtelem.classes.time_entity.html#TimeEntity">TimeEntity</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#LockEntity">LockEntity</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TimeEntity-__init__"><strong>__init__</strong></a>(self, init_time: float = None) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;time&nbsp;entity.</tt></dd></dl>
+
+<dl><dt><a name="TimeEntity-advance_time"><strong>advance_time</strong></a>(self, amount: float) -&gt; None</dt><dd><tt>Advance&nbsp;this&nbsp;entity's&nbsp;time&nbsp;by&nbsp;a&nbsp;specified&nbsp;amount.</tt></dd></dl>
+
+<dl><dt><a name="TimeEntity-get_time"><strong>get_time</strong></a>(self) -&gt; float</dt><dd><tt>Return&nbsp;this&nbsp;entity's&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="TimeEntity-set_time"><strong>set_time</strong></a>(self, time: float) -&gt; None</dt><dd><tt>Set&nbsp;this&nbsp;entity's&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vtelem.classes.time_entity.html#LockEntity">LockEntity</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Any</strong> = typing.Any<br>
+<strong>Literal</strong> = typing.Literal<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>Type</strong> = typing.Type</td></tr></table>
+</body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vtelem.daemon.telemetry</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.daemon.html"><font color="#ffffff">daemon</font></a>.telemetry</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/daemon/telemetry.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/daemon/telemetry.py</a></font></td></tr></table>
+    <p><tt>vtelem&nbsp;-&nbsp;Exposes&nbsp;daemonic&nbsp;capabilities&nbsp;for&nbsp;telemetry.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="vtelem.daemon.synchronous.html#Daemon">vtelem.daemon.synchronous.Daemon</a>(<a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.daemon.telemetry.html#TelemetryDaemon">TelemetryDaemon</a>(<a href="vtelem.telemetry.environment.html#TelemetryEnvironment">vtelem.telemetry.environment.TelemetryEnvironment</a>, <a href="vtelem.daemon.synchronous.html#Daemon">vtelem.daemon.synchronous.Daemon</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="vtelem.telemetry.environment.html#TelemetryEnvironment">vtelem.telemetry.environment.TelemetryEnvironment</a>(<a href="vtelem.channel.environment.html#ChannelEnvironment">vtelem.channel.environment.ChannelEnvironment</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vtelem.daemon.telemetry.html#TelemetryDaemon">TelemetryDaemon</a>(<a href="vtelem.telemetry.environment.html#TelemetryEnvironment">vtelem.telemetry.environment.TelemetryEnvironment</a>, <a href="vtelem.daemon.synchronous.html#Daemon">vtelem.daemon.synchronous.Daemon</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TelemetryDaemon">class <strong>TelemetryDaemon</strong></a>(<a href="vtelem.telemetry.environment.html#TelemetryEnvironment">vtelem.telemetry.environment.TelemetryEnvironment</a>, <a href="vtelem.daemon.synchronous.html#Daemon">vtelem.daemon.synchronous.Daemon</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#TelemetryDaemon">TelemetryDaemon</a>(name:&nbsp;str,&nbsp;mtu:&nbsp;int,&nbsp;rate:&nbsp;float,&nbsp;time_keeper:&nbsp;vtelem.classes.time_keeper.TimeKeeper,&nbsp;metrics_rate:&nbsp;float&nbsp;=&nbsp;None,&nbsp;initial_channels:&nbsp;List[vtelem.channel.Channel]&nbsp;=&nbsp;None,&nbsp;initial_enums:&nbsp;List[vtelem.classes.user_enum.UserEnum]&nbsp;=&nbsp;None,&nbsp;app_id_basis:&nbsp;float&nbsp;=&nbsp;None,&nbsp;use_crc:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Wraps&nbsp;the&nbsp;telemetry-environment&nbsp;capability&nbsp;into&nbsp;a&nbsp;runtime&nbsp;daemon.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vtelem.daemon.telemetry.html#TelemetryDaemon">TelemetryDaemon</a></dd>
+<dd><a href="vtelem.telemetry.environment.html#TelemetryEnvironment">vtelem.telemetry.environment.TelemetryEnvironment</a></dd>
+<dd><a href="vtelem.channel.environment.html#ChannelEnvironment">vtelem.channel.environment.ChannelEnvironment</a></dd>
+<dd><a href="vtelem.daemon.synchronous.html#Daemon">vtelem.daemon.synchronous.Daemon</a></dd>
+<dd><a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#TimeEntity">vtelem.classes.time_entity.TimeEntity</a></dd>
+<dd><a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TelemetryDaemon-__init__"><strong>__init__</strong></a>(self, name: str, mtu: int, rate: float, time_keeper: vtelem.classes.time_keeper.TimeKeeper, metrics_rate: float = None, initial_channels: List[vtelem.channel.Channel] = None, initial_enums: List[vtelem.classes.user_enum.UserEnum] = None, app_id_basis: float = None, use_crc: bool = True) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;telemetry&nbsp;daemon.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vtelem.telemetry.environment.html#TelemetryEnvironment">vtelem.telemetry.environment.TelemetryEnvironment</a>:<br>
+<dl><dt><a name="TelemetryDaemon-add_enum"><strong>add_enum</strong></a>(self, enum: vtelem.classes.user_enum.UserEnum) -&gt; int</dt><dd><tt>Add&nbsp;a&nbsp;user&nbsp;enumeration&nbsp;to&nbsp;this&nbsp;environment's&nbsp;management.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-add_enum_channel"><strong>add_enum_channel</strong></a>(self, name: str, enum_name: str, rate: float, track_change: bool = False, initial: Tuple[str, Union[float, NoneType]] = None, commandable: bool = True) -&gt; int</dt><dd><tt>Add&nbsp;a&nbsp;channel&nbsp;that&nbsp;stores&nbsp;an&nbsp;enumeration&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-add_enum_metric"><strong>add_enum_metric</strong></a>(self, name: str, enum_name: str, track_change: bool = False, initial: Tuple[str, Union[float, NoneType]] = None) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;metric&nbsp;based&nbsp;on&nbsp;an&nbsp;enumeration&nbsp;definition.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-add_from_enum"><strong>add_from_enum</strong></a>(self, enum_class: Type[enum.IntEnum]) -&gt; int</dt><dd><tt>Add&nbsp;an&nbsp;enumeration&nbsp;from&nbsp;an&nbsp;enum&nbsp;class.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-command_enum_channel"><strong>command_enum_channel</strong></a>(self, name: str, value: str) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;command&nbsp;an&nbsp;enum-based&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-command_enum_channel_id"><strong>command_enum_channel_id</strong></a>(self, chan_id: int, value: str) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;command&nbsp;an&nbsp;enum-based&nbsp;channel&nbsp;by&nbsp;integer&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_enum_metric"><strong>get_enum_metric</strong></a>(self, name: str) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;currently-held&nbsp;enum&nbsp;String&nbsp;of&nbsp;a&nbsp;metric&nbsp;channel&nbsp;by&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_enum_value"><strong>get_enum_value</strong></a>(self, chan_id: int) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;String&nbsp;value&nbsp;currently&nbsp;held&nbsp;by&nbsp;an&nbsp;enum&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-has_enum"><strong>has_enum</strong></a>(self, enum: vtelem.classes.user_enum.UserEnum) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;environment&nbsp;is&nbsp;already&nbsp;aware&nbsp;of&nbsp;a&nbsp;specific&nbsp;enum<br>
+definition.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-is_enum_channel"><strong>is_enum_channel</strong></a>(self, chan_id: int) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;channel&nbsp;holds&nbsp;an&nbsp;enumeration&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_enum_metric"><strong>set_enum_metric</strong></a>(self, name: str, data: str, time: float = None) -&gt; None</dt><dd><tt>Set&nbsp;the&nbsp;value&nbsp;for&nbsp;an&nbsp;enumeration&nbsp;metric.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_enum_now"><strong>set_enum_now</strong></a>(self, channel_id: int, data: str) -&gt; bool</dt><dd><tt>Set&nbsp;an&nbsp;enum&nbsp;channel&nbsp;with&nbsp;the&nbsp;provided&nbsp;value,&nbsp;assign&nbsp;time.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vtelem.channel.environment.html#ChannelEnvironment">vtelem.channel.environment.ChannelEnvironment</a>:<br>
+<dl><dt><a name="TelemetryDaemon-add_channel"><strong>add_channel</strong></a>(self, name: str, instance: vtelem.enums.primitive.Primitive, rate: float, track_change: bool = False, initial: Tuple[Any, Union[float, NoneType]] = None, commandable: bool = True) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;channel&nbsp;with&nbsp;the&nbsp;environment,&nbsp;returns&nbsp;an&nbsp;integer&nbsp;identifier<br>
+that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;the&nbsp;channel's&nbsp;value&nbsp;through&nbsp;the&nbsp;environment.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-add_metric"><strong>add_metric</strong></a>(self, name: str, instance: vtelem.enums.primitive.Primitive, track_change: bool = False, initial: Tuple[Any, Union[float, NoneType]] = None) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;new,&nbsp;named&nbsp;metric&nbsp;channel</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-command_channel"><strong>command_channel</strong></a>(self, name: str, value: Any) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;command&nbsp;a&nbsp;channel,&nbsp;by&nbsp;its&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-command_channel_id"><strong>command_channel_id</strong></a>(self, chan_id: int, value: Any) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;command&nbsp;a&nbsp;channel,&nbsp;by&nbsp;its&nbsp;integer&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-decode_frame"><strong>decode_frame</strong></a>(self, data: bytes, size: int, expected_id: Union[vtelem.classes.type_primitive.TypePrimitive, NoneType] = None) -&gt; Union[vtelem.types.frame.ParsedFrame, NoneType]</dt><dd><tt>Unpack&nbsp;a&nbsp;frame&nbsp;from&nbsp;an&nbsp;array&nbsp;of&nbsp;bytes.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-dispatch"><strong>dispatch</strong></a>(self, time: float, should_log: bool = True) -&gt; int</dt><dd><tt>Dispatch&nbsp;events&nbsp;and&nbsp;channel&nbsp;emissions.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-dispatch_data"><strong>dispatch_data</strong></a>(self, time: float) -&gt; Tuple[int, int]</dt><dd><tt>Process&nbsp;all&nbsp;channel&nbsp;emissions&nbsp;for&nbsp;the&nbsp;specified,&nbsp;absolute&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-dispatch_events"><strong>dispatch_events</strong></a>(self, time: float) -&gt; Tuple[int, int]</dt><dd><tt>Process&nbsp;all&nbsp;queued&nbsp;events&nbsp;(build&nbsp;frames).</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-dispatch_now"><strong>dispatch_now</strong></a>(self, *_, should_log: bool = True, **__) -&gt; int</dt><dd><tt>Dispatch&nbsp;telemetry&nbsp;at&nbsp;the&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_metric"><strong>get_metric</strong></a>(self, name: str) -&gt; Any</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;from&nbsp;a&nbsp;metrics&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_next_frame"><strong>get_next_frame</strong></a>(self, timeout: int = 5) -&gt; vtelem.frame.channel.ChannelFrame</dt><dd><tt>Get&nbsp;the&nbsp;next&nbsp;available&nbsp;frame&nbsp;from&nbsp;the&nbsp;queue.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_value"><strong>get_value</strong></a>(self, chan_id: int) -&gt; Any</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;value&nbsp;of&nbsp;a&nbsp;channel,&nbsp;by&nbsp;integer&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-handle_new_mtu"><strong>handle_new_mtu</strong></a>(self, new_mtu: int) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;new&nbsp;maximum&nbsp;transmission-unit&nbsp;size&nbsp;if&nbsp;necessary.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-has_channel"><strong>has_channel</strong></a>(self, name: str) -&gt; bool</dt><dd><tt>A&nbsp;quick&nbsp;check&nbsp;that&nbsp;this&nbsp;environmentl&nbsp;has&nbsp;a&nbsp;named&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-has_metric"><strong>has_metric</strong></a>(self, name: str) -&gt; bool</dt><dd><tt>Check&nbsp;if&nbsp;a&nbsp;metric&nbsp;by&nbsp;a&nbsp;given&nbsp;name&nbsp;has&nbsp;already&nbsp;been&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-metric_add"><strong>metric_add</strong></a>(self, name: str, data: Any, time: float = None) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;value&nbsp;to&nbsp;a&nbsp;metric&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-register_base_metrics"><strong>register_base_metrics</strong></a>(self, metrics_rate: float) -&gt; None</dt><dd><tt>Register&nbsp;standard&nbsp;environment&nbsp;metric&nbsp;channels.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_channel_rate"><strong>set_channel_rate</strong></a>(self, chan_id: int, rate: float) -&gt; None</dt><dd><tt>Set&nbsp;the&nbsp;update-rate&nbsp;of&nbsp;a&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_metric"><strong>set_metric</strong></a>(self, name: str, data: Any, time: float = None) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;channel&nbsp;to&nbsp;a&nbsp;specific&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_metric_rate"><strong>set_metric_rate</strong></a>(self, name: str, rate: float) -&gt; None</dt><dd><tt>Set&nbsp;the&nbsp;rate&nbsp;of&nbsp;a&nbsp;metrics&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_now"><strong>set_now</strong></a>(self, channel_id: int, data: Any) -&gt; bool</dt><dd><tt>set&nbsp;a&nbsp;channel&nbsp;with&nbsp;the&nbsp;provided&nbsp;value,&nbsp;assign&nbsp;time.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vtelem.channel.environment.html#ChannelEnvironment">vtelem.channel.environment.ChannelEnvironment</a>:<br>
+<dl><dt><strong>app_id</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;environment's&nbsp;application&nbsp;identifier.</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="vtelem.daemon.synchronous.html#Daemon">vtelem.daemon.synchronous.Daemon</a>:<br>
+<dl><dt><a name="TelemetryDaemon-get_rate"><strong>get_rate</strong></a>(self) -&gt; float</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;daemon-iteration&nbsp;rate.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-run"><strong>run</strong></a>(self, *args, **kwargs) -&gt; None</dt><dd><tt>Runs&nbsp;this&nbsp;daemon's&nbsp;thread,&nbsp;until&nbsp;stop&nbsp;is&nbsp;requested.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_rate"><strong>set_rate</strong></a>(self, rate: float) -&gt; None</dt><dd><tt>Set&nbsp;the&nbsp;rate&nbsp;for&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>:<br>
+<dl><dt><a name="TelemetryDaemon-begin_stop"><strong>begin_stop</strong></a>(self) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;we're&nbsp;in&nbsp;the&nbsp;correct&nbsp;state&nbsp;to&nbsp;stop,&nbsp;mutate&nbsp;state&nbsp;if&nbsp;so.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-booted"><strong>booted</strong></a>(self, *args, require_stop: bool = True, **kwargs) -&gt; Iterator[NoneType]</dt><dd><tt>Provide&nbsp;a&nbsp;context&nbsp;manager&nbsp;that&nbsp;yields&nbsp;when&nbsp;this&nbsp;daemon&nbsp;is&nbsp;running&nbsp;and<br>
+automatically&nbsp;stops&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-decrement_metric"><strong>decrement_metric</strong></a>(self, name: str, value: Any = 1) -&gt; None</dt><dd><tt>Decrement&nbsp;a&nbsp;named&nbsp;metric.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_metric_name"><strong>get_metric_name</strong></a>(self, channel_name: str) -&gt; str</dt><dd><tt>Build&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;metric&nbsp;channel&nbsp;for&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_state"><strong>get_state</strong></a>(self) -&gt; vtelem.enums.daemon.DaemonState</dt><dd><tt>Query&nbsp;this&nbsp;daemon's&nbsp;current&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_state_str"><strong>get_state_str</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;state&nbsp;as&nbsp;a&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-increment_metric"><strong>increment_metric</strong></a>(self, name: str, value: Any = 1) -&gt; None</dt><dd><tt>Increment&nbsp;a&nbsp;named&nbsp;metric.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-pause"><strong>pause</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;pause&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-paused"><strong>paused</strong></a>(self) -&gt; Iterator[NoneType]</dt><dd><tt>Exposes&nbsp;pausing&nbsp;and&nbsp;unpausing&nbsp;while&nbsp;yielded.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-perform"><strong>perform</strong></a>(self, action: vtelem.enums.daemon.DaemonOperation, *args, **kwargs) -&gt; bool</dt><dd><tt>Perform&nbsp;an&nbsp;action&nbsp;by&nbsp;enum.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-perform_str"><strong>perform_str</strong></a>(self, action: str, *args, **kwargs) -&gt; bool</dt><dd><tt>Perform&nbsp;an&nbsp;action&nbsp;on&nbsp;this&nbsp;daemon&nbsp;by&nbsp;String.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-reset_metric"><strong>reset_metric</strong></a>(self, name: str) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;back&nbsp;to&nbsp;zero.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-restart"><strong>restart</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;restart&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-run_harness"><strong>run_harness</strong></a>(self, *args, **kwargs) -&gt; None</dt><dd><tt>Execute&nbsp;'run'&nbsp;and&nbsp;ensure&nbsp;that&nbsp;the&nbsp;correct&nbsp;state&nbsp;transitions&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-serve"><strong>serve</strong></a>(self, *args, main_thread: Callable[..., int] = None, **kwargs) -&gt; int</dt><dd><tt>Run&nbsp;this&nbsp;daemon&nbsp;with&nbsp;an&nbsp;optionally-provided&nbsp;main-thread&nbsp;function,<br>
+return&nbsp;the&nbsp;main-thread&nbsp;function's&nbsp;result&nbsp;and&nbsp;shut&nbsp;down&nbsp;the&nbsp;daemon&nbsp;when<br>
+it&nbsp;returns.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_env_metric"><strong>set_env_metric</strong></a>(self, name: str, value: Any, prim: vtelem.enums.primitive.Primitive = &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;class 'int'&gt;, size=4, name='uint32', signed=False, min=0, max=4294967295, validate=&lt;function integer_can_hold at 0x7f5076db2670&gt;)&gt;) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;channel&nbsp;value&nbsp;if&nbsp;an&nbsp;environment&nbsp;is&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_state"><strong>set_state</strong></a>(self, state: vtelem.enums.daemon.DaemonState) -&gt; bool</dt><dd><tt>Assigns&nbsp;a&nbsp;new&nbsp;run-state&nbsp;to&nbsp;this&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-start"><strong>start</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;start&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-stop"><strong>stop</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;stop&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-unpause"><strong>unpause</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;un-pause&nbsp;the&nbsp;daemon.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="vtelem.daemon.html#DaemonBase">vtelem.daemon.DaemonBase</a>:<br>
+<dl><dt><strong>operations</strong> = &lt;vtelem.classes.user_enum.UserEnum object&gt;</dl>
+
+<dl><dt><strong>states</strong> = &lt;vtelem.classes.user_enum.UserEnum object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="vtelem.classes.time_entity.html#TimeEntity">vtelem.classes.time_entity.TimeEntity</a>:<br>
+<dl><dt><a name="TelemetryDaemon-advance_time"><strong>advance_time</strong></a>(self, amount: float) -&gt; None</dt><dd><tt>Advance&nbsp;this&nbsp;entity's&nbsp;time&nbsp;by&nbsp;a&nbsp;specified&nbsp;amount.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-get_time"><strong>get_time</strong></a>(self) -&gt; float</dt><dd><tt>Return&nbsp;this&nbsp;entity's&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="TelemetryDaemon-set_time"><strong>set_time</strong></a>(self, time: float) -&gt; None</dt><dd><tt>Set&nbsp;this&nbsp;entity's&nbsp;current&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vtelem.classes.time_entity.html#LockEntity">vtelem.classes.time_entity.LockEntity</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>List</strong> = typing.List</td></tr></table>
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package svgen.element</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="svgen.html"><font color="#ffffff">svgen</font></a>.element</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/svgen/svgen/element/__init__.py">/home/vkottler/Documents/git/workspace/svgen/svgen/element/__init__.py</a></font></td></tr></table>
+    <p><tt>svgen&nbsp;-&nbsp;Common&nbsp;interfaces&nbsp;and&nbsp;assets&nbsp;for&nbsp;SVG&nbsp;elements.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="svgen.element.circle.html">circle</a><br>
+</td><td width="25%" valign=top><a href="svgen.element.line.html">line</a><br>
+</td><td width="25%" valign=top><a href="svgen.element.rect.html">rect</a><br>
+</td><td width="25%" valign=top><a href="svgen.element.svg.html">svg</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="svgen.element.html#Element">Element</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Element">class <strong>Element</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Element">Element</a>(tag:&nbsp;str&nbsp;=&nbsp;None,&nbsp;text:&nbsp;str&nbsp;=&nbsp;'',&nbsp;attrib:&nbsp;List[svgen.attribute.Attribute]&nbsp;=&nbsp;None,&nbsp;children:&nbsp;List[ForwardRef('<a href="#Element">Element</a>')]&nbsp;=&nbsp;None,&nbsp;**extra)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;basic&nbsp;interface&nbsp;for&nbsp;an&nbsp;SVG&nbsp;element.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Element-__init__"><strong>__init__</strong></a>(self, tag: str = None, text: str = '', attrib: List[svgen.attribute.Attribute] = None, children: List[ForwardRef('Element')] = None, **extra) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;SVG&nbsp;element.</tt></dd></dl>
+
+<dl><dt><a name="Element-add_attribute"><strong>add_attribute</strong></a>(self, attr: svgen.attribute.Attribute) -&gt; 'Element'</dt><dd><tt>Add&nbsp;an&nbsp;attribute&nbsp;to&nbsp;this&nbsp;element.</tt></dd></dl>
+
+<dl><dt><a name="Element-closing"><strong>closing</strong></a>(self, indent: int = 0) -&gt; str</dt><dd><tt>Create&nbsp;a&nbsp;string&nbsp;to&nbsp;close&nbsp;this&nbsp;element.</tt></dd></dl>
+
+<dl><dt><a name="Element-encode"><strong>encode</strong></a>(self, output: &lt;class 'TextIO'&gt;, quote: str = '"', indent: int = 0, newlines: bool = True) -&gt; None</dt><dd><tt>Encode&nbsp;this&nbsp;element&nbsp;to&nbsp;a&nbsp;string&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Element-encode_str"><strong>encode_str</strong></a>(self, quote: str = '"', indent: int = 0, newlines: bool = True) -&gt; str</dt><dd><tt>Encode&nbsp;this&nbsp;element&nbsp;to&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>style</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;style&nbsp;attribute&nbsp;for&nbsp;this&nbsp;element.</tt></dd>
+</dl>
+<dl><dt><strong>xml</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;element&nbsp;as&nbsp;an&nbsp;xml&nbsp;element.</tt></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Dict</strong> = typing.Dict<br>
+<strong>INDENT</strong> = 2<br>
+<strong>List</strong> = typing.List<br>
+<strong>__annotations__</strong> = {'INDENT': &lt;class 'int'&gt;}</td></tr></table>
+</body></html>
