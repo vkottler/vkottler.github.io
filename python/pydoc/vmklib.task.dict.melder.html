@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vmklib.task.dict.melder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vmklib.html"><font color="#ffffff">vmklib</font></a>.<a href="vmklib.task.html"><font color="#ffffff">task</font></a>.<a href="vmklib.task.dict.html"><font color="#ffffff">dict</font></a>.melder</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vmklib/vmklib/task/dict/melder.py">/home/vkottler/Documents/git/workspace/vmklib/vmklib/task/dict/melder.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;task&nbsp;definition&nbsp;for&nbsp;melding&nbsp;inbox&nbsp;data&nbsp;into&nbsp;outbox&nbsp;data.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="vmklib.task.html#Task">vmklib.task.Task</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vmklib.task.dict.melder.html#DictMerger">DictMerger</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DictMerger">class <strong>DictMerger</strong></a>(<a href="vmklib.task.html#Task">vmklib.task.Task</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DictMerger">DictMerger</a>(name:&nbsp;str,&nbsp;*args,&nbsp;execute:&nbsp;Callable[[Dict[str,&nbsp;dict],&nbsp;dict],&nbsp;Coroutine[Any,&nbsp;Any,&nbsp;bool]]&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;pipes&nbsp;inbox&nbsp;data&nbsp;through&nbsp;to&nbsp;outbox&nbsp;data.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vmklib.task.dict.melder.html#DictMerger">DictMerger</a></dd>
+<dd><a href="vmklib.task.html#Task">vmklib.task.Task</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="DictMerger-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *args, **_) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;method&nbsp;to&nbsp;implement&nbsp;the&nbsp;task.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vmklib.task.html#Task">vmklib.task.Task</a>:<br>
+<dl><dt><a name="DictMerger-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="DictMerger-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="DictMerger-depend_on"><strong>depend_on</strong></a>(self, task: 'Task') -&gt; None</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.</tt></dd></dl>
+
+<dl><dt><a name="DictMerger-depend_on_all"><strong>depend_on_all</strong></a>(self, tasks: Iterable[ForwardRef('Task')]) -&gt; None</dt><dd><tt>Register&nbsp;multiple&nbsp;dependencies.</tt></dd></dl>
+
+<dl><dt>async <a name="DictMerger-dispatch"><strong>dispatch</strong></a>(self) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vmklib.task.html#Task">vmklib.task.Task</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Inbox</strong> = typing.Dict[str, dict]</td></tr></table>
+</body></html>

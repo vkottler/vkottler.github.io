@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package vcorelib.task</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.task</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/task/__init__.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/task/__init__.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;for&nbsp;implementing&nbsp;tasks&nbsp;in&nbsp;a&nbsp;dependency&nbsp;tree.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="vcorelib.task.dict.html"><strong>dict</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top><a href="vcorelib.task.manager.html">manager</a><br>
+</td><td width="25%" valign=top><a href="vcorelib.task.subprocess.html"><strong>subprocess</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.task.html#Task">Task</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Task">class <strong>Task</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Task">Task</a>(name:&nbsp;str,&nbsp;*args,&nbsp;execute:&nbsp;Callable[[Dict[str,&nbsp;dict],&nbsp;dict],&nbsp;Coroutine[Any,&nbsp;Any,&nbsp;bool]]&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;None,&nbsp;timer:&nbsp;vcorelib.math.time.Timer&nbsp;=&nbsp;None,&nbsp;target:&nbsp;vcorelib.target.Target&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;basic&nbsp;task&nbsp;interface&nbsp;definition.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Task-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, timer: vcorelib.math.time.Timer = None, target: vcorelib.target.Target = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="Task-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;task&nbsp;into&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="Task-compile_literal"><strong>compile_literal</strong></a>(self, substitutions: Dict[str, str]) -&gt; str</dt><dd><tt>Attempt&nbsp;to&nbsp;compile&nbsp;a&nbsp;literal&nbsp;string&nbsp;from&nbsp;this&nbsp;task's&nbsp;target.</tt></dd></dl>
+
+<dl><dt><a name="Task-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="Task-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
+if&nbsp;a&nbsp;new&nbsp;dependency&nbsp;was&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="Task-depend_on_all"><strong>depend_on_all</strong></a>(self, tasks: Iterable[ForwardRef('Task')], **kwargs) -&gt; int</dt><dd><tt>Register&nbsp;multiple&nbsp;dependencies.&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;dependencies<br>
+added.</tt></dd></dl>
+
+<dl><dt>async <a name="Task-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt><a name="Task-resolve"><strong>resolve</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
+
+<dl><dt>async <a name="Task-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, **substitutions) -&gt; None</dt><dd><tt>A&nbsp;default&nbsp;dependency&nbsp;resolver&nbsp;for&nbsp;tasks.&nbsp;Note&nbsp;that&nbsp;the&nbsp;default<br>
+dependency&nbsp;resolver&nbsp;cannot&nbsp;propagate&nbsp;current-task&nbsp;substitutions&nbsp;to<br>
+its&nbsp;dependencies&nbsp;as&nbsp;they've&nbsp;already&nbsp;been&nbsp;explicitly&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="Task-resolved"><strong>resolved</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
+
+<dl><dt>async <a name="Task-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *args, **kwargs) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;method&nbsp;to&nbsp;implement&nbsp;the&nbsp;task.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Inbox</strong> = typing.Dict[str, dict]<br>
+<strong>Substitutions</strong> = typing.Dict[str, str]<br>
+<strong>TaskExecute</strong> = typing.Callable[[typing.Dict[str, dict], dict], typing.Coroutine[typing.Any, typing.Any, bool]]<br>
+<strong>TaskGenerator</strong> = typing.Callable[..., _asyncio.Task]</td></tr></table>
+</body></html>
