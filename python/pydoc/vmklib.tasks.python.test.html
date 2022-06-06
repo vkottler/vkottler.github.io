@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vmklib.tasks.python.test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vmklib.html"><font color="#ffffff">vmklib</font></a>.<a href="vmklib.tasks.html"><font color="#ffffff">tasks</font></a>.<a href="vmklib.tasks.python.html"><font color="#ffffff">python</font></a>.test</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vmklib/vmklib/tasks/python/test.py">/home/vkottler/Documents/git/workspace/vmklib/vmklib/tasks/python/test.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;for&nbsp;Python&nbsp;unit&nbsp;testing&nbsp;tasks.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">vcorelib.task.subprocess.run.SubprocessLogMixin</a>(<a href="vcorelib.task.html#Task">vcorelib.task.Task</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vmklib.tasks.python.test.html#PythonTester">PythonTester</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PythonTester">class <strong>PythonTester</strong></a>(<a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">vcorelib.task.subprocess.run.SubprocessLogMixin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#PythonTester">PythonTester</a>(name:&nbsp;str,&nbsp;*args,&nbsp;execute:&nbsp;Callable[[Dict[str,&nbsp;dict],&nbsp;dict],&nbsp;Coroutine[Any,&nbsp;Any,&nbsp;bool]]&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;None,&nbsp;timer:&nbsp;vcorelib.math.time.Timer&nbsp;=&nbsp;None,&nbsp;target:&nbsp;vcorelib.target.Target&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;task&nbsp;for&nbsp;running&nbsp;pytest.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vmklib.tasks.python.test.html#PythonTester">PythonTester</a></dd>
+<dd><a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">vcorelib.task.subprocess.run.SubprocessLogMixin</a></dd>
+<dd><a href="vcorelib.task.html#Task">vcorelib.task.Task</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="PythonTester-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *args, **kwargs) -&gt; bool</dt><dd><tt>Run&nbsp;pytest&nbsp;against&nbsp;the&nbsp;project.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>default_requirements</strong> = {'venv'}</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">vcorelib.task.subprocess.run.SubprocessLogMixin</a>:<br>
+<dl><dt>async <a name="PythonTester-exec"><strong>exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="PythonTester-shell"><strong>shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="PythonTester-subprocess_exec"><strong>subprocess_exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;exec&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;arguments&nbsp;were.</tt></dd></dl>
+
+<dl><dt>async <a name="PythonTester-subprocess_shell"><strong>subprocess_shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;shell&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;command&nbsp;is.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><a name="PythonTester-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, timer: vcorelib.math.time.Timer = None, target: vcorelib.target.Target = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="PythonTester-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;task&nbsp;into&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="PythonTester-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="PythonTester-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
+if&nbsp;a&nbsp;new&nbsp;dependency&nbsp;was&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="PythonTester-depend_on_all"><strong>depend_on_all</strong></a>(self, tasks: Iterable[ForwardRef('Task')], **kwargs) -&gt; int</dt><dd><tt>Register&nbsp;multiple&nbsp;dependencies.&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;dependencies<br>
+added.</tt></dd></dl>
+
+<dl><dt>async <a name="PythonTester-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt><a name="PythonTester-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
+
+<dl><dt>async <a name="PythonTester-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, **substitutions) -&gt; None</dt><dd><tt>A&nbsp;default&nbsp;dependency&nbsp;resolver&nbsp;for&nbsp;tasks.&nbsp;Note&nbsp;that&nbsp;the&nbsp;default<br>
+dependency&nbsp;resolver&nbsp;cannot&nbsp;propagate&nbsp;current-task&nbsp;substitutions&nbsp;to<br>
+its&nbsp;dependencies&nbsp;as&nbsp;they've&nbsp;already&nbsp;been&nbsp;explicitly&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="PythonTester-resolved"><strong>resolved</strong></a>(self, compiled: str, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
+
+<dl><dt>async <a name="PythonTester-run_enter"><strong>run_enter</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;enter&nbsp;method.</tt></dd></dl>
+
+<dl><dt>async <a name="PythonTester-run_exit"><strong>run_exit</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;exit&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="PythonTester-task_fail"><strong>task_fail</strong></a>(self, compiled: str, substitutions: Dict[str, str], caller: 'Task' = None, indent: int = 4) -&gt; vcorelib.task.TaskFailed</dt><dd><tt>Build&nbsp;an&nbsp;exception&nbsp;message&nbsp;for&nbsp;when&nbsp;this&nbsp;task&nbsp;fails.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>stack</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;task's&nbsp;execution&nbsp;stack.</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_requirements': typing.Set[str]}</dl>
+
+<dl><dt><strong>stages</strong> = ['run_enter', 'run', 'run_exit']</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-register"><strong>register</strong></a>(manager: vcorelib.task.manager.TaskManager, project: str, cwd: pathlib.Path, substitutions: Dict[str, str]) -&gt; bool</dt><dd><tt>Register&nbsp;unit&nbsp;testing&nbsp;tasks&nbsp;to&nbsp;the&nbsp;manager.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Dict</strong> = typing.Dict<br>
+<strong>Inbox</strong> = typing.Dict[str, dict]</td></tr></table>
+</body></html>

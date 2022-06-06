@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module vcorelib.paths</title>
+<html><head><title>Python: package vcorelib.paths</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head><body bgcolor="#f0f0f8">
 
@@ -8,9 +8,17 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.paths</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/paths.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/paths.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/paths/__init__.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/paths/__init__.py</a></font></td></tr></table>
     <p><tt>Common&nbsp;path&nbsp;manipulation&nbsp;utilities.</tt></p>
 <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="vcorelib.paths.context.html">context</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -23,7 +31,12 @@
 how&nbsp;many&nbsp;suffixes&nbsp;are&nbsp;considered&nbsp;part&nbsp;of&nbsp;the&nbsp;name&nbsp;or&nbsp;the&nbsp;extension.</tt></dd></dl>
  <dl><dt><a name="-get_file_name"><strong>get_file_name</strong></a>(path: Union[pathlib.Path, str, NoneType], maxsplit: int = -1) -&gt; str</dt><dd><tt>From&nbsp;a&nbsp;path&nbsp;to&nbsp;a&nbsp;file,&nbsp;get&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;file.&nbsp;Use&nbsp;'maxsplit'&nbsp;to&nbsp;control<br>
 how&nbsp;many&nbsp;suffixes&nbsp;are&nbsp;considered&nbsp;part&nbsp;of&nbsp;the&nbsp;name&nbsp;or&nbsp;the&nbsp;extension.</tt></dd></dl>
+ <dl><dt><a name="-modified_after"><strong>modified_after</strong></a>(path: Union[pathlib.Path, str, NoneType], candidates: Iterable[Union[pathlib.Path, str, NoneType]]) -&gt; bool</dt><dd><tt>Check&nbsp;if&nbsp;any&nbsp;candidate&nbsp;paths&nbsp;are&nbsp;more&nbsp;recently&nbsp;modified&nbsp;than&nbsp;the&nbsp;provided<br>
+path.&nbsp;If&nbsp;the&nbsp;path&nbsp;doesn't&nbsp;exists&nbsp;but&nbsp;one&nbsp;or&nbsp;more&nbsp;of&nbsp;the&nbsp;candidates&nbsp;do,&nbsp;this<br>
+method&nbsp;returns&nbsp;True.</tt></dd></dl>
+ <dl><dt><a name="-modified_ns"><strong>modified_ns</strong></a>(path: Union[pathlib.Path, str, NoneType]) -&gt; Union[int, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;last-modified&nbsp;time&nbsp;from&nbsp;a&nbsp;path&nbsp;if&nbsp;the&nbsp;data&nbsp;can&nbsp;be&nbsp;obtained.</tt></dd></dl>
  <dl><dt><a name="-normalize"><strong>normalize</strong></a>(path: Union[pathlib.Path, str, NoneType]) -&gt; pathlib.Path</dt><dd><tt>Normalize&nbsp;an&nbsp;input&nbsp;that&nbsp;could&nbsp;be&nbsp;a&nbsp;path&nbsp;into&nbsp;a&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-stats"><strong>stats</strong></a>(path: Union[pathlib.Path, str, NoneType]) -&gt; Union[os.stat_result, NoneType]</dt><dd><tt>Get&nbsp;stats&nbsp;for&nbsp;a&nbsp;file&nbsp;on&nbsp;disk&nbsp;if&nbsp;it&nbsp;exists.</tt></dd></dl>
  <dl><dt><a name="-str_md5_hex"><strong>str_md5_hex</strong></a>(data: str, encoding: str = 'utf-8') -&gt; str</dt><dd><tt>Get&nbsp;an&nbsp;md5&nbsp;hex&nbsp;string&nbsp;from&nbsp;string&nbsp;data.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

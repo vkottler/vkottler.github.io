@@ -20,9 +20,8 @@
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="argparse.html">argparse</a><br>
 <a href="logging.html">logging</a><br>
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
-<a href="pkg_resources.html">pkg_resources</a><br>
-</td><td width="25%" valign=top><a href="subprocess.html">subprocess</a><br>
-<a href="tempfile.html">tempfile</a><br>
+<a href="subprocess.html">subprocess</a><br>
+</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
 </td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -31,9 +30,20 @@
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-add_app_args"><strong>add_app_args</strong></a>(parser: argparse.ArgumentParser) -&gt; None</dt><dd><tt>Add&nbsp;application-specific&nbsp;arguments&nbsp;to&nbsp;the&nbsp;command-line&nbsp;parser.</tt></dd></dl>
- <dl><dt><a name="-build_makefile"><strong>build_makefile</strong></a>(user_file: pathlib.Path, directory: pathlib.Path, project_name: str = None, data: dict = None) -&gt; Iterator[str]</dt><dd><tt>Build&nbsp;a&nbsp;temporary&nbsp;makefile&nbsp;and&nbsp;return&nbsp;the&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-build_makefile"><strong>build_makefile</strong></a>(user_file: pathlib.Path, directory: pathlib.Path, proj: str, data: dict) -&gt; Iterator[str]</dt><dd><tt>Build&nbsp;a&nbsp;temporary&nbsp;makefile&nbsp;and&nbsp;return&nbsp;the&nbsp;path.</tt></dd></dl>
  <dl><dt><a name="-entry"><strong>entry</strong></a>(args: argparse.Namespace) -&gt; int</dt><dd><tt>Execute&nbsp;the&nbsp;requested&nbsp;task.</tt></dd></dl>
- <dl><dt><a name="-get_resource"><strong>get_resource</strong></a>(resource_name: str) -&gt; pathlib.Path</dt><dd><tt>Locate&nbsp;the&nbsp;path&nbsp;to&nbsp;a&nbsp;package&nbsp;resource.</tt></dd></dl>
+ <dl><dt><a name="-get_data"><strong>get_data</strong></a>(path: pathlib.Path, targets: List[str], prefix: Union[str, NoneType] = None) -&gt; Tuple[dict, List[str]]</dt><dd><tt>Load&nbsp;configuration&nbsp;data&nbsp;if&nbsp;it&nbsp;can&nbsp;be&nbsp;found.</tt></dd></dl>
+ <dl><dt><a name="-get_event_loop"><strong>get_event_loop</strong></a>()</dt><dd><tt>Return&nbsp;an&nbsp;asyncio&nbsp;event&nbsp;loop.<br>
+&nbsp;<br>
+When&nbsp;called&nbsp;from&nbsp;a&nbsp;coroutine&nbsp;or&nbsp;a&nbsp;callback&nbsp;(e.g.&nbsp;scheduled&nbsp;with<br>
+call_soon&nbsp;or&nbsp;similar&nbsp;API),&nbsp;this&nbsp;function&nbsp;will&nbsp;always&nbsp;return&nbsp;the<br>
+running&nbsp;event&nbsp;loop.<br>
+&nbsp;<br>
+If&nbsp;there&nbsp;is&nbsp;no&nbsp;running&nbsp;event&nbsp;loop&nbsp;set,&nbsp;the&nbsp;function&nbsp;will&nbsp;return<br>
+the&nbsp;result&nbsp;of&nbsp;`get_event_loop_policy().<a href="#-get_event_loop">get_event_loop</a>()`&nbsp;call.</tt></dd></dl>
+ <dl><dt><a name="-initialize_task_manager"><strong>initialize_task_manager</strong></a>(manager: vcorelib.task.manager.TaskManager, proj: str, task_register: str, directory: pathlib.Path, substitutions: Dict[str, str]) -&gt; None</dt><dd><tt>Load&nbsp;internal&nbsp;and&nbsp;external&nbsp;tasks&nbsp;to&nbsp;the&nbsp;task&nbsp;manager.</tt></dd></dl>
+ <dl><dt><a name="-project"><strong>project</strong></a>(path: pathlib.Path, name: str = None) -&gt; str</dt><dd><tt>If&nbsp;the&nbsp;project&nbsp;name&nbsp;wasn't&nbsp;provided,&nbsp;guess&nbsp;that&nbsp;it's&nbsp;either&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;parent&nbsp;directory,&nbsp;or&nbsp;that&nbsp;name&nbsp;as&nbsp;a&nbsp;slug.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -41,8 +51,14 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>DEFAULT_FILE</strong> = PosixPath('Makefile')<br>
+<td width="100%"><strong>Callable</strong> = typing.Callable<br>
+<strong>DEFAULT_FILE</strong> = PosixPath('Makefile')<br>
+<strong>Dict</strong> = typing.Dict<br>
 <strong>Iterator</strong> = typing.Iterator<br>
 <strong>LOG</strong> = &lt;Logger vmklib.app (WARNING)&gt;<br>
-<strong>PKG_NAME</strong> = 'vmklib'</td></tr></table>
+<strong>List</strong> = typing.List<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>PKG_NAME</strong> = 'vmklib'<br>
+<strong>TaskRegister</strong> = typing.Callable[[vcorelib.task.manager.TaskManager, str, pathlib.Path, typing.Dict[str, str]], bool]<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
 </body></html>

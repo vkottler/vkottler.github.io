@@ -43,15 +43,13 @@ A&nbsp;class&nbsp;that&nbsp;pipes&nbsp;inbox&nbsp;data&nbsp;through&nbsp;to&nbsp
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt>async <a name="DictMerger-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *args, **_) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;method&nbsp;to&nbsp;implement&nbsp;the&nbsp;task.</tt></dd></dl>
+<dl><dt>async <a name="DictMerger-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *args, **kwargs) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;method&nbsp;to&nbsp;implement&nbsp;the&nbsp;task.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
 <dl><dt><a name="DictMerger-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, timer: vcorelib.math.time.Timer = None, target: vcorelib.target.Target = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
 
 <dl><dt><a name="DictMerger-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;task&nbsp;into&nbsp;a&nbsp;string.</tt></dd></dl>
-
-<dl><dt><a name="DictMerger-compile_literal"><strong>compile_literal</strong></a>(self, substitutions: Dict[str, str]) -&gt; str</dt><dd><tt>Attempt&nbsp;to&nbsp;compile&nbsp;a&nbsp;literal&nbsp;string&nbsp;from&nbsp;this&nbsp;task's&nbsp;target.</tt></dd></dl>
 
 <dl><dt><a name="DictMerger-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
 
@@ -63,14 +61,25 @@ added.</tt></dd></dl>
 
 <dl><dt>async <a name="DictMerger-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
 
-<dl><dt><a name="DictMerger-resolve"><strong>resolve</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
+<dl><dt><a name="DictMerger-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
 
 <dl><dt>async <a name="DictMerger-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, **substitutions) -&gt; None</dt><dd><tt>A&nbsp;default&nbsp;dependency&nbsp;resolver&nbsp;for&nbsp;tasks.&nbsp;Note&nbsp;that&nbsp;the&nbsp;default<br>
 dependency&nbsp;resolver&nbsp;cannot&nbsp;propagate&nbsp;current-task&nbsp;substitutions&nbsp;to<br>
 its&nbsp;dependencies&nbsp;as&nbsp;they've&nbsp;already&nbsp;been&nbsp;explicitly&nbsp;registered.</tt></dd></dl>
 
-<dl><dt><a name="DictMerger-resolved"><strong>resolved</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
+<dl><dt><a name="DictMerger-resolved"><strong>resolved</strong></a>(self, compiled: str, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
 
+<dl><dt>async <a name="DictMerger-run_enter"><strong>run_enter</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;enter&nbsp;method.</tt></dd></dl>
+
+<dl><dt>async <a name="DictMerger-run_exit"><strong>run_exit</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;exit&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="DictMerger-task_fail"><strong>task_fail</strong></a>(self, compiled: str, substitutions: Dict[str, str], caller: 'Task' = None, indent: int = 4) -&gt; vcorelib.task.TaskFailed</dt><dd><tt>Build&nbsp;an&nbsp;exception&nbsp;message&nbsp;for&nbsp;when&nbsp;this&nbsp;task&nbsp;fails.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>stack</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;task's&nbsp;execution&nbsp;stack.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -79,5 +88,13 @@ Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_requirements': typing.Set[str]}</dl>
+
+<dl><dt><strong>default_requirements</strong> = set()</dl>
+
+<dl><dt><strong>stages</strong> = ['run_enter', 'run', 'run_exit']</dl>
+
 </td></tr></table></td></tr></table>
 </body></html>

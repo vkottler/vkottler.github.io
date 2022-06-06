@@ -21,16 +21,23 @@
 <dt><font face="helvetica, arial"><a href="vcorelib.task.html#Task">vcorelib.task.Task</a>(<a href="builtins.html#object">builtins.object</a>)
 </font></dt><dd>
 <dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>
+</font></dt><dd>
+<dl>
 <dt><font face="helvetica, arial"><a href="vcorelib.task.subprocess.run.html#SubprocessExec">SubprocessExec</a>
+</font></dt><dt><font face="helvetica, arial"><a href="vcorelib.task.subprocess.run.html#SubprocessExecStreamed">SubprocessExecStreamed</a>
 </font></dt><dt><font face="helvetica, arial"><a href="vcorelib.task.subprocess.run.html#SubprocessShell">SubprocessShell</a>
+</font></dt><dt><font face="helvetica, arial"><a href="vcorelib.task.subprocess.run.html#SubprocessShellStreamed">SubprocessShellStreamed</a>
 </font></dt></dl>
+</dd>
+</dl>
 </dd>
 </dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="SubprocessExec">class <strong>SubprocessExec</strong></a>(<a href="vcorelib.task.html#Task">vcorelib.task.Task</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="SubprocessExec">class <strong>SubprocessExec</strong></a>(<a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt><a href="#SubprocessExec">SubprocessExec</a>(name:&nbsp;str,&nbsp;*args,&nbsp;execute:&nbsp;Callable[[Dict[str,&nbsp;dict],&nbsp;dict],&nbsp;Coroutine[Any,&nbsp;Any,&nbsp;bool]]&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;None,&nbsp;timer:&nbsp;vcorelib.math.time.Timer&nbsp;=&nbsp;None,&nbsp;target:&nbsp;vcorelib.target.Target&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
@@ -39,20 +46,29 @@ A&nbsp;task&nbsp;wrapping&nbsp;a&nbsp;subprocess.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="vcorelib.task.subprocess.run.html#SubprocessExec">SubprocessExec</a></dd>
+<dd><a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a></dd>
 <dd><a href="vcorelib.task.html#Task">vcorelib.task.Task</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt>async <a name="SubprocessExec-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *caller_args, args: str = '--version', program: str = '/home/vkottler/Documents/git/workspace/vcorelib/venv3.8/bin/python', separator: str = '::', **kwargs) -&gt; bool</dt><dd><tt>Create&nbsp;a&nbsp;subprocess,&nbsp;wait&nbsp;for&nbsp;it&nbsp;to&nbsp;exit&nbsp;and&nbsp;add&nbsp;results&nbsp;to&nbsp;the&nbsp;outbox.</tt></dd></dl>
+<dl><dt>async <a name="SubprocessExec-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *caller_args, args: str = '--version', program: str = '/home/vkottler/Documents/git/workspace/vcorelib/venv3.8/bin/python', separator: str = '::', require_success: bool = True, **kwargs) -&gt; bool</dt><dd><tt>Create&nbsp;a&nbsp;subprocess,&nbsp;wait&nbsp;for&nbsp;it&nbsp;to&nbsp;exit&nbsp;and&nbsp;add&nbsp;results&nbsp;to&nbsp;the&nbsp;outbox.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>:<br>
+<dl><dt>async <a name="SubprocessExec-exec"><strong>exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExec-shell"><strong>shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExec-subprocess_exec"><strong>subprocess_exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;exec&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;arguments&nbsp;were.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExec-subprocess_shell"><strong>subprocess_shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;shell&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;command&nbsp;is.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
 <dl><dt><a name="SubprocessExec-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, timer: vcorelib.math.time.Timer = None, target: vcorelib.target.Target = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
 
 <dl><dt><a name="SubprocessExec-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;task&nbsp;into&nbsp;a&nbsp;string.</tt></dd></dl>
-
-<dl><dt><a name="SubprocessExec-compile_literal"><strong>compile_literal</strong></a>(self, substitutions: Dict[str, str]) -&gt; str</dt><dd><tt>Attempt&nbsp;to&nbsp;compile&nbsp;a&nbsp;literal&nbsp;string&nbsp;from&nbsp;this&nbsp;task's&nbsp;target.</tt></dd></dl>
 
 <dl><dt><a name="SubprocessExec-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
 
@@ -64,14 +80,25 @@ added.</tt></dd></dl>
 
 <dl><dt>async <a name="SubprocessExec-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
 
-<dl><dt><a name="SubprocessExec-resolve"><strong>resolve</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
+<dl><dt><a name="SubprocessExec-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
 
 <dl><dt>async <a name="SubprocessExec-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, **substitutions) -&gt; None</dt><dd><tt>A&nbsp;default&nbsp;dependency&nbsp;resolver&nbsp;for&nbsp;tasks.&nbsp;Note&nbsp;that&nbsp;the&nbsp;default<br>
 dependency&nbsp;resolver&nbsp;cannot&nbsp;propagate&nbsp;current-task&nbsp;substitutions&nbsp;to<br>
 its&nbsp;dependencies&nbsp;as&nbsp;they've&nbsp;already&nbsp;been&nbsp;explicitly&nbsp;registered.</tt></dd></dl>
 
-<dl><dt><a name="SubprocessExec-resolved"><strong>resolved</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
+<dl><dt><a name="SubprocessExec-resolved"><strong>resolved</strong></a>(self, compiled: str, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
 
+<dl><dt>async <a name="SubprocessExec-run_enter"><strong>run_enter</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;enter&nbsp;method.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExec-run_exit"><strong>run_exit</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;exit&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessExec-task_fail"><strong>task_fail</strong></a>(self, compiled: str, substitutions: Dict[str, str], caller: 'Task' = None, indent: int = 4) -&gt; vcorelib.task.TaskFailed</dt><dd><tt>Build&nbsp;an&nbsp;exception&nbsp;message&nbsp;for&nbsp;when&nbsp;this&nbsp;task&nbsp;fails.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>stack</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;task's&nbsp;execution&nbsp;stack.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -80,11 +107,180 @@ Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_requirements': typing.Set[str]}</dl>
+
+<dl><dt><strong>default_requirements</strong> = set()</dl>
+
+<dl><dt><strong>stages</strong> = ['run_enter', 'run', 'run_exit']</dl>
+
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="SubprocessShell">class <strong>SubprocessShell</strong></a>(<a href="vcorelib.task.html#Task">vcorelib.task.Task</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="SubprocessExecStreamed">class <strong>SubprocessExecStreamed</strong></a>(<a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SubprocessExecStreamed">SubprocessExecStreamed</a>(name:&nbsp;str,&nbsp;*args,&nbsp;execute:&nbsp;Callable[[Dict[str,&nbsp;dict],&nbsp;dict],&nbsp;Coroutine[Any,&nbsp;Any,&nbsp;bool]]&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;None,&nbsp;timer:&nbsp;vcorelib.math.time.Timer&nbsp;=&nbsp;None,&nbsp;target:&nbsp;vcorelib.target.Target&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;task&nbsp;wrapping&nbsp;a&nbsp;subprocess.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.task.subprocess.run.html#SubprocessExecStreamed">SubprocessExecStreamed</a></dd>
+<dd><a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a></dd>
+<dd><a href="vcorelib.task.html#Task">vcorelib.task.Task</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="SubprocessExecStreamed-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *caller_args, args: str = '--version', program: str = '/home/vkottler/Documents/git/workspace/vcorelib/venv3.8/bin/python', separator: str = '::', require_success: bool = True, **kwargs) -&gt; bool</dt><dd><tt>Create&nbsp;a&nbsp;subprocess,&nbsp;wait&nbsp;for&nbsp;it&nbsp;to&nbsp;exit&nbsp;and&nbsp;add&nbsp;results&nbsp;to&nbsp;the&nbsp;outbox.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>:<br>
+<dl><dt>async <a name="SubprocessExecStreamed-exec"><strong>exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExecStreamed-shell"><strong>shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExecStreamed-subprocess_exec"><strong>subprocess_exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;exec&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;arguments&nbsp;were.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExecStreamed-subprocess_shell"><strong>subprocess_shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;shell&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;command&nbsp;is.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><a name="SubprocessExecStreamed-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, timer: vcorelib.math.time.Timer = None, target: vcorelib.target.Target = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessExecStreamed-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;task&nbsp;into&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessExecStreamed-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessExecStreamed-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
+if&nbsp;a&nbsp;new&nbsp;dependency&nbsp;was&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessExecStreamed-depend_on_all"><strong>depend_on_all</strong></a>(self, tasks: Iterable[ForwardRef('Task')], **kwargs) -&gt; int</dt><dd><tt>Register&nbsp;multiple&nbsp;dependencies.&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;dependencies<br>
+added.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExecStreamed-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessExecStreamed-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExecStreamed-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, **substitutions) -&gt; None</dt><dd><tt>A&nbsp;default&nbsp;dependency&nbsp;resolver&nbsp;for&nbsp;tasks.&nbsp;Note&nbsp;that&nbsp;the&nbsp;default<br>
+dependency&nbsp;resolver&nbsp;cannot&nbsp;propagate&nbsp;current-task&nbsp;substitutions&nbsp;to<br>
+its&nbsp;dependencies&nbsp;as&nbsp;they've&nbsp;already&nbsp;been&nbsp;explicitly&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessExecStreamed-resolved"><strong>resolved</strong></a>(self, compiled: str, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExecStreamed-run_enter"><strong>run_enter</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;enter&nbsp;method.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessExecStreamed-run_exit"><strong>run_exit</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;exit&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessExecStreamed-task_fail"><strong>task_fail</strong></a>(self, compiled: str, substitutions: Dict[str, str], caller: 'Task' = None, indent: int = 4) -&gt; vcorelib.task.TaskFailed</dt><dd><tt>Build&nbsp;an&nbsp;exception&nbsp;message&nbsp;for&nbsp;when&nbsp;this&nbsp;task&nbsp;fails.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>stack</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;task's&nbsp;execution&nbsp;stack.</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_requirements': typing.Set[str]}</dl>
+
+<dl><dt><strong>default_requirements</strong> = set()</dl>
+
+<dl><dt><strong>stages</strong> = ['run_enter', 'run', 'run_exit']</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SubprocessLogMixin">class <strong>SubprocessLogMixin</strong></a>(<a href="vcorelib.task.html#Task">vcorelib.task.Task</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SubprocessLogMixin">SubprocessLogMixin</a>(name:&nbsp;str,&nbsp;*args,&nbsp;execute:&nbsp;Callable[[Dict[str,&nbsp;dict],&nbsp;dict],&nbsp;Coroutine[Any,&nbsp;Any,&nbsp;bool]]&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;None,&nbsp;timer:&nbsp;vcorelib.math.time.Timer&nbsp;=&nbsp;None,&nbsp;target:&nbsp;vcorelib.target.Target&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;creating&nbsp;asyncio&nbsp;subprocesses&nbsp;and&nbsp;logging&nbsp;what&nbsp;gets&nbsp;created.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a></dd>
+<dd><a href="vcorelib.task.html#Task">vcorelib.task.Task</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="SubprocessLogMixin-exec"><strong>exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessLogMixin-shell"><strong>shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessLogMixin-subprocess_exec"><strong>subprocess_exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;exec&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;arguments&nbsp;were.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessLogMixin-subprocess_shell"><strong>subprocess_shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;shell&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;command&nbsp;is.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><a name="SubprocessLogMixin-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, timer: vcorelib.math.time.Timer = None, target: vcorelib.target.Target = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessLogMixin-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;task&nbsp;into&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessLogMixin-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessLogMixin-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
+if&nbsp;a&nbsp;new&nbsp;dependency&nbsp;was&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessLogMixin-depend_on_all"><strong>depend_on_all</strong></a>(self, tasks: Iterable[ForwardRef('Task')], **kwargs) -&gt; int</dt><dd><tt>Register&nbsp;multiple&nbsp;dependencies.&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;dependencies<br>
+added.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessLogMixin-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessLogMixin-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessLogMixin-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, **substitutions) -&gt; None</dt><dd><tt>A&nbsp;default&nbsp;dependency&nbsp;resolver&nbsp;for&nbsp;tasks.&nbsp;Note&nbsp;that&nbsp;the&nbsp;default<br>
+dependency&nbsp;resolver&nbsp;cannot&nbsp;propagate&nbsp;current-task&nbsp;substitutions&nbsp;to<br>
+its&nbsp;dependencies&nbsp;as&nbsp;they've&nbsp;already&nbsp;been&nbsp;explicitly&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessLogMixin-resolved"><strong>resolved</strong></a>(self, compiled: str, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessLogMixin-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *args, **kwargs) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;method&nbsp;to&nbsp;implement&nbsp;the&nbsp;task.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessLogMixin-run_enter"><strong>run_enter</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;enter&nbsp;method.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessLogMixin-run_exit"><strong>run_exit</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;exit&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessLogMixin-task_fail"><strong>task_fail</strong></a>(self, compiled: str, substitutions: Dict[str, str], caller: 'Task' = None, indent: int = 4) -&gt; vcorelib.task.TaskFailed</dt><dd><tt>Build&nbsp;an&nbsp;exception&nbsp;message&nbsp;for&nbsp;when&nbsp;this&nbsp;task&nbsp;fails.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>stack</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;task's&nbsp;execution&nbsp;stack.</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_requirements': typing.Set[str]}</dl>
+
+<dl><dt><strong>default_requirements</strong> = set()</dl>
+
+<dl><dt><strong>stages</strong> = ['run_enter', 'run', 'run_exit']</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SubprocessShell">class <strong>SubprocessShell</strong></a>(<a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt><a href="#SubprocessShell">SubprocessShell</a>(name:&nbsp;str,&nbsp;*args,&nbsp;execute:&nbsp;Callable[[Dict[str,&nbsp;dict],&nbsp;dict],&nbsp;Coroutine[Any,&nbsp;Any,&nbsp;bool]]&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;None,&nbsp;timer:&nbsp;vcorelib.math.time.Timer&nbsp;=&nbsp;None,&nbsp;target:&nbsp;vcorelib.target.Target&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
@@ -93,20 +289,29 @@ A&nbsp;task&nbsp;wrapping&nbsp;a&nbsp;shell&nbsp;command.<br>&nbsp;</tt></td></t
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="vcorelib.task.subprocess.run.html#SubprocessShell">SubprocessShell</a></dd>
+<dd><a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a></dd>
 <dd><a href="vcorelib.task.html#Task">vcorelib.task.Task</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt>async <a name="SubprocessShell-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *caller_args, args: str = '', cmd: str = '/home/vkottler/Documents/git/workspace/vcorelib/venv3.8/bin/python --version', joiner: str = ' ', separator: str = '::', **kwargs) -&gt; bool</dt><dd><tt>Run&nbsp;a&nbsp;shell&nbsp;command,&nbsp;wait&nbsp;for&nbsp;it&nbsp;to&nbsp;exit&nbsp;and&nbsp;add&nbsp;results&nbsp;to&nbsp;the&nbsp;outbox.</tt></dd></dl>
+<dl><dt>async <a name="SubprocessShell-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *caller_args, args: str = '', cmd: str = '/home/vkottler/Documents/git/workspace/vcorelib/venv3.8/bin/python --version', joiner: str = ' ', separator: str = '::', require_success: bool = True, **kwargs) -&gt; bool</dt><dd><tt>Run&nbsp;a&nbsp;shell&nbsp;command,&nbsp;wait&nbsp;for&nbsp;it&nbsp;to&nbsp;exit&nbsp;and&nbsp;add&nbsp;results&nbsp;to&nbsp;the&nbsp;outbox.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>:<br>
+<dl><dt>async <a name="SubprocessShell-exec"><strong>exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShell-shell"><strong>shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShell-subprocess_exec"><strong>subprocess_exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;exec&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;arguments&nbsp;were.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShell-subprocess_shell"><strong>subprocess_shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;shell&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;command&nbsp;is.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
 <dl><dt><a name="SubprocessShell-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, timer: vcorelib.math.time.Timer = None, target: vcorelib.target.Target = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
 
 <dl><dt><a name="SubprocessShell-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;task&nbsp;into&nbsp;a&nbsp;string.</tt></dd></dl>
-
-<dl><dt><a name="SubprocessShell-compile_literal"><strong>compile_literal</strong></a>(self, substitutions: Dict[str, str]) -&gt; str</dt><dd><tt>Attempt&nbsp;to&nbsp;compile&nbsp;a&nbsp;literal&nbsp;string&nbsp;from&nbsp;this&nbsp;task's&nbsp;target.</tt></dd></dl>
 
 <dl><dt><a name="SubprocessShell-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
 
@@ -118,14 +323,25 @@ added.</tt></dd></dl>
 
 <dl><dt>async <a name="SubprocessShell-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
 
-<dl><dt><a name="SubprocessShell-resolve"><strong>resolve</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
+<dl><dt><a name="SubprocessShell-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
 
 <dl><dt>async <a name="SubprocessShell-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, **substitutions) -&gt; None</dt><dd><tt>A&nbsp;default&nbsp;dependency&nbsp;resolver&nbsp;for&nbsp;tasks.&nbsp;Note&nbsp;that&nbsp;the&nbsp;default<br>
 dependency&nbsp;resolver&nbsp;cannot&nbsp;propagate&nbsp;current-task&nbsp;substitutions&nbsp;to<br>
 its&nbsp;dependencies&nbsp;as&nbsp;they've&nbsp;already&nbsp;been&nbsp;explicitly&nbsp;registered.</tt></dd></dl>
 
-<dl><dt><a name="SubprocessShell-resolved"><strong>resolved</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
+<dl><dt><a name="SubprocessShell-resolved"><strong>resolved</strong></a>(self, compiled: str, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
 
+<dl><dt>async <a name="SubprocessShell-run_enter"><strong>run_enter</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;enter&nbsp;method.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShell-run_exit"><strong>run_exit</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;exit&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessShell-task_fail"><strong>task_fail</strong></a>(self, compiled: str, substitutions: Dict[str, str], caller: 'Task' = None, indent: int = 4) -&gt; vcorelib.task.TaskFailed</dt><dd><tt>Build&nbsp;an&nbsp;exception&nbsp;message&nbsp;for&nbsp;when&nbsp;this&nbsp;task&nbsp;fails.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>stack</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;task's&nbsp;execution&nbsp;stack.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -134,5 +350,105 @@ Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
-</td></tr></table></td></tr></table>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_requirements': typing.Set[str]}</dl>
+
+<dl><dt><strong>default_requirements</strong> = set()</dl>
+
+<dl><dt><strong>stages</strong> = ['run_enter', 'run', 'run_exit']</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SubprocessShellStreamed">class <strong>SubprocessShellStreamed</strong></a>(<a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SubprocessShellStreamed">SubprocessShellStreamed</a>(name:&nbsp;str,&nbsp;*args,&nbsp;execute:&nbsp;Callable[[Dict[str,&nbsp;dict],&nbsp;dict],&nbsp;Coroutine[Any,&nbsp;Any,&nbsp;bool]]&nbsp;=&nbsp;None,&nbsp;log:&nbsp;logging.Logger&nbsp;=&nbsp;None,&nbsp;timer:&nbsp;vcorelib.math.time.Timer&nbsp;=&nbsp;None,&nbsp;target:&nbsp;vcorelib.target.Target&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;task&nbsp;wrapping&nbsp;a&nbsp;shell&nbsp;command.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.task.subprocess.run.html#SubprocessShellStreamed">SubprocessShellStreamed</a></dd>
+<dd><a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a></dd>
+<dd><a href="vcorelib.task.html#Task">vcorelib.task.Task</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="SubprocessShellStreamed-run"><strong>run</strong></a>(self, inbox: Dict[str, dict], outbox: dict, *caller_args, args: str = '', cmd: str = '/home/vkottler/Documents/git/workspace/vcorelib/venv3.8/bin/python --version', joiner: str = ' ', separator: str = '::', require_success: bool = True, **kwargs) -&gt; bool</dt><dd><tt>Run&nbsp;a&nbsp;shell&nbsp;command,&nbsp;wait&nbsp;for&nbsp;it&nbsp;to&nbsp;exit&nbsp;and&nbsp;add&nbsp;results&nbsp;to&nbsp;the&nbsp;outbox.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.subprocess.run.html#SubprocessLogMixin">SubprocessLogMixin</a>:<br>
+<dl><dt>async <a name="SubprocessShellStreamed-exec"><strong>exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShellStreamed-shell"><strong>shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; bool</dt><dd><tt>Execute&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShellStreamed-subprocess_exec"><strong>subprocess_exec</strong></a>(self, program: str, *caller_args, args: str = '', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;exec&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;arguments&nbsp;were.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShellStreamed-subprocess_shell"><strong>subprocess_shell</strong></a>(self, cmd: str, *caller_args, args: str = '', joiner: str = ' ', separator: str = '::', stdout: int = None, stderr: int = None) -&gt; asyncio.subprocess.Process</dt><dd><tt>Create&nbsp;a&nbsp;process&nbsp;using&nbsp;subprocess&nbsp;shell&nbsp;and&nbsp;log&nbsp;what&nbsp;the&nbsp;command&nbsp;is.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><a name="SubprocessShellStreamed-__init__"><strong>__init__</strong></a>(self, name: str, *args, execute: Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]] = None, log: logging.Logger = None, timer: vcorelib.math.time.Timer = None, target: vcorelib.target.Target = None, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessShellStreamed-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;task&nbsp;into&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessShellStreamed-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessShellStreamed-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
+if&nbsp;a&nbsp;new&nbsp;dependency&nbsp;was&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessShellStreamed-depend_on_all"><strong>depend_on_all</strong></a>(self, tasks: Iterable[ForwardRef('Task')], **kwargs) -&gt; int</dt><dd><tt>Register&nbsp;multiple&nbsp;dependencies.&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;dependencies<br>
+added.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShellStreamed-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessShellStreamed-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShellStreamed-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, **substitutions) -&gt; None</dt><dd><tt>A&nbsp;default&nbsp;dependency&nbsp;resolver&nbsp;for&nbsp;tasks.&nbsp;Note&nbsp;that&nbsp;the&nbsp;default<br>
+dependency&nbsp;resolver&nbsp;cannot&nbsp;propagate&nbsp;current-task&nbsp;substitutions&nbsp;to<br>
+its&nbsp;dependencies&nbsp;as&nbsp;they've&nbsp;already&nbsp;been&nbsp;explicitly&nbsp;registered.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessShellStreamed-resolved"><strong>resolved</strong></a>(self, compiled: str, substitutions: Dict[str, str] = None) -&gt; bool</dt><dd><tt>Override&nbsp;this&nbsp;in&nbsp;a&nbsp;derived&nbsp;task&nbsp;to&nbsp;implement&nbsp;more&nbsp;complex&nbsp;logic.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShellStreamed-run_enter"><strong>run_enter</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;enter&nbsp;method.</tt></dd></dl>
+
+<dl><dt>async <a name="SubprocessShellStreamed-run_exit"><strong>run_exit</strong></a>(self, _inbox: Dict[str, dict], _outbox: dict, *_args, **_kwargs) -&gt; bool</dt><dd><tt>A&nbsp;default&nbsp;exit&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="SubprocessShellStreamed-task_fail"><strong>task_fail</strong></a>(self, compiled: str, substitutions: Dict[str, str], caller: 'Task' = None, indent: int = 4) -&gt; vcorelib.task.TaskFailed</dt><dd><tt>Build&nbsp;an&nbsp;exception&nbsp;message&nbsp;for&nbsp;when&nbsp;this&nbsp;task&nbsp;fails.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>stack</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;task's&nbsp;execution&nbsp;stack.</tt></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_requirements': typing.Set[str]}</dl>
+
+<dl><dt><strong>default_requirements</strong> = set()</dl>
+
+<dl><dt><strong>stages</strong> = ['run_enter', 'run', 'run_exit']</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-is_windows"><strong>is_windows</strong></a>() -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;the&nbsp;current&nbsp;platform&nbsp;is&nbsp;Windows&nbsp;or&nbsp;not.</tt></dd></dl>
+ <dl><dt><a name="-reconcile_platform"><strong>reconcile_platform</strong></a>(program: str, args: List[str]) -&gt; Tuple[str, List[str]]</dt><dd><tt>Handle&nbsp;arguments&nbsp;for&nbsp;Windows.&nbsp;You&nbsp;cannot&nbsp;run&nbsp;a&nbsp;program&nbsp;directly&nbsp;on&nbsp;Windows<br>
+under&nbsp;any&nbsp;circumstance,&nbsp;so&nbsp;pass&nbsp;arguments&nbsp;through&nbsp;to&nbsp;the&nbsp;shell.</tt></dd></dl>
+</td></tr></table>
 </body></html>
