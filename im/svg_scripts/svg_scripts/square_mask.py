@@ -15,4 +15,7 @@ def compose(viewbox: ViewBox, config: dict) -> List[Element]:
     """An example function for composing a document."""
 
     del config
-    return [centered(viewbox, color="black", square=True)]
+    radius = viewbox.dimensions.to_square().width / 6
+    return [
+        centered(viewbox, color="black", square=True, rx=radius, ry=radius)
+    ]
