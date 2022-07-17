@@ -13,7 +13,7 @@ $(error target this Makefile with 'mk', not '$(MAKE)' ($(MK_INFO)))
 endif
 ###############################################################################
 
-.PHONY: edit setup host-svg
+.PHONY: edit setup host-svg edit-deps
 
 .DEFAULT_GOAL := setup
 
@@ -38,9 +38,15 @@ LINKS := $($(PROJ)_DIR)/svgen \
 	 $($(PROJ)_DIR)/.flake8 \
 	 $($(PROJ)_DIR)/.pylintrc
 
+# Generate tags for 'svgen' sources.
 setup: $(LINKS) $(SVGEN_CONC)
 
-edit: setup $(PY_PREFIX)edit
+# This is a copy of the dependencies for '$(PY_PREFIX)edit'.
+edit-deps: $(BUILD_DIR)/$(VENV_NAME)/edit_venv.txt $(PY_PREFIX)tags | $(VENV_CONC)
+	ctags -f $($(PROJ)_DIR)/tags -a -R $($(PROJ)_DIR)/svgen
+
+edit: setup edit-deps
+	. $(VENV_ACTIVATE) && cd $($(PROJ)_DIR) && $(EDITOR)
 
 SCRIPT_DIR := $($(PROJ)_DIR)/$(PROJ)
 SVG_DIR := $(BUILD_DIR)/svg
