@@ -25,6 +25,7 @@ def compose(viewbox: ViewBox, config: dict) -> List[Element]:
     body_config = config["body"]
     pin_config = config["pins"]
     symbol_config = config.get("symbol", {"name": "vdoer"})
+    box_scale = config.get("scale", UNITY)
 
     for box in viewbox.new_grid(
         columns=config.get("columns", 1), rows=config.get("rows", 1)
@@ -33,7 +34,7 @@ def compose(viewbox: ViewBox, config: dict) -> List[Element]:
         # well. There's a fair bit more we'd need to do to make
         # centering/padding etc. more ergonomic. At that point it's probably
         # better to use HTML to do that?
-        box = box.to_square(config.get("scale", UNITY))
+        box = box.to_square(box_scale)
 
         # Create the base chip.
         chip_elems, body = add_chip(
