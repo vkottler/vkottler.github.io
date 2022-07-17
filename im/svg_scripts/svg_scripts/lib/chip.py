@@ -3,7 +3,7 @@ A module for adding circuit chips to SVG documents.
 """
 
 # built-in
-from typing import List
+from typing import List, Tuple
 
 # third-party
 from svgen.cartesian.rectangle import Rectangle
@@ -16,8 +16,12 @@ from svg_scripts.lib.pins import add_pins
 
 
 def add_chip(
-    box: Rectangle, circle_config: dict, body_config: dict, pin_config: dict
-) -> List[Element]:
+    box: Rectangle,
+    circle_config: dict,
+    body_config: dict,
+    pin_config: dict,
+    debug: bool = False,
+) -> Tuple[List[Element], Rect]:
     """
     Add a circuit chip to the document based on the provided rectangle and
     other configurations.
@@ -50,4 +54,11 @@ def add_chip(
         body, pin_config["count"], pin_config.get("color", "gray")
     )
     result.append(body)
-    return result
+
+    # Add points for debugging.
+    if debug:
+        grid = body.grid(10, 10)
+        for point in grid.points:
+            result.append(Circle.create(point, 1.0, "orange"))
+
+    return result, body
