@@ -35,8 +35,7 @@ $(SVGEN_CONC): | $(VENV_CONC) $(MK_CONC)
 
 LINKS := $($(PROJ)_DIR)/svgen \
 	 $($(PROJ)_DIR)/config \
-	 $($(PROJ)_DIR)/.flake8 \
-	 $($(PROJ)_DIR)/.pylintrc
+	 $($(PROJ)_DIR)/.flake8
 
 # Generate tags for 'svgen' sources.
 setup: $(LINKS) $(SVGEN_CONC)
