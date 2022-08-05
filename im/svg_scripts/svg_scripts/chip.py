@@ -70,7 +70,7 @@ def compose(viewbox: ViewBox, config: dict) -> List[Element]:
         columns=config.get("columns", 1), rows=config.get("rows", 1)
     ).enumerate_boxes:
         # Get any coordinate-specific configuration data.
-        coord = at_coordinate[str(idx.column)][str(idx.row)]
+        coord = at_coordinate[str(idx.column)].get(str(idx.row), {})
 
         curr_configs = {}
         for name, data in configs.items():
