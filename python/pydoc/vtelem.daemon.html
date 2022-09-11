@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.daemon</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/daemon/__init__.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/daemon/__init__.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vtelem/vtelem/daemon/__init__.py">/home/vkottler/git/workspace/vtelem/vtelem/daemon/__init__.py</a></font></td></tr></table>
     <p><tt>vtelem&nbsp;-&nbsp;A&nbsp;base&nbsp;for&nbsp;building&nbsp;runtime&nbsp;tasks.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -87,7 +87,7 @@ automatically&nbsp;stops&nbsp;it.</tt></dd></dl>
 
 <dl><dt><a name="DaemonBase-perform_str"><strong>perform_str</strong></a>(self, action: str, *args, **kwargs) -&gt; bool</dt><dd><tt>Perform&nbsp;an&nbsp;action&nbsp;on&nbsp;this&nbsp;daemon&nbsp;by&nbsp;String.</tt></dd></dl>
 
-<dl><dt><a name="DaemonBase-reset_metric"><strong>reset_metric</strong></a>(self, name: str) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;back&nbsp;to&nbsp;zero.</tt></dd></dl>
+<dl><dt><a name="DaemonBase-reset_metric"><strong>reset_metric</strong></a>(self, name: str, val: int = 0) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;back&nbsp;to&nbsp;zero.</tt></dd></dl>
 
 <dl><dt><a name="DaemonBase-restart"><strong>restart</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;restart&nbsp;this&nbsp;daemon.</tt></dd></dl>
 
@@ -99,13 +99,13 @@ automatically&nbsp;stops&nbsp;it.</tt></dd></dl>
 return&nbsp;the&nbsp;main-thread&nbsp;function's&nbsp;result&nbsp;and&nbsp;shut&nbsp;down&nbsp;the&nbsp;daemon&nbsp;when<br>
 it&nbsp;returns.</tt></dd></dl>
 
-<dl><dt><a name="DaemonBase-set_env_metric"><strong>set_env_metric</strong></a>(self, name: str, value: Any, prim: vtelem.enums.primitive.Primitive = &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;class 'int'&gt;, size=4, name='uint32', signed=False, min=0, max=4294967295, validate=&lt;function integer_can_hold at 0x7f903211f670&gt;)&gt;) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;channel&nbsp;value&nbsp;if&nbsp;an&nbsp;environment&nbsp;is&nbsp;registered.</tt></dd></dl>
+<dl><dt><a name="DaemonBase-set_env_metric"><strong>set_env_metric</strong></a>(self, name: str, value: Any, prim: vtelem.enums.primitive.Primitive = &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;class 'int'&gt;, size=4, name='uint32', signed=False, min=0, max=4294967295, validate=&lt;function integer_can_hold at 0x7fe243ed70d0&gt;)&gt;) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;channel&nbsp;value&nbsp;if&nbsp;an&nbsp;environment&nbsp;is&nbsp;registered.</tt></dd></dl>
 
 <dl><dt><a name="DaemonBase-set_state"><strong>set_state</strong></a>(self, state: vtelem.enums.daemon.DaemonState) -&gt; bool</dt><dd><tt>Assigns&nbsp;a&nbsp;new&nbsp;run-state&nbsp;to&nbsp;this&nbsp;daemon.</tt></dd></dl>
 
 <dl><dt><a name="DaemonBase-start"><strong>start</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;start&nbsp;the&nbsp;daemon.</tt></dd></dl>
 
-<dl><dt><a name="DaemonBase-stop"><strong>stop</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;stop&nbsp;the&nbsp;daemon.</tt></dd></dl>
+<dl><dt><a name="DaemonBase-stop"><strong>stop</strong></a>(self, timeout: int = 2) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;stop&nbsp;the&nbsp;daemon.</tt></dd></dl>
 
 <dl><dt><a name="DaemonBase-unpause"><strong>unpause</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;un-pause&nbsp;the&nbsp;daemon.</tt></dd></dl>
 
@@ -149,7 +149,8 @@ just&nbsp;sleep&nbsp;until&nbsp;we're&nbsp;interrupted.</tt></dd></dl>
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>Any</strong> = typing.Any<br>
 <strong>Callable</strong> = typing.Callable<br>
-<strong>DEFAULTS</strong> = {'count': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f903211f670&gt;)&gt;, 'crc': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f903211f670&gt;)&gt;, 'enum': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7f903211f670&gt;)&gt;, 'id': &lt;Primitive.UINT16: BasePrimitive(fmt='H', type=&lt;...e=&lt;function integer_can_hold at 0x7f903211f670&gt;)&gt;, 'metric': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7f903211f670&gt;)&gt;, 'timestamp': &lt;Primitive.UINT64: BasePrimitive(fmt='Q', type=&lt;...e=&lt;function integer_can_hold at 0x7f903211f670&gt;)&gt;, 'version': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7f903211f670&gt;)&gt;}<br>
+<strong>DEFAULTS</strong> = {'count': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fe243ed70d0&gt;)&gt;, 'crc': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fe243ed70d0&gt;)&gt;, 'enum': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7fe243ed70d0&gt;)&gt;, 'id': &lt;Primitive.UINT16: BasePrimitive(fmt='H', type=&lt;...e=&lt;function integer_can_hold at 0x7fe243ed70d0&gt;)&gt;, 'metric': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fe243ed70d0&gt;)&gt;, 'timestamp': &lt;Primitive.UINT64: BasePrimitive(fmt='Q', type=&lt;...e=&lt;function integer_can_hold at 0x7fe243ed70d0&gt;)&gt;, 'version': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7fe243ed70d0&gt;)&gt;}<br>
+<strong>DEFAULT_TIMEOUT</strong> = 2<br>
 <strong>Dict</strong> = typing.Dict<br>
 <strong>Iterator</strong> = typing.Iterator<br>
 <strong>LOG</strong> = &lt;Logger vtelem.daemon (WARNING)&gt;<br>

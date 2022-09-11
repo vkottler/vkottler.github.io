@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module svgen.cartesian.rectangle.grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="svgen.html"><font color="#ffffff">svgen</font></a>.<a href="svgen.cartesian.html"><font color="#ffffff">cartesian</font></a>.<a href="svgen.cartesian.rectangle.html"><font color="#ffffff">rectangle</font></a>.grid</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/svgen/svgen/cartesian/rectangle/grid.py">/home/vkottler/git/workspace/svgen/svgen/cartesian/rectangle/grid.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;grid&nbsp;interfaces&nbsp;for&nbsp;rectangles.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#tuple">builtins.tuple</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="svgen.cartesian.rectangle.grid.html#RectangleGrid">RectangleGrid</a>
+</font></dt><dt><font face="helvetica, arial"><a href="svgen.cartesian.rectangle.grid.html#RectangleIndex">RectangleIndex</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RectangleGrid">class <strong>RectangleGrid</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#RectangleGrid">RectangleGrid</a>(rect:&nbsp;svgen.cartesian.rectangle.Rectangle,&nbsp;columns:&nbsp;int,&nbsp;rows:&nbsp;int)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;locating&nbsp;points&nbsp;within&nbsp;a&nbsp;rectangle.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="svgen.cartesian.rectangle.grid.html#RectangleGrid">RectangleGrid</a></dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="RectangleGrid-__call__"><strong>__call__</strong></a>(self, x: float, y: float) -&gt; svgen.cartesian.point.Point</dt><dd><tt>Get&nbsp;the&nbsp;true&nbsp;location&nbsp;of&nbsp;a&nbsp;point&nbsp;within&nbsp;this&nbsp;grid.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><tt>Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#RectangleGrid">RectangleGrid</a>&nbsp;object&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-adjust"><strong>adjust</strong></a>(self, columns: int = None, rows: int = None, rect: svgen.cartesian.rectangle.Rectangle = None) -&gt; 'RectangleGrid'</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;grid&nbsp;from&nbsp;new&nbsp;parameters.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-box"><strong>box</strong></a>(self, x: float, y: float) -&gt; svgen.cartesian.rectangle.Rectangle</dt><dd><tt>Get&nbsp;a&nbsp;rectangle&nbsp;object&nbsp;from&nbsp;provided&nbsp;coordinates.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-translate"><strong>translate</strong></a>(self, dx: Union[svgen.cartesian.mutate.Translation, float], *args, **kwargs) -&gt; 'RectangleGrid'</dt><dd><tt>Translate&nbsp;this&nbsp;rectangle&nbsp;grid.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="RectangleGrid-_make"><strong>_make</strong></a>(iterable)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Make&nbsp;a&nbsp;new&nbsp;<a href="#RectangleGrid">RectangleGrid</a>&nbsp;object&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="RectangleGrid-__new__"><strong>__new__</strong></a>(_cls, rect: svgen.cartesian.rectangle.Rectangle, columns: int, rows: int)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#RectangleGrid">RectangleGrid</a>(rect,&nbsp;columns,&nbsp;rows)</tt></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>boxes</strong></dt>
+<dd><tt>Iterate&nbsp;over&nbsp;boxes&nbsp;belonging&nbsp;to&nbsp;this&nbsp;grid.</tt></dd>
+</dl>
+<dl><dt><strong>enumerate_boxes</strong></dt>
+<dd><tt>Iterate&nbsp;over&nbsp;boxes&nbsp;belonging&nbsp;to&nbsp;this&nbsp;grid.</tt></dd>
+</dl>
+<dl><dt><strong>points</strong></dt>
+<dd><tt>Iterate&nbsp;over&nbsp;points&nbsp;in&nbsp;the&nbsp;grid.</tt></dd>
+</dl>
+<dl><dt><strong>x_scale</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;scalar&nbsp;value&nbsp;for&nbsp;'x'&nbsp;coordinates.</tt></dd>
+</dl>
+<dl><dt><strong>y_scale</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;scalar&nbsp;value&nbsp;for&nbsp;'y'&nbsp;coordinates.</tt></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>rect</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</tt></dd>
+</dl>
+<dl><dt><strong>columns</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</tt></dd>
+</dl>
+<dl><dt><strong>rows</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;2</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'columns': &lt;class 'int'&gt;, 'rect': &lt;class 'svgen.cartesian.rectangle.Rectangle'&gt;, 'rows': &lt;class 'int'&gt;}</dl>
+
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
+
+<dl><dt><strong>_field_types</strong> = {'columns': &lt;class 'int'&gt;, 'rect': &lt;class 'svgen.cartesian.rectangle.Rectangle'&gt;, 'rows': &lt;class 'int'&gt;}</dl>
+
+<dl><dt><strong>_fields</strong> = ('rect', 'columns', 'rows')</dl>
+
+<dl><dt><strong>_fields_defaults</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="RectangleGrid-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self+value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;key&nbsp;in&nbsp;self.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;=value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;self[key].</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><tt>Implement&nbsp;iter(self).</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;=value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;len(self).</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self*value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self!=value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value*self.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-count"><strong>count</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleGrid-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><tt>Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RectangleIndex">class <strong>RectangleIndex</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#RectangleIndex">RectangleIndex</a>(column:&nbsp;int,&nbsp;row:&nbsp;int)<br>
+&nbsp;<br>
+An&nbsp;index&nbsp;into&nbsp;a&nbsp;rectangle&nbsp;grid.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="svgen.cartesian.rectangle.grid.html#RectangleIndex">RectangleIndex</a></dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="RectangleIndex-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><tt>Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#RectangleIndex">RectangleIndex</a>&nbsp;object&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="RectangleIndex-_make"><strong>_make</strong></a>(iterable)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Make&nbsp;a&nbsp;new&nbsp;<a href="#RectangleIndex">RectangleIndex</a>&nbsp;object&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="RectangleIndex-__new__"><strong>__new__</strong></a>(_cls, column: int, row: int)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#RectangleIndex">RectangleIndex</a>(column,&nbsp;row)</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>column</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</tt></dd>
+</dl>
+<dl><dt><strong>row</strong></dt>
+<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'column': &lt;class 'int'&gt;, 'row': &lt;class 'int'&gt;}</dl>
+
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
+
+<dl><dt><strong>_field_types</strong> = {'column': &lt;class 'int'&gt;, 'row': &lt;class 'int'&gt;}</dl>
+
+<dl><dt><strong>_fields</strong> = ('column', 'row')</dl>
+
+<dl><dt><strong>_fields_defaults</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="RectangleIndex-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self+value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;key&nbsp;in&nbsp;self.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;=value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;self[key].</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><tt>Implement&nbsp;iter(self).</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;=value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;len(self).</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self*value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self!=value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value*self.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-count"><strong>count</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="RectangleIndex-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><tt>Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Iterable</strong> = typing.Iterable<br>
+<strong>Tuple</strong> = typing.Tuple<br>
+<strong>Union</strong> = typing.Union</td></tr></table>
+</body></html>

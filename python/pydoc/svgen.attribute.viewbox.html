@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="svgen.html"><font color="#ffffff">svgen</font></a>.<a href="svgen.attribute.html"><font color="#ffffff">attribute</font></a>.viewbox</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/svgen/svgen/attribute/viewbox.py">/home/vkottler/Documents/git/workspace/svgen/svgen/attribute/viewbox.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/svgen/svgen/attribute/viewbox.py">/home/vkottler/git/workspace/svgen/svgen/attribute/viewbox.py</a></font></td></tr></table>
     <p><tt>svgen&nbsp;-&nbsp;A&nbsp;module&nbsp;for&nbsp;the&nbsp;'viewBox'&nbsp;attribute.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -52,6 +52,10 @@ An&nbsp;interface&nbsp;for&nbsp;viewBox&nbsp;attributes.<br>&nbsp;</tt></td></tr
 Methods defined here:<br>
 <dl><dt><a name="ViewBox-__init__"><strong>__init__</strong></a>(self, min_x: int, min_y: int, width: int, height: int) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;viewBox.</tt></dd></dl>
 
+<dl><dt><a name="ViewBox-new_grid"><strong>new_grid</strong></a>(self, rect: svgen.cartesian.rectangle.Rectangle = None, columns: int = None, rows: int = None) -&gt; svgen.cartesian.rectangle.grid.RectangleGrid</dt><dd><tt>Create&nbsp;a&nbsp;grid&nbsp;from&nbsp;this&nbsp;viewBox.</tt></dd></dl>
+
+<dl><dt><a name="ViewBox-translate"><strong>translate</strong></a>(self, dx: Union[svgen.cartesian.mutate.Translation, float], *args, **kwargs) -&gt; None</dt><dd><tt>Apply&nbsp;a&nbsp;translation&nbsp;to&nbsp;this&nbsp;viewBox.</tt></dd></dl>
+
 <hr>
 Static methods defined here:<br>
 <dl><dt><a name="ViewBox-decode"><strong>decode</strong></a>(key: str, value: str) -&gt; svgen.attribute.Attribute</dt><dd><tt>Create&nbsp;this&nbsp;attribute&nbsp;from&nbsp;a&nbsp;string.</tt></dd></dl>
@@ -66,6 +70,9 @@ Readonly properties defined here:<br>
 <dl><dt><strong>dimensions</strong></dt>
 <dd><tt>Get&nbsp;this&nbsp;viewBox's&nbsp;dimensions.</tt></dd>
 </dl>
+<dl><dt><strong>height</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;height&nbsp;of&nbsp;this&nbsp;viewbox.</tt></dd>
+</dl>
 <dl><dt><strong>key</strong></dt>
 <dd><tt>Get&nbsp;the&nbsp;string&nbsp;key&nbsp;for&nbsp;this&nbsp;attribute.</tt></dd>
 </dl>
@@ -74,6 +81,9 @@ Readonly properties defined here:<br>
 </dl>
 <dl><dt><strong>value</strong></dt>
 <dd><tt>Get&nbsp;the&nbsp;string&nbsp;value&nbsp;for&nbsp;this&nbsp;attribute.</tt></dd>
+</dl>
+<dl><dt><strong>width</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;width&nbsp;of&nbsp;this&nbsp;viewbox.</tt></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
@@ -123,6 +133,8 @@ Methods defined here:<br>
 
 <dl><dt><a name="ViewBoxData-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#ViewBoxData">ViewBoxData</a>&nbsp;object&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
 
+<dl><dt><a name="ViewBoxData-translate"><strong>translate</strong></a>(self, dx: int, dy: int) -&gt; 'ViewBoxData'</dt><dd><tt>Translate&nbsp;this&nbsp;viewBox.</tt></dd></dl>
+
 <hr>
 Class methods defined here:<br>
 <dl><dt><a name="ViewBoxData-_make"><strong>_make</strong></a>(iterable)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Make&nbsp;a&nbsp;new&nbsp;<a href="#ViewBoxData">ViewBoxData</a>&nbsp;object&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</tt></dd></dl>
@@ -137,6 +149,9 @@ Static methods defined here:<br>
 Readonly properties defined here:<br>
 <dl><dt><strong>center</strong></dt>
 <dd><tt>Get&nbsp;the&nbsp;center&nbsp;point&nbsp;for&nbsp;this&nbsp;viewBox.</tt></dd>
+</dl>
+<dl><dt><strong>origin</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;origin&nbsp;for&nbsp;this&nbsp;viewBox.</tt></dd>
 </dl>
 <hr>
 Data descriptors defined here:<br>
@@ -202,5 +217,12 @@ Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 &nbsp;<br>
 Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
 
-</td></tr></table></td></tr></table>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Union</strong> = typing.Union</td></tr></table>
 </body></html>

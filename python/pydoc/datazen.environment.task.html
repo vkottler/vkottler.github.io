@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.environment.html"><font color="#ffffff">environment</font></a>.task</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/environment/task.py">/home/vkottler/Documents/git/workspace/datazen/datazen/environment/task.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/environment/task.py">/home/vkottler/git/workspace/datazen/datazen/environment/task.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;A&nbsp;class&nbsp;for&nbsp;exposing&nbsp;the&nbsp;capability&nbsp;to&nbsp;run&nbsp;concrete&nbsp;tasks&nbsp;against<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;current&nbsp;environment.</tt></p>
 <p>
@@ -42,7 +42,9 @@
 <font color="#000000" face="helvetica, arial"><a name="TaskEnvironment">class <strong>TaskEnvironment</strong></a>(<a href="datazen.environment.manifest_cache.html#ManifestCacheEnvironment">datazen.environment.manifest_cache.ManifestCacheEnvironment</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Adds&nbsp;capability&nbsp;for&nbsp;running&nbsp;tasks&nbsp;(including&nbsp;tasks&nbsp;with&nbsp;dependencies)<br>
+<td colspan=2><tt><a href="#TaskEnvironment">TaskEnvironment</a>(**kwargs)<br>
+&nbsp;<br>
+Adds&nbsp;capability&nbsp;for&nbsp;running&nbsp;tasks&nbsp;(including&nbsp;tasks&nbsp;with&nbsp;dependencies)<br>
 and&nbsp;tracking&nbsp;whether&nbsp;or&nbsp;not&nbsp;updates&nbsp;are&nbsp;required.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
@@ -58,7 +60,7 @@ and&nbsp;tracking&nbsp;whether&nbsp;or&nbsp;not&nbsp;updates&nbsp;are&nbsp;requi
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="TaskEnvironment-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Add&nbsp;a&nbsp;notion&nbsp;of&nbsp;'visited'&nbsp;targets&nbsp;to&nbsp;the&nbsp;environment&nbsp;data.</tt></dd></dl>
+<dl><dt><a name="TaskEnvironment-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;notion&nbsp;of&nbsp;'visited'&nbsp;targets&nbsp;to&nbsp;the&nbsp;environment&nbsp;data.</tt></dd></dl>
 
 <dl><dt><a name="TaskEnvironment-already_satisfied"><strong>already_satisfied</strong></a>(self, target: str, output_path: Union[str, NoneType], load_deps: List[str], deps_changed: List[str] = None, load_checks: Dict[str, List[str]] = None, logger: logging.Logger = &lt;Logger datazen.environment.task (WARNING)&gt;) -&gt; bool</dt><dd><tt>Check&nbsp;if&nbsp;a&nbsp;target&nbsp;is&nbsp;already&nbsp;satisfied,&nbsp;if&nbsp;not&nbsp;debug-log&nbsp;some<br>
 information&nbsp;about&nbsp;why&nbsp;not.</tt></dd></dl>
@@ -100,7 +102,7 @@ Readonly properties defined here:<br>
 Methods inherited from <a href="datazen.environment.manifest_cache.html#ManifestCacheEnvironment">datazen.environment.manifest_cache.ManifestCacheEnvironment</a>:<br>
 <dl><dt><a name="TaskEnvironment-cached_enforce_schemas"><strong>cached_enforce_schemas</strong></a>(self, data: dict, require_all: bool = True, name: str = '__root__') -&gt; bool</dt><dd><tt>Enforce&nbsp;schemas,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
 
-<dl><dt><a name="TaskEnvironment-cached_load_configs"><strong>cached_load_configs</strong></a>(self, name: str = '__root__') -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configs,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
+<dl><dt><a name="TaskEnvironment-cached_load_configs"><strong>cached_load_configs</strong></a>(self, name: str = '__root__', enforce_schemas: bool = True) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configs,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
 
 <dl><dt><a name="TaskEnvironment-cached_load_schemas"><strong>cached_load_schemas</strong></a>(self, require_all: bool = True, name: str = '__root__') -&gt; dict</dt><dd><tt>Load&nbsp;schemas,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
 
@@ -123,7 +125,7 @@ Methods inherited from <a href="datazen.environment.manifest.html#ManifestEnviro
 <dl><dt><a name="TaskEnvironment-default_target"><strong>default_target</strong></a>(self) -&gt; str</dt><dd><tt>Retrieve&nbsp;a&nbsp;configured&nbsp;default&nbsp;target&nbsp;for&nbsp;a&nbsp;manifest,&nbsp;otherwise&nbsp;an<br>
 empty&nbsp;String.</tt></dd></dl>
 
-<dl><dt><a name="TaskEnvironment-load_dirs"><strong>load_dirs</strong></a>(self, data: dict, rel_path: str, namespace: str = '__root__', allow_dup: bool = False) -&gt; None</dt><dd><tt>Looks&nbsp;for&nbsp;keys&nbsp;matching&nbsp;types&nbsp;of&nbsp;directories&nbsp;that&nbsp;can&nbsp;be&nbsp;loaded<br>
+<dl><dt><a name="TaskEnvironment-load_dirs"><strong>load_dirs</strong></a>(self, data: dict, rel_path: str, namespace: str = '__root__', allow_dup: bool = False, load_defaults: bool = True) -&gt; None</dt><dd><tt>Looks&nbsp;for&nbsp;keys&nbsp;matching&nbsp;types&nbsp;of&nbsp;directories&nbsp;that&nbsp;can&nbsp;be&nbsp;loaded<br>
 into&nbsp;an&nbsp;environment&nbsp;and&nbsp;tries&nbsp;to&nbsp;load&nbsp;them.</tt></dd></dl>
 
 <dl><dt><a name="TaskEnvironment-load_manifest"><strong>load_manifest</strong></a>(self, path: str = 'manifest.yaml', logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;load&nbsp;manifest&nbsp;data&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
@@ -148,7 +150,7 @@ Methods inherited from <a href="datazen.environment.config.html#ConfigEnvironmen
 <dl><dt><a name="TaskEnvironment-add_config_dirs"><strong>add_config_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;configuration-data&nbsp;directories,&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;directories<br>
 added.</tt></dd></dl>
 
-<dl><dt><a name="TaskEnvironment-load_configs"><strong>load_configs</strong></a>(self, cfg_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), var_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', logger: logging.Logger = &lt;Logger datazen.environment.config (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configuration&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;configuration<br>
+<dl><dt><a name="TaskEnvironment-load_configs"><strong>load_configs</strong></a>(self, cfg_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), var_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', logger: logging.Logger = &lt;Logger datazen.environment.config (WARNING)&gt;, enforce_schemas: bool = True) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configuration&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;configuration<br>
 directories.</tt></dd></dl>
 
 <hr>
@@ -190,7 +192,7 @@ Methods inherited from <a href="datazen.environment.base.html#BaseEnvironment">d
 <dl><dt><a name="TaskEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: dict) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
 all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&nbsp;anything&nbsp;new.</tt></dd></dl>
 
-<dl><dt><a name="TaskEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[str]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
+<dl><dt><a name="TaskEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[Union[pathlib.Path, str, NoneType]]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
 
 <dl><dt><a name="TaskEnvironment-get_valid"><strong>get_valid</strong></a>(self, name: str = '__root__') -&gt; bool</dt><dd><tt>Get&nbsp;the&nbsp;'valid'&nbsp;flag&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
@@ -198,7 +200,7 @@ all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&n
 
 <dl><dt><a name="TaskEnvironment-unload_all"><strong>unload_all</strong></a>(self, name: str = '__root__') -&gt; None</dt><dd><tt>Unload&nbsp;all&nbsp;of&nbsp;the&nbsp;directories&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="TaskEnvironment-update_load_state"><strong>update_load_state</strong></a>(self, dir_type: datazen.enums.DataType, to_load: List[str], name: str = '__root__') -&gt; int</dt><dd><tt>Proxy&nbsp;for&nbsp;update_load_state&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+<dl><dt><a name="TaskEnvironment-update_load_state"><strong>update_load_state</strong></a>(self, dir_type: datazen.enums.DataType, to_load: List[Union[pathlib.Path, str, NoneType]], name: str = '__root__') -&gt; int</dt><dd><tt>Proxy&nbsp;for&nbsp;update_load_state&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="datazen.environment.base.html#BaseEnvironment">datazen.environment.base.BaseEnvironment</a>:<br>

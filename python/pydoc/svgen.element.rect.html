@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="svgen.html"><font color="#ffffff">svgen</font></a>.<a href="svgen.element.html"><font color="#ffffff">element</font></a>.rect</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/svgen/svgen/element/rect.py">/home/vkottler/Documents/git/workspace/svgen/svgen/element/rect.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/svgen/svgen/element/rect.py">/home/vkottler/git/workspace/svgen/svgen/element/rect.py</a></font></td></tr></table>
     <p><tt>svgen&nbsp;-&nbsp;A&nbsp;module&nbsp;for&nbsp;the&nbsp;'rect'&nbsp;element.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -47,18 +47,46 @@ Methods defined here:<br>
 
 <dl><dt><a name="Rect-__init__"><strong>__init__</strong></a>(self, rect: svgen.cartesian.rectangle.Rectangle, rx: float = 0.0, ry: float = 0.0, attrs: Union[Dict[str, Union[str, int, float]], List[svgen.attribute.Attribute], svgen.attribute.Attribute] = None, **extra) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;rect&nbsp;element.</tt></dd></dl>
 
+<dl><dt><a name="Rect-corner"><strong>corner</strong></a>(self, corner: svgen.cartesian.rectangle.corner.RectangleCorner) -&gt; svgen.cartesian.point.Point</dt><dd><tt>Get&nbsp;a&nbsp;specific&nbsp;corner&nbsp;of&nbsp;a&nbsp;rectangle.</tt></dd></dl>
+
+<dl><dt><a name="Rect-grid"><strong>grid</strong></a>(self, columns: int, rows: int) -&gt; svgen.cartesian.rectangle.grid.RectangleGrid</dt><dd><tt>Create&nbsp;a&nbsp;grid&nbsp;from&nbsp;this&nbsp;rectangle.</tt></dd></dl>
+
 <dl><dt><a name="Rect-scale"><strong>scale</strong></a>(self, width_scale: float = 1.0, height_scale: float = 1.0) -&gt; 'Rect'</dt><dd><tt>Scale&nbsp;this&nbsp;rectangle's&nbsp;width&nbsp;and&nbsp;height.</tt></dd></dl>
 
 <dl><dt><a name="Rect-scale_whole"><strong>scale_whole</strong></a>(self, scalar: float = 1.0) -&gt; 'Rect'</dt><dd><tt>Scale&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;this&nbsp;rectangle&nbsp;equally.</tt></dd></dl>
 
 <dl><dt><a name="Rect-to_square"><strong>to_square</strong></a>(self, scale: float = 1.0) -&gt; 'Rect'</dt><dd><tt>Convert&nbsp;this&nbsp;rectangle&nbsp;to&nbsp;a&nbsp;square.</tt></dd></dl>
 
-<dl><dt><a name="Rect-translate"><strong>translate</strong></a>(self, move: svgen.cartesian.Translation) -&gt; 'Rect'</dt><dd><tt>Move&nbsp;this&nbsp;rectangle&nbsp;by&nbsp;a&nbsp;given&nbsp;translation.</tt></dd></dl>
+<dl><dt><a name="Rect-translate"><strong>translate</strong></a>(self, move: svgen.cartesian.mutate.Translation) -&gt; 'Rect'</dt><dd><tt>Move&nbsp;this&nbsp;rectangle&nbsp;by&nbsp;a&nbsp;given&nbsp;translation.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Rect-centered"><strong>centered</strong></a>(box: Union[svgen.attribute.viewbox.ViewBox, svgen.cartesian.rectangle.Rectangle], width_scale: float = 1.0, height_scale: float = 1.0, color: Union[str, svgen.color.hsl.Hsl, svgen.color.rgb.Rgb, ForwardRef('Color')] = None, prop: str = 'fill', square: bool = False, **kwargs) -&gt; 'Rect'</dt><dd><tt>From&nbsp;a&nbsp;viewBox,&nbsp;created&nbsp;a&nbsp;centered-and-scaled&nbsp;rectangle.</tt></dd></dl>
+
+<dl><dt><a name="Rect-create"><strong>create</strong></a>(width: float, height: float, point: svgen.cartesian.point.Point = Point(x=0.0, y=0.0, center=False, idx=-1), **kwargs) -&gt; 'Rect'</dt><dd><tt>Create&nbsp;a&nbsp;rectangle&nbsp;element.</tt></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
+<dl><dt><strong>bottom_left</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;bottom&nbsp;left&nbsp;corner&nbsp;point.</tt></dd>
+</dl>
+<dl><dt><strong>bottom_right</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;bottom&nbsp;right&nbsp;corner&nbsp;point.</tt></dd>
+</dl>
+<dl><dt><strong>height</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;height&nbsp;of&nbsp;this&nbsp;rectangle&nbsp;element.</tt></dd>
+</dl>
 <dl><dt><strong>square</strong></dt>
 <dd><tt>Determine&nbsp;if&nbsp;this&nbsp;rectangle&nbsp;is&nbsp;square.</tt></dd>
+</dl>
+<dl><dt><strong>top_left</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;top&nbsp;left&nbsp;corner&nbsp;point.</tt></dd>
+</dl>
+<dl><dt><strong>top_right</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;top&nbsp;right&nbsp;corner&nbsp;point.</tt></dd>
+</dl>
+<dl><dt><strong>width</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;width&nbsp;of&nbsp;this&nbsp;rectangle&nbsp;element.</tt></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
@@ -97,8 +125,7 @@ Data descriptors inherited from <a href="svgen.element.html#Element">svgen.eleme
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-centered"><strong>centered</strong></a>(box: svgen.attribute.viewbox.ViewBox, width_scale: float = 1.0, height_scale: float = 1.0, color: Union[svgen.color.Color, str] = None, prop: str = 'fill', **kwargs) -&gt; svgen.element.rect.Rect</dt><dd><tt>From&nbsp;a&nbsp;viewBox,&nbsp;created&nbsp;a&nbsp;centered-and-scaled&nbsp;rectangle.</tt></dd></dl>
- <dl><dt><a name="-isclose"><strong>isclose</strong></a>(a, b, *, rel_tol=1e-09, abs_tol=0.0)</dt><dd><tt>Determine&nbsp;whether&nbsp;two&nbsp;floating&nbsp;point&nbsp;numbers&nbsp;are&nbsp;close&nbsp;in&nbsp;value.<br>
+<td width="100%"><dl><dt><a name="-isclose"><strong>isclose</strong></a>(a, b, *, rel_tol=1e-09, abs_tol=0.0)</dt><dd><tt>Determine&nbsp;whether&nbsp;two&nbsp;floating&nbsp;point&nbsp;numbers&nbsp;are&nbsp;close&nbsp;in&nbsp;value.<br>
 &nbsp;<br>
 &nbsp;&nbsp;rel_tol<br>
 &nbsp;&nbsp;&nbsp;&nbsp;maximum&nbsp;difference&nbsp;for&nbsp;being&nbsp;considered&nbsp;"close",&nbsp;relative&nbsp;to&nbsp;the<br>
@@ -122,7 +149,9 @@ only&nbsp;close&nbsp;to&nbsp;themselves.</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>PossibleAttributes</strong> = typing.Union[typing.Dict[str, typing.Union[str, ....attribute.Attribute], svgen.attribute.Attribute]<br>
+<td width="100%"><strong>Colorlike</strong> = typing.Union[str, svgen.color.hsl.Hsl, svgen.color.rgb.Rgb, ForwardRef('Color')]<br>
+<strong>DEFAULT</strong> = Point(x=0.0, y=0.0, center=False, idx=-1)<br>
+<strong>PossibleAttributes</strong> = typing.Union[typing.Dict[str, typing.Union[str, ....attribute.Attribute], svgen.attribute.Attribute]<br>
 <strong>UNITY</strong> = 1.0<br>
 <strong>Union</strong> = typing.Union</td></tr></table>
 </body></html>

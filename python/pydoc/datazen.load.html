@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.load</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/load.py">/home/vkottler/Documents/git/workspace/datazen/datazen/load.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/load.py">/home/vkottler/git/workspace/datazen/datazen/load.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;APIs&nbsp;for&nbsp;loading&nbsp;data&nbsp;from&nbsp;directory&nbsp;trees.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -135,12 +135,12 @@ Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-data_added"><strong>data_added</strong></a>(key: Any, value: Any, data: dict = None) -&gt; Iterator[dict]</dt><dd><tt>Inject&nbsp;a&nbsp;key-value&nbsp;pair&nbsp;into&nbsp;a&nbsp;dictionary,&nbsp;in&nbsp;a&nbsp;context.</tt></dd></dl>
- <dl><dt><a name="-load_dir"><strong>load_dir</strong></a>(path: Union[pathlib.Path, str], existing_data: dict, variables: dict = None, loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), expect_overwrite: bool = False, are_templates: bool = True, logger: logging.Logger = &lt;Logger datazen.load (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;a&nbsp;directory&nbsp;tree&nbsp;into&nbsp;a&nbsp;dictionary,&nbsp;optionally&nbsp;meld.</tt></dd></dl>
- <dl><dt><a name="-load_dir_only"><strong>load_dir_only</strong></a>(path: Union[pathlib.Path, str], expect_overwrite: bool = False, are_templates: bool = True, logger: logging.Logger = &lt;Logger datazen.load (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>A&nbsp;convenient&nbsp;wrapper&nbsp;for&nbsp;loading&nbsp;just&nbsp;directory&nbsp;data&nbsp;from&nbsp;a&nbsp;path&nbsp;without<br>
+ <dl><dt><a name="-load_dir"><strong>load_dir</strong></a>(path: Union[pathlib.Path, str, NoneType], existing_data: dict, variables: dict = None, loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), expect_overwrite: bool = False, are_templates: bool = True, logger: logging.Logger = &lt;Logger datazen.load (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;a&nbsp;directory&nbsp;tree&nbsp;into&nbsp;a&nbsp;dictionary,&nbsp;optionally&nbsp;meld.</tt></dd></dl>
+ <dl><dt><a name="-load_dir_only"><strong>load_dir_only</strong></a>(path: Union[pathlib.Path, str, NoneType], expect_overwrite: bool = False, are_templates: bool = True, logger: logging.Logger = &lt;Logger datazen.load (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>A&nbsp;convenient&nbsp;wrapper&nbsp;for&nbsp;loading&nbsp;just&nbsp;directory&nbsp;data&nbsp;from&nbsp;a&nbsp;path&nbsp;without<br>
 worrying&nbsp;about&nbsp;melding&nbsp;data,&nbsp;resolving&nbsp;variables,&nbsp;enforcing&nbsp;schemas,&nbsp;etc.</tt></dd></dl>
- <dl><dt><a name="-load_files"><strong>load_files</strong></a>(file_paths: List[Union[pathlib.Path, str]], root: str, meld_data: Tuple[dict, dict, bool], hashes: Dict[str, dict] = None, expect_overwrite: bool = False, are_templates: bool = True) -&gt; Tuple[List[str], int]</dt><dd><tt>Load&nbsp;files&nbsp;into&nbsp;a&nbsp;dictionary&nbsp;and&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;files&nbsp;that&nbsp;are<br>
+ <dl><dt><a name="-load_files"><strong>load_files</strong></a>(file_paths: List[Union[pathlib.Path, str, NoneType]], root: str, meld_data: Tuple[dict, dict, bool], hashes: Dict[str, dict] = None, expect_overwrite: bool = False, are_templates: bool = True) -&gt; Tuple[List[str], int]</dt><dd><tt>Load&nbsp;files&nbsp;into&nbsp;a&nbsp;dictionary&nbsp;and&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;files&nbsp;that&nbsp;are<br>
 new&nbsp;or&nbsp;had&nbsp;hash&nbsp;mismatches.</tt></dd></dl>
- <dl><dt><a name="-meld_and_resolve"><strong>meld_and_resolve</strong></a>(path: Union[pathlib.Path, str], existing_data: dict, variables: dict, globals_added: bool = False, expect_overwrite: bool = False, is_template: bool = True, **kwargs) -&gt; bool</dt><dd><tt>Meld&nbsp;dictionary&nbsp;data&nbsp;from&nbsp;a&nbsp;file&nbsp;into&nbsp;an&nbsp;existing&nbsp;dictionary,&nbsp;assume<br>
+ <dl><dt><a name="-meld_and_resolve"><strong>meld_and_resolve</strong></a>(path: Union[pathlib.Path, str, NoneType], existing_data: dict, variables: dict, globals_added: bool = False, expect_overwrite: bool = False, is_template: bool = True, **kwargs) -&gt; bool</dt><dd><tt>Meld&nbsp;dictionary&nbsp;data&nbsp;from&nbsp;a&nbsp;file&nbsp;into&nbsp;an&nbsp;existing&nbsp;dictionary,&nbsp;assume<br>
 existing&nbsp;data&nbsp;is&nbsp;a&nbsp;template&nbsp;and&nbsp;attempt&nbsp;to&nbsp;resolve&nbsp;variables.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -157,6 +157,6 @@ existing&nbsp;data&nbsp;is&nbsp;a&nbsp;template&nbsp;and&nbsp;attempt&nbsp;to&nb
 <strong>LOG</strong> = &lt;Logger datazen.load (WARNING)&gt;<br>
 <strong>List</strong> = typing.List<br>
 <strong>Optional</strong> = typing.Optional<br>
-<strong>Tuple</strong> = typing.Tuple<br>
-<strong>Union</strong> = typing.Union</td></tr></table>
+<strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
 </body></html>

@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.environment.html"><font color="#ffffff">environment</font></a>.base</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/environment/base.py">/home/vkottler/Documents/git/workspace/datazen/datazen/environment/base.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/environment/base.py">/home/vkottler/git/workspace/datazen/datazen/environment/base.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;A&nbsp;base&nbsp;class&nbsp;to&nbsp;be&nbsp;extended&nbsp;for&nbsp;runtime&nbsp;data&nbsp;loading&nbsp;and&nbsp;storing.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -18,8 +18,9 @@
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
 </td><td width="25%" valign=top><a href="threading.html">threading</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -48,12 +49,12 @@
 <font color="#000000" face="helvetica, arial"><a name="BaseEnvironment">class <strong>BaseEnvironment</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#BaseEnvironment">BaseEnvironment</a>(default_ns:&nbsp;str&nbsp;=&nbsp;'__root__',&nbsp;logger:&nbsp;logging.Logger&nbsp;=&nbsp;&amp;lt;Logger&nbsp;datazen.environment.base&nbsp;(WARNING)&amp;gt;)&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#BaseEnvironment">BaseEnvironment</a>(default_ns:&nbsp;str&nbsp;=&nbsp;'__root__',&nbsp;logger:&nbsp;logging.Logger&nbsp;=&nbsp;&amp;lt;Logger&nbsp;datazen.environment.base&nbsp;(WARNING)&amp;gt;,&nbsp;newline:&nbsp;str&nbsp;=&nbsp;'\n',&nbsp;**_)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 The&nbsp;base&nbsp;class&nbsp;for&nbsp;environment&nbsp;loading-and-storing&nbsp;management.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="BaseEnvironment-__init__"><strong>__init__</strong></a>(self, default_ns: str = '__root__', logger: logging.Logger = &lt;Logger datazen.environment.base (WARNING)&gt;) -&gt; None</dt><dd><tt>Manage&nbsp;environments&nbsp;by&nbsp;names,&nbsp;set&nbsp;up&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;a&nbsp;root<br>
+<dl><dt><a name="BaseEnvironment-__init__"><strong>__init__</strong></a>(self, default_ns: str = '__root__', logger: logging.Logger = &lt;Logger datazen.environment.base (WARNING)&gt;, newline: str = '\n', **_) -&gt; None</dt><dd><tt>Manage&nbsp;environments&nbsp;by&nbsp;names,&nbsp;set&nbsp;up&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;a&nbsp;root<br>
 namespace.</tt></dd></dl>
 
 <dl><dt><a name="BaseEnvironment-add_dir"><strong>add_dir</strong></a>(self, dir_type: datazen.enums.DataType, dir_path: str, rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; bool</dt><dd><tt>Proxy&nbsp;for&nbsp;add_dir&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
@@ -67,7 +68,7 @@ namespace.</tt></dd></dl>
 <dl><dt><a name="BaseEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: dict) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
 all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&nbsp;anything&nbsp;new.</tt></dd></dl>
 
-<dl><dt><a name="BaseEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[str]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
+<dl><dt><a name="BaseEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[Union[pathlib.Path, str, NoneType]]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
 
 <dl><dt><a name="BaseEnvironment-get_valid"><strong>get_valid</strong></a>(self, name: str = '__root__') -&gt; bool</dt><dd><tt>Get&nbsp;the&nbsp;'valid'&nbsp;flag&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
@@ -75,7 +76,7 @@ all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&n
 
 <dl><dt><a name="BaseEnvironment-unload_all"><strong>unload_all</strong></a>(self, name: str = '__root__') -&gt; None</dt><dd><tt>Unload&nbsp;all&nbsp;of&nbsp;the&nbsp;directories&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="BaseEnvironment-update_load_state"><strong>update_load_state</strong></a>(self, dir_type: datazen.enums.DataType, to_load: List[str], name: str = '__root__') -&gt; int</dt><dd><tt>Proxy&nbsp;for&nbsp;update_load_state&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+<dl><dt><a name="BaseEnvironment-update_load_state"><strong>update_load_state</strong></a>(self, dir_type: datazen.enums.DataType, to_load: List[Union[pathlib.Path, str, NoneType]], name: str = '__root__') -&gt; int</dt><dd><tt>Proxy&nbsp;for&nbsp;update_load_state&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -300,6 +301,7 @@ operation&nbsp;isn't&nbsp;specified&nbsp;use&nbsp;a&nbsp;default.</tt></dd></dl>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>List</strong> = typing.List<br>
+<strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
 <strong>ROOT_NAMESPACE</strong> = '__root__'<br>
 <strong>SLUG_DELIM</strong> = '-'</td></tr></table>
 </body></html>

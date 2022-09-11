@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.registry.html"><font color="#ffffff">registry</font></a>.enum</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/registry/enum.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/registry/enum.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vtelem/vtelem/registry/enum.py">/home/vkottler/git/workspace/vtelem/vtelem/registry/enum.py</a></font></td></tr></table>
     <p><tt>vtelem&nbsp;-&nbsp;Contains&nbsp;a&nbsp;class&nbsp;for&nbsp;managing&nbsp;known&nbsp;enumeration&nbsp;sets.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -79,7 +79,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="vtelem.registry.html#Registry">vtelem.registry.Registry</a>:<br>
-<dl><dt><a name="EnumRegistry-add"><strong>add</strong></a>(self, name: str, data: ~TYP) -&gt; Tuple[bool, int]</dt><dd><tt>Register&nbsp;a&nbsp;named&nbsp;item,&nbsp;rejects&nbsp;duplicate&nbsp;names.&nbsp;Returns&nbsp;status<br>
+<dl><dt><a name="EnumRegistry-add"><strong>add</strong></a>(self, name: str, data: ~T) -&gt; Tuple[bool, int]</dt><dd><tt>Register&nbsp;a&nbsp;named&nbsp;item,&nbsp;rejects&nbsp;duplicate&nbsp;names.&nbsp;Returns&nbsp;status<br>
 of&nbsp;success&nbsp;and&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;associated&nbsp;with&nbsp;this&nbsp;item.</tt></dd></dl>
 
 <dl><dt><a name="EnumRegistry-count"><strong>count</strong></a>(self) -&gt; int</dt><dd><tt>Get&nbsp;a&nbsp;count&nbsp;of&nbsp;the&nbsp;number&nbsp;of&nbsp;elements&nbsp;in&nbsp;this&nbsp;registry.</tt></dd></dl>
@@ -88,7 +88,7 @@ of&nbsp;success&nbsp;and&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;associated&n
 
 <dl><dt><a name="EnumRegistry-get_id"><strong>get_id</strong></a>(self, name: str) -&gt; Union[int, NoneType]</dt><dd><tt>Determine&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;for&nbsp;a&nbsp;named&nbsp;type,&nbsp;if&nbsp;it&nbsp;can&nbsp;be&nbsp;found.</tt></dd></dl>
 
-<dl><dt><a name="EnumRegistry-get_item"><strong>get_item</strong></a>(self, item_id: int) -&gt; Union[~TYP, NoneType]</dt><dd><tt>Obtain&nbsp;an&nbsp;item's&nbsp;data&nbsp;by&nbsp;its&nbsp;integer&nbsp;identifier.</tt></dd></dl>
+<dl><dt><a name="EnumRegistry-get_item"><strong>get_item</strong></a>(self, item_id: int) -&gt; Union[~T, NoneType]</dt><dd><tt>Obtain&nbsp;an&nbsp;item's&nbsp;data&nbsp;by&nbsp;its&nbsp;integer&nbsp;identifier.</tt></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vtelem.registry.html#Registry">vtelem.registry.Registry</a>:<br>
@@ -206,7 +206,7 @@ Data and other attributes inherited from <a href="json.encoder.html#JSONEncoder"
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>DEFAULTS</strong> = {'count': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fc96cdbba60&gt;)&gt;, 'crc': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fc96cdbba60&gt;)&gt;, 'enum': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7fc96cdbba60&gt;)&gt;, 'id': &lt;Primitive.UINT16: BasePrimitive(fmt='H', type=&lt;...e=&lt;function integer_can_hold at 0x7fc96cdbba60&gt;)&gt;, 'metric': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fc96cdbba60&gt;)&gt;, 'timestamp': &lt;Primitive.UINT64: BasePrimitive(fmt='Q', type=&lt;...e=&lt;function integer_can_hold at 0x7fc96cdbba60&gt;)&gt;, 'version': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7fc96cdbba60&gt;)&gt;}<br>
+<td width="100%"><strong>DEFAULTS</strong> = {'count': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fd55ee534c0&gt;)&gt;, 'crc': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fd55ee534c0&gt;)&gt;, 'enum': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7fd55ee534c0&gt;)&gt;, 'id': &lt;Primitive.UINT16: BasePrimitive(fmt='H', type=&lt;...e=&lt;function integer_can_hold at 0x7fd55ee534c0&gt;)&gt;, 'metric': &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;...e=&lt;function integer_can_hold at 0x7fd55ee534c0&gt;)&gt;, 'timestamp': &lt;Primitive.UINT64: BasePrimitive(fmt='Q', type=&lt;...e=&lt;function integer_can_hold at 0x7fd55ee534c0&gt;)&gt;, 'version': &lt;Primitive.UINT8: BasePrimitive(fmt='B', type=&lt;c...e=&lt;function integer_can_hold at 0x7fd55ee534c0&gt;)&gt;}<br>
 <strong>LOG</strong> = &lt;Logger vtelem.registry.enum (WARNING)&gt;<br>
 <strong>List</strong> = typing.List<br>
 <strong>Tuple</strong> = typing.Tuple<br>

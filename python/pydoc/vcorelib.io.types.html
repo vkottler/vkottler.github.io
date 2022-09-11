@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.io.html"><font color="#ffffff">io</font></a>.types</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/types.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/types.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/io/types.py">/home/vkottler/git/workspace/vcorelib/vcorelib/io/types.py</a></font></td></tr></table>
     <p><tt>Common&nbsp;type&nbsp;definitions&nbsp;for&nbsp;data&nbsp;encoding&nbsp;and&nbsp;decoding&nbsp;interfaces.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -50,6 +50,8 @@ A&nbsp;mapping&nbsp;of&nbsp;expected&nbsp;encoding&nbsp;type&nbsp;to&nbsp;file&n
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>INI</strong> = &lt;FileExtension.INI: ['ini', 'cfg']&gt;</dl>
+
+<dl><dt><strong>JINJA</strong> = &lt;FileExtension.JINJA: ['j2', 'jinja', 'j2_template', 'j2_macro']&gt;</dl>
 
 <dl><dt><strong>JSON</strong> = &lt;FileExtension.JSON: ['json']&gt;</dl>
 
@@ -192,6 +194,9 @@ Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present
 <strong>DataEncoder</strong> = typing.Callable[[dict, typing.Union[typing.TextIO, _io.StringIO], logging.Logger], int]<br>
 <strong>DataStream</strong> = typing.Union[typing.TextIO, _io.StringIO]<br>
 <strong>EncodeResult</strong> = typing.Tuple[bool, int]<br>
+<strong>JsonArray</strong> = typing.List[typing.Union[str, int, float, bool, NoneType, dict, list]]<br>
+<strong>JsonObject</strong> = typing.Dict[str, typing.Union[str, int, float, bool, NoneType, dict, list]]<br>
+<strong>JsonValue</strong> = typing.Union[str, int, float, bool, NoneType, dict, list]<br>
 <strong>StreamProcessor</strong> = typing.Callable[[typing.Union[typing.TextIO, _io...gIO]], typing.Union[typing.TextIO, _io.StringIO]]<br>
 <strong>YAML_INTERFACE</strong> = &lt;ruamel.yaml.main.YAML object&gt;</td></tr></table>
 </body></html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vcorelib.graph.node</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.graph.html"><font color="#ffffff">graph</font></a>.node</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/graph/node.py">/home/vkottler/git/workspace/vcorelib/vcorelib/graph/node.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;for&nbsp;working&nbsp;with&nbsp;graph&nbsp;nodes.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.graph.abc.html#AbstractDiGraphNode">vcorelib.graph.abc.AbstractDiGraphNode</a>(<a href="vcorelib.io.abc.html#Serializable">vcorelib.io.abc.Serializable</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.graph.node.html#DiGraphNode">DiGraphNode</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DiGraphNode">class <strong>DiGraphNode</strong></a>(<a href="vcorelib.graph.abc.html#AbstractDiGraphNode">vcorelib.graph.abc.AbstractDiGraphNode</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DiGraphNode">DiGraphNode</a>(graph:&nbsp;~V&nbsp;=&nbsp;None,&nbsp;label:&nbsp;str&nbsp;=&nbsp;None,&nbsp;port:&nbsp;vcorelib.graph.port.Port&nbsp;=&nbsp;None,&nbsp;**attrs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;base&nbsp;implementation&nbsp;for&nbsp;a&nbsp;directed-graph&nbsp;node.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.graph.node.html#DiGraphNode">DiGraphNode</a></dd>
+<dd><a href="vcorelib.graph.abc.html#AbstractDiGraphNode">vcorelib.graph.abc.AbstractDiGraphNode</a></dd>
+<dd><a href="vcorelib.io.abc.html#Serializable">vcorelib.io.abc.Serializable</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DiGraphNode-add_child"><strong>add_child</strong></a>(self, label: str, node: ~T = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;an&nbsp;edge&nbsp;between&nbsp;this&nbsp;node&nbsp;(source)&nbsp;and&nbsp;the&nbsp;other&nbsp;node<br>
+(destination).</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-add_parallel"><strong>add_parallel</strong></a>(self, label: str, node: ~T = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;a&nbsp;parallel&nbsp;edge&nbsp;between&nbsp;two&nbsp;nodes.&nbsp;This&nbsp;instance&nbsp;is&nbsp;used&nbsp;as<br>
+'node1'.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-add_parent"><strong>add_parent</strong></a>(self, label: str, node: ~T = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;an&nbsp;edge&nbsp;between&nbsp;this&nbsp;node&nbsp;(destination)&nbsp;and&nbsp;the&nbsp;other&nbsp;node<br>
+(source).</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'TextIO'&gt;, **kwargs) -&gt; None</dt><dd><tt>Write&nbsp;this&nbsp;object&nbsp;to&nbsp;a&nbsp;text&nbsp;stream.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.graph.abc.html#AbstractDiGraphNode">vcorelib.graph.abc.AbstractDiGraphNode</a>:<br>
+<dl><dt><a name="DiGraphNode-__init__"><strong>__init__</strong></a>(self, graph: ~V = None, label: str = None, port: vcorelib.graph.port.Port = None, **attrs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;graph&nbsp;node.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-add_port"><strong>add_port</strong></a>(self, label: str, **kwargs) -&gt; vcorelib.graph.port.Port</dt><dd><tt>Add&nbsp;a&nbsp;port&nbsp;to&nbsp;this&nbsp;graph&nbsp;node.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-allocate_port"><strong>allocate_port</strong></a>(self, label: str) -&gt; vcorelib.graph.port.Port</dt><dd><tt>Allocate&nbsp;a&nbsp;port&nbsp;on&nbsp;this&nbsp;node.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-incoming"><strong>incoming</strong></a>(self) -&gt; Iterator[~T]</dt><dd><tt>Iterate&nbsp;over&nbsp;nodes&nbsp;that&nbsp;have&nbsp;incoming&nbsp;edges.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-join_graph"><strong>join_graph</strong></a>(self, graph: ~V, label: str) -&gt; None</dt><dd><tt>Attempt&nbsp;to&nbsp;join&nbsp;a&nbsp;graph.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-outgoing"><strong>outgoing</strong></a>(self) -&gt; Iterator[~T]</dt><dd><tt>Iterate&nbsp;over&nbsp;nodes&nbsp;that&nbsp;we&nbsp;have&nbsp;outgoing&nbsp;edges&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-parallel"><strong>parallel</strong></a>(self) -&gt; Set[~T]</dt><dd><tt>Iterate&nbsp;over&nbsp;nodes&nbsp;that&nbsp;this&nbsp;instance&nbsp;shares&nbsp;parallel&nbsp;edges&nbsp;with.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.graph.abc.html#AbstractDiGraphNode">vcorelib.graph.abc.AbstractDiGraphNode</a>:<br>
+<dl><dt><strong>graph</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;graph&nbsp;that&nbsp;this&nbsp;node&nbsp;belongs&nbsp;to.</tt></dd>
+</dl>
+<dl><dt><strong>label</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;node's&nbsp;label.</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="vcorelib.io.abc.html#Serializable">vcorelib.io.abc.Serializable</a>:<br>
+<dl><dt><a name="DiGraphNode-default_location"><strong>default_location</strong></a>(self) -&gt; Union[pathlib.Path, str, NoneType]</dt><dd><tt>Get&nbsp;a&nbsp;default&nbsp;serialization&nbsp;destination&nbsp;for&nbsp;this&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-to_file"><strong>to_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType] = None, encoding: str = 'utf-8', **kwargs) -&gt; None</dt><dd><tt>Write&nbsp;this&nbsp;object&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.io.abc.html#Serializable">vcorelib.io.abc.Serializable</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

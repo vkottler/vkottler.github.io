@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vmklib.html"><font color="#ffffff">vmklib</font></a>.<a href="vmklib.tasks.html"><font color="#ffffff">tasks</font></a>.venv</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vmklib/vmklib/tasks/venv.py">/home/vkottler/Documents/git/workspace/vmklib/vmklib/tasks/venv.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vmklib/vmklib/tasks/venv.py">/home/vkottler/git/workspace/vmklib/vmklib/tasks/venv.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;for&nbsp;registering&nbsp;virtual&nbsp;environment&nbsp;tasks.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -91,13 +91,15 @@ Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:
 
 <dl><dt><a name="RequirementsInstaller-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
 
-<dl><dt><a name="RequirementsInstaller-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
+<dl><dt><a name="RequirementsInstaller-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', eloop: asyncio.events.AbstractEventLoop = None, **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
 if&nbsp;a&nbsp;new&nbsp;dependency&nbsp;was&nbsp;added.</tt></dd></dl>
 
 <dl><dt><a name="RequirementsInstaller-depend_on_all"><strong>depend_on_all</strong></a>(self, tasks: Iterable[ForwardRef('Task')], **kwargs) -&gt; int</dt><dd><tt>Register&nbsp;multiple&nbsp;dependencies.&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;dependencies<br>
 added.</tt></dd></dl>
 
 <dl><dt>async <a name="RequirementsInstaller-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt><a name="RequirementsInstaller-dispatch_init"><strong>dispatch_init</strong></a>(self, caller: 'Task' = None, substitutions: Dict[str, str] = None, **kwargs) -&gt; Tuple[dict, str]</dt><dd><tt>Perform&nbsp;some&nbsp;dispatch&nbsp;initialization.</tt></dd></dl>
 
 <dl><dt><a name="RequirementsInstaller-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
 
@@ -191,13 +193,15 @@ Methods inherited from <a href="vcorelib.task.html#Task">vcorelib.task.Task</a>:
 
 <dl><dt><a name="Venv-create_execute"><strong>create_execute</strong></a>(self, *args, **kwargs) -&gt; Callable[[Dict[str, dict], dict], Coroutine[Any, Any, bool]]</dt><dd><tt>Create&nbsp;a&nbsp;default&nbsp;execute&nbsp;function&nbsp;for&nbsp;this&nbsp;task.</tt></dd></dl>
 
-<dl><dt><a name="Venv-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
+<dl><dt><a name="Venv-depend_on"><strong>depend_on</strong></a>(self, task: 'Task', eloop: asyncio.events.AbstractEventLoop = None, **kwargs) -&gt; bool</dt><dd><tt>Register&nbsp;other&nbsp;tasks'&nbsp;output&nbsp;data&nbsp;to&nbsp;your&nbsp;input&nbsp;box.&nbsp;Return&nbsp;true<br>
 if&nbsp;a&nbsp;new&nbsp;dependency&nbsp;was&nbsp;added.</tt></dd></dl>
 
 <dl><dt><a name="Venv-depend_on_all"><strong>depend_on_all</strong></a>(self, tasks: Iterable[ForwardRef('Task')], **kwargs) -&gt; int</dt><dd><tt>Register&nbsp;multiple&nbsp;dependencies.&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;dependencies<br>
 added.</tt></dd></dl>
 
 <dl><dt>async <a name="Venv-dispatch"><strong>dispatch</strong></a>(self, caller: 'Task' = None, init_only: bool = False, substitutions: Dict[str, str] = None, **kwargs) -&gt; None</dt><dd><tt>Dispatch&nbsp;this&nbsp;task&nbsp;and&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.</tt></dd></dl>
+
+<dl><dt><a name="Venv-dispatch_init"><strong>dispatch_init</strong></a>(self, caller: 'Task' = None, substitutions: Dict[str, str] = None, **kwargs) -&gt; Tuple[dict, str]</dt><dd><tt>Perform&nbsp;some&nbsp;dispatch&nbsp;initialization.</tt></dd></dl>
 
 <dl><dt><a name="Venv-resolve"><strong>resolve</strong></a>(self, log: logging.Logger, compiled: str, substitutions: Dict[str, str] = None) -&gt; None</dt><dd><tt>Mark&nbsp;this&nbsp;task&nbsp;resolved.</tt></dd></dl>
 

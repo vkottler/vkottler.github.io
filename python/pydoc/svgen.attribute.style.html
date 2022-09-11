@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="svgen.html"><font color="#ffffff">svgen</font></a>.<a href="svgen.attribute.html"><font color="#ffffff">attribute</font></a>.style</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/svgen/svgen/attribute/style.py">/home/vkottler/Documents/git/workspace/svgen/svgen/attribute/style.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/svgen/svgen/attribute/style.py">/home/vkottler/git/workspace/svgen/svgen/attribute/style.py</a></font></td></tr></table>
     <p><tt>svgen&nbsp;-&nbsp;A&nbsp;module&nbsp;for&nbsp;the&nbsp;'style'&nbsp;attribute.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -67,7 +67,7 @@ Class methods defined here:<br>
 Static methods defined here:<br>
 <dl><dt><a name="CssProperty-__new__"><strong>__new__</strong></a>(_cls, key: str, value: str)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#CssProperty">CssProperty</a>(key,&nbsp;value)</tt></dd></dl>
 
-<dl><dt><a name="CssProperty-color"><strong>color</strong></a>(color: Union[str, svgen.color.Color], prop: str = 'fill') -&gt; 'CssProperty'</dt><dd><tt>Get&nbsp;a&nbsp;CSS&nbsp;property&nbsp;for&nbsp;a&nbsp;color.</tt></dd></dl>
+<dl><dt><a name="CssProperty-color"><strong>color</strong></a>(color: Union[str, svgen.color.hsl.Hsl, svgen.color.rgb.Rgb, ForwardRef('Color')], prop: str = 'fill', **kwargs) -&gt; 'CssProperty'</dt><dd><tt>Get&nbsp;a&nbsp;CSS&nbsp;property&nbsp;for&nbsp;a&nbsp;color.</tt></dd></dl>
 
 <dl><dt><a name="CssProperty-decode"><strong>decode</strong></a>(value: str) -&gt; List[ForwardRef('CssProperty')]</dt><dd><tt>Create&nbsp;css&nbsp;properties&nbsp;from&nbsp;a&nbsp;string.</tt></dd></dl>
 
@@ -161,7 +161,7 @@ Methods defined here:<br>
 
 <dl><dt><a name="Style-add"><strong>add</strong></a>(self, props: Union[Dict[str, Union[str, int, float]], List[svgen.attribute.style.CssProperty], svgen.attribute.style.CssProperty]) -&gt; None</dt><dd><tt>Add&nbsp;CSS&nbsp;properties&nbsp;to&nbsp;this&nbsp;style&nbsp;instance.</tt></dd></dl>
 
-<dl><dt><a name="Style-add_color"><strong>add_color</strong></a>(self, color: Union[str, svgen.color.Color], prop: str = 'fill') -&gt; 'Style'</dt><dd><tt>Set&nbsp;a&nbsp;style&nbsp;property&nbsp;to&nbsp;a&nbsp;color.</tt></dd></dl>
+<dl><dt><a name="Style-add_color"><strong>add_color</strong></a>(self, color: Union[str, svgen.color.hsl.Hsl, svgen.color.rgb.Rgb, ForwardRef('Color')], prop: str = 'fill', **kwargs) -&gt; 'Style'</dt><dd><tt>Set&nbsp;a&nbsp;style&nbsp;property&nbsp;to&nbsp;a&nbsp;color.</tt></dd></dl>
 
 <hr>
 Static methods defined here:<br>
@@ -211,7 +211,8 @@ data.</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>Dict</strong> = typing.Dict<br>
+<td width="100%"><strong>Colorlike</strong> = typing.Union[str, svgen.color.hsl.Hsl, svgen.color.rgb.Rgb, ForwardRef('Color')]<br>
+<strong>Dict</strong> = typing.Dict<br>
 <strong>List</strong> = typing.List<br>
 <strong>PossibleProperties</strong> = typing.Union[typing.Dict[str, typing.Union[str, ....CssProperty], svgen.attribute.style.CssProperty]<br>
 <strong>Union</strong> = typing.Union</td></tr></table>

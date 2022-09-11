@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.registry</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/registry/__init__.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/registry/__init__.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vtelem/vtelem/registry/__init__.py">/home/vkottler/git/workspace/vtelem/vtelem/registry/__init__.py</a></font></td></tr></table>
     <p><tt>vtelem&nbsp;-&nbsp;A&nbsp;generic&nbsp;registrar&nbsp;implementation.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -54,10 +54,10 @@ A&nbsp;base&nbsp;class&nbsp;for&nbsp;building&nbsp;type-specific&nbsp;registries
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Registry-__init__"><strong>__init__</strong></a>(self, type_name: str, initial_data: List[Tuple[str, ~TYP]] = None) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;registry&nbsp;of&nbsp;a&nbsp;provided&nbsp;type,&nbsp;optionally&nbsp;add&nbsp;initial<br>
+<dl><dt><a name="Registry-__init__"><strong>__init__</strong></a>(self, type_name: str, initial_data: List[Tuple[str, ~T]] = None) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;registry&nbsp;of&nbsp;a&nbsp;provided&nbsp;type,&nbsp;optionally&nbsp;add&nbsp;initial<br>
 elements.</tt></dd></dl>
 
-<dl><dt><a name="Registry-add"><strong>add</strong></a>(self, name: str, data: ~TYP) -&gt; Tuple[bool, int]</dt><dd><tt>Register&nbsp;a&nbsp;named&nbsp;item,&nbsp;rejects&nbsp;duplicate&nbsp;names.&nbsp;Returns&nbsp;status<br>
+<dl><dt><a name="Registry-add"><strong>add</strong></a>(self, name: str, data: ~T) -&gt; Tuple[bool, int]</dt><dd><tt>Register&nbsp;a&nbsp;named&nbsp;item,&nbsp;rejects&nbsp;duplicate&nbsp;names.&nbsp;Returns&nbsp;status<br>
 of&nbsp;success&nbsp;and&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;associated&nbsp;with&nbsp;this&nbsp;item.</tt></dd></dl>
 
 <dl><dt><a name="Registry-count"><strong>count</strong></a>(self) -&gt; int</dt><dd><tt>Get&nbsp;a&nbsp;count&nbsp;of&nbsp;the&nbsp;number&nbsp;of&nbsp;elements&nbsp;in&nbsp;this&nbsp;registry.</tt></dd></dl>
@@ -68,7 +68,7 @@ of&nbsp;success&nbsp;and&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;associated&n
 
 <dl><dt><a name="Registry-get_id"><strong>get_id</strong></a>(self, name: str) -&gt; Union[int, NoneType]</dt><dd><tt>Determine&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;for&nbsp;a&nbsp;named&nbsp;type,&nbsp;if&nbsp;it&nbsp;can&nbsp;be&nbsp;found.</tt></dd></dl>
 
-<dl><dt><a name="Registry-get_item"><strong>get_item</strong></a>(self, item_id: int) -&gt; Union[~TYP, NoneType]</dt><dd><tt>Obtain&nbsp;an&nbsp;item's&nbsp;data&nbsp;by&nbsp;its&nbsp;integer&nbsp;identifier.</tt></dd></dl>
+<dl><dt><a name="Registry-get_item"><strong>get_item</strong></a>(self, item_id: int) -&gt; Union[~T, NoneType]</dt><dd><tt>Obtain&nbsp;an&nbsp;item's&nbsp;data&nbsp;by&nbsp;its&nbsp;integer&nbsp;identifier.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -80,9 +80,9 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__orig_bases__</strong> = (typing.Generic[~TYP],)</dl>
+<dl><dt><strong>__orig_bases__</strong> = (typing.Generic[~T],)</dl>
 
-<dl><dt><strong>__parameters__</strong> = (~TYP,)</dl>
+<dl><dt><strong>__parameters__</strong> = (~T,)</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -109,6 +109,6 @@ Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<
 <strong>Dict</strong> = typing.Dict<br>
 <strong>List</strong> = typing.List<br>
 <strong>Optional</strong> = typing.Optional<br>
-<strong>TYP</strong> = ~TYP<br>
+<strong>T</strong> = ~T<br>
 <strong>Tuple</strong> = typing.Tuple</td></tr></table>
 </body></html>

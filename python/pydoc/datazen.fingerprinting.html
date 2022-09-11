@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.fingerprinting</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/fingerprinting.py">/home/vkottler/Documents/git/workspace/datazen/datazen/fingerprinting.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/fingerprinting.py">/home/vkottler/git/workspace/datazen/datazen/fingerprinting.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;Reading&nbsp;and&nbsp;writing&nbsp;a&nbsp;known&nbsp;header&nbsp;signature&nbsp;to&nbsp;output&nbsp;files.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -27,10 +27,10 @@
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-apply_barriers"><strong>apply_barriers</strong></a>(comment_lines: List[str], char: str) -&gt; None</dt><dd><tt>Optionally&nbsp;add&nbsp;decoration&nbsp;to&nbsp;the&nbsp;comment&nbsp;lines&nbsp;by&nbsp;adding&nbsp;a&nbsp;barrier&nbsp;at<br>
 the&nbsp;beginning&nbsp;and&nbsp;end.</tt></dd></dl>
- <dl><dt><a name="-build_fingerprint"><strong>build_fingerprint</strong></a>(file_data: str, file_ext: str, char: str = '=', dynamic: bool = True) -&gt; str</dt><dd><tt>Build&nbsp;a&nbsp;String&nbsp;that&nbsp;should&nbsp;be&nbsp;prepended&nbsp;to&nbsp;the&nbsp;final&nbsp;file&nbsp;output&nbsp;for<br>
+ <dl><dt><a name="-build_fingerprint"><strong>build_fingerprint</strong></a>(file_data: str, file_ext: str, char: str = '=', dynamic: bool = True, newline: str = '\n') -&gt; str</dt><dd><tt>Build&nbsp;a&nbsp;String&nbsp;that&nbsp;should&nbsp;be&nbsp;prepended&nbsp;to&nbsp;the&nbsp;final&nbsp;file&nbsp;output&nbsp;for<br>
 user&nbsp;awareness&nbsp;and&nbsp;automated&nbsp;interpretation.</tt></dd></dl>
  <dl><dt><a name="-get_comment_data"><strong>get_comment_data</strong></a>(file_data: str, dynamic: bool = True) -&gt; List[Tuple[str, str]]</dt><dd><tt>Get&nbsp;tuples&nbsp;(key-value&nbsp;pairs)&nbsp;of&nbsp;data&nbsp;to&nbsp;write&nbsp;into&nbsp;the&nbsp;file&nbsp;fingerprint.</tt></dd></dl>
- <dl><dt><a name="-resolve_encapsulation"><strong>resolve_encapsulation</strong></a>(comment_lines: List[str], file_ext: str) -&gt; str</dt><dd><tt>Turn&nbsp;the&nbsp;requested&nbsp;line&nbsp;data&nbsp;into&nbsp;something&nbsp;that&nbsp;can&nbsp;be&nbsp;embedded&nbsp;in&nbsp;the<br>
+ <dl><dt><a name="-resolve_encapsulation"><strong>resolve_encapsulation</strong></a>(comment_lines: List[str], file_ext: str, newline: str = '\n') -&gt; str</dt><dd><tt>Turn&nbsp;the&nbsp;requested&nbsp;line&nbsp;data&nbsp;into&nbsp;something&nbsp;that&nbsp;can&nbsp;be&nbsp;embedded&nbsp;in&nbsp;the<br>
 target&nbsp;file&nbsp;type.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -43,5 +43,5 @@ target&nbsp;file&nbsp;type.</tt></dd></dl>
 <strong>List</strong> = typing.List<br>
 <strong>PKG_NAME</strong> = 'datazen'<br>
 <strong>Tuple</strong> = typing.Tuple<br>
-<strong>VERSION</strong> = '3.0.4'</td></tr></table>
+<strong>VERSION</strong> = '3.1.0'</td></tr></table>
 </body></html>

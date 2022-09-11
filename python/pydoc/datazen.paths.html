@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.paths</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/paths.py">/home/vkottler/Documents/git/workspace/datazen/datazen/paths.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/paths.py">/home/vkottler/git/workspace/datazen/datazen/paths.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;APIs&nbsp;for&nbsp;working&nbsp;with&nbsp;file&nbsp;paths.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -18,9 +18,7 @@
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
-</td><td width="25%" valign=top><a href="pkg_resources.html">pkg_resources</a><br>
-</td><td width="25%" valign=top><a href="pkgutil.html">pkgutil</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -31,14 +29,12 @@
 dictionary&nbsp;advanced&nbsp;by&nbsp;each&nbsp;key,&nbsp;in&nbsp;order,&nbsp;from&nbsp;the&nbsp;provided&nbsp;data.</tt></dd></dl>
  <dl><dt><a name="-format_resolve_delims"><strong>format_resolve_delims</strong></a>(value: str, fmt_data: dict, delim: str = '.', delim_replace: str = '_') -&gt; str</dt><dd><tt>Attempt&nbsp;to&nbsp;resolve&nbsp;a&nbsp;format&nbsp;String&nbsp;with&nbsp;data,&nbsp;but&nbsp;handle&nbsp;replacements&nbsp;with<br>
 custom&nbsp;delimeters&nbsp;correctly.</tt></dd></dl>
- <dl><dt><a name="-get_package_data"><strong>get_package_data</strong></a>(relative: Union[pathlib.Path, str]) -&gt; str</dt><dd><tt>Load&nbsp;a&nbsp;file&nbsp;from&nbsp;this&nbsp;package's&nbsp;data&nbsp;directory.</tt></dd></dl>
- <dl><dt><a name="-get_package_dir"><strong>get_package_dir</strong></a>(relative: Union[pathlib.Path, str]) -&gt; str</dt><dd><tt>Locate&nbsp;the&nbsp;path&nbsp;to&nbsp;a&nbsp;package-data&nbsp;directory.</tt></dd></dl>
- <dl><dt><a name="-get_path_list"><strong>get_path_list</strong></a>(root: Union[pathlib.Path, str], current: Union[pathlib.Path, str]) -&gt; List[str]</dt><dd><tt>From&nbsp;a&nbsp;root&nbsp;directory&nbsp;and&nbsp;a&nbsp;child&nbsp;path,&nbsp;compute&nbsp;the&nbsp;list&nbsp;of&nbsp;directories,<br>
+ <dl><dt><a name="-get_path_list"><strong>get_path_list</strong></a>(root: Union[pathlib.Path, str, NoneType], current: Union[pathlib.Path, str, NoneType]) -&gt; List[str]</dt><dd><tt>From&nbsp;a&nbsp;root&nbsp;directory&nbsp;and&nbsp;a&nbsp;child&nbsp;path,&nbsp;compute&nbsp;the&nbsp;list&nbsp;of&nbsp;directories,<br>
 in&nbsp;order,&nbsp;mapping&nbsp;the&nbsp;root&nbsp;to&nbsp;the&nbsp;child.</tt></dd></dl>
  <dl><dt><a name="-resolve_dir"><strong>resolve_dir</strong></a>(data: str, rel_base: str = '') -&gt; str</dt><dd><tt>Turn&nbsp;directory&nbsp;data&nbsp;into&nbsp;an&nbsp;absolute&nbsp;path,&nbsp;optionally&nbsp;from&nbsp;a&nbsp;relative<br>
 base.</tt></dd></dl>
  <dl><dt><a name="-unflatten_dict"><strong>unflatten_dict</strong></a>(data: dict, delim: str = '.') -&gt; dict</dt><dd><tt>Attempt&nbsp;to&nbsp;unflatten&nbsp;dictionary&nbsp;data&nbsp;based&nbsp;on&nbsp;String&nbsp;keys&nbsp;and&nbsp;a&nbsp;delimeter.</tt></dd></dl>
- <dl><dt><a name="-walk_with_excludes"><strong>walk_with_excludes</strong></a>(path: Union[pathlib.Path, str], excludes: List[str] = None) -&gt; Iterator[Tuple[str, List[str], List[str]]]</dt><dd><tt>Behaves&nbsp;like&nbsp;os.walk&nbsp;but&nbsp;attempts&nbsp;to&nbsp;skip&nbsp;iterations&nbsp;that&nbsp;would&nbsp;enter<br>
+ <dl><dt><a name="-walk_with_excludes"><strong>walk_with_excludes</strong></a>(path: Union[pathlib.Path, str, NoneType], excludes: List[str] = None) -&gt; Iterator[Tuple[str, List[str], List[str]]]</dt><dd><tt>Behaves&nbsp;like&nbsp;os.walk&nbsp;but&nbsp;attempts&nbsp;to&nbsp;skip&nbsp;iterations&nbsp;that&nbsp;would&nbsp;enter<br>
 directories&nbsp;we&nbsp;want&nbsp;to&nbsp;exclude&nbsp;(and&nbsp;thus&nbsp;not&nbsp;traverse).</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -52,7 +48,6 @@ directories&nbsp;we&nbsp;want&nbsp;to&nbsp;exclude&nbsp;(and&nbsp;thus&nbsp;not&
 <strong>FMT_OPEN</strong> = '{'<br>
 <strong>Iterator</strong> = typing.Iterator<br>
 <strong>List</strong> = typing.List<br>
-<strong>PKG_NAME</strong> = 'datazen'<br>
-<strong>Tuple</strong> = typing.Tuple<br>
-<strong>Union</strong> = typing.Union</td></tr></table>
+<strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
 </body></html>

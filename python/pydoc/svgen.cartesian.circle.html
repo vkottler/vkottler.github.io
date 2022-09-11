@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="svgen.html"><font color="#ffffff">svgen</font></a>.<a href="svgen.cartesian.html"><font color="#ffffff">cartesian</font></a>.circle</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/svgen/svgen/cartesian/circle.py">/home/vkottler/Documents/git/workspace/svgen/svgen/cartesian/circle.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/svgen/svgen/cartesian/circle.py">/home/vkottler/git/workspace/svgen/svgen/cartesian/circle.py</a></font></td></tr></table>
     <p><tt>svgen&nbsp;-&nbsp;A&nbsp;module&nbsp;for&nbsp;interacting&nbsp;with&nbsp;circular&nbsp;entities.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -33,7 +33,7 @@
 <font color="#000000" face="helvetica, arial"><a name="Circle">class <strong>Circle</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#Circle">Circle</a>(radius:&nbsp;float,&nbsp;center:&nbsp;svgen.cartesian.Point&nbsp;=&nbsp;Point(x=0.0,&nbsp;y=0.0,&nbsp;center=True,&nbsp;idx=-1))<br>
+<td colspan=2><tt><a href="#Circle">Circle</a>(radius:&nbsp;float,&nbsp;center:&nbsp;svgen.cartesian.point.Point&nbsp;=&nbsp;Point(x=0.0,&nbsp;y=0.0,&nbsp;center=True,&nbsp;idx=-1))<br>
 &nbsp;<br>
 A&nbsp;radius&nbsp;and&nbsp;center&nbsp;describing&nbsp;a&nbsp;circle.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
@@ -56,7 +56,7 @@ Methods defined here:<br>
 
 <dl><dt><a name="Circle-scale"><strong>scale</strong></a>(self, scale: float = 1.0) -&gt; 'Circle'</dt><dd><tt>Scale&nbsp;this&nbsp;circle's&nbsp;radius.</tt></dd></dl>
 
-<dl><dt><a name="Circle-translate"><strong>translate</strong></a>(self, move: svgen.cartesian.Translation) -&gt; 'Circle'</dt><dd><tt>Move&nbsp;this&nbsp;circle&nbsp;by&nbsp;a&nbsp;given&nbsp;translation.</tt></dd></dl>
+<dl><dt><a name="Circle-translate"><strong>translate</strong></a>(self, move: svgen.cartesian.mutate.Translation) -&gt; 'Circle'</dt><dd><tt>Move&nbsp;this&nbsp;circle&nbsp;by&nbsp;a&nbsp;given&nbsp;translation.</tt></dd></dl>
 
 <hr>
 Class methods defined here:<br>
@@ -64,7 +64,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="Circle-__new__"><strong>__new__</strong></a>(_cls, radius: float, center: svgen.cartesian.Point = Point(x=0.0, y=0.0, center=True, idx=-1))</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#Circle">Circle</a>(radius,&nbsp;center)</tt></dd></dl>
+<dl><dt><a name="Circle-__new__"><strong>__new__</strong></a>(_cls, radius: float, center: svgen.cartesian.point.Point = Point(x=0.0, y=0.0, center=True, idx=-1))</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#Circle">Circle</a>(radius,&nbsp;center)</tt></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -87,11 +87,11 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'center': &lt;class 'svgen.cartesian.Point'&gt;, 'radius': &lt;class 'float'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'center': &lt;class 'svgen.cartesian.point.Point'&gt;, 'radius': &lt;class 'float'&gt;}</dl>
 
 <dl><dt><strong>_field_defaults</strong> = {'center': Point(x=0.0, y=0.0, center=True, idx=-1)}</dl>
 
-<dl><dt><strong>_field_types</strong> = {'center': &lt;class 'svgen.cartesian.Point'&gt;, 'radius': &lt;class 'float'&gt;}</dl>
+<dl><dt><strong>_field_types</strong> = {'center': &lt;class 'svgen.cartesian.point.Point'&gt;, 'radius': &lt;class 'float'&gt;}</dl>
 
 <dl><dt><strong>_fields</strong> = ('radius', 'center')</dl>
 
@@ -140,7 +140,7 @@ Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present
 <font color="#000000" face="helvetica, arial"><a name="CircleAttrs">class <strong>CircleAttrs</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#CircleAttrs">CircleAttrs</a>(radius:&nbsp;svgen.attribute.SimpleAttribute,&nbsp;center:&nbsp;svgen.cartesian.PointAttrs)<br>
+<td colspan=2><tt><a href="#CircleAttrs">CircleAttrs</a>(radius:&nbsp;svgen.attribute.SimpleAttribute,&nbsp;center:&nbsp;svgen.cartesian.point.PointAttrs)<br>
 &nbsp;<br>
 A&nbsp;grouping&nbsp;for&nbsp;'width'&nbsp;and&nbsp;'center'&nbsp;attributes&nbsp;for&nbsp;a&nbsp;cicle.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
@@ -165,7 +165,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="CircleAttrs-__new__"><strong>__new__</strong></a>(_cls, radius: svgen.attribute.SimpleAttribute, center: svgen.cartesian.PointAttrs)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#CircleAttrs">CircleAttrs</a>(radius,&nbsp;center)</tt></dd></dl>
+<dl><dt><a name="CircleAttrs-__new__"><strong>__new__</strong></a>(_cls, radius: svgen.attribute.SimpleAttribute, center: svgen.cartesian.point.PointAttrs)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#CircleAttrs">CircleAttrs</a>(radius,&nbsp;center)</tt></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -182,11 +182,11 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'center': &lt;class 'svgen.cartesian.PointAttrs'&gt;, 'radius': &lt;class 'svgen.attribute.SimpleAttribute'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'center': &lt;class 'svgen.cartesian.point.PointAttrs'&gt;, 'radius': &lt;class 'svgen.attribute.SimpleAttribute'&gt;}</dl>
 
 <dl><dt><strong>_field_defaults</strong> = {}</dl>
 
-<dl><dt><strong>_field_types</strong> = {'center': &lt;class 'svgen.cartesian.PointAttrs'&gt;, 'radius': &lt;class 'svgen.attribute.SimpleAttribute'&gt;}</dl>
+<dl><dt><strong>_field_types</strong> = {'center': &lt;class 'svgen.cartesian.point.PointAttrs'&gt;, 'radius': &lt;class 'svgen.attribute.SimpleAttribute'&gt;}</dl>
 
 <dl><dt><strong>_fields</strong> = ('radius', 'center')</dl>
 

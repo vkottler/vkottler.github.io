@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.environment.html"><font color="#ffffff">environment</font></a>.config</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/environment/config.py">/home/vkottler/Documents/git/workspace/datazen/datazen/environment/config.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/environment/config.py">/home/vkottler/git/workspace/datazen/datazen/environment/config.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;A&nbsp;child&nbsp;class&nbsp;for&nbsp;adding&nbsp;configuration-data&nbsp;loading&nbsp;capabilities&nbsp;to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;environment&nbsp;dataset.</tt></p>
 <p>
@@ -47,7 +47,9 @@
 <font color="#000000" face="helvetica, arial"><a name="ConfigEnvironment">class <strong>ConfigEnvironment</strong></a>(<a href="datazen.environment.variable.html#VariableEnvironment">datazen.environment.variable.VariableEnvironment</a>, <a href="datazen.environment.schema.html#SchemaEnvironment">datazen.environment.schema.SchemaEnvironment</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>The&nbsp;configuration-data&nbsp;loading&nbsp;environment&nbsp;mixin,&nbsp;requires&nbsp;variable<br>
+<td colspan=2><tt><a href="#ConfigEnvironment">ConfigEnvironment</a>(**kwargs)<br>
+&nbsp;<br>
+The&nbsp;configuration-data&nbsp;loading&nbsp;environment&nbsp;mixin,&nbsp;requires&nbsp;variable<br>
 loading&nbsp;to&nbsp;function.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
@@ -59,12 +61,12 @@ loading&nbsp;to&nbsp;function.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="ConfigEnvironment-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Extend&nbsp;the&nbsp;environment&nbsp;with&nbsp;a&nbsp;notion&nbsp;of&nbsp;configs&nbsp;being&nbsp;valid.</tt></dd></dl>
+<dl><dt><a name="ConfigEnvironment-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>Extend&nbsp;the&nbsp;environment&nbsp;with&nbsp;a&nbsp;notion&nbsp;of&nbsp;configs&nbsp;being&nbsp;valid.</tt></dd></dl>
 
 <dl><dt><a name="ConfigEnvironment-add_config_dirs"><strong>add_config_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;configuration-data&nbsp;directories,&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;directories<br>
 added.</tt></dd></dl>
 
-<dl><dt><a name="ConfigEnvironment-load_configs"><strong>load_configs</strong></a>(self, cfg_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), var_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', logger: logging.Logger = &lt;Logger datazen.environment.config (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configuration&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;configuration<br>
+<dl><dt><a name="ConfigEnvironment-load_configs"><strong>load_configs</strong></a>(self, cfg_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), var_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', logger: logging.Logger = &lt;Logger datazen.environment.config (WARNING)&gt;, enforce_schemas: bool = True) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configuration&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;configuration<br>
 directories.</tt></dd></dl>
 
 <hr>
@@ -100,7 +102,7 @@ Methods inherited from <a href="datazen.environment.base.html#BaseEnvironment">d
 <dl><dt><a name="ConfigEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: dict) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
 all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&nbsp;anything&nbsp;new.</tt></dd></dl>
 
-<dl><dt><a name="ConfigEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[str]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
+<dl><dt><a name="ConfigEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[Union[pathlib.Path, str, NoneType]]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
 
 <dl><dt><a name="ConfigEnvironment-get_valid"><strong>get_valid</strong></a>(self, name: str = '__root__') -&gt; bool</dt><dd><tt>Get&nbsp;the&nbsp;'valid'&nbsp;flag&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
@@ -108,7 +110,7 @@ all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&n
 
 <dl><dt><a name="ConfigEnvironment-unload_all"><strong>unload_all</strong></a>(self, name: str = '__root__') -&gt; None</dt><dd><tt>Unload&nbsp;all&nbsp;of&nbsp;the&nbsp;directories&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="ConfigEnvironment-update_load_state"><strong>update_load_state</strong></a>(self, dir_type: datazen.enums.DataType, to_load: List[str], name: str = '__root__') -&gt; int</dt><dd><tt>Proxy&nbsp;for&nbsp;update_load_state&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
+<dl><dt><a name="ConfigEnvironment-update_load_state"><strong>update_load_state</strong></a>(self, dir_type: datazen.enums.DataType, to_load: List[Union[pathlib.Path, str, NoneType]], name: str = '__root__') -&gt; int</dt><dd><tt>Proxy&nbsp;for&nbsp;update_load_state&nbsp;for&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="datazen.environment.base.html#BaseEnvironment">datazen.environment.base.BaseEnvironment</a>:<br>

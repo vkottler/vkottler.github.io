@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module vcorelib.namespace</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.namespace</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/namespace.py">/home/vkottler/git/workspace/vcorelib/vcorelib/namespace.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;for&nbsp;implementing&nbsp;namespaces.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.namespace.html#Namespace">Namespace</a>
+</font></dt><dt><font face="helvetica, arial"><a href="vcorelib.namespace.html#NamespaceMixin">NamespaceMixin</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Namespace">class <strong>Namespace</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Namespace">Namespace</a>(*names:&nbsp;str,&nbsp;delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;namespace&nbsp;interface.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Namespace-__init__"><strong>__init__</strong></a>(self, *names: str, delim: str = '.') -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="Namespace-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;namespace&nbsp;string&nbsp;with&nbsp;or&nbsp;without&nbsp;an&nbsp;additional&nbsp;name<br>
+applied.</tt></dd></dl>
+
+<dl><dt><a name="Namespace-pop"><strong>pop</strong></a>(self, name: str = None) -&gt; str</dt><dd><tt>Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</tt></dd></dl>
+
+<dl><dt><a name="Namespace-push"><strong>push</strong></a>(self, name: str) -&gt; None</dt><dd><tt>Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</tt></dd></dl>
+
+<dl><dt><a name="Namespace-pushed"><strong>pushed</strong></a>(self, *names: str) -&gt; Iterator[NoneType]</dt><dd><tt>Provide&nbsp;this&nbsp;namespace&nbsp;with&nbsp;some&nbsp;names&nbsp;pushed&nbsp;onto&nbsp;the&nbsp;stack&nbsp;as&nbsp;a<br>
+context.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NamespaceMixin">class <strong>NamespaceMixin</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#NamespaceMixin">NamespaceMixin</a>(namespace:&nbsp;vcorelib.namespace.<a href="#Namespace">Namespace</a>&nbsp;=&nbsp;None,&nbsp;namespace_delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;giving&nbsp;arbitrary&nbsp;objects&nbsp;namespace&nbsp;capabilities.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="NamespaceMixin-__init__"><strong>__init__</strong></a>(self, namespace: vcorelib.namespace.Namespace = None, namespace_delim: str = '.') -&gt; None</dt><dd><tt>Initialize&nbsp;a&nbsp;namespace&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-names_pushed"><strong>names_pushed</strong></a>(self, *names: str) -&gt; Iterator[NoneType]</dt><dd><tt>Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;<a href="builtins.html#object">object</a>'s&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</tt></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None) -&gt; str</dt><dd><tt>Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-pop_name"><strong>pop_name</strong></a>(self, name: str = None) -&gt; str</dt><dd><tt>Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</tt></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-push_name"><strong>push_name</strong></a>(self, name: str) -&gt; None</dt><dd><tt>Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEFAULT_DELIM</strong> = '.'</td></tr></table>
+</body></html>

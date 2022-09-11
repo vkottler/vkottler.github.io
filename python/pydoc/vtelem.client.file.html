@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vtelem.html"><font color="#ffffff">vtelem</font></a>.<a href="vtelem.client.html"><font color="#ffffff">client</font></a>.file</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vtelem/vtelem/client/file.py">/home/vkottler/Documents/git/workspace/vtelem/vtelem/client/file.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vtelem/vtelem/client/file.py">/home/vkottler/git/workspace/vtelem/vtelem/client/file.py</a></font></td></tr></table>
     <p><tt>vtelem&nbsp;-&nbsp;A&nbsp;daemon&nbsp;that&nbsp;provides&nbsp;decoded&nbsp;telemetry&nbsp;frames&nbsp;into&nbsp;a&nbsp;queue,&nbsp;from&nbsp;a<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.</tt></p>
 <p>
@@ -99,7 +99,7 @@ automatically&nbsp;stops&nbsp;it.</tt></dd></dl>
 
 <dl><dt><a name="FileClient-perform_str"><strong>perform_str</strong></a>(self, action: str, *args, **kwargs) -&gt; bool</dt><dd><tt>Perform&nbsp;an&nbsp;action&nbsp;on&nbsp;this&nbsp;daemon&nbsp;by&nbsp;String.</tt></dd></dl>
 
-<dl><dt><a name="FileClient-reset_metric"><strong>reset_metric</strong></a>(self, name: str) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;back&nbsp;to&nbsp;zero.</tt></dd></dl>
+<dl><dt><a name="FileClient-reset_metric"><strong>reset_metric</strong></a>(self, name: str, val: int = 0) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;back&nbsp;to&nbsp;zero.</tt></dd></dl>
 
 <dl><dt><a name="FileClient-restart"><strong>restart</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;restart&nbsp;this&nbsp;daemon.</tt></dd></dl>
 
@@ -109,13 +109,13 @@ automatically&nbsp;stops&nbsp;it.</tt></dd></dl>
 return&nbsp;the&nbsp;main-thread&nbsp;function's&nbsp;result&nbsp;and&nbsp;shut&nbsp;down&nbsp;the&nbsp;daemon&nbsp;when<br>
 it&nbsp;returns.</tt></dd></dl>
 
-<dl><dt><a name="FileClient-set_env_metric"><strong>set_env_metric</strong></a>(self, name: str, value: Any, prim: vtelem.enums.primitive.Primitive = &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;class 'int'&gt;, size=4, name='uint32', signed=False, min=0, max=4294967295, validate=&lt;function integer_can_hold at 0x7f978136e8b0&gt;)&gt;) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;channel&nbsp;value&nbsp;if&nbsp;an&nbsp;environment&nbsp;is&nbsp;registered.</tt></dd></dl>
+<dl><dt><a name="FileClient-set_env_metric"><strong>set_env_metric</strong></a>(self, name: str, value: Any, prim: vtelem.enums.primitive.Primitive = &lt;Primitive.UINT32: BasePrimitive(fmt='I', type=&lt;class 'int'&gt;, size=4, name='uint32', signed=False, min=0, max=4294967295, validate=&lt;function integer_can_hold at 0x7fc5c27c2310&gt;)&gt;) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;metric&nbsp;channel&nbsp;value&nbsp;if&nbsp;an&nbsp;environment&nbsp;is&nbsp;registered.</tt></dd></dl>
 
 <dl><dt><a name="FileClient-set_state"><strong>set_state</strong></a>(self, state: vtelem.enums.daemon.DaemonState) -&gt; bool</dt><dd><tt>Assigns&nbsp;a&nbsp;new&nbsp;run-state&nbsp;to&nbsp;this&nbsp;daemon.</tt></dd></dl>
 
 <dl><dt><a name="FileClient-start"><strong>start</strong></a>(self, *args, **kwargs) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;start&nbsp;the&nbsp;daemon.</tt></dd></dl>
 
-<dl><dt><a name="FileClient-stop"><strong>stop</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;stop&nbsp;the&nbsp;daemon.</tt></dd></dl>
+<dl><dt><a name="FileClient-stop"><strong>stop</strong></a>(self, timeout: int = 2) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;stop&nbsp;the&nbsp;daemon.</tt></dd></dl>
 
 <dl><dt><a name="FileClient-unpause"><strong>unpause</strong></a>(self) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;un-pause&nbsp;the&nbsp;daemon.</tt></dd></dl>
 
