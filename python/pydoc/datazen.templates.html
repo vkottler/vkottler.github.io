@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.templates</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/templates.py">/home/vkottler/git/workspace/datazen/datazen/templates.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/templates.py">/home/vkottler/Documents/git/workspace/datazen/datazen/templates.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;Top-level&nbsp;APIs&nbsp;for&nbsp;loading&nbsp;and&nbsp;interacting&nbsp;with&nbsp;templates.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -26,7 +26,7 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-environment"><strong>environment</strong></a>(auto_reload: bool = False, autoescape_kwargs: dict = None, lstrip_blocks: bool = True, trim_blocks: bool = True, undefined: Type[jinja2.runtime.Undefined] = &lt;class 'jinja2.runtime.StrictUndefined'&gt;, **kwargs) -&gt; jinja2.environment.Environment</dt><dd><tt>Create&nbsp;a&nbsp;jinja&nbsp;environment&nbsp;with&nbsp;some&nbsp;sane&nbsp;defaults.</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-environment"><strong>environment</strong></a>(auto_reload: bool = False, autoescape_kwargs: Dict[str, Any] = None, lstrip_blocks: bool = True, trim_blocks: bool = True, undefined: Type[jinja2.runtime.Undefined] = &lt;class 'jinja2.runtime.StrictUndefined'&gt;, **kwargs) -&gt; jinja2.environment.Environment</dt><dd><tt>Create&nbsp;a&nbsp;jinja&nbsp;environment&nbsp;with&nbsp;some&nbsp;sane&nbsp;defaults.</tt></dd></dl>
  <dl><dt><a name="-load"><strong>load</strong></a>(template_dirs: Iterable[Union[pathlib.Path, str, NoneType]], loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None)) -&gt; Dict[str, jinja2.environment.Template]</dt><dd><tt>Load&nbsp;jinja2&nbsp;templates&nbsp;from&nbsp;a&nbsp;list&nbsp;of&nbsp;directories&nbsp;where&nbsp;templates&nbsp;can&nbsp;be<br>
 found.</tt></dd></dl>
  <dl><dt><a name="-update_cache_primitives"><strong>update_cache_primitives</strong></a>(dir_path: str, loads: datazen.load.LoadedFiles) -&gt; None</dt><dd><tt>From&nbsp;a&nbsp;directory&nbsp;path,&nbsp;update&nbsp;the&nbsp;'loaded_list'&nbsp;and&nbsp;'hashes'&nbsp;primitives<br>
@@ -40,6 +40,7 @@ that&nbsp;belong&nbsp;to&nbsp;an&nbsp;upstream&nbsp;cache.</tt></dd></dl>
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>DEFAULT_LOADS</strong> = LoadedFiles(files=None, file_data=None)<br>
 <strong>Dict</strong> = typing.Dict<br>
+<strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
 <strong>Iterable</strong> = typing.Iterable<br>
 <strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
 <strong>Type</strong> = typing.Type</td></tr></table>

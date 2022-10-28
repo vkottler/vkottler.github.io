@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="svgen.html"><font color="#ffffff">svgen</font></a>.attribute</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/svgen/svgen/attribute/__init__.py">/home/vkottler/git/workspace/svgen/svgen/attribute/__init__.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/svgen/svgen/attribute/__init__.py">/home/vkottler/Documents/git/workspace/svgen/svgen/attribute/__init__.py</a></font></td></tr></table>
     <p><tt>svgen&nbsp;-&nbsp;A&nbsp;module&nbsp;for&nbsp;XML-style&nbsp;attribute&nbsp;interfaces.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -60,8 +60,8 @@ Methods defined here:<br>
 <dl><dt><a name="Attribute-encode"><strong>encode</strong></a>(self, quote: str = '"', force: bool = False) -&gt; str</dt><dd><tt>Convert&nbsp;this&nbsp;attribute&nbsp;to&nbsp;a&nbsp;string.</tt></dd></dl>
 
 <hr>
-Static methods defined here:<br>
-<dl><dt><a name="Attribute-decode"><strong>decode</strong></a>(key: str, value: str) -&gt; 'Attribute'</dt><dd><tt>Create&nbsp;this&nbsp;attribute&nbsp;from&nbsp;a&nbsp;string.</tt></dd></dl>
+Class methods defined here:<br>
+<dl><dt><a name="Attribute-decode"><strong>decode</strong></a>(key: str, value: str) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Create&nbsp;this&nbsp;attribute&nbsp;from&nbsp;a&nbsp;string.</tt></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -92,7 +92,7 @@ Data and other attributes defined here:<br>
 <font color="#000000" face="helvetica, arial"><a name="SimpleAttribute">class <strong>SimpleAttribute</strong></a>(<a href="svgen.attribute.html#Attribute">Attribute</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#SimpleAttribute">SimpleAttribute</a>(name:&nbsp;str,&nbsp;value:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#SimpleAttribute">SimpleAttribute</a>(name:&nbsp;str,&nbsp;value:&nbsp;Union[str,&nbsp;int])&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple,&nbsp;concrete&nbsp;implementation&nbsp;for&nbsp;attribute.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
@@ -104,12 +104,14 @@ A&nbsp;simple,&nbsp;concrete&nbsp;implementation&nbsp;for&nbsp;attribute.<br>&nb
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="SimpleAttribute-__init__"><strong>__init__</strong></a>(self, name: str, value: str) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;simple&nbsp;attribute,&nbsp;one&nbsp;with&nbsp;just&nbsp;a&nbsp;key&nbsp;(name)&nbsp;and&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="SimpleAttribute-__init__"><strong>__init__</strong></a>(self, name: str, value: Union[str, int]) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;simple&nbsp;attribute,&nbsp;one&nbsp;with&nbsp;just&nbsp;a&nbsp;key&nbsp;(name)&nbsp;and&nbsp;value.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="SimpleAttribute-decode"><strong>decode</strong></a>(key: str, value: str) -&gt; 'SimpleAttribute'<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Create&nbsp;this&nbsp;attribute&nbsp;from&nbsp;a&nbsp;string.</tt></dd></dl>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="SimpleAttribute-decode"><strong>decode</strong></a>(key: str, value: str) -&gt; svgen.attribute.Attribute</dt><dd><tt>Create&nbsp;this&nbsp;attribute&nbsp;from&nbsp;a&nbsp;string.</tt></dd></dl>
-
 <dl><dt><a name="SimpleAttribute-from_dict"><strong>from_dict</strong></a>(data: Dict[str, Union[str, int, float]]) -&gt; List[svgen.attribute.Attribute]</dt><dd><tt>Get&nbsp;a&nbsp;list&nbsp;of&nbsp;attributes&nbsp;from&nbsp;dictionary&nbsp;data.</tt></dd></dl>
 
 <hr>
@@ -163,6 +165,8 @@ data.</tt></dd></dl>
 <td width="100%"><strong>Dict</strong> = typing.Dict<br>
 <strong>List</strong> = typing.List<br>
 <strong>PossibleAttributes</strong> = typing.Union[typing.Dict[str, typing.Union[str, ....attribute.Attribute], svgen.attribute.Attribute]<br>
+<strong>T</strong> = ~T<br>
+<strong>Type</strong> = typing.Type<br>
 <strong>Union</strong> = typing.Union<br>
 <strong>XMLNS</strong> = &lt;svgen.attribute.SimpleAttribute object&gt;</td></tr></table>
 </body></html>

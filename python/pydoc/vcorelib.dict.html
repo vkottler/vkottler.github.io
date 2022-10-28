@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.dict</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/dict/__init__.py">/home/vkottler/git/workspace/vcorelib/vcorelib/dict/__init__.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/dict/__init__.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/dict/__init__.py</a></font></td></tr></table>
     <p><tt>Dictionary&nbsp;manipulation&nbsp;utilities.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -81,16 +81,24 @@ is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.<
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-consume"><strong>consume</strong></a>(data: dict, key: Any, default: Any = None) -&gt; Any</dt><dd><tt>Attempt&nbsp;to&nbsp;obtain&nbsp;dictionary&nbsp;data&nbsp;via&nbsp;key,&nbsp;removing&nbsp;the&nbsp;data&nbsp;if&nbsp;it&nbsp;was<br>
+<td width="100%"><dl><dt><a name="-consume"><strong>consume</strong></a>(data: Dict[Any, Any], key: Any, default: Any = None) -&gt; Any</dt><dd><tt>Attempt&nbsp;to&nbsp;obtain&nbsp;dictionary&nbsp;data&nbsp;via&nbsp;key,&nbsp;removing&nbsp;the&nbsp;data&nbsp;if&nbsp;it&nbsp;was<br>
 present.</tt></dd></dl>
- <dl><dt><a name="-limited"><strong>limited</strong></a>(data: dict, key: Any, value: Any = None) -&gt; Iterator[NoneType]</dt><dd><tt>Ensure&nbsp;that&nbsp;dictionary&nbsp;data&nbsp;is&nbsp;only&nbsp;temporarily&nbsp;added.</tt></dd></dl>
- <dl><dt><a name="-merge"><strong>merge</strong></a>(dict_a: dict, dict_b: dict, path: List[str] = None, expect_overwrite: bool = False, logger: logging.Logger = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; dict</dt><dd><tt>Combine&nbsp;two&nbsp;dictionaries&nbsp;based&nbsp;on&nbsp;a&nbsp;provided&nbsp;merge&nbsp;strategy.</tt></dd></dl>
- <dl><dt><a name="-merge_dicts"><strong>merge_dicts</strong></a>(dicts: List[dict], expect_overwrite: bool = False, logger: logging.Logger = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; dict</dt><dd><tt>Merge&nbsp;a&nbsp;list&nbsp;of&nbsp;dictionary&nbsp;data&nbsp;into&nbsp;a&nbsp;single&nbsp;set&nbsp;(mutates&nbsp;the&nbsp;first<br>
+ <dl><dt><a name="-limited"><strong>limited</strong></a>(data: Dict[Any, Any], key: Any, value: Any = None) -&gt; Iterator[NoneType]</dt><dd><tt>Ensure&nbsp;that&nbsp;dictionary&nbsp;data&nbsp;is&nbsp;only&nbsp;temporarily&nbsp;added.</tt></dd></dl>
+ <dl><dt><a name="-merge"><strong>merge</strong></a>(dict_a: Dict[Any, Any], dict_b: Dict[Any, Any], path: List[str] = None, expect_overwrite: bool = False, logger: logging.Logger = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; Dict[Any, Any]</dt><dd><tt>Combine&nbsp;two&nbsp;dictionaries&nbsp;based&nbsp;on&nbsp;a&nbsp;provided&nbsp;merge&nbsp;strategy.</tt></dd></dl>
+ <dl><dt><a name="-merge_dicts"><strong>merge_dicts</strong></a>(dicts: List[Dict[Any, Any]], expect_overwrite: bool = False, logger: logging.Logger = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; Dict[Any, Any]</dt><dd><tt>Merge&nbsp;a&nbsp;list&nbsp;of&nbsp;dictionary&nbsp;data&nbsp;into&nbsp;a&nbsp;single&nbsp;set&nbsp;(mutates&nbsp;the&nbsp;first<br>
 element).</tt></dd></dl>
- <dl><dt><a name="-merge_recursive"><strong>merge_recursive</strong></a>(dict_a: dict, dict_b: dict, path: List[str] = None, expect_overwrite: bool = False, logger: logging.Logger = None) -&gt; dict</dt><dd><tt>Combine&nbsp;two&nbsp;dictionaries&nbsp;recursively,&nbsp;prefers&nbsp;dict_a&nbsp;in&nbsp;a&nbsp;conflict.&nbsp;For<br>
+ <dl><dt><a name="-merge_recursive"><strong>merge_recursive</strong></a>(dict_a: Dict[Any, Any], dict_b: Dict[Any, Any], path: List[str] = None, expect_overwrite: bool = False, logger: logging.Logger = None) -&gt; Dict[Any, Any]</dt><dd><tt>Combine&nbsp;two&nbsp;dictionaries&nbsp;recursively,&nbsp;prefers&nbsp;dict_a&nbsp;in&nbsp;a&nbsp;conflict.&nbsp;For<br>
 values&nbsp;of&nbsp;the&nbsp;same&nbsp;key&nbsp;that&nbsp;are&nbsp;lists,&nbsp;the&nbsp;lists&nbsp;are&nbsp;combined.&nbsp;Otherwise<br>
 the&nbsp;resulting&nbsp;dictionary&nbsp;is&nbsp;cleanly&nbsp;merged.</tt></dd></dl>
- <dl><dt><a name="-set_if_not"><strong>set_if_not</strong></a>(data: dict, key: Any, value: Any = None) -&gt; Any</dt><dd><tt>Set&nbsp;a&nbsp;value&nbsp;in&nbsp;a&nbsp;dictionary&nbsp;if&nbsp;one&nbsp;wasn't&nbsp;already&nbsp;set&nbsp;and&nbsp;return&nbsp;the&nbsp;value<br>
+ <dl><dt><a name="-set_if_not"><strong>set_if_not</strong></a>(data: Dict[Any, Any], key: Any, value: Any = None) -&gt; Any</dt><dd><tt>Set&nbsp;a&nbsp;value&nbsp;in&nbsp;a&nbsp;dictionary&nbsp;if&nbsp;one&nbsp;wasn't&nbsp;already&nbsp;set&nbsp;and&nbsp;return&nbsp;the&nbsp;value<br>
 that&nbsp;ends&nbsp;up&nbsp;at&nbsp;that&nbsp;key.</tt></dd></dl>
-</td></tr></table>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>GenericDict</strong> = typing.Dict[typing.Any, typing.Any]<br>
+<strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]</td></tr></table>
 </body></html>

@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.io</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/io/__init__.py">/home/vkottler/git/workspace/vcorelib/vcorelib/io/__init__.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/__init__.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/__init__.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;exposing&nbsp;data-file&nbsp;encoders&nbsp;and&nbsp;decoders.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -61,16 +61,16 @@ and&nbsp;the&nbsp;cumulative&nbsp;time&nbsp;that&nbsp;each&nbsp;file-load&nbsp;t
 
 <dl><dt><a name="DataArbiter-decode_stream"><strong>decode_stream</strong></a>(self, ext: str, stream: Union[TextIO, _io.StringIO], logger: logging.Logger = None, **kwargs) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Attempt&nbsp;to&nbsp;load&nbsp;data&nbsp;from&nbsp;a&nbsp;text&nbsp;stream.</tt></dd></dl>
 
-<dl><dt><a name="DataArbiter-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], data: dict, logger: logging.Logger = None, maxsplit: int = 1, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;data&nbsp;to&nbsp;a&nbsp;file&nbsp;on&nbsp;disk.</tt></dd></dl>
+<dl><dt><a name="DataArbiter-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], logger: logging.Logger = None, maxsplit: int = 1, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;data&nbsp;to&nbsp;a&nbsp;file&nbsp;on&nbsp;disk.</tt></dd></dl>
 
-<dl><dt><a name="DataArbiter-encode_directory"><strong>encode_directory</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], data: dict, ext: str = 'json', logger: logging.Logger = None, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;data&nbsp;to&nbsp;a&nbsp;directory&nbsp;where&nbsp;every&nbsp;key&nbsp;becomes&nbsp;a&nbsp;file&nbsp;with&nbsp;the<br>
+<dl><dt><a name="DataArbiter-encode_directory"><strong>encode_directory</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], ext: str = 'json', logger: logging.Logger = None, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;data&nbsp;to&nbsp;a&nbsp;directory&nbsp;where&nbsp;every&nbsp;key&nbsp;becomes&nbsp;a&nbsp;file&nbsp;with&nbsp;the<br>
 provided&nbsp;extension.&nbsp;The&nbsp;encoding&nbsp;scheme&nbsp;is&nbsp;implied&nbsp;by&nbsp;the&nbsp;extension.</tt></dd></dl>
 
-<dl><dt><a name="DataArbiter-encode_stream"><strong>encode_stream</strong></a>(self, ext: str, stream: Union[TextIO, _io.StringIO], data: dict, logger: logging.Logger = None, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Serialize&nbsp;data&nbsp;to&nbsp;an&nbsp;output&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="DataArbiter-encode_stream"><strong>encode_stream</strong></a>(self, ext: str, stream: Union[TextIO, _io.StringIO], data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], logger: logging.Logger = None, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Serialize&nbsp;data&nbsp;to&nbsp;an&nbsp;output&nbsp;stream.</tt></dd></dl>
 
-<dl><dt><a name="DataArbiter-object_directory_context"><strong>object_directory_context</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], decode_kwargs: dict = None, encode_kwargs: dict = None) -&gt; Iterator[Dict[str, Union[str, int, float, bool, NoneType, dict, list]]]</dt><dd><tt>Provide&nbsp;a&nbsp;loaded&nbsp;directory&nbsp;as&nbsp;a&nbsp;context.</tt></dd></dl>
+<dl><dt><a name="DataArbiter-object_directory_context"><strong>object_directory_context</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], decode_kwargs: Dict[str, Any] = None, encode_kwargs: Dict[str, Any] = None) -&gt; Iterator[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]</dt><dd><tt>Provide&nbsp;a&nbsp;loaded&nbsp;directory&nbsp;as&nbsp;a&nbsp;context.</tt></dd></dl>
 
-<dl><dt><a name="DataArbiter-object_file_context"><strong>object_file_context</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], decode_kwargs: dict = None, encode_kwargs: dict = None) -&gt; Iterator[Dict[str, Union[str, int, float, bool, NoneType, dict, list]]]</dt><dd><tt>Provide&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file&nbsp;as&nbsp;a&nbsp;context&nbsp;so&nbsp;that&nbsp;it's&nbsp;written&nbsp;back<br>
+<dl><dt><a name="DataArbiter-object_file_context"><strong>object_file_context</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], decode_kwargs: Dict[str, Any] = None, encode_kwargs: Dict[str, Any] = None) -&gt; Iterator[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]</dt><dd><tt>Provide&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file&nbsp;as&nbsp;a&nbsp;context&nbsp;so&nbsp;that&nbsp;it's&nbsp;written&nbsp;back<br>
 when&nbsp;the&nbsp;context&nbsp;ends.</tt></dd></dl>
 
 <hr>
@@ -108,7 +108,7 @@ Data descriptors defined here:<br>
 Data and other attributes defined here:<br>
 <dl><dt><strong>DataType</strong> = &lt;enum 'DataType'&gt;<dd><tt>An&nbsp;aggregation&nbsp;of&nbsp;all&nbsp;known&nbsp;data&nbsp;types.</tt></dl>
 
-<dl><dt><strong>mapping</strong> = {&lt;FileExtension.INI: ['ini', 'cfg']&gt;: &lt;DataType.INI: _DataHandle(decoder=&lt;function dec...encoder=&lt;function encode_ini at 0x7f3f3af94ca0&gt;)&gt;, &lt;FileExtension.JSON: ['json']&gt;: &lt;DataType.JSON: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_json at 0x7f3f3af94a60&gt;)&gt;, &lt;FileExtension.YAML: ['yaml', 'yml', 'eyaml']&gt;: &lt;DataType.YAML: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_yaml at 0x7f3f3af94b80&gt;)&gt;, &lt;FileExtension.TOML: ['toml']&gt;: &lt;DataType.TOML: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_toml at 0x7f3f3afabee0&gt;)&gt;}</dl>
+<dl><dt><strong>mapping</strong> = {&lt;FileExtension.INI: ['ini', 'cfg']&gt;: &lt;DataType.INI: _DataHandle(decoder=&lt;function dec...encoder=&lt;function encode_ini at 0x7fcc030a5e50&gt;)&gt;, &lt;FileExtension.JSON: ['json']&gt;: &lt;DataType.JSON: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_json at 0x7fcc0308ac10&gt;)&gt;, &lt;FileExtension.YAML: ['yaml', 'yml', 'eyaml']&gt;: &lt;DataType.YAML: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_yaml at 0x7fcc0308ad30&gt;)&gt;, &lt;FileExtension.TOML: ['toml']&gt;: &lt;DataType.TOML: _DataHandle(decoder=&lt;function de...ncoder=&lt;function encode_toml at 0x7fcc030a5ee0&gt;)&gt;}</dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

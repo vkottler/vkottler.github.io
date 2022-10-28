@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.classes.html"><font color="#ffffff">classes</font></a>.file_info_cache</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/classes/file_info_cache.py">/home/vkottler/git/workspace/datazen/datazen/classes/file_info_cache.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/classes/file_info_cache.py">/home/vkottler/Documents/git/workspace/datazen/datazen/classes/file_info_cache.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;A&nbsp;class&nbsp;for&nbsp;storing&nbsp;metadata&nbsp;about&nbsp;files&nbsp;that&nbsp;have&nbsp;been&nbsp;loaded.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -59,7 +59,7 @@ cache,&nbsp;if&nbsp;not&nbsp;return&nbsp;False&nbsp;and&nbsp;optionally&nbsp;add
 
 <dl><dt><a name="FileInfoCache-get_data"><strong>get_data</strong></a>(self, name: str) -&gt; datazen.load.LoadedFiles</dt><dd><tt>Get&nbsp;the&nbsp;tuple&nbsp;version&nbsp;of&nbsp;cached&nbsp;data.</tt></dd></dl>
 
-<dl><dt><a name="FileInfoCache-get_hashes"><strong>get_hashes</strong></a>(self, sub_dir: str) -&gt; Dict[str, dict]</dt><dd><tt>Get&nbsp;the&nbsp;cached,&nbsp;dictionary&nbsp;of&nbsp;file&nbsp;hashes&nbsp;for&nbsp;a&nbsp;certain&nbsp;key.</tt></dd></dl>
+<dl><dt><a name="FileInfoCache-get_hashes"><strong>get_hashes</strong></a>(self, sub_dir: str) -&gt; Dict[str, Any]</dt><dd><tt>Get&nbsp;the&nbsp;cached,&nbsp;dictionary&nbsp;of&nbsp;file&nbsp;hashes&nbsp;for&nbsp;a&nbsp;certain&nbsp;key.</tt></dd></dl>
 
 <dl><dt><a name="FileInfoCache-get_loaded"><strong>get_loaded</strong></a>(self, sub_dir: str) -&gt; List[str]</dt><dd><tt>Get&nbsp;the&nbsp;cached,&nbsp;list&nbsp;of&nbsp;loaded&nbsp;files&nbsp;for&nbsp;a&nbsp;certain&nbsp;key.</tt></dd></dl>
 
@@ -89,11 +89,11 @@ between&nbsp;two&nbsp;caches.</tt></dd></dl>
 groups.</tt></dd></dl>
  <dl><dt><a name="-copy"><strong>copy</strong></a>(cache: datazen.classes.file_info_cache.FileInfoCache) -&gt; datazen.classes.file_info_cache.FileInfoCache</dt><dd><tt>Copy&nbsp;one&nbsp;cache&nbsp;into&nbsp;a&nbsp;new&nbsp;one.</tt></dd></dl>
  <dl><dt><a name="-meld"><strong>meld</strong></a>(cache_a: datazen.classes.file_info_cache.FileInfoCache, cache_b: datazen.classes.file_info_cache.FileInfoCache) -&gt; None</dt><dd><tt>Promote&nbsp;all&nbsp;updates&nbsp;from&nbsp;cache_b&nbsp;into&nbsp;cache_a.</tt></dd></dl>
- <dl><dt><a name="-remove_missing_hashed_files"><strong>remove_missing_hashed_files</strong></a>(data: dict, removed_data: Dict[str, List[str]]) -&gt; dict</dt><dd><tt>Assign&nbsp;new&nbsp;hash&nbsp;data&nbsp;based&nbsp;on&nbsp;the&nbsp;files&nbsp;that&nbsp;are&nbsp;still&nbsp;present.</tt></dd></dl>
- <dl><dt><a name="-remove_missing_loaded_files"><strong>remove_missing_loaded_files</strong></a>(data: dict) -&gt; dict</dt><dd><tt>Audit&nbsp;list&nbsp;elements&nbsp;in&nbsp;a&nbsp;dictionary&nbsp;recursively,&nbsp;assume&nbsp;the&nbsp;data&nbsp;is&nbsp;String<br>
+ <dl><dt><a name="-remove_missing_hashed_files"><strong>remove_missing_hashed_files</strong></a>(data: Dict[str, Any], removed_data: Dict[str, List[str]]) -&gt; Dict[str, Any]</dt><dd><tt>Assign&nbsp;new&nbsp;hash&nbsp;data&nbsp;based&nbsp;on&nbsp;the&nbsp;files&nbsp;that&nbsp;are&nbsp;still&nbsp;present.</tt></dd></dl>
+ <dl><dt><a name="-remove_missing_loaded_files"><strong>remove_missing_loaded_files</strong></a>(data: Dict[str, Any]) -&gt; Dict[str, Any]</dt><dd><tt>Audit&nbsp;list&nbsp;elements&nbsp;in&nbsp;a&nbsp;dictionary&nbsp;recursively,&nbsp;assume&nbsp;the&nbsp;data&nbsp;is&nbsp;String<br>
 and&nbsp;the&nbsp;elements&nbsp;are&nbsp;filenames,&nbsp;assign&nbsp;a&nbsp;new&nbsp;list&nbsp;for&nbsp;all&nbsp;of&nbsp;the&nbsp;elements<br>
 that&nbsp;can&nbsp;be&nbsp;located.</tt></dd></dl>
- <dl><dt><a name="-sync_cache_data"><strong>sync_cache_data</strong></a>(cache_data: dict, removed_data: Dict[str, List[str]]) -&gt; dict</dt><dd><tt>Before&nbsp;writing&nbsp;a&nbsp;cache&nbsp;to&nbsp;disk&nbsp;we&nbsp;want&nbsp;to&nbsp;de-duplicate&nbsp;items&nbsp;in&nbsp;the&nbsp;loaded<br>
+ <dl><dt><a name="-sync_cache_data"><strong>sync_cache_data</strong></a>(cache_data: Dict[str, Any], removed_data: Dict[str, List[str]]) -&gt; Dict[str, Any]</dt><dd><tt>Before&nbsp;writing&nbsp;a&nbsp;cache&nbsp;to&nbsp;disk&nbsp;we&nbsp;want&nbsp;to&nbsp;de-duplicate&nbsp;items&nbsp;in&nbsp;the&nbsp;loaded<br>
 list&nbsp;and&nbsp;remove&nbsp;hash&nbsp;data&nbsp;for&nbsp;files&nbsp;that&nbsp;were&nbsp;removed&nbsp;so&nbsp;that&nbsp;if&nbsp;they<br>
 come&nbsp;back&nbsp;at&nbsp;the&nbsp;same&nbsp;hash,&nbsp;it's&nbsp;not&nbsp;considered&nbsp;already&nbsp;loaded.</tt></dd></dl>
  <dl><dt><a name="-time_str"><strong>time_str</strong></a>(time_s: float) -&gt; str</dt><dd><tt>Concert&nbsp;a&nbsp;timestamp&nbsp;to&nbsp;a&nbsp;String.</tt></dd></dl>
@@ -104,8 +104,9 @@ come&nbsp;back&nbsp;at&nbsp;the&nbsp;same&nbsp;hash,&nbsp;it's&nbsp;not&nbsp;con
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>DATA_DEFAULT</strong> = {'hashes': defaultdict(&lt;function &lt;lambda&gt; at 0x7f43b2875700&gt;, {}), 'loaded': defaultdict(&lt;class 'list'&gt;, {}), 'meta': {'version': '3.1.0'}}<br>
+<td width="100%"><strong>DATA_DEFAULT</strong> = {'hashes': defaultdict(&lt;function &lt;lambda&gt; at 0x7ff220992670&gt;, {}), 'loaded': defaultdict(&lt;class 'list'&gt;, {}), 'meta': {'version': '3.1.0'}}<br>
 <strong>Dict</strong> = typing.Dict<br>
+<strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
 <strong>LOG</strong> = &lt;Logger datazen.classes.file_info_cache (WARNING)&gt;<br>
 <strong>List</strong> = typing.List<br>
 <strong>VERSION</strong> = '3.1.0'</td></tr></table>

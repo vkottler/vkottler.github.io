@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="svgen.html"><font color="#ffffff">svgen</font></a>.<a href="svgen.attribute.html"><font color="#ffffff">attribute</font></a>.viewbox</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/svgen/svgen/attribute/viewbox.py">/home/vkottler/git/workspace/svgen/svgen/attribute/viewbox.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/svgen/svgen/attribute/viewbox.py">/home/vkottler/Documents/git/workspace/svgen/svgen/attribute/viewbox.py</a></font></td></tr></table>
     <p><tt>svgen&nbsp;-&nbsp;A&nbsp;module&nbsp;for&nbsp;the&nbsp;'viewBox'&nbsp;attribute.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -57,10 +57,12 @@ Methods defined here:<br>
 <dl><dt><a name="ViewBox-translate"><strong>translate</strong></a>(self, dx: Union[svgen.cartesian.mutate.Translation, float], *args, **kwargs) -&gt; None</dt><dd><tt>Apply&nbsp;a&nbsp;translation&nbsp;to&nbsp;this&nbsp;viewBox.</tt></dd></dl>
 
 <hr>
-Static methods defined here:<br>
-<dl><dt><a name="ViewBox-decode"><strong>decode</strong></a>(key: str, value: str) -&gt; svgen.attribute.Attribute</dt><dd><tt>Create&nbsp;this&nbsp;attribute&nbsp;from&nbsp;a&nbsp;string.</tt></dd></dl>
+Class methods defined here:<br>
+<dl><dt><a name="ViewBox-decode"><strong>decode</strong></a>(key: str, value: str) -&gt; 'ViewBox'<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Create&nbsp;this&nbsp;attribute&nbsp;from&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="ViewBox-from_dict"><strong>from_dict</strong></a>(data: dict) -&gt; 'ViewBox'</dt><dd><tt>Create&nbsp;a&nbsp;viewBox&nbsp;from&nbsp;dictionary&nbsp;data.</tt></dd></dl>
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="ViewBox-from_dict"><strong>from_dict</strong></a>(data: Dict[str, Any]) -&gt; 'ViewBox'</dt><dd><tt>Create&nbsp;a&nbsp;viewBox&nbsp;from&nbsp;dictionary&nbsp;data.</tt></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -143,7 +145,7 @@ Class methods defined here:<br>
 Static methods defined here:<br>
 <dl><dt><a name="ViewBoxData-__new__"><strong>__new__</strong></a>(_cls, min_x: int, min_y: int, width: int, height: int)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#ViewBoxData">ViewBoxData</a>(min_x,&nbsp;min_y,&nbsp;width,&nbsp;height)</tt></dd></dl>
 
-<dl><dt><a name="ViewBoxData-from_dict"><strong>from_dict</strong></a>(data: dict) -&gt; 'ViewBoxData'</dt><dd><tt>Create&nbsp;viewBox&nbsp;data&nbsp;from&nbsp;a&nbsp;dictionary.</tt></dd></dl>
+<dl><dt><a name="ViewBoxData-from_dict"><strong>from_dict</strong></a>(data: Dict[str, Any]) -&gt; 'ViewBoxData'</dt><dd><tt>Create&nbsp;viewBox&nbsp;data&nbsp;from&nbsp;a&nbsp;dictionary.</tt></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -224,5 +226,7 @@ Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>Union</strong> = typing.Union</td></tr></table>
+<td width="100%"><strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
+<strong>Type</strong> = typing.Type<br>
+<strong>Union</strong> = typing.Union</td></tr></table>
 </body></html>

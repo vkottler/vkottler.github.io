@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.environment.html"><font color="#ffffff">environment</font></a>.config</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/environment/config.py">/home/vkottler/git/workspace/datazen/datazen/environment/config.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/environment/config.py">/home/vkottler/Documents/git/workspace/datazen/datazen/environment/config.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;A&nbsp;child&nbsp;class&nbsp;for&nbsp;adding&nbsp;configuration-data&nbsp;loading&nbsp;capabilities&nbsp;to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;environment&nbsp;dataset.</tt></p>
 <p>
@@ -47,7 +47,7 @@
 <font color="#000000" face="helvetica, arial"><a name="ConfigEnvironment">class <strong>ConfigEnvironment</strong></a>(<a href="datazen.environment.variable.html#VariableEnvironment">datazen.environment.variable.VariableEnvironment</a>, <a href="datazen.environment.schema.html#SchemaEnvironment">datazen.environment.schema.SchemaEnvironment</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#ConfigEnvironment">ConfigEnvironment</a>(**kwargs)<br>
+<td colspan=2><tt><a href="#ConfigEnvironment">ConfigEnvironment</a>(**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 The&nbsp;configuration-data&nbsp;loading&nbsp;environment&nbsp;mixin,&nbsp;requires&nbsp;variable<br>
 loading&nbsp;to&nbsp;function.<br>&nbsp;</tt></td></tr>
@@ -61,7 +61,7 @@ loading&nbsp;to&nbsp;function.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="ConfigEnvironment-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>Extend&nbsp;the&nbsp;environment&nbsp;with&nbsp;a&nbsp;notion&nbsp;of&nbsp;configs&nbsp;being&nbsp;valid.</tt></dd></dl>
+<dl><dt><a name="ConfigEnvironment-__init__"><strong>__init__</strong></a>(self, **kwargs) -&gt; None</dt><dd><tt>Extend&nbsp;the&nbsp;environment&nbsp;with&nbsp;a&nbsp;notion&nbsp;of&nbsp;configs&nbsp;being&nbsp;valid.</tt></dd></dl>
 
 <dl><dt><a name="ConfigEnvironment-add_config_dirs"><strong>add_config_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;configuration-data&nbsp;directories,&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;directories<br>
 added.</tt></dd></dl>
@@ -82,12 +82,12 @@ Methods inherited from <a href="datazen.environment.schema.html#SchemaEnvironmen
 <dl><dt><a name="ConfigEnvironment-add_schema_type_dirs"><strong>add_schema_type_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;directories&nbsp;containing&nbsp;schema-type&nbsp;data&nbsp;(to&nbsp;be&nbsp;registered&nbsp;at<br>
 runtime).</tt></dd></dl>
 
-<dl><dt><a name="ConfigEnvironment-enforce_schemas"><strong>enforce_schemas</strong></a>(self, data: dict, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; bool</dt><dd><tt>Perform&nbsp;schema-validation&nbsp;on&nbsp;provided&nbsp;data&nbsp;and&nbsp;return&nbsp;the&nbsp;boolean<br>
+<dl><dt><a name="ConfigEnvironment-enforce_schemas"><strong>enforce_schemas</strong></a>(self, data: Dict[str, Any], require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; bool</dt><dd><tt>Perform&nbsp;schema-validation&nbsp;on&nbsp;provided&nbsp;data&nbsp;and&nbsp;return&nbsp;the&nbsp;boolean<br>
 result.&nbsp;Adds&nbsp;(and&nbsp;removes)&nbsp;namespaced&nbsp;types&nbsp;if&nbsp;applicable.</tt></dd></dl>
 
-<dl><dt><a name="ConfigEnvironment-load_schema_types"><strong>load_schema_types</strong></a>(self, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; dict</dt><dd><tt>Load&nbsp;custom&nbsp;schema&nbsp;types&nbsp;and&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;directories.</tt></dd></dl>
+<dl><dt><a name="ConfigEnvironment-load_schema_types"><strong>load_schema_types</strong></a>(self, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; Dict[str, Any]</dt><dd><tt>Load&nbsp;custom&nbsp;schema&nbsp;types&nbsp;and&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;directories.</tt></dd></dl>
 
-<dl><dt><a name="ConfigEnvironment-load_schemas"><strong>load_schemas</strong></a>(self, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', modify_registry: bool = True) -&gt; dict</dt><dd><tt>Load&nbsp;schema&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;schema&nbsp;directories.</tt></dd></dl>
+<dl><dt><a name="ConfigEnvironment-load_schemas"><strong>load_schemas</strong></a>(self, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', modify_registry: bool = True) -&gt; Dict[str, Any]</dt><dd><tt>Load&nbsp;schema&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;schema&nbsp;directories.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="datazen.environment.base.html#BaseEnvironment">datazen.environment.base.BaseEnvironment</a>:<br>
@@ -97,9 +97,9 @@ Methods inherited from <a href="datazen.environment.base.html#BaseEnvironment">d
 
 <dl><dt><a name="ConfigEnvironment-add_namespace"><strong>add_namespace</strong></a>(self, name: str, clone_root: bool = True) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;namespace,&nbsp;optionally&nbsp;clone&nbsp;from&nbsp;the&nbsp;existing&nbsp;root.</tt></dd></dl>
 
-<dl><dt><a name="ConfigEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; dict</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
+<dl><dt><a name="ConfigEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; Dict[str, Any]</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="ConfigEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: dict) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
+<dl><dt><a name="ConfigEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: Dict[str, Any]) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
 all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&nbsp;anything&nbsp;new.</tt></dd></dl>
 
 <dl><dt><a name="ConfigEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[Union[pathlib.Path, str, NoneType]]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>

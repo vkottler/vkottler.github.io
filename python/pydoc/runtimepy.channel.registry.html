@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module runtimepy.channel.registry</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.<a href="runtimepy.channel.html"><font color="#ffffff">channel</font></a>.registry</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/channel/registry.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/channel/registry.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;channel&nbsp;registry.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.registry.html#Registry">runtimepy.registry.Registry</a>(<a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.channel.registry.html#ChannelRegistry">ChannelRegistry</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="runtimepy.registry.name.html#NameRegistry">runtimepy.registry.name.NameRegistry</a>(<a href="runtimepy.mapping.html#TwoWayNameMapping">runtimepy.mapping.TwoWayNameMapping</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.channel.registry.html#ChannelNameRegistry">ChannelNameRegistry</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ChannelNameRegistry">class <strong>ChannelNameRegistry</strong></a>(<a href="runtimepy.registry.name.html#NameRegistry">runtimepy.registry.name.NameRegistry</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ChannelNameRegistry">ChannelNameRegistry</a>(*args,&nbsp;**kwds)<br>
+&nbsp;<br>
+A&nbsp;name&nbsp;registry&nbsp;with&nbsp;a&nbsp;name-matching&nbsp;pattern&nbsp;for&nbsp;channel&nbsp;names.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.channel.registry.html#ChannelNameRegistry">ChannelNameRegistry</a></dd>
+<dd><a href="runtimepy.registry.name.html#NameRegistry">runtimepy.registry.name.NameRegistry</a></dd>
+<dd><a href="runtimepy.mapping.html#TwoWayNameMapping">runtimepy.mapping.TwoWayNameMapping</a></dd>
+<dd><a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__parameters__</strong> = ()</dl>
+
+<dl><dt><strong>name_regex</strong> = re.compile('^[a-z0-9_.]+$')</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.registry.name.html#NameRegistry">runtimepy.registry.name.NameRegistry</a>:<br>
+<dl><dt><a name="ChannelNameRegistry-__init__"><strong>__init__</strong></a>(self, mapping: MutableMapping[int, str] = None, reverse: MutableMapping[str, int] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;name&nbsp;registry.</tt></dd></dl>
+
+<dl><dt><a name="ChannelNameRegistry-register_name"><strong>register_name</strong></a>(self, name: str, identifier: int = None) -&gt; Union[int, NoneType]</dt><dd><tt>Register&nbsp;a&nbsp;new&nbsp;name.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.registry.name.html#NameRegistry">runtimepy.registry.name.NameRegistry</a>:<br>
+<dl><dt><strong>__orig_bases__</strong> = (runtimepy.mapping.TwoWayNameMapping[int],)</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.mapping.html#TwoWayNameMapping">runtimepy.mapping.TwoWayNameMapping</a>:<br>
+<dl><dt><a name="ChannelNameRegistry-asdict"><strong>asdict</strong></a>(self) -&gt; MutableMapping[str, ~T]</dt><dd><tt>Provide&nbsp;a&nbsp;dictionary&nbsp;representation.</tt></dd></dl>
+
+<dl><dt><a name="ChannelNameRegistry-identifier"><strong>identifier</strong></a>(self, key: Union[str, ~T]) -&gt; Union[~T, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;associated&nbsp;with&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="ChannelNameRegistry-name"><strong>name</strong></a>(self, key: Union[str, ~T]) -&gt; Union[str, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;name&nbsp;associated&nbsp;with&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.mapping.html#TwoWayNameMapping">runtimepy.mapping.TwoWayNameMapping</a>:<br>
+<dl><dt><a name="ChannelNameRegistry-bool_from_dict"><strong>bool_from_dict</strong></a>(data: MutableMapping[Union[str, bool], Union[str, bool]]) -&gt; ~BoolMapping<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;boolean-to-name&nbsp;mapping&nbsp;from&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;arbitrary&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="ChannelNameRegistry-int_from_dict"><strong>int_from_dict</strong></a>(data: MutableMapping[Union[str, int], Union[str, int]]) -&gt; ~IntMapping<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;an&nbsp;integer-to-name&nbsp;mapping&nbsp;from&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;arbitrary<br>
+data.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><a name="ChannelNameRegistry-validate_name"><strong>validate_name</strong></a>(name: str) -&gt; bool<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;name&nbsp;is&nbsp;valid&nbsp;for&nbsp;this&nbsp;class.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'name_regex': &lt;class 're.Pattern'&gt;}</dl>
+
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="ChannelNameRegistry-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt></dl>
+
+<dl><dt><a name="ChannelNameRegistry-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="ChannelNameRegistry-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ChannelRegistry">class <strong>ChannelRegistry</strong></a>(<a href="runtimepy.registry.html#Registry">runtimepy.registry.Registry</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ChannelRegistry">ChannelRegistry</a>(*args,&nbsp;**kwds)<br>
+&nbsp;<br>
+A&nbsp;runtime&nbsp;enumeration&nbsp;registry.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.channel.registry.html#ChannelRegistry">ChannelRegistry</a></dd>
+<dd><a href="runtimepy.registry.html#Registry">runtimepy.registry.Registry</a></dd>
+<dd><a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a></dd>
+<dd><a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>kind</strong></dt>
+<dd><tt>Determine&nbsp;what&nbsp;kind&nbsp;of&nbsp;registry&nbsp;this&nbsp;is.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (runtimepy.registry.Registry[runtimepy.channel.Channel[typing.Any]],)</dl>
+
+<dl><dt><strong>__parameters__</strong> = ()</dl>
+
+<dl><dt><strong>name_registry</strong> = &lt;class 'runtimepy.channel.registry.ChannelNameRegistry'&gt;<dd><tt>A&nbsp;name&nbsp;registry&nbsp;with&nbsp;a&nbsp;name-matching&nbsp;pattern&nbsp;for&nbsp;channel&nbsp;names.</tt></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.registry.html#Registry">runtimepy.registry.Registry</a>:<br>
+<dl><dt><a name="ChannelRegistry-__getitem__"><strong>__getitem__</strong></a>(self, key: Union[str, int]) -&gt; ~T</dt><dd><tt>Get&nbsp;a&nbsp;registry&nbsp;item.</tt></dd></dl>
+
+<dl><dt><a name="ChannelRegistry-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Get&nbsp;this&nbsp;registry&nbsp;as&nbsp;a&nbsp;dictionary.</tt></dd></dl>
+
+<dl><dt><a name="ChannelRegistry-get"><strong>get</strong></a>(self, key: Union[str, int]) -&gt; Union[~T, NoneType]</dt><dd><tt>Attempt&nbsp;to&nbsp;get&nbsp;an&nbsp;item&nbsp;from&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="ChannelRegistry-init"><strong>init</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; None</dt><dd><tt>Perform&nbsp;implementation-specific&nbsp;initialization.</tt></dd></dl>
+
+<dl><dt><a name="ChannelRegistry-register"><strong>register</strong></a>(self, name: str, item: ~T) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;register&nbsp;a&nbsp;new&nbsp;item.</tt></dd></dl>
+
+<dl><dt><a name="ChannelRegistry-register_dict"><strong>register_dict</strong></a>(self, name: str, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; Union[~T, NoneType]</dt><dd><tt>Register&nbsp;a&nbsp;new&nbsp;item&nbsp;from&nbsp;dictionary&nbsp;data.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.registry.html#Registry">runtimepy.registry.Registry</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_schemas': typing.Union[vcorelib.schemas.base.SchemaMap, NoneType], 'name_registry': typing.Type[runtimepy.registry.name.NameRegistry]}</dl>
+
+<dl><dt><strong>default_schemas</strong> = {'EnumRegistry': &lt;vcorelib.schemas.JsonSchema ob...lib.schemas.JsonSchema object at 0x7f1a08a61d30&gt;}</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>:<br>
+<dl><dt><a name="ChannelRegistry-__init__"><strong>__init__</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;instance.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>:<br>
+<dl><dt><a name="ChannelRegistry-create"><strong>create</strong></a>(data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; ~V<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>A&nbsp;factory&nbsp;method&nbsp;to&nbsp;create&nbsp;an&nbsp;instance.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
+<dl><dt><a name="ChannelRegistry-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equal&nbsp;to&nbsp;another.</tt></dd></dl>
+
+<dl><dt><a name="ChannelRegistry-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
+representation.</tt></dd></dl>
+
+<dl><dt><a name="ChannelRegistry-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7f1a08d129d0&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
+<dl><dt><a name="ChannelRegistry-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7f1a08d129d0&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
+<dl><dt><a name="ChannelRegistry-validate"><strong>validate</strong></a>(self, valid_attr: str = 'data') -&gt; None</dt><dd><tt>Validate&nbsp;an&nbsp;instance&nbsp;attribute&nbsp;based&nbsp;on&nbsp;this&nbsp;instance's&nbsp;schema.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
+<dl><dt><strong>schema_name</strong></dt>
+<dd><tt>A&nbsp;default&nbsp;name&nbsp;for&nbsp;this&nbsp;class's&nbsp;schema.</tt></dd>
+</dl>
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="ChannelRegistry-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt></dl>
+
+<dl><dt><a name="ChannelRegistry-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="ChannelRegistry-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.classes.html"><font color="#ffffff">classes</font></a>.data_repository</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/classes/data_repository.py">/home/vkottler/git/workspace/datazen/datazen/classes/data_repository.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/classes/data_repository.py">/home/vkottler/Documents/git/workspace/datazen/datazen/classes/data_repository.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;An&nbsp;interface&nbsp;for&nbsp;managing&nbsp;on-disk&nbsp;data&nbsp;by&nbsp;loading&nbsp;it&nbsp;and&nbsp;making<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;discrete&nbsp;changes.</tt></p>
 <p>
@@ -18,11 +18,10 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="git.html">git</a><br>
-</td><td width="25%" valign=top><a href="logging.html">logging</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
 </td><td width="25%" valign=top><a href="threading.html">threading</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -52,10 +51,10 @@ serialization&nbsp;formats&nbsp;supported&nbsp;by&nbsp;this&nbsp;package.<br>&nb
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="DataRepository-__init__"><strong>__init__</strong></a>(self, root_dir: str, out_type: str = 'yaml', logger: logging.Logger = &lt;Logger datazen.classes.data_repository (WARNING)&gt;) -&gt; None</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;data&nbsp;repository.</tt></dd></dl>
 
-<dl><dt><a name="DataRepository-loaded"><strong>loaded</strong></a>(self, root_rel: str = '.', write_back: bool = True) -&gt; Iterator[dict]</dt><dd><tt>Load&nbsp;a&nbsp;data&nbsp;directory,&nbsp;yield&nbsp;it&nbsp;to&nbsp;the&nbsp;caller&nbsp;and&nbsp;write&nbsp;it&nbsp;back&nbsp;when<br>
+<dl><dt><a name="DataRepository-loaded"><strong>loaded</strong></a>(self, root_rel: str = '.', write_back: bool = True) -&gt; Iterator[Dict[str, Any]]</dt><dd><tt>Load&nbsp;a&nbsp;data&nbsp;directory,&nbsp;yield&nbsp;it&nbsp;to&nbsp;the&nbsp;caller&nbsp;and&nbsp;write&nbsp;it&nbsp;back&nbsp;when<br>
 complete&nbsp;inside&nbsp;a&nbsp;locked&nbsp;context&nbsp;for&nbsp;this&nbsp;repository.</tt></dd></dl>
 
-<dl><dt><a name="DataRepository-meld"><strong>meld</strong></a>(self, data: dict, root_rel: str = '.', expect_overwrite: bool = False) -&gt; Iterator[git.repo.base.Repo]</dt><dd><tt>Update&nbsp;the&nbsp;data&nbsp;at&nbsp;some&nbsp;root-relative&nbsp;path,&nbsp;write&nbsp;it&nbsp;to&nbsp;disk&nbsp;and&nbsp;then<br>
+<dl><dt><a name="DataRepository-meld"><strong>meld</strong></a>(self, data: Dict[str, Any], root_rel: str = '.', expect_overwrite: bool = False) -&gt; Iterator[git.repo.base.Repo]</dt><dd><tt>Update&nbsp;the&nbsp;data&nbsp;at&nbsp;some&nbsp;root-relative&nbsp;path,&nbsp;write&nbsp;it&nbsp;to&nbsp;disk&nbsp;and&nbsp;then<br>
 provided&nbsp;the&nbsp;repository&nbsp;<a href="builtins.html#object">object</a>&nbsp;still&nbsp;within&nbsp;a&nbsp;locked&nbsp;context.</tt></dd></dl>
 
 <hr>
@@ -74,5 +73,6 @@ Data descriptors defined here:<br>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>EXCLUDES</strong> = ['.git', '.svn', '.gitignore']<br>
+<strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
 <strong>Iterator</strong> = typing.Iterator</td></tr></table>
 </body></html>

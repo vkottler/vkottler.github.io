@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.dict.html"><font color="#ffffff">dict</font></a>.codec</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/dict/codec.py">/home/vkottler/git/workspace/vcorelib/vcorelib/dict/codec.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/dict/codec.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/dict/codec.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;for&nbsp;implementing&nbsp;classes&nbsp;that&nbsp;can&nbsp;be&nbsp;loaded&nbsp;from&nbsp;dictionaries&nbsp;and<br>
 exported&nbsp;as&nbsp;dictionaries.</tt></p>
 <p>
@@ -30,7 +30,10 @@ exported&nbsp;as&nbsp;dictionaries.</tt></p>
 <dt><font face="helvetica, arial"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>)
+<dt><font face="helvetica, arial"><a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="vcorelib.dict.codec.html#BasicDictCodec">BasicDictCodec</a>
@@ -38,14 +41,21 @@ exported&nbsp;as&nbsp;dictionaries.</tt></p>
 </dd>
 </dl>
 </dd>
+</dl>
+</dd>
 <dt><font face="helvetica, arial"><a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>(<a href="builtins.html#object">builtins.object</a>)
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>)
+<dt><font face="helvetica, arial"><a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="vcorelib.dict.codec.html#BasicDictCodec">BasicDictCodec</a>
 </font></dt></dl>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd>
@@ -57,22 +67,23 @@ exported&nbsp;as&nbsp;dictionaries.</tt></p>
 <font color="#000000" face="helvetica, arial"><a name="BasicDictCodec">class <strong>BasicDictCodec</strong></a>(<a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#BasicDictCodec">BasicDictCodec</a>(data:&nbsp;dict,&nbsp;schemas:&nbsp;vcorelib.schemas.base.SchemaMap&nbsp;=&nbsp;None,&nbsp;dest_attr:&nbsp;str&nbsp;=&nbsp;'data',&nbsp;verify:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#BasicDictCodec">BasicDictCodec</a>(data:&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]]&nbsp;=&nbsp;None,&nbsp;schemas:&nbsp;vcorelib.schemas.base.SchemaMap&nbsp;=&nbsp;None,&nbsp;dest_attr:&nbsp;str&nbsp;=&nbsp;'data',&nbsp;verify:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 The&nbsp;simplest&nbsp;possible&nbsp;dictionary&nbsp;codec&nbsp;implementation.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="vcorelib.dict.codec.html#BasicDictCodec">BasicDictCodec</a></dd>
 <dd><a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a></dd>
+<dd><a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="BasicDictCodec-asdict"><strong>asdict</strong></a>(self) -&gt; dict</dt><dd><tt>Obtain&nbsp;a&nbsp;dictionary&nbsp;representing&nbsp;this&nbsp;instance.</tt></dd></dl>
+<dl><dt><a name="BasicDictCodec-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Obtain&nbsp;a&nbsp;dictionary&nbsp;representing&nbsp;this&nbsp;instance.</tt></dd></dl>
 
-<dl><dt><a name="BasicDictCodec-init"><strong>init</strong></a>(self, data: dict) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;instance.</tt></dd></dl>
+<dl><dt><a name="BasicDictCodec-init"><strong>init</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;instance.</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -80,21 +91,33 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>:<br>
-<dl><dt><a name="BasicDictCodec-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equal&nbsp;to&nbsp;another.</tt></dd></dl>
+<dl><dt><a name="BasicDictCodec-__init__"><strong>__init__</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;instance.</tt></dd></dl>
 
-<dl><dt><a name="BasicDictCodec-__init__"><strong>__init__</strong></a>(self, data: dict, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;instance.</tt></dd></dl>
+<hr>
+Class methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>:<br>
+<dl><dt><a name="BasicDictCodec-create"><strong>create</strong></a>(data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; ~V<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>A&nbsp;factory&nbsp;method&nbsp;to&nbsp;create&nbsp;an&nbsp;instance.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_schemas': typing.Union[vcorelib.schemas.base.SchemaMap, NoneType]}</dl>
+
+<dl><dt><strong>default_schemas</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>:<br>
+<dl><dt><a name="BasicDictCodec-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equal&nbsp;to&nbsp;another.</tt></dd></dl>
 
 <dl><dt><a name="BasicDictCodec-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</tt></dd></dl>
 
-<dl><dt><a name="BasicDictCodec-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7f04d7b960d0&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
+<dl><dt><a name="BasicDictCodec-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7fe5fcd35430&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
 
 <hr>
-Class methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>:<br>
-<dl><dt><a name="BasicDictCodec-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7f04d7b960d0&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
+Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>:<br>
+<dl><dt><a name="BasicDictCodec-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7fe5fcd35430&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
 
 <hr>
-Data descriptors inherited from <a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>:<br>
+Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
@@ -102,7 +125,7 @@ Data descriptors inherited from <a href="vcorelib.dict.codec.html#DictCodec">Dic
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
 <hr>
-Data and other attributes inherited from <a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a>:<br>
+Data and other attributes inherited from <a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>:<br>
 <dl><dt><strong>__hash__</strong> = None</dl>
 
 <hr>
@@ -114,46 +137,112 @@ Readonly properties inherited from <a href="vcorelib.schemas.mixins.html#SchemaM
 <dl><dt><strong>schema_name</strong></dt>
 <dd><tt>A&nbsp;default&nbsp;name&nbsp;for&nbsp;this&nbsp;class's&nbsp;schema.</tt></dd>
 </dl>
-<hr>
-Data and other attributes inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
-<dl><dt><strong>__annotations__</strong> = {'schema': &lt;class 'vcorelib.schemas.base.Schema'&gt;}</dl>
-
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="DictCodec">class <strong>DictCodec</strong></a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="DictCodec">class <strong>DictCodec</strong></a>(<a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#DictCodec">DictCodec</a>(data:&nbsp;dict,&nbsp;schemas:&nbsp;vcorelib.schemas.base.SchemaMap&nbsp;=&nbsp;None,&nbsp;dest_attr:&nbsp;str&nbsp;=&nbsp;'data',&nbsp;verify:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#DictCodec">DictCodec</a>(data:&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]]&nbsp;=&nbsp;None,&nbsp;schemas:&nbsp;vcorelib.schemas.base.SchemaMap&nbsp;=&nbsp;None,&nbsp;dest_attr:&nbsp;str&nbsp;=&nbsp;'data',&nbsp;verify:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;implementing&nbsp;an&nbsp;interface&nbsp;for&nbsp;objects&nbsp;that&nbsp;can&nbsp;be&nbsp;decoded&nbsp;from<br>
 disk&nbsp;and&nbsp;encoded&nbsp;back&nbsp;to&nbsp;disk.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="vcorelib.dict.codec.html#DictCodec">DictCodec</a></dd>
+<dd><a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="DictCodec-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equal&nbsp;to&nbsp;another.</tt></dd></dl>
+<dl><dt><a name="DictCodec-__init__"><strong>__init__</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;instance.</tt></dd></dl>
 
-<dl><dt><a name="DictCodec-__init__"><strong>__init__</strong></a>(self, data: dict, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;instance.</tt></dd></dl>
+<dl><dt><a name="DictCodec-init"><strong>init</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; None</dt><dd><tt>Perform&nbsp;implementation-specific&nbsp;initialization.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="DictCodec-create"><strong>create</strong></a>(data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; ~V<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>A&nbsp;factory&nbsp;method&nbsp;to&nbsp;create&nbsp;an&nbsp;instance.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'asdict', 'init'})</dl>
+
+<dl><dt><strong>__annotations__</strong> = {'default_schemas': typing.Union[vcorelib.schemas.base.SchemaMap, NoneType]}</dl>
+
+<dl><dt><strong>default_schemas</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>:<br>
+<dl><dt><a name="DictCodec-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equal&nbsp;to&nbsp;another.</tt></dd></dl>
 
 <dl><dt><a name="DictCodec-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</tt></dd></dl>
 
-<dl><dt><a name="DictCodec-asdict"><strong>asdict</strong></a>(self) -&gt; dict</dt><dd><tt>Obtain&nbsp;a&nbsp;dictionary&nbsp;representing&nbsp;this&nbsp;instance.</tt></dd></dl>
+<dl><dt><a name="DictCodec-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Obtain&nbsp;a&nbsp;dictionary&nbsp;representing&nbsp;this&nbsp;instance.</tt></dd></dl>
 
-<dl><dt><a name="DictCodec-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7f04d7b960d0&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
+<dl><dt><a name="DictCodec-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7fe5fcd35430&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
 
-<dl><dt><a name="DictCodec-init"><strong>init</strong></a>(self, data: dict) -&gt; None</dt><dd><tt>Perform&nbsp;implementation-specific&nbsp;initialization.</tt></dd></dl>
+<hr>
+Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>:<br>
+<dl><dt><a name="DictCodec-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7fe5fcd35430&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
+<dl><dt><a name="DictCodec-validate"><strong>validate</strong></a>(self, valid_attr: str = 'data') -&gt; None</dt><dd><tt>Validate&nbsp;an&nbsp;instance&nbsp;attribute&nbsp;based&nbsp;on&nbsp;this&nbsp;instance's&nbsp;schema.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
+<dl><dt><strong>schema_name</strong></dt>
+<dd><tt>A&nbsp;default&nbsp;name&nbsp;for&nbsp;this&nbsp;class's&nbsp;schema.</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="JsonCodec">class <strong>JsonCodec</strong></a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#JsonCodec">JsonCodec</a>(schemas:&nbsp;vcorelib.schemas.base.SchemaMap,&nbsp;valid_attr:&nbsp;str&nbsp;=&nbsp;'data')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;JSON&nbsp;codec&nbsp;interface.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.dict.codec.html#JsonCodec">JsonCodec</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="JsonCodec-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equal&nbsp;to&nbsp;another.</tt></dd></dl>
+
+<dl><dt><a name="JsonCodec-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
+representation.</tt></dd></dl>
+
+<dl><dt><a name="JsonCodec-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Obtain&nbsp;a&nbsp;dictionary&nbsp;representing&nbsp;this&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="JsonCodec-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7fe5fcd35430&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="DictCodec-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7f04d7b960d0&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
+<dl><dt><a name="JsonCodec-create"><strong>create</strong></a>(data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>A&nbsp;factory&nbsp;method&nbsp;to&nbsp;create&nbsp;an&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="JsonCodec-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7fe5fcd35430&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -165,13 +254,15 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__abstractmethods__</strong> = frozenset({'asdict', 'init'})</dl>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'asdict', 'create'})</dl>
 
 <dl><dt><strong>__hash__</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
-<dl><dt><a name="DictCodec-validate"><strong>validate</strong></a>(self, valid_attr: str = 'data') -&gt; None</dt><dd><tt>Validate&nbsp;an&nbsp;instance&nbsp;attribute&nbsp;based&nbsp;on&nbsp;this&nbsp;instance's&nbsp;schema.</tt></dd></dl>
+<dl><dt><a name="JsonCodec-__init__"><strong>__init__</strong></a>(self, schemas: vcorelib.schemas.base.SchemaMap, valid_attr: str = 'data') -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;object&nbsp;instance&nbsp;by&nbsp;performing&nbsp;schema&nbsp;validation.</tt></dd></dl>
+
+<dl><dt><a name="JsonCodec-validate"><strong>validate</strong></a>(self, valid_attr: str = 'data') -&gt; None</dt><dd><tt>Validate&nbsp;an&nbsp;instance&nbsp;attribute&nbsp;based&nbsp;on&nbsp;this&nbsp;instance's&nbsp;schema.</tt></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
@@ -189,5 +280,6 @@ Data and other attributes inherited from <a href="vcorelib.schemas.mixins.html#S
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>T</strong> = ~T</td></tr></table>
+<td width="100%"><strong>T</strong> = ~T<br>
+<strong>V</strong> = ~V</td></tr></table>
 </body></html>

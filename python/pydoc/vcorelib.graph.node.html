@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.graph.html"><font color="#ffffff">graph</font></a>.node</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/graph/node.py">/home/vkottler/git/workspace/vcorelib/vcorelib/graph/node.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/graph/node.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/graph/node.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;for&nbsp;working&nbsp;with&nbsp;graph&nbsp;nodes.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -45,13 +45,13 @@ A&nbsp;base&nbsp;implementation&nbsp;for&nbsp;a&nbsp;directed-graph&nbsp;node.<b
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="DiGraphNode-add_child"><strong>add_child</strong></a>(self, label: str, node: ~T = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;an&nbsp;edge&nbsp;between&nbsp;this&nbsp;node&nbsp;(source)&nbsp;and&nbsp;the&nbsp;other&nbsp;node<br>
+<dl><dt><a name="DiGraphNode-add_child"><strong>add_child</strong></a>(self, label: str, node: ~T = None, graph_kind: Type[~V] = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;an&nbsp;edge&nbsp;between&nbsp;this&nbsp;node&nbsp;(source)&nbsp;and&nbsp;the&nbsp;other&nbsp;node<br>
 (destination).</tt></dd></dl>
 
-<dl><dt><a name="DiGraphNode-add_parallel"><strong>add_parallel</strong></a>(self, label: str, node: ~T = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;a&nbsp;parallel&nbsp;edge&nbsp;between&nbsp;two&nbsp;nodes.&nbsp;This&nbsp;instance&nbsp;is&nbsp;used&nbsp;as<br>
+<dl><dt><a name="DiGraphNode-add_parallel"><strong>add_parallel</strong></a>(self, label: str, node: ~T = None, graph_kind: Type[~V] = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;a&nbsp;parallel&nbsp;edge&nbsp;between&nbsp;two&nbsp;nodes.&nbsp;This&nbsp;instance&nbsp;is&nbsp;used&nbsp;as<br>
 'node1'.</tt></dd></dl>
 
-<dl><dt><a name="DiGraphNode-add_parent"><strong>add_parent</strong></a>(self, label: str, node: ~T = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;an&nbsp;edge&nbsp;between&nbsp;this&nbsp;node&nbsp;(destination)&nbsp;and&nbsp;the&nbsp;other&nbsp;node<br>
+<dl><dt><a name="DiGraphNode-add_parent"><strong>add_parent</strong></a>(self, label: str, node: ~T = None, graph_kind: Type[~V] = None, **kwargs) -&gt; ~T</dt><dd><tt>Add&nbsp;an&nbsp;edge&nbsp;between&nbsp;this&nbsp;node&nbsp;(destination)&nbsp;and&nbsp;the&nbsp;other&nbsp;node<br>
 (source).</tt></dd></dl>
 
 <dl><dt><a name="DiGraphNode-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'TextIO'&gt;, **kwargs) -&gt; None</dt><dd><tt>Write&nbsp;this&nbsp;object&nbsp;to&nbsp;a&nbsp;text&nbsp;stream.</tt></dd></dl>
@@ -68,19 +68,18 @@ Methods inherited from <a href="vcorelib.graph.abc.html#AbstractDiGraphNode">vco
 
 <dl><dt><a name="DiGraphNode-allocate_port"><strong>allocate_port</strong></a>(self, label: str) -&gt; vcorelib.graph.port.Port</dt><dd><tt>Allocate&nbsp;a&nbsp;port&nbsp;on&nbsp;this&nbsp;node.</tt></dd></dl>
 
-<dl><dt><a name="DiGraphNode-incoming"><strong>incoming</strong></a>(self) -&gt; Iterator[~T]</dt><dd><tt>Iterate&nbsp;over&nbsp;nodes&nbsp;that&nbsp;have&nbsp;incoming&nbsp;edges.</tt></dd></dl>
+<dl><dt><a name="DiGraphNode-graph"><strong>graph</strong></a>(self, kind: Type[~V] = None) -&gt; ~V</dt><dd><tt>Get&nbsp;the&nbsp;graph&nbsp;that&nbsp;this&nbsp;node&nbsp;belongs&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="DiGraphNode-incoming"><strong>incoming</strong></a>(self, graph_kind: Type[~V] = None) -&gt; Iterator[~T]</dt><dd><tt>Iterate&nbsp;over&nbsp;nodes&nbsp;that&nbsp;have&nbsp;incoming&nbsp;edges.</tt></dd></dl>
 
 <dl><dt><a name="DiGraphNode-join_graph"><strong>join_graph</strong></a>(self, graph: ~V, label: str) -&gt; None</dt><dd><tt>Attempt&nbsp;to&nbsp;join&nbsp;a&nbsp;graph.</tt></dd></dl>
 
-<dl><dt><a name="DiGraphNode-outgoing"><strong>outgoing</strong></a>(self) -&gt; Iterator[~T]</dt><dd><tt>Iterate&nbsp;over&nbsp;nodes&nbsp;that&nbsp;we&nbsp;have&nbsp;outgoing&nbsp;edges&nbsp;to.</tt></dd></dl>
+<dl><dt><a name="DiGraphNode-outgoing"><strong>outgoing</strong></a>(self, graph_kind: Type[~V] = None) -&gt; Iterator[~T]</dt><dd><tt>Iterate&nbsp;over&nbsp;nodes&nbsp;that&nbsp;we&nbsp;have&nbsp;outgoing&nbsp;edges&nbsp;to.</tt></dd></dl>
 
 <dl><dt><a name="DiGraphNode-parallel"><strong>parallel</strong></a>(self) -&gt; Set[~T]</dt><dd><tt>Iterate&nbsp;over&nbsp;nodes&nbsp;that&nbsp;this&nbsp;instance&nbsp;shares&nbsp;parallel&nbsp;edges&nbsp;with.</tt></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="vcorelib.graph.abc.html#AbstractDiGraphNode">vcorelib.graph.abc.AbstractDiGraphNode</a>:<br>
-<dl><dt><strong>graph</strong></dt>
-<dd><tt>Get&nbsp;the&nbsp;graph&nbsp;that&nbsp;this&nbsp;node&nbsp;belongs&nbsp;to.</tt></dd>
-</dl>
 <dl><dt><strong>label</strong></dt>
 <dd><tt>Get&nbsp;this&nbsp;node's&nbsp;label.</tt></dd>
 </dl>

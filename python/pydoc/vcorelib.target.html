@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.target</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/target/__init__.py">/home/vkottler/git/workspace/vcorelib/vcorelib/target/__init__.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/target/__init__.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/target/__init__.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;defining&nbsp;an&nbsp;interface&nbsp;for&nbsp;dynamic&nbsp;task&nbsp;targets.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -47,7 +47,7 @@
 <font color="#000000" face="helvetica, arial"><a name="DynamicTargetEvaluator">class <strong>DynamicTargetEvaluator</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#DynamicTargetEvaluator">DynamicTargetEvaluator</a>(original:&nbsp;str,&nbsp;pattern:&nbsp;re.Pattern,&nbsp;keys:&nbsp;List[str],&nbsp;markers:&nbsp;List[Tuple[int,&nbsp;int]])<br>
+<td colspan=2><tt><a href="#DynamicTargetEvaluator">DynamicTargetEvaluator</a>(original:&nbsp;'str',&nbsp;pattern:&nbsp;'re.Pattern[str]',&nbsp;keys:&nbsp;'_List[str]',&nbsp;markers:&nbsp;'_List[_Tuple[int,&nbsp;int]]')<br>
 &nbsp;<br>
 A&nbsp;regular&nbsp;expression&nbsp;configured&nbsp;to&nbsp;match&nbsp;as&nbsp;many&nbsp;groups&nbsp;as&nbsp;in&nbsp;the&nbsp;provided<br>
 keys.&nbsp;When&nbsp;the&nbsp;pattern&nbsp;matches&nbsp;some&nbsp;data,&nbsp;the&nbsp;names&nbsp;of&nbsp;the&nbsp;keys&nbsp;can&nbsp;become<br>
@@ -68,7 +68,7 @@ Methods defined here:<br>
 
 <dl><dt><a name="DynamicTargetEvaluator-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#DynamicTargetEvaluator">DynamicTargetEvaluator</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
 
-<dl><dt><a name="DynamicTargetEvaluator-compile"><strong>compile</strong></a>(self, values: Dict[str, str]) -&gt; str</dt><dd><tt>Build&nbsp;a&nbsp;string&nbsp;from&nbsp;this&nbsp;target&nbsp;with&nbsp;values&nbsp;replaced&nbsp;for&nbsp;keys&nbsp;that<br>
+<dl><dt><a name="DynamicTargetEvaluator-compile"><strong>compile</strong></a>(self, values: 'Substitutions') -&gt; 'str'</dt><dd><tt>Build&nbsp;a&nbsp;string&nbsp;from&nbsp;this&nbsp;target&nbsp;with&nbsp;values&nbsp;replaced&nbsp;for&nbsp;keys&nbsp;that<br>
 appeared&nbsp;in&nbsp;the&nbsp;original&nbsp;string.</tt></dd></dl>
 
 <hr>
@@ -77,7 +77,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="DynamicTargetEvaluator-__new__"><strong>__new__</strong></a>(_cls, original: str, pattern: re.Pattern, keys: List[str], markers: List[Tuple[int, int]])</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#DynamicTargetEvaluator">DynamicTargetEvaluator</a>(original,&nbsp;pattern,&nbsp;keys,&nbsp;markers)</tt></dd></dl>
+<dl><dt><a name="DynamicTargetEvaluator-__new__"><strong>__new__</strong></a>(_cls, original: 'str', pattern: 're.Pattern[str]', keys: '_List[str]', markers: '_List[_Tuple[int, int]]')</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#DynamicTargetEvaluator">DynamicTargetEvaluator</a>(original,&nbsp;pattern,&nbsp;keys,&nbsp;markers)</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -95,11 +95,11 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'keys': typing.List[str], 'markers': typing.List[typing.Tuple[int, int]], 'original': &lt;class 'str'&gt;, 'pattern': &lt;class 're.Pattern'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'keys': ForwardRef('_List[str]'), 'markers': ForwardRef('_List[_Tuple[int, int]]'), 'original': ForwardRef('str'), 'pattern': ForwardRef('re.Pattern[str]')}</dl>
 
 <dl><dt><strong>_field_defaults</strong> = {}</dl>
 
-<dl><dt><strong>_field_types</strong> = {'keys': typing.List[str], 'markers': typing.List[typing.Tuple[int, int]], 'original': &lt;class 'str'&gt;, 'pattern': &lt;class 're.Pattern'&gt;}</dl>
+<dl><dt><strong>_field_types</strong> = {'keys': ForwardRef('_List[str]'), 'markers': ForwardRef('_List[_Tuple[int, int]]'), 'original': ForwardRef('str'), 'pattern': ForwardRef('re.Pattern[str]')}</dl>
 
 <dl><dt><strong>_fields</strong> = ('original', 'pattern', 'keys', 'markers')</dl>
 
@@ -150,30 +150,30 @@ Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present
 <font color="#000000" face="helvetica, arial"><a name="Target">class <strong>Target</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#Target">Target</a>(data:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#Target">Target</a>(data:&nbsp;'str')&nbsp;-&amp;gt;&nbsp;'None'<br>
 &nbsp;<br>
 An&nbsp;interface&nbsp;for&nbsp;string&nbsp;targets&nbsp;that&nbsp;may&nbsp;encode&nbsp;data&nbsp;substitutions&nbsp;or<br>
 otherwise&nbsp;be&nbsp;matched&nbsp;to&nbsp;only&nbsp;a&nbsp;single,&nbsp;literal&nbsp;string.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Target-__eq__"><strong>__eq__</strong></a>(self, other: object) -&gt; bool</dt><dd><tt>Check&nbsp;if&nbsp;two&nbsp;targets&nbsp;are&nbsp;equal.</tt></dd></dl>
+<dl><dt><a name="Target-__eq__"><strong>__eq__</strong></a>(self, other: 'object') -&gt; 'bool'</dt><dd><tt>Check&nbsp;if&nbsp;two&nbsp;targets&nbsp;are&nbsp;equal.</tt></dd></dl>
 
-<dl><dt><a name="Target-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Get&nbsp;the&nbsp;hash&nbsp;for&nbsp;this&nbsp;target.</tt></dd></dl>
+<dl><dt><a name="Target-__hash__"><strong>__hash__</strong></a>(self) -&gt; 'int'</dt><dd><tt>Get&nbsp;the&nbsp;hash&nbsp;for&nbsp;this&nbsp;target.</tt></dd></dl>
 
-<dl><dt><a name="Target-__init__"><strong>__init__</strong></a>(self, data: str) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;target.</tt></dd></dl>
+<dl><dt><a name="Target-__init__"><strong>__init__</strong></a>(self, data: 'str') -&gt; 'None'</dt><dd><tt>Initialize&nbsp;this&nbsp;target.</tt></dd></dl>
 
-<dl><dt><a name="Target-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;target&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
+<dl><dt><a name="Target-__str__"><strong>__str__</strong></a>(self) -&gt; 'str'</dt><dd><tt>Get&nbsp;this&nbsp;target&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Target-compile"><strong>compile</strong></a>(self, substitutions: Dict[str, str] = None) -&gt; str</dt><dd><tt>Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;target&nbsp;literal&nbsp;from&nbsp;this&nbsp;target&nbsp;and&nbsp;optional<br>
+<dl><dt><a name="Target-compile"><strong>compile</strong></a>(self, substitutions: 'Substitutions' = None) -&gt; 'str'</dt><dd><tt>Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;target&nbsp;literal&nbsp;from&nbsp;this&nbsp;target&nbsp;and&nbsp;optional<br>
 substitutions.</tt></dd></dl>
 
-<dl><dt><a name="Target-evaluate"><strong>evaluate</strong></a>(self, data: str) -&gt; vcorelib.target.TargetMatch</dt><dd><tt>Attempt&nbsp;to&nbsp;match&nbsp;this&nbsp;target&nbsp;with&nbsp;some&nbsp;string&nbsp;data.</tt></dd></dl>
+<dl><dt><a name="Target-evaluate"><strong>evaluate</strong></a>(self, data: 'str') -&gt; 'TargetMatch'</dt><dd><tt>Attempt&nbsp;to&nbsp;match&nbsp;this&nbsp;target&nbsp;with&nbsp;some&nbsp;string&nbsp;data.</tt></dd></dl>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="Target-is_literal"><strong>is_literal</strong></a>(data: str) -&gt; bool<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;target&nbsp;is&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;literal&nbsp;or&nbsp;not.</tt></dd></dl>
+<dl><dt><a name="Target-is_literal"><strong>is_literal</strong></a>(data: 'str') -&gt; 'bool'<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;target&nbsp;is&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;literal&nbsp;or&nbsp;not.</tt></dd></dl>
 
-<dl><dt><a name="Target-parse"><strong>parse</strong></a>(data: str) -&gt; Union[vcorelib.target.DynamicTargetEvaluator, NoneType]<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Obtain&nbsp;a&nbsp;compiled&nbsp;target&nbsp;evaluator&nbsp;if&nbsp;data&nbsp;is&nbsp;a&nbsp;dynamic&nbsp;target,&nbsp;else<br>
+<dl><dt><a name="Target-parse"><strong>parse</strong></a>(data: 'str') -&gt; '_Optional[DynamicTargetEvaluator]'<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Obtain&nbsp;a&nbsp;compiled&nbsp;target&nbsp;evaluator&nbsp;if&nbsp;data&nbsp;is&nbsp;a&nbsp;dynamic&nbsp;target,&nbsp;else<br>
 None.</tt></dd></dl>
 
 <hr>
@@ -199,7 +199,7 @@ Data and other attributes defined here:<br>
 <font color="#000000" face="helvetica, arial"><a name="TargetMatch">class <strong>TargetMatch</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#TargetMatch">TargetMatch</a>(matched:&nbsp;bool,&nbsp;substitutions:&nbsp;Union[Dict[str,&nbsp;str],&nbsp;NoneType]&nbsp;=&nbsp;None)<br>
+<td colspan=2><tt><a href="#TargetMatch">TargetMatch</a>(matched:&nbsp;'bool',&nbsp;substitutions:&nbsp;'_Optional[Substitutions]'&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 An&nbsp;encapsulation&nbsp;of&nbsp;results&nbsp;when&nbsp;attempting&nbsp;to&nbsp;patch&nbsp;a&nbsp;target&nbsp;name&nbsp;to&nbsp;a<br>
 pattern.&nbsp;If&nbsp;a&nbsp;target&nbsp;was&nbsp;matched&nbsp;and&nbsp;had&nbsp;keyword&nbsp;substitutions,&nbsp;the&nbsp;actual<br>
@@ -220,7 +220,7 @@ Methods defined here:<br>
 
 <dl><dt><a name="TargetMatch-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#TargetMatch">TargetMatch</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
 
-<dl><dt><a name="TargetMatch-get"><strong>get</strong></a>(self, data: str) -&gt; str</dt><dd><tt>Get&nbsp;data&nbsp;for&nbsp;keys&nbsp;that&nbsp;matched&nbsp;the&nbsp;target.</tt></dd></dl>
+<dl><dt><a name="TargetMatch-get"><strong>get</strong></a>(self, data: 'str') -&gt; 'str'</dt><dd><tt>Get&nbsp;data&nbsp;for&nbsp;keys&nbsp;that&nbsp;matched&nbsp;the&nbsp;target.</tt></dd></dl>
 
 <hr>
 Class methods defined here:<br>
@@ -228,7 +228,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="TargetMatch-__new__"><strong>__new__</strong></a>(_cls, matched: bool, substitutions: Union[Dict[str, str], NoneType] = None)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#TargetMatch">TargetMatch</a>(matched,&nbsp;substitutions)</tt></dd></dl>
+<dl><dt><a name="TargetMatch-__new__"><strong>__new__</strong></a>(_cls, matched: 'bool', substitutions: '_Optional[Substitutions]' = None)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#TargetMatch">TargetMatch</a>(matched,&nbsp;substitutions)</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -240,11 +240,11 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'matched': &lt;class 'bool'&gt;, 'substitutions': typing.Union[typing.Dict[str, str], NoneType]}</dl>
+<dl><dt><strong>__annotations__</strong> = {'matched': ForwardRef('bool'), 'substitutions': ForwardRef('_Optional[Substitutions]')}</dl>
 
 <dl><dt><strong>_field_defaults</strong> = {'substitutions': None}</dl>
 
-<dl><dt><strong>_field_types</strong> = {'matched': &lt;class 'bool'&gt;, 'substitutions': typing.Union[typing.Dict[str, str], NoneType]}</dl>
+<dl><dt><strong>_field_types</strong> = {'matched': ForwardRef('bool'), 'substitutions': ForwardRef('_Optional[Substitutions]')}</dl>
 
 <dl><dt><strong>_fields</strong> = ('matched', 'substitutions')</dl>
 
@@ -297,5 +297,6 @@ Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>LITERAL_MATCH</strong> = TargetMatch(matched=True, substitutions=None)<br>
 <strong>NO_MATCH</strong> = TargetMatch(matched=False, substitutions=None)<br>
-<strong>Substitutions</strong> = typing.Dict[str, str]</td></tr></table>
+<strong>Substitutions</strong> = typing.Dict[str, typing.Union[str, int]]<br>
+<strong>annotations</strong> = _Feature((3, 7, 0, 'beta', 1), (3, 10, 0, 'alpha', 0), 16777216)</td></tr></table>
 </body></html>

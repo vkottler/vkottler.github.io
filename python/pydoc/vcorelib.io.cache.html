@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.io.html"><font color="#ffffff">io</font></a>.cache</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/io/cache.py">/home/vkottler/git/workspace/vcorelib/vcorelib/io/cache.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/cache.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/cache.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;for&nbsp;cache&nbsp;implementations&nbsp;-&nbsp;conforming&nbsp;to&nbsp;package-wide,&nbsp;data-structure<br>
 constraints&nbsp;and&nbsp;assumptions.</tt></p>
 <p>
@@ -22,7 +22,19 @@ constraints&nbsp;and&nbsp;assumptions.</tt></p>
 <dt><font face="helvetica, arial"><a href="collections.html#UserDict">collections.UserDict</a>(<a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>)
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.io.cache.html#FlatDirectoryCache">FlatDirectoryCache</a>
+<dt><font face="helvetica, arial"><a href="vcorelib.io.cache.html#FlatDirectoryCache">FlatDirectoryCache</a>(<a href="collections.html#UserDict">collections.UserDict</a>, <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>(<a href="collections.abc.html#Mapping">collections.abc.Mapping</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.io.cache.html#FlatDirectoryCache">FlatDirectoryCache</a>(<a href="collections.html#UserDict">collections.UserDict</a>, <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="typing.html#Generic">typing.Generic</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.io.cache.html#FlatDirectoryCache">FlatDirectoryCache</a>(<a href="collections.html#UserDict">collections.UserDict</a>, <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>, <a href="typing.html#Generic">typing.Generic</a>)
 </font></dt></dl>
 </dd>
 </dl>
@@ -30,10 +42,10 @@ constraints&nbsp;and&nbsp;assumptions.</tt></p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="FlatDirectoryCache">class <strong>FlatDirectoryCache</strong></a>(<a href="collections.html#UserDict">collections.UserDict</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="FlatDirectoryCache">class <strong>FlatDirectoryCache</strong></a>(<a href="collections.html#UserDict">collections.UserDict</a>, <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>, <a href="typing.html#Generic">typing.Generic</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#FlatDirectoryCache">FlatDirectoryCache</a>(root:&nbsp;pathlib.Path,&nbsp;initialdata:&nbsp;dict&nbsp;=&nbsp;None,&nbsp;archive_encoding:&nbsp;str&nbsp;=&nbsp;'tar.gz',&nbsp;data_encoding:&nbsp;str&nbsp;=&nbsp;'json',&nbsp;arbiter:&nbsp;vcorelib.io.DataArbiter&nbsp;=&nbsp;&amp;lt;vcorelib.io.DataArbiter&nbsp;object&nbsp;at&nbsp;0x7f32ef8ae970&amp;gt;,&nbsp;**load_kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#FlatDirectoryCache">FlatDirectoryCache</a>(*args,&nbsp;**kwds)<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;implementing&nbsp;a&nbsp;dictionary&nbsp;that&nbsp;can&nbsp;be&nbsp;saved&nbsp;and&nbsp;loaded&nbsp;from&nbsp;disk,<br>
 with&nbsp;a&nbsp;specified&nbsp;encoding&nbsp;scheme.<br>&nbsp;</tt></td></tr>
@@ -47,17 +59,18 @@ with&nbsp;a&nbsp;specified&nbsp;encoding&nbsp;scheme.<br>&nbsp;</tt></td></tr>
 <dd><a href="collections.abc.html#Sized">collections.abc.Sized</a></dd>
 <dd><a href="collections.abc.html#Iterable">collections.abc.Iterable</a></dd>
 <dd><a href="collections.abc.html#Container">collections.abc.Container</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FlatDirectoryCache-__init__"><strong>__init__</strong></a>(self, root: pathlib.Path, initialdata: dict = None, archive_encoding: str = 'tar.gz', data_encoding: str = 'json', arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7f32ef8ae970&gt;, **load_kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;data&nbsp;cache.</tt></dd></dl>
+<dl><dt><a name="FlatDirectoryCache-__init__"><strong>__init__</strong></a>(self, root: pathlib.Path, initialdata: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, archive_encoding: str = 'tar.gz', data_encoding: str = 'json', arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7f5a6c175610&gt;, **load_kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;data&nbsp;cache.</tt></dd></dl>
 
 <dl><dt><a name="FlatDirectoryCache-clean"><strong>clean</strong></a>(self, path: pathlib.Path = None, logger: logging.Logger = None, level: int = 10) -&gt; None</dt><dd><tt>Remove&nbsp;cached&nbsp;data&nbsp;from&nbsp;disk.</tt></dd></dl>
 
-<dl><dt><a name="FlatDirectoryCache-load"><strong>load</strong></a>(self, path: pathlib.Path = None, logger: logging.Logger = None, level: int = 10, **kwargs) -&gt; Dict[str, dict]</dt><dd><tt>Load&nbsp;data&nbsp;from&nbsp;disk.</tt></dd></dl>
+<dl><dt><a name="FlatDirectoryCache-load"><strong>load</strong></a>(self, path: pathlib.Path = None, logger: logging.Logger = None, level: int = 10, **kwargs) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Load&nbsp;data&nbsp;from&nbsp;disk.</tt></dd></dl>
 
-<dl><dt><a name="FlatDirectoryCache-load_directory"><strong>load_directory</strong></a>(self, path: Union[pathlib.Path, str, NoneType], data: Dict[str, dict], **kwargs) -&gt; int</dt><dd><tt>Load&nbsp;a&nbsp;directory&nbsp;and&nbsp;update&nbsp;data,&nbsp;return&nbsp;time&nbsp;taken&nbsp;to&nbsp;load.</tt></dd></dl>
+<dl><dt><a name="FlatDirectoryCache-load_directory"><strong>load_directory</strong></a>(self, path: Union[pathlib.Path, str, NoneType], data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], **kwargs) -&gt; int</dt><dd><tt>Load&nbsp;a&nbsp;directory&nbsp;and&nbsp;update&nbsp;data,&nbsp;return&nbsp;time&nbsp;taken&nbsp;to&nbsp;load.</tt></dd></dl>
 
 <dl><dt><a name="FlatDirectoryCache-save"><strong>save</strong></a>(self, path: pathlib.Path = None, logger: logging.Logger = None, level: int = 10, archive: bool = False, **kwargs) -&gt; None</dt><dd><tt>Save&nbsp;data&nbsp;to&nbsp;disk.</tt></dd></dl>
 
@@ -66,6 +79,10 @@ Methods defined here:<br>
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (&lt;class 'collections.UserDict'&gt;, typing.MutableMapping[str, typing.Union[str, int...[typing.Union[str, int, float, bool, NoneType]]]])</dl>
+
+<dl><dt><strong>__parameters__</strong> = ()</dl>
 
 <hr>
 Methods inherited from <a href="collections.html#UserDict">collections.UserDict</a>:<br>
@@ -103,7 +120,7 @@ Data descriptors inherited from <a href="collections.html#UserDict">collections.
 Methods inherited from <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>:<br>
 <dl><dt><a name="FlatDirectoryCache-clear"><strong>clear</strong></a>(self)</dt><dd><tt>D.<a href="#FlatDirectoryCache-clear">clear</a>()&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Remove&nbsp;all&nbsp;items&nbsp;from&nbsp;D.</tt></dd></dl>
 
-<dl><dt><a name="FlatDirectoryCache-pop"><strong>pop</strong></a>(self, key, default=&lt;object object at 0x7f32f074a150&gt;)</dt><dd><tt>D.<a href="#FlatDirectoryCache-pop">pop</a>(k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;remove&nbsp;specified&nbsp;key&nbsp;and&nbsp;return&nbsp;the&nbsp;corresponding&nbsp;value.<br>
+<dl><dt><a name="FlatDirectoryCache-pop"><strong>pop</strong></a>(self, key, default=&lt;object object at 0x7f5a6d00a150&gt;)</dt><dd><tt>D.<a href="#FlatDirectoryCache-pop">pop</a>(k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;remove&nbsp;specified&nbsp;key&nbsp;and&nbsp;return&nbsp;the&nbsp;corresponding&nbsp;value.<br>
 If&nbsp;key&nbsp;is&nbsp;not&nbsp;found,&nbsp;d&nbsp;is&nbsp;returned&nbsp;if&nbsp;given,&nbsp;otherwise&nbsp;KeyError&nbsp;is&nbsp;raised.</tt></dd></dl>
 
 <dl><dt><a name="FlatDirectoryCache-popitem"><strong>popitem</strong></a>(self)</dt><dd><tt>D.<a href="#FlatDirectoryCache-popitem">popitem</a>()&nbsp;-&gt;&nbsp;(k,&nbsp;v),&nbsp;remove&nbsp;and&nbsp;return&nbsp;some&nbsp;(key,&nbsp;value)&nbsp;pair<br>
@@ -142,6 +159,19 @@ This&nbsp;is&nbsp;invoked&nbsp;early&nbsp;on&nbsp;by&nbsp;abc.ABCMeta.__subclass
 It&nbsp;should&nbsp;return&nbsp;True,&nbsp;False&nbsp;or&nbsp;NotImplemented.&nbsp;&nbsp;If&nbsp;it&nbsp;returns<br>
 NotImplemented,&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;is&nbsp;used.&nbsp;&nbsp;Otherwise,&nbsp;it<br>
 overrides&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;(and&nbsp;the&nbsp;outcome&nbsp;is&nbsp;cached).</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="FlatDirectoryCache-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt></dl>
+
+<dl><dt><a name="FlatDirectoryCache-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="FlatDirectoryCache-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
 
 </td></tr></table></td></tr></table>
 </body></html>

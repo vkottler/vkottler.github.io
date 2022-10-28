@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.environment.html"><font color="#ffffff">environment</font></a>.render</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/environment/render.py">/home/vkottler/git/workspace/datazen/datazen/environment/render.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/environment/render.py">/home/vkottler/Documents/git/workspace/datazen/datazen/environment/render.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;An&nbsp;environment&nbsp;extension&nbsp;that&nbsp;exposes&nbsp;rendering&nbsp;capabilities.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -62,11 +62,11 @@ Leverages&nbsp;a&nbsp;cache-equipped&nbsp;environment&nbsp;to&nbsp;render&nbsp;t
 Methods defined here:<br>
 <dl><dt><a name="RenderEnvironment-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>Add&nbsp;the&nbsp;'renders'&nbsp;handle.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-perform_render"><strong>perform_render</strong></a>(self, template: jinja2.environment.Template, all_templates: Dict[str, jinja2.environment.Template], path: Union[str, NoneType], entry: dict, data: dict = None, logger: logging.Logger = &lt;Logger datazen.environment.render (WARNING)&gt;) -&gt; datazen.environment.base.TaskResult</dt><dd><tt>Render&nbsp;a&nbsp;template&nbsp;to&nbsp;the&nbsp;requested&nbsp;path&nbsp;using&nbsp;the&nbsp;provided&nbsp;data.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-perform_render"><strong>perform_render</strong></a>(self, template: jinja2.environment.Template, all_templates: Dict[str, jinja2.environment.Template], path: Union[str, NoneType], entry: Dict[str, Any], data: Dict[str, Any] = None, logger: logging.Logger = &lt;Logger datazen.environment.render (WARNING)&gt;) -&gt; datazen.environment.base.TaskResult</dt><dd><tt>Render&nbsp;a&nbsp;template&nbsp;to&nbsp;the&nbsp;requested&nbsp;path&nbsp;using&nbsp;the&nbsp;provided&nbsp;data.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-store_render"><strong>store_render</strong></a>(self, entry: dict, data: dict) -&gt; None</dt><dd><tt>Store&nbsp;data&nbsp;from&nbsp;the&nbsp;current&nbsp;render.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-store_render"><strong>store_render</strong></a>(self, entry: Dict[str, Any], data: Dict[str, Any]) -&gt; None</dt><dd><tt>Store&nbsp;data&nbsp;from&nbsp;the&nbsp;current&nbsp;render.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-valid_render"><strong>valid_render</strong></a>(self, entry: dict, namespace: str, dep_data: dict = None, deps_changed: List[str] = None, logger: logging.Logger = &lt;Logger datazen.environment.render (WARNING)&gt;) -&gt; datazen.environment.base.TaskResult</dt><dd><tt>Perform&nbsp;the&nbsp;render&nbsp;specified&nbsp;by&nbsp;the&nbsp;entry.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-valid_render"><strong>valid_render</strong></a>(self, entry: Dict[str, Any], namespace: str, dep_data: Dict[str, Any] = None, deps_changed: List[str] = None, logger: logging.Logger = &lt;Logger datazen.environment.render (WARNING)&gt;) -&gt; datazen.environment.base.TaskResult</dt><dd><tt>Perform&nbsp;the&nbsp;render&nbsp;specified&nbsp;by&nbsp;the&nbsp;entry.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="datazen.environment.task.html#TaskEnvironment">datazen.environment.task.TaskEnvironment</a>:<br>
@@ -75,10 +75,10 @@ information&nbsp;about&nbsp;why&nbsp;not.</tt></dd></dl>
 
 <dl><dt><a name="RenderEnvironment-clean_cache"><strong>clean_cache</strong></a>(self, purge_data: bool = True) -&gt; None</dt><dd><tt>Remove&nbsp;cached&nbsp;data&nbsp;from&nbsp;the&nbsp;file-system.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-get_dep_data"><strong>get_dep_data</strong></a>(self, dep_list: List[str], logger: logging.Logger = &lt;Logger datazen.environment.task (WARNING)&gt;) -&gt; dict</dt><dd><tt>From&nbsp;a&nbsp;list&nbsp;of&nbsp;dependencies,&nbsp;create&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;any&nbsp;task&nbsp;data<br>
+<dl><dt><a name="RenderEnvironment-get_dep_data"><strong>get_dep_data</strong></a>(self, dep_list: List[str], logger: logging.Logger = &lt;Logger datazen.environment.task (WARNING)&gt;) -&gt; Dict[str, Any]</dt><dd><tt>From&nbsp;a&nbsp;list&nbsp;of&nbsp;dependencies,&nbsp;create&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;any&nbsp;task&nbsp;data<br>
 they've&nbsp;saved.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-get_manifest_entry"><strong>get_manifest_entry</strong></a>(self, category: str, name: str) -&gt; dict</dt><dd><tt>Get&nbsp;an&nbsp;entry&nbsp;from&nbsp;the&nbsp;manifest.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-get_manifest_entry"><strong>get_manifest_entry</strong></a>(self, category: str, name: str) -&gt; Dict[str, Any]</dt><dd><tt>Get&nbsp;an&nbsp;entry&nbsp;from&nbsp;the&nbsp;manifest.</tt></dd></dl>
 
 <dl><dt><a name="RenderEnvironment-handle_task"><strong>handle_task</strong></a>(self, key_name: str, target: str, task_stack: List[datazen.environment.base.Task] = None, should_cache: bool = True) -&gt; datazen.environment.base.TaskResult</dt><dd><tt>Handle&nbsp;the&nbsp;setup&nbsp;for&nbsp;manifest&nbsp;tasks,&nbsp;such&nbsp;as&nbsp;loading&nbsp;additional&nbsp;data<br>
 directories&nbsp;and&nbsp;setting&nbsp;the&nbsp;correct&nbsp;output&nbsp;directory.</tt></dd></dl>
@@ -93,11 +93,11 @@ directories&nbsp;and&nbsp;setting&nbsp;the&nbsp;correct&nbsp;output&nbsp;directo
 
 <dl><dt><a name="RenderEnvironment-resolve"><strong>resolve</strong></a>(self, operation: str, target: str, should_cache: bool, is_new: bool) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;target&nbsp;for&nbsp;an&nbsp;operation&nbsp;as&nbsp;resolved.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, dep_list: List[str], task_stack: List[datazen.environment.base.Task], target: str, logger: logging.Logger = &lt;Logger datazen.environment.task (WARNING)&gt;) -&gt; Tuple[bool, dict, List[str]]</dt><dd><tt>Execute&nbsp;the&nbsp;entire&nbsp;chain&nbsp;of&nbsp;dependencies&nbsp;for&nbsp;a&nbsp;task,&nbsp;return&nbsp;the<br>
+<dl><dt><a name="RenderEnvironment-resolve_dependencies"><strong>resolve_dependencies</strong></a>(self, dep_list: List[str], task_stack: List[datazen.environment.base.Task], target: str, logger: logging.Logger = &lt;Logger datazen.environment.task (WARNING)&gt;) -&gt; Tuple[bool, Dict[str, Any], List[str]]</dt><dd><tt>Execute&nbsp;the&nbsp;entire&nbsp;chain&nbsp;of&nbsp;dependencies&nbsp;for&nbsp;a&nbsp;task,&nbsp;return&nbsp;the<br>
 aggregate&nbsp;result&nbsp;as&nbsp;a&nbsp;boolean&nbsp;as&nbsp;well&nbsp;as&nbsp;the&nbsp;dependency&nbsp;data&nbsp;and&nbsp;which<br>
 dependencies&nbsp;changed.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-valid_noop"><strong>valid_noop</strong></a>(self, entry: dict, _: str, __: dict = None, ___: List[str] = None, logger: logging.Logger = &lt;Logger datazen.environment.task (WARNING)&gt;) -&gt; datazen.environment.base.TaskResult</dt><dd><tt>Default&nbsp;handle&nbsp;for&nbsp;a&nbsp;potentially-unregistered&nbsp;operation.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-valid_noop"><strong>valid_noop</strong></a>(self, entry: Dict[str, Any], _: str, __: Dict[str, Any] = None, ___: List[str] = None, logger: logging.Logger = &lt;Logger datazen.environment.task (WARNING)&gt;) -&gt; datazen.environment.base.TaskResult</dt><dd><tt>Default&nbsp;handle&nbsp;for&nbsp;a&nbsp;potentially-unregistered&nbsp;operation.</tt></dd></dl>
 
 <dl><dt><a name="RenderEnvironment-write_cache"><strong>write_cache</strong></a>(self) -&gt; None</dt><dd><tt>Commit&nbsp;cached&nbsp;data&nbsp;to&nbsp;the&nbsp;file-system.</tt></dd></dl>
 
@@ -108,11 +108,11 @@ Readonly properties inherited from <a href="datazen.environment.task.html#TaskEn
 </dl>
 <hr>
 Methods inherited from <a href="datazen.environment.manifest_cache.html#ManifestCacheEnvironment">datazen.environment.manifest_cache.ManifestCacheEnvironment</a>:<br>
-<dl><dt><a name="RenderEnvironment-cached_enforce_schemas"><strong>cached_enforce_schemas</strong></a>(self, data: dict, require_all: bool = True, name: str = '__root__') -&gt; bool</dt><dd><tt>Enforce&nbsp;schemas,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-cached_enforce_schemas"><strong>cached_enforce_schemas</strong></a>(self, data: Dict[str, Any], require_all: bool = True, name: str = '__root__') -&gt; bool</dt><dd><tt>Enforce&nbsp;schemas,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
 
 <dl><dt><a name="RenderEnvironment-cached_load_configs"><strong>cached_load_configs</strong></a>(self, name: str = '__root__', enforce_schemas: bool = True) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;configs,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-cached_load_schemas"><strong>cached_load_schemas</strong></a>(self, require_all: bool = True, name: str = '__root__') -&gt; dict</dt><dd><tt>Load&nbsp;schemas,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-cached_load_schemas"><strong>cached_load_schemas</strong></a>(self, require_all: bool = True, name: str = '__root__') -&gt; Dict[str, Any]</dt><dd><tt>Load&nbsp;schemas,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
 
 <dl><dt><a name="RenderEnvironment-cached_load_templates"><strong>cached_load_templates</strong></a>(self, name: str = '__root__') -&gt; Dict[str, jinja2.environment.Template]</dt><dd><tt>Load&nbsp;templates,&nbsp;proxied&nbsp;through&nbsp;the&nbsp;cache.</tt></dd></dl>
 
@@ -133,17 +133,17 @@ Methods inherited from <a href="datazen.environment.manifest.html#ManifestEnviro
 <dl><dt><a name="RenderEnvironment-default_target"><strong>default_target</strong></a>(self) -&gt; str</dt><dd><tt>Retrieve&nbsp;a&nbsp;configured&nbsp;default&nbsp;target&nbsp;for&nbsp;a&nbsp;manifest,&nbsp;otherwise&nbsp;an<br>
 empty&nbsp;String.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-load_dirs"><strong>load_dirs</strong></a>(self, data: dict, rel_path: str, namespace: str = '__root__', allow_dup: bool = False, load_defaults: bool = True) -&gt; None</dt><dd><tt>Looks&nbsp;for&nbsp;keys&nbsp;matching&nbsp;types&nbsp;of&nbsp;directories&nbsp;that&nbsp;can&nbsp;be&nbsp;loaded<br>
+<dl><dt><a name="RenderEnvironment-load_dirs"><strong>load_dirs</strong></a>(self, data: Dict[str, Any], rel_path: str, namespace: str = '__root__', allow_dup: bool = False, load_defaults: bool = True) -&gt; None</dt><dd><tt>Looks&nbsp;for&nbsp;keys&nbsp;matching&nbsp;types&nbsp;of&nbsp;directories&nbsp;that&nbsp;can&nbsp;be&nbsp;loaded<br>
 into&nbsp;an&nbsp;environment&nbsp;and&nbsp;tries&nbsp;to&nbsp;load&nbsp;them.</tt></dd></dl>
 
 <dl><dt><a name="RenderEnvironment-load_manifest"><strong>load_manifest</strong></a>(self, path: str = 'manifest.yaml', logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;load&nbsp;manifest&nbsp;data&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-load_manifest_reent"><strong>load_manifest_reent</strong></a>(self, path: str, manifest_dir: str, params: dict, files: List[str], logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; Tuple[dict, bool]</dt><dd><tt>Load&nbsp;a&nbsp;manifest&nbsp;recursively&nbsp;by&nbsp;resolving&nbsp;includes&nbsp;and&nbsp;merging&nbsp;the<br>
+<dl><dt><a name="RenderEnvironment-load_manifest_reent"><strong>load_manifest_reent</strong></a>(self, path: str, manifest_dir: str, params: Dict[Any, Any], files: List[str], logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; Tuple[Dict[str, Any], bool]</dt><dd><tt>Load&nbsp;a&nbsp;manifest&nbsp;recursively&nbsp;by&nbsp;resolving&nbsp;includes&nbsp;and&nbsp;merging&nbsp;the<br>
 results.</tt></dd></dl>
 
 <hr>
 Static methods inherited from <a href="datazen.environment.manifest.html#ManifestEnvironment">datazen.environment.manifest.ManifestEnvironment</a>:<br>
-<dl><dt><a name="RenderEnvironment-update_task_dirs"><strong>update_task_dirs</strong></a>(data: dict, rel_path: str) -&gt; None</dt><dd><tt>Update&nbsp;path&nbsp;definitions&nbsp;in&nbsp;the&nbsp;provided&nbsp;manifest&nbsp;chunk&nbsp;to&nbsp;respect&nbsp;a<br>
+<dl><dt><a name="RenderEnvironment-update_task_dirs"><strong>update_task_dirs</strong></a>(data: Dict[str, Any], rel_path: str) -&gt; None</dt><dd><tt>Update&nbsp;path&nbsp;definitions&nbsp;in&nbsp;the&nbsp;provided&nbsp;manifest&nbsp;chunk&nbsp;to&nbsp;respect&nbsp;a<br>
 relative&nbsp;path&nbsp;(e.g.&nbsp;the&nbsp;directory&nbsp;that&nbsp;the&nbsp;manifest&nbsp;chunk&nbsp;was&nbsp;loaded<br>
 from).</tt></dd></dl>
 
@@ -174,12 +174,12 @@ Methods inherited from <a href="datazen.environment.schema.html#SchemaEnvironmen
 <dl><dt><a name="RenderEnvironment-add_schema_type_dirs"><strong>add_schema_type_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;directories&nbsp;containing&nbsp;schema-type&nbsp;data&nbsp;(to&nbsp;be&nbsp;registered&nbsp;at<br>
 runtime).</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-enforce_schemas"><strong>enforce_schemas</strong></a>(self, data: dict, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; bool</dt><dd><tt>Perform&nbsp;schema-validation&nbsp;on&nbsp;provided&nbsp;data&nbsp;and&nbsp;return&nbsp;the&nbsp;boolean<br>
+<dl><dt><a name="RenderEnvironment-enforce_schemas"><strong>enforce_schemas</strong></a>(self, data: Dict[str, Any], require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; bool</dt><dd><tt>Perform&nbsp;schema-validation&nbsp;on&nbsp;provided&nbsp;data&nbsp;and&nbsp;return&nbsp;the&nbsp;boolean<br>
 result.&nbsp;Adds&nbsp;(and&nbsp;removes)&nbsp;namespaced&nbsp;types&nbsp;if&nbsp;applicable.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-load_schema_types"><strong>load_schema_types</strong></a>(self, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; dict</dt><dd><tt>Load&nbsp;custom&nbsp;schema&nbsp;types&nbsp;and&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;directories.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-load_schema_types"><strong>load_schema_types</strong></a>(self, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; Dict[str, Any]</dt><dd><tt>Load&nbsp;custom&nbsp;schema&nbsp;types&nbsp;and&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;directories.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-load_schemas"><strong>load_schemas</strong></a>(self, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', modify_registry: bool = True) -&gt; dict</dt><dd><tt>Load&nbsp;schema&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;schema&nbsp;directories.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-load_schemas"><strong>load_schemas</strong></a>(self, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', modify_registry: bool = True) -&gt; Dict[str, Any]</dt><dd><tt>Load&nbsp;schema&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;schema&nbsp;directories.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="datazen.environment.template.html#TemplateEnvironment">datazen.environment.template.TemplateEnvironment</a>:<br>
@@ -195,9 +195,9 @@ Methods inherited from <a href="datazen.environment.base.html#BaseEnvironment">d
 
 <dl><dt><a name="RenderEnvironment-add_namespace"><strong>add_namespace</strong></a>(self, name: str, clone_root: bool = True) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;namespace,&nbsp;optionally&nbsp;clone&nbsp;from&nbsp;the&nbsp;existing&nbsp;root.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; dict</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
+<dl><dt><a name="RenderEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; Dict[str, Any]</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="RenderEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: dict) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
+<dl><dt><a name="RenderEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: Dict[str, Any]) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
 all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&nbsp;anything&nbsp;new.</tt></dd></dl>
 
 <dl><dt><a name="RenderEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[Union[pathlib.Path, str, NoneType]]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
@@ -225,8 +225,8 @@ Data descriptors inherited from <a href="datazen.environment.base.html#BaseEnvir
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-get_render_children"><strong>get_render_children</strong></a>(children: dict, dep_data: dict, default_op: str, indent: int, delimeter: str = '', newline: str = '\n') -&gt; None</dt><dd><tt>Build&nbsp;child&nbsp;dependency&nbsp;data.</tt></dd></dl>
- <dl><dt><a name="-get_render_str"><strong>get_render_str</strong></a>(template: jinja2.environment.Template, name: str, indent: int, data: dict = None, out_data: dict = None, newline: str = '\n') -&gt; str</dt><dd><tt>Render&nbsp;a&nbsp;template.</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-get_render_children"><strong>get_render_children</strong></a>(children: Dict[str, Any], dep_data: Dict[str, Any], default_op: str, indent: int, delimeter: str = '', newline: str = '\n') -&gt; None</dt><dd><tt>Build&nbsp;child&nbsp;dependency&nbsp;data.</tt></dd></dl>
+ <dl><dt><a name="-get_render_str"><strong>get_render_str</strong></a>(template: jinja2.environment.Template, name: str, indent: int, data: Dict[str, Any] = None, out_data: Dict[str, Any] = None, newline: str = '\n') -&gt; str</dt><dd><tt>Render&nbsp;a&nbsp;template.</tt></dd></dl>
  <dl><dt><a name="-indent_str"><strong>indent_str</strong></a>(data: str, indent: int, newline: str = '\n') -&gt; str</dt><dd><tt>Attempt&nbsp;to&nbsp;indent&nbsp;String&nbsp;data&nbsp;by&nbsp;some&nbsp;amount,&nbsp;based&nbsp;on&nbsp;some&nbsp;separator.</tt></dd></dl>
  <dl><dt><a name="-render_name_to_key"><strong>render_name_to_key</strong></a>(name: str) -&gt; str</dt><dd><tt>Convert&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;render&nbsp;target&nbsp;with&nbsp;a&nbsp;valid&nbsp;dictionary&nbsp;key.</tt></dd></dl>
 </td></tr></table><p>
@@ -238,6 +238,7 @@ Data descriptors inherited from <a href="datazen.environment.base.html#BaseEnvir
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>Dict</strong> = typing.Dict<br>
 <strong>GLOBAL_KEY</strong> = 'global'<br>
+<strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
 <strong>LOG</strong> = &lt;Logger datazen.environment.render (WARNING)&gt;<br>
 <strong>List</strong> = typing.List<br>
 <strong>Optional</strong> = typing.Optional</td></tr></table>

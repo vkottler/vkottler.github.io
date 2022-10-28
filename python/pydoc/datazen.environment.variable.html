@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.environment.html"><font color="#ffffff">environment</font></a>.variable</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/environment/variable.py">/home/vkottler/git/workspace/datazen/datazen/environment/variable.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/environment/variable.py">/home/vkottler/Documents/git/workspace/datazen/datazen/environment/variable.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;A&nbsp;child&nbsp;class&nbsp;for&nbsp;adding&nbsp;variable-data&nbsp;loading&nbsp;capabilities&nbsp;to&nbsp;the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;environment&nbsp;dataset.</tt></p>
 <p>
@@ -60,9 +60,9 @@ namespace.</tt></dd></dl>
 
 <dl><dt><a name="VariableEnvironment-add_namespace"><strong>add_namespace</strong></a>(self, name: str, clone_root: bool = True) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;namespace,&nbsp;optionally&nbsp;clone&nbsp;from&nbsp;the&nbsp;existing&nbsp;root.</tt></dd></dl>
 
-<dl><dt><a name="VariableEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; dict</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
+<dl><dt><a name="VariableEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; Dict[str, Any]</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="VariableEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: dict) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
+<dl><dt><a name="VariableEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: Dict[str, Any]) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
 all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&nbsp;anything&nbsp;new.</tt></dd></dl>
 
 <dl><dt><a name="VariableEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[Union[pathlib.Path, str, NoneType]]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>

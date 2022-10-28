@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.<a href="datazen.environment.html"><font color="#ffffff">environment</font></a>.manifest</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/environment/manifest.py">/home/vkottler/git/workspace/datazen/datazen/environment/manifest.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/environment/manifest.py">/home/vkottler/Documents/git/workspace/datazen/datazen/environment/manifest.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;A&nbsp;class&nbsp;for&nbsp;adding&nbsp;manifest-loading&nbsp;to&nbsp;environments.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -47,7 +47,7 @@
 <font color="#000000" face="helvetica, arial"><a name="ManifestEnvironment">class <strong>ManifestEnvironment</strong></a>(<a href="datazen.environment.config.html#ConfigEnvironment">datazen.environment.config.ConfigEnvironment</a>, <a href="datazen.environment.template.html#TemplateEnvironment">datazen.environment.template.TemplateEnvironment</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#ManifestEnvironment">ManifestEnvironment</a>(**kwargs)<br>
+<td colspan=2><tt><a href="#ManifestEnvironment">ManifestEnvironment</a>(**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;wrapper&nbsp;for&nbsp;the&nbsp;manifest-loading&nbsp;implementations&nbsp;of&nbsp;an&nbsp;environment.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
@@ -62,22 +62,22 @@ A&nbsp;wrapper&nbsp;for&nbsp;the&nbsp;manifest-loading&nbsp;implementations&nbsp
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="ManifestEnvironment-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;manifest&nbsp;dictionary&nbsp;to&nbsp;the&nbsp;environment.</tt></dd></dl>
+<dl><dt><a name="ManifestEnvironment-__init__"><strong>__init__</strong></a>(self, **kwargs) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;manifest&nbsp;dictionary&nbsp;to&nbsp;the&nbsp;environment.</tt></dd></dl>
 
 <dl><dt><a name="ManifestEnvironment-default_target"><strong>default_target</strong></a>(self) -&gt; str</dt><dd><tt>Retrieve&nbsp;a&nbsp;configured&nbsp;default&nbsp;target&nbsp;for&nbsp;a&nbsp;manifest,&nbsp;otherwise&nbsp;an<br>
 empty&nbsp;String.</tt></dd></dl>
 
-<dl><dt><a name="ManifestEnvironment-load_dirs"><strong>load_dirs</strong></a>(self, data: dict, rel_path: str, namespace: str = '__root__', allow_dup: bool = False, load_defaults: bool = True) -&gt; None</dt><dd><tt>Looks&nbsp;for&nbsp;keys&nbsp;matching&nbsp;types&nbsp;of&nbsp;directories&nbsp;that&nbsp;can&nbsp;be&nbsp;loaded<br>
+<dl><dt><a name="ManifestEnvironment-load_dirs"><strong>load_dirs</strong></a>(self, data: Dict[str, Any], rel_path: str, namespace: str = '__root__', allow_dup: bool = False, load_defaults: bool = True) -&gt; None</dt><dd><tt>Looks&nbsp;for&nbsp;keys&nbsp;matching&nbsp;types&nbsp;of&nbsp;directories&nbsp;that&nbsp;can&nbsp;be&nbsp;loaded<br>
 into&nbsp;an&nbsp;environment&nbsp;and&nbsp;tries&nbsp;to&nbsp;load&nbsp;them.</tt></dd></dl>
 
 <dl><dt><a name="ManifestEnvironment-load_manifest"><strong>load_manifest</strong></a>(self, path: str = 'manifest.yaml', logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; bool</dt><dd><tt>Attempt&nbsp;to&nbsp;load&nbsp;manifest&nbsp;data&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
 
-<dl><dt><a name="ManifestEnvironment-load_manifest_reent"><strong>load_manifest_reent</strong></a>(self, path: str, manifest_dir: str, params: dict, files: List[str], logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; Tuple[dict, bool]</dt><dd><tt>Load&nbsp;a&nbsp;manifest&nbsp;recursively&nbsp;by&nbsp;resolving&nbsp;includes&nbsp;and&nbsp;merging&nbsp;the<br>
+<dl><dt><a name="ManifestEnvironment-load_manifest_reent"><strong>load_manifest_reent</strong></a>(self, path: str, manifest_dir: str, params: Dict[Any, Any], files: List[str], logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; Tuple[Dict[str, Any], bool]</dt><dd><tt>Load&nbsp;a&nbsp;manifest&nbsp;recursively&nbsp;by&nbsp;resolving&nbsp;includes&nbsp;and&nbsp;merging&nbsp;the<br>
 results.</tt></dd></dl>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="ManifestEnvironment-update_task_dirs"><strong>update_task_dirs</strong></a>(data: dict, rel_path: str) -&gt; None</dt><dd><tt>Update&nbsp;path&nbsp;definitions&nbsp;in&nbsp;the&nbsp;provided&nbsp;manifest&nbsp;chunk&nbsp;to&nbsp;respect&nbsp;a<br>
+<dl><dt><a name="ManifestEnvironment-update_task_dirs"><strong>update_task_dirs</strong></a>(data: Dict[str, Any], rel_path: str) -&gt; None</dt><dd><tt>Update&nbsp;path&nbsp;definitions&nbsp;in&nbsp;the&nbsp;provided&nbsp;manifest&nbsp;chunk&nbsp;to&nbsp;respect&nbsp;a<br>
 relative&nbsp;path&nbsp;(e.g.&nbsp;the&nbsp;directory&nbsp;that&nbsp;the&nbsp;manifest&nbsp;chunk&nbsp;was&nbsp;loaded<br>
 from).</tt></dd></dl>
 
@@ -108,12 +108,12 @@ Methods inherited from <a href="datazen.environment.schema.html#SchemaEnvironmen
 <dl><dt><a name="ManifestEnvironment-add_schema_type_dirs"><strong>add_schema_type_dirs</strong></a>(self, dir_paths: List[str], rel_path: str = '.', name: str = '__root__', allow_dup: bool = False) -&gt; int</dt><dd><tt>Add&nbsp;directories&nbsp;containing&nbsp;schema-type&nbsp;data&nbsp;(to&nbsp;be&nbsp;registered&nbsp;at<br>
 runtime).</tt></dd></dl>
 
-<dl><dt><a name="ManifestEnvironment-enforce_schemas"><strong>enforce_schemas</strong></a>(self, data: dict, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; bool</dt><dd><tt>Perform&nbsp;schema-validation&nbsp;on&nbsp;provided&nbsp;data&nbsp;and&nbsp;return&nbsp;the&nbsp;boolean<br>
+<dl><dt><a name="ManifestEnvironment-enforce_schemas"><strong>enforce_schemas</strong></a>(self, data: Dict[str, Any], require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; bool</dt><dd><tt>Perform&nbsp;schema-validation&nbsp;on&nbsp;provided&nbsp;data&nbsp;and&nbsp;return&nbsp;the&nbsp;boolean<br>
 result.&nbsp;Adds&nbsp;(and&nbsp;removes)&nbsp;namespaced&nbsp;types&nbsp;if&nbsp;applicable.</tt></dd></dl>
 
-<dl><dt><a name="ManifestEnvironment-load_schema_types"><strong>load_schema_types</strong></a>(self, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; dict</dt><dd><tt>Load&nbsp;custom&nbsp;schema&nbsp;types&nbsp;and&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;directories.</tt></dd></dl>
+<dl><dt><a name="ManifestEnvironment-load_schema_types"><strong>load_schema_types</strong></a>(self, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__') -&gt; Dict[str, Any]</dt><dd><tt>Load&nbsp;custom&nbsp;schema&nbsp;types&nbsp;and&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;directories.</tt></dd></dl>
 
-<dl><dt><a name="ManifestEnvironment-load_schemas"><strong>load_schemas</strong></a>(self, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', modify_registry: bool = True) -&gt; dict</dt><dd><tt>Load&nbsp;schema&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;schema&nbsp;directories.</tt></dd></dl>
+<dl><dt><a name="ManifestEnvironment-load_schemas"><strong>load_schemas</strong></a>(self, require_all: bool = True, sch_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), sch_types_loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), name: str = '__root__', modify_registry: bool = True) -&gt; Dict[str, Any]</dt><dd><tt>Load&nbsp;schema&nbsp;data,&nbsp;resolve&nbsp;any&nbsp;un-loaded&nbsp;schema&nbsp;directories.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="datazen.environment.template.html#TemplateEnvironment">datazen.environment.template.TemplateEnvironment</a>:<br>
@@ -129,9 +129,9 @@ Methods inherited from <a href="datazen.environment.base.html#BaseEnvironment">d
 
 <dl><dt><a name="ManifestEnvironment-add_namespace"><strong>add_namespace</strong></a>(self, name: str, clone_root: bool = True) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;namespace,&nbsp;optionally&nbsp;clone&nbsp;from&nbsp;the&nbsp;existing&nbsp;root.</tt></dd></dl>
 
-<dl><dt><a name="ManifestEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; dict</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
+<dl><dt><a name="ManifestEnvironment-get_data"><strong>get_data</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; Dict[str, Any]</dt><dd><tt>Get&nbsp;the&nbsp;raw&nbsp;data&nbsp;for&nbsp;a&nbsp;directory&nbsp;type&nbsp;from&nbsp;a&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="ManifestEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: dict) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
+<dl><dt><a name="ManifestEnvironment-get_namespace"><strong>get_namespace</strong></a>(self, key_name: str, target: str, target_data: Dict[str, Any]) -&gt; str</dt><dd><tt>Determine&nbsp;the&nbsp;namespace&nbsp;that&nbsp;a&nbsp;target&nbsp;should&nbsp;use,&nbsp;in&nbsp;general&nbsp;they<br>
 all&nbsp;should&nbsp;be&nbsp;unique&nbsp;unless&nbsp;they&nbsp;don't&nbsp;load&nbsp;anything&nbsp;new.</tt></dd></dl>
 
 <dl><dt><a name="ManifestEnvironment-get_to_load"><strong>get_to_load</strong></a>(self, dir_type: datazen.enums.DataType, name: str = '__root__') -&gt; List[Union[pathlib.Path, str, NoneType]]</dt><dd><tt>Proxy&nbsp;for&nbsp;a&nbsp;namespace's&nbsp;get_to_load.</tt></dd></dl>
@@ -160,12 +160,12 @@ Data descriptors inherited from <a href="datazen.environment.base.html#BaseEnvir
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-get_manifest_schema"><strong>get_manifest_schema</strong></a>(require_all: bool = True, cls: Type[vcorelib.schemas.base.Schema] = &lt;class 'vcorelib.schemas.CerberusSchema'&gt;) -&gt; vcorelib.schemas.base.Schema</dt><dd><tt>Load&nbsp;the&nbsp;schema&nbsp;for&nbsp;manifest&nbsp;from&nbsp;the&nbsp;package.</tt></dd></dl>
- <dl><dt><a name="-get_output_dir"><strong>get_output_dir</strong></a>(data: dict, rel_path: str, default: str = 'datazen-out') -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;resolved&nbsp;output&nbsp;directory&nbsp;based&nbsp;on&nbsp;a&nbsp;dictionary&nbsp;containing<br>
+ <dl><dt><a name="-get_output_dir"><strong>get_output_dir</strong></a>(data: Dict[str, Any], rel_path: str, default: str = 'datazen-out') -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;resolved&nbsp;output&nbsp;directory&nbsp;based&nbsp;on&nbsp;a&nbsp;dictionary&nbsp;containing<br>
 target&nbsp;data.</tt></dd></dl>
- <dl><dt><a name="-set_output_dir"><strong>set_output_dir</strong></a>(data: dict, rel_path: str, default: str = 'datazen-out') -&gt; None</dt><dd><tt>Set&nbsp;the&nbsp;'output_dir'&nbsp;key&nbsp;correctly&nbsp;on&nbsp;a&nbsp;dictionary.</tt></dd></dl>
+ <dl><dt><a name="-set_output_dir"><strong>set_output_dir</strong></a>(data: Dict[str, Any], rel_path: str, default: str = 'datazen-out') -&gt; None</dt><dd><tt>Set&nbsp;the&nbsp;'output_dir'&nbsp;key&nbsp;correctly&nbsp;on&nbsp;a&nbsp;dictionary.</tt></dd></dl>
  <dl><dt><a name="-update_path_relativity"><strong>update_path_relativity</strong></a>(path_strs: List[str], rel_path: str) -&gt; None</dt><dd><tt>For&nbsp;a&nbsp;list&nbsp;of&nbsp;paths,&nbsp;if&nbsp;paths&nbsp;aren't&nbsp;absolute,&nbsp;apply&nbsp;the&nbsp;provided&nbsp;relative<br>
 path&nbsp;to&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;path.</tt></dd></dl>
- <dl><dt><a name="-validate_manifest"><strong>validate_manifest</strong></a>(manifest: dict, logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; bool</dt><dd><tt>Validate&nbsp;manifest&nbsp;data&nbsp;against&nbsp;the&nbsp;package&nbsp;schema.</tt></dd></dl>
+ <dl><dt><a name="-validate_manifest"><strong>validate_manifest</strong></a>(manifest: Dict[str, Any], logger: logging.Logger = &lt;Logger datazen.environment.manifest (WARNING)&gt;) -&gt; bool</dt><dd><tt>Validate&nbsp;manifest&nbsp;data&nbsp;against&nbsp;the&nbsp;package&nbsp;schema.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -174,6 +174,8 @@ path&nbsp;to&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;path.</tt></dd></dl>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>DEFAULT_DIR</strong> = 'datazen-out'<br>
+<strong>GenericDict</strong> = typing.Dict[typing.Any, typing.Any]<br>
+<strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
 <strong>LOG</strong> = &lt;Logger datazen.environment.manifest (WARNING)&gt;<br>
 <strong>List</strong> = typing.List<br>
 <strong>PKG_NAME</strong> = 'datazen'<br>

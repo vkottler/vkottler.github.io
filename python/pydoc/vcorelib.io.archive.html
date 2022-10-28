@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.io.html"><font color="#ffffff">io</font></a>.archive</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/io/archive/__init__.py">/home/vkottler/git/workspace/vcorelib/vcorelib/io/archive/__init__.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/archive/__init__.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/archive/__init__.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;for&nbsp;extracting&nbsp;and&nbsp;creating&nbsp;arbitrary&nbsp;archives.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -24,13 +24,15 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-extractall"><strong>extractall</strong></a>(src: pathlib.Path, dst: pathlib.Path = None, maxsplit: int = 1, **extract_kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Attempt&nbsp;to&nbsp;extract&nbsp;an&nbsp;arbitrary&nbsp;archive&nbsp;to&nbsp;a&nbsp;destination.&nbsp;Return&nbsp;whether&nbsp;or<br>
+<td width="100%"><dl><dt><a name="-extractall"><strong>extractall</strong></a>(src: Union[pathlib.Path, str, NoneType], dst: Union[pathlib.Path, str, NoneType] = None, maxsplit: int = 1, **extract_kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Attempt&nbsp;to&nbsp;extract&nbsp;an&nbsp;arbitrary&nbsp;archive&nbsp;to&nbsp;a&nbsp;destination.&nbsp;Return&nbsp;whether&nbsp;or<br>
 not&nbsp;this&nbsp;succeeded&nbsp;and&nbsp;how&nbsp;long&nbsp;it&nbsp;took.</tt></dd></dl>
+ <dl><dt><a name="-is_within_directory"><strong>is_within_directory</strong></a>(directory: Union[pathlib.Path, str, NoneType], target: Union[pathlib.Path, str, NoneType]) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;target&nbsp;path&nbsp;is&nbsp;within&nbsp;the&nbsp;provided&nbsp;directory.</tt></dd></dl>
  <dl><dt><a name="-make_archive"><strong>make_archive</strong></a>(src_dir: pathlib.Path, ext_str: str = 'tar.gz', dst_dir: pathlib.Path = None, **archive_kwargs) -&gt; Tuple[Union[pathlib.Path, NoneType], int]</dt><dd><tt>Create&nbsp;an&nbsp;archive&nbsp;from&nbsp;a&nbsp;source&nbsp;directory,&nbsp;named&nbsp;after&nbsp;that&nbsp;directory,<br>
 and&nbsp;optionally&nbsp;moved&nbsp;to&nbsp;a&nbsp;destination&nbsp;other&nbsp;than&nbsp;the&nbsp;parent&nbsp;directory<br>
 for&nbsp;the&nbsp;source.&nbsp;The&nbsp;extension&nbsp;specifies&nbsp;the&nbsp;kind&nbsp;of&nbsp;archive&nbsp;to&nbsp;create.<br>
 &nbsp;<br>
 Return&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;created&nbsp;archive&nbsp;(if&nbsp;it&nbsp;was&nbsp;created)&nbsp;and&nbsp;how&nbsp;long<br>
 it&nbsp;took&nbsp;to&nbsp;create.</tt></dd></dl>
+ <dl><dt><a name="-safe_extract"><strong>safe_extract</strong></a>(tar: tarfile.TarFile, path: Union[pathlib.Path, str, NoneType] = None, **kwargs) -&gt; None</dt><dd><tt>Sanity&nbsp;check&nbsp;that&nbsp;all&nbsp;members&nbsp;will&nbsp;fall&nbsp;within&nbsp;the&nbsp;destination&nbsp;path.</tt></dd></dl>
 </td></tr></table>
 </body></html>

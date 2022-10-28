@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.schemas.html"><font color="#ffffff">schemas</font></a>.base</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/schemas/base.py">/home/vkottler/git/workspace/vcorelib/vcorelib/schemas/base.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/schemas/base.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/schemas/base.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;defining&nbsp;interfaces&nbsp;for&nbsp;schema&nbsp;enforcement.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -30,13 +30,24 @@
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="vcorelib.schemas.base.html#Schema">Schema</a>
-</font></dt><dt><font face="helvetica, arial"><a href="vcorelib.schemas.base.html#SchemaMap">SchemaMap</a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="collections.html#UserDict">collections.UserDict</a>)
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="collections.html#UserDict">collections.UserDict</a>(<a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>)
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.schemas.base.html#SchemaMap">SchemaMap</a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="collections.html#UserDict">collections.UserDict</a>)
+<dt><font face="helvetica, arial"><a href="vcorelib.schemas.base.html#SchemaMap">SchemaMap</a>(<a href="collections.html#UserDict">collections.UserDict</a>, <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>(<a href="collections.abc.html#Mapping">collections.abc.Mapping</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.schemas.base.html#SchemaMap">SchemaMap</a>(<a href="collections.html#UserDict">collections.UserDict</a>, <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="typing.html#Generic">typing.Generic</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="vcorelib.schemas.base.html#SchemaMap">SchemaMap</a>(<a href="collections.html#UserDict">collections.UserDict</a>, <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>, <a href="typing.html#Generic">typing.Generic</a>)
 </font></dt></dl>
 </dd>
 </dl>
@@ -47,7 +58,7 @@
 <font color="#000000" face="helvetica, arial"><a name="Schema">class <strong>Schema</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#Schema">Schema</a>(data:&nbsp;dict,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#Schema">Schema</a>(data:&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]],&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;base&nbsp;class&nbsp;for&nbsp;schema&nbsp;enforcement.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
@@ -60,7 +71,7 @@ A&nbsp;base&nbsp;class&nbsp;for&nbsp;schema&nbsp;enforcement.<br>&nbsp;</tt></td
 Methods defined here:<br>
 <dl><dt><a name="Schema-__call__"><strong>__call__</strong></a>(self, data: Any) -&gt; Any</dt><dd><tt>Validate&nbsp;input&nbsp;data&nbsp;and&nbsp;return&nbsp;the&nbsp;result.</tt></dd></dl>
 
-<dl><dt><a name="Schema-__init__"><strong>__init__</strong></a>(self, data: dict, **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;schema.</tt></dd></dl>
+<dl><dt><a name="Schema-__init__"><strong>__init__</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], **kwargs) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;schema.</tt></dd></dl>
 
 <hr>
 Class methods defined here:<br>
@@ -82,16 +93,15 @@ Data and other attributes defined here:<br>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="SchemaMap">class <strong>SchemaMap</strong></a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="collections.html#UserDict">collections.UserDict</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="SchemaMap">class <strong>SchemaMap</strong></a>(<a href="collections.html#UserDict">collections.UserDict</a>, <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>, <a href="typing.html#Generic">typing.Generic</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#SchemaMap">SchemaMap</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#SchemaMap">SchemaMap</a>(*args,&nbsp;**kwds)<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;managing&nbsp;multiple&nbsp;schema&nbsp;objects.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="vcorelib.schemas.base.html#SchemaMap">SchemaMap</a></dd>
-<dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="collections.html#UserDict">collections.UserDict</a></dd>
 <dd><a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a></dd>
 <dd><a href="collections.abc.html#Mapping">collections.abc.Mapping</a></dd>
@@ -99,6 +109,7 @@ A&nbsp;class&nbsp;for&nbsp;managing&nbsp;multiple&nbsp;schema&nbsp;objects.<br>&
 <dd><a href="collections.abc.html#Sized">collections.abc.Sized</a></dd>
 <dd><a href="collections.abc.html#Iterable">collections.abc.Iterable</a></dd>
 <dd><a href="collections.abc.html#Container">collections.abc.Container</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
@@ -107,29 +118,23 @@ Methods defined here:<br>
 
 <dl><dt><a name="SchemaMap-load_directory"><strong>load_directory</strong></a>(self, path: Union[pathlib.Path, str, NoneType], **kwargs) -&gt; Iterator[Tuple[str, vcorelib.schemas.base.Schema]]</dt><dd><tt>Load&nbsp;a&nbsp;directory&nbsp;of&nbsp;schema&nbsp;files&nbsp;into&nbsp;the&nbsp;map.</tt></dd></dl>
 
-<dl><dt><a name="SchemaMap-load_file"><strong>load_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType], **kwargs) -&gt; Tuple[str, vcorelib.schemas.base.Schema]</dt><dd><tt>Load&nbsp;a&nbsp;schema&nbsp;file&nbsp;into&nbsp;the&nbsp;map.</tt></dd></dl>
+<dl><dt><a name="SchemaMap-load_file"><strong>load_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType], **kwargs) -&gt; Tuple[str, ~T]</dt><dd><tt>Load&nbsp;a&nbsp;schema&nbsp;file&nbsp;into&nbsp;the&nbsp;map.</tt></dd></dl>
 
 <dl><dt><a name="SchemaMap-load_package"><strong>load_package</strong></a>(self, package: str, path: Union[pathlib.Path, str, NoneType] = 'schemas', package_subdir: str = 'data', **kwargs) -&gt; Iterator[Tuple[str, vcorelib.schemas.base.Schema]]</dt><dd><tt>Load&nbsp;schemas&nbsp;from&nbsp;package&nbsp;data.</tt></dd></dl>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="SchemaMap-from_package"><strong>from_package</strong></a>(package: str, **kwargs) -&gt; 'SchemaMap'<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;JSON-schema&nbsp;map&nbsp;from&nbsp;package&nbsp;data.</tt></dd></dl>
+<dl><dt><a name="SchemaMap-from_package"><strong>from_package</strong></a>(package: str, **kwargs) -&gt; ~V<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;JSON-schema&nbsp;map&nbsp;from&nbsp;package&nbsp;data.</tt></dd></dl>
 
 <dl><dt><a name="SchemaMap-kind"><strong>kind</strong></a>() -&gt; Type[vcorelib.schemas.base.Schema]<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Implement&nbsp;this&nbsp;to&nbsp;determine&nbsp;the&nbsp;concrete&nbsp;schema&nbsp;type.</tt></dd></dl>
 
 <hr>
-Data descriptors defined here:<br>
-<dl><dt><strong>__dict__</strong></dt>
-<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
-</dl>
-<dl><dt><strong>__weakref__</strong></dt>
-<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
-</dl>
-<hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset({'kind'})</dl>
 
-<dl><dt><strong>__annotations__</strong> = {'data': typing.Dict[str, vcorelib.schemas.base.Schema]}</dl>
+<dl><dt><strong>__orig_bases__</strong> = (&lt;class 'collections.UserDict'&gt;, typing.MutableMapping[str, vcorelib.schemas.base.Schema])</dl>
+
+<dl><dt><strong>__parameters__</strong> = ()</dl>
 
 <hr>
 Methods inherited from <a href="collections.html#UserDict">collections.UserDict</a>:<br>
@@ -156,10 +161,18 @@ Class methods inherited from <a href="collections.html#UserDict">collections.Use
 <dl><dt><a name="SchemaMap-fromkeys"><strong>fromkeys</strong></a>(iterable, value=None)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt></dl>
 
 <hr>
+Data descriptors inherited from <a href="collections.html#UserDict">collections.UserDict</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
 Methods inherited from <a href="collections.abc.html#MutableMapping">collections.abc.MutableMapping</a>:<br>
 <dl><dt><a name="SchemaMap-clear"><strong>clear</strong></a>(self)</dt><dd><tt>D.<a href="#SchemaMap-clear">clear</a>()&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Remove&nbsp;all&nbsp;items&nbsp;from&nbsp;D.</tt></dd></dl>
 
-<dl><dt><a name="SchemaMap-pop"><strong>pop</strong></a>(self, key, default=&lt;object object at 0x7f2c61b7c150&gt;)</dt><dd><tt>D.<a href="#SchemaMap-pop">pop</a>(k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;remove&nbsp;specified&nbsp;key&nbsp;and&nbsp;return&nbsp;the&nbsp;corresponding&nbsp;value.<br>
+<dl><dt><a name="SchemaMap-pop"><strong>pop</strong></a>(self, key, default=&lt;object object at 0x7f1af0d0f150&gt;)</dt><dd><tt>D.<a href="#SchemaMap-pop">pop</a>(k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;remove&nbsp;specified&nbsp;key&nbsp;and&nbsp;return&nbsp;the&nbsp;corresponding&nbsp;value.<br>
 If&nbsp;key&nbsp;is&nbsp;not&nbsp;found,&nbsp;d&nbsp;is&nbsp;returned&nbsp;if&nbsp;given,&nbsp;otherwise&nbsp;KeyError&nbsp;is&nbsp;raised.</tt></dd></dl>
 
 <dl><dt><a name="SchemaMap-popitem"><strong>popitem</strong></a>(self)</dt><dd><tt>D.<a href="#SchemaMap-popitem">popitem</a>()&nbsp;-&gt;&nbsp;(k,&nbsp;v),&nbsp;remove&nbsp;and&nbsp;return&nbsp;some&nbsp;(key,&nbsp;value)&nbsp;pair<br>
@@ -199,6 +212,19 @@ It&nbsp;should&nbsp;return&nbsp;True,&nbsp;False&nbsp;or&nbsp;NotImplemented.&nb
 NotImplemented,&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;is&nbsp;used.&nbsp;&nbsp;Otherwise,&nbsp;it<br>
 overrides&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;(and&nbsp;the&nbsp;outcome&nbsp;is&nbsp;cached).</tt></dd></dl>
 
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="SchemaMap-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt></dl>
+
+<dl><dt><a name="SchemaMap-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="SchemaMap-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -206,5 +232,6 @@ overrides&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;(and&nbsp;the&nbsp;outcome&nb
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>T</strong> = ~T</td></tr></table>
+<td width="100%"><strong>T</strong> = ~T<br>
+<strong>V</strong> = ~V</td></tr></table>
 </body></html>

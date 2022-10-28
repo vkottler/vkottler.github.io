@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.io.html"><font color="#ffffff">io</font></a>.types</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/vcorelib/vcorelib/io/types.py">/home/vkottler/git/workspace/vcorelib/vcorelib/io/types.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/types.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/io/types.py</a></font></td></tr></table>
     <p><tt>Common&nbsp;type&nbsp;definitions&nbsp;for&nbsp;data&nbsp;encoding&nbsp;and&nbsp;decoding&nbsp;interfaces.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -88,7 +88,7 @@ is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.<
 <font color="#000000" face="helvetica, arial"><a name="LoadResult">class <strong>LoadResult</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#LoadResult">LoadResult</a>(data:&nbsp;dict,&nbsp;success:&nbsp;bool,&nbsp;time_ns:&nbsp;int&nbsp;=&nbsp;-1)<br>
+<td colspan=2><tt><a href="#LoadResult">LoadResult</a>(data:&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]],&nbsp;success:&nbsp;bool,&nbsp;time_ns:&nbsp;int&nbsp;=&nbsp;-1)<br>
 &nbsp;<br>
 An&nbsp;encapsulation&nbsp;of&nbsp;the&nbsp;result&nbsp;of&nbsp;loading&nbsp;raw&nbsp;data,&nbsp;the&nbsp;data&nbsp;collected&nbsp;and<br>
 whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.<br>&nbsp;</tt></td></tr>
@@ -120,7 +120,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="LoadResult-__new__"><strong>__new__</strong></a>(_cls, data: dict, success: bool, time_ns: int = -1)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#LoadResult">LoadResult</a>(data,&nbsp;success,&nbsp;time_ns)</tt></dd></dl>
+<dl><dt><a name="LoadResult-__new__"><strong>__new__</strong></a>(_cls, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], success: bool, time_ns: int = -1)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#LoadResult">LoadResult</a>(data,&nbsp;success,&nbsp;time_ns)</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -135,11 +135,11 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'data': &lt;class 'dict'&gt;, 'success': &lt;class 'bool'&gt;, 'time_ns': &lt;class 'int'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'data': typing.Dict[str, typing.Union[str, int, float, b...[typing.Union[str, int, float, bool, NoneType]]]], 'success': &lt;class 'bool'&gt;, 'time_ns': &lt;class 'int'&gt;}</dl>
 
 <dl><dt><strong>_field_defaults</strong> = {'time_ns': -1}</dl>
 
-<dl><dt><strong>_field_types</strong> = {'data': &lt;class 'dict'&gt;, 'success': &lt;class 'bool'&gt;, 'time_ns': &lt;class 'int'&gt;}</dl>
+<dl><dt><strong>_field_types</strong> = {'data': typing.Dict[str, typing.Union[str, int, float, b...[typing.Union[str, int, float, bool, NoneType]]]], 'success': &lt;class 'bool'&gt;, 'time_ns': &lt;class 'int'&gt;}</dl>
 
 <dl><dt><strong>_fields</strong> = ('data', 'success', 'time_ns')</dl>
 
@@ -191,12 +191,13 @@ Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present
 <td width="100%"><strong>DEFAULT_ARCHIVE_EXT</strong> = 'tar.gz'<br>
 <strong>DEFAULT_DATA_EXT</strong> = 'json'<br>
 <strong>DataDecoder</strong> = typing.Callable[[typing.Union[typing.TextIO, _io...], logging.Logger], vcorelib.io.types.LoadResult]<br>
-<strong>DataEncoder</strong> = typing.Callable[[dict, typing.Union[typing.TextIO, _io.StringIO], logging.Logger], int]<br>
+<strong>DataEncoder</strong> = typing.Callable[[typing.Dict[str, typing.Union[s...ping.TextIO, _io.StringIO], logging.Logger], int]<br>
 <strong>DataStream</strong> = typing.Union[typing.TextIO, _io.StringIO]<br>
 <strong>EncodeResult</strong> = typing.Tuple[bool, int]<br>
-<strong>JsonArray</strong> = typing.List[typing.Union[str, int, float, bool, NoneType, dict, list]]<br>
-<strong>JsonObject</strong> = typing.Dict[str, typing.Union[str, int, float, bool, NoneType, dict, list]]<br>
-<strong>JsonValue</strong> = typing.Union[str, int, float, bool, NoneType, dict, list]<br>
+<strong>JsonArray</strong> = typing.List[typing.Union[str, int, float, bool, ...[typing.Union[str, int, float, bool, NoneType]]]]<br>
+<strong>JsonObject</strong> = typing.Dict[str, typing.Union[str, int, float, b...[typing.Union[str, int, float, bool, NoneType]]]]<br>
+<strong>JsonPrimitive</strong> = typing.Union[str, int, float, bool, NoneType]<br>
+<strong>JsonValue</strong> = typing.Union[str, int, float, bool, NoneType, ty...t[typing.Union[str, int, float, bool, NoneType]]]<br>
 <strong>StreamProcessor</strong> = typing.Callable[[typing.Union[typing.TextIO, _io...gIO]], typing.Union[typing.TextIO, _io.StringIO]]<br>
 <strong>YAML_INTERFACE</strong> = &lt;ruamel.yaml.main.YAML object&gt;</td></tr></table>
 </body></html>

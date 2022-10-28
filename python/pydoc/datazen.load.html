@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.load</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/load.py">/home/vkottler/git/workspace/datazen/datazen/load.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/load.py">/home/vkottler/Documents/git/workspace/datazen/datazen/load.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;APIs&nbsp;for&nbsp;loading&nbsp;data&nbsp;from&nbsp;directory&nbsp;trees.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -41,7 +41,7 @@
 <font color="#000000" face="helvetica, arial"><a name="LoadedFiles">class <strong>LoadedFiles</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#LoadedFiles">LoadedFiles</a>(files:&nbsp;Union[List[str],&nbsp;NoneType]&nbsp;=&nbsp;None,&nbsp;file_data:&nbsp;Union[Dict[str,&nbsp;dict],&nbsp;NoneType]&nbsp;=&nbsp;None)<br>
+<td colspan=2><tt><a href="#LoadedFiles">LoadedFiles</a>(files:&nbsp;Union[List[str],&nbsp;NoneType]&nbsp;=&nbsp;None,&nbsp;file_data:&nbsp;Union[Dict[str,&nbsp;Dict[str,&nbsp;Any]],&nbsp;NoneType]&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 A&nbsp;collection&nbsp;of&nbsp;data&nbsp;for&nbsp;files&nbsp;loaded&nbsp;at&nbsp;runtime&nbsp;(or,&nbsp;a&nbsp;continuation&nbsp;of<br>
 this&nbsp;information&nbsp;loaded&nbsp;from&nbsp;a&nbsp;cache).<br>&nbsp;</tt></td></tr>
@@ -67,7 +67,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="LoadedFiles-__new__"><strong>__new__</strong></a>(_cls, files: Union[List[str], NoneType] = None, file_data: Union[Dict[str, dict], NoneType] = None)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#LoadedFiles">LoadedFiles</a>(files,&nbsp;file_data)</tt></dd></dl>
+<dl><dt><a name="LoadedFiles-__new__"><strong>__new__</strong></a>(_cls, files: Union[List[str], NoneType] = None, file_data: Union[Dict[str, Dict[str, Any]], NoneType] = None)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#LoadedFiles">LoadedFiles</a>(files,&nbsp;file_data)</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -79,11 +79,11 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'file_data': typing.Union[typing.Dict[str, dict], NoneType], 'files': typing.Union[typing.List[str], NoneType]}</dl>
+<dl><dt><strong>__annotations__</strong> = {'file_data': typing.Union[typing.Dict[str, typing.Dict[str, typing.Any]], NoneType], 'files': typing.Union[typing.List[str], NoneType]}</dl>
 
 <dl><dt><strong>_field_defaults</strong> = {'file_data': None, 'files': None}</dl>
 
-<dl><dt><strong>_field_types</strong> = {'file_data': typing.Union[typing.Dict[str, dict], NoneType], 'files': typing.Union[typing.List[str], NoneType]}</dl>
+<dl><dt><strong>_field_types</strong> = {'file_data': typing.Union[typing.Dict[str, typing.Dict[str, typing.Any]], NoneType], 'files': typing.Union[typing.List[str], NoneType]}</dl>
 
 <dl><dt><strong>_fields</strong> = ('files', 'file_data')</dl>
 
@@ -134,13 +134,13 @@ Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-data_added"><strong>data_added</strong></a>(key: Any, value: Any, data: dict = None) -&gt; Iterator[dict]</dt><dd><tt>Inject&nbsp;a&nbsp;key-value&nbsp;pair&nbsp;into&nbsp;a&nbsp;dictionary,&nbsp;in&nbsp;a&nbsp;context.</tt></dd></dl>
- <dl><dt><a name="-load_dir"><strong>load_dir</strong></a>(path: Union[pathlib.Path, str, NoneType], existing_data: dict, variables: dict = None, loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), expect_overwrite: bool = False, are_templates: bool = True, logger: logging.Logger = &lt;Logger datazen.load (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;a&nbsp;directory&nbsp;tree&nbsp;into&nbsp;a&nbsp;dictionary,&nbsp;optionally&nbsp;meld.</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-data_added"><strong>data_added</strong></a>(key: Any, value: Any, data: Dict[str, Any] = None) -&gt; Iterator[Dict[str, Any]]</dt><dd><tt>Inject&nbsp;a&nbsp;key-value&nbsp;pair&nbsp;into&nbsp;a&nbsp;dictionary,&nbsp;in&nbsp;a&nbsp;context.</tt></dd></dl>
+ <dl><dt><a name="-load_dir"><strong>load_dir</strong></a>(path: Union[pathlib.Path, str, NoneType], existing_data: Dict[str, Any], variables: Dict[str, Any] = None, loads: datazen.load.LoadedFiles = LoadedFiles(files=None, file_data=None), expect_overwrite: bool = False, are_templates: bool = True, logger: logging.Logger = &lt;Logger datazen.load (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>Load&nbsp;a&nbsp;directory&nbsp;tree&nbsp;into&nbsp;a&nbsp;dictionary,&nbsp;optionally&nbsp;meld.</tt></dd></dl>
  <dl><dt><a name="-load_dir_only"><strong>load_dir_only</strong></a>(path: Union[pathlib.Path, str, NoneType], expect_overwrite: bool = False, are_templates: bool = True, logger: logging.Logger = &lt;Logger datazen.load (WARNING)&gt;) -&gt; vcorelib.io.types.LoadResult</dt><dd><tt>A&nbsp;convenient&nbsp;wrapper&nbsp;for&nbsp;loading&nbsp;just&nbsp;directory&nbsp;data&nbsp;from&nbsp;a&nbsp;path&nbsp;without<br>
 worrying&nbsp;about&nbsp;melding&nbsp;data,&nbsp;resolving&nbsp;variables,&nbsp;enforcing&nbsp;schemas,&nbsp;etc.</tt></dd></dl>
- <dl><dt><a name="-load_files"><strong>load_files</strong></a>(file_paths: List[Union[pathlib.Path, str, NoneType]], root: str, meld_data: Tuple[dict, dict, bool], hashes: Dict[str, dict] = None, expect_overwrite: bool = False, are_templates: bool = True) -&gt; Tuple[List[str], int]</dt><dd><tt>Load&nbsp;files&nbsp;into&nbsp;a&nbsp;dictionary&nbsp;and&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;files&nbsp;that&nbsp;are<br>
+ <dl><dt><a name="-load_files"><strong>load_files</strong></a>(file_paths: List[Union[pathlib.Path, str, NoneType]], root: str, meld_data: Tuple[Dict[str, Any], Dict[str, Any], bool], hashes: Dict[str, Dict[str, Any]] = None, expect_overwrite: bool = False, are_templates: bool = True) -&gt; Tuple[List[str], int]</dt><dd><tt>Load&nbsp;files&nbsp;into&nbsp;a&nbsp;dictionary&nbsp;and&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;files&nbsp;that&nbsp;are<br>
 new&nbsp;or&nbsp;had&nbsp;hash&nbsp;mismatches.</tt></dd></dl>
- <dl><dt><a name="-meld_and_resolve"><strong>meld_and_resolve</strong></a>(path: Union[pathlib.Path, str, NoneType], existing_data: dict, variables: dict, globals_added: bool = False, expect_overwrite: bool = False, is_template: bool = True, **kwargs) -&gt; bool</dt><dd><tt>Meld&nbsp;dictionary&nbsp;data&nbsp;from&nbsp;a&nbsp;file&nbsp;into&nbsp;an&nbsp;existing&nbsp;dictionary,&nbsp;assume<br>
+ <dl><dt><a name="-meld_and_resolve"><strong>meld_and_resolve</strong></a>(path: Union[pathlib.Path, str, NoneType], existing_data: Dict[str, Any], variables: Dict[str, Any], globals_added: bool = False, expect_overwrite: bool = False, is_template: bool = True, **kwargs) -&gt; bool</dt><dd><tt>Meld&nbsp;dictionary&nbsp;data&nbsp;from&nbsp;a&nbsp;file&nbsp;into&nbsp;an&nbsp;existing&nbsp;dictionary,&nbsp;assume<br>
 existing&nbsp;data&nbsp;is&nbsp;a&nbsp;template&nbsp;and&nbsp;attempt&nbsp;to&nbsp;resolve&nbsp;variables.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -153,6 +153,7 @@ existing&nbsp;data&nbsp;is&nbsp;a&nbsp;template&nbsp;and&nbsp;attempt&nbsp;to&nb
 <strong>DEFAULT_LOADS</strong> = LoadedFiles(files=None, file_data=None)<br>
 <strong>Dict</strong> = typing.Dict<br>
 <strong>GLOBAL_KEY</strong> = 'global'<br>
+<strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
 <strong>Iterator</strong> = typing.Iterator<br>
 <strong>LOG</strong> = &lt;Logger datazen.load (WARNING)&gt;<br>
 <strong>List</strong> = typing.List<br>

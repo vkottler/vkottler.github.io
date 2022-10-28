@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module runtimepy.mapping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.mapping</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/mapping.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/mapping.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;generic,&nbsp;two-way&nbsp;mapping&nbsp;interface.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.mapping.html#TwoWayNameMapping">TwoWayNameMapping</a>(<a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="typing.html#Generic">typing.Generic</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.mapping.html#TwoWayNameMapping">TwoWayNameMapping</a>(<a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TwoWayNameMapping">class <strong>TwoWayNameMapping</strong></a>(<a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>, <a href="typing.html#Generic">typing.Generic</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#TwoWayNameMapping">TwoWayNameMapping</a>(*args,&nbsp;**kwds)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;interface&nbsp;for&nbsp;managing&nbsp;two-way&nbsp;mappings.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.mapping.html#TwoWayNameMapping">TwoWayNameMapping</a></dd>
+<dd><a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TwoWayNameMapping-__init__"><strong>__init__</strong></a>(self, mapping: MutableMapping[~T, str] = None, reverse: MutableMapping[str, ~T] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;name&nbsp;registry.</tt></dd></dl>
+
+<dl><dt><a name="TwoWayNameMapping-asdict"><strong>asdict</strong></a>(self) -&gt; MutableMapping[str, ~T]</dt><dd><tt>Provide&nbsp;a&nbsp;dictionary&nbsp;representation.</tt></dd></dl>
+
+<dl><dt><a name="TwoWayNameMapping-identifier"><strong>identifier</strong></a>(self, key: Union[str, ~T]) -&gt; Union[~T, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;associated&nbsp;with&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="TwoWayNameMapping-name"><strong>name</strong></a>(self, key: Union[str, ~T]) -&gt; Union[str, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;name&nbsp;associated&nbsp;with&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="TwoWayNameMapping-bool_from_dict"><strong>bool_from_dict</strong></a>(data: MutableMapping[Union[str, bool], Union[str, bool]]) -&gt; ~BoolMapping<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;boolean-to-name&nbsp;mapping&nbsp;from&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;arbitrary&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="TwoWayNameMapping-int_from_dict"><strong>int_from_dict</strong></a>(data: MutableMapping[Union[str, int], Union[str, int]]) -&gt; ~IntMapping<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;an&nbsp;integer-to-name&nbsp;mapping&nbsp;from&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;arbitrary<br>
+data.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__orig_bases__</strong> = (&lt;class 'runtimepy.mixins.regex.RegexMixin'&gt;, typing.Generic[~T])</dl>
+
+<dl><dt><strong>__parameters__</strong> = (~T,)</dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><a name="TwoWayNameMapping-validate_name"><strong>validate_name</strong></a>(name: str) -&gt; bool<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;name&nbsp;is&nbsp;valid&nbsp;for&nbsp;this&nbsp;class.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'name_regex': &lt;class 're.Pattern'&gt;}</dl>
+
+<dl><dt><strong>name_regex</strong> = re.compile('^\\w+$')</dl>
+
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="TwoWayNameMapping-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt></dl>
+
+<dl><dt><a name="TwoWayNameMapping-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="TwoWayNameMapping-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>BoolMapping</strong> = ~BoolMapping<br>
+<strong>BoolMappingData</strong> = typing.MutableMapping[typing.Union[str, bool], typing.Union[str, bool]]<br>
+<strong>IntMapping</strong> = ~IntMapping<br>
+<strong>IntMappingData</strong> = typing.MutableMapping[typing.Union[str, int], typing.Union[str, int]]<br>
+<strong>KeyToName</strong> = typing.MutableMapping[~T, str]<br>
+<strong>MappingKey</strong> = typing.Union[str, ~T]<br>
+<strong>NameToKey</strong> = typing.MutableMapping[str, ~T]<br>
+<strong>T</strong> = ~T</td></tr></table>
+</body></html>

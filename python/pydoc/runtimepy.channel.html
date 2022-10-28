@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package runtimepy.channel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.channel</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/channel/__init__.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/channel/__init__.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;channel&nbsp;interface.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="runtimepy.channel.environment.html"><strong>environment</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top><a href="runtimepy.channel.registry.html">registry</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.registry.item.html#RegistryItem">runtimepy.registry.item.RegistryItem</a>(<a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.channel.html#Channel">Channel</a>(<a href="runtimepy.registry.item.html#RegistryItem">runtimepy.registry.item.RegistryItem</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="typing.html#Generic">typing.Generic</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.channel.html#Channel">Channel</a>(<a href="runtimepy.registry.item.html#RegistryItem">runtimepy.registry.item.RegistryItem</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Channel">class <strong>Channel</strong></a>(<a href="runtimepy.registry.item.html#RegistryItem">runtimepy.registry.item.RegistryItem</a>, <a href="typing.html#Generic">typing.Generic</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Channel">Channel</a>(*args,&nbsp;**kwds)<br>
+&nbsp;<br>
+An&nbsp;interface&nbsp;for&nbsp;an&nbsp;individual&nbsp;channel.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.channel.html#Channel">Channel</a></dd>
+<dd><a href="runtimepy.registry.item.html#RegistryItem">runtimepy.registry.item.RegistryItem</a></dd>
+<dd><a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a></dd>
+<dd><a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Channel-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Get&nbsp;this&nbsp;channel&nbsp;as&nbsp;a&nbsp;boolean.</tt></dd></dl>
+
+<dl><dt><a name="Channel-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;channel&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="Channel-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Obtain&nbsp;a&nbsp;dictionary&nbsp;representing&nbsp;this&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="Channel-init"><strong>init</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; None</dt><dd><tt>Perform&nbsp;implementation-specific&nbsp;initialization.</tt></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>enum</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;enum-registry&nbsp;key&nbsp;for&nbsp;this&nbsp;channel.</tt></dd>
+</dl>
+<dl><dt><strong>id</strong></dt>
+<dd><tt>Get&nbsp;this&nbsp;registry&nbsp;item's&nbsp;identifier.</tt></dd>
+</dl>
+<dl><dt><strong>is_enum</strong></dt>
+<dd><tt>Determine&nbsp;if&nbsp;this&nbsp;channel&nbsp;has&nbsp;an&nbsp;associated&nbsp;enumeration.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (&lt;class 'runtimepy.registry.item.RegistryItem'&gt;, typing.Generic[~T])</dl>
+
+<dl><dt><strong>__parameters__</strong> = (~T,)</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.registry.item.html#RegistryItem">runtimepy.registry.item.RegistryItem</a>:<br>
+<dl><dt><a name="Channel-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;to&nbsp;determine&nbsp;equivalence.</tt></dd></dl>
+
+<dl><dt><a name="Channel-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Get&nbsp;a&nbsp;suitable&nbsp;hash&nbsp;for&nbsp;this&nbsp;registry&nbsp;item.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>:<br>
+<dl><dt><a name="Channel-__init__"><strong>__init__</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;instance.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>:<br>
+<dl><dt><a name="Channel-create"><strong>create</strong></a>(data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True) -&gt; ~V<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>A&nbsp;factory&nbsp;method&nbsp;to&nbsp;create&nbsp;an&nbsp;instance.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'default_schemas': typing.Union[vcorelib.schemas.base.SchemaMap, NoneType]}</dl>
+
+<dl><dt><strong>default_schemas</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
+<dl><dt><a name="Channel-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7fe0b9aff9d0&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
+<dl><dt><a name="Channel-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.DataArbiter = &lt;vcorelib.io.DataArbiter object at 0x7fe0b9aff9d0&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
+<dl><dt><a name="Channel-validate"><strong>validate</strong></a>(self, valid_attr: str = 'data') -&gt; None</dt><dd><tt>Validate&nbsp;an&nbsp;instance&nbsp;attribute&nbsp;based&nbsp;on&nbsp;this&nbsp;instance's&nbsp;schema.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">vcorelib.schemas.mixins.SchemaMixin</a>:<br>
+<dl><dt><strong>schema_name</strong></dt>
+<dd><tt>A&nbsp;default&nbsp;name&nbsp;for&nbsp;this&nbsp;class's&nbsp;schema.</tt></dd>
+</dl>
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="Channel-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt></dl>
+
+<dl><dt><a name="Channel-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="Channel-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>AnyChannel</strong> = typing.Union[runtimepy.channel.Channel[runtimepy...nnel[runtimepy.primitives.bool.BooleanPrimitive]]<br>
+<strong>BoolChannel</strong> = runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]<br>
+<strong>FloatChannel</strong> = typing.Union[runtimepy.channel.Channel[runtimepy...nnel[runtimepy.primitives.float.DoublePrimitive]]<br>
+<strong>IntChannel</strong> = typing.Union[runtimepy.channel.Channel[runtimepy...hannel[runtimepy.primitives.int.Uint64Primitive]]</td></tr></table>
+</body></html>

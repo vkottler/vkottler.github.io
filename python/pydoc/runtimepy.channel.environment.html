@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package runtimepy.channel.environment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.<a href="runtimepy.channel.html"><font color="#ffffff">channel</font></a>.environment</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/channel/environment/__init__.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/channel/environment/__init__.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;channel&nbsp;environment.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="runtimepy.channel.environment.base.html">base</a><br>
+</td><td width="25%" valign=top><a href="runtimepy.channel.environment.file.html">file</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.channel.environment.file.html#FileChannelEnvironment">runtimepy.channel.environment.file.FileChannelEnvironment</a>(<a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.channel.environment.html#ChannelEnvironment">ChannelEnvironment</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ChannelEnvironment">class <strong>ChannelEnvironment</strong></a>(<a href="runtimepy.channel.environment.file.html#FileChannelEnvironment">runtimepy.channel.environment.file.FileChannelEnvironment</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ChannelEnvironment">ChannelEnvironment</a>(channels:&nbsp;runtimepy.channel.registry.ChannelRegistry&nbsp;=&nbsp;None,&nbsp;enums:&nbsp;runtimepy.enum.registry.EnumRegistry&nbsp;=&nbsp;None,&nbsp;values:&nbsp;Dict[Union[str,&nbsp;int],&nbsp;Union[bool,&nbsp;int,&nbsp;float,&nbsp;str]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;integrating&nbsp;channel&nbsp;and&nbsp;enumeration&nbsp;registries.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.channel.environment.html#ChannelEnvironment">ChannelEnvironment</a></dd>
+<dd><a href="runtimepy.channel.environment.file.html#FileChannelEnvironment">runtimepy.channel.environment.file.FileChannelEnvironment</a></dd>
+<dd><a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.channel.environment.file.html#FileChannelEnvironment">runtimepy.channel.environment.file.FileChannelEnvironment</a>:<br>
+<dl><dt><a name="ChannelEnvironment-export"><strong>export</strong></a>(self, channels: Union[pathlib.Path, str, NoneType] = 'channels.json', enums: Union[pathlib.Path, str, NoneType] = 'enums.json', values: Union[pathlib.Path, str, NoneType] = 'values.json', resolve_enum: bool = True, **kwargs) -&gt; None</dt><dd><tt>Write&nbsp;channel&nbsp;and&nbsp;enum&nbsp;registries&nbsp;to&nbsp;disk.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-export_directory"><strong>export_directory</strong></a>(self, path: Union[pathlib.Path, str, NoneType]) -&gt; None</dt><dd><tt>Export&nbsp;this&nbsp;channel&nbsp;environment&nbsp;to&nbsp;a&nbsp;directory.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.channel.environment.file.html#FileChannelEnvironment">runtimepy.channel.environment.file.FileChannelEnvironment</a>:<br>
+<dl><dt><a name="ChannelEnvironment-load"><strong>load</strong></a>(channels: Union[pathlib.Path, str, NoneType] = 'channels.json', enums: Union[pathlib.Path, str, NoneType] = 'enums.json', values: Union[pathlib.Path, str, NoneType] = 'values.json') -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Load&nbsp;a&nbsp;channel&nbsp;environment&nbsp;from&nbsp;a&nbsp;pair&nbsp;of&nbsp;files.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-load_directory"><strong>load_directory</strong></a>(path: Union[pathlib.Path, str, NoneType]) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Load&nbsp;a&nbsp;channel&nbsp;environment&nbsp;from&nbsp;a&nbsp;directory.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
+<dl><dt><a name="ChannelEnvironment-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;two&nbsp;channel&nbsp;environments&nbsp;are&nbsp;equivalent.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-__getitem__"><strong>__getitem__</strong></a>(self, key: Union[str, int]) -&gt; Tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], Union[runtimepy.enum.RuntimeEnum, NoneType]]</dt><dd><tt>Get&nbsp;a&nbsp;channel&nbsp;and&nbsp;its&nbsp;enumeration.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-__init__"><strong>__init__</strong></a>(self, channels: runtimepy.channel.registry.ChannelRegistry = None, enums: runtimepy.enum.registry.EnumRegistry = None, values: Dict[Union[str, int], Union[bool, int, float, str]] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;channel&nbsp;environment.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-apply"><strong>apply</strong></a>(self, values: Dict[Union[str, int], Union[bool, int, float, str]]) -&gt; None</dt><dd><tt>Apply&nbsp;a&nbsp;map&nbsp;of&nbsp;values&nbsp;to&nbsp;the&nbsp;environment.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-get"><strong>get</strong></a>(self, val: Union[str, int]) -&gt; Union[Tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], Union[runtimepy.enum.RuntimeEnum, NoneType]], NoneType]</dt><dd><tt>Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;channel&nbsp;and&nbsp;its&nbsp;enumeration&nbsp;(if&nbsp;it&nbsp;has&nbsp;one).</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-get_bool"><strong>get_bool</strong></a>(self, key: Union[str, int]) -&gt; Tuple[runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive], Union[runtimepy.enum.RuntimeEnum, NoneType]]</dt><dd><tt>Get&nbsp;a&nbsp;boolean&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-get_float"><strong>get_float</strong></a>(self, key: Union[str, int]) -&gt; Union[runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive]]</dt><dd><tt>Get&nbsp;a&nbsp;floating-point&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-get_int"><strong>get_int</strong></a>(self, key: Union[str, int]) -&gt; Tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive]], Union[runtimepy.enum.RuntimeEnum, NoneType]]</dt><dd><tt>Get&nbsp;an&nbsp;integer&nbsp;channel.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-set"><strong>set</strong></a>(self, key: Union[str, int], value: Union[bool, int, float, str]) -&gt; None</dt><dd><tt>Attempt&nbsp;to&nbsp;set&nbsp;an&nbsp;arbitrary&nbsp;channel&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-value"><strong>value</strong></a>(self, key: Union[str, int], resolve_enum: bool = True) -&gt; Union[bool, int, float, str]</dt><dd><tt>Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;channel's&nbsp;current&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="ChannelEnvironment-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[Union[str, int], Union[bool, int, float, str]]</dt><dd><tt>Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;channel&nbsp;values.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

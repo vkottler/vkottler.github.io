@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="datazen.html"><font color="#ffffff">datazen</font></a>.targets</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/git/workspace/datazen/datazen/targets.py">/home/vkottler/git/workspace/datazen/datazen/targets.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/datazen/datazen/targets.py">/home/vkottler/Documents/git/workspace/datazen/datazen/targets.py</a></font></td></tr></table>
     <p><tt>datazen&nbsp;-&nbsp;An&nbsp;interface&nbsp;for&nbsp;parsing&nbsp;and&nbsp;matching&nbsp;targets.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -17,11 +17,11 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-parse_targets"><strong>parse_targets</strong></a>(targets: List[dict]) -&gt; Tuple[Dict[str, dict], Dict[str, dict]]</dt><dd><tt>From&nbsp;a&nbsp;list&nbsp;of&nbsp;target&nbsp;structures,&nbsp;parse&nbsp;them&nbsp;into&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;keys<br>
+<td width="100%"><dl><dt><a name="-parse_targets"><strong>parse_targets</strong></a>(targets: List[Dict[str, Any]]) -&gt; Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]]]</dt><dd><tt>From&nbsp;a&nbsp;list&nbsp;of&nbsp;target&nbsp;structures,&nbsp;parse&nbsp;them&nbsp;into&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;keys<br>
 as&nbsp;target&nbsp;names&nbsp;and&nbsp;data&nbsp;initialization&nbsp;to&nbsp;support&nbsp;future&nbsp;interaction.</tt></dd></dl>
- <dl><dt><a name="-resolve_dep_data"><strong>resolve_dep_data</strong></a>(entry: dict, data: dict) -&gt; dict</dt><dd><tt>Implements&nbsp;the&nbsp;business&nbsp;logic&nbsp;for&nbsp;applying&nbsp;match&nbsp;data&nbsp;to&nbsp;manifest&nbsp;entries.</tt></dd></dl>
- <dl><dt><a name="-resolve_target_data"><strong>resolve_target_data</strong></a>(target_data: dict, match_data: Dict[str, str]) -&gt; dict</dt><dd><tt>Resolve&nbsp;matched-target&nbsp;data&nbsp;into&nbsp;a&nbsp;target's&nbsp;data&nbsp;from&nbsp;a&nbsp;manifest.</tt></dd></dl>
- <dl><dt><a name="-resolve_target_list"><strong>resolve_target_list</strong></a>(target_list: list, match_data: Dict[str, str]) -&gt; list</dt><dd><tt>Resovle&nbsp;matched-target&nbsp;data&nbsp;into&nbsp;a&nbsp;list&nbsp;form&nbsp;of&nbsp;target&nbsp;data&nbsp;from&nbsp;a<br>
+ <dl><dt><a name="-resolve_dep_data"><strong>resolve_dep_data</strong></a>(entry: Dict[str, Any], data: Dict[str, Any]) -&gt; Dict[str, Any]</dt><dd><tt>Implements&nbsp;the&nbsp;business&nbsp;logic&nbsp;for&nbsp;applying&nbsp;match&nbsp;data&nbsp;to&nbsp;manifest&nbsp;entries.</tt></dd></dl>
+ <dl><dt><a name="-resolve_target_data"><strong>resolve_target_data</strong></a>(target_data: Dict[str, Any], match_data: Dict[str, Union[str, int]]) -&gt; Dict[str, Any]</dt><dd><tt>Resolve&nbsp;matched-target&nbsp;data&nbsp;into&nbsp;a&nbsp;target's&nbsp;data&nbsp;from&nbsp;a&nbsp;manifest.</tt></dd></dl>
+ <dl><dt><a name="-resolve_target_list"><strong>resolve_target_list</strong></a>(target_list: List[Any], match_data: Dict[str, Union[str, int]]) -&gt; List[Any]</dt><dd><tt>Resovle&nbsp;matched-target&nbsp;data&nbsp;into&nbsp;a&nbsp;list&nbsp;form&nbsp;of&nbsp;target&nbsp;data&nbsp;from&nbsp;a<br>
 manifest.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -30,8 +30,10 @@ manifest.</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>Dict</strong> = typing.Dict<br>
+<td width="100%"><strong>Any</strong> = typing.Any<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
 <strong>List</strong> = typing.List<br>
-<strong>Substitutions</strong> = typing.Dict[str, str]<br>
+<strong>Substitutions</strong> = typing.Dict[str, typing.Union[str, int]]<br>
 <strong>Tuple</strong> = typing.Tuple</td></tr></table>
 </body></html>
