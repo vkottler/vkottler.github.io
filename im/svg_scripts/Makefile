@@ -60,7 +60,7 @@ host-svg: | $(SVG_DIR)
 SCRIPT_ARGS ?=
 
 script-%: | setup $(SVG_DIR)
-	@$(PYTHON_BIN)/svgen \
+	$(PYTHON_BIN)/svgen \
 		$(SCRIPT_ARGS) \
 		-c $(SCRIPT_DIR)/$*.json \
 		-o $(SVG_DIR)/$*.svg \
