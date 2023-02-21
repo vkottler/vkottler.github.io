@@ -59,6 +59,14 @@ Methods defined here:<br>
 
 <dl><dt><a name="PrimitiveType-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;type&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
+<dl><dt><a name="PrimitiveType-decode"><strong>decode</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><tt>Decode&nbsp;primitive&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="PrimitiveType-encode"><strong>encode</strong></a>(self, value: Union[bool, int, float], byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; bytes</dt><dd><tt>Encode&nbsp;a&nbsp;primitive&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PrimitiveType-read"><strong>read</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="PrimitiveType-write"><strong>write</strong></a>(self, value: Union[bool, int, float], stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; int</dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
 <hr>
 Class methods defined here:<br>
 <dl><dt><a name="PrimitiveType-instance"><strong>instance</strong></a>() -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Get&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
@@ -99,5 +107,6 @@ Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>T</strong> = ~T</td></tr></table>
+<td width="100%"><strong>PythonPrimitive</strong> = typing.Union[bool, int, float]<br>
+<strong>T</strong> = ~T</td></tr></table>
 </body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module runtimepy.primitives.string</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.<a href="runtimepy.primitives.html"><font color="#ffffff">primitives</font></a>.string</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/primitives/string.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/primitives/string.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;integer-prefixed&nbsp;string&nbsp;reading&nbsp;and&nbsp;writing.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.primitives.string.html#StringPrimitive">StringPrimitive</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="StringPrimitive">class <strong>StringPrimitive</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#StringPrimitive">StringPrimitive</a>(value:&nbsp;str&nbsp;=&nbsp;'',&nbsp;kind:&nbsp;Type[runtimepy.primitives.base.Primitive[int]]&nbsp;=&nbsp;&amp;lt;class&nbsp;'runtimepy.primitives.int.Uint16Primitive'&amp;gt;,&nbsp;byte_order:&nbsp;runtimepy.primitives.byte_order.ByteOrder&nbsp;=&nbsp;&amp;lt;ByteOrder.NETWORK:&nbsp;4&amp;gt;)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;implementing&nbsp;a&nbsp;string-primitive&nbsp;interface.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="StringPrimitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;another.</tt></dd></dl>
+
+<dl><dt><a name="StringPrimitive-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Get&nbsp;a&nbsp;hash&nbsp;for&nbsp;this&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="StringPrimitive-__init__"><strong>__init__</strong></a>(self, value: str = '', kind: Type[runtimepy.primitives.base.Primitive[int]] = &lt;class 'runtimepy.primitives.int.Uint16Primitive'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;string&nbsp;primitive.</tt></dd></dl>
+
+<dl><dt><a name="StringPrimitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;instance&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="StringPrimitive-read"><strong>read</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; str</dt><dd><tt>Read&nbsp;a&nbsp;string&nbsp;from&nbsp;the&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="StringPrimitive-set"><strong>set</strong></a>(self, value: str) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;new&nbsp;value&nbsp;for&nbsp;the&nbsp;underlying&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="StringPrimitive-write"><strong>write</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;string's&nbsp;size&nbsp;and&nbsp;value&nbsp;to&nbsp;the&nbsp;stream.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="StringPrimitive-from_stream"><strong>from_stream</strong></a>(stream: &lt;class 'BinaryIO'&gt;, kind: Type[runtimepy.primitives.base.Primitive[int]] = &lt;class 'runtimepy.primitives.int.Uint16Primitive'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; 'StringPrimitive'</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;string&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;overall&nbsp;size&nbsp;of&nbsp;this&nbsp;string&nbsp;primitive.</tt></dd>
+</dl>
+<dl><dt><strong>value</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;this&nbsp;string.</tt></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

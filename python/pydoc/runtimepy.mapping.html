@@ -52,9 +52,13 @@ A&nbsp;class&nbsp;interface&nbsp;for&nbsp;managing&nbsp;two-way&nbsp;mappings.<b
 Methods defined here:<br>
 <dl><dt><a name="TwoWayNameMapping-__init__"><strong>__init__</strong></a>(self, mapping: MutableMapping[~T, str] = None, reverse: MutableMapping[str, ~T] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;name&nbsp;registry.</tt></dd></dl>
 
-<dl><dt><a name="TwoWayNameMapping-asdict"><strong>asdict</strong></a>(self) -&gt; MutableMapping[str, ~T]</dt><dd><tt>Provide&nbsp;a&nbsp;dictionary&nbsp;representation.</tt></dd></dl>
+<dl><dt><a name="TwoWayNameMapping-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, ~T]</dt><dd><tt>Provide&nbsp;a&nbsp;dictionary&nbsp;representation.</tt></dd></dl>
 
 <dl><dt><a name="TwoWayNameMapping-identifier"><strong>identifier</strong></a>(self, key: Union[str, ~T]) -&gt; Union[~T, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;associated&nbsp;with&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="TwoWayNameMapping-load_key_to_name"><strong>load_key_to_name</strong></a>(self, mapping: MutableMapping[~T, str]) -&gt; None</dt><dd><tt>Load&nbsp;a&nbsp;key-to-name&nbsp;mapping.</tt></dd></dl>
+
+<dl><dt><a name="TwoWayNameMapping-load_name_to_key"><strong>load_name_to_key</strong></a>(self, reverse: MutableMapping[str, ~T]) -&gt; None</dt><dd><tt>Load&nbsp;a&nbsp;name-to-key&nbsp;mapping.</tt></dd></dl>
 
 <dl><dt><a name="TwoWayNameMapping-name"><strong>name</strong></a>(self, key: Union[str, ~T]) -&gt; Union[str, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;name&nbsp;associated&nbsp;with&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
 
@@ -65,6 +69,11 @@ Class methods defined here:<br>
 <dl><dt><a name="TwoWayNameMapping-int_from_dict"><strong>int_from_dict</strong></a>(data: MutableMapping[Union[str, int], Union[str, int]]) -&gt; ~IntMapping<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;an&nbsp;integer-to-name&nbsp;mapping&nbsp;from&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;arbitrary<br>
 data.</tt></dd></dl>
 
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>names</strong></dt>
+<dd><tt>Iterate&nbsp;over&nbsp;names.</tt></dd>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__orig_bases__</strong> = (&lt;class 'runtimepy.mixins.regex.RegexMixin'&gt;, typing.Generic[~T])</dl>
@@ -111,6 +120,7 @@ Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>BoolMapping</strong> = ~BoolMapping<br>
 <strong>BoolMappingData</strong> = typing.MutableMapping[typing.Union[str, bool], typing.Union[str, bool]]<br>
+<strong>EnumMappingData</strong> = typing.Union[typing.MutableMapping[typing.Union[...ping[str, bool], typing.MutableMapping[str, int]]<br>
 <strong>IntMapping</strong> = ~IntMapping<br>
 <strong>IntMappingData</strong> = typing.MutableMapping[typing.Union[str, int], typing.Union[str, int]]<br>
 <strong>KeyToName</strong> = typing.MutableMapping[~T, str]<br>

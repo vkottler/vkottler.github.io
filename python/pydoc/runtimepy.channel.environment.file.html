@@ -18,7 +18,7 @@
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>(<a href="builtins.html#object">builtins.object</a>)
+<dt><font face="helvetica, arial"><a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>(<a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="runtimepy.channel.environment.file.html#FileChannelEnvironment">FileChannelEnvironment</a>
@@ -32,26 +32,31 @@
 <font color="#000000" face="helvetica, arial"><a name="FileChannelEnvironment">class <strong>FileChannelEnvironment</strong></a>(<a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#FileChannelEnvironment">FileChannelEnvironment</a>(channels:&nbsp;runtimepy.channel.registry.ChannelRegistry&nbsp;=&nbsp;None,&nbsp;enums:&nbsp;runtimepy.enum.registry.EnumRegistry&nbsp;=&nbsp;None,&nbsp;values:&nbsp;Dict[Union[str,&nbsp;int],&nbsp;Union[bool,&nbsp;int,&nbsp;float,&nbsp;str]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<td colspan=2><tt><a href="#FileChannelEnvironment">FileChannelEnvironment</a>(channels:&nbsp;runtimepy.channel.registry.ChannelRegistry&nbsp;=&nbsp;None,&nbsp;enums:&nbsp;runtimepy.enum.registry.EnumRegistry&nbsp;=&nbsp;None,&nbsp;values:&nbsp;Dict[Union[str,&nbsp;int],&nbsp;Union[bool,&nbsp;int,&nbsp;float,&nbsp;str]]&nbsp;=&nbsp;None,&nbsp;fields:&nbsp;Iterable[runtimepy.primitives.field.fields.BitFields]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;integrating&nbsp;file-system&nbsp;operations&nbsp;with&nbsp;channel&nbsp;environments.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="runtimepy.channel.environment.file.html#FileChannelEnvironment">FileChannelEnvironment</a></dd>
 <dd><a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a></dd>
+<dd><a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FileChannelEnvironment-export"><strong>export</strong></a>(self, channels: Union[pathlib.Path, str, NoneType] = 'channels.json', enums: Union[pathlib.Path, str, NoneType] = 'enums.json', values: Union[pathlib.Path, str, NoneType] = 'values.json', resolve_enum: bool = True, **kwargs) -&gt; None</dt><dd><tt>Write&nbsp;channel&nbsp;and&nbsp;enum&nbsp;registries&nbsp;to&nbsp;disk.</tt></dd></dl>
+<dl><dt><a name="FileChannelEnvironment-export"><strong>export</strong></a>(self, channels: Union[pathlib.Path, str, NoneType] = 'channels.json', enums: Union[pathlib.Path, str, NoneType] = 'enums.json', values: Union[pathlib.Path, str, NoneType] = 'values.json', fields: Union[pathlib.Path, str, NoneType] = 'fields.json', names: Union[pathlib.Path, str, NoneType] = 'names.json', resolve_enum: bool = True, **kwargs) -&gt; None</dt><dd><tt>Write&nbsp;channel&nbsp;and&nbsp;enum&nbsp;registries&nbsp;to&nbsp;disk.</tt></dd></dl>
 
-<dl><dt><a name="FileChannelEnvironment-export_directory"><strong>export_directory</strong></a>(self, path: Union[pathlib.Path, str, NoneType]) -&gt; None</dt><dd><tt>Export&nbsp;this&nbsp;channel&nbsp;environment&nbsp;to&nbsp;a&nbsp;directory.</tt></dd></dl>
+<dl><dt><a name="FileChannelEnvironment-export_directory"><strong>export_directory</strong></a>(self, path: Union[pathlib.Path, str, NoneType], resolve_enum: bool = True, **kwargs) -&gt; None</dt><dd><tt>Export&nbsp;this&nbsp;channel&nbsp;environment&nbsp;to&nbsp;a&nbsp;directory.</tt></dd></dl>
+
+<dl><dt><a name="FileChannelEnvironment-export_json"><strong>export_json</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[str, Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]</dt><dd><tt>Get&nbsp;this&nbsp;channel&nbsp;environment&nbsp;as&nbsp;a&nbsp;single&nbsp;dictionary.</tt></dd></dl>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="FileChannelEnvironment-load"><strong>load</strong></a>(channels: Union[pathlib.Path, str, NoneType] = 'channels.json', enums: Union[pathlib.Path, str, NoneType] = 'enums.json', values: Union[pathlib.Path, str, NoneType] = 'values.json') -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Load&nbsp;a&nbsp;channel&nbsp;environment&nbsp;from&nbsp;a&nbsp;pair&nbsp;of&nbsp;files.</tt></dd></dl>
+<dl><dt><a name="FileChannelEnvironment-load"><strong>load</strong></a>(channels: Union[pathlib.Path, str, NoneType] = 'channels.json', enums: Union[pathlib.Path, str, NoneType] = 'enums.json', values: Union[pathlib.Path, str, NoneType] = 'values.json', fields: Union[pathlib.Path, str, NoneType] = 'fields.json', names: Union[pathlib.Path, str, NoneType] = 'names.json') -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Load&nbsp;a&nbsp;channel&nbsp;environment&nbsp;from&nbsp;a&nbsp;pair&nbsp;of&nbsp;files.</tt></dd></dl>
 
 <dl><dt><a name="FileChannelEnvironment-load_directory"><strong>load_directory</strong></a>(path: Union[pathlib.Path, str, NoneType]) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Load&nbsp;a&nbsp;channel&nbsp;environment&nbsp;from&nbsp;a&nbsp;directory.</tt></dd></dl>
+
+<dl><dt><a name="FileChannelEnvironment-load_json"><strong>load_json</strong></a>(data: Dict[str, Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Load&nbsp;a&nbsp;channel&nbsp;environment&nbsp;from&nbsp;JSON&nbsp;data.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
@@ -59,7 +64,7 @@ Methods inherited from <a href="runtimepy.channel.environment.base.html#BaseChan
 
 <dl><dt><a name="FileChannelEnvironment-__getitem__"><strong>__getitem__</strong></a>(self, key: Union[str, int]) -&gt; Tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], Union[runtimepy.enum.RuntimeEnum, NoneType]]</dt><dd><tt>Get&nbsp;a&nbsp;channel&nbsp;and&nbsp;its&nbsp;enumeration.</tt></dd></dl>
 
-<dl><dt><a name="FileChannelEnvironment-__init__"><strong>__init__</strong></a>(self, channels: runtimepy.channel.registry.ChannelRegistry = None, enums: runtimepy.enum.registry.EnumRegistry = None, values: Dict[Union[str, int], Union[bool, int, float, str]] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;channel&nbsp;environment.</tt></dd></dl>
+<dl><dt><a name="FileChannelEnvironment-__init__"><strong>__init__</strong></a>(self, channels: runtimepy.channel.registry.ChannelRegistry = None, enums: runtimepy.enum.registry.EnumRegistry = None, values: Dict[Union[str, int], Union[bool, int, float, str]] = None, fields: Iterable[runtimepy.primitives.field.fields.BitFields] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;channel&nbsp;environment.</tt></dd></dl>
 
 <dl><dt><a name="FileChannelEnvironment-apply"><strong>apply</strong></a>(self, values: Dict[Union[str, int], Union[bool, int, float, str]]) -&gt; None</dt><dd><tt>Apply&nbsp;a&nbsp;map&nbsp;of&nbsp;values&nbsp;to&nbsp;the&nbsp;environment.</tt></dd></dl>
 
@@ -78,17 +83,31 @@ Methods inherited from <a href="runtimepy.channel.environment.base.html#BaseChan
 <dl><dt><a name="FileChannelEnvironment-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[Union[str, int], Union[bool, int, float, str]]</dt><dd><tt>Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;channel&nbsp;values.</tt></dd></dl>
 
 <hr>
-Data descriptors inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
+Data and other attributes inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>:<br>
+<dl><dt><a name="FileChannelEnvironment-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; vcorelib.namespace.Namespace</dt><dd><tt>Obtain&nbsp;a&nbsp;child&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="FileChannelEnvironment-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><tt>Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;object's&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</tt></dd></dl>
+
+<dl><dt><a name="FileChannelEnvironment-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><tt>Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="FileChannelEnvironment-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[str]</dt><dd><tt>Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="FileChannelEnvironment-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><tt>Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</tt></dd></dl>
+
+<dl><dt><a name="FileChannelEnvironment-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.Namespace = None) -&gt; None</dt><dd><tt>Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
-<hr>
-Data and other attributes inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
-<dl><dt><strong>__hash__</strong> = None</dl>
-
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -97,7 +116,14 @@ Data and other attributes inherited from <a href="runtimepy.channel.environment.
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>CHANNELS_FILE</strong> = 'channels.json'<br>
+<strong>CHANNELS_KEY</strong> = 'channels'<br>
 <strong>ENUMS_FILE</strong> = 'enums.json'<br>
+<strong>ENUMS_KEY</strong> = 'enums'<br>
+<strong>FIELDS_FILE</strong> = 'fields.json'<br>
+<strong>FIELDS_KEY</strong> = 'fields'<br>
+<strong>NAMES_FILE</strong> = 'names.json'<br>
+<strong>NAMES_KEY</strong> = 'names'<br>
 <strong>T</strong> = ~T<br>
-<strong>VALUES_FILE</strong> = 'values.json'</td></tr></table>
+<strong>VALUES_FILE</strong> = 'values.json'<br>
+<strong>VALUES_KEY</strong> = 'values'</td></tr></table>
 </body></html>

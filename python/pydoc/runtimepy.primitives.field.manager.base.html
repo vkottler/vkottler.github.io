@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module runtimepy.primitives.field.manager.base</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.<a href="runtimepy.primitives.html"><font color="#ffffff">primitives</font></a>.<a href="runtimepy.primitives.field.html"><font color="#ffffff">field</font></a>.<a href="runtimepy.primitives.field.manager.html"><font color="#ffffff">manager</font></a>.base</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/primitives/field/manager/base.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/primitives/field/manager/base.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;base&nbsp;management&nbsp;entity&nbsp;for&nbsp;bit-fields.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.primitives.field.manager.base.html#BitFieldsManagerBase">BitFieldsManagerBase</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BitFieldsManagerBase">class <strong>BitFieldsManagerBase</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BitFieldsManagerBase">BitFieldsManagerBase</a>(registry:&nbsp;runtimepy.registry.name.NameRegistry,&nbsp;enums:&nbsp;runtimepy.enum.registry.EnumRegistry,&nbsp;fields:&nbsp;Iterable[runtimepy.primitives.field.fields.BitFields]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;managing&nbsp;multiple&nbsp;bit-fields&nbsp;objects.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BitFieldsManagerBase-__copy__"><strong>__copy__</strong></a>(self: ~T) -&gt; ~T</dt><dd><tt>Create&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;manager&nbsp;with&nbsp;fields&nbsp;that&nbsp;use&nbsp;distinct&nbsp;underlying<br>
+primitives.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-__getitem__"><strong>__getitem__</strong></a>(self, key: Union[str, int]) -&gt; runtimepy.primitives.field.BitField</dt><dd><tt>Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;bit-field.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-__init__"><strong>__init__</strong></a>(self, registry: runtimepy.registry.name.NameRegistry, enums: runtimepy.enum.registry.EnumRegistry, fields: Iterable[runtimepy.primitives.field.fields.BitFields] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;bit-fields&nbsp;manager.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-add"><strong>add</strong></a>(self, fields: runtimepy.primitives.field.fields.BitFields) -&gt; int</dt><dd><tt>Add&nbsp;new&nbsp;bit-fields&nbsp;to&nbsp;manage.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Get&nbsp;this&nbsp;bit-fields&nbsp;manager&nbsp;as&nbsp;a&nbsp;JSON&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-encode"><strong>encode</strong></a>(self, path: Union[pathlib.Path, str, NoneType], **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Encode&nbsp;this&nbsp;bit-fields&nbsp;manager&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-get"><strong>get</strong></a>(self, key: Union[str, int], resolve_enum: bool = True) -&gt; Union[int, bool, str]</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-get_field"><strong>get_field</strong></a>(self, key: Union[str, int]) -&gt; Union[runtimepy.primitives.field.BitField, NoneType]</dt><dd><tt>Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;bit-field.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-get_fields"><strong>get_fields</strong></a>(self, key: Union[str, int]) -&gt; Union[runtimepy.primitives.field.fields.BitFields, NoneType]</dt><dd><tt>Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;bit-fields&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-get_flag"><strong>get_flag</strong></a>(self, key: Union[str, int]) -&gt; runtimepy.primitives.field.BitFlag</dt><dd><tt>Attempt&nbsp;to&nbsp;lookup&nbsp;a&nbsp;bit-flag.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-has_field"><strong>has_field</strong></a>(self, key: Union[str, int]) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;manager&nbsp;has&nbsp;a&nbsp;field&nbsp;with&nbsp;this&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-set"><strong>set</strong></a>(self, key: Union[str, int], value: Union[int, bool, str]) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldsManagerBase-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[str, Union[str, int]]</dt><dd><tt>Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;field&nbsp;values.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-fields_to_dict"><strong>fields_to_dict</strong></a>(fields: Iterable[runtimepy.primitives.field.fields.BitFields]) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Organize&nbsp;a&nbsp;bit-fields&nbsp;iterable&nbsp;into&nbsp;a&nbsp;JSON&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+ <dl><dt><a name="-fields_to_file"><strong>fields_to_file</strong></a>(path: Union[pathlib.Path, str, NoneType], fields: Iterable[runtimepy.primitives.field.fields.BitFields], **kwargs) -&gt; Tuple[bool, int]</dt><dd><tt>Write&nbsp;bit-fields&nbsp;to&nbsp;a&nbsp;file.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>T</strong> = ~T</td></tr></table>
+</body></html>

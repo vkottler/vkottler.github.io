@@ -57,9 +57,13 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.mapping.html#TwoWayNameMapping">runtimepy.mapping.TwoWayNameMapping</a>:<br>
 <dl><dt><a name="BooleanRegistry-__init__"><strong>__init__</strong></a>(self, mapping: MutableMapping[~T, str] = None, reverse: MutableMapping[str, ~T] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;name&nbsp;registry.</tt></dd></dl>
 
-<dl><dt><a name="BooleanRegistry-asdict"><strong>asdict</strong></a>(self) -&gt; MutableMapping[str, ~T]</dt><dd><tt>Provide&nbsp;a&nbsp;dictionary&nbsp;representation.</tt></dd></dl>
+<dl><dt><a name="BooleanRegistry-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, ~T]</dt><dd><tt>Provide&nbsp;a&nbsp;dictionary&nbsp;representation.</tt></dd></dl>
 
 <dl><dt><a name="BooleanRegistry-identifier"><strong>identifier</strong></a>(self, key: Union[str, ~T]) -&gt; Union[~T, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;integer&nbsp;identifier&nbsp;associated&nbsp;with&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="BooleanRegistry-load_key_to_name"><strong>load_key_to_name</strong></a>(self, mapping: MutableMapping[~T, str]) -&gt; None</dt><dd><tt>Load&nbsp;a&nbsp;key-to-name&nbsp;mapping.</tt></dd></dl>
+
+<dl><dt><a name="BooleanRegistry-load_name_to_key"><strong>load_name_to_key</strong></a>(self, reverse: MutableMapping[str, ~T]) -&gt; None</dt><dd><tt>Load&nbsp;a&nbsp;name-to-key&nbsp;mapping.</tt></dd></dl>
 
 <dl><dt><a name="BooleanRegistry-name"><strong>name</strong></a>(self, key: Union[str, ~T]) -&gt; Union[str, NoneType]</dt><dd><tt>Get&nbsp;the&nbsp;name&nbsp;associated&nbsp;with&nbsp;a&nbsp;registry&nbsp;key.</tt></dd></dl>
 
@@ -70,6 +74,11 @@ Class methods inherited from <a href="runtimepy.mapping.html#TwoWayNameMapping">
 <dl><dt><a name="BooleanRegistry-int_from_dict"><strong>int_from_dict</strong></a>(data: MutableMapping[Union[str, int], Union[str, int]]) -&gt; ~IntMapping<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;an&nbsp;integer-to-name&nbsp;mapping&nbsp;from&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;arbitrary<br>
 data.</tt></dd></dl>
 
+<hr>
+Readonly properties inherited from <a href="runtimepy.mapping.html#TwoWayNameMapping">runtimepy.mapping.TwoWayNameMapping</a>:<br>
+<dl><dt><strong>names</strong></dt>
+<dd><tt>Iterate&nbsp;over&nbsp;names.</tt></dd>
+</dl>
 <hr>
 Class methods inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
 <dl><dt><a name="BooleanRegistry-validate_name"><strong>validate_name</strong></a>(name: str) -&gt; bool<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;name&nbsp;is&nbsp;valid&nbsp;for&nbsp;this&nbsp;class.</tt></dd></dl>

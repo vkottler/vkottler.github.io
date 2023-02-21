@@ -40,7 +40,9 @@ A&nbsp;class&nbsp;for&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;namespace&nbsp;in
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Namespace-__init__"><strong>__init__</strong></a>(self, *names: str, delim: str = '.') -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="Namespace-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;namespace&nbsp;string&nbsp;with&nbsp;or&nbsp;without&nbsp;an&nbsp;additional&nbsp;name<br>
+<dl><dt><a name="Namespace-child"><strong>child</strong></a>(self, *names: str) -&gt; 'Namespace'</dt><dd><tt>Create&nbsp;a&nbsp;child&nbsp;namespace&nbsp;from&nbsp;this&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="Namespace-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, track: bool = True) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;current&nbsp;namespace&nbsp;string&nbsp;with&nbsp;or&nbsp;without&nbsp;an&nbsp;additional&nbsp;name<br>
 applied.</tt></dd></dl>
 
 <dl><dt><a name="Namespace-pop"><strong>pop</strong></a>(self, name: str = None) -&gt; str</dt><dd><tt>Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</tt></dd></dl>
@@ -49,6 +51,8 @@ applied.</tt></dd></dl>
 
 <dl><dt><a name="Namespace-pushed"><strong>pushed</strong></a>(self, *names: str) -&gt; Iterator[NoneType]</dt><dd><tt>Provide&nbsp;this&nbsp;namespace&nbsp;with&nbsp;some&nbsp;names&nbsp;pushed&nbsp;onto&nbsp;the&nbsp;stack&nbsp;as&nbsp;a<br>
 context.</tt></dd></dl>
+
+<dl><dt><a name="Namespace-search"><strong>search</strong></a>(self, *names: str, pattern: str = '.*') -&gt; Iterator[str]</dt><dd><tt>Iterate&nbsp;over&nbsp;names&nbsp;in&nbsp;this&nbsp;namespace&nbsp;that&nbsp;match&nbsp;a&nbsp;given&nbsp;pattern.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -72,13 +76,17 @@ A&nbsp;class&nbsp;for&nbsp;giving&nbsp;arbitrary&nbsp;objects&nbsp;namespace&nbs
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="NamespaceMixin-__init__"><strong>__init__</strong></a>(self, namespace: vcorelib.namespace.Namespace = None, namespace_delim: str = '.') -&gt; None</dt><dd><tt>Initialize&nbsp;a&nbsp;namespace&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-names_pushed"><strong>names_pushed</strong></a>(self, *names: str) -&gt; Iterator[NoneType]</dt><dd><tt>Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;<a href="builtins.html#object">object</a>'s&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</tt></dd></dl>
+<dl><dt><a name="NamespaceMixin-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; vcorelib.namespace.Namespace</dt><dd><tt>Obtain&nbsp;a&nbsp;child&nbsp;namespace.</tt></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None) -&gt; str</dt><dd><tt>Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+<dl><dt><a name="NamespaceMixin-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><tt>Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;<a href="builtins.html#object">object</a>'s&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</tt></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-pop_name"><strong>pop_name</strong></a>(self, name: str = None) -&gt; str</dt><dd><tt>Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</tt></dd></dl>
+<dl><dt><a name="NamespaceMixin-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><tt>Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-push_name"><strong>push_name</strong></a>(self, name: str) -&gt; None</dt><dd><tt>Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</tt></dd></dl>
+<dl><dt><a name="NamespaceMixin-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[str]</dt><dd><tt>Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</tt></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><tt>Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</tt></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.Namespace = None) -&gt; None</dt><dd><tt>Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>

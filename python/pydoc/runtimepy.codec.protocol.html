@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package runtimepy.codec.protocol</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.<a href="runtimepy.codec.html"><font color="#ffffff">codec</font></a>.protocol</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/codec/protocol/__init__.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/codec/protocol/__init__.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;an&nbsp;interface&nbsp;to&nbsp;build&nbsp;communication&nbsp;protocols.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="runtimepy.codec.protocol.base.html">base</a><br>
+</td><td width="25%" valign=top><a href="runtimepy.codec.protocol.json.html">json</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a>(<a href="runtimepy.codec.protocol.base.html#ProtocolBase">runtimepy.codec.protocol.base.ProtocolBase</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.codec.protocol.html#Protocol">Protocol</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Protocol">class <strong>Protocol</strong></a>(<a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Protocol">Protocol</a>(enum_registry:&nbsp;runtimepy.enum.registry.EnumRegistry,&nbsp;names:&nbsp;runtimepy.registry.name.NameRegistry&nbsp;=&nbsp;None,&nbsp;fields:&nbsp;runtimepy.primitives.field.manager.BitFieldsManager&nbsp;=&nbsp;None,&nbsp;build:&nbsp;List[Union[int,&nbsp;runtimepy.codec.protocol.base.FieldSpec]]&nbsp;=&nbsp;None,&nbsp;identifier:&nbsp;int&nbsp;=&nbsp;1,&nbsp;byte_order:&nbsp;Union[runtimepy.primitives.byte_order.ByteOrder,&nbsp;str,&nbsp;int]&nbsp;=&nbsp;&amp;lt;ByteOrder.NETWORK:&nbsp;4&amp;gt;)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;defining&nbsp;runtime&nbsp;communication&nbsp;protocols.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.codec.protocol.html#Protocol">Protocol</a></dd>
+<dd><a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a></dd>
+<dd><a href="runtimepy.codec.protocol.base.html#ProtocolBase">runtimepy.codec.protocol.base.ProtocolBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a>:<br>
+<dl><dt><a name="Protocol-export_json"><strong>export_json</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[str, Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]</dt><dd><tt>Export&nbsp;this&nbsp;protocol's&nbsp;data&nbsp;to&nbsp;JSON.</tt></dd></dl>
+
+<dl><dt><a name="Protocol-meta_bytes"><strong>meta_bytes</strong></a>(self, resolve_enum: bool = True) -&gt; bytes</dt><dd><tt>Get&nbsp;protocol&nbsp;metadata&nbsp;as&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="Protocol-meta_str"><strong>meta_str</strong></a>(self, resolve_enum: bool = True) -&gt; str</dt><dd><tt>Get&nbsp;protocol&nbsp;metadata&nbsp;as&nbsp;a&nbsp;string..</tt></dd></dl>
+
+<dl><dt><a name="Protocol-write_meta"><strong>write_meta</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, resolve_enum: bool = True) -&gt; int</dt><dd><tt>Write&nbsp;protocol&nbsp;metadata&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a>:<br>
+<dl><dt><a name="Protocol-import_json"><strong>import_json</strong></a>(data: Dict[str, Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bit-fields&nbsp;manager&nbsp;from&nbsp;JSON&nbsp;data.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.codec.protocol.base.html#ProtocolBase">runtimepy.codec.protocol.base.ProtocolBase</a>:<br>
+<dl><dt><a name="Protocol-__copy__"><strong>__copy__</strong></a>(self: ~T) -&gt; ~T</dt><dd><tt>Create&nbsp;another&nbsp;protocol&nbsp;instance&nbsp;from&nbsp;this&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="Protocol-__getitem__"><strong>__getitem__</strong></a>(self, name: str) -&gt; Union[int, float, bool, str]</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;protocol&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="Protocol-__init__"><strong>__init__</strong></a>(self, enum_registry: runtimepy.enum.registry.EnumRegistry, names: runtimepy.registry.name.NameRegistry = None, fields: runtimepy.primitives.field.manager.BitFieldsManager = None, build: List[Union[int, runtimepy.codec.protocol.base.FieldSpec]] = None, identifier: int = 1, byte_order: Union[runtimepy.primitives.byte_order.ByteOrder, str, int] = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;protocol.</tt></dd></dl>
+
+<dl><dt><a name="Protocol-__setitem__"><strong>__setitem__</strong></a>(self, name: str, val: Union[int, float, bool, str]) -&gt; None</dt><dd><tt>Set&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;field&nbsp;belonging&nbsp;to&nbsp;the&nbsp;protocol.</tt></dd></dl>
+
+<dl><dt><a name="Protocol-add_bit_fields"><strong>add_bit_fields</strong></a>(self, kind: Union[Type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = 'uint8') -&gt; Iterator[runtimepy.primitives.field.fields.BitFields]</dt><dd><tt>Add&nbsp;a&nbsp;bit-fields&nbsp;primitive&nbsp;to&nbsp;the&nbsp;protocol.</tt></dd></dl>
+
+<dl><dt><a name="Protocol-add_field"><strong>add_field</strong></a>(self, name: str, kind: Union[Type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str], enum: Union[str, int] = None, track: bool = True) -&gt; None</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;field&nbsp;to&nbsp;the&nbsp;protocol.</tt></dd></dl>
+
+<dl><dt><a name="Protocol-value"><strong>value</strong></a>(self, name: str, resolve_enum: bool = True) -&gt; Union[int, float, bool, str]</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;field&nbsp;belonging&nbsp;to&nbsp;the&nbsp;protocol.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.codec.protocol.base.html#ProtocolBase">runtimepy.codec.protocol.base.ProtocolBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

@@ -23,6 +23,7 @@
 <dl>
 <dt><font face="helvetica, arial"><a href="runtimepy.primitives.type.float.html#DoubleType">DoubleType</a>
 </font></dt><dt><font face="helvetica, arial"><a href="runtimepy.primitives.type.float.html#FloatType">FloatType</a>
+</font></dt><dt><font face="helvetica, arial"><a href="runtimepy.primitives.type.float.html#HalfType">HalfType</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -64,6 +65,14 @@ Methods inherited from <a href="runtimepy.primitives.type.base.html#PrimitiveTyp
 <dl><dt><a name="DoubleType-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Get&nbsp;a&nbsp;hash&nbsp;for&nbsp;this&nbsp;type.</tt></dd></dl>
 
 <dl><dt><a name="DoubleType-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;type&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="DoubleType-decode"><strong>decode</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><tt>Decode&nbsp;primitive&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="DoubleType-encode"><strong>encode</strong></a>(self, value: Union[bool, int, float], byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; bytes</dt><dd><tt>Encode&nbsp;a&nbsp;primitive&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="DoubleType-read"><strong>read</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="DoubleType-write"><strong>write</strong></a>(self, value: Union[bool, int, float], stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; int</dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
 
 <hr>
 Class methods inherited from <a href="runtimepy.primitives.type.base.html#PrimitiveType">runtimepy.primitives.type.base.PrimitiveType</a>:<br>
@@ -133,6 +142,14 @@ Methods inherited from <a href="runtimepy.primitives.type.base.html#PrimitiveTyp
 
 <dl><dt><a name="FloatType-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;type&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
+<dl><dt><a name="FloatType-decode"><strong>decode</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><tt>Decode&nbsp;primitive&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="FloatType-encode"><strong>encode</strong></a>(self, value: Union[bool, int, float], byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; bytes</dt><dd><tt>Encode&nbsp;a&nbsp;primitive&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="FloatType-read"><strong>read</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="FloatType-write"><strong>write</strong></a>(self, value: Union[bool, int, float], stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; int</dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
 <hr>
 Class methods inherited from <a href="runtimepy.primitives.type.base.html#PrimitiveType">runtimepy.primitives.type.base.PrimitiveType</a>:<br>
 <dl><dt><a name="FloatType-instance"><strong>instance</strong></a>() -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Get&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
@@ -162,6 +179,82 @@ overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
 Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
 <dl><dt><a name="FloatType-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
 
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="HalfType">class <strong>HalfType</strong></a>(<a href="runtimepy.primitives.type.base.html#PrimitiveType">runtimepy.primitives.type.base.PrimitiveType</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#HalfType">HalfType</a>(*args,&nbsp;**kwds)<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;type&nbsp;interface&nbsp;for&nbsp;single-precision&nbsp;floating-point.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.primitives.type.float.html#HalfType">HalfType</a></dd>
+<dd><a href="runtimepy.primitives.type.base.html#PrimitiveType">runtimepy.primitives.type.base.PrimitiveType</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="HalfType-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__orig_bases__</strong> = (runtimepy.primitives.type.base.PrimitiveType[ctypes.c_float],)</dl>
+
+<dl><dt><strong>__parameters__</strong> = ()</dl>
+
+<dl><dt><strong>c_type</strong> = &lt;class 'ctypes.c_float'&gt;</dl>
+
+<dl><dt><strong>name</strong> = 'half'</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.primitives.type.base.html#PrimitiveType">runtimepy.primitives.type.base.PrimitiveType</a>:<br>
+<dl><dt><a name="HalfType-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;two&nbsp;types&nbsp;are&nbsp;equal.</tt></dd></dl>
+
+<dl><dt><a name="HalfType-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Get&nbsp;a&nbsp;hash&nbsp;for&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="HalfType-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;type&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="HalfType-decode"><strong>decode</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><tt>Decode&nbsp;primitive&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="HalfType-encode"><strong>encode</strong></a>(self, value: Union[bool, int, float], byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; bytes</dt><dd><tt>Encode&nbsp;a&nbsp;primitive&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="HalfType-read"><strong>read</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="HalfType-write"><strong>write</strong></a>(self, value: Union[bool, int, float], stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; int</dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.type.base.html#PrimitiveType">runtimepy.primitives.type.base.PrimitiveType</a>:<br>
+<dl><dt><a name="HalfType-instance"><strong>instance</strong></a>() -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Get&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.primitives.type.base.html#PrimitiveType">runtimepy.primitives.type.base.PrimitiveType</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.primitives.type.base.html#PrimitiveType">runtimepy.primitives.type.base.PrimitiveType</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'c_type': typing.Type[~T], 'name': &lt;class 'str'&gt;}</dl>
+
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="HalfType-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt></dl>
+
+<dl><dt><a name="HalfType-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="HalfType-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -170,5 +263,6 @@ Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>Double</strong> = &lt;runtimepy.primitives.type.float.DoubleType object&gt;<br>
-<strong>Float</strong> = &lt;runtimepy.primitives.type.float.FloatType object&gt;</td></tr></table>
+<strong>Float</strong> = &lt;runtimepy.primitives.type.float.FloatType object&gt;<br>
+<strong>Half</strong> = &lt;runtimepy.primitives.type.float.HalfType object&gt;</td></tr></table>
 </body></html>

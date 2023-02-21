@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package runtimepy.primitives.field</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.<a href="runtimepy.primitives.html"><font color="#ffffff">primitives</font></a>.field</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/primitives/field/__init__.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/primitives/field/__init__.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;bit&nbsp;flags&nbsp;and&nbsp;fields.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="runtimepy.primitives.field.fields.html">fields</a><br>
+</td><td width="25%" valign=top><a href="runtimepy.primitives.field.manager.html"><strong>manager</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.primitives.field.html#BitField">BitField</a>(<a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a>, <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>, <a href="runtimepy.mixins.enum.html#EnumMixin">runtimepy.mixins.enum.EnumMixin</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.primitives.field.html#BitFlag">BitFlag</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BitField">class <strong>BitField</strong></a>(<a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a>, <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>, <a href="runtimepy.mixins.enum.html#EnumMixin">runtimepy.mixins.enum.EnumMixin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BitField">BitField</a>(name:&nbsp;str,&nbsp;raw:&nbsp;Union[runtimepy.primitives.int.Uint8Primitive,&nbsp;runtimepy.primitives.int.Uint16Primitive,&nbsp;runtimepy.primitives.int.Uint32Primitive,&nbsp;runtimepy.primitives.int.Uint64Primitive],&nbsp;index:&nbsp;int,&nbsp;width:&nbsp;int,&nbsp;enum:&nbsp;Union[str,&nbsp;int]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;managing&nbsp;a&nbsp;portion&nbsp;of&nbsp;an&nbsp;unsigned-integer&nbsp;primitive.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.primitives.field.html#BitField">BitField</a></dd>
+<dd><a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a></dd>
+<dd><a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a></dd>
+<dd><a href="runtimepy.mixins.enum.html#EnumMixin">runtimepy.mixins.enum.EnumMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BitField-__init__"><strong>__init__</strong></a>(self, name: str, raw: Union[runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive], index: int, width: int, enum: Union[str, int] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;bit-field.</tt></dd></dl>
+
+<dl><dt><a name="BitField-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Get&nbsp;this&nbsp;field&nbsp;as&nbsp;a&nbsp;dictionary.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>name_regex</strong> = re.compile('^[a-z0-9-_.]+$')</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a>:<br>
+<dl><dt><a name="BitField-__call__"><strong>__call__</strong></a>(self, val: int = None) -&gt; int</dt><dd><tt>Set&nbsp;(or&nbsp;get)&nbsp;the&nbsp;underlying&nbsp;value&nbsp;of&nbsp;this&nbsp;field.&nbsp;Return&nbsp;the&nbsp;actual<br>
+value&nbsp;of&nbsp;the&nbsp;field.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Class methods inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><a name="BitField-validate_name"><strong>validate_name</strong></a>(name: str) -&gt; bool<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;name&nbsp;is&nbsp;valid&nbsp;for&nbsp;this&nbsp;class.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'name_regex': &lt;class 're.Pattern'&gt;}</dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.mixins.enum.html#EnumMixin">runtimepy.mixins.enum.EnumMixin</a>:<br>
+<dl><dt><strong>enum</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;enum-registry&nbsp;key&nbsp;for&nbsp;this&nbsp;channel.</tt></dd>
+</dl>
+<dl><dt><strong>is_enum</strong></dt>
+<dd><tt>Determine&nbsp;if&nbsp;this&nbsp;channel&nbsp;has&nbsp;an&nbsp;associated&nbsp;enumeration.</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BitFieldBase">class <strong>BitFieldBase</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BitFieldBase">BitFieldBase</a>(raw:&nbsp;Union[runtimepy.primitives.int.Uint8Primitive,&nbsp;runtimepy.primitives.int.Uint16Primitive,&nbsp;runtimepy.primitives.int.Uint32Primitive,&nbsp;runtimepy.primitives.int.Uint64Primitive],&nbsp;index:&nbsp;int,&nbsp;width:&nbsp;int)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;bit-field&nbsp;implementation.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BitFieldBase-__call__"><strong>__call__</strong></a>(self, val: int = None) -&gt; int</dt><dd><tt>Set&nbsp;(or&nbsp;get)&nbsp;the&nbsp;underlying&nbsp;value&nbsp;of&nbsp;this&nbsp;field.&nbsp;Return&nbsp;the&nbsp;actual<br>
+value&nbsp;of&nbsp;the&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="BitFieldBase-__init__"><strong>__init__</strong></a>(self, raw: Union[runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive], index: int, width: int) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;bit-field.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BitFlag">class <strong>BitFlag</strong></a>(<a href="runtimepy.primitives.field.html#BitField">BitField</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BitFlag">BitFlag</a>(name:&nbsp;str,&nbsp;raw:&nbsp;Union[runtimepy.primitives.int.Uint8Primitive,&nbsp;runtimepy.primitives.int.Uint16Primitive,&nbsp;runtimepy.primitives.int.Uint32Primitive,&nbsp;runtimepy.primitives.int.Uint64Primitive],&nbsp;index:&nbsp;int,&nbsp;enum:&nbsp;Union[str,&nbsp;int]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;bit&nbsp;field&nbsp;that&nbsp;is&nbsp;always&nbsp;a&nbsp;single&nbsp;bit.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.primitives.field.html#BitFlag">BitFlag</a></dd>
+<dd><a href="runtimepy.primitives.field.html#BitField">BitField</a></dd>
+<dd><a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a></dd>
+<dd><a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a></dd>
+<dd><a href="runtimepy.mixins.enum.html#EnumMixin">runtimepy.mixins.enum.EnumMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BitFlag-__init__"><strong>__init__</strong></a>(self, name: str, raw: Union[runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive], index: int, enum: Union[str, int] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;bit&nbsp;flag.</tt></dd></dl>
+
+<dl><dt><a name="BitFlag-clear"><strong>clear</strong></a>(self) -&gt; None</dt><dd><tt>Clear&nbsp;this&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="BitFlag-get"><strong>get</strong></a>(self) -&gt; bool</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;this&nbsp;flag.</tt></dd></dl>
+
+<dl><dt><a name="BitFlag-set"><strong>set</strong></a>(self, val: bool = True) -&gt; None</dt><dd><tt>Set&nbsp;this&nbsp;flag.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.primitives.field.html#BitField">BitField</a>:<br>
+<dl><dt><a name="BitFlag-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Get&nbsp;this&nbsp;field&nbsp;as&nbsp;a&nbsp;dictionary.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.primitives.field.html#BitField">BitField</a>:<br>
+<dl><dt><strong>name_regex</strong> = re.compile('^[a-z0-9-_.]+$')</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a>:<br>
+<dl><dt><a name="BitFlag-__call__"><strong>__call__</strong></a>(self, val: int = None) -&gt; int</dt><dd><tt>Set&nbsp;(or&nbsp;get)&nbsp;the&nbsp;underlying&nbsp;value&nbsp;of&nbsp;this&nbsp;field.&nbsp;Return&nbsp;the&nbsp;actual<br>
+value&nbsp;of&nbsp;the&nbsp;field.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.primitives.field.html#BitFieldBase">BitFieldBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Class methods inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><a name="BitFlag-validate_name"><strong>validate_name</strong></a>(name: str) -&gt; bool<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;name&nbsp;is&nbsp;valid&nbsp;for&nbsp;this&nbsp;class.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.mixins.regex.html#RegexMixin">runtimepy.mixins.regex.RegexMixin</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'name_regex': &lt;class 're.Pattern'&gt;}</dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.mixins.enum.html#EnumMixin">runtimepy.mixins.enum.EnumMixin</a>:<br>
+<dl><dt><strong>enum</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;enum-registry&nbsp;key&nbsp;for&nbsp;this&nbsp;channel.</tt></dd>
+</dl>
+<dl><dt><strong>is_enum</strong></dt>
+<dd><tt>Determine&nbsp;if&nbsp;this&nbsp;channel&nbsp;has&nbsp;an&nbsp;associated&nbsp;enumeration.</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

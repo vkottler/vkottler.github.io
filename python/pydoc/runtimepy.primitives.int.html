@@ -59,6 +59,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Int16Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Int16Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -67,14 +69,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Int16Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Int16Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Int16Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Int16Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Int16Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Int16Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Int16Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Int16Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Int16Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Int16Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -88,9 +117,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -132,6 +163,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Int16Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Int16Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -140,14 +173,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Int16Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Int16Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Int16Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Int16Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Int16Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Int16Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Int16Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Int16Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Int16Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Int16Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int16Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -161,9 +221,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -205,6 +267,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Int32Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Int32Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -213,14 +277,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Int32Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Int32Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Int32Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Int32Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Int32Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Int32Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Int32Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Int32Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Int32Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Int32Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -234,9 +325,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -278,6 +371,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Int32Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Int32Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -286,14 +381,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Int32Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Int32Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Int32Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Int32Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Int32Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Int32Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Int32Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Int32Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Int32Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Int32Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int32Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -307,9 +429,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -351,6 +475,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Int64Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Int64Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -359,14 +485,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Int64Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Int64Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Int64Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Int64Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Int64Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Int64Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Int64Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Int64Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Int64Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Int64Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -380,9 +533,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -424,6 +579,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Int64Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Int64Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -432,14 +589,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Int64Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Int64Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Int64Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Int64Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Int64Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Int64Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Int64Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Int64Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Int64Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Int64Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int64Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -453,9 +637,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -497,6 +683,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Int8Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Int8Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -505,14 +693,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Int8Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Int8Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Int8Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Int8Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Int8Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Int8Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Int8Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Int8Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Int8Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Int8Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -526,9 +741,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -570,6 +787,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Int8Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Int8Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -578,14 +797,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Int8Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Int8Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Int8Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Int8Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Int8Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Int8Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Int8Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Int8Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Int8Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Int8Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Int8Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -599,9 +845,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -643,6 +891,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Uint16Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Uint16Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -651,14 +901,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Uint16Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Uint16Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Uint16Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Uint16Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Uint16Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Uint16Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Uint16Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Uint16Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Uint16Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Uint16Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -672,9 +949,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -716,6 +995,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Uint16Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Uint16Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -724,14 +1005,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Uint16Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Uint16Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Uint16Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Uint16Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Uint16Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Uint16Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Uint16Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Uint16Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Uint16Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Uint16Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint16Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -745,9 +1053,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -789,6 +1099,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Uint32Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Uint32Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -797,14 +1109,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Uint32Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Uint32Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Uint32Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Uint32Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Uint32Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Uint32Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Uint32Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Uint32Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Uint32Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Uint32Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -818,9 +1157,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -862,6 +1203,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Uint32Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Uint32Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -870,14 +1213,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Uint32Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Uint32Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Uint32Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Uint32Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Uint32Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Uint32Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Uint32Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Uint32Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Uint32Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Uint32Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint32Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -891,9 +1261,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -935,6 +1307,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Uint64Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Uint64Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -943,14 +1317,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Uint64Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Uint64Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Uint64Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Uint64Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Uint64Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Uint64Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Uint64Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Uint64Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Uint64Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Uint64Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -964,9 +1365,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -1008,6 +1411,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Uint64Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Uint64Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -1016,14 +1421,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Uint64Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Uint64Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Uint64Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Uint64Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Uint64Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Uint64Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Uint64Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Uint64Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Uint64Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Uint64Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint64Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -1037,9 +1469,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -1081,6 +1515,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Uint8Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Uint8Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -1089,14 +1525,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Uint8Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Uint8Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Uint8Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Uint8Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Uint8Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Uint8Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Uint8Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Uint8Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Uint8Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Uint8Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -1110,9 +1573,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -1154,6 +1619,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.int.Uint8Type object&gt;</dl>
+
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><a name="Uint8Primitive-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><tt>Use&nbsp;the&nbsp;underlying&nbsp;value&nbsp;for&nbsp;boolean&nbsp;evaluation.</tt></dd></dl>
@@ -1162,14 +1629,41 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="Uint8Primitive-__call__"><strong>__call__</strong></a>(self, value: ~T = None) -&gt; ~T</dt><dd><tt>A&nbsp;callable&nbsp;interface&nbsp;for&nbsp;setting&nbsp;and&nbsp;getting&nbsp;the&nbsp;underlying&nbsp;value.</tt></dd></dl>
 
+<dl><dt><a name="Uint8Primitive-__copy__"><strong>__copy__</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd></dl>
+
 <dl><dt><a name="Uint8Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</tt></dd></dl>
 
 <dl><dt><a name="Uint8Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
 
-<dl><dt><a name="Uint8Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="Uint8Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><tt>Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</tt></dd></dl>
 
-<dl><dt><a name="Uint8Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: str = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+<dl><dt><a name="Uint8Primitive-copy"><strong>copy</strong></a>(self) -&gt; 'Primitive[T]'</dt><dd><tt>A&nbsp;simple&nbsp;wrapper&nbsp;for&nbsp;copy.</tt></dd></dl>
 
+<dl><dt><a name="Uint8Primitive-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;and&nbsp;return&nbsp;the&nbsp;new&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-register_callback"><strong>register_callback</strong></a>(self, callback: Callable[[~T, ~T], NoneType], once: bool = False) -&gt; int</dt><dd><tt>Register&nbsp;a&nbsp;callback&nbsp;and&nbsp;return&nbsp;an&nbsp;identifier&nbsp;for&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-remove_callback"><strong>remove_callback</strong></a>(self, callback_id: int) -&gt; bool</dt><dd><tt>Remove&nbsp;a&nbsp;callback&nbsp;if&nbsp;one&nbsp;is&nbsp;registered&nbsp;with&nbsp;this&nbsp;identifier.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int</dt><dd><tt>Write&nbsp;this&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-update"><strong>update</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T</dt><dd><tt>Update&nbsp;this&nbsp;primitive&nbsp;from&nbsp;a&nbsp;bytes&nbsp;object.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><a name="Uint8Primitive-decode"><strong>decode</strong></a>(data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Decode&nbsp;a&nbsp;primitive&nbsp;of&nbsp;this&nbsp;type&nbsp;from&nbsp;provided&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-encode"><strong>encode</strong></a>(value: ~T, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;bytes&nbsp;instance&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-read"><strong>read</strong></a>(stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; ~T<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;the&nbsp;provided&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;primitive&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="Uint8Primitive-write"><strong>write</strong></a>(value: ~T, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; int<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;the&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>size</strong></dt>
+<dd><tt>Get&nbsp;the&nbsp;size&nbsp;of&nbsp;this&nbsp;primitive.</tt></dd>
+</dl>
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -1183,9 +1677,11 @@ Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitiv
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
+
 <dl><dt><strong>__hash__</strong> = None</dl>
 
-<dl><dt><strong>byte_order</strong> = '!'</dl>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
@@ -1200,5 +1696,12 @@ overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</tt></dd></dl>
 Static methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
 <dl><dt><a name="Uint8Primitive-__new__"><strong>__new__</strong></a>(cls, *args, **kwds)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
 
-</td></tr></table></td></tr></table>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>UnsignedInt</strong> = typing.Union[runtimepy.primitives.int.Uint8Primi...mitive, runtimepy.primitives.int.Uint64Primitive]</td></tr></table>
 </body></html>

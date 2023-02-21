@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package runtimepy.task.basic</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.<a href="runtimepy.task.html"><font color="#ffffff">task</font></a>.basic</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/task/basic/__init__.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/task/basic/__init__.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;simple&nbsp;periodic-task&nbsp;interface.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.task.basic.html#PeriodicTask">PeriodicTask</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="runtimepy.task.basic.html#PeriodicTask">PeriodicTask</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PeriodicTask">class <strong>PeriodicTask</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#PeriodicTask">PeriodicTask</a>(name:&nbsp;'str')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;implementing&nbsp;a&nbsp;simple&nbsp;periodic-task&nbsp;interface.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.task.basic.html#PeriodicTask">PeriodicTask</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PeriodicTask-__init__"><strong>__init__</strong></a>(self, name: 'str') -&gt; 'None'</dt><dd><tt>Initialize&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt>async <a name="PeriodicTask-dispatch"><strong>dispatch</strong></a>(self) -&gt; 'bool'</dt><dd><tt>Dispatch&nbsp;an&nbsp;iteration&nbsp;of&nbsp;this&nbsp;task.</tt></dd></dl>
+
+<dl><dt>async <a name="PeriodicTask-task"><strong>task</strong></a>(self, period_s: 'float') -&gt; '_asyncio.Task[None]'</dt><dd><tt>Create&nbsp;an&nbsp;event-loop&nbsp;task&nbsp;for&nbsp;this&nbsp;periodic.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'dispatch'})</dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__annotations__</strong> = {'logger': typing.Union[logging.Logger, logging.LoggerAdapter]}</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>annotations</strong> = _Feature((3, 7, 0, 'beta', 1), (3, 10, 0, 'alpha', 0), 16777216)</td></tr></table>
+</body></html>
