@@ -3,11 +3,11 @@
 
     "body": {"color": "#262626"},
 
-    "pins": {"count": 3, "color": "#37474f"},
+    "pins": {"count": 3, "color": "primary.800"},
 
     "circle": {"enabled": false},
 
-    "symbol": {"name": "vdoer", "color": "#eceff1"},
+    "symbol": {"name": "vdoer", "color": "primary.50"},
 
     "theme": "blue_gray",
 
@@ -34,8 +34,26 @@
         {
             "name": "circle",
             "data": {
-                "circle": {"color": "#607D8B", "enabled": true},
+                "circle": {"color": "primary.500", "enabled": true},
                 "at_coordinate": {}
+            }
+        },
+        {
+            "name": "single-circle-16x9-demo",
+            "data": {
+                "width": 1920,
+                "height": 1080,
+                "scale": 0.80,
+                "circle": {"enabled": true},
+                "symbol": {
+                    "name": "text",
+                    "color": "primary.50",
+                    "lines": ["Thanks", "for", "watching!"]
+                },
+                "background": {"color": "primary.300"},
+                "at_coordinate": {
+                    "0": {"0": {"circle": {"color": "primary.500"}}}
+                }
             }
         },
         {
@@ -199,6 +217,23 @@
                     "3": {"0": {"circle": {"color": "adobe.5"}}},
                     "4": {"0": {"circle": {"color": "adobe.4"}}},
                     "5": {"0": {"circle": {"color": "adobe.3"}}}
+                }
+            }
+        },
+        {
+            "name": "banner-twitch-demo",
+            "data": {
+                "columns": 3,
+                "rows": 1,
+                "width": 1200,
+                "height": 480,
+                "scale": 0.6666666666667,
+                "circle": {"enabled": true},
+                "background": {"color": "adobe.1"},
+                "at_coordinate": {
+                    "0": {"0": {"circle": {"color": "adobe.4"}}},
+                    "1": {"0": {"circle": {"color": "adobe.3"}}},
+                    "2": {"0": {"circle": {"color": "adobe.2"}}}
                 }
             }
         },

@@ -9,6 +9,7 @@ from typing import List
 from svgen.attribute import PossibleAttributes
 from svgen.cartesian.rectangle import Rectangle
 from svgen.cartesian.rectangle.grid import RectangleGrid
+from svgen.color.resolve import get_color
 from svgen.element import Element
 from svgen.element.line import Line
 
@@ -18,6 +19,9 @@ def add_symbol(box: Rectangle, symbol_config: dict) -> List[Element]:
 
     result: List[Element] = []
 
+    if not symbol_config.get("enabled", True):
+        return result
+
     assert box.square
 
     grid_divisions = 16
@@ -26,7 +30,7 @@ def add_symbol(box: Rectangle, symbol_config: dict) -> List[Element]:
     line_attrs: PossibleAttributes = {
         "stroke-linecap": "round",
         "style": (
-            f"stroke:{symbol_config.get('color', 'white')};"
+            f"stroke:{get_color(symbol_config.get('color', 'white'))};"
             f"stroke-width:{box.width / 16.0}"
         ),
     }

@@ -15,7 +15,7 @@ from vcorelib.dict import MergeStrategy, merge
 
 # internal
 from svg_scripts.lib.chip import add_chip
-from svg_scripts.lib.symbols import get_symbol_adder
+from svg_scripts.lib.symbols import DEFAULT, get_symbol_adder
 
 
 def compose_index(
@@ -43,7 +43,9 @@ def compose_index(
     return (
         result
         + chip_elems
-        + get_symbol_adder(symbol_config["name"])(body.rect, symbol_config)
+        + get_symbol_adder(symbol_config.get("name", DEFAULT))(
+            body.rect, symbol_config
+        )
     )
 
 
@@ -56,7 +58,7 @@ def compose(viewbox: ViewBox, config: dict) -> List[Element]:
         "circle": config.get("circle", {"enabled": False}),
         "body": config["body"],
         "pin": config["pins"],
-        "symbol": config.get("symbol", {"name": "vdoer"}),
+        "symbol": config.get("symbol", {"name": DEFAULT}),
     }
 
     box_scale = config.get("scale", UNITY)
