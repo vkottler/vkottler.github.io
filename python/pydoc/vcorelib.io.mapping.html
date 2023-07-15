@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.io.mapping</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.io.html" class="white">io</a>.mapping</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/io/mapping.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/io/mapping.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;mapping&nbsp;file&nbsp;extensions&nbsp;to&nbsp;encoders&nbsp;and&nbsp;decoders.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.io.mapping.html#DataMapping">DataMapping</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="builtins.html#tuple">builtins.tuple</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.io.mapping.html#DataHandle">DataHandle</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="enum.html#Enum">enum.Enum</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.io.mapping.html#DataType">DataType</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DataHandle">class <strong>DataHandle</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DataHandle">DataHandle</a>(decoder:&nbsp;Callable[[Union[TextIO,&nbsp;_io.StringIO],&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]],&nbsp;vcorelib.io.types.LoadResult],&nbsp;encoder:&nbsp;Callable[[Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]],&nbsp;Union[TextIO,&nbsp;_io.StringIO],&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]],&nbsp;int])<br>
+&nbsp;<br>
+A&nbsp;description&nbsp;of&nbsp;a&nbsp;data&nbsp;type.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.io.mapping.html#DataHandle">DataHandle</a></dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DataHandle-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</span></dd></dl>
+
+<dl><dt><a name="DataHandle-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;<a href="#DataHandle">DataHandle</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</span></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="DataHandle-_make"><strong>_make</strong></a>(iterable)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Make&nbsp;a&nbsp;new&nbsp;<a href="#DataHandle">DataHandle</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="DataHandle-__new__"><strong>__new__</strong></a>(_cls, decoder: Callable[[Union[TextIO, _io.StringIO], Union[logging.Logger, logging.LoggerAdapter]], vcorelib.io.types.LoadResult], encoder: Callable[[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], Union[TextIO, _io.StringIO], Union[logging.Logger, logging.LoggerAdapter]], int])</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#DataHandle">DataHandle</a>(decoder,&nbsp;encoder)</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>decoder</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</span></dd>
+</dl>
+<dl><dt><strong>encoder</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'decoder': typing.Callable[[typing.Union[typing.TextIO, _io...ng.LoggerAdapter]], vcorelib.io.types.LoadResult], 'encoder': typing.Callable[[typing.Dict[str, typing.Union[s...ion[logging.Logger, logging.LoggerAdapter]], int]}</dl>
+
+<dl><dt><strong>__match_args__</strong> = ('decoder', 'encoder')</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (&lt;function NamedTuple&gt;,)</dl>
+
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
+
+<dl><dt><strong>_fields</strong> = ('decoder', 'encoder')</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="DataHandle-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;=value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;self[key].</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;hash(self).</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><span class="code">Implement&nbsp;iter(self).</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;=value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;len(self).</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self*value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self!=value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value*self.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-count"><strong>count</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</span></dd></dl>
+
+<dl><dt><a name="DataHandle-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><span class="code">Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="DataHandle-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">See&nbsp;<a href="https://peps.python.org/pep-0585/">PEP&nbsp;585</a></span></dd></dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DataMapping">class <strong>DataMapping</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Map&nbsp;interfaces&nbsp;that&nbsp;read&nbsp;and&nbsp;write&nbsp;data&nbsp;formats&nbsp;to&nbsp;the&nbsp;file&nbsp;extensions<br>
+that&nbsp;most-likely&nbsp;indicate&nbsp;the&nbsp;desire&nbsp;for&nbsp;that&nbsp;kind&nbsp;of&nbsp;format.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Static methods defined here:<br>
+<dl><dt><a name="DataMapping-from_ext"><strong>from_ext</strong></a>(ext: vcorelib.io.types.FileExtension = None) -&gt; Optional[ForwardRef('DataType')]</dt><dd><span class="code">Map&nbsp;a&nbsp;file&nbsp;extension&nbsp;to&nbsp;a&nbsp;data&nbsp;type.</span></dd></dl>
+
+<dl><dt><a name="DataMapping-from_ext_str"><strong>from_ext_str</strong></a>(ext: str) -&gt; Optional[ForwardRef('DataType')]</dt><dd><span class="code">Get&nbsp;a&nbsp;data&nbsp;type&nbsp;from&nbsp;a&nbsp;file-extension&nbsp;string.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>mapping</strong> = {&lt;FileExtension.INI: ['ini', 'cfg']&gt;: &lt;DataType.INI: DataHandle(decoder=&lt;function deco...encoder=&lt;function encode_ini at 0x7f7611fd4860&gt;)&gt;, &lt;FileExtension.JSON: ['json']&gt;: &lt;DataType.JSON: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_json at 0x7f7611fd4680&gt;)&gt;, &lt;FileExtension.YAML: ['yaml', 'yml', 'eyaml']&gt;: &lt;DataType.YAML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_yaml at 0x7f7611fd47c0&gt;)&gt;, &lt;FileExtension.TOML: ['toml']&gt;: &lt;DataType.TOML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_toml at 0x7f7611fd4900&gt;)&gt;}</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DataType">class <strong>DataType</strong></a>(<a href="enum.html#Enum">enum.Enum</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DataType">DataType</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+&nbsp;<br>
+An&nbsp;aggregation&nbsp;of&nbsp;all&nbsp;known&nbsp;data&nbsp;types.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.io.mapping.html#DataType">DataType</a></dd>
+<dd><a href="enum.html#Enum">enum.Enum</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>INI</strong> = &lt;DataType.INI: DataHandle(decoder=&lt;function deco...encoder=&lt;function encode_ini at 0x7f7611fd4860&gt;)&gt;</dl>
+
+<dl><dt><strong>JSON</strong> = &lt;DataType.JSON: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_json at 0x7f7611fd4680&gt;)&gt;</dl>
+
+<dl><dt><strong>TOML</strong> = &lt;DataType.TOML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_toml at 0x7f7611fd4900&gt;)&gt;</dl>
+
+<dl><dt><strong>YAML</strong> = &lt;DataType.YAML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_yaml at 0x7f7611fd47c0&gt;)&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
+<dl><dt><strong>name</strong></dt>
+<dd><span class="code">The&nbsp;name&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<dl><dt><strong>value</strong></dt>
+<dd><span class="code">The&nbsp;value&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><a name="DataType-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
+raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+&nbsp;<br>
+note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
+returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+
+<dl><dt><a name="DataType-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
+
+<dl><dt><a name="DataType-__iter__"><strong>__iter__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;members&nbsp;in&nbsp;definition&nbsp;order.</span></dd></dl>
+
+<dl><dt><a name="DataType-__len__"><strong>__len__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;number&nbsp;of&nbsp;members&nbsp;(no&nbsp;aliases)</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><strong>__members__</strong></dt>
+<dd><span class="code">Returns&nbsp;a&nbsp;mapping&nbsp;of&nbsp;member&nbsp;name-&gt;value.<br>
+&nbsp;<br>
+This&nbsp;mapping&nbsp;lists&nbsp;all&nbsp;enum&nbsp;members,&nbsp;including&nbsp;aliases.&nbsp;Note&nbsp;that&nbsp;this<br>
+is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

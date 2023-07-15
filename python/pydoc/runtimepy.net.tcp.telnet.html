@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package runtimepy.net.tcp.telnet</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.tcp.html" class="white">tcp</a>.telnet</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/tcp/telnet/__init__.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/tcp/telnet/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;telnet&nbsp;(<a href="https://www.rfc-editor.org/rfc/rfc854.txt">RFC&nbsp;854</a>)&nbsp;connection&nbsp;interface.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="runtimepy.net.tcp.telnet.codes.html">codes</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="enum.html#IntEnum">enum.IntEnum</a>(<a href="builtins.html#int">builtins.int</a>, <a href="enum.html#ReprEnum">enum.ReprEnum</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.tcp.telnet.codes.html#TelnetCode">runtimepy.net.tcp.telnet.codes.TelnetCode</a>
+</dt><dt class="heading-text"><a href="runtimepy.net.tcp.telnet.codes.html#TelnetNvt">runtimepy.net.tcp.telnet.codes.TelnetNvt</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>(<a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>, <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.tcp.telnet.html#Telnet">Telnet</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.tcp.telnet.html#BasicTelnet">BasicTelnet</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="BasicTelnet">class <strong>BasicTelnet</strong></a>(<a href="runtimepy.net.tcp.telnet.html#Telnet">Telnet</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#BasicTelnet">BasicTelnet</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.connection.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;telnet&nbsp;implementation.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.tcp.telnet.html#BasicTelnet">BasicTelnet</a></dd>
+<dd><a href="runtimepy.net.tcp.telnet.html#Telnet">Telnet</a></dd>
+<dd><a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="BasicTelnet-handle_nvt"><strong>handle_nvt</strong></a>(self, action: runtimepy.net.tcp.telnet.codes.TelnetNvt) -&gt; None</dt><dd><span class="code">Handle&nbsp;a&nbsp;signal&nbsp;for&nbsp;the&nbsp;network&nbsp;virtual-terminal.</span></dd></dl>
+
+<dl><dt>async <a name="BasicTelnet-process_command"><strong>process_command</strong></a>(self, code: runtimepy.net.tcp.telnet.codes.TelnetCode) -&gt; None</dt><dd><span class="code">Process&nbsp;a&nbsp;telnet&nbsp;command.</span></dd></dl>
+
+<dl><dt>async <a name="BasicTelnet-process_option"><strong>process_option</strong></a>(self, code: runtimepy.net.tcp.telnet.codes.TelnetCode, option: int, _: &lt;class 'BinaryIO'&gt;) -&gt; None</dt><dd><span class="code">Process&nbsp;a&nbsp;telnet&nbsp;option.</span></dd></dl>
+
+<dl><dt>async <a name="BasicTelnet-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.tcp.telnet.html#Telnet">Telnet</a>:<br>
+<dl><dt>async <a name="BasicTelnet-process_binary"><strong>process_binary</strong></a>(self, data: bytes) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;binary&nbsp;frame.</span></dd></dl>
+
+<dl><dt>async <a name="BasicTelnet-process_telnet_message"><strong>process_telnet_message</strong></a>(self, data: bytes) -&gt; bool</dt><dd><span class="code">By&nbsp;default,&nbsp;treat&nbsp;all&nbsp;incoming&nbsp;data&nbsp;bytes&nbsp;as&nbsp;text.</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-send_command"><strong>send_command</strong></a>(self, code: runtimepy.net.tcp.telnet.codes.TelnetCode) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;telnet&nbsp;command.</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-send_option"><strong>send_option</strong></a>(self, option: runtimepy.net.tcp.telnet.codes.TelnetCode, code: int) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;telnet&nbsp;option&nbsp;sequence.&nbsp;if&nbsp;the&nbsp;'SB'&nbsp;is&nbsp;the&nbsp;desired&nbsp;code,&nbsp;the<br>
+additional&nbsp;data&nbsp;can&nbsp;be&nbsp;sent&nbsp;using&nbsp;the&nbsp;'send_binary'&nbsp;method&nbsp;directly.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><a name="BasicTelnet-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.connection.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="BasicTelnet-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt>async <a name="BasicTelnet-app"><strong>app</strong></a>(stop_sig: asyncio.locks.Event, callback: Callable[[~T], NoneType] = None, serving_callback: Callable[[Any], NoneType] = None, manager: runtimepy.net.manager.ConnectionManager = None, **kwargs) -&gt; None<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;an&nbsp;application&nbsp;that&nbsp;serves&nbsp;new&nbsp;connections.</span></dd></dl>
+
+<dl><dt>async <a name="BasicTelnet-create_connection"><strong>create_connection</strong></a>(**kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="BasicTelnet-create_pair"><strong>create_pair</strong></a>() -&gt; Tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-serve"><strong>serve</strong></a>(callback: Callable[[~T], NoneType] = None, **kwargs) -&gt; AsyncIterator[Any]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;incoming&nbsp;connections.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><strong>uses_binary_tx_queue</strong> = False</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt>async <a name="BasicTelnet-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="BasicTelnet-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="BasicTelnet-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="BasicTelnet-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
+<dl><dt><a name="BasicTelnet-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
+<dl><dt><strong>socket</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;instance's&nbsp;underlying&nbsp;socket.</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Telnet">class <strong>Telnet</strong></a>(<a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Telnet">Telnet</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.connection.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;telnet&nbsp;interface.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.tcp.telnet.html#Telnet">Telnet</a></dd>
+<dd><a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="Telnet-handle_nvt"><strong>handle_nvt</strong></a>(self, action: runtimepy.net.tcp.telnet.codes.TelnetNvt) -&gt; None</dt><dd><span class="code">Handle&nbsp;a&nbsp;signal&nbsp;for&nbsp;the&nbsp;network&nbsp;virtual-terminal.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-process_binary"><strong>process_binary</strong></a>(self, data: bytes) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;binary&nbsp;frame.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-process_command"><strong>process_command</strong></a>(self, code: runtimepy.net.tcp.telnet.codes.TelnetCode) -&gt; None</dt><dd><span class="code">Process&nbsp;a&nbsp;telnet&nbsp;command.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-process_option"><strong>process_option</strong></a>(self, code: runtimepy.net.tcp.telnet.codes.TelnetCode, option: int, stream: &lt;class 'BinaryIO'&gt;) -&gt; None</dt><dd><span class="code">Process&nbsp;a&nbsp;telnet&nbsp;option.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-process_telnet_message"><strong>process_telnet_message</strong></a>(self, data: bytes) -&gt; bool</dt><dd><span class="code">By&nbsp;default,&nbsp;treat&nbsp;all&nbsp;incoming&nbsp;data&nbsp;bytes&nbsp;as&nbsp;text.</span></dd></dl>
+
+<dl><dt><a name="Telnet-send_command"><strong>send_command</strong></a>(self, code: runtimepy.net.tcp.telnet.codes.TelnetCode) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;telnet&nbsp;command.</span></dd></dl>
+
+<dl><dt><a name="Telnet-send_option"><strong>send_option</strong></a>(self, option: runtimepy.net.tcp.telnet.codes.TelnetCode, code: int) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;telnet&nbsp;option&nbsp;sequence.&nbsp;if&nbsp;the&nbsp;'SB'&nbsp;is&nbsp;the&nbsp;desired&nbsp;code,&nbsp;the<br>
+additional&nbsp;data&nbsp;can&nbsp;be&nbsp;sent&nbsp;using&nbsp;the&nbsp;'send_binary'&nbsp;method&nbsp;directly.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'handle_nvt', 'process_command', 'process_option'})</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><a name="Telnet-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.connection.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="Telnet-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="Telnet-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt>async <a name="Telnet-app"><strong>app</strong></a>(stop_sig: asyncio.locks.Event, callback: Callable[[~T], NoneType] = None, serving_callback: Callable[[Any], NoneType] = None, manager: runtimepy.net.manager.ConnectionManager = None, **kwargs) -&gt; None<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;an&nbsp;application&nbsp;that&nbsp;serves&nbsp;new&nbsp;connections.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-create_connection"><strong>create_connection</strong></a>(**kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-create_pair"><strong>create_pair</strong></a>() -&gt; Tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+
+<dl><dt><a name="Telnet-serve"><strong>serve</strong></a>(callback: Callable[[~T], NoneType] = None, **kwargs) -&gt; AsyncIterator[Any]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;incoming&nbsp;connections.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><strong>uses_binary_tx_queue</strong> = False</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt>async <a name="Telnet-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="Telnet-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="Telnet-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="Telnet-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Telnet-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<dl><dt>async <a name="Telnet-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="Telnet-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
+<dl><dt><a name="Telnet-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
+<dl><dt><strong>socket</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;instance's&nbsp;underlying&nbsp;socket.</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TelnetCode">class <strong>TelnetCode</strong></a>(<a href="enum.html#IntEnum">enum.IntEnum</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TelnetCode">TelnetCode</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+&nbsp;<br>
+An&nbsp;enumeration&nbsp;of&nbsp;byte&nbsp;values&nbsp;important&nbsp;to&nbsp;the&nbsp;telnet&nbsp;protocol.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.tcp.telnet.codes.html#TelnetCode">TelnetCode</a></dd>
+<dd><a href="enum.html#IntEnum">enum.IntEnum</a></dd>
+<dd><a href="builtins.html#int">builtins.int</a></dd>
+<dd><a href="enum.html#ReprEnum">enum.ReprEnum</a></dd>
+<dd><a href="enum.html#Enum">enum.Enum</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TelnetCode-__format__"><strong>__format__</strong></a>(self, format_spec, /)</dt><dd><span class="code">Default&nbsp;object&nbsp;formatter.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__new__"><strong>__new__</strong></a>(cls, value)</dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>AO</strong> = &lt;TelnetCode.AO: 245&gt;</dl>
+
+<dl><dt><strong>AYT</strong> = &lt;TelnetCode.AYT: 246&gt;</dl>
+
+<dl><dt><strong>BREAK</strong> = &lt;TelnetCode.BREAK: 243&gt;</dl>
+
+<dl><dt><strong>DATA_MARK</strong> = &lt;TelnetCode.DATA_MARK: 242&gt;</dl>
+
+<dl><dt><strong>DO</strong> = &lt;TelnetCode.DO: 253&gt;</dl>
+
+<dl><dt><strong>DONT</strong> = &lt;TelnetCode.DONT: 254&gt;</dl>
+
+<dl><dt><strong>EC</strong> = &lt;TelnetCode.EC: 247&gt;</dl>
+
+<dl><dt><strong>EL</strong> = &lt;TelnetCode.EL: 248&gt;</dl>
+
+<dl><dt><strong>GA</strong> = &lt;TelnetCode.GA: 249&gt;</dl>
+
+<dl><dt><strong>IAC</strong> = &lt;TelnetCode.IAC: 255&gt;</dl>
+
+<dl><dt><strong>IP</strong> = &lt;TelnetCode.IP: 244&gt;</dl>
+
+<dl><dt><strong>NOP</strong> = &lt;TelnetCode.NOP: 241&gt;</dl>
+
+<dl><dt><strong>SB</strong> = &lt;TelnetCode.SB: 250&gt;</dl>
+
+<dl><dt><strong>SE</strong> = &lt;TelnetCode.SE: 240&gt;</dl>
+
+<dl><dt><strong>WILL</strong> = &lt;TelnetCode.WILL: 251&gt;</dl>
+
+<dl><dt><strong>WONT</strong> = &lt;TelnetCode.WONT: 252&gt;</dl>
+
+<hr>
+Methods inherited from <a href="enum.html#IntEnum">enum.IntEnum</a>:<br>
+<dl><dt><a name="TelnetCode-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__str__"><strong>__str__</strong></a> = __repr__(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#int">builtins.int</a>:<br>
+<dl><dt><a name="TelnetCode-__abs__"><strong>__abs__</strong></a>(self, /)</dt><dd><span class="code">abs(self)</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__and__"><strong>__and__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&amp;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__bool__"><strong>__bool__</strong></a>(self, /)</dt><dd><span class="code">True&nbsp;if&nbsp;self&nbsp;else&nbsp;False</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__ceil__"><strong>__ceil__</strong></a>(...)</dt><dd><span class="code">Ceiling&nbsp;of&nbsp;an&nbsp;Integral&nbsp;returns&nbsp;itself.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__divmod__"><strong>__divmod__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;divmod(self,&nbsp;value).</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__float__"><strong>__float__</strong></a>(self, /)</dt><dd><span class="code">float(self)</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__floor__"><strong>__floor__</strong></a>(...)</dt><dd><span class="code">Flooring&nbsp;an&nbsp;Integral&nbsp;returns&nbsp;itself.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__floordiv__"><strong>__floordiv__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self//value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;=value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__getnewargs__"><strong>__getnewargs__</strong></a>(self, /)</dt></dl>
+
+<dl><dt><a name="TelnetCode-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;hash(self).</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__index__"><strong>__index__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;self&nbsp;converted&nbsp;to&nbsp;an&nbsp;integer,&nbsp;if&nbsp;self&nbsp;is&nbsp;suitable&nbsp;for&nbsp;use&nbsp;as&nbsp;an&nbsp;index&nbsp;into&nbsp;a&nbsp;list.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__int__"><strong>__int__</strong></a>(self, /)</dt><dd><span class="code">int(self)</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__invert__"><strong>__invert__</strong></a>(self, /)</dt><dd><span class="code">~self</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;=value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__lshift__"><strong>__lshift__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;&lt;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__mod__"><strong>__mod__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self%value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self*value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self!=value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__neg__"><strong>__neg__</strong></a>(self, /)</dt><dd><span class="code">-self</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__or__"><strong>__or__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self|value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__pos__"><strong>__pos__</strong></a>(self, /)</dt><dd><span class="code">+self</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__pow__"><strong>__pow__</strong></a>(self, value, mod=None, /)</dt><dd><span class="code">Return&nbsp;pow(self,&nbsp;value,&nbsp;mod).</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__radd__"><strong>__radd__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value+self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rand__"><strong>__rand__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value&amp;self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rdivmod__"><strong>__rdivmod__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;divmod(value,&nbsp;self).</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rfloordiv__"><strong>__rfloordiv__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value//self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rlshift__"><strong>__rlshift__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value&lt;&lt;self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rmod__"><strong>__rmod__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value%self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value*self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__ror__"><strong>__ror__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value|self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__round__"><strong>__round__</strong></a>(...)</dt><dd><span class="code">Rounding&nbsp;an&nbsp;Integral&nbsp;returns&nbsp;itself.<br>
+&nbsp;<br>
+Rounding&nbsp;with&nbsp;an&nbsp;ndigits&nbsp;argument&nbsp;also&nbsp;returns&nbsp;an&nbsp;integer.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rpow__"><strong>__rpow__</strong></a>(self, value, mod=None, /)</dt><dd><span class="code">Return&nbsp;pow(value,&nbsp;self,&nbsp;mod).</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rrshift__"><strong>__rrshift__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value&gt;&gt;self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rshift__"><strong>__rshift__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;&gt;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rsub__"><strong>__rsub__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value-self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rtruediv__"><strong>__rtruediv__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value/self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__rxor__"><strong>__rxor__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value^self.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__sizeof__"><strong>__sizeof__</strong></a>(self, /)</dt><dd><span class="code">Returns&nbsp;size&nbsp;in&nbsp;memory,&nbsp;in&nbsp;bytes.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__sub__"><strong>__sub__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self-value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__truediv__"><strong>__truediv__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self/value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__trunc__"><strong>__trunc__</strong></a>(...)</dt><dd><span class="code">Truncating&nbsp;an&nbsp;Integral&nbsp;returns&nbsp;itself.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__xor__"><strong>__xor__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self^value.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-as_integer_ratio"><strong>as_integer_ratio</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;integer&nbsp;ratio.<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;pair&nbsp;of&nbsp;integers,&nbsp;whose&nbsp;ratio&nbsp;is&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;original&nbsp;int<br>
+and&nbsp;with&nbsp;a&nbsp;positive&nbsp;denominator.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;(10).<a href="#TelnetCode-as_integer_ratio">as_integer_ratio</a>()<br>
+(10,&nbsp;1)<br>
+&gt;&gt;&gt;&nbsp;(-10).<a href="#TelnetCode-as_integer_ratio">as_integer_ratio</a>()<br>
+(-10,&nbsp;1)<br>
+&gt;&gt;&gt;&nbsp;(0).<a href="#TelnetCode-as_integer_ratio">as_integer_ratio</a>()<br>
+(0,&nbsp;1)</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-bit_count"><strong>bit_count</strong></a>(self, /)</dt><dd><span class="code">Number&nbsp;of&nbsp;ones&nbsp;in&nbsp;the&nbsp;binary&nbsp;representation&nbsp;of&nbsp;the&nbsp;absolute&nbsp;value&nbsp;of&nbsp;self.<br>
+&nbsp;<br>
+Also&nbsp;known&nbsp;as&nbsp;the&nbsp;population&nbsp;count.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;bin(13)<br>
+'0b1101'<br>
+&gt;&gt;&gt;&nbsp;(13).<a href="#TelnetCode-bit_count">bit_count</a>()<br>
+3</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-bit_length"><strong>bit_length</strong></a>(self, /)</dt><dd><span class="code">Number&nbsp;of&nbsp;bits&nbsp;necessary&nbsp;to&nbsp;represent&nbsp;self&nbsp;in&nbsp;binary.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;bin(37)<br>
+'0b100101'<br>
+&gt;&gt;&gt;&nbsp;(37).<a href="#TelnetCode-bit_length">bit_length</a>()<br>
+6</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-conjugate"><strong>conjugate</strong></a>(...)</dt><dd><span class="code">Returns&nbsp;self,&nbsp;the&nbsp;complex&nbsp;conjugate&nbsp;of&nbsp;any&nbsp;int.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-to_bytes"><strong>to_bytes</strong></a>(self, /, length=1, byteorder='big', *, signed=False)</dt><dd><span class="code">Return&nbsp;an&nbsp;array&nbsp;of&nbsp;bytes&nbsp;representing&nbsp;an&nbsp;integer.<br>
+&nbsp;<br>
+length<br>
+&nbsp;&nbsp;Length&nbsp;of&nbsp;bytes&nbsp;object&nbsp;to&nbsp;use.&nbsp;&nbsp;An&nbsp;OverflowError&nbsp;is&nbsp;raised&nbsp;if&nbsp;the<br>
+&nbsp;&nbsp;integer&nbsp;is&nbsp;not&nbsp;representable&nbsp;with&nbsp;the&nbsp;given&nbsp;number&nbsp;of&nbsp;bytes.&nbsp;&nbsp;Default<br>
+&nbsp;&nbsp;is&nbsp;length&nbsp;1.<br>
+byteorder<br>
+&nbsp;&nbsp;The&nbsp;byte&nbsp;order&nbsp;used&nbsp;to&nbsp;represent&nbsp;the&nbsp;integer.&nbsp;&nbsp;If&nbsp;byteorder&nbsp;is&nbsp;'big',<br>
+&nbsp;&nbsp;the&nbsp;most&nbsp;significant&nbsp;byte&nbsp;is&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;byte&nbsp;array.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;byteorder&nbsp;is&nbsp;'little',&nbsp;the&nbsp;most&nbsp;significant&nbsp;byte&nbsp;is&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;byte&nbsp;array.&nbsp;&nbsp;To&nbsp;request&nbsp;the&nbsp;native&nbsp;byte&nbsp;order&nbsp;of&nbsp;the&nbsp;host&nbsp;system,&nbsp;use<br>
+&nbsp;&nbsp;`sys.byteorder'&nbsp;as&nbsp;the&nbsp;byte&nbsp;order&nbsp;value.&nbsp;&nbsp;Default&nbsp;is&nbsp;to&nbsp;use&nbsp;'big'.<br>
+signed<br>
+&nbsp;&nbsp;Determines&nbsp;whether&nbsp;two's&nbsp;complement&nbsp;is&nbsp;used&nbsp;to&nbsp;represent&nbsp;the&nbsp;integer.<br>
+&nbsp;&nbsp;If&nbsp;signed&nbsp;is&nbsp;False&nbsp;and&nbsp;a&nbsp;negative&nbsp;integer&nbsp;is&nbsp;given,&nbsp;an&nbsp;OverflowError<br>
+&nbsp;&nbsp;is&nbsp;raised.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#int">builtins.int</a>:<br>
+<dl><dt><a name="TelnetCode-from_bytes"><strong>from_bytes</strong></a>(bytes, byteorder='big', *, signed=False)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;integer&nbsp;represented&nbsp;by&nbsp;the&nbsp;given&nbsp;array&nbsp;of&nbsp;bytes.<br>
+&nbsp;<br>
+bytes<br>
+&nbsp;&nbsp;Holds&nbsp;the&nbsp;array&nbsp;of&nbsp;bytes&nbsp;to&nbsp;convert.&nbsp;&nbsp;The&nbsp;argument&nbsp;must&nbsp;either<br>
+&nbsp;&nbsp;support&nbsp;the&nbsp;buffer&nbsp;protocol&nbsp;or&nbsp;be&nbsp;an&nbsp;iterable&nbsp;object&nbsp;producing&nbsp;bytes.<br>
+&nbsp;&nbsp;Bytes&nbsp;and&nbsp;bytearray&nbsp;are&nbsp;examples&nbsp;of&nbsp;built-in&nbsp;objects&nbsp;that&nbsp;support&nbsp;the<br>
+&nbsp;&nbsp;buffer&nbsp;protocol.<br>
+byteorder<br>
+&nbsp;&nbsp;The&nbsp;byte&nbsp;order&nbsp;used&nbsp;to&nbsp;represent&nbsp;the&nbsp;integer.&nbsp;&nbsp;If&nbsp;byteorder&nbsp;is&nbsp;'big',<br>
+&nbsp;&nbsp;the&nbsp;most&nbsp;significant&nbsp;byte&nbsp;is&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;byte&nbsp;array.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;byteorder&nbsp;is&nbsp;'little',&nbsp;the&nbsp;most&nbsp;significant&nbsp;byte&nbsp;is&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;byte&nbsp;array.&nbsp;&nbsp;To&nbsp;request&nbsp;the&nbsp;native&nbsp;byte&nbsp;order&nbsp;of&nbsp;the&nbsp;host&nbsp;system,&nbsp;use<br>
+&nbsp;&nbsp;`sys.byteorder'&nbsp;as&nbsp;the&nbsp;byte&nbsp;order&nbsp;value.&nbsp;&nbsp;Default&nbsp;is&nbsp;to&nbsp;use&nbsp;'big'.<br>
+signed<br>
+&nbsp;&nbsp;Indicates&nbsp;whether&nbsp;two's&nbsp;complement&nbsp;is&nbsp;used&nbsp;to&nbsp;represent&nbsp;the&nbsp;integer.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#int">builtins.int</a>:<br>
+<dl><dt><strong>denominator</strong></dt>
+<dd><span class="code">the&nbsp;denominator&nbsp;of&nbsp;a&nbsp;rational&nbsp;number&nbsp;in&nbsp;lowest&nbsp;terms</span></dd>
+</dl>
+<dl><dt><strong>imag</strong></dt>
+<dd><span class="code">the&nbsp;imaginary&nbsp;part&nbsp;of&nbsp;a&nbsp;complex&nbsp;number</span></dd>
+</dl>
+<dl><dt><strong>numerator</strong></dt>
+<dd><span class="code">the&nbsp;numerator&nbsp;of&nbsp;a&nbsp;rational&nbsp;number&nbsp;in&nbsp;lowest&nbsp;terms</span></dd>
+</dl>
+<dl><dt><strong>real</strong></dt>
+<dd><span class="code">the&nbsp;real&nbsp;part&nbsp;of&nbsp;a&nbsp;complex&nbsp;number</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
+<dl><dt><a name="TelnetCode-__dir__"><strong>__dir__</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;all&nbsp;members&nbsp;and&nbsp;all&nbsp;public&nbsp;methods</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__init__"><strong>__init__</strong></a>(self, *args, **kwds)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__reduce_ex__"><strong>__reduce_ex__</strong></a>(self, proto)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
+<dl><dt><strong>name</strong></dt>
+<dd><span class="code">The&nbsp;name&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<dl><dt><strong>value</strong></dt>
+<dd><span class="code">The&nbsp;value&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><a name="TelnetCode-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
+raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+&nbsp;<br>
+note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
+returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__iter__"><strong>__iter__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;members&nbsp;in&nbsp;definition&nbsp;order.</span></dd></dl>
+
+<dl><dt><a name="TelnetCode-__len__"><strong>__len__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;number&nbsp;of&nbsp;members&nbsp;(no&nbsp;aliases)</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><strong>__members__</strong></dt>
+<dd><span class="code">Returns&nbsp;a&nbsp;mapping&nbsp;of&nbsp;member&nbsp;name-&gt;value.<br>
+&nbsp;<br>
+This&nbsp;mapping&nbsp;lists&nbsp;all&nbsp;enum&nbsp;members,&nbsp;including&nbsp;aliases.&nbsp;Note&nbsp;that&nbsp;this<br>
+is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TelnetNvt">class <strong>TelnetNvt</strong></a>(<a href="enum.html#IntEnum">enum.IntEnum</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TelnetNvt">TelnetNvt</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+&nbsp;<br>
+<a href="#Telnet">Telnet</a>&nbsp;data&nbsp;relevant&nbsp;to&nbsp;the&nbsp;NVT&nbsp;printer&nbsp;and&nbsp;keyboard.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.tcp.telnet.codes.html#TelnetNvt">TelnetNvt</a></dd>
+<dd><a href="enum.html#IntEnum">enum.IntEnum</a></dd>
+<dd><a href="builtins.html#int">builtins.int</a></dd>
+<dd><a href="enum.html#ReprEnum">enum.ReprEnum</a></dd>
+<dd><a href="enum.html#Enum">enum.Enum</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TelnetNvt-__format__"><strong>__format__</strong></a>(self, format_spec, /)</dt><dd><span class="code">Default&nbsp;object&nbsp;formatter.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__new__"><strong>__new__</strong></a>(cls, value)</dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>BEL</strong> = &lt;TelnetNvt.BEL: 7&gt;</dl>
+
+<dl><dt><strong>BS</strong> = &lt;TelnetNvt.BS: 8&gt;</dl>
+
+<dl><dt><strong>CR</strong> = &lt;TelnetNvt.CR: 13&gt;</dl>
+
+<dl><dt><strong>FF</strong> = &lt;TelnetNvt.FF: 12&gt;</dl>
+
+<dl><dt><strong>HT</strong> = &lt;TelnetNvt.HT: 9&gt;</dl>
+
+<dl><dt><strong>LF</strong> = &lt;TelnetNvt.LF: 10&gt;</dl>
+
+<dl><dt><strong>NUL</strong> = &lt;TelnetNvt.NUL: 0&gt;</dl>
+
+<dl><dt><strong>VT</strong> = &lt;TelnetNvt.VT: 11&gt;</dl>
+
+<hr>
+Methods inherited from <a href="enum.html#IntEnum">enum.IntEnum</a>:<br>
+<dl><dt><a name="TelnetNvt-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__str__"><strong>__str__</strong></a> = __repr__(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#int">builtins.int</a>:<br>
+<dl><dt><a name="TelnetNvt-__abs__"><strong>__abs__</strong></a>(self, /)</dt><dd><span class="code">abs(self)</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__and__"><strong>__and__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&amp;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__bool__"><strong>__bool__</strong></a>(self, /)</dt><dd><span class="code">True&nbsp;if&nbsp;self&nbsp;else&nbsp;False</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__ceil__"><strong>__ceil__</strong></a>(...)</dt><dd><span class="code">Ceiling&nbsp;of&nbsp;an&nbsp;Integral&nbsp;returns&nbsp;itself.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__divmod__"><strong>__divmod__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;divmod(self,&nbsp;value).</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__float__"><strong>__float__</strong></a>(self, /)</dt><dd><span class="code">float(self)</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__floor__"><strong>__floor__</strong></a>(...)</dt><dd><span class="code">Flooring&nbsp;an&nbsp;Integral&nbsp;returns&nbsp;itself.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__floordiv__"><strong>__floordiv__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self//value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;=value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__getnewargs__"><strong>__getnewargs__</strong></a>(self, /)</dt></dl>
+
+<dl><dt><a name="TelnetNvt-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;hash(self).</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__index__"><strong>__index__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;self&nbsp;converted&nbsp;to&nbsp;an&nbsp;integer,&nbsp;if&nbsp;self&nbsp;is&nbsp;suitable&nbsp;for&nbsp;use&nbsp;as&nbsp;an&nbsp;index&nbsp;into&nbsp;a&nbsp;list.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__int__"><strong>__int__</strong></a>(self, /)</dt><dd><span class="code">int(self)</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__invert__"><strong>__invert__</strong></a>(self, /)</dt><dd><span class="code">~self</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;=value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__lshift__"><strong>__lshift__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;&lt;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__mod__"><strong>__mod__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self%value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self*value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self!=value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__neg__"><strong>__neg__</strong></a>(self, /)</dt><dd><span class="code">-self</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__or__"><strong>__or__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self|value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__pos__"><strong>__pos__</strong></a>(self, /)</dt><dd><span class="code">+self</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__pow__"><strong>__pow__</strong></a>(self, value, mod=None, /)</dt><dd><span class="code">Return&nbsp;pow(self,&nbsp;value,&nbsp;mod).</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__radd__"><strong>__radd__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value+self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rand__"><strong>__rand__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value&amp;self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rdivmod__"><strong>__rdivmod__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;divmod(value,&nbsp;self).</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rfloordiv__"><strong>__rfloordiv__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value//self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rlshift__"><strong>__rlshift__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value&lt;&lt;self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rmod__"><strong>__rmod__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value%self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value*self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__ror__"><strong>__ror__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value|self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__round__"><strong>__round__</strong></a>(...)</dt><dd><span class="code">Rounding&nbsp;an&nbsp;Integral&nbsp;returns&nbsp;itself.<br>
+&nbsp;<br>
+Rounding&nbsp;with&nbsp;an&nbsp;ndigits&nbsp;argument&nbsp;also&nbsp;returns&nbsp;an&nbsp;integer.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rpow__"><strong>__rpow__</strong></a>(self, value, mod=None, /)</dt><dd><span class="code">Return&nbsp;pow(value,&nbsp;self,&nbsp;mod).</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rrshift__"><strong>__rrshift__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value&gt;&gt;self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rshift__"><strong>__rshift__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;&gt;value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rsub__"><strong>__rsub__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value-self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rtruediv__"><strong>__rtruediv__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value/self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__rxor__"><strong>__rxor__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value^self.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__sizeof__"><strong>__sizeof__</strong></a>(self, /)</dt><dd><span class="code">Returns&nbsp;size&nbsp;in&nbsp;memory,&nbsp;in&nbsp;bytes.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__sub__"><strong>__sub__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self-value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__truediv__"><strong>__truediv__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self/value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__trunc__"><strong>__trunc__</strong></a>(...)</dt><dd><span class="code">Truncating&nbsp;an&nbsp;Integral&nbsp;returns&nbsp;itself.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__xor__"><strong>__xor__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self^value.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-as_integer_ratio"><strong>as_integer_ratio</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;integer&nbsp;ratio.<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;pair&nbsp;of&nbsp;integers,&nbsp;whose&nbsp;ratio&nbsp;is&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;original&nbsp;int<br>
+and&nbsp;with&nbsp;a&nbsp;positive&nbsp;denominator.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;(10).<a href="#TelnetNvt-as_integer_ratio">as_integer_ratio</a>()<br>
+(10,&nbsp;1)<br>
+&gt;&gt;&gt;&nbsp;(-10).<a href="#TelnetNvt-as_integer_ratio">as_integer_ratio</a>()<br>
+(-10,&nbsp;1)<br>
+&gt;&gt;&gt;&nbsp;(0).<a href="#TelnetNvt-as_integer_ratio">as_integer_ratio</a>()<br>
+(0,&nbsp;1)</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-bit_count"><strong>bit_count</strong></a>(self, /)</dt><dd><span class="code">Number&nbsp;of&nbsp;ones&nbsp;in&nbsp;the&nbsp;binary&nbsp;representation&nbsp;of&nbsp;the&nbsp;absolute&nbsp;value&nbsp;of&nbsp;self.<br>
+&nbsp;<br>
+Also&nbsp;known&nbsp;as&nbsp;the&nbsp;population&nbsp;count.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;bin(13)<br>
+'0b1101'<br>
+&gt;&gt;&gt;&nbsp;(13).<a href="#TelnetNvt-bit_count">bit_count</a>()<br>
+3</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-bit_length"><strong>bit_length</strong></a>(self, /)</dt><dd><span class="code">Number&nbsp;of&nbsp;bits&nbsp;necessary&nbsp;to&nbsp;represent&nbsp;self&nbsp;in&nbsp;binary.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;bin(37)<br>
+'0b100101'<br>
+&gt;&gt;&gt;&nbsp;(37).<a href="#TelnetNvt-bit_length">bit_length</a>()<br>
+6</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-conjugate"><strong>conjugate</strong></a>(...)</dt><dd><span class="code">Returns&nbsp;self,&nbsp;the&nbsp;complex&nbsp;conjugate&nbsp;of&nbsp;any&nbsp;int.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-to_bytes"><strong>to_bytes</strong></a>(self, /, length=1, byteorder='big', *, signed=False)</dt><dd><span class="code">Return&nbsp;an&nbsp;array&nbsp;of&nbsp;bytes&nbsp;representing&nbsp;an&nbsp;integer.<br>
+&nbsp;<br>
+length<br>
+&nbsp;&nbsp;Length&nbsp;of&nbsp;bytes&nbsp;object&nbsp;to&nbsp;use.&nbsp;&nbsp;An&nbsp;OverflowError&nbsp;is&nbsp;raised&nbsp;if&nbsp;the<br>
+&nbsp;&nbsp;integer&nbsp;is&nbsp;not&nbsp;representable&nbsp;with&nbsp;the&nbsp;given&nbsp;number&nbsp;of&nbsp;bytes.&nbsp;&nbsp;Default<br>
+&nbsp;&nbsp;is&nbsp;length&nbsp;1.<br>
+byteorder<br>
+&nbsp;&nbsp;The&nbsp;byte&nbsp;order&nbsp;used&nbsp;to&nbsp;represent&nbsp;the&nbsp;integer.&nbsp;&nbsp;If&nbsp;byteorder&nbsp;is&nbsp;'big',<br>
+&nbsp;&nbsp;the&nbsp;most&nbsp;significant&nbsp;byte&nbsp;is&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;byte&nbsp;array.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;byteorder&nbsp;is&nbsp;'little',&nbsp;the&nbsp;most&nbsp;significant&nbsp;byte&nbsp;is&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;byte&nbsp;array.&nbsp;&nbsp;To&nbsp;request&nbsp;the&nbsp;native&nbsp;byte&nbsp;order&nbsp;of&nbsp;the&nbsp;host&nbsp;system,&nbsp;use<br>
+&nbsp;&nbsp;`sys.byteorder'&nbsp;as&nbsp;the&nbsp;byte&nbsp;order&nbsp;value.&nbsp;&nbsp;Default&nbsp;is&nbsp;to&nbsp;use&nbsp;'big'.<br>
+signed<br>
+&nbsp;&nbsp;Determines&nbsp;whether&nbsp;two's&nbsp;complement&nbsp;is&nbsp;used&nbsp;to&nbsp;represent&nbsp;the&nbsp;integer.<br>
+&nbsp;&nbsp;If&nbsp;signed&nbsp;is&nbsp;False&nbsp;and&nbsp;a&nbsp;negative&nbsp;integer&nbsp;is&nbsp;given,&nbsp;an&nbsp;OverflowError<br>
+&nbsp;&nbsp;is&nbsp;raised.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#int">builtins.int</a>:<br>
+<dl><dt><a name="TelnetNvt-from_bytes"><strong>from_bytes</strong></a>(bytes, byteorder='big', *, signed=False)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;integer&nbsp;represented&nbsp;by&nbsp;the&nbsp;given&nbsp;array&nbsp;of&nbsp;bytes.<br>
+&nbsp;<br>
+bytes<br>
+&nbsp;&nbsp;Holds&nbsp;the&nbsp;array&nbsp;of&nbsp;bytes&nbsp;to&nbsp;convert.&nbsp;&nbsp;The&nbsp;argument&nbsp;must&nbsp;either<br>
+&nbsp;&nbsp;support&nbsp;the&nbsp;buffer&nbsp;protocol&nbsp;or&nbsp;be&nbsp;an&nbsp;iterable&nbsp;object&nbsp;producing&nbsp;bytes.<br>
+&nbsp;&nbsp;Bytes&nbsp;and&nbsp;bytearray&nbsp;are&nbsp;examples&nbsp;of&nbsp;built-in&nbsp;objects&nbsp;that&nbsp;support&nbsp;the<br>
+&nbsp;&nbsp;buffer&nbsp;protocol.<br>
+byteorder<br>
+&nbsp;&nbsp;The&nbsp;byte&nbsp;order&nbsp;used&nbsp;to&nbsp;represent&nbsp;the&nbsp;integer.&nbsp;&nbsp;If&nbsp;byteorder&nbsp;is&nbsp;'big',<br>
+&nbsp;&nbsp;the&nbsp;most&nbsp;significant&nbsp;byte&nbsp;is&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;byte&nbsp;array.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;byteorder&nbsp;is&nbsp;'little',&nbsp;the&nbsp;most&nbsp;significant&nbsp;byte&nbsp;is&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;byte&nbsp;array.&nbsp;&nbsp;To&nbsp;request&nbsp;the&nbsp;native&nbsp;byte&nbsp;order&nbsp;of&nbsp;the&nbsp;host&nbsp;system,&nbsp;use<br>
+&nbsp;&nbsp;`sys.byteorder'&nbsp;as&nbsp;the&nbsp;byte&nbsp;order&nbsp;value.&nbsp;&nbsp;Default&nbsp;is&nbsp;to&nbsp;use&nbsp;'big'.<br>
+signed<br>
+&nbsp;&nbsp;Indicates&nbsp;whether&nbsp;two's&nbsp;complement&nbsp;is&nbsp;used&nbsp;to&nbsp;represent&nbsp;the&nbsp;integer.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#int">builtins.int</a>:<br>
+<dl><dt><strong>denominator</strong></dt>
+<dd><span class="code">the&nbsp;denominator&nbsp;of&nbsp;a&nbsp;rational&nbsp;number&nbsp;in&nbsp;lowest&nbsp;terms</span></dd>
+</dl>
+<dl><dt><strong>imag</strong></dt>
+<dd><span class="code">the&nbsp;imaginary&nbsp;part&nbsp;of&nbsp;a&nbsp;complex&nbsp;number</span></dd>
+</dl>
+<dl><dt><strong>numerator</strong></dt>
+<dd><span class="code">the&nbsp;numerator&nbsp;of&nbsp;a&nbsp;rational&nbsp;number&nbsp;in&nbsp;lowest&nbsp;terms</span></dd>
+</dl>
+<dl><dt><strong>real</strong></dt>
+<dd><span class="code">the&nbsp;real&nbsp;part&nbsp;of&nbsp;a&nbsp;complex&nbsp;number</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
+<dl><dt><a name="TelnetNvt-__dir__"><strong>__dir__</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;all&nbsp;members&nbsp;and&nbsp;all&nbsp;public&nbsp;methods</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__init__"><strong>__init__</strong></a>(self, *args, **kwds)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__reduce_ex__"><strong>__reduce_ex__</strong></a>(self, proto)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
+<dl><dt><strong>name</strong></dt>
+<dd><span class="code">The&nbsp;name&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<dl><dt><strong>value</strong></dt>
+<dd><span class="code">The&nbsp;value&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><a name="TelnetNvt-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
+raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+&nbsp;<br>
+note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
+returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__iter__"><strong>__iter__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;members&nbsp;in&nbsp;definition&nbsp;order.</span></dd></dl>
+
+<dl><dt><a name="TelnetNvt-__len__"><strong>__len__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;number&nbsp;of&nbsp;members&nbsp;(no&nbsp;aliases)</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><strong>__members__</strong></dt>
+<dd><span class="code">Returns&nbsp;a&nbsp;mapping&nbsp;of&nbsp;member&nbsp;name-&gt;value.<br>
+&nbsp;<br>
+This&nbsp;mapping&nbsp;lists&nbsp;all&nbsp;enum&nbsp;members,&nbsp;including&nbsp;aliases.&nbsp;Note&nbsp;that&nbsp;this<br>
+is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>CARRIAGE_RETURN</strong> = b'\r\x00'<br>
+<strong>NEWLINE</strong> = b'\r\n'<br>
+<strong>__all__</strong> = ['TelnetCode', 'TelnetNvt', 'Telnet', 'BasicTelnet', 'NEWLINE', 'CARRIAGE_RETURN']</td></tr></table>
+</body></html>

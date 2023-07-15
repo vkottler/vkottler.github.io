@@ -1,45 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: package vcorelib.asyncio</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package vcorelib.asyncio</title>
+</head><body>
 
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.asyncio</strong></big></big></font></td
-><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/asyncio/__init__.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/asyncio/__init__.py</a></font></td></tr></table>
-    <p><tt>A&nbsp;module&nbsp;for&nbsp;working&nbsp;with&nbsp;asyncio.</tt></p>
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.asyncio</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/asyncio/__init__.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/asyncio/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;for&nbsp;working&nbsp;with&nbsp;asyncio.</span></p>
 <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#aa55cc">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
     
-<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="vcorelib.asyncio.cli.html">cli</a><br>
+</td><td class="multicolumn"><a href="vcorelib.asyncio.subprocess.html">subprocess</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-log_exceptions"><strong>log_exceptions</strong></a>(tasks: '_Iterable[_Task[T]]', logger: '_LoggerType' = None) -&gt; '_List[_Task[T]]'</dt><dd><tt>Log&nbsp;task&nbsp;exception&nbsp;and&nbsp;return&nbsp;the&nbsp;list&nbsp;of&nbsp;tasks&nbsp;that&nbsp;aren't&nbsp;complete.</tt></dd></dl>
- <dl><dt><a name="-log_task_exception"><strong>log_task_exception</strong></a>(task: '_Task[_Any]', logger: '_LoggerType' = None) -&gt; 'None'</dt><dd><tt>If&nbsp;a&nbsp;task&nbsp;is&nbsp;done&nbsp;and&nbsp;raised&nbsp;an&nbsp;exception,&nbsp;log&nbsp;it.</tt></dd></dl>
- <dl><dt><a name="-run_handle_interrupt"><strong>run_handle_interrupt</strong></a>(to_run: '_Awaitable[_Any]', eloop: '_AbstractEventLoop') -&gt; '_Optional[_Any]'</dt><dd><tt>Run&nbsp;a&nbsp;task&nbsp;in&nbsp;an&nbsp;event&nbsp;loop&nbsp;and&nbsp;gracefully&nbsp;handle&nbsp;keyboard&nbsp;interrupts.<br>
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-all_stop_signals"><strong>all_stop_signals</strong></a>() -&gt; '_Set[int]'</dt><dd><span class="code">Get&nbsp;a&nbsp;set&nbsp;of&nbsp;all&nbsp;stop&nbsp;signals&nbsp;on&nbsp;this&nbsp;platform.</span></dd></dl>
+ <dl><dt><a name="-event_setter"><strong>event_setter</strong></a>(stop_sig: '_Event', eloop: '_AbstractEventLoop' = None, logger: '_LoggerType' = None) -&gt; 'SignalHandler'</dt><dd><span class="code">Create&nbsp;a&nbsp;function&nbsp;that&nbsp;sets&nbsp;an&nbsp;event.</span></dd></dl>
+ <dl><dt><a name="-log_exceptions"><strong>log_exceptions</strong></a>(tasks: '_Iterable[_Task[T]]', logger: '_LoggerType' = None) -&gt; '_List[_Task[T]]'</dt><dd><span class="code">Log&nbsp;task&nbsp;exception&nbsp;and&nbsp;return&nbsp;the&nbsp;list&nbsp;of&nbsp;tasks&nbsp;that&nbsp;aren't&nbsp;complete.</span></dd></dl>
+ <dl><dt><a name="-log_task_exception"><strong>log_task_exception</strong></a>(task: '_Task[_Any]', logger: '_LoggerType' = None) -&gt; 'None'</dt><dd><span class="code">If&nbsp;a&nbsp;task&nbsp;is&nbsp;done&nbsp;and&nbsp;raised&nbsp;an&nbsp;exception,&nbsp;log&nbsp;it.</span></dd></dl>
+ <dl><dt><a name="-normalize_eloop"><strong>normalize_eloop</strong></a>(eloop: '_AbstractEventLoop' = None) -&gt; '_AbstractEventLoop'</dt><dd><span class="code">Get&nbsp;the&nbsp;active&nbsp;event&nbsp;loop&nbsp;if&nbsp;one&nbsp;isn't&nbsp;provided&nbsp;explicitly.</span></dd></dl>
+ <dl><dt><a name="-run_handle_interrupt"><strong>run_handle_interrupt</strong></a>(to_run: '_Awaitable[_Any]', eloop: '_AbstractEventLoop' = None) -&gt; '_Optional[_Any]'</dt><dd><span class="code">Run&nbsp;a&nbsp;task&nbsp;in&nbsp;an&nbsp;event&nbsp;loop&nbsp;and&nbsp;gracefully&nbsp;handle&nbsp;keyboard&nbsp;interrupts.<br>
 &nbsp;<br>
-Return&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;awaitable&nbsp;or&nbsp;None&nbsp;if&nbsp;execution&nbsp;was&nbsp;interrupted.</tt></dd></dl>
- <dl><dt><a name="-run_handle_stop"><strong>run_handle_stop</strong></a>(stop_sig: '_Event', task: '_Coroutine[None, None, T]', eloop: '_AbstractEventLoop' = None) -&gt; 'T'</dt><dd><tt>Publish&nbsp;the&nbsp;stop&nbsp;signal&nbsp;on&nbsp;keyboard&nbsp;interrupt&nbsp;and&nbsp;wait&nbsp;for&nbsp;the&nbsp;task&nbsp;to<br>
-complete.</tt></dd></dl>
- <dl><dt><a name="-shutdown_loop"><strong>shutdown_loop</strong></a>(eloop: '_AbstractEventLoop', logger: '_LoggerType' = None) -&gt; 'None'</dt><dd><tt>Attempt&nbsp;to&nbsp;shut&nbsp;down&nbsp;an&nbsp;event&nbsp;loop.</tt></dd></dl>
+Return&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;awaitable&nbsp;or&nbsp;None&nbsp;if&nbsp;execution&nbsp;was&nbsp;interrupted.</span></dd></dl>
+ <dl><dt><a name="-run_handle_stop"><strong>run_handle_stop</strong></a>(stop_sig: '_Event', task: '_Coroutine[None, None, T]', eloop: '_AbstractEventLoop' = None, signals: '_Iterable[int]' = None) -&gt; 'T'</dt><dd><span class="code">Publish&nbsp;the&nbsp;stop&nbsp;signal&nbsp;on&nbsp;keyboard&nbsp;interrupt&nbsp;and&nbsp;wait&nbsp;for&nbsp;the&nbsp;task&nbsp;to<br>
+complete.</span></dd></dl>
+ <dl><dt><a name="-shutdown_loop"><strong>shutdown_loop</strong></a>(eloop: '_AbstractEventLoop' = None, logger: '_LoggerType' = None) -&gt; 'None'</dt><dd><span class="code">Attempt&nbsp;to&nbsp;shut&nbsp;down&nbsp;an&nbsp;event&nbsp;loop.</span></dd></dl>
 </td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#55aa55">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
-<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>LOG</strong> = &lt;Logger vcorelib.asyncio (WARNING)&gt;<br>
-<strong>T</strong> = ~T<br>
-<strong>annotations</strong> = _Feature((3, 7, 0, 'beta', 1), (3, 10, 0, 'alpha', 0), 16777216)</td></tr></table>
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>LOG</strong> = &lt;Logger vcorelib.asyncio (WARNING)&gt;<br>
+<strong>SignalHandler</strong> = typing.Callable[[int, typing.Optional[frame]], NoneType]<br>
+<strong>T</strong> = ~T</td></tr></table>
 </body></html>

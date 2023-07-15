@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.task.asynchronous</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.task.html" class="white">task</a>.asynchronous</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/task/asynchronous.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/task/asynchronous.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;an&nbsp;asynchronous&nbsp;task&nbsp;interface.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="asyncio.html">asyncio</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.task.asynchronous.html#AsyncTask">AsyncTask</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="AsyncTask">class <strong>AsyncTask</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#AsyncTask">AsyncTask</a>(name:&nbsp;str,&nbsp;period_s:&nbsp;float,&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment,&nbsp;average_depth:&nbsp;int&nbsp;=&nbsp;10,&nbsp;max_iterations:&nbsp;int&nbsp;=&nbsp;0)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;basic&nbsp;implementation&nbsp;of&nbsp;a&nbsp;periodic&nbsp;task.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.task.asynchronous.html#AsyncTask">AsyncTask</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AsyncTask-__init__"><strong>__init__</strong></a>(self, name: str, period_s: float, env: runtimepy.channel.environment.ChannelEnvironment, average_depth: int = 10, max_iterations: int = 0) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;asynchronous&nbsp;task.</span></dd></dl>
+
+<dl><dt><a name="AsyncTask-disable"><strong>disable</strong></a>(self) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt>async <a name="AsyncTask-dispatch"><strong>dispatch</strong></a>(self, *_, **__) -&gt; bool</dt><dd><span class="code">Dispatch&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt><a name="AsyncTask-enable"><strong>enable</strong></a>(self) -&gt; None</dt><dd><span class="code">Enable&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt>async <a name="AsyncTask-init"><strong>init</strong></a>(self, *_, **__) -&gt; bool</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt><a name="AsyncTask-init_channels"><strong>init_channels</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment) -&gt; None</dt><dd><span class="code">Initialize&nbsp;task-specific&nbsp;channels.</span></dd></dl>
+
+<dl><dt><a name="AsyncTask-log_metrics"><strong>log_metrics</strong></a>(self) -&gt; None</dt><dd><span class="code">Log&nbsp;information&nbsp;related&nbsp;to&nbsp;metrics&nbsp;channels.</span></dd></dl>
+
+<dl><dt><a name="AsyncTask-reset_metrics"><strong>reset_metrics</strong></a>(self) -&gt; None</dt><dd><span class="code">Reset&nbsp;metrics&nbsp;channel&nbsp;values.</span></dd></dl>
+
+<dl><dt>async <a name="AsyncTask-run"><strong>run</strong></a>(self, *args, stop_sig: asyncio.locks.Event = None, **kwargs) -&gt; None</dt><dd><span class="code">Run&nbsp;this&nbsp;task&nbsp;while&nbsp;it's&nbsp;enabled.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>rate_str</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;periodic's&nbsp;rate&nbsp;as&nbsp;a&nbsp;string.</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="AsyncTask-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

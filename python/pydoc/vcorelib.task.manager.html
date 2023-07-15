@@ -1,88 +1,85 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module vcorelib.task.manager</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.task.manager</title>
+</head><body>
 
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.task.html"><font color="#ffffff">task</font></a>.manager</strong></big></big></font></td
-><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/task/manager.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/task/manager.py</a></font></td></tr></table>
-    <p><tt>A&nbsp;simple&nbsp;task&nbsp;management&nbsp;interface.</tt></p>
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.task.html" class="white">task</a>.manager</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/task/manager.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/task/manager.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;simple&nbsp;task&nbsp;management&nbsp;interface.</span></p>
 <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ee77aa">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
     
-<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.script.html#ScriptableMixin">vcorelib.script.ScriptableMixin</a>(<a href="builtins.html#object">builtins.object</a>)
-</font></dt><dd>
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="vcorelib.script.html#ScriptableMixin">vcorelib.script.ScriptableMixin</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.task.manager.html#TaskManager">TaskManager</a>
-</font></dt></dl>
+<dt class="heading-text"><a href="vcorelib.task.manager.html#TaskManager">TaskManager</a>
+</dt></dl>
 </dd>
 </dl>
  <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="TaskManager">class <strong>TaskManager</strong></a>(<a href="vcorelib.script.html#ScriptableMixin">vcorelib.script.ScriptableMixin</a>)</font></td></tr>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TaskManager">class <strong>TaskManager</strong></a>(<a href="vcorelib.script.html#ScriptableMixin">vcorelib.script.ScriptableMixin</a>)</td></tr>
     
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#TaskManager">TaskManager</a>(resolver:&nbsp;vcorelib.target.resolver.TargetResolver&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TaskManager">TaskManager</a>(resolver:&nbsp;vcorelib.target.resolver.TargetResolver&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;managing&nbsp;concurrent&nbsp;execution&nbsp;of&nbsp;tasks&nbsp;and&nbsp;also&nbsp;interfacing<br>
-them&nbsp;via&nbsp;names.<br>&nbsp;</tt></td></tr>
+them&nbsp;via&nbsp;names.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
 <dd><a href="vcorelib.task.manager.html#TaskManager">TaskManager</a></dd>
 <dd><a href="vcorelib.script.html#ScriptableMixin">vcorelib.script.ScriptableMixin</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="TaskManager-__init__"><strong>__init__</strong></a>(self, resolver: vcorelib.target.resolver.TargetResolver = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;task&nbsp;manager.</tt></dd></dl>
+<dl><dt><a name="TaskManager-__init__"><strong>__init__</strong></a>(self, resolver: vcorelib.target.resolver.TargetResolver = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task&nbsp;manager.</span></dd></dl>
 
-<dl><dt><a name="TaskManager-evaluate"><strong>evaluate</strong></a>(self, tasks: Iterable[str], **kwargs) -&gt; Tuple[List[Tuple[vcorelib.task.Task, vcorelib.target.TargetMatch]], Set[str]]</dt><dd><tt>Iterate&nbsp;over&nbsp;task&nbsp;strings&nbsp;and&nbsp;provide&nbsp;a&nbsp;list&nbsp;of&nbsp;tasks&nbsp;that&nbsp;can&nbsp;be<br>
+<dl><dt><a name="TaskManager-evaluate"><strong>evaluate</strong></a>(self, tasks: Iterable[str], **kwargs) -&gt; Tuple[List[Tuple[vcorelib.task.Task, vcorelib.target.TargetMatch]], Set[str]]</dt><dd><span class="code">Iterate&nbsp;over&nbsp;task&nbsp;strings&nbsp;and&nbsp;provide&nbsp;a&nbsp;list&nbsp;of&nbsp;tasks&nbsp;that&nbsp;can&nbsp;be<br>
 executed&nbsp;(plus&nbsp;relevant&nbsp;data&nbsp;from&nbsp;matching&nbsp;the&nbsp;target)&nbsp;as&nbsp;well&nbsp;as<br>
-the&nbsp;set&nbsp;of&nbsp;tasks&nbsp;that&nbsp;can't&nbsp;be&nbsp;resolved.</tt></dd></dl>
+the&nbsp;set&nbsp;of&nbsp;tasks&nbsp;that&nbsp;can't&nbsp;be&nbsp;resolved.</span></dd></dl>
 
-<dl><dt><a name="TaskManager-execute"><strong>execute</strong></a>(self, tasks: Iterable[str], **kwargs) -&gt; Set[str]</dt><dd><tt>Execute&nbsp;some&nbsp;set&nbsp;of&nbsp;provided&nbsp;tasks.&nbsp;Return&nbsp;the&nbsp;tasks&nbsp;that&nbsp;don't&nbsp;get<br>
-resolved.</tt></dd></dl>
+<dl><dt><a name="TaskManager-execute"><strong>execute</strong></a>(self, tasks: Iterable[str], **kwargs) -&gt; Set[str]</dt><dd><span class="code">Execute&nbsp;some&nbsp;set&nbsp;of&nbsp;provided&nbsp;tasks.&nbsp;Return&nbsp;the&nbsp;tasks&nbsp;that&nbsp;don't&nbsp;get<br>
+resolved.</span></dd></dl>
 
-<dl><dt><a name="TaskManager-finalize"><strong>finalize</strong></a>(self, **kwargs) -&gt; None</dt><dd><tt>Register&nbsp;task&nbsp;dependencies&nbsp;while&nbsp;the&nbsp;event&nbsp;loop&nbsp;is&nbsp;running.</tt></dd></dl>
+<dl><dt><a name="TaskManager-finalize"><strong>finalize</strong></a>(self, **kwargs) -&gt; None</dt><dd><span class="code">Register&nbsp;task&nbsp;dependencies&nbsp;while&nbsp;the&nbsp;event&nbsp;loop&nbsp;is&nbsp;running.</span></dd></dl>
 
-<dl><dt><a name="TaskManager-prepare_execute"><strong>prepare_execute</strong></a>(self, tasks: Iterable[str], **kwargs) -&gt; Tuple[Set[str], Callable[[], Coroutine[Any, Any, NoneType]]]</dt><dd><tt>Gather&nbsp;tasks&nbsp;that&nbsp;can&nbsp;and&nbsp;can't&nbsp;be&nbsp;executed&nbsp;to&nbsp;prepare&nbsp;a&nbsp;function&nbsp;that<br>
+<dl><dt><a name="TaskManager-prepare_execute"><strong>prepare_execute</strong></a>(self, tasks: Iterable[str], **kwargs) -&gt; Tuple[Set[str], Callable[[], Coroutine[Any, Any, NoneType]]]</dt><dd><span class="code">Gather&nbsp;tasks&nbsp;that&nbsp;can&nbsp;and&nbsp;can't&nbsp;be&nbsp;executed&nbsp;to&nbsp;prepare&nbsp;a&nbsp;function&nbsp;that<br>
 can&nbsp;execute&nbsp;tasks&nbsp;and&nbsp;also&nbsp;return&nbsp;the&nbsp;task&nbsp;strings&nbsp;that&nbsp;wouldn't&nbsp;be<br>
-resolved.</tt></dd></dl>
+resolved.</span></dd></dl>
 
-<dl><dt><a name="TaskManager-register"><strong>register</strong></a>(self, task: vcorelib.task.Task, dependencies: Iterable[str] = None, target: str = None) -&gt; bool</dt><dd><tt>Register&nbsp;a&nbsp;new&nbsp;task&nbsp;and&nbsp;apply&nbsp;any&nbsp;requested&nbsp;dependencies.</tt></dd></dl>
+<dl><dt><a name="TaskManager-register"><strong>register</strong></a>(self, task: vcorelib.task.Task, dependencies: Iterable[str] = None, target: str = None) -&gt; bool</dt><dd><span class="code">Register&nbsp;a&nbsp;new&nbsp;task&nbsp;and&nbsp;apply&nbsp;any&nbsp;requested&nbsp;dependencies.</span></dd></dl>
 
-<dl><dt><a name="TaskManager-register_to"><strong>register_to</strong></a>(self, target: str, dependencies: Iterable[str]) -&gt; bool</dt><dd><tt>Register&nbsp;dependencies&nbsp;to&nbsp;a&nbsp;task&nbsp;by&nbsp;name.</tt></dd></dl>
+<dl><dt><a name="TaskManager-register_to"><strong>register_to</strong></a>(self, target: str, dependencies: Iterable[str]) -&gt; bool</dt><dd><span class="code">Register&nbsp;dependencies&nbsp;to&nbsp;a&nbsp;task&nbsp;by&nbsp;name.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.script.html#ScriptableMixin">vcorelib.script.ScriptableMixin</a>:<br>
-<dl><dt><a name="TaskManager-invoked"><strong>invoked</strong></a>(self, script: pathlib.Path) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;script&nbsp;has&nbsp;been&nbsp;invoked&nbsp;or&nbsp;not.</tt></dd></dl>
+<dl><dt><a name="TaskManager-invoked"><strong>invoked</strong></a>(self, script: pathlib.Path) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;a&nbsp;script&nbsp;has&nbsp;been&nbsp;invoked&nbsp;or&nbsp;not.</span></dd></dl>
 
-<dl><dt><a name="TaskManager-script"><strong>script</strong></a>(self, script: pathlib.Path, method: str, *args, once: bool = True, **kwargs) -&gt; Any</dt><dd><tt>Invoke&nbsp;a&nbsp;script&nbsp;while&nbsp;passing&nbsp;this&nbsp;object&nbsp;reference.</tt></dd></dl>
+<dl><dt><a name="TaskManager-script"><strong>script</strong></a>(self, script: pathlib.Path, method: str, *args, once: bool = True, **kwargs) -&gt; Any</dt><dd><span class="code">Invoke&nbsp;a&nbsp;script&nbsp;while&nbsp;passing&nbsp;this&nbsp;object&nbsp;reference.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.script.html#ScriptableMixin">vcorelib.script.ScriptableMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#55aa55">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
-<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>BasicCoroutine</strong> = typing.Callable[[], typing.Coroutine[typing.Any, typing.Any, NoneType]]</td></tr></table>
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>BasicCoroutine</strong> = typing.Callable[[], typing.Coroutine[typing.Any, typing.Any, NoneType]]</td></tr></table>
 </body></html>

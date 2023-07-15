@@ -1,184 +1,355 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module vcorelib.paths.info_cache</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.paths.info_cache</title>
+</head><body>
 
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.paths.html"><font color="#ffffff">paths</font></a>.info_cache</strong></big></big></font></td
-><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/paths/info_cache.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/paths/info_cache.py</a></font></td></tr></table>
-    <p><tt>A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;file-info&nbsp;cache.</tt></p>
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.paths.html" class="white">paths</a>.info_cache</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/paths/info_cache.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/paths/info_cache.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;file-info&nbsp;cache.</span></p>
 <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ee77aa">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
     
-<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
-</font></dt><dd>
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="logging.html">logging</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.paths.info_cache.html#FileInfoManager">FileInfoManager</a>
-</font></dt></dl>
+<dt class="heading-text"><a href="vcorelib.paths.info_cache.html#FileInfoManager">FileInfoManager</a>
+</dt></dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="builtins.html#tuple">builtins.tuple</a>(<a href="builtins.html#object">builtins.object</a>)
-</font></dt><dd>
+<dt class="heading-text"><a href="builtins.html#tuple">builtins.tuple</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.paths.info_cache.html#FileInfo">FileInfo</a>
-</font></dt></dl>
+<dt class="heading-text"><a href="vcorelib.paths.info.html#FileInfo">vcorelib.paths.info.FileInfo</a>
+</dt><dt class="heading-text"><a href="vcorelib.paths.info_cache.html#FileChanged">FileChanged</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="enum.html#Enum">enum.Enum</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.paths.info.html#FileChangeEvent">vcorelib.paths.info.FileChangeEvent</a>
+</dt></dl>
 </dd>
 </dl>
  <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="FileInfo">class <strong>FileInfo</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</font></td></tr>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FileChangeEvent">class <strong>FileChangeEvent</strong></a>(<a href="enum.html#Enum">enum.Enum</a>)</td></tr>
     
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#FileInfo">FileInfo</a>(path:&nbsp;pathlib.Path,&nbsp;size:&nbsp;int,&nbsp;md5_hex:&nbsp;str,&nbsp;modified_ns:&nbsp;int)<br>
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FileChangeEvent">FileChangeEvent</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
 &nbsp;<br>
-A&nbsp;collection&nbsp;of&nbsp;data&nbsp;to&nbsp;describe&nbsp;an&nbsp;identity&nbsp;of&nbsp;a&nbsp;file.<br>&nbsp;</tt></td></tr>
+An&nbsp;enumeration&nbsp;describing&nbsp;possible&nbsp;file-change&nbsp;events.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="vcorelib.paths.info_cache.html#FileInfo">FileInfo</a></dd>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.paths.info.html#FileChangeEvent">FileChangeEvent</a></dd>
+<dd><a href="enum.html#Enum">enum.Enum</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>CREATED</strong> = &lt;FileChangeEvent.CREATED: 1&gt;</dl>
+
+<dl><dt><strong>REMOVED</strong> = &lt;FileChangeEvent.REMOVED: 2&gt;</dl>
+
+<dl><dt><strong>UPDATED</strong> = &lt;FileChangeEvent.UPDATED: 3&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
+<dl><dt><strong>name</strong></dt>
+<dd><span class="code">The&nbsp;name&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<dl><dt><strong>value</strong></dt>
+<dd><span class="code">The&nbsp;value&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><a name="FileChangeEvent-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
+raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+&nbsp;<br>
+note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
+returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+
+<dl><dt><a name="FileChangeEvent-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
+
+<dl><dt><a name="FileChangeEvent-__iter__"><strong>__iter__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;members&nbsp;in&nbsp;definition&nbsp;order.</span></dd></dl>
+
+<dl><dt><a name="FileChangeEvent-__len__"><strong>__len__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;number&nbsp;of&nbsp;members&nbsp;(no&nbsp;aliases)</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><strong>__members__</strong></dt>
+<dd><span class="code">Returns&nbsp;a&nbsp;mapping&nbsp;of&nbsp;member&nbsp;name-&gt;value.<br>
+&nbsp;<br>
+This&nbsp;mapping&nbsp;lists&nbsp;all&nbsp;enum&nbsp;members,&nbsp;including&nbsp;aliases.&nbsp;Note&nbsp;that&nbsp;this<br>
+is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FileChanged">class <strong>FileChanged</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FileChanged">FileChanged</a>(new:&nbsp;Optional[vcorelib.paths.info.<a href="#FileInfo">FileInfo</a>],&nbsp;old:&nbsp;Optional[vcorelib.paths.info.<a href="#FileInfo">FileInfo</a>],&nbsp;event:&nbsp;vcorelib.paths.info.<a href="#FileChangeEvent">FileChangeEvent</a>)<br>
+&nbsp;<br>
+Data&nbsp;provided&nbsp;to&nbsp;a&nbsp;file-changed&nbsp;callback.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.paths.info_cache.html#FileChanged">FileChanged</a></dd>
 <dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FileInfo-__eq__"><strong>__eq__</strong></a>(self, other: object) -&gt; bool</dt><dd><tt>Determine&nbsp;if&nbsp;two&nbsp;file&nbsp;info's&nbsp;are&nbsp;equivalent.</tt></dd></dl>
+<dl><dt><a name="FileChanged-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><tt>Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</tt></dd></dl>
+<dl><dt><a name="FileChanged-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><tt>Get&nbsp;a&nbsp;hash&nbsp;for&nbsp;this&nbsp;file&nbsp;info&nbsp;based&nbsp;on&nbsp;the&nbsp;file&nbsp;name.</tt></dd></dl>
+<dl><dt><a name="FileChanged-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="FileInfo-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</tt></dd></dl>
-
-<dl><dt><a name="FileInfo-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><tt>Return&nbsp;a&nbsp;new&nbsp;<a href="#FileInfo">FileInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</tt></dd></dl>
-
-<dl><dt><a name="FileInfo-poll"><strong>poll</strong></a>(self) -&gt; Tuple[bool, Union[ForwardRef('FileInfo'), NoneType]]</dt><dd><tt>Determine&nbsp;if&nbsp;this&nbsp;file&nbsp;is&nbsp;in&nbsp;a&nbsp;new&nbsp;state&nbsp;or&nbsp;not.</tt></dd></dl>
-
-<dl><dt><a name="FileInfo-same"><strong>same</strong></a>(self, other: 'FileInfo') -&gt; bool</dt><dd><tt>Check&nbsp;if&nbsp;two&nbsp;file&nbsp;info&nbsp;contents&nbsp;match.</tt></dd></dl>
-
-<dl><dt><a name="FileInfo-to_json"><strong>to_json</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><tt>Get&nbsp;JSON&nbsp;data&nbsp;for&nbsp;this&nbsp;instance.</tt></dd></dl>
+<dl><dt><a name="FileChanged-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;<a href="#FileChanged">FileChanged</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</span></dd></dl>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="FileInfo-_make"><strong>_make</strong></a>(iterable)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Make&nbsp;a&nbsp;new&nbsp;<a href="#FileInfo">FileInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</tt></dd></dl>
+<dl><dt><a name="FileChanged-_make"><strong>_make</strong></a>(iterable)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Make&nbsp;a&nbsp;new&nbsp;<a href="#FileChanged">FileChanged</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</span></dd></dl>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="FileInfo-__new__"><strong>__new__</strong></a>(_cls, path: pathlib.Path, size: int, md5_hex: str, modified_ns: int)</dt><dd><tt>Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#FileInfo">FileInfo</a>(path,&nbsp;size,&nbsp;md5_hex,&nbsp;modified_ns)</tt></dd></dl>
+<dl><dt><a name="FileChanged-__new__"><strong>__new__</strong></a>(_cls, new: Optional[vcorelib.paths.info.FileInfo], old: Optional[vcorelib.paths.info.FileInfo], event: vcorelib.paths.info.FileChangeEvent)</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#FileChanged">FileChanged</a>(new,&nbsp;old,&nbsp;event)</span></dd></dl>
 
-<dl><dt><a name="FileInfo-from_file"><strong>from_file</strong></a>(path: Union[pathlib.Path, str, NoneType], stats: os.stat_result = None) -&gt; 'FileInfo'</dt><dd><tt>Create&nbsp;file&nbsp;info&nbsp;from&nbsp;a&nbsp;file.</tt></dd></dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>new</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</span></dd>
+</dl>
+<dl><dt><strong>old</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</span></dd>
+</dl>
+<dl><dt><strong>event</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;2</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'event': &lt;enum 'FileChangeEvent'&gt;, 'new': typing.Optional[vcorelib.paths.info.FileInfo], 'old': typing.Optional[vcorelib.paths.info.FileInfo]}</dl>
 
-<dl><dt><a name="FileInfo-from_json"><strong>from_json</strong></a>(data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; Dict[pathlib.Path, ForwardRef('FileInfo')]</dt><dd><tt>Create&nbsp;file&nbsp;info&nbsp;from&nbsp;JSON&nbsp;data.</tt></dd></dl>
+<dl><dt><strong>__match_args__</strong> = ('new', 'old', 'event')</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (&lt;function NamedTuple&gt;,)</dl>
+
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
+
+<dl><dt><strong>_fields</strong> = ('new', 'old', 'event')</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="FileChanged-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;=value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;self[key].</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;hash(self).</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><span class="code">Implement&nbsp;iter(self).</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;=value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;len(self).</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self*value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self!=value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value*self.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-count"><strong>count</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</span></dd></dl>
+
+<dl><dt><a name="FileChanged-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><span class="code">Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="FileChanged-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">See&nbsp;<a href="https://peps.python.org/pep-0585/">PEP&nbsp;585</a></span></dd></dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FileInfo">class <strong>FileInfo</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FileInfo">FileInfo</a>(path:&nbsp;pathlib.Path,&nbsp;size:&nbsp;int,&nbsp;md5_hex:&nbsp;str,&nbsp;modified_ns:&nbsp;int)<br>
+&nbsp;<br>
+A&nbsp;collection&nbsp;of&nbsp;data&nbsp;to&nbsp;describe&nbsp;an&nbsp;identity&nbsp;of&nbsp;a&nbsp;file.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.paths.info.html#FileInfo">FileInfo</a></dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FileInfo-__eq__"><strong>__eq__</strong></a>(self, other: object) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;two&nbsp;file&nbsp;info's&nbsp;are&nbsp;equivalent.</span></dd></dl>
+
+<dl><dt><a name="FileInfo-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="FileInfo-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">Get&nbsp;a&nbsp;hash&nbsp;for&nbsp;this&nbsp;file&nbsp;info&nbsp;based&nbsp;on&nbsp;the&nbsp;file&nbsp;name.</span></dd></dl>
+
+<dl><dt><a name="FileInfo-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</span></dd></dl>
+
+<dl><dt><a name="FileInfo-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</span></dd></dl>
+
+<dl><dt><a name="FileInfo-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;<a href="#FileInfo">FileInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</span></dd></dl>
+
+<dl><dt><a name="FileInfo-poll"><strong>poll</strong></a>(self, check_contents: bool = True) -&gt; Tuple[Optional[vcorelib.paths.info.FileChangeEvent], Optional[ForwardRef('FileInfo')]]</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;file&nbsp;is&nbsp;in&nbsp;a&nbsp;new&nbsp;state&nbsp;or&nbsp;not.</span></dd></dl>
+
+<dl><dt><a name="FileInfo-same"><strong>same</strong></a>(self, other: 'FileInfo') -&gt; bool</dt><dd><span class="code">Check&nbsp;if&nbsp;two&nbsp;file&nbsp;info&nbsp;contents&nbsp;match.</span></dd></dl>
+
+<dl><dt><a name="FileInfo-to_json"><strong>to_json</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><span class="code">Get&nbsp;JSON&nbsp;data&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="FileInfo-_make"><strong>_make</strong></a>(iterable)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Make&nbsp;a&nbsp;new&nbsp;<a href="#FileInfo">FileInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="FileInfo-__new__"><strong>__new__</strong></a>(_cls, path: pathlib.Path, size: int, md5_hex: str, modified_ns: int)</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#FileInfo">FileInfo</a>(path,&nbsp;size,&nbsp;md5_hex,&nbsp;modified_ns)</span></dd></dl>
+
+<dl><dt><a name="FileInfo-from_file"><strong>from_file</strong></a>(path: Union[pathlib.Path, str, NoneType], stats: os.stat_result = None) -&gt; 'FileInfo'</dt><dd><span class="code">Create&nbsp;file&nbsp;info&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+
+<dl><dt><a name="FileInfo-from_json"><strong>from_json</strong></a>(data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], force: bool = False) -&gt; Dict[pathlib.Path, ForwardRef('FileInfo')]</dt><dd><span class="code">Create&nbsp;file&nbsp;info&nbsp;from&nbsp;JSON&nbsp;data.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>path</strong></dt>
-<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</tt></dd>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</span></dd>
 </dl>
 <dl><dt><strong>size</strong></dt>
-<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</tt></dd>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</span></dd>
 </dl>
 <dl><dt><strong>md5_hex</strong></dt>
-<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;2</tt></dd>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;2</span></dd>
 </dl>
 <dl><dt><strong>modified_ns</strong></dt>
-<dd><tt>Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;3</tt></dd>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;3</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__annotations__</strong> = {'md5_hex': &lt;class 'str'&gt;, 'modified_ns': &lt;class 'int'&gt;, 'path': &lt;class 'pathlib.Path'&gt;, 'size': &lt;class 'int'&gt;}</dl>
 
-<dl><dt><strong>_field_defaults</strong> = {}</dl>
+<dl><dt><strong>__match_args__</strong> = ('path', 'size', 'md5_hex', 'modified_ns')</dl>
 
-<dl><dt><strong>_field_types</strong> = {'md5_hex': &lt;class 'str'&gt;, 'modified_ns': &lt;class 'int'&gt;, 'path': &lt;class 'pathlib.Path'&gt;, 'size': &lt;class 'int'&gt;}</dl>
+<dl><dt><strong>__orig_bases__</strong> = (&lt;function NamedTuple&gt;,)</dl>
+
+<dl><dt><strong>_field_defaults</strong> = {}</dl>
 
 <dl><dt><strong>_fields</strong> = ('path', 'size', 'md5_hex', 'modified_ns')</dl>
 
-<dl><dt><strong>_fields_defaults</strong> = {}</dl>
-
 <hr>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
-<dl><dt><a name="FileInfo-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self+value.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;key&nbsp;in&nbsp;self.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;=value.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;=value.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+<dl><dt><a name="FileInfo-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><tt>Return&nbsp;self[key].</tt></dd></dl>
+<dl><dt><a name="FileInfo-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;self[key].</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;value.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;value.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><tt>Implement&nbsp;iter(self).</tt></dd></dl>
+<dl><dt><a name="FileInfo-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><span class="code">Implement&nbsp;iter(self).</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;=value.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;=value.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;len(self).</tt></dd></dl>
+<dl><dt><a name="FileInfo-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;len(self).</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;value.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;value.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self*value.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self*value.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self!=value.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self!=value.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value*self.</tt></dd></dl>
+<dl><dt><a name="FileInfo-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value*self.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-count"><strong>count</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</tt></dd></dl>
+<dl><dt><a name="FileInfo-count"><strong>count</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</span></dd></dl>
 
-<dl><dt><a name="FileInfo-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><tt>Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+<dl><dt><a name="FileInfo-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><span class="code">Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
 &nbsp;<br>
-Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="FileInfo-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">See&nbsp;<a href="https://peps.python.org/pep-0585/">PEP&nbsp;585</a></span></dd></dl>
 
 </td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="FileInfoManager">class <strong>FileInfoManager</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="FileInfoManager">class <strong>FileInfoManager</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#FileInfoManager">FileInfoManager</a>(poll_cb:&nbsp;Callable[[Union[vcorelib.paths.info_cache.<a href="#FileInfo">FileInfo</a>,&nbsp;NoneType],&nbsp;Union[vcorelib.paths.info_cache.<a href="#FileInfo">FileInfo</a>,&nbsp;NoneType]],&nbsp;NoneType],&nbsp;initial:&nbsp;Dict[pathlib.Path,&nbsp;vcorelib.paths.info_cache.<a href="#FileInfo">FileInfo</a>]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FileInfoManager">FileInfoManager</a>(poll_cb:&nbsp;Callable[[vcorelib.paths.info_cache.<a href="#FileChanged">FileChanged</a>],&nbsp;bool],&nbsp;initial:&nbsp;Dict[pathlib.Path,&nbsp;vcorelib.paths.info.<a href="#FileInfo">FileInfo</a>]&nbsp;=&nbsp;None,&nbsp;logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]&nbsp;=&nbsp;None,&nbsp;level:&nbsp;int&nbsp;=&nbsp;10,&nbsp;check_contents:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
-A&nbsp;class&nbsp;simplifying&nbsp;evaluation&nbsp;of&nbsp;changes&nbsp;to&nbsp;files&nbsp;on&nbsp;disk.<br>&nbsp;</tt></td></tr>
+A&nbsp;class&nbsp;simplifying&nbsp;evaluation&nbsp;of&nbsp;changes&nbsp;to&nbsp;files&nbsp;on&nbsp;disk.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="FileInfoManager-__init__"><strong>__init__</strong></a>(self, poll_cb: Callable[[Union[vcorelib.paths.info_cache.FileInfo, NoneType], Union[vcorelib.paths.info_cache.FileInfo, NoneType]], NoneType], initial: Dict[pathlib.Path, vcorelib.paths.info_cache.FileInfo] = None) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;file-info&nbsp;manager.</tt></dd></dl>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="FileInfoManager-__init__"><strong>__init__</strong></a>(self, poll_cb: Callable[[vcorelib.paths.info_cache.FileChanged], bool], initial: Dict[pathlib.Path, vcorelib.paths.info.FileInfo] = None, logger: Union[logging.Logger, logging.LoggerAdapter] = None, level: int = 10, check_contents: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;file-info&nbsp;manager.</span></dd></dl>
 
-<dl><dt><a name="FileInfoManager-poll_directory"><strong>poll_directory</strong></a>(self, path: Union[pathlib.Path, str, NoneType], recurse: bool = True) -&gt; None</dt><dd><tt>Poll&nbsp;an&nbsp;entire&nbsp;directory&nbsp;for&nbsp;changes.</tt></dd></dl>
+<dl><dt><a name="FileInfoManager-poll_directory"><strong>poll_directory</strong></a>(self, path: Union[pathlib.Path, str, NoneType], recurse: bool = True, base: Union[pathlib.Path, str, NoneType] = None) -&gt; None</dt><dd><span class="code">Poll&nbsp;an&nbsp;entire&nbsp;directory&nbsp;for&nbsp;changes.&nbsp;If&nbsp;files&nbsp;previously&nbsp;in&nbsp;this<br>
+directory&nbsp;were&nbsp;polled&nbsp;and&nbsp;are&nbsp;no&nbsp;longer&nbsp;present,&nbsp;they&nbsp;won't&nbsp;be&nbsp;polled<br>
+and&nbsp;thus&nbsp;won't&nbsp;trigger&nbsp;the&nbsp;callback.&nbsp;Use&nbsp;'poll_existing'&nbsp;for&nbsp;that<br>
+behavior.</span></dd></dl>
 
-<dl><dt><a name="FileInfoManager-poll_file"><strong>poll_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType]) -&gt; None</dt><dd><tt>Check&nbsp;if&nbsp;a&nbsp;file&nbsp;has&nbsp;changed&nbsp;and&nbsp;invoke&nbsp;the&nbsp;callback&nbsp;if&nbsp;so.</tt></dd></dl>
+<dl><dt><a name="FileInfoManager-poll_existing"><strong>poll_existing</strong></a>(self, base: Union[pathlib.Path, str, NoneType] = None) -&gt; None</dt><dd><span class="code">Poll&nbsp;all&nbsp;existing&nbsp;files.&nbsp;This&nbsp;is&nbsp;the&nbsp;only&nbsp;way&nbsp;to&nbsp;detect&nbsp;files&nbsp;that&nbsp;have<br>
+been&nbsp;deleted.</span></dd></dl>
+
+<dl><dt><a name="FileInfoManager-poll_file"><strong>poll_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType], base: Union[pathlib.Path, str, NoneType] = None) -&gt; None</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;file&nbsp;has&nbsp;changed&nbsp;and&nbsp;invoke&nbsp;the&nbsp;callback&nbsp;if&nbsp;so.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-file_info_cache"><strong>file_info_cache</strong></a>(cache_path: Union[pathlib.Path, str, NoneType], poll_cb: Callable[[Union[vcorelib.paths.info_cache.FileInfo, NoneType], Union[vcorelib.paths.info_cache.FileInfo, NoneType]], NoneType]) -&gt; Iterator[vcorelib.paths.info_cache.FileInfoManager]</dt><dd><tt>Obtain&nbsp;a&nbsp;file-info&nbsp;manager&nbsp;as&nbsp;a&nbsp;cached&nbsp;context.</tt></dd></dl>
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-file_info_cache"><strong>file_info_cache</strong></a>(cache_path: Union[pathlib.Path, str, NoneType], poll_cb: Callable[[vcorelib.paths.info_cache.FileChanged], bool], logger: Union[logging.Logger, logging.LoggerAdapter] = None, level: int = 10, check_contents: bool = True) -&gt; Iterator[vcorelib.paths.info_cache.FileInfoManager]</dt><dd><span class="code">Obtain&nbsp;a&nbsp;file-info&nbsp;manager&nbsp;as&nbsp;a&nbsp;cached&nbsp;context.</span></dd></dl>
 </td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#55aa55">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
-<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>FileFreshCallback</strong> = typing.Callable[[typing.Union[vcorelib.paths.inf....paths.info_cache.FileInfo, NoneType]], NoneType]</td></tr></table>
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>FileChangedCallback</strong> = typing.Callable[[vcorelib.paths.info_cache.FileChanged], bool]<br>
+<strong>__all__</strong> = ['FileChanged', 'FileChangedCallback', 'FileInfoManager', 'file_info_cache', 'FileInfo', 'FileChangeEvent']</td></tr></table>
 </body></html>

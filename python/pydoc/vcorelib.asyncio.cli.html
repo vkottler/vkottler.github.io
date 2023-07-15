@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.asyncio.cli</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.asyncio.html" class="white">asyncio</a>.cli</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/asyncio/cli.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/asyncio/cli.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;utilities&nbsp;to&nbsp;work&nbsp;with&nbsp;asyncio&nbsp;processes.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="signal.html">signal</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#tuple">builtins.tuple</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.asyncio.cli.html#ProcessResult">ProcessResult</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ProcessResult">class <strong>ProcessResult</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ProcessResult">ProcessResult</a>(proc:&nbsp;asyncio.subprocess.Process,&nbsp;stdout:&nbsp;Optional[bytes]&nbsp;=&nbsp;None,&nbsp;stderr:&nbsp;Optional[bytes]&nbsp;=&nbsp;None)<br>
+&nbsp;<br>
+A&nbsp;process&nbsp;result&nbsp;(after&nbsp;calling&nbsp;'communicate').<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.asyncio.cli.html#ProcessResult">ProcessResult</a></dd>
+<dd><a href="builtins.html#tuple">builtins.tuple</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ProcessResult-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;nicely&nbsp;formatted&nbsp;representation&nbsp;string</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;<a href="#ProcessResult">ProcessResult</a>&nbsp;object&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</span></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="ProcessResult-_make"><strong>_make</strong></a>(iterable)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Make&nbsp;a&nbsp;new&nbsp;<a href="#ProcessResult">ProcessResult</a>&nbsp;object&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="ProcessResult-__new__"><strong>__new__</strong></a>(_cls, proc: asyncio.subprocess.Process, stdout: Optional[bytes] = None, stderr: Optional[bytes] = None)</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#ProcessResult">ProcessResult</a>(proc,&nbsp;stdout,&nbsp;stderr)</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>proc</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;0</span></dd>
+</dl>
+<dl><dt><strong>stdout</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;1</span></dd>
+</dl>
+<dl><dt><strong>stderr</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;2</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'proc': &lt;class 'asyncio.subprocess.Process'&gt;, 'stderr': typing.Optional[bytes], 'stdout': typing.Optional[bytes]}</dl>
+
+<dl><dt><strong>__match_args__</strong> = ('proc', 'stdout', 'stderr')</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (&lt;function NamedTuple&gt;,)</dl>
+
+<dl><dt><strong>_field_defaults</strong> = {'stderr': None, 'stdout': None}</dl>
+
+<dl><dt><strong>_fields</strong> = ('proc', 'stdout', 'stderr')</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="ProcessResult-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;=value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__getitem__"><strong>__getitem__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;self[key].</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;hash(self).</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__iter__"><strong>__iter__</strong></a>(self, /)</dt><dd><span class="code">Implement&nbsp;iter(self).</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;=value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__len__"><strong>__len__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;len(self).</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&lt;value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self*value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self!=value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;value*self.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-count"><strong>count</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value.</span></dd></dl>
+
+<dl><dt><a name="ProcessResult-index"><strong>index</strong></a>(self, value, start=0, stop=9223372036854775807, /)</dt><dd><span class="code">Return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+&nbsp;<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
+<dl><dt><a name="ProcessResult-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">See&nbsp;<a href="https://peps.python.org/pep-0585/">PEP&nbsp;585</a></span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>async <a name="-create_subprocess_shell_log"><strong>create_subprocess_shell_log</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter], command: str, stdout: int = None, stderr: int = None, **kwargs) -&gt; asyncio.subprocess.Process</dt><dd><span class="code">Create&nbsp;a&nbsp;shell&nbsp;process&nbsp;and&nbsp;log&nbsp;information&nbsp;about&nbsp;the&nbsp;created&nbsp;process.</span></dd></dl>
+ <dl><dt>async <a name="-handle_process_cancel"><strong>handle_process_cancel</strong></a>(proc: asyncio.subprocess.Process, name: str, logger: Union[logging.Logger, logging.LoggerAdapter], stdin: bytes = None, signal: int = None) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Communicate&nbsp;with&nbsp;a&nbsp;process&nbsp;and&nbsp;send&nbsp;a&nbsp;signal&nbsp;to&nbsp;it&nbsp;if&nbsp;this&nbsp;task&nbsp;gets<br>
+cancelled.</span></dd></dl>
+ <dl><dt>async <a name="-run_command"><strong>run_command</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter], *args: str, stdin: bytes = None, stdout: int = None, stderr: int = None, signal: int = None, **kwargs) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Run&nbsp;a&nbsp;subprocess&nbsp;and&nbsp;return&nbsp;the&nbsp;completed&nbsp;process.</span></dd></dl>
+ <dl><dt>async <a name="-run_shell"><strong>run_shell</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter], *args: str, stdin: bytes = None, stdout: int = None, stderr: int = None, signal: int = None, **kwargs) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Run&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;the&nbsp;completed&nbsp;process.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<strong>Optional</strong> = typing.Optional</td></tr></table>
+</body></html>

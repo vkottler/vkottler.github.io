@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package yambs.uf2</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="yambs.html" class="white">yambs</a>.uf2</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/yambs/yambs/uf2/__init__.py">/home/vkottler/src/vkottler/workspace/yambs/yambs/uf2/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;interfaces&nbsp;for&nbsp;USB&nbsp;Flashing&nbsp;Format&nbsp;(UF2).<br>
+&nbsp;<br>
+See&nbsp;<a href="https://github.com/microsoft/uf2">https://github.com/microsoft/uf2</a>.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="yambs.uf2.html#Block">Block</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Block">class <strong>Block</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Block">Block</a>(addr)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;UF2&nbsp;block.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Block-__init__"><strong>__init__</strong></a>(self, addr) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Block-encode"><strong>encode</strong></a>(self, blockno: int, numblocks: int) -&gt; bytes</dt><dd><span class="code">Encode&nbsp;a&nbsp;block.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-board_id"><strong>board_id</strong></a>(path, info_file: str = '/INFO_UF2.TXT') -&gt; Optional[str]</dt><dd><span class="code">Get&nbsp;the&nbsp;board&nbsp;identifier.</span></dd></dl>
+ <dl><dt><a name="-convert_from_hex_to_uf2"><strong>convert_from_hex_to_uf2</strong></a>(buf: str) -&gt; bytes</dt><dd><span class="code">Create&nbsp;uf2&nbsp;bytes&nbsp;from&nbsp;hex&nbsp;data.</span></dd></dl>
+ <dl><dt><a name="-convert_from_uf2"><strong>convert_from_uf2</strong></a>(buf: bytes) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;a&nbsp;uf2-formatted&nbsp;file&nbsp;into&nbsp;a&nbsp;regular&nbsp;one.</span></dd></dl>
+ <dl><dt><a name="-convert_to_carray"><strong>convert_to_carray</strong></a>(file_content: bytes) -&gt; bytes</dt><dd><span class="code">Create&nbsp;a&nbsp;C&nbsp;snippet&nbsp;that&nbsp;declares&nbsp;an&nbsp;array&nbsp;equivalent&nbsp;to&nbsp;raw&nbsp;file&nbsp;data.</span></dd></dl>
+ <dl><dt><a name="-convert_to_uf2"><strong>convert_to_uf2</strong></a>(file_content: bytes) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;a&nbsp;file&nbsp;to&nbsp;uf2.</span></dd></dl>
+ <dl><dt><a name="-get_drives"><strong>get_drives</strong></a>(info_file: str = '/INFO_UF2.TXT') -&gt; List[str]</dt><dd><span class="code">Get&nbsp;mountable&nbsp;drives.</span></dd></dl>
+ <dl><dt><a name="-is_hex"><strong>is_hex</strong></a>(buf: bytes) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;the&nbsp;provided&nbsp;buffer&nbsp;has&nbsp;a&nbsp;header&nbsp;that&nbsp;indicates&nbsp;it's&nbsp;Intel<br>
+HEX&nbsp;format.</span></dd></dl>
+ <dl><dt><a name="-is_uf2"><strong>is_uf2</strong></a>(buf: bytes) -&gt; bool</dt><dd><span class="code">Checks&nbsp;whether&nbsp;or&nbsp;not&nbsp;the&nbsp;provided&nbsp;buffer&nbsp;has&nbsp;the&nbsp;header&nbsp;magic&nbsp;bytes.</span></dd></dl>
+ <dl><dt><a name="-list_drives"><strong>list_drives</strong></a>() -&gt; None</dt><dd><span class="code">Print&nbsp;drives.</span></dd></dl>
+ <dl><dt><a name="-load_families"><strong>load_families</strong></a>() -&gt; Dict[str, int]</dt><dd><span class="code">The&nbsp;expectation&nbsp;is&nbsp;that&nbsp;the&nbsp;`uf2families.json`&nbsp;file&nbsp;is&nbsp;in&nbsp;the&nbsp;same<br>
+directory&nbsp;as&nbsp;this&nbsp;script.&nbsp;Make&nbsp;a&nbsp;path&nbsp;that&nbsp;works&nbsp;using&nbsp;`__file__`<br>
+which&nbsp;contains&nbsp;the&nbsp;full&nbsp;path&nbsp;to&nbsp;this&nbsp;script.</span></dd></dl>
+ <dl><dt><a name="-to_str"><strong>to_str</strong></a>(data: bytes) -&gt; str</dt><dd><span class="code">Convert&nbsp;bytes&nbsp;to&nbsp;a&nbsp;string.</span></dd></dl>
+ <dl><dt><a name="-write_file"><strong>write_file</strong></a>(name: str, buf: bytes) -&gt; None</dt><dd><span class="code">Write&nbsp;the&nbsp;given&nbsp;buffer&nbsp;to&nbsp;a&nbsp;file&nbsp;with&nbsp;the&nbsp;given&nbsp;name.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>APPSTARTADDR</strong> = 8192<br>
+<strong>ARBITER</strong> = &lt;vcorelib.io.arbiter.DataArbiter object&gt;<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>FAMILYID</strong> = 0<br>
+<strong>INFO_FILE</strong> = '/INFO_UF2.TXT'<br>
+<strong>List</strong> = typing.List<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>PKG_NAME</strong> = 'yambs'<br>
+<strong>UF2_MAGIC_END</strong> = 179400496<br>
+<strong>UF2_MAGIC_START0</strong> = 171066965<br>
+<strong>UF2_MAGIC_START1</strong> = 2656915799<br>
+<strong>__annotations__</strong> = {'APPSTARTADDR': typing.Optional[int]}</td></tr></table>
+</body></html>

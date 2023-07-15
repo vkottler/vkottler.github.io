@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.net.metrics</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.metrics</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/metrics.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/metrics.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;connection-metrics&nbsp;structure.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.metrics.html#ChannelMetrics">ChannelMetrics</a>
+</dt><dt class="heading-text"><a href="runtimepy.net.metrics.html#ConnectionMetrics">ConnectionMetrics</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ChannelMetrics">class <strong>ChannelMetrics</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ChannelMetrics">ChannelMetrics</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Metrics&nbsp;for&nbsp;a&nbsp;network&nbsp;channel.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="ChannelMetrics-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="ChannelMetrics-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;metrics&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="ChannelMetrics-increment"><strong>increment</strong></a>(self, count: int, time_ns: int = None) -&gt; None</dt><dd><span class="code">Update&nbsp;tracking.</span></dd></dl>
+
+<dl><dt><a name="ChannelMetrics-poll"><strong>poll</strong></a>(self, time_ns: int = None) -&gt; None</dt><dd><span class="code">Poll&nbsp;kbps&nbsp;tracking.</span></dd></dl>
+
+<dl><dt><a name="ChannelMetrics-reset"><strong>reset</strong></a>(self) -&gt; None</dt><dd><span class="code">Reset&nbsp;metrics.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ConnectionMetrics">class <strong>ConnectionMetrics</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ConnectionMetrics">ConnectionMetrics</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Metrics&nbsp;for&nbsp;a&nbsp;network&nbsp;connection.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="ConnectionMetrics-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="ConnectionMetrics-poll"><strong>poll</strong></a>(self, time_ns: int = None) -&gt; None</dt><dd><span class="code">Poll&nbsp;channels.</span></dd></dl>
+
+<dl><dt><a name="ConnectionMetrics-reset"><strong>reset</strong></a>(self) -&gt; None</dt><dd><span class="code">Reset&nbsp;metrics.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>METRICS_DEPTH</strong> = 50</td></tr></table>
+</body></html>

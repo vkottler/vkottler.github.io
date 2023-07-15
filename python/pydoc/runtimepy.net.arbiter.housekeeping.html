@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package runtimepy.net.arbiter.housekeeping</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.arbiter.html" class="white">arbiter</a>.housekeeping</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/housekeeping/__init__.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/housekeeping/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;various&nbsp;housekeeping&nbsp;tasks&nbsp;for&nbsp;the&nbsp;connection-arbiter<br>
+runtime.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a>(<a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.housekeeping.html#ConnectionMetricsLogger">ConnectionMetricsLogger</a>
+</dt><dt class="heading-text"><a href="runtimepy.net.arbiter.housekeeping.html#ConnectionMetricsPoller">ConnectionMetricsPoller</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.task.html#TaskFactory">runtimepy.net.arbiter.task.TaskFactory</a>(<a href="typing.html#Generic">typing.Generic</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.housekeeping.html#ConnectionMetricsLoggerFactory">ConnectionMetricsLoggerFactory</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ConnectionMetricsLogger">class <strong>ConnectionMetricsLogger</strong></a>(<a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ConnectionMetricsLogger">ConnectionMetricsLogger</a>(name:&nbsp;'str',&nbsp;average_depth:&nbsp;'int'&nbsp;=&nbsp;10,&nbsp;metrics:&nbsp;'PeriodicTaskMetrics'&nbsp;=&nbsp;None,&nbsp;period_s:&nbsp;'float'&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;task&nbsp;for&nbsp;logging&nbsp;metrics.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.arbiter.housekeeping.html#ConnectionMetricsLogger">ConnectionMetricsLogger</a></dd>
+<dd><a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a></dd>
+<dd><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="ConnectionMetricsLogger-dispatch"><strong>dispatch</strong></a>(self) -&gt; bool</dt><dd><span class="code">Dispatch&nbsp;an&nbsp;iteration&nbsp;of&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt>async <a name="ConnectionMetricsLogger-init"><strong>init</strong></a>(self, app: runtimepy.net.arbiter.info.AppInfo) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task&nbsp;with&nbsp;application&nbsp;information.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {'app': &lt;class 'runtimepy.net.arbiter.info.AppInfo'&gt;}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>:<br>
+<dl><dt><a name="ConnectionMetricsLogger-__init__"><strong>__init__</strong></a>(self, name: 'str', average_depth: 'int' = 10, metrics: 'PeriodicTaskMetrics' = None, period_s: 'float' = None) -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt><a name="ConnectionMetricsLogger-disable"><strong>disable</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Disable&nbsp;this&nbsp;task,&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;any&nbsp;action&nbsp;was&nbsp;taken.</span></dd></dl>
+
+<dl><dt>async <a name="ConnectionMetricsLogger-run"><strong>run</strong></a>(self, period_s: 'float' = None, stop_sig: '_asyncio.Event' = None) -&gt; 'None'</dt><dd><span class="code">Run&nbsp;this&nbsp;task&nbsp;by&nbsp;executing&nbsp;the&nbsp;dispatch&nbsp;method&nbsp;at&nbsp;the&nbsp;specified&nbsp;period<br>
+until&nbsp;a&nbsp;dispatch&nbsp;iteration&nbsp;fails&nbsp;or&nbsp;the&nbsp;task&nbsp;is&nbsp;otherwise&nbsp;disabled.</span></dd></dl>
+
+<dl><dt><a name="ConnectionMetricsLogger-set_period"><strong>set_period</strong></a>(self, period_s: 'float' = None) -&gt; 'bool'</dt><dd><span class="code">Attempt&nbsp;to&nbsp;set&nbsp;a&nbsp;new&nbsp;period&nbsp;for&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt>async <a name="ConnectionMetricsLogger-stop"><strong>stop</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Wait&nbsp;for&nbsp;this&nbsp;task&nbsp;to&nbsp;stop&nbsp;running&nbsp;(if&nbsp;it&nbsp;is).</span></dd></dl>
+
+<dl><dt>async <a name="ConnectionMetricsLogger-task"><strong>task</strong></a>(self, period_s: 'float' = None, stop_sig: '_asyncio.Event' = None) -&gt; '_asyncio.Task[None]'</dt><dd><span class="code">Create&nbsp;an&nbsp;event-loop&nbsp;task&nbsp;for&nbsp;this&nbsp;periodic.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="ConnectionMetricsLogger-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ConnectionMetricsLoggerFactory">class <strong>ConnectionMetricsLoggerFactory</strong></a>(<a href="runtimepy.net.arbiter.task.html#TaskFactory">runtimepy.net.arbiter.task.TaskFactory</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">A&nbsp;factory&nbsp;for&nbsp;the&nbsp;connection-metrics&nbsp;logger.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.arbiter.housekeeping.html#ConnectionMetricsLoggerFactory">ConnectionMetricsLoggerFactory</a></dd>
+<dd><a href="runtimepy.net.arbiter.task.html#TaskFactory">runtimepy.net.arbiter.task.TaskFactory</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (runtimepy.net.arbiter.task.TaskFactory[runtimepy.net.arbiter.housekeeping.ConnectionMetricsLogger],)</dl>
+
+<dl><dt><strong>__parameters__</strong> = ()</dl>
+
+<dl><dt><strong>kind</strong> = &lt;class 'runtimepy.net.arbiter.housekeeping.ConnectionMetricsLogger'&gt;<dd><span class="code">A&nbsp;task&nbsp;for&nbsp;logging&nbsp;metrics.</span></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.net.arbiter.task.html#TaskFactory">runtimepy.net.arbiter.task.TaskFactory</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="ConnectionMetricsLoggerFactory-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+&nbsp;<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
+does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
+do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+&nbsp;<br>
+However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+
+<dl><dt><a name="ConnectionMetricsLoggerFactory-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ConnectionMetricsPoller">class <strong>ConnectionMetricsPoller</strong></a>(<a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ConnectionMetricsPoller">ConnectionMetricsPoller</a>(name:&nbsp;str,&nbsp;manager:&nbsp;runtimepy.net.manager.ConnectionManager,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;periodically&nbsp;polls&nbsp;connection&nbsp;metrics.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.arbiter.housekeeping.html#ConnectionMetricsPoller">ConnectionMetricsPoller</a></dd>
+<dd><a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a></dd>
+<dd><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ConnectionMetricsPoller-__init__"><strong>__init__</strong></a>(self, name: str, manager: runtimepy.net.manager.ConnectionManager, **kwargs) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt>async <a name="ConnectionMetricsPoller-dispatch"><strong>dispatch</strong></a>(self) -&gt; bool</dt><dd><span class="code">Dispatch&nbsp;an&nbsp;iteration&nbsp;of&nbsp;this&nbsp;task.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a>:<br>
+<dl><dt>async <a name="ConnectionMetricsPoller-init"><strong>init</strong></a>(self, app: runtimepy.net.arbiter.info.AppInfo) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task&nbsp;with&nbsp;application&nbsp;information.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>:<br>
+<dl><dt><a name="ConnectionMetricsPoller-disable"><strong>disable</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Disable&nbsp;this&nbsp;task,&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;any&nbsp;action&nbsp;was&nbsp;taken.</span></dd></dl>
+
+<dl><dt>async <a name="ConnectionMetricsPoller-run"><strong>run</strong></a>(self, period_s: 'float' = None, stop_sig: '_asyncio.Event' = None) -&gt; 'None'</dt><dd><span class="code">Run&nbsp;this&nbsp;task&nbsp;by&nbsp;executing&nbsp;the&nbsp;dispatch&nbsp;method&nbsp;at&nbsp;the&nbsp;specified&nbsp;period<br>
+until&nbsp;a&nbsp;dispatch&nbsp;iteration&nbsp;fails&nbsp;or&nbsp;the&nbsp;task&nbsp;is&nbsp;otherwise&nbsp;disabled.</span></dd></dl>
+
+<dl><dt><a name="ConnectionMetricsPoller-set_period"><strong>set_period</strong></a>(self, period_s: 'float' = None) -&gt; 'bool'</dt><dd><span class="code">Attempt&nbsp;to&nbsp;set&nbsp;a&nbsp;new&nbsp;period&nbsp;for&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt>async <a name="ConnectionMetricsPoller-stop"><strong>stop</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Wait&nbsp;for&nbsp;this&nbsp;task&nbsp;to&nbsp;stop&nbsp;running&nbsp;(if&nbsp;it&nbsp;is).</span></dd></dl>
+
+<dl><dt>async <a name="ConnectionMetricsPoller-task"><strong>task</strong></a>(self, period_s: 'float' = None, stop_sig: '_asyncio.Event' = None) -&gt; '_asyncio.Task[None]'</dt><dd><span class="code">Create&nbsp;an&nbsp;event-loop&nbsp;task&nbsp;for&nbsp;this&nbsp;periodic.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="ConnectionMetricsPoller-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-metrics_poller"><strong>metrics_poller</strong></a>(manager: runtimepy.net.manager.ConnectionManager, period_s: float = 0.5) -&gt; runtimepy.net.arbiter.housekeeping.ConnectionMetricsPoller</dt><dd><span class="code">Create&nbsp;a&nbsp;metrics-polling&nbsp;task.</span></dd></dl>
+</td></tr></table>
+</body></html>

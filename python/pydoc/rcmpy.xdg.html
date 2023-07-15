@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package rcmpy.xdg</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="rcmpy.html" class="white">rcmpy</a>.xdg</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/rcmpy/rcmpy/xdg/__init__.py">/home/vkottler/src/vkottler/workspace/rcmpy/rcmpy/xdg/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;for&nbsp;working&nbsp;with&nbsp;the&nbsp;XDG&nbsp;base&nbsp;directory&nbsp;specification.<br>
+&nbsp;<br>
+<a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html</a></span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-config_directories"><strong>config_directories</strong></a>(*parts: str, include_home: bool = True) -&gt; Iterator[pathlib.Path]</dt><dd><span class="code">Yield&nbsp;a&nbsp;set&nbsp;of&nbsp;preference&nbsp;ordered&nbsp;base&nbsp;directories&nbsp;relative&nbsp;to&nbsp;which<br>
+configuration&nbsp;files&nbsp;should&nbsp;be&nbsp;searched.</span></dd></dl>
+ <dl><dt><a name="-data_directories"><strong>data_directories</strong></a>(*parts: str, include_home: bool = True) -&gt; Iterator[pathlib.Path]</dt><dd><span class="code">Yield&nbsp;a&nbsp;set&nbsp;of&nbsp;preference&nbsp;ordered&nbsp;base&nbsp;directories&nbsp;relative&nbsp;to&nbsp;which<br>
+data&nbsp;files&nbsp;should&nbsp;be&nbsp;searched.</span></dd></dl>
+ <dl><dt><a name="-ensure_absolute"><strong>ensure_absolute</strong></a>(path: Union[pathlib.Path, str, NoneType], create: bool = False) -&gt; pathlib.Path</dt><dd><span class="code">A&nbsp;wrapper&nbsp;to&nbsp;ensure&nbsp;that&nbsp;a&nbsp;path&nbsp;is&nbsp;an&nbsp;absolute&nbsp;one.</span></dd></dl>
+ <dl><dt><a name="-iterate_directories"><strong>iterate_directories</strong></a>(data: str, sep: str = ':', create: bool = False) -&gt; Iterator[pathlib.Path]</dt><dd><span class="code">Iterate&nbsp;over&nbsp;directories&nbsp;specified&nbsp;in&nbsp;a&nbsp;PATH-like&nbsp;variable&nbsp;(some<br>
+separator).</span></dd></dl>
+ <dl><dt><a name="-root_directory"><strong>root_directory</strong></a>(*parts: str) -&gt; pathlib.Path</dt><dd><span class="code">Create&nbsp;a&nbsp;path&nbsp;from&nbsp;the&nbsp;current&nbsp;file-system's&nbsp;root&nbsp;directory.</span></dd></dl>
+ <dl><dt><a name="-user_bin"><strong>user_bin</strong></a>(*parts: str, create: bool = True) -&gt; pathlib.Path</dt><dd><span class="code">A&nbsp;single&nbsp;base&nbsp;directory&nbsp;relative&nbsp;to&nbsp;which&nbsp;user-specific&nbsp;executable&nbsp;files<br>
+may&nbsp;be&nbsp;written.</span></dd></dl>
+ <dl><dt><a name="-user_cache"><strong>user_cache</strong></a>(*parts: str, create: bool = True) -&gt; pathlib.Path</dt><dd><span class="code">A&nbsp;single&nbsp;base&nbsp;directory&nbsp;relative&nbsp;to&nbsp;which&nbsp;user-specific<br>
+non-essential&nbsp;(cached)&nbsp;data&nbsp;should&nbsp;be&nbsp;written.</span></dd></dl>
+ <dl><dt><a name="-user_config"><strong>user_config</strong></a>(*parts: str, create: bool = True) -&gt; pathlib.Path</dt><dd><span class="code">A&nbsp;single&nbsp;base&nbsp;directory&nbsp;relative&nbsp;to&nbsp;which&nbsp;user-specific&nbsp;configuration&nbsp;files<br>
+should&nbsp;be&nbsp;written.</span></dd></dl>
+ <dl><dt><a name="-user_data"><strong>user_data</strong></a>(*parts: str, create: bool = True) -&gt; pathlib.Path</dt><dd><span class="code">A&nbsp;single&nbsp;base&nbsp;directory&nbsp;relative&nbsp;to&nbsp;which&nbsp;user-specific&nbsp;data&nbsp;files&nbsp;should<br>
+be&nbsp;written.</span></dd></dl>
+ <dl><dt><a name="-user_state"><strong>user_state</strong></a>(*parts: str, create: bool = True) -&gt; pathlib.Path</dt><dd><span class="code">A&nbsp;single&nbsp;base&nbsp;directory&nbsp;relative&nbsp;to&nbsp;which&nbsp;user-specific&nbsp;state&nbsp;data<br>
+should&nbsp;be&nbsp;written.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Iterator</strong> = typing.Iterator<br>
+<strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
+<strong>environ</strong> = environ({'TMUX': '/tmp/tmux-1000/default,8296,0'...: 'WT_SESSION::WT_PROFILE_ID', 'EDITOR': 'nvim'})</td></tr></table>
+</body></html>

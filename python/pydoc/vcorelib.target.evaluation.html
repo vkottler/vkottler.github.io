@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.target.evaluation</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.target.html" class="white">target</a>.evaluation</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/target/evaluation.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/target/evaluation.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;for&nbsp;target-evaluation&nbsp;interfaces.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="re.html">re</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.target.evaluation.html#TargetEvaluatorInterface">TargetEvaluatorInterface</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.target.evaluation.html#DynamicTargetEvaluator">DynamicTargetEvaluator</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="vcorelib.target.evaluation.html#TargetInterface">TargetInterface</a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="typing.html#Generic">typing.Generic</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.target.evaluation.html#TargetInterface">TargetInterface</a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DynamicTargetEvaluator">class <strong>DynamicTargetEvaluator</strong></a>(<a href="vcorelib.target.evaluation.html#TargetEvaluatorInterface">TargetEvaluatorInterface</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DynamicTargetEvaluator">DynamicTargetEvaluator</a>(original:&nbsp;'str',&nbsp;pattern:&nbsp;'re.Pattern[str]',&nbsp;keys:&nbsp;'_List[str]',&nbsp;markers:&nbsp;'_List[_Tuple[int,&nbsp;int]]')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;regular&nbsp;expression&nbsp;configured&nbsp;to&nbsp;match&nbsp;as&nbsp;many&nbsp;groups&nbsp;as&nbsp;in&nbsp;the&nbsp;provided<br>
+keys.&nbsp;When&nbsp;the&nbsp;pattern&nbsp;matches&nbsp;some&nbsp;data,&nbsp;the&nbsp;names&nbsp;of&nbsp;the&nbsp;keys&nbsp;can&nbsp;become<br>
+associated&nbsp;with&nbsp;the&nbsp;data&nbsp;that&nbsp;was&nbsp;matched&nbsp;inside&nbsp;each&nbsp;group.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.target.evaluation.html#DynamicTargetEvaluator">DynamicTargetEvaluator</a></dd>
+<dd><a href="vcorelib.target.evaluation.html#TargetEvaluatorInterface">TargetEvaluatorInterface</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DynamicTargetEvaluator-__init__"><strong>__init__</strong></a>(self, original: 'str', pattern: 're.Pattern[str]', keys: '_List[str]', markers: '_List[_Tuple[int, int]]') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;evaluator.</span></dd></dl>
+
+<dl><dt><a name="DynamicTargetEvaluator-compile_key"><strong>compile_key</strong></a>(self, key: 'str', values: 'Substitutions') -&gt; 'str'</dt><dd><span class="code">Process&nbsp;the&nbsp;key&nbsp;based&nbsp;on&nbsp;substitution&nbsp;data.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.target.evaluation.html#TargetEvaluatorInterface">TargetEvaluatorInterface</a>:<br>
+<dl><dt><a name="DynamicTargetEvaluator-compile"><strong>compile</strong></a>(self, values: 'Substitutions') -&gt; 'str'</dt><dd><span class="code">Build&nbsp;a&nbsp;string&nbsp;from&nbsp;this&nbsp;target&nbsp;with&nbsp;values&nbsp;replaced&nbsp;for&nbsp;keys&nbsp;that<br>
+appeared&nbsp;in&nbsp;the&nbsp;original&nbsp;string.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.target.evaluation.html#TargetEvaluatorInterface">TargetEvaluatorInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TargetEvaluatorInterface">class <strong>TargetEvaluatorInterface</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TargetEvaluatorInterface">TargetEvaluatorInterface</a>(original:&nbsp;'str',&nbsp;keys:&nbsp;'_List[str]',&nbsp;markers:&nbsp;'_List[_Tuple[int,&nbsp;int]]')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+An&nbsp;interface&nbsp;for&nbsp;evaluating&nbsp;targets.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.target.evaluation.html#TargetEvaluatorInterface">TargetEvaluatorInterface</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TargetEvaluatorInterface-__init__"><strong>__init__</strong></a>(self, original: 'str', keys: '_List[str]', markers: '_List[_Tuple[int, int]]') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;evaluator.</span></dd></dl>
+
+<dl><dt><a name="TargetEvaluatorInterface-compile"><strong>compile</strong></a>(self, values: 'Substitutions') -&gt; 'str'</dt><dd><span class="code">Build&nbsp;a&nbsp;string&nbsp;from&nbsp;this&nbsp;target&nbsp;with&nbsp;values&nbsp;replaced&nbsp;for&nbsp;keys&nbsp;that<br>
+appeared&nbsp;in&nbsp;the&nbsp;original&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="TargetEvaluatorInterface-compile_key"><strong>compile_key</strong></a>(self, key: 'str', values: 'Substitutions') -&gt; 'str'</dt><dd><span class="code">Process&nbsp;the&nbsp;key&nbsp;based&nbsp;on&nbsp;substitution&nbsp;data.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'compile_key'})</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TargetInterface">class <strong>TargetInterface</strong></a>(<a href="abc.html#ABC">abc.ABC</a>, <a href="typing.html#Generic">typing.Generic</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TargetInterface">TargetInterface</a>(data:&nbsp;'str')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;generic&nbsp;interface&nbsp;for&nbsp;target&nbsp;implementations.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.target.evaluation.html#TargetInterface">TargetInterface</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TargetInterface-__eq__"><strong>__eq__</strong></a>(self, other: 'object') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;two&nbsp;targets&nbsp;are&nbsp;equal.</span></dd></dl>
+
+<dl><dt><a name="TargetInterface-__hash__"><strong>__hash__</strong></a>(self) -&gt; 'int'</dt><dd><span class="code">Get&nbsp;the&nbsp;hash&nbsp;for&nbsp;this&nbsp;target.</span></dd></dl>
+
+<dl><dt><a name="TargetInterface-__init__"><strong>__init__</strong></a>(self, data: 'str') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;target.</span></dd></dl>
+
+<dl><dt><a name="TargetInterface-__str__"><strong>__str__</strong></a>(self) -&gt; 'str'</dt><dd><span class="code">Get&nbsp;this&nbsp;target&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="TargetInterface-compile"><strong>compile</strong></a>(self, substitutions: 'Substitutions' = None) -&gt; 'str'</dt><dd><span class="code">Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;target&nbsp;literal&nbsp;from&nbsp;this&nbsp;target&nbsp;and&nbsp;optional<br>
+substitutions.</span></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="TargetInterface-is_literal"><strong>is_literal</strong></a>(data: 'str') -&gt; 'bool'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Determine&nbsp;if&nbsp;a&nbsp;target&nbsp;is&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;literal&nbsp;or&nbsp;not.</span></dd></dl>
+
+<dl><dt><a name="TargetInterface-parse"><strong>parse</strong></a>(data: 'str') -&gt; '_Optional[T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Obtain&nbsp;an&nbsp;expression&nbsp;target-evaluator&nbsp;from&nbsp;provided&nbsp;string&nbsp;data.&nbsp;If<br>
+data&nbsp;doesn't&nbsp;contain&nbsp;any&nbsp;target-evaluation&nbsp;syntax,&nbsp;return&nbsp;None.</span></dd></dl>
+
+<dl><dt><a name="TargetInterface-segment_count"><strong>segment_count</strong></a>(data: 'str') -&gt; 'int'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Count&nbsp;the&nbsp;number&nbsp;of&nbsp;dynamic&nbsp;segments&nbsp;and&nbsp;validate&nbsp;syntax.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'parse'})</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (&lt;class 'abc.ABC'&gt;, typing.Generic[~T])</dl>
+
+<dl><dt><strong>__parameters__</strong> = (~T,)</dl>
+
+<dl><dt><strong>dynamic_end</strong> = '}'</dl>
+
+<dl><dt><strong>dynamic_start</strong> = '{'</dl>
+
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="TargetInterface-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+&nbsp;<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
+does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
+do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+&nbsp;<br>
+However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(<a href="typing.html#Generic">Generic</a>[T]):&nbsp;...`.</span></dd></dl>
+
+<dl><dt><a name="TargetInterface-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Substitutions</strong> = typing.Dict[str, typing.Union[str, int]]<br>
+<strong>T</strong> = ~T</td></tr></table>
+</body></html>

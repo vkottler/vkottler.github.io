@@ -1,22 +1,322 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: package runtimepy.net.websocket</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package runtimepy.net.websocket</title>
+</head><body>
 
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="runtimepy.html"><font color="#ffffff">runtimepy</font></a>.<a href="runtimepy.net.html"><font color="#ffffff">net</font></a>.websocket</strong></big></big></font></td
-><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/net/websocket/__init__.py">/home/vkottler/Documents/git/workspace/runtimepy/runtimepy/net/websocket/__init__.py</a></font></td></tr></table>
-    <p></p>
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.websocket</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/websocket/__init__.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/websocket/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;aggregating&nbsp;all&nbsp;WebSocket-related&nbsp;interfaces.</span></p>
 <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#aa55cc">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
     
-<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="runtimepy.net.websocket.connection.html">connection</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table>
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="runtimepy.net.websocket.connection.html">connection</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.websocket.connection.html#EchoWebsocketConnection">runtimepy.net.websocket.connection.EchoWebsocketConnection</a>(<a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>, <a href="runtimepy.net.connection.html#EchoConnection">runtimepy.net.connection.EchoConnection</a>)
+</dt><dt class="heading-text"><a href="runtimepy.net.websocket.connection.html#NullWebsocketConnection">runtimepy.net.websocket.connection.NullWebsocketConnection</a>(<a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>, <a href="runtimepy.net.connection.html#NullConnection">runtimepy.net.connection.NullConnection</a>)
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="EchoWebsocketConnection">class <strong>EchoWebsocketConnection</strong></a>(<a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a>, <a href="runtimepy.net.connection.html#EchoConnection">runtimepy.net.connection.EchoConnection</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoWebsocketConnection">EchoWebsocketConnection</a>(protocol:&nbsp;'_Union[_WebSocketClientProtocol,&nbsp;_WebSocketServerProtocol]')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+An&nbsp;echo&nbsp;connection&nbsp;for&nbsp;WebSocket.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.websocket.connection.html#EchoWebsocketConnection">EchoWebsocketConnection</a></dd>
+<dd><a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#EchoConnection">runtimepy.net.connection.EchoConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a>:<br>
+<dl><dt><a name="EchoWebsocketConnection-__init__"><strong>__init__</strong></a>(self, protocol: '_Union[_WebSocketClientProtocol, _WebSocketServerProtocol]') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="EchoWebsocketConnection-close"><strong>close</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a>:<br>
+<dl><dt>async <a name="EchoWebsocketConnection-app"><strong>app</strong></a>(stop_sig: '_asyncio.Event', init: 'ConnectionInit[T]' = None, manager: '_ConnectionManager' = None, serving_callback: '_Callable[[_WebSocketServer], None]' = None, **kwargs) -&gt; 'None'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;a&nbsp;WebSocket-server&nbsp;application.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-client"><strong>client</strong></a>(uri: 'str', **kwargs) -&gt; '_AsyncIterator[T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">A&nbsp;wrapper&nbsp;for&nbsp;connecting&nbsp;a&nbsp;client.</span></dd></dl>
+
+<dl><dt>async <a name="EchoWebsocketConnection-create_connection"><strong>create_connection</strong></a>(uri: 'str', **kwargs) -&gt; 'T'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Connect&nbsp;a&nbsp;client&nbsp;to&nbsp;an&nbsp;endpoint.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-create_pair"><strong>create_pair</strong></a>() -&gt; '_AsyncIterator[_Tuple[T, T]]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Obtain&nbsp;a&nbsp;connected&nbsp;pair&nbsp;of&nbsp;<a href="#WebsocketConnection">WebsocketConnection</a>&nbsp;objects.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-serve"><strong>serve</strong></a>(init: 'ConnectionInit[T]' = None, stop_sig: '_asyncio.Event' = None, manager: '_ConnectionManager' = None, **kwargs) -&gt; '_AsyncIterator[_WebSocketServer]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;a&nbsp;WebSocket&nbsp;server.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-server_handler"><strong>server_handler</strong></a>(init: 'ConnectionInit[T]' = None, stop_sig: '_asyncio.Event' = None, manager: '_ConnectionManager' = None) -&gt; '_Callable[[_WebSocketServerProtocol], _Awaitable[None]]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">A&nbsp;wrapper&nbsp;for&nbsp;passing&nbsp;in&nbsp;a&nbsp;websocket&nbsp;handler&nbsp;and&nbsp;initializing&nbsp;a<br>
+connection.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#EchoConnection">runtimepy.net.connection.EchoConnection</a>:<br>
+<dl><dt>async <a name="EchoWebsocketConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;binary&nbsp;frame.</span></dd></dl>
+
+<dl><dt>async <a name="EchoWebsocketConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt>async <a name="EchoWebsocketConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="EchoWebsocketConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="EchoWebsocketConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="EchoWebsocketConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="NullWebsocketConnection">class <strong>NullWebsocketConnection</strong></a>(<a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a>, <a href="runtimepy.net.connection.html#NullConnection">runtimepy.net.connection.NullConnection</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#NullWebsocketConnection">NullWebsocketConnection</a>(protocol:&nbsp;'_Union[_WebSocketClientProtocol,&nbsp;_WebSocketServerProtocol]')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;null&nbsp;WebSocket&nbsp;connection.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.websocket.connection.html#NullWebsocketConnection">NullWebsocketConnection</a></dd>
+<dd><a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#NullConnection">runtimepy.net.connection.NullConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a>:<br>
+<dl><dt><a name="NullWebsocketConnection-__init__"><strong>__init__</strong></a>(self, protocol: '_Union[_WebSocketClientProtocol, _WebSocketServerProtocol]') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="NullWebsocketConnection-close"><strong>close</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a>:<br>
+<dl><dt>async <a name="NullWebsocketConnection-app"><strong>app</strong></a>(stop_sig: '_asyncio.Event', init: 'ConnectionInit[T]' = None, manager: '_ConnectionManager' = None, serving_callback: '_Callable[[_WebSocketServer], None]' = None, **kwargs) -&gt; 'None'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;a&nbsp;WebSocket-server&nbsp;application.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-client"><strong>client</strong></a>(uri: 'str', **kwargs) -&gt; '_AsyncIterator[T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">A&nbsp;wrapper&nbsp;for&nbsp;connecting&nbsp;a&nbsp;client.</span></dd></dl>
+
+<dl><dt>async <a name="NullWebsocketConnection-create_connection"><strong>create_connection</strong></a>(uri: 'str', **kwargs) -&gt; 'T'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Connect&nbsp;a&nbsp;client&nbsp;to&nbsp;an&nbsp;endpoint.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-create_pair"><strong>create_pair</strong></a>() -&gt; '_AsyncIterator[_Tuple[T, T]]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Obtain&nbsp;a&nbsp;connected&nbsp;pair&nbsp;of&nbsp;<a href="#WebsocketConnection">WebsocketConnection</a>&nbsp;objects.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-serve"><strong>serve</strong></a>(init: 'ConnectionInit[T]' = None, stop_sig: '_asyncio.Event' = None, manager: '_ConnectionManager' = None, **kwargs) -&gt; '_AsyncIterator[_WebSocketServer]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;a&nbsp;WebSocket&nbsp;server.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-server_handler"><strong>server_handler</strong></a>(init: 'ConnectionInit[T]' = None, stop_sig: '_asyncio.Event' = None, manager: '_ConnectionManager' = None) -&gt; '_Callable[[_WebSocketServerProtocol], _Awaitable[None]]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">A&nbsp;wrapper&nbsp;for&nbsp;passing&nbsp;in&nbsp;a&nbsp;websocket&nbsp;handler&nbsp;and&nbsp;initializing&nbsp;a<br>
+connection.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#NullConnection">runtimepy.net.connection.NullConnection</a>:<br>
+<dl><dt>async <a name="NullWebsocketConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;binary&nbsp;frame.</span></dd></dl>
+
+<dl><dt>async <a name="NullWebsocketConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt>async <a name="NullWebsocketConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="NullWebsocketConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="NullWebsocketConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="NullWebsocketConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="WebsocketConnection">class <strong>WebsocketConnection</strong></a>(<a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#WebsocketConnection">WebsocketConnection</a>(protocol:&nbsp;'_Union[_WebSocketClientProtocol,&nbsp;_WebSocketServerProtocol]')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;websocket&nbsp;connection&nbsp;interface.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="WebsocketConnection-__init__"><strong>__init__</strong></a>(self, protocol: '_Union[_WebSocketClientProtocol, _WebSocketServerProtocol]') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketConnection-close"><strong>close</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt>async <a name="WebsocketConnection-app"><strong>app</strong></a>(stop_sig: '_asyncio.Event', init: 'ConnectionInit[T]' = None, manager: '_ConnectionManager' = None, serving_callback: '_Callable[[_WebSocketServer], None]' = None, **kwargs) -&gt; 'None'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;a&nbsp;WebSocket-server&nbsp;application.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-client"><strong>client</strong></a>(uri: 'str', **kwargs) -&gt; '_AsyncIterator[T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">A&nbsp;wrapper&nbsp;for&nbsp;connecting&nbsp;a&nbsp;client.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketConnection-create_connection"><strong>create_connection</strong></a>(uri: 'str', **kwargs) -&gt; 'T'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Connect&nbsp;a&nbsp;client&nbsp;to&nbsp;an&nbsp;endpoint.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-create_pair"><strong>create_pair</strong></a>() -&gt; '_AsyncIterator[_Tuple[T, T]]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Obtain&nbsp;a&nbsp;connected&nbsp;pair&nbsp;of&nbsp;<a href="#WebsocketConnection">WebsocketConnection</a>&nbsp;objects.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-serve"><strong>serve</strong></a>(init: 'ConnectionInit[T]' = None, stop_sig: '_asyncio.Event' = None, manager: '_ConnectionManager' = None, **kwargs) -&gt; '_AsyncIterator[_WebSocketServer]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;a&nbsp;WebSocket&nbsp;server.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-server_handler"><strong>server_handler</strong></a>(init: 'ConnectionInit[T]' = None, stop_sig: '_asyncio.Event' = None, manager: '_ConnectionManager' = None) -&gt; '_Callable[[_WebSocketServerProtocol], _Awaitable[None]]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">A&nbsp;wrapper&nbsp;for&nbsp;passing&nbsp;in&nbsp;a&nbsp;websocket&nbsp;handler&nbsp;and&nbsp;initializing&nbsp;a<br>
+connection.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt>async <a name="WebsocketConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;binary&nbsp;frame.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="WebsocketConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>__all__</strong> = ['WebsocketConnection', 'EchoWebsocketConnection', 'NullWebsocketConnection']</td></tr></table>
 </body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.net.arbiter.websocket</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.arbiter.html" class="white">arbiter</a>.websocket</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/websocket.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/websocket.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;WebSocket&nbsp;connection&nbsp;factory&nbsp;that&nbsp;can&nbsp;be<br>
+extended.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="asyncio.html">asyncio</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.factory.connection.html#ConnectionFactory">runtimepy.net.arbiter.factory.connection.ConnectionFactory</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.websocket.html#WebsocketConnectionFactory">WebsocketConnectionFactory</a>(<a href="runtimepy.net.arbiter.factory.connection.html#ConnectionFactory">runtimepy.net.arbiter.factory.connection.ConnectionFactory</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="typing.html#Generic">typing.Generic</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.websocket.html#WebsocketConnectionFactory">WebsocketConnectionFactory</a>(<a href="runtimepy.net.arbiter.factory.connection.html#ConnectionFactory">runtimepy.net.arbiter.factory.connection.ConnectionFactory</a>, <a href="typing.html#Generic">typing.Generic</a>)
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="WebsocketConnectionFactory">class <strong>WebsocketConnectionFactory</strong></a>(<a href="runtimepy.net.arbiter.factory.connection.html#ConnectionFactory">runtimepy.net.arbiter.factory.connection.ConnectionFactory</a>, <a href="typing.html#Generic">typing.Generic</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">A&nbsp;class&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;WebSocket&nbsp;connection&nbsp;factory.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.arbiter.websocket.html#WebsocketConnectionFactory">WebsocketConnectionFactory</a></dd>
+<dd><a href="runtimepy.net.arbiter.factory.connection.html#ConnectionFactory">runtimepy.net.arbiter.factory.connection.ConnectionFactory</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="WebsocketConnectionFactory-client"><strong>client</strong></a>(self, *args, **kwargs) -&gt; runtimepy.net.connection.Connection</dt><dd><span class="code">Create&nbsp;a&nbsp;client&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketConnectionFactory-server_task"><strong>server_task</strong></a>(self, stop_sig: asyncio.locks.Event, manager: runtimepy.net.manager.ConnectionManager, started_sem: asyncio.locks.Semaphore, *args, **kwargs) -&gt; Awaitable[NoneType]</dt><dd><span class="code">Create&nbsp;a&nbsp;task&nbsp;that&nbsp;will&nbsp;run&nbsp;a&nbsp;connection&nbsp;server.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'kind': typing.Type[~T]}</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (&lt;class 'runtimepy.net.arbiter.factory.connection.ConnectionFactory'&gt;, typing.Generic[~T])</dl>
+
+<dl><dt><strong>__parameters__</strong> = (~T,)</dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.net.arbiter.factory.connection.html#ConnectionFactory">runtimepy.net.arbiter.factory.connection.ConnectionFactory</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="WebsocketConnectionFactory-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+&nbsp;<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
+does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
+do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+&nbsp;<br>
+However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(<a href="typing.html#Generic">Generic</a>[T]):&nbsp;...`.</span></dd></dl>
+
+<dl><dt><a name="WebsocketConnectionFactory-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>T</strong> = ~T</td></tr></table>
+</body></html>

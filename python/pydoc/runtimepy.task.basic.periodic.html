@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.task.basic.periodic</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.task.html" class="white">task</a>.<a href="runtimepy.task.basic.html" class="white">basic</a>.periodic</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/task/basic/periodic.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/task/basic/periodic.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;periodic&nbsp;task.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="asyncio.html">asyncio</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.task.basic.periodic.html#PeriodicTask">PeriodicTask</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.task.basic.periodic.html#PeriodicTask">PeriodicTask</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="PeriodicTask">class <strong>PeriodicTask</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#PeriodicTask">PeriodicTask</a>(name:&nbsp;'str',&nbsp;average_depth:&nbsp;'int'&nbsp;=&nbsp;10,&nbsp;metrics:&nbsp;'PeriodicTaskMetrics'&nbsp;=&nbsp;None,&nbsp;period_s:&nbsp;'float'&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;implementing&nbsp;a&nbsp;simple&nbsp;periodic-task&nbsp;interface.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.task.basic.periodic.html#PeriodicTask">PeriodicTask</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PeriodicTask-__init__"><strong>__init__</strong></a>(self, name: 'str', average_depth: 'int' = 10, metrics: 'PeriodicTaskMetrics' = None, period_s: 'float' = None) -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt><a name="PeriodicTask-disable"><strong>disable</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Disable&nbsp;this&nbsp;task,&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;any&nbsp;action&nbsp;was&nbsp;taken.</span></dd></dl>
+
+<dl><dt>async <a name="PeriodicTask-dispatch"><strong>dispatch</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Dispatch&nbsp;an&nbsp;iteration&nbsp;of&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt>async <a name="PeriodicTask-run"><strong>run</strong></a>(self, period_s: 'float' = None, stop_sig: '_asyncio.Event' = None) -&gt; 'None'</dt><dd><span class="code">Run&nbsp;this&nbsp;task&nbsp;by&nbsp;executing&nbsp;the&nbsp;dispatch&nbsp;method&nbsp;at&nbsp;the&nbsp;specified&nbsp;period<br>
+until&nbsp;a&nbsp;dispatch&nbsp;iteration&nbsp;fails&nbsp;or&nbsp;the&nbsp;task&nbsp;is&nbsp;otherwise&nbsp;disabled.</span></dd></dl>
+
+<dl><dt><a name="PeriodicTask-set_period"><strong>set_period</strong></a>(self, period_s: 'float' = None) -&gt; 'bool'</dt><dd><span class="code">Attempt&nbsp;to&nbsp;set&nbsp;a&nbsp;new&nbsp;period&nbsp;for&nbsp;this&nbsp;task.</span></dd></dl>
+
+<dl><dt>async <a name="PeriodicTask-stop"><strong>stop</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Wait&nbsp;for&nbsp;this&nbsp;task&nbsp;to&nbsp;stop&nbsp;running&nbsp;(if&nbsp;it&nbsp;is).</span></dd></dl>
+
+<dl><dt>async <a name="PeriodicTask-task"><strong>task</strong></a>(self, period_s: 'float' = None, stop_sig: '_asyncio.Event' = None) -&gt; '_asyncio.Task[None]'</dt><dd><span class="code">Create&nbsp;an&nbsp;event-loop&nbsp;task&nbsp;for&nbsp;this&nbsp;periodic.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'dispatch'})</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="PeriodicTask-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

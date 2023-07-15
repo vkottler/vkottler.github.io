@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.paths.base</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.paths.html" class="white">paths</a>.base</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/paths/base.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/paths/base.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;common&nbsp;pathing&nbsp;utilities.</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-get_file_ext"><strong>get_file_ext</strong></a>(path: Union[pathlib.Path, str, NoneType], maxsplit: int = -1) -&gt; str</dt><dd><span class="code">From&nbsp;a&nbsp;path&nbsp;to&nbsp;a&nbsp;file,&nbsp;get&nbsp;the&nbsp;file's&nbsp;extension.&nbsp;Use&nbsp;'maxsplit'&nbsp;to&nbsp;control<br>
+how&nbsp;many&nbsp;suffixes&nbsp;are&nbsp;considered&nbsp;part&nbsp;of&nbsp;the&nbsp;name&nbsp;or&nbsp;the&nbsp;extension.</span></dd></dl>
+ <dl><dt><a name="-get_file_name"><strong>get_file_name</strong></a>(path: Union[pathlib.Path, str, NoneType], maxsplit: int = -1) -&gt; str</dt><dd><span class="code">From&nbsp;a&nbsp;path&nbsp;to&nbsp;a&nbsp;file,&nbsp;get&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;file.&nbsp;Use&nbsp;'maxsplit'&nbsp;to&nbsp;control<br>
+how&nbsp;many&nbsp;suffixes&nbsp;are&nbsp;considered&nbsp;part&nbsp;of&nbsp;the&nbsp;name&nbsp;or&nbsp;the&nbsp;extension.</span></dd></dl>
+ <dl><dt><a name="-normalize"><strong>normalize</strong></a>(path: Union[pathlib.Path, str, NoneType], *parts: Union[str, pathlib.Path], require: bool = False) -&gt; pathlib.Path</dt><dd><span class="code">Normalize&nbsp;an&nbsp;input&nbsp;that&nbsp;could&nbsp;be&nbsp;a&nbsp;path&nbsp;into&nbsp;a&nbsp;path.</span></dd></dl>
+ <dl><dt><a name="-rel"><strong>rel</strong></a>(path: Union[pathlib.Path, str, NoneType], base: Union[pathlib.Path, str, NoneType] = None) -&gt; pathlib.Path</dt><dd><span class="code">Attempt&nbsp;to&nbsp;make&nbsp;'path'&nbsp;relative&nbsp;to&nbsp;base&nbsp;(which&nbsp;is&nbsp;the&nbsp;current-working<br>
+directory,&nbsp;if&nbsp;not&nbsp;provided).</span></dd></dl>
+ <dl><dt><a name="-set_exec_flags"><strong>set_exec_flags</strong></a>(path: Union[pathlib.Path, str, NoneType]) -&gt; None</dt><dd><span class="code">Set&nbsp;the&nbsp;executable&nbsp;bits,&nbsp;but&nbsp;respect&nbsp;the&nbsp;'read'&nbsp;bits.</span></dd></dl>
+ <dl><dt><a name="-stats"><strong>stats</strong></a>(path: Union[pathlib.Path, str, NoneType]) -&gt; Optional[os.stat_result]</dt><dd><span class="code">Get&nbsp;stats&nbsp;for&nbsp;a&nbsp;file&nbsp;on&nbsp;disk&nbsp;if&nbsp;it&nbsp;exists.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]</td></tr></table>
+</body></html>

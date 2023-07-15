@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package rcmpy.watch</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="rcmpy.html" class="white">rcmpy</a>.watch</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/rcmpy/rcmpy/watch/__init__.py">/home/vkottler/src/vkottler/workspace/rcmpy/rcmpy/watch/__init__.py</a></td></tr></table>
+    <p><span class="code">An&nbsp;interface&nbsp;for&nbsp;implementing&nbsp;file-system&nbsp;watching&nbsp;tasks.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="rcmpy.watch.params.html">params</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>async <a name="-command"><strong>command</strong></a>(*args: str, shell: bool = False) -&gt; int</dt><dd><span class="code">Run&nbsp;a&nbsp;subprocess&nbsp;and&nbsp;return&nbsp;the&nbsp;return&nbsp;code.</span></dd></dl>
+ <dl><dt>async <a name="-entry"><strong>entry</strong></a>(stop_sig: asyncio.locks.Event, params: rcmpy.watch.params.WatchParams) -&gt; int</dt><dd><span class="code">The&nbsp;async&nbsp;entry-point&nbsp;for&nbsp;the&nbsp;watch&nbsp;command.</span></dd></dl>
+ <dl><dt><a name="-get_event_loop"><strong>get_event_loop</strong></a>()</dt><dd><span class="code">Return&nbsp;an&nbsp;asyncio&nbsp;event&nbsp;loop.<br>
+&nbsp;<br>
+When&nbsp;called&nbsp;from&nbsp;a&nbsp;coroutine&nbsp;or&nbsp;a&nbsp;callback&nbsp;(e.g.&nbsp;scheduled&nbsp;with<br>
+call_soon&nbsp;or&nbsp;similar&nbsp;API),&nbsp;this&nbsp;function&nbsp;will&nbsp;always&nbsp;return&nbsp;the<br>
+running&nbsp;event&nbsp;loop.<br>
+&nbsp;<br>
+If&nbsp;there&nbsp;is&nbsp;no&nbsp;running&nbsp;event&nbsp;loop&nbsp;set,&nbsp;the&nbsp;function&nbsp;will&nbsp;return<br>
+the&nbsp;result&nbsp;of&nbsp;`get_event_loop_policy().<a href="#-get_event_loop">get_event_loop</a>()`&nbsp;call.</span></dd></dl>
+ <dl><dt><a name="-getpid"><strong>getpid</strong></a>()</dt><dd><span class="code">Return&nbsp;the&nbsp;current&nbsp;process&nbsp;id.</span></dd></dl>
+ <dl><dt><a name="-watch"><strong>watch</strong></a>(params: rcmpy.watch.params.WatchParams) -&gt; int</dt><dd><span class="code">Watch&nbsp;a&nbsp;directory&nbsp;for&nbsp;changes.</span></dd></dl>
+ <dl><dt><a name="-watch_cache"><strong>watch_cache</strong></a>() -&gt; pathlib.Path</dt><dd><span class="code">Obtain&nbsp;a&nbsp;file&nbsp;path&nbsp;to&nbsp;use&nbsp;as&nbsp;a&nbsp;cache.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>LOG</strong> = &lt;Logger rcmpy.watch (WARNING)&gt;</td></tr></table>
+</body></html>

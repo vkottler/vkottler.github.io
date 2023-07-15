@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module yambs.environment.native</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="yambs.html" class="white">yambs</a>.<a href="yambs.environment.html" class="white">environment</a>.native</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/yambs/yambs/environment/native.py">/home/vkottler/src/vkottler/workspace/yambs/yambs/environment/native.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;native-build&nbsp;environment.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="yambs.environment.native.html#NativeBuildEnvironment">NativeBuildEnvironment</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="NativeBuildEnvironment">class <strong>NativeBuildEnvironment</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#NativeBuildEnvironment">NativeBuildEnvironment</a>(config:&nbsp;yambs.config.native.Native)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;implementing&nbsp;a&nbsp;native-build&nbsp;environment.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="yambs.environment.native.html#NativeBuildEnvironment">NativeBuildEnvironment</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="NativeBuildEnvironment-__init__"><strong>__init__</strong></a>(self, config: yambs.config.native.Native) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="NativeBuildEnvironment-generate"><strong>generate</strong></a>(self, sources_only: bool = False) -&gt; None</dt><dd><span class="code">Generate&nbsp;ninja&nbsp;files.</span></dd></dl>
+
+<dl><dt><a name="NativeBuildEnvironment-render"><strong>render</strong></a>(self, root: pathlib.Path, name: str) -&gt; None</dt><dd><span class="code">Render&nbsp;a&nbsp;template.</span></dd></dl>
+
+<dl><dt><a name="NativeBuildEnvironment-write_app_rules"><strong>write_app_rules</strong></a>(self, stream: &lt;class 'TextIO'&gt;, outputs: Set[pathlib.Path]) -&gt; Dict[pathlib.Path, pathlib.Path]</dt><dd><span class="code">Write&nbsp;app&nbsp;rules.</span></dd></dl>
+
+<dl><dt><a name="NativeBuildEnvironment-write_compile_line"><strong>write_compile_line</strong></a>(self, stream: &lt;class 'TextIO'&gt;, path: pathlib.Path) -&gt; pathlib.Path</dt><dd><span class="code">Write&nbsp;a&nbsp;single&nbsp;source-compile&nbsp;line.</span></dd></dl>
+
+<dl><dt><a name="NativeBuildEnvironment-write_source_rules"><strong>write_source_rules</strong></a>(self, stream: &lt;class 'TextIO'&gt;) -&gt; Set[pathlib.Path]</dt><dd><span class="code">Write&nbsp;source&nbsp;rules.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="NativeBuildEnvironment-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-resolve_build_dir"><strong>resolve_build_dir</strong></a>(build_root: pathlib.Path, variant: str, path: pathlib.Path) -&gt; pathlib.Path</dt><dd><span class="code">Resolve&nbsp;the&nbsp;build-directory&nbsp;variable&nbsp;in&nbsp;a&nbsp;path.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ARBITER</strong> = &lt;vcorelib.io.arbiter.DataArbiter object&gt;<br>
+<strong>BUILD_DIR_VAR</strong> = '$build_dir'<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>Set</strong> = typing.Set<br>
+<strong>linesep</strong> = '<span class="repr">\n</span>'</td></tr></table>
+</body></html>

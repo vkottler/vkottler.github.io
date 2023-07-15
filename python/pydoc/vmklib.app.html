@@ -1,49 +1,46 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module vmklib.app</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vmklib.app</title>
+</head><body>
 
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vmklib.html"><font color="#ffffff">vmklib</font></a>.app</strong></big></big></font></td
-><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vmklib/vmklib/app.py">/home/vkottler/Documents/git/workspace/vmklib/vmklib/app.py</a></font></td></tr></table>
-    <p><tt>vmklib&nbsp;-&nbsp;This&nbsp;package's&nbsp;command-line&nbsp;entry-point&nbsp;application.</tt></p>
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vmklib.html" class="white">vmklib</a>.app</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vmklib/vmklib/app.py">/home/vkottler/src/vkottler/workspace/vmklib/vmklib/app.py</a></td></tr></table>
+    <p><span class="code">vmklib&nbsp;-&nbsp;This&nbsp;package's&nbsp;command-line&nbsp;entry-point&nbsp;application.</span></p>
 <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#aa55cc">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
     
-<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="argparse.html">argparse</a><br>
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="argparse.html">argparse</a><br>
 <a href="logging.html">logging</a><br>
-</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
 <a href="subprocess.html">subprocess</a><br>
-</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+</td><td class="multicolumn"><a href="tempfile.html">tempfile</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-add_app_args"><strong>add_app_args</strong></a>(parser: argparse.ArgumentParser) -&gt; None</dt><dd><tt>Add&nbsp;application-specific&nbsp;arguments&nbsp;to&nbsp;the&nbsp;command-line&nbsp;parser.</tt></dd></dl>
- <dl><dt><a name="-build_makefile"><strong>build_makefile</strong></a>(user_file: pathlib.Path, directory: pathlib.Path, proj: str, data: Dict[str, Any]) -&gt; Iterator[str]</dt><dd><tt>Build&nbsp;a&nbsp;temporary&nbsp;makefile&nbsp;and&nbsp;return&nbsp;the&nbsp;path.</tt></dd></dl>
- <dl><dt><a name="-entry"><strong>entry</strong></a>(args: argparse.Namespace) -&gt; int</dt><dd><tt>Execute&nbsp;the&nbsp;requested&nbsp;task.</tt></dd></dl>
- <dl><dt><a name="-get_data"><strong>get_data</strong></a>(path: pathlib.Path, targets: List[str], prefix: Union[str, NoneType] = None) -&gt; Tuple[Dict[str, Union[str, int]], List[str]]</dt><dd><tt>Load&nbsp;configuration&nbsp;data&nbsp;if&nbsp;it&nbsp;can&nbsp;be&nbsp;found.</tt></dd></dl>
- <dl><dt><a name="-initialize_task_manager"><strong>initialize_task_manager</strong></a>(manager: vcorelib.task.manager.TaskManager, proj: str, task_register: str, directory: pathlib.Path, substitutions: Dict[str, Union[str, int]]) -&gt; None</dt><dd><tt>Load&nbsp;internal&nbsp;and&nbsp;external&nbsp;tasks&nbsp;to&nbsp;the&nbsp;task&nbsp;manager.</tt></dd></dl>
- <dl><dt><a name="-project"><strong>project</strong></a>(path: pathlib.Path, name: str = None) -&gt; str</dt><dd><tt>If&nbsp;the&nbsp;project&nbsp;name&nbsp;wasn't&nbsp;provided,&nbsp;guess&nbsp;that&nbsp;it's&nbsp;either&nbsp;the&nbsp;name<br>
-of&nbsp;the&nbsp;parent&nbsp;directory,&nbsp;or&nbsp;that&nbsp;name&nbsp;as&nbsp;a&nbsp;slug.</tt></dd></dl>
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-add_app_args"><strong>add_app_args</strong></a>(parser: argparse.ArgumentParser) -&gt; None</dt><dd><span class="code">Add&nbsp;application-specific&nbsp;arguments&nbsp;to&nbsp;the&nbsp;command-line&nbsp;parser.</span></dd></dl>
+ <dl><dt><a name="-build_makefile"><strong>build_makefile</strong></a>(user_file: pathlib.Path, directory: pathlib.Path, proj: str, data: Dict[str, Any]) -&gt; Iterator[str]</dt><dd><span class="code">Build&nbsp;a&nbsp;temporary&nbsp;makefile&nbsp;and&nbsp;return&nbsp;the&nbsp;path.</span></dd></dl>
+ <dl><dt><a name="-entry"><strong>entry</strong></a>(args: argparse.Namespace) -&gt; int</dt><dd><span class="code">Execute&nbsp;the&nbsp;requested&nbsp;task.</span></dd></dl>
+ <dl><dt><a name="-get_data"><strong>get_data</strong></a>(path: pathlib.Path, targets: List[str], prefix: Optional[str] = None) -&gt; Tuple[Dict[str, Union[str, int]], List[str]]</dt><dd><span class="code">Load&nbsp;configuration&nbsp;data&nbsp;if&nbsp;it&nbsp;can&nbsp;be&nbsp;found.</span></dd></dl>
+ <dl><dt><a name="-initialize_task_manager"><strong>initialize_task_manager</strong></a>(manager: vcorelib.task.manager.TaskManager, proj: str, task_register: str, directory: pathlib.Path, substitutions: Dict[str, Union[str, int]]) -&gt; None</dt><dd><span class="code">Load&nbsp;internal&nbsp;and&nbsp;external&nbsp;tasks&nbsp;to&nbsp;the&nbsp;task&nbsp;manager.</span></dd></dl>
+ <dl><dt><a name="-project"><strong>project</strong></a>(path: pathlib.Path, name: str = None) -&gt; str</dt><dd><span class="code">If&nbsp;the&nbsp;project&nbsp;name&nbsp;wasn't&nbsp;provided,&nbsp;guess&nbsp;that&nbsp;it's&nbsp;either&nbsp;the&nbsp;name<br>
+of&nbsp;the&nbsp;parent&nbsp;directory,&nbsp;or&nbsp;that&nbsp;name&nbsp;as&nbsp;a&nbsp;slug.</span></dd></dl>
 </td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#55aa55">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
-<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>ARBITER</strong> = &lt;vcorelib.io.DataArbiter object&gt;<br>
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ARBITER</strong> = &lt;vcorelib.io.arbiter.DataArbiter object&gt;<br>
 <strong>Callable</strong> = typing.Callable<br>
 <strong>DEFAULT_FILE</strong> = PosixPath('Makefile')<br>
 <strong>Dict</strong> = typing.Dict<br>

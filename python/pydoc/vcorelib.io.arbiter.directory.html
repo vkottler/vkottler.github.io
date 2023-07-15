@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.io.arbiter.directory</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.io.html" class="white">io</a>.<a href="vcorelib.io.arbiter.html" class="white">arbiter</a>.directory</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/io/arbiter/directory.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/io/arbiter/directory.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;data-arbiter&nbsp;extension&nbsp;for&nbsp;working&nbsp;with&nbsp;directories.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="vcorelib.io.arbiter.base.html#DataArbiterBase">vcorelib.io.arbiter.base.DataArbiterBase</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.io.arbiter.directory.html#DataArbiterDirectories">DataArbiterDirectories</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DataArbiterDirectories">class <strong>DataArbiterDirectories</strong></a>(<a href="vcorelib.io.arbiter.base.html#DataArbiterBase">vcorelib.io.arbiter.base.DataArbiterBase</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DataArbiterDirectories">DataArbiterDirectories</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]&nbsp;=&nbsp;&amp;lt;Logger&nbsp;vcorelib.io.arbiter.base&nbsp;(WARNING)&amp;gt;,&nbsp;encoding:&nbsp;str&nbsp;=&nbsp;'utf-8')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;adding&nbsp;interfaces&nbsp;for&nbsp;working&nbsp;with&nbsp;directories.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.io.arbiter.directory.html#DataArbiterDirectories">DataArbiterDirectories</a></dd>
+<dd><a href="vcorelib.io.arbiter.base.html#DataArbiterBase">vcorelib.io.arbiter.base.DataArbiterBase</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DataArbiterDirectories-decode_directory"><strong>decode_directory</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], logger: Union[logging.Logger, logging.LoggerAdapter] = None, require_success: bool = False, path_filter: Callable[[pathlib.Path], bool] = None, recurse: bool = False, **kwargs) -&gt; vcorelib.io.types.LoadResult</dt><dd><span class="code">Attempt&nbsp;to&nbsp;decode&nbsp;data&nbsp;files&nbsp;in&nbsp;a&nbsp;directory.&nbsp;Assigns&nbsp;data&nbsp;loaded&nbsp;from<br>
+each&nbsp;file&nbsp;to&nbsp;a&nbsp;key,&nbsp;returns&nbsp;whether&nbsp;or&nbsp;not&nbsp;any&nbsp;files&nbsp;failed&nbsp;to&nbsp;load<br>
+and&nbsp;the&nbsp;cumulative&nbsp;time&nbsp;that&nbsp;each&nbsp;file-load&nbsp;took.</span></dd></dl>
+
+<dl><dt><a name="DataArbiterDirectories-encode_directory"><strong>encode_directory</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], ext: str = 'json', logger: Union[logging.Logger, logging.LoggerAdapter] = None, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;data&nbsp;to&nbsp;a&nbsp;directory&nbsp;where&nbsp;every&nbsp;key&nbsp;becomes&nbsp;a&nbsp;file&nbsp;with&nbsp;the<br>
+provided&nbsp;extension.&nbsp;The&nbsp;encoding&nbsp;scheme&nbsp;is&nbsp;implied&nbsp;by&nbsp;the&nbsp;extension.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.io.arbiter.base.html#DataArbiterBase">vcorelib.io.arbiter.base.DataArbiterBase</a>:<br>
+<dl><dt><a name="DataArbiterDirectories-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter] = &lt;Logger vcorelib.io.arbiter.base (WARNING)&gt;, encoding: str = 'utf-8') -&gt; None</dt><dd><span class="code">Initialize&nbsp;a&nbsp;new&nbsp;data&nbsp;arbiter.</span></dd></dl>
+
+<dl><dt><a name="DataArbiterDirectories-decode"><strong>decode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], logger: Union[logging.Logger, logging.LoggerAdapter] = None, require_success: bool = False, includes_key: str = None, preprocessor: Callable[[Union[TextIO, _io.StringIO]], Union[TextIO, _io.StringIO]] = None, maxsplit: int = 1, expect_overwrite: bool = False, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;, **kwargs) -&gt; vcorelib.io.types.LoadResult</dt><dd><span class="code">Attempt&nbsp;to&nbsp;load&nbsp;data&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+
+<dl><dt><a name="DataArbiterDirectories-decode_stream"><strong>decode_stream</strong></a>(self, ext: str, stream: Union[TextIO, _io.StringIO], logger: Union[logging.Logger, logging.LoggerAdapter] = None, **kwargs) -&gt; vcorelib.io.types.LoadResult</dt><dd><span class="code">Attempt&nbsp;to&nbsp;load&nbsp;data&nbsp;from&nbsp;a&nbsp;text&nbsp;stream.</span></dd></dl>
+
+<dl><dt><a name="DataArbiterDirectories-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], logger: Union[logging.Logger, logging.LoggerAdapter] = None, maxsplit: int = 1, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;data&nbsp;to&nbsp;a&nbsp;file&nbsp;on&nbsp;disk.</span></dd></dl>
+
+<dl><dt><a name="DataArbiterDirectories-encode_stream"><strong>encode_stream</strong></a>(self, ext: str, stream: Union[TextIO, _io.StringIO], data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], logger: Union[logging.Logger, logging.LoggerAdapter] = None, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Serialize&nbsp;data&nbsp;to&nbsp;an&nbsp;output&nbsp;stream.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.io.arbiter.base.html#DataArbiterBase">vcorelib.io.arbiter.base.DataArbiterBase</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]</td></tr></table>
+</body></html>

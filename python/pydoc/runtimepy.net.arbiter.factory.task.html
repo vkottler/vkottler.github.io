@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.net.arbiter.factory.task</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.arbiter.html" class="white">arbiter</a>.<a href="runtimepy.net.arbiter.factory.html" class="white">factory</a>.task</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/factory/task.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/factory/task.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;task-factory&nbsp;registration.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.base.html#BaseConnectionArbiter">runtimepy.net.arbiter.base.BaseConnectionArbiter</a>(<a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>, <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.factory.task.html#TaskConnectionArbiter">TaskConnectionArbiter</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TaskConnectionArbiter">class <strong>TaskConnectionArbiter</strong></a>(<a href="runtimepy.net.arbiter.base.html#BaseConnectionArbiter">runtimepy.net.arbiter.base.BaseConnectionArbiter</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TaskConnectionArbiter">TaskConnectionArbiter</a>(manager:&nbsp;runtimepy.net.manager.ConnectionManager&nbsp;=&nbsp;None,&nbsp;stop_sig:&nbsp;asyncio.locks.Event&nbsp;=&nbsp;None,&nbsp;namespace:&nbsp;vcorelib.namespace.Namespace&nbsp;=&nbsp;None,&nbsp;logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]&nbsp;=&nbsp;None,&nbsp;app:&nbsp;Union[Callable[[runtimepy.net.arbiter.info.AppInfo],&nbsp;Awaitable[int]],&nbsp;List[Callable[[runtimepy.net.arbiter.info.AppInfo],&nbsp;Awaitable[int]]]]&nbsp;=&nbsp;None,&nbsp;config:&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;managing&nbsp;task&nbsp;factories.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.arbiter.factory.task.html#TaskConnectionArbiter">TaskConnectionArbiter</a></dd>
+<dd><a href="runtimepy.net.arbiter.base.html#BaseConnectionArbiter">runtimepy.net.arbiter.base.BaseConnectionArbiter</a></dd>
+<dd><a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TaskConnectionArbiter-factory_task"><strong>factory_task</strong></a>(self, factory: str, name: str, period_s: float = None, **kwargs) -&gt; bool</dt><dd><span class="code">Register&nbsp;a&nbsp;periodic&nbsp;task&nbsp;from&nbsp;one&nbsp;of&nbsp;the&nbsp;registered&nbsp;task&nbsp;factories.</span></dd></dl>
+
+<dl><dt><a name="TaskConnectionArbiter-register_task_factory"><strong>register_task_factory</strong></a>(self, factory: runtimepy.net.arbiter.task.TaskFactory[runtimepy.net.arbiter.task.ArbiterTask], *namespaces: str) -&gt; bool</dt><dd><span class="code">Attempt&nbsp;to&nbsp;register&nbsp;a&nbsp;periodic&nbsp;task&nbsp;factory.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.arbiter.base.html#BaseConnectionArbiter">runtimepy.net.arbiter.base.BaseConnectionArbiter</a>:<br>
+<dl><dt><a name="TaskConnectionArbiter-__init__"><strong>__init__</strong></a>(self, manager: runtimepy.net.manager.ConnectionManager = None, stop_sig: asyncio.locks.Event = None, namespace: vcorelib.namespace.Namespace = None, logger: Union[logging.Logger, logging.LoggerAdapter] = None, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], List[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection&nbsp;arbiter.</span></dd></dl>
+
+<dl><dt>async <a name="TaskConnectionArbiter-app"><strong>app</strong></a>(self, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], List[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, check_connections: bool = True, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None) -&gt; int</dt><dd><span class="code">Run&nbsp;the&nbsp;application&nbsp;alongside&nbsp;the&nbsp;connection&nbsp;manager&nbsp;and&nbsp;server&nbsp;tasks.</span></dd></dl>
+
+<dl><dt><a name="TaskConnectionArbiter-register_connection"><strong>register_connection</strong></a>(self, connection: Union[runtimepy.net.connection.Connection, Awaitable[runtimepy.net.connection.Connection]], *names: str, delim: str = None) -&gt; bool</dt><dd><span class="code">Attempt&nbsp;to&nbsp;register&nbsp;a&nbsp;connection&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="TaskConnectionArbiter-run"><strong>run</strong></a>(self, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], List[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, eloop: asyncio.events.AbstractEventLoop = None, signals: Iterable[int] = None, check_connections: bool = True, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None) -&gt; int</dt><dd><span class="code">Run&nbsp;the&nbsp;application&nbsp;until&nbsp;the&nbsp;stop&nbsp;signal&nbsp;is&nbsp;set.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>:<br>
+<dl><dt><a name="TaskConnectionArbiter-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; vcorelib.namespace.Namespace</dt><dd><span class="code">Obtain&nbsp;a&nbsp;child&nbsp;namespace.</span></dd></dl>
+
+<dl><dt><a name="TaskConnectionArbiter-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;object's&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="TaskConnectionArbiter-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="TaskConnectionArbiter-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
+
+<dl><dt><a name="TaskConnectionArbiter-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
+
+<dl><dt><a name="TaskConnectionArbiter-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="TaskConnectionArbiter-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Factory</strong> = runtimepy.net.arbiter.task.TaskFactory[runtimepy.net.arbiter.task.ArbiterTask]</td></tr></table>
+</body></html>

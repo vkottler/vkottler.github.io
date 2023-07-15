@@ -1,79 +1,77 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module vcorelib.math.time</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.math.time</title>
+</head><body>
 
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="vcorelib.html"><font color="#ffffff">vcorelib</font></a>.<a href="vcorelib.math.html"><font color="#ffffff">math</font></a>.time</strong></big></big></font></td
-><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/math/time.py">/home/vkottler/Documents/git/workspace/vcorelib/vcorelib/math/time.py</a></font></td></tr></table>
-    <p><tt>Math&nbsp;utilities&nbsp;involving&nbsp;units&nbsp;of&nbsp;time&nbsp;and&nbsp;other&nbsp;conversions.</tt></p>
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.math.html" class="white">math</a>.time</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/math/time.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/math/time.py</a></td></tr></table>
+    <p><span class="code">Math&nbsp;utilities&nbsp;involving&nbsp;units&nbsp;of&nbsp;time&nbsp;and&nbsp;other&nbsp;conversions.</span></p>
 <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ee77aa">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
     
-<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
-</font></dt><dd>
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="vcorelib.math.time.html#Timer">Timer</a>
-</font></dt></dl>
+<dt class="heading-text"><a href="vcorelib.math.time.html#Timer">Timer</a>
+</dt></dl>
 </dd>
 </dl>
  <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Timer">class <strong>Timer</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Timer">class <strong>Timer</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#Timer">Timer</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Timer">Timer</a>()&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
-A&nbsp;class&nbsp;for&nbsp;measuring&nbsp;and&nbsp;logging&nbsp;how&nbsp;long&nbsp;events&nbsp;take.<br>&nbsp;</tt></td></tr>
+A&nbsp;class&nbsp;for&nbsp;measuring&nbsp;and&nbsp;logging&nbsp;how&nbsp;long&nbsp;events&nbsp;take.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Timer-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><tt>Initialize&nbsp;this&nbsp;timer.</tt></dd></dl>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Timer-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;timer.</span></dd></dl>
 
-<dl><dt><a name="Timer-log"><strong>log</strong></a>(self, log: logging.Logger, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><tt>Log&nbsp;how&nbsp;long&nbsp;the&nbsp;caller's&nbsp;context&nbsp;took&nbsp;to&nbsp;execute.</tt></dd></dl>
+<dl><dt><a name="Timer-log"><strong>log</strong></a>(self, log: Union[logging.Logger, logging.LoggerAdapter], message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">Log&nbsp;how&nbsp;long&nbsp;the&nbsp;caller's&nbsp;context&nbsp;took&nbsp;to&nbsp;execute.</span></dd></dl>
 
-<dl><dt><a name="Timer-measure_ns"><strong>measure_ns</strong></a>(self) -&gt; Iterator[int]</dt><dd><tt>Compute&nbsp;the&nbsp;time&nbsp;that&nbsp;the&nbsp;caller's&nbsp;context&nbsp;takes,&nbsp;provides&nbsp;an&nbsp;integer<br>
-token&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;query&nbsp;for&nbsp;the&nbsp;result&nbsp;afterwards.</tt></dd></dl>
+<dl><dt><a name="Timer-measure_ns"><strong>measure_ns</strong></a>(self) -&gt; Iterator[int]</dt><dd><span class="code">Compute&nbsp;the&nbsp;time&nbsp;that&nbsp;the&nbsp;caller's&nbsp;context&nbsp;takes,&nbsp;provides&nbsp;an&nbsp;integer<br>
+token&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;query&nbsp;for&nbsp;the&nbsp;result&nbsp;afterwards.</span></dd></dl>
 
-<dl><dt><a name="Timer-result"><strong>result</strong></a>(self, token: int) -&gt; int</dt><dd><tt>Get&nbsp;the&nbsp;timer&nbsp;result.</tt></dd></dl>
+<dl><dt><a name="Timer-result"><strong>result</strong></a>(self, token: int) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;timer&nbsp;result.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-byte_count_str"><strong>byte_count_str</strong></a>(byte_count: int) -&gt; str</dt><dd><tt>Get&nbsp;a&nbsp;string&nbsp;representing&nbsp;a&nbsp;number&nbsp;of&nbsp;bytes.</tt></dd></dl>
- <dl><dt><a name="-default_time_ns"><strong>default_time_ns</strong></a>() -&gt; int</dt><dd><tt>Get&nbsp;a&nbsp;timestamp&nbsp;value&nbsp;using&nbsp;a&nbsp;default&nbsp;method.</tt></dd></dl>
- <dl><dt><a name="-nano_str"><strong>nano_str</strong></a>(nanos: int, is_time: bool = False, max_prefix: int = 3, unit: vcorelib.math.UnitSystem = UnitSystem(prefixes=['n', 'u', 'm', '', 'k', 'M', 'G', 'T'], divisor=1000), prefix_space: bool = False, iteration: int = 0) -&gt; str</dt><dd><tt>Convert&nbsp;an&nbsp;arbitrary&nbsp;value&nbsp;in&nbsp;a&nbsp;10^-9&nbsp;domain&nbsp;into&nbsp;as&nbsp;concise&nbsp;of&nbsp;a&nbsp;string<br>
-as&nbsp;possible.</tt></dd></dl>
- <dl><dt><a name="-seconds_str"><strong>seconds_str</strong></a>(seconds: int) -&gt; Tuple[str, int]</dt><dd><tt>Attempt&nbsp;to&nbsp;characterize&nbsp;a&nbsp;large&nbsp;amount&nbsp;of&nbsp;seconds&nbsp;into&nbsp;a&nbsp;string&nbsp;describing<br>
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-byte_count_str"><strong>byte_count_str</strong></a>(byte_count: int) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;string&nbsp;representing&nbsp;a&nbsp;number&nbsp;of&nbsp;bytes.</span></dd></dl>
+ <dl><dt><a name="-default_time_ns"><strong>default_time_ns</strong></a>() -&gt; int</dt><dd><span class="code">Get&nbsp;a&nbsp;timestamp&nbsp;value&nbsp;using&nbsp;a&nbsp;default&nbsp;method.</span></dd></dl>
+ <dl><dt><a name="-nano_str"><strong>nano_str</strong></a>(nanos: int, is_time: bool = False, max_prefix: int = 3, unit: vcorelib.math.unit.UnitSystem = UnitSystem(prefixes=['n', 'u', 'm', '', 'k', 'M', 'G', 'T'], divisor=1000), prefix_space: bool = False, iteration: int = 0) -&gt; str</dt><dd><span class="code">Convert&nbsp;an&nbsp;arbitrary&nbsp;value&nbsp;in&nbsp;a&nbsp;10^-9&nbsp;domain&nbsp;into&nbsp;as&nbsp;concise&nbsp;of&nbsp;a&nbsp;string<br>
+as&nbsp;possible.</span></dd></dl>
+ <dl><dt><a name="-rate_str"><strong>rate_str</strong></a>(period_s: float) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;string&nbsp;representing&nbsp;a&nbsp;rate&nbsp;in&nbsp;Hz.</span></dd></dl>
+ <dl><dt><a name="-seconds_str"><strong>seconds_str</strong></a>(seconds: int) -&gt; Tuple[str, int]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;characterize&nbsp;a&nbsp;large&nbsp;amount&nbsp;of&nbsp;seconds&nbsp;into&nbsp;a&nbsp;string&nbsp;describing<br>
 hours&nbsp;and&nbsp;minutes,&nbsp;returning&nbsp;the&nbsp;string&nbsp;(may&nbsp;be&nbsp;empty)&nbsp;and&nbsp;the&nbsp;seconds<br>
-left&nbsp;over.</tt></dd></dl>
+left&nbsp;over.</span></dd></dl>
 </td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#55aa55">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
-<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>TIMER</strong> = &lt;vcorelib.math.time.Timer object&gt;</td></tr></table>
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<strong>TIMER</strong> = &lt;vcorelib.math.time.Timer object&gt;</td></tr></table>
 </body></html>
