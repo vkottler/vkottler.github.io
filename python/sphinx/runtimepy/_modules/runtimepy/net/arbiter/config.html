@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>runtimepy.net.arbiter.config &#8212; runtimepy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for runtimepy.net.arbiter.config</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module implementing a configuration-file interface for registering client</span>
+<span class="sd">connections or servers.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span> <span class="k">as</span> <span class="n">_Path</span>
+<span class="kn">from</span> <span class="nn">site</span> <span class="kn">import</span> <span class="n">addsitedir</span> <span class="k">as</span> <span class="n">_addsitedir</span>
+<span class="kn">import</span> <span class="nn">socket</span> <span class="k">as</span> <span class="nn">_socket</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span> <span class="k">as</span> <span class="n">_Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span> <span class="k">as</span> <span class="n">_Iterable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span> <span class="k">as</span> <span class="n">_cast</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict</span> <span class="kn">import</span> <span class="n">merge</span> <span class="k">as</span> <span class="n">_merge</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict.env</span> <span class="kn">import</span> <span class="n">dict_resolve_env_vars</span><span class="p">,</span> <span class="n">list_resolve_env_vars</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io</span> <span class="kn">import</span> <span class="n">ARBITER</span> <span class="k">as</span> <span class="n">_ARBITER</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io.types</span> <span class="kn">import</span> <span class="n">JsonObject</span> <span class="k">as</span> <span class="n">_JsonObject</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths</span> <span class="kn">import</span> <span class="n">Pathlike</span> <span class="k">as</span> <span class="n">_Pathlike</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths</span> <span class="kn">import</span> <span class="n">normalize</span> <span class="k">as</span> <span class="n">_normalize</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">runtimepy.net</span> <span class="kn">import</span> <span class="n">get_free_socket_name</span><span class="p">,</span> <span class="n">normalize_host</span>
+<span class="kn">from</span> <span class="nn">runtimepy.net.arbiter.imports</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ImportConnectionArbiter</span> <span class="k">as</span> <span class="n">_ImportConnectionArbiter</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">runtimepy.schemas</span> <span class="kn">import</span> <span class="n">RuntimepyDictCodec</span> <span class="k">as</span> <span class="n">_RuntimepyDictCodec</span>
+
+
+<div class="viewcode-block" id="ConnectionArbiterConfig"><a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.arbiter.config.ConnectionArbiterConfig">[docs]</a><span class="k">class</span> <span class="nc">ConnectionArbiterConfig</span><span class="p">(</span><span class="n">_RuntimepyDictCodec</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for encoding and decoding connection-arbiter configuration data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">directory</span><span class="p">:</span> <span class="n">_Path</span>
+
+<div class="viewcode-block" id="ConnectionArbiterConfig.init"><a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.arbiter.config.ConnectionArbiterConfig.init">[docs]</a>    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">_JsonObject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform implementation-specific initialization.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+
+        <span class="c1"># Process ports.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ports</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">_cast</span><span class="p">(</span><span class="n">_List</span><span class="p">[</span><span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]],</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ports&quot;</span><span class="p">,</span> <span class="p">[])):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ports</span><span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">get_free_socket_name</span><span class="p">(</span>
+                <span class="n">local</span><span class="o">=</span><span class="n">normalize_host</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]),</span>
+                <span class="n">kind</span><span class="o">=</span><span class="n">_socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;tcp&quot;</span>
+                <span class="k">else</span> <span class="n">_socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">port</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_JsonObject</span><span class="p">]</span> <span class="o">=</span> <span class="n">_cast</span><span class="p">(</span>
+            <span class="n">_JsonObject</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">factories</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;factories&quot;</span><span class="p">,</span> <span class="p">[])</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clients</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;clients&quot;</span><span class="p">,</span> <span class="p">[])</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">servers</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;servers&quot;</span><span class="p">,</span> <span class="p">[])</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tasks&quot;</span><span class="p">,</span> <span class="p">[])</span>  <span class="c1"># type: ignore</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">_Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;directory&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="ConnectionArbiterConfig.asdict"><a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.arbiter.config.ConnectionArbiterConfig.asdict">[docs]</a>    <span class="k">def</span> <span class="nf">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_JsonObject</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain a dictionary representing this instance.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span></div></div>
+
+
+<div class="viewcode-block" id="fix_kwargs"><a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.arbiter.config.fix_kwargs">[docs]</a><span class="k">def</span> <span class="nf">fix_kwargs</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fix data depending on nuances of what some Python interfaces require.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Convert some keys to tuples.</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;local_addr&quot;</span><span class="p">,</span> <span class="s2">&quot;remote_addr&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="fix_args"><a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.arbiter.config.fix_args">[docs]</a><span class="k">def</span> <span class="nf">fix_args</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Any</span><span class="p">],</span> <span class="n">ports</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fix positional arguments.&quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="c1"># Allow port variables to be used in host strings.</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_resolve_env_vars</span><span class="p">(</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">),</span>
+                    <span class="n">env</span><span class="o">=</span><span class="n">ports</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="ConfigConnectionArbiter"><a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.arbiter.config.ConfigConnectionArbiter">[docs]</a><span class="k">class</span> <span class="nc">ConfigConnectionArbiter</span><span class="p">(</span><span class="n">_ImportConnectionArbiter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class implementing a configuration loading interface for the connection</span>
+<span class="sd">    arbiter.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConfigConnectionArbiter.load_configs"><a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.arbiter.config.ConfigConnectionArbiter.load_configs">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">load_configs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paths</span><span class="p">:</span> <span class="n">_Iterable</span><span class="p">[</span><span class="n">_Pathlike</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load a client and server configuration to the arbiter.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Load and meld configuration data.</span>
+        <span class="n">config_data</span><span class="p">:</span> <span class="n">_JsonObject</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+            <span class="n">_merge</span><span class="p">(</span>
+                <span class="n">config_data</span><span class="p">,</span>
+                <span class="n">_ARBITER</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+                    <span class="n">path</span><span class="p">,</span>
+                    <span class="n">includes_key</span><span class="o">=</span><span class="s2">&quot;includes&quot;</span><span class="p">,</span>
+                    <span class="n">require_success</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">config</span> <span class="o">=</span> <span class="n">ConnectionArbiterConfig</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">config_data</span><span class="p">)</span>
+
+        <span class="c1"># Set the directory to be the parent directory of the configuration</span>
+        <span class="c1"># file if it wasn&#39;t set.</span>
+        <span class="k">if</span> <span class="s2">&quot;directory&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">_normalize</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">paths</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">parent</span>
+
+        <span class="c1"># Add the site directory to facilitate module discovery.</span>
+        <span class="n">_addsitedir</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">directory</span><span class="p">))</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConfigConnectionArbiter.process_config"><a class="viewcode-back" href="../../../../runtimepy.net.arbiter.html#runtimepy.net.arbiter.config.ConfigConnectionArbiter.process_config">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">process_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">ConnectionArbiterConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Register clients and servers from a configuration object.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Registier factories.</span>
+        <span class="k">for</span> <span class="n">factory</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">factories</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">factory</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">register_module_factory</span><span class="p">(</span>
+                <span class="n">name</span><span class="p">,</span>
+                <span class="o">*</span><span class="n">factory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;namespaces&quot;</span><span class="p">,</span> <span class="p">[]),</span>
+                <span class="o">**</span><span class="n">dict_resolve_env_vars</span><span class="p">(</span>
+                    <span class="n">factory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span> <span class="n">env</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">ports</span>  <span class="c1"># type: ignore</span>
+                <span class="p">),</span>
+            <span class="p">),</span> <span class="s2">&quot;Couldn&#39;t register factory &#39;</span><span class="si">{name}</span><span class="s2">&#39;!&quot;</span>
+
+        <span class="c1"># Register clients.</span>
+        <span class="k">for</span> <span class="n">client</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">clients</span><span class="p">:</span>
+            <span class="n">factory</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="s2">&quot;factory&quot;</span><span class="p">]</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+
+            <span class="c1"># Resolve any port variables that may have been used.</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="n">list_resolve_env_vars</span><span class="p">(</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;args&quot;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">env</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">ports</span>  <span class="c1"># type: ignore</span>
+            <span class="p">)</span>
+            <span class="n">kwargs</span> <span class="o">=</span> <span class="n">dict_resolve_env_vars</span><span class="p">(</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span> <span class="n">env</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">ports</span>  <span class="c1"># type: ignore</span>
+            <span class="p">)</span>
+
+            <span class="k">assert</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory_client</span><span class="p">(</span>
+                <span class="n">factory</span><span class="p">,</span>
+                <span class="n">name</span><span class="p">,</span>
+                <span class="o">*</span><span class="n">fix_args</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">ports</span><span class="p">),</span>
+                <span class="n">defer</span><span class="o">=</span><span class="n">client</span><span class="p">[</span><span class="s2">&quot;defer&quot;</span><span class="p">],</span>
+                <span class="c1"># Perform some known fixes for common keyword arguments.</span>
+                <span class="o">**</span><span class="n">fix_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">),</span>
+            <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Couldn&#39;t register client &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">factory</span><span class="si">}</span><span class="s2">)!&quot;</span>
+
+        <span class="c1"># Register servers.</span>
+        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">servers</span><span class="p">:</span>
+            <span class="n">factory</span> <span class="o">=</span> <span class="n">server</span><span class="p">[</span><span class="s2">&quot;factory&quot;</span><span class="p">]</span>
+
+            <span class="k">assert</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory_server</span><span class="p">(</span>
+                <span class="n">factory</span><span class="p">,</span>
+                <span class="o">*</span><span class="n">list_resolve_env_vars</span><span class="p">(</span>
+                    <span class="n">server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;args&quot;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">env</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">ports</span>  <span class="c1"># type: ignore</span>
+                <span class="p">),</span>
+                <span class="o">**</span><span class="n">dict_resolve_env_vars</span><span class="p">(</span>
+                    <span class="n">server</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span> <span class="n">env</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">ports</span>  <span class="c1"># type: ignore</span>
+                <span class="p">),</span>
+            <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Couldn&#39;t register a &#39;</span><span class="si">{</span><span class="n">factory</span><span class="si">}</span><span class="s2">&#39; server!&quot;</span>
+
+        <span class="c1"># Register tasks.</span>
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">tasks</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+            <span class="n">factory</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">&quot;factory&quot;</span><span class="p">]</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory_task</span><span class="p">(</span>
+                <span class="n">factory</span><span class="p">,</span>
+                <span class="n">name</span><span class="p">,</span>
+                <span class="n">period_s</span><span class="o">=</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;period_s&quot;</span><span class="p">],</span>
+                <span class="n">average_depth</span><span class="o">=</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;average_depth&quot;</span><span class="p">],</span>
+            <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Couldn&#39;t register task &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">factory</span><span class="si">}</span><span class="s2">)!&quot;</span>
+
+        <span class="c1"># Set the new application entry if it&#39;s set.</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">app</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_app</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
+
+        <span class="c1"># Update application configuration data if necessary.</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">runtimepy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../runtimepy.html">runtimepy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  <li><a href="../arbiter.html">runtimepy.net.arbiter</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

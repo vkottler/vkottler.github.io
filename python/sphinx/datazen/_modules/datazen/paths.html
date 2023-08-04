@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>datazen.paths &#8212; datazen  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for datazen.paths</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">datazen - APIs for working with file paths.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict</span> <span class="kn">import</span> <span class="n">GenericStrDict</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths</span> <span class="kn">import</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="n">normalize</span>
+
+<span class="n">FMT_OPEN</span> <span class="o">=</span> <span class="s2">&quot;{&quot;</span>
+<span class="n">FMT_CLOSE</span> <span class="o">=</span> <span class="s2">&quot;}&quot;</span>
+<span class="n">EXCLUDES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.git&quot;</span><span class="p">,</span> <span class="s2">&quot;.svn&quot;</span><span class="p">,</span> <span class="s2">&quot;.gitignore&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="get_path_list"><a class="viewcode-back" href="../../datazen.html#datazen.paths.get_path_list">[docs]</a><span class="k">def</span> <span class="nf">get_path_list</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="n">current</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    From a root directory and a child path, compute the list of directories,</span>
+<span class="sd">    in order, mapping the root to the child.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">normalize</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">normalize</span><span class="p">(</span><span class="n">current</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">root</span> <span class="ow">in</span> <span class="n">current</span>
+    <span class="k">return</span> <span class="n">current</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="format_resolve_delims"><a class="viewcode-back" href="../../datazen.html#datazen.paths.format_resolve_delims">[docs]</a><span class="k">def</span> <span class="nf">format_resolve_delims</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">fmt_data</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span>
+    <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+    <span class="n">delim_replace</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Attempt to resolve a format String with data, but handle replacements with</span>
+<span class="sd">    custom delimeters correctly.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">open_len</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">FMT_OPEN</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">open_len</span> <span class="o">==</span> <span class="n">value</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">FMT_CLOSE</span><span class="p">)</span>
+
+    <span class="c1"># if no parameters are specified, just return the provided String</span>
+    <span class="k">if</span> <span class="n">open_len</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="c1"># replace &quot;a.b.c&quot; with &quot;a_b_c&quot;, fmt_data should be a flat Dict[str, str]</span>
+    <span class="n">new_data</span><span class="p">:</span> <span class="n">GenericStrDict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fmt_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+        <span class="n">new_data</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">delim</span><span class="p">,</span> <span class="n">delim_replace</span><span class="p">)]</span> <span class="o">=</span> <span class="n">item</span>
+
+    <span class="c1"># re-build the format String</span>
+    <span class="n">fstr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">tmp_value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">open_len</span><span class="p">):</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">tmp_value</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">FMT_OPEN</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">tmp_value</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">FMT_CLOSE</span><span class="p">)</span>
+        <span class="n">fstr</span> <span class="o">+=</span> <span class="n">tmp_value</span><span class="p">[:</span> <span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">fstr</span> <span class="o">+=</span> <span class="s2">&quot;{&quot;</span>
+        <span class="n">fstr</span> <span class="o">+=</span> <span class="n">tmp_value</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">delim</span><span class="p">,</span> <span class="n">delim_replace</span><span class="p">)</span>
+        <span class="n">tmp_value</span> <span class="o">=</span> <span class="n">tmp_value</span><span class="p">[</span><span class="n">end</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span>
+        <span class="n">fstr</span> <span class="o">+=</span> <span class="s2">&quot;}&quot;</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fstr</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="n">fstr</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">fstr</span><span class="p">)</span> <span class="p">:]</span>
+
+    <span class="k">return</span> <span class="n">fstr</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">new_data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="unflatten_dict"><a class="viewcode-back" href="../../datazen.html#datazen.paths.unflatten_dict">[docs]</a><span class="k">def</span> <span class="nf">unflatten_dict</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span> <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenericStrDict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Attempt to unflatten dictionary data based on String keys and a delimeter.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">result</span><span class="p">:</span> <span class="n">GenericStrDict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="c1"># unflatten any dictionaries in the value</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">unflatten_dict</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">new_value</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="n">item</span> <span class="o">=</span> <span class="n">unflatten_dict</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="n">new_value</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">new_value</span>
+
+        <span class="c1"># move data[&quot;a.b.c&quot;] = value to data[&quot;a&quot;][&quot;b&quot;][&quot;c&quot;] = value</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">to_advance</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">delim</span><span class="p">)</span>
+            <span class="n">to_update</span> <span class="o">=</span> <span class="n">advance_dict_by_path</span><span class="p">(</span><span class="n">to_advance</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">result</span><span class="p">)</span>
+            <span class="n">to_update</span><span class="p">[</span><span class="n">to_advance</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="advance_dict_by_path"><a class="viewcode-back" href="../../datazen.html#datazen.paths.advance_dict_by_path">[docs]</a><span class="k">def</span> <span class="nf">advance_dict_by_path</span><span class="p">(</span>
+    <span class="n">path_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">data</span><span class="p">:</span> <span class="n">GenericStrDict</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenericStrDict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a dictionary and a list of directory names, return the child</span>
+<span class="sd">    dictionary advanced by each key, in order, from the provided data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">path_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="resolve_dir"><a class="viewcode-back" href="../../datazen.html#datazen.paths.resolve_dir">[docs]</a><span class="k">def</span> <span class="nf">resolve_dir</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rel_base</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Turn directory data into an absolute path, optionally from a relative</span>
+<span class="sd">    base.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="ow">and</span> <span class="n">rel_base</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rel_base</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="walk_with_excludes"><a class="viewcode-back" href="../../datazen.html#datazen.paths.walk_with_excludes">[docs]</a><span class="k">def</span> <span class="nf">walk_with_excludes</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="n">excludes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Behaves like os.walk but attempts to skip iterations that would enter</span>
+<span class="sd">    directories we want to exclude (and thus not traverse).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">excludes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">excludes</span> <span class="o">=</span> <span class="n">EXCLUDES</span>
+
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)):</span>
+        <span class="n">dirs</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+
+        <span class="c1"># don&#39;t yield any directories that have an excluded path</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">dirs</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">excludes</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="k">yield</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">datazen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../datazen.html">datazen package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  <li><a href="../datazen.html">datazen</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

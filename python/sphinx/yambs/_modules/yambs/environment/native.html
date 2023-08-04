@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>yambs.environment.native &#8212; yambs  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for yambs.environment.native</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module implementing a native-build environment.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">linesep</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">TextIO</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io</span> <span class="kn">import</span> <span class="n">ARBITER</span>
+<span class="kn">from</span> <span class="nn">vcorelib.logging</span> <span class="kn">import</span> <span class="n">LoggerMixin</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">yambs.aggregation</span> <span class="kn">import</span> <span class="n">collect_files</span><span class="p">,</span> <span class="n">populate_sources</span><span class="p">,</span> <span class="n">sources_headers</span>
+<span class="kn">from</span> <span class="nn">yambs.config.native</span> <span class="kn">import</span> <span class="n">Native</span>
+<span class="kn">from</span> <span class="nn">yambs.dependency.manager</span> <span class="kn">import</span> <span class="n">DependencyManager</span>
+<span class="kn">from</span> <span class="nn">yambs.generate.common</span> <span class="kn">import</span> <span class="n">get_jinja</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">yambs.generate.ninja</span> <span class="kn">import</span> <span class="n">write_continuation</span>
+<span class="kn">from</span> <span class="nn">yambs.generate.ninja.format</span> <span class="kn">import</span> <span class="n">render_format</span>
+<span class="kn">from</span> <span class="nn">yambs.generate.variants</span> <span class="kn">import</span> <span class="n">generate</span> <span class="k">as</span> <span class="n">generate_variants</span>
+<span class="kn">from</span> <span class="nn">yambs.translation</span> <span class="kn">import</span> <span class="n">BUILD_DIR_PATH</span><span class="p">,</span> <span class="n">get_translator</span>
+
+
+<div class="viewcode-block" id="resolve_build_dir"><a class="viewcode-back" href="../../../yambs.environment.html#yambs.environment.native.resolve_build_dir">[docs]</a><span class="k">def</span> <span class="nf">resolve_build_dir</span><span class="p">(</span><span class="n">build_root</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">variant</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Resolve the build-directory variable in a path.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">build_root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">BUILD_DIR_PATH</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="NativeBuildEnvironment"><a class="viewcode-back" href="../../../yambs.environment.html#yambs.environment.native.NativeBuildEnvironment">[docs]</a><span class="k">class</span> <span class="nc">NativeBuildEnvironment</span><span class="p">(</span><span class="n">LoggerMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class implementing a native-build environment.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Native</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this instance.&quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dependency_manager</span> <span class="o">=</span> <span class="n">DependencyManager</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">third_party_root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Collect sources.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sources</span> <span class="o">=</span> <span class="n">collect_files</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">src_root</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apps</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">populate_sources</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">src_root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">apps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">jinja</span> <span class="o">=</span> <span class="n">get_jinja</span><span class="p">()</span>
+
+<div class="viewcode-block" id="NativeBuildEnvironment.render"><a class="viewcode-back" href="../../../yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Render a template.&quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_time</span><span class="p">(</span><span class="s2">&quot;Render &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">name</span><span class="p">)):</span>
+            <span class="n">render_template</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">jinja</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;native_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">name</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="NativeBuildEnvironment.write_compile_line"><a class="viewcode-back" href="../../../yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_compile_line">[docs]</a>    <span class="k">def</span> <span class="nf">write_compile_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a single source-compile line.&quot;&quot;&quot;</span>
+
+        <span class="n">translator</span> <span class="o">=</span> <span class="n">get_translator</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">from_src</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">src_root</span><span class="p">)</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="n">translator</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">from_src</span><span class="p">)</span>
+
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">translator</span><span class="o">.</span><span class="n">rule</span><span class="si">}</span><span class="s2"> $src_dir/</span><span class="si">{</span><span class="n">from_src</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="NativeBuildEnvironment.write_source_rules"><a class="viewcode-back" href="../../../yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_source_rules">[docs]</a>    <span class="k">def</span> <span class="nf">write_source_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write source rules.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">write_compile_line</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="NativeBuildEnvironment.write_static_library_rule"><a class="viewcode-back" href="../../../yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_static_library_rule">[docs]</a>    <span class="k">def</span> <span class="nf">write_static_library_rule</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a rule for a static library output.&quot;&quot;&quot;</span>
+
+        <span class="n">lib</span> <span class="o">=</span> <span class="n">BUILD_DIR_PATH</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">project</span><span class="si">}</span><span class="s2">.a&quot;</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">lib</span><span class="si">}</span><span class="s2">: ar &quot;</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="n">list_outputs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">list_outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">list_outputs</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">write_continuation</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span> <span class="o">+</span> <span class="n">linesep</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">lib</span></div>
+
+<div class="viewcode-block" id="NativeBuildEnvironment.write_app_rules"><a class="viewcode-back" href="../../../yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.write_app_rules">[docs]</a>    <span class="k">def</span> <span class="nf">write_app_rules</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">Path</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write app rules.&quot;&quot;&quot;</span>
+
+        <span class="n">elfs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Create rules for linked executables.</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">apps</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_compile_line</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+            <span class="n">from_src</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">src_root</span><span class="p">)</span>
+            <span class="n">elf</span> <span class="o">=</span> <span class="n">BUILD_DIR_PATH</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">from_src</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.elf&quot;</span><span class="p">))</span>
+            <span class="n">elfs</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">elf</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">elf</span><span class="si">}</span><span class="s2">: link &quot;</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
+
+            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+                <span class="n">write_continuation</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+                <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+
+            <span class="c1"># Executables can&#39;t be linked until third-party dependencies are</span>
+            <span class="c1"># actually built.</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; | $</span><span class="si">{variant}</span><span class="s2">_third_party&quot;</span><span class="p">)</span>
+
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span> <span class="o">+</span> <span class="n">linesep</span><span class="p">)</span>
+
+        <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;build $</span><span class="si">{variant}</span><span class="s2">_apps: phony &quot;</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="n">elfs_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">elfs</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+        <span class="c1"># Add a phony target for creating a static library.</span>
+        <span class="k">if</span> <span class="n">outputs</span><span class="p">:</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="s2">&quot;build $</span><span class="si">{variant}</span><span class="s2">_lib: phony &quot;</span>
+                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">write_static_library_rule</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">outputs</span><span class="p">))</span>
+                <span class="o">+</span> <span class="n">linesep</span>
+                <span class="o">+</span> <span class="n">linesep</span>
+            <span class="p">)</span>
+
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">elfs_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">elf</span> <span class="ow">in</span> <span class="n">elfs_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">write_continuation</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">elf</span><span class="p">))</span>
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">elfs</span></div>
+
+    <span class="k">def</span> <span class="nf">_render_app_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elfs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Render the application manifest.&quot;&quot;&quot;</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">ninja_root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;apps.json&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_time</span><span class="p">(</span><span class="s2">&quot;Write &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+            <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="k">for</span> <span class="n">app</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">apps</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">assert</span> <span class="p">(</span>
+                    <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span>
+                <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Duplicate app name &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">app</span><span class="si">}</span><span class="s2">)!&quot;</span>
+
+                <span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">app</span><span class="p">),</span>
+                    <span class="s2">&quot;variants&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="n">variant</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="n">resolve_build_dir</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">build_root</span><span class="p">,</span> <span class="n">variant</span><span class="p">,</span> <span class="n">elfs</span><span class="p">[</span><span class="n">app</span><span class="p">]</span>
+                            <span class="p">)</span>
+                        <span class="p">)</span>
+                        <span class="k">for</span> <span class="n">variant</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;variants&quot;</span><span class="p">]</span>
+                    <span class="p">},</span>
+                <span class="p">}</span>
+
+            <span class="n">ARBITER</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                <span class="n">path</span><span class="p">,</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;all&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span>
+                    <span class="s2">&quot;tests&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;test_&quot;</span><span class="p">)],</span>
+                <span class="p">},</span>
+            <span class="p">)</span>
+
+<div class="viewcode-block" id="NativeBuildEnvironment.generate"><a class="viewcode-back" href="../../../yambs.environment.html#yambs.environment.native.NativeBuildEnvironment.generate">[docs]</a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sources_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate ninja files.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sources_only</span><span class="p">:</span>
+            <span class="c1"># Audit dependencies.</span>
+            <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dependencies</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dependency_manager</span><span class="o">.</span><span class="n">audit</span><span class="p">(</span><span class="n">dep</span><span class="p">)</span>
+
+            <span class="c1"># Create build script.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dependency_manager</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">third_party_script</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Handle compile and link flags generated by the third-party pass.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;common_cflags&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dependency_manager</span><span class="o">.</span><span class="n">compile_flags</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;common_ldflags&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dependency_manager</span><span class="o">.</span><span class="n">link_flags</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Render templates.</span>
+            <span class="n">generate_variants</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">jinja</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cflag_groups&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;build.ninja&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">template</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;rules&quot;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">ninja_root</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">template</span><span class="si">}</span><span class="s2">.ninja&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Render sources file.</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">ninja_root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;sources.ninja&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_time</span><span class="p">(</span><span class="s2">&quot;Write &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">path_fd</span><span class="p">:</span>
+                <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_source_rules</span><span class="p">(</span><span class="n">path_fd</span><span class="p">)</span>
+
+        <span class="c1"># Render apps file.</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">ninja_root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;apps.ninja&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_time</span><span class="p">(</span><span class="s2">&quot;Write &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">path_fd</span><span class="p">:</span>
+                <span class="n">elfs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_app_rules</span><span class="p">(</span><span class="n">path_fd</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+
+        <span class="c1"># Render format file.</span>
+        <span class="n">render_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">sources_headers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sources</span><span class="p">))</span>
+
+        <span class="c1"># Render application manifest.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_render_app_manifest</span><span class="p">(</span><span class="n">elfs</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">yambs</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yambs.html">yambs package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  <li><a href="../environment.html">yambs.environment</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

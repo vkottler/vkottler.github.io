@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>runtimepy.channel.environment.base &#8212; runtimepy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for runtimepy.channel.environment.base</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module implementing a base channel environment.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span> <span class="k">as</span> <span class="n">_Iterable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span> <span class="k">as</span> <span class="n">_Set</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span> <span class="k">as</span> <span class="n">_Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span> <span class="k">as</span> <span class="n">_cast</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.namespace</span> <span class="kn">import</span> <span class="n">NamespaceMixin</span> <span class="k">as</span> <span class="n">_NamespaceMixin</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">runtimepy.channel</span> <span class="kn">import</span> <span class="n">AnyChannel</span> <span class="k">as</span> <span class="n">_AnyChannel</span>
+<span class="kn">from</span> <span class="nn">runtimepy.channel</span> <span class="kn">import</span> <span class="n">BoolChannel</span> <span class="k">as</span> <span class="n">_BoolChannel</span>
+<span class="kn">from</span> <span class="nn">runtimepy.channel</span> <span class="kn">import</span> <span class="n">FloatChannel</span> <span class="k">as</span> <span class="n">_FloatChannel</span>
+<span class="kn">from</span> <span class="nn">runtimepy.channel</span> <span class="kn">import</span> <span class="n">IntChannel</span> <span class="k">as</span> <span class="n">_IntChannel</span>
+<span class="kn">from</span> <span class="nn">runtimepy.channel.registry</span> <span class="kn">import</span> <span class="n">ChannelRegistry</span> <span class="k">as</span> <span class="n">_ChannelRegistry</span>
+<span class="kn">from</span> <span class="nn">runtimepy.enum</span> <span class="kn">import</span> <span class="n">RuntimeEnum</span> <span class="k">as</span> <span class="n">_RuntimeEnum</span>
+<span class="kn">from</span> <span class="nn">runtimepy.enum.registry</span> <span class="kn">import</span> <span class="n">EnumRegistry</span> <span class="k">as</span> <span class="n">_EnumRegistry</span>
+<span class="kn">from</span> <span class="nn">runtimepy.primitives.field</span> <span class="kn">import</span> <span class="n">BitField</span> <span class="k">as</span> <span class="n">_BitField</span>
+<span class="kn">from</span> <span class="nn">runtimepy.primitives.field.fields</span> <span class="kn">import</span> <span class="n">BitFields</span> <span class="k">as</span> <span class="n">_BitFields</span>
+<span class="kn">from</span> <span class="nn">runtimepy.primitives.field.manager</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">BitFieldsManager</span> <span class="k">as</span> <span class="n">_BitFieldsManager</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">runtimepy.registry.name</span> <span class="kn">import</span> <span class="n">RegistryKey</span> <span class="k">as</span> <span class="n">_RegistryKey</span>
+
+<span class="n">ChannelValue</span> <span class="o">=</span> <span class="n">_Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+<span class="n">ValueMap</span> <span class="o">=</span> <span class="n">_Dict</span><span class="p">[</span><span class="n">_RegistryKey</span><span class="p">,</span> <span class="n">ChannelValue</span><span class="p">]</span>
+
+<span class="n">ChannelResult</span> <span class="o">=</span> <span class="n">_Tuple</span><span class="p">[</span><span class="n">_AnyChannel</span><span class="p">,</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_RuntimeEnum</span><span class="p">]]</span>
+<span class="n">BitfieldResult</span> <span class="o">=</span> <span class="n">_Tuple</span><span class="p">[</span><span class="n">_BitField</span><span class="p">,</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_RuntimeEnum</span><span class="p">]]</span>
+<span class="n">BoolChannelResult</span> <span class="o">=</span> <span class="n">_Tuple</span><span class="p">[</span><span class="n">_BoolChannel</span><span class="p">,</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_RuntimeEnum</span><span class="p">]]</span>
+<span class="n">IntChannelResult</span> <span class="o">=</span> <span class="n">_Tuple</span><span class="p">[</span><span class="n">_IntChannel</span><span class="p">,</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_RuntimeEnum</span><span class="p">]]</span>
+
+
+<div class="viewcode-block" id="BaseChannelEnvironment"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment">[docs]</a><span class="k">class</span> <span class="nc">BaseChannelEnvironment</span><span class="p">(</span><span class="n">_NamespaceMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class integrating channel and enumeration registries.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">channels</span><span class="p">:</span> <span class="n">_ChannelRegistry</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">enums</span><span class="p">:</span> <span class="n">_EnumRegistry</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">values</span><span class="p">:</span> <span class="n">ValueMap</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fields</span><span class="p">:</span> <span class="n">_Iterable</span><span class="p">[</span><span class="n">_BitFields</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this channel environment.&quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">channels</span> <span class="o">=</span> <span class="n">_ChannelRegistry</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">enums</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">enums</span> <span class="o">=</span> <span class="n">_EnumRegistry</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enums</span> <span class="o">=</span> <span class="n">enums</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="n">_BitFieldsManager</span><span class="p">(</span><span class="n">channels</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">enums</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">)</span>
+
+        <span class="c1"># Keep a mapping of each channel&#39;s name and integer identifier to the</span>
+        <span class="c1"># underlying enumeration.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel_enums</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="n">_AnyChannel</span><span class="p">,</span> <span class="n">_RuntimeEnum</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">chan</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">enums</span><span class="p">[</span><span class="n">chan</span><span class="o">.</span><span class="n">enum</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">is_enum</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Organize channel by Python type.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bools</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="n">_BoolChannel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">chan</span>
+            <span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_boolean</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ints</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="n">_IntChannel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">chan</span>
+            <span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_integer</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">floats</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="n">_FloatChannel</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">chan</span> <span class="k">for</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_float</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Apply initial values if they were provided.</span>
+        <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseChannelEnvironment.set"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_RegistryKey</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">ChannelValue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Attempt to set an arbitrary channel value.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Set a field value if this key maps to a bit-field.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">has_field</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">chan</span><span class="p">,</span> <span class="n">enum</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="c1"># Resolve enum values.</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="c1"># Ensure that the channel has an associated enumeration.</span>
+            <span class="k">if</span> <span class="n">enum</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Can&#39;t assign &#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39; to channel &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;!&quot;</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+            <span class="n">value</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">enum</span><span class="o">.</span><span class="n">get_bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">chan</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">is_boolean</span>
+                <span class="k">else</span> <span class="n">enum</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Assign the value to the channel.</span>
+        <span class="n">chan</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="BaseChannelEnvironment.apply"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">ValueMap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply a map of values to the environment.&quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseChannelEnvironment.values"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment.values">[docs]</a>    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resolve_enum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ValueMap</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a new dictionary of current channel values.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">resolve_enum</span><span class="o">=</span><span class="n">resolve_enum</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">names</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="BaseChannelEnvironment.value"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_RegistryKey</span><span class="p">,</span> <span class="n">resolve_enum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ChannelValue</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Attempt to get a channel&#39;s current value.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Get the value from a field if this key points to a bit-field.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">has_field</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">resolve_enum</span><span class="o">=</span><span class="n">resolve_enum</span><span class="p">)</span>
+
+        <span class="n">chan</span><span class="p">,</span> <span class="n">enum</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="n">value</span><span class="p">:</span> <span class="n">ChannelValue</span>
+
+        <span class="c1"># Resolve enumeration values to strings.</span>
+        <span class="k">if</span> <span class="n">enum</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">resolve_enum</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">get_str</span><span class="p">(</span><span class="n">_cast</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">chan</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">chan</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span>
+
+        <span class="k">return</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="BaseChannelEnvironment.get"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">_RegistryKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">ChannelResult</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Attempt to get a channel and its enumeration (if it has one).&quot;&quot;&quot;</span>
+
+        <span class="n">chan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">chan</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">enum</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">chan</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_enums</span><span class="p">:</span>
+            <span class="n">enum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_enums</span><span class="p">[</span><span class="n">chan</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">chan</span><span class="p">,</span> <span class="n">enum</span></div>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_RegistryKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ChannelResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a channel and its enumeration.&quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No channel &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<div class="viewcode-block" id="BaseChannelEnvironment.get_int"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment.get_int">[docs]</a>    <span class="k">def</span> <span class="nf">get_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_RegistryKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IntChannelResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get an integer channel.&quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="c1"># Ensure that this is an integer channel.</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ints</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Channel &#39;</span><span class="si">{key}</span><span class="s2">&#39; is not integer!&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">_cast</span><span class="p">(</span><span class="n">_IntChannel</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseChannelEnvironment.get_bool"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment.get_bool">[docs]</a>    <span class="k">def</span> <span class="nf">get_bool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_RegistryKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BoolChannelResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a boolean channel.&quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="c1"># Ensure that this is an integer channel.</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bools</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Channel &#39;</span><span class="si">{key}</span><span class="s2">&#39; is not boolean!&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">_cast</span><span class="p">(</span><span class="n">_BoolChannel</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseChannelEnvironment.get_float"><a class="viewcode-back" href="../../../../runtimepy.channel.environment.html#runtimepy.channel.environment.base.BaseChannelEnvironment.get_float">[docs]</a>    <span class="k">def</span> <span class="nf">get_float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_RegistryKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_FloatChannel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a floating-point channel.&quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">floats</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Channel &#39;</span><span class="si">{key}</span><span class="s2">&#39; is not a float!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_cast</span><span class="p">(</span><span class="n">_FloatChannel</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if two channel environments are equivalent.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">channels</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">enums</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">enums</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">runtimepy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../runtimepy.html">runtimepy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  <li><a href="../../channel.html">runtimepy.channel</a><ul>
+  <li><a href="../environment.html">runtimepy.channel.environment</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

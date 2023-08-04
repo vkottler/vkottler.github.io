@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>runtimepy.net.tcp.telnet.codes &#8212; runtimepy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for runtimepy.net.tcp.telnet.codes</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Code enumerations relevant to the telnet (RFC 854) protocol.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span> <span class="k">as</span> <span class="n">_IntEnum</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">BinaryIO</span> <span class="k">as</span> <span class="n">_BinaryIO</span>
+
+
+<div class="viewcode-block" id="TelnetCode"><a class="viewcode-back" href="../../../../../runtimepy.net.tcp.telnet.html#runtimepy.net.tcp.telnet.codes.TelnetCode">[docs]</a><span class="k">class</span> <span class="nc">TelnetCode</span><span class="p">(</span><span class="n">_IntEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An enumeration of byte values important to the telnet protocol.&quot;&quot;&quot;</span>
+
+    <span class="c1"># End of subnegotiation parameters.</span>
+    <span class="n">SE</span> <span class="o">=</span> <span class="mi">240</span>
+
+    <span class="c1"># No operation.</span>
+    <span class="n">NOP</span> <span class="o">=</span> <span class="mi">241</span>
+
+    <span class="c1"># The data stream portion of a Synch. This should always be accompanied</span>
+    <span class="c1"># by a TCP Urgent notification.</span>
+    <span class="n">DATA_MARK</span> <span class="o">=</span> <span class="mi">242</span>
+
+    <span class="c1"># NVT character BRK.</span>
+    <span class="n">BREAK</span> <span class="o">=</span> <span class="mi">243</span>
+
+    <span class="c1"># The function IP.</span>
+    <span class="n">IP</span> <span class="o">=</span> <span class="mi">244</span>
+
+    <span class="c1"># The function AO.</span>
+    <span class="n">AO</span> <span class="o">=</span> <span class="mi">245</span>
+
+    <span class="c1"># The function AYT.</span>
+    <span class="n">AYT</span> <span class="o">=</span> <span class="mi">246</span>
+
+    <span class="c1"># The function EC.</span>
+    <span class="n">EC</span> <span class="o">=</span> <span class="mi">247</span>
+
+    <span class="c1"># The function EL.</span>
+    <span class="n">EL</span> <span class="o">=</span> <span class="mi">248</span>
+
+    <span class="c1"># The GA signal.</span>
+    <span class="n">GA</span> <span class="o">=</span> <span class="mi">249</span>
+
+    <span class="c1"># Indicates that what follows is subnegotiation of the indicated</span>
+    <span class="c1"># option.</span>
+    <span class="n">SB</span> <span class="o">=</span> <span class="mi">250</span>
+
+    <span class="c1"># (option code) Indicates the desire to begin performing, or confirmation</span>
+    <span class="c1"># that you are now performing, the indicated option.</span>
+    <span class="n">WILL</span> <span class="o">=</span> <span class="mi">251</span>
+
+    <span class="c1"># (option code) Indicates the refusal to perform, or continue performing,</span>
+    <span class="c1"># the indicated option.</span>
+    <span class="n">WONT</span> <span class="o">=</span> <span class="mi">252</span>
+
+    <span class="c1"># (option code) Indicates the request that the other party perform, or</span>
+    <span class="c1"># confirmation that you are expecting the other party to perform, the</span>
+    <span class="c1"># indicated option.</span>
+    <span class="n">DO</span> <span class="o">=</span> <span class="mi">253</span>
+
+    <span class="c1"># (option code) Indicates the demand that the other party stop performing,</span>
+    <span class="c1"># or confirmation that you are no longer expecting the other party</span>
+    <span class="c1"># to perform, the indicated option.</span>
+    <span class="n">DONT</span> <span class="o">=</span> <span class="mi">254</span>
+
+    <span class="c1"># Data Byte 255.</span>
+    <span class="n">IAC</span> <span class="o">=</span> <span class="mi">255</span>
+
+<div class="viewcode-block" id="TelnetCode.is_option_code"><a class="viewcode-back" href="../../../../../runtimepy.net.tcp.telnet.html#runtimepy.net.tcp.telnet.codes.TelnetCode.is_option_code">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">is_option_code</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if the integer value is an option code.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TelnetCode</span><span class="o">.</span><span class="n">WILL</span> <span class="o">&lt;=</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="n">TelnetCode</span><span class="o">.</span><span class="n">DONT</span></div></div>
+
+
+<div class="viewcode-block" id="TelnetNvt"><a class="viewcode-back" href="../../../../../runtimepy.net.tcp.telnet.html#runtimepy.net.tcp.telnet.codes.TelnetNvt">[docs]</a><span class="k">class</span> <span class="nc">TelnetNvt</span><span class="p">(</span><span class="n">_IntEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Telnet data relevant to the NVT printer and keyboard.&quot;&quot;&quot;</span>
+
+    <span class="c1"># NULL: No Operation</span>
+    <span class="n">NUL</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Line Feed: Moves the printer to the next print line, keeping the</span>
+    <span class="c1"># same horizontal position.</span>
+    <span class="n">LF</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="c1"># Carriage Return: Moves the printer to the left margin of the current</span>
+    <span class="c1"># line.</span>
+    <span class="n">CR</span> <span class="o">=</span> <span class="mi">13</span>
+
+    <span class="c1"># BELL: Produces an audible or visible signal (which does NOT move the</span>
+    <span class="c1"># print head).</span>
+    <span class="n">BEL</span> <span class="o">=</span> <span class="mi">7</span>
+
+    <span class="c1"># Back Space: Moves the print head one character position towards the left</span>
+    <span class="c1"># margin.</span>
+    <span class="n">BS</span> <span class="o">=</span> <span class="mi">8</span>
+
+    <span class="c1"># Horizontal Tab: Moves the printer to the next horizontal tab stop.</span>
+    <span class="c1"># It remains unspecified how either party determines or establishes where</span>
+    <span class="c1"># such tab stops are located.</span>
+    <span class="n">HT</span> <span class="o">=</span> <span class="mi">9</span>
+
+    <span class="c1"># Vertical Tab: Moves the printer to the next vertical tab stop. It</span>
+    <span class="c1"># remains unspecified how either party determines or establishes where such</span>
+    <span class="c1"># tab stops are located.</span>
+    <span class="n">VT</span> <span class="o">=</span> <span class="mi">11</span>
+
+    <span class="c1"># Moves the printer to the top of the next page, keeping the same</span>
+    <span class="c1"># horizontal position.</span>
+    <span class="n">FF</span> <span class="o">=</span> <span class="mi">12</span>
+
+<div class="viewcode-block" id="TelnetNvt.to_stream"><a class="viewcode-back" href="../../../../../runtimepy.net.tcp.telnet.html#runtimepy.net.tcp.telnet.codes.TelnetNvt.to_stream">[docs]</a>    <span class="k">def</span> <span class="nf">to_stream</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">_BinaryIO</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add text to the provided stream based on this NVT instance. Return</span>
+<span class="sd">        whether or not any data was written to the stream.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="bp">self</span> <span class="ow">is</span> <span class="n">TelnetNvt</span><span class="o">.</span><span class="n">CR</span>
+            <span class="ow">or</span> <span class="bp">self</span> <span class="ow">is</span> <span class="n">TelnetNvt</span><span class="o">.</span><span class="n">LF</span>
+            <span class="ow">or</span> <span class="bp">self</span> <span class="ow">is</span> <span class="n">TelnetNvt</span><span class="o">.</span><span class="n">HT</span>
+        <span class="p">):</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="bp">self</span><span class="p">]))</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="TelnetNvt.is_nvt"><a class="viewcode-back" href="../../../../../runtimepy.net.tcp.telnet.html#runtimepy.net.tcp.telnet.codes.TelnetNvt.is_nvt">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">is_nvt</span><span class="p">(</span><span class="n">val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if a byte value is an NVT printer or keyboard code.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">7</span> <span class="o">&lt;=</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="mi">13</span></div></div>
+
+
+<span class="n">NEWLINE</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">TelnetNvt</span><span class="o">.</span><span class="n">CR</span><span class="p">,</span> <span class="n">TelnetNvt</span><span class="o">.</span><span class="n">LF</span><span class="p">])</span>
+<span class="n">CARRIAGE_RETURN</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">TelnetNvt</span><span class="o">.</span><span class="n">CR</span><span class="p">,</span> <span class="n">TelnetNvt</span><span class="o">.</span><span class="n">NUL</span><span class="p">])</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../../index.html">runtimepy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../runtimepy.html">runtimepy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../../index.html">Module code</a><ul>
+  <li><a href="../telnet.html">runtimepy.net.tcp.telnet</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rcmpy.environment.template &#8212; rcmpy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for rcmpy.environment.template</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">An environment extension for working with template files.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">datazen.templates</span> <span class="kn">import</span> <span class="n">environment</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">FileSystemLoader</span><span class="p">,</span> <span class="n">Template</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths.info</span> <span class="kn">import</span> <span class="n">FileChangeEvent</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths.info_cache</span> <span class="kn">import</span> <span class="n">FileChanged</span><span class="p">,</span> <span class="n">file_info_cache</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">rcmpy.config</span> <span class="kn">import</span> <span class="n">ManagedFile</span>
+<span class="kn">from</span> <span class="nn">rcmpy.environment.base</span> <span class="kn">import</span> <span class="n">BaseEnvironment</span>
+<span class="kn">from</span> <span class="nn">rcmpy.environment.data</span> <span class="kn">import</span> <span class="n">system_data</span>
+
+
+<div class="viewcode-block" id="EnvTemplate"><a class="viewcode-back" href="../../../rcmpy.environment.html#rcmpy.environment.template.EnvTemplate">[docs]</a><span class="k">class</span> <span class="nc">EnvTemplate</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A data structure for keeping track of environment templates. If &#39;template&#39;</span>
+<span class="sd">    is None, it signals that the template does not require rendering.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span>
+    <span class="n">subdir</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">template</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Template</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="template_name"><a class="viewcode-back" href="../../../rcmpy.environment.html#rcmpy.environment.template.template_name">[docs]</a><span class="k">def</span> <span class="nf">template_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determine if a name is a template and remove the template suffix if</span>
+<span class="sd">    applicable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">is_template</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.j2&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_template</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">is_template</span><span class="p">,</span> <span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="TemplateEnvironment"><a class="viewcode-back" href="../../../rcmpy.environment.html#rcmpy.environment.template.TemplateEnvironment">[docs]</a><span class="k">class</span> <span class="nc">TemplateEnvironment</span><span class="p">(</span><span class="n">BaseEnvironment</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class implementing template management for this package&#39;s runtime</span>
+<span class="sd">    environment.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">templates</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="n">EnvTemplate</span><span class="p">]</span>
+    <span class="n">templates_by_name</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">EnvTemplate</span><span class="p">]</span>
+    <span class="n">jinja</span><span class="p">:</span> <span class="n">Environment</span>
+
+<div class="viewcode-block" id="TemplateEnvironment.is_updated"><a class="viewcode-back" href="../../../rcmpy.environment.html#rcmpy.environment.template.TemplateEnvironment.is_updated">[docs]</a>    <span class="k">def</span> <span class="nf">is_updated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">ManagedFile</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine if a managed file is updated or not (based on template</span>
+<span class="sd">        changes).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">template</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">updated_template_names</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span>
+            <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">updated_template_names</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">extra_templates</span>
+        <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_load_templates</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load template information to the environment.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Keep track of templates by name.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">templates</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">templates_by_name</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">jinja</span><span class="o">.</span><span class="n">list_templates</span><span class="p">():</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jinja</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="c1"># We know all templates are files.</span>
+            <span class="k">assert</span> <span class="n">obj</span><span class="o">.</span><span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+            <span class="n">is_template</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">template_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="c1"># Keep track of template paths and their templates.</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+            <span class="n">new</span> <span class="o">=</span> <span class="n">EnvTemplate</span><span class="p">(</span>
+                <span class="n">name</span><span class="p">,</span>
+                <span class="n">path</span><span class="p">,</span>
+                <span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">obj</span> <span class="k">if</span> <span class="n">is_template</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">templates</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">templates_by_name</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span>
+
+    <span class="k">def</span> <span class="nf">_init_templates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template_names</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the template environment based on a set of template names</span>
+<span class="sd">        that may be relevant to some task.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># The variant&#39;s template directory takes precedence.</span>
+        <span class="n">candidates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">root_directories</span><span class="p">(</span>
+            <span class="s2">&quot;templates&quot;</span><span class="p">,</span> <span class="n">common_first</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Prefer variant templates, if the variant template-directory</span>
+        <span class="c1"># exists.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jinja</span> <span class="o">=</span> <span class="n">environment</span><span class="p">(</span>
+            <span class="n">loader</span><span class="o">=</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="n">followlinks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_templates</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">poll_cb</span><span class="p">(</span><span class="n">change</span><span class="p">:</span> <span class="n">FileChanged</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Aggregate paths of templates that have been updated.&quot;&quot;&quot;</span>
+
+            <span class="k">if</span> <span class="n">change</span><span class="o">.</span><span class="n">event</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">FileChangeEvent</span><span class="o">.</span><span class="n">REMOVED</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">change</span><span class="o">.</span><span class="n">new</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">change</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">path</span>
+
+                <span class="n">subdir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">template_name</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+                <span class="c1"># Don&#39;t acknowledge changes to any files that aren&#39;t active</span>
+                <span class="c1"># templates.</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">template_names</span>
+                    <span class="ow">or</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">templates_by_name</span>
+                <span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+
+                <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">templates_by_name</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+                <span class="c1"># If a version of a template that&#39;s not currently used has</span>
+                <span class="c1"># changed, don&#39;t acknowledge the change either.</span>
+                <span class="k">if</span> <span class="n">subdir</span> <span class="o">!=</span> <span class="n">template</span><span class="o">.</span><span class="n">subdir</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">updated_templates</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">updated_template_names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">templates</span><span class="p">[</span><span class="n">path</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="n">template_changes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span>
+            <span class="n">file_info_cache</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;templates.json&quot;</span><span class="p">),</span>
+                <span class="n">poll_cb</span><span class="p">,</span>
+                <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Poll template directories.</span>
+        <span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+            <span class="n">template_changes</span><span class="o">.</span><span class="n">poll_directory</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+
+        <span class="c1"># Log info about detected template changes.</span>
+        <span class="k">for</span> <span class="n">changed</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">updated_templates</span><span class="p">:</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">templates</span><span class="p">[</span><span class="n">changed</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;Detected change for template &#39;</span><span class="si">%s</span><span class="s2">&#39; (</span><span class="si">%s</span><span class="s2">).&quot;</span><span class="p">,</span>
+                <span class="n">template</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">template</span><span class="o">.</span><span class="n">subdir</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">_init_loaded</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called during initialization if a valid configuration is loaded.&quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_init_loaded</span><span class="p">()</span>
+
+        <span class="c1"># Ensure double initialization isn&#39;t possible (use an arbitrary</span>
+        <span class="c1"># attribute set here to detect this).</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;jinja&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Templates that are newly updated on this iteration.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updated_templates</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updated_template_names</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="c1"># Add additional information to template data.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env_data</span> <span class="o">=</span> <span class="n">system_data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">template_data</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">configs</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="s2">&quot;env&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">template_data</span><span class="p">[</span><span class="s2">&quot;env&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env_data</span>
+
+        <span class="k">return</span> <span class="n">result</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_templates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">templates</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">rcmpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../rcmpy.html">rcmpy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  <li><a href="../environment.html">rcmpy.environment</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

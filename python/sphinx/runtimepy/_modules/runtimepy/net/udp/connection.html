@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>runtimepy.net.udp.connection &#8212; runtimepy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for runtimepy.net.udp.connection</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module implementing a UDP connection interface.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">abstractmethod</span> <span class="k">as</span> <span class="n">_abstractmethod</span>
+<span class="kn">import</span> <span class="nn">asyncio</span> <span class="k">as</span> <span class="nn">_asyncio</span>
+<span class="kn">from</span> <span class="nn">asyncio</span> <span class="kn">import</span> <span class="n">DatagramProtocol</span> <span class="k">as</span> <span class="n">_DatagramProtocol</span>
+<span class="kn">from</span> <span class="nn">asyncio</span> <span class="kn">import</span> <span class="n">DatagramTransport</span> <span class="k">as</span> <span class="n">_DatagramTransport</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">suppress</span> <span class="k">as</span> <span class="n">_suppress</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span> <span class="k">as</span> <span class="n">_getLogger</span>
+<span class="kn">import</span> <span class="nn">socket</span> <span class="k">as</span> <span class="nn">_socket</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span> <span class="k">as</span> <span class="n">_Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span> <span class="k">as</span> <span class="n">_Type</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypeVar</span> <span class="k">as</span> <span class="n">_TypeVar</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.logging</span> <span class="kn">import</span> <span class="n">LoggerType</span> <span class="k">as</span> <span class="n">_LoggerType</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">runtimepy.net</span> <span class="kn">import</span> <span class="n">IpHost</span><span class="p">,</span> <span class="n">get_free_socket</span><span class="p">,</span> <span class="n">normalize_host</span>
+<span class="kn">from</span> <span class="nn">runtimepy.net.connection</span> <span class="kn">import</span> <span class="n">BinaryMessage</span> <span class="k">as</span> <span class="n">_BinaryMessage</span>
+<span class="kn">from</span> <span class="nn">runtimepy.net.connection</span> <span class="kn">import</span> <span class="n">Connection</span> <span class="k">as</span> <span class="n">_Connection</span>
+<span class="kn">from</span> <span class="nn">runtimepy.net.connection</span> <span class="kn">import</span> <span class="n">EchoConnection</span> <span class="k">as</span> <span class="n">_EchoConnection</span>
+<span class="kn">from</span> <span class="nn">runtimepy.net.connection</span> <span class="kn">import</span> <span class="n">NullConnection</span> <span class="k">as</span> <span class="n">_NullConnection</span>
+<span class="kn">from</span> <span class="nn">runtimepy.net.mixin</span> <span class="kn">import</span> <span class="n">TransportMixin</span> <span class="k">as</span> <span class="n">_TransportMixin</span>
+
+<span class="n">LOG</span> <span class="o">=</span> <span class="n">_getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="UdpQueueProtocol"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpQueueProtocol">[docs]</a><span class="k">class</span> <span class="nc">UdpQueueProtocol</span><span class="p">(</span><span class="n">_DatagramProtocol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A simple UDP protocol that populates a message queue.&quot;&quot;&quot;</span>
+
+    <span class="n">logger</span><span class="p">:</span> <span class="n">_LoggerType</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this protocol.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">:</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">[</span>
+            <span class="n">_Tuple</span><span class="p">[</span><span class="n">_BinaryMessage</span><span class="p">,</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue_hwm</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="UdpQueueProtocol.datagram_received"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpQueueProtocol.datagram_received">[docs]</a>    <span class="k">def</span> <span class="nf">datagram_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle incoming data.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">put_nowait</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="n">addr</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue_hwm</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue_hwm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">qsize</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="UdpQueueProtocol.error_received"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpQueueProtocol.error_received">[docs]</a>    <span class="k">def</span> <span class="nf">error_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log any received errors.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span></div></div>
+
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">_TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;UdpConnection&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="UdpConnection"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection">[docs]</a><span class="k">class</span> <span class="nc">UdpConnection</span><span class="p">(</span><span class="n">_Connection</span><span class="p">,</span> <span class="n">_TransportMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A UDP connection interface.&quot;&quot;&quot;</span>
+
+    <span class="c1"># UDP connections send datagrams directly without going through queues.</span>
+    <span class="n">uses_text_tx_queue</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">uses_binary_tx_queue</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">transport</span><span class="p">:</span> <span class="n">_DatagramTransport</span><span class="p">,</span> <span class="n">protocol</span><span class="p">:</span> <span class="n">UdpQueueProtocol</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this UDP connection.&quot;&quot;&quot;</span>
+
+        <span class="n">_TransportMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transport</span><span class="p">)</span>
+
+        <span class="c1"># Re-assign with updated type information.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transport</span><span class="p">:</span> <span class="n">_DatagramTransport</span> <span class="o">=</span> <span class="n">transport</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span> <span class="o">=</span> <span class="n">protocol</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_getLogger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger_name</span><span class="p">(</span><span class="s2">&quot;UDP &quot;</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span>
+
+<div class="viewcode-block" id="UdpConnection.set_remote_address"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection.set_remote_address">[docs]</a>    <span class="k">def</span> <span class="nf">set_remote_address</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="n">IpHost</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set a new remote address. Note that this doesn&#39;t interact with or</span>
+<span class="sd">        attempt to &#39;connect&#39; the underlying socket. That should be done at</span>
+<span class="sd">        creation time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_address</span> <span class="o">=</span> <span class="n">addr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">_getLogger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger_name</span><span class="p">(</span><span class="s2">&quot;UDP &quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span></div>
+
+<div class="viewcode-block" id="UdpConnection.process_datagram"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection.process_datagram">[docs]</a>    <span class="nd">@_abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">process_datagram</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Process a datagram.&quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="UdpConnection.sendto"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection.sendto">[docs]</a>    <span class="k">def</span> <span class="nf">sendto</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="n">IpHost</span><span class="p">,</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send to a specific address.&quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_transport</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="n">addr</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">tx</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+        <span class="c1"># Catch a bug in the underlying event loop implementation - we try to</span>
+        <span class="c1"># send, but the underlying socket is gone (e.g. attribute is &#39;None&#39;).</span>
+        <span class="c1"># This seems to be possible (but intermittent) when shutting down the</span>
+        <span class="c1"># application.</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disable</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="UdpConnection.send_text"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection.send_text">[docs]</a>    <span class="k">def</span> <span class="nf">send_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enqueue a text message to send.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">remote_address</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UdpConnection.send_binary"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection.send_binary">[docs]</a>    <span class="k">def</span> <span class="nf">send_binary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">_BinaryMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enqueue a binary message tos end.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">remote_address</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UdpConnection.create_connection"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection.create_connection">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">create_connection</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">:</span> <span class="n">_Type</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">connect</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a UDP connection.&quot;&quot;&quot;</span>
+
+        <span class="n">eloop</span> <span class="o">=</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+
+        <span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;kwargs: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># If the caller specifies a remote address but doesn&#39;t want a connected</span>
+        <span class="c1"># socket, handle this after initial creation.</span>
+        <span class="n">remote_addr</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">connect</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;remote_addr&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">remote_addr</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;remote_addr&quot;</span><span class="p">)</span>
+
+            <span class="c1"># If only &#39;remote_addr&#39; was specified, that&#39;s normally enough to</span>
+            <span class="c1"># create the socket. Since we would have popped it, we now need</span>
+            <span class="c1"># to specify a local address.</span>
+            <span class="k">if</span> <span class="s2">&quot;local_addr&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;local_addr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;family&quot;</span><span class="p">,</span> <span class="n">_socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">)</span>
+
+        <span class="n">transport</span><span class="p">:</span> <span class="n">_DatagramTransport</span>
+        <span class="p">(</span>
+            <span class="n">transport</span><span class="p">,</span>
+            <span class="n">protocol</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="k">await</span> <span class="n">eloop</span><span class="o">.</span><span class="n">create_datagram_endpoint</span><span class="p">(</span><span class="n">UdpQueueProtocol</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">conn</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">transport</span><span class="p">,</span> <span class="n">protocol</span><span class="p">)</span>
+
+        <span class="c1"># Set the remote address manually if necessary.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">connect</span> <span class="ow">and</span> <span class="n">remote_addr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">set_remote_address</span><span class="p">(</span><span class="n">normalize_host</span><span class="p">(</span><span class="o">*</span><span class="n">remote_addr</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">conn</span></div>
+
+<div class="viewcode-block" id="UdpConnection.create_pair"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection.create_pair">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">create_pair</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">_Type</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_Tuple</span><span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a connection pair.&quot;&quot;&quot;</span>
+
+        <span class="c1"># On Windows, local UDP sockets can&#39;t even be connected until the</span>
+        <span class="c1"># receiving port is bound.</span>
+        <span class="n">sock1</span> <span class="o">=</span> <span class="n">get_free_socket</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="n">_socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+        <span class="n">sock2</span> <span class="o">=</span> <span class="n">get_free_socket</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="n">_socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+
+        <span class="c1"># On Windows, local address &#39;0.0.0.0&#39; (returned by getsockname()) isn&#39;t</span>
+        <span class="c1"># valid to connect to.</span>
+        <span class="n">sock1</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">sock2</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">sock2</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">sock1</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="n">conn1</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">cls</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="n">sock</span><span class="o">=</span><span class="n">sock1</span><span class="p">)</span>
+        <span class="n">conn2</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">cls</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="n">sock</span><span class="o">=</span><span class="n">sock2</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">conn1</span><span class="o">.</span><span class="n">remote_address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">assert</span> <span class="n">conn2</span><span class="o">.</span><span class="n">remote_address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">conn1</span><span class="p">,</span> <span class="n">conn2</span></div>
+
+<div class="viewcode-block" id="UdpConnection.close"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.UdpConnection.close">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close this connection.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transport</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_process_read</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Process incoming messages while this connection is active.&quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="n">_suppress</span><span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">):</span>
+            <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enabled</span><span class="p">:</span>
+                <span class="c1"># Attempt to get the next message.</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+
+                <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_datagram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">message</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">rx</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+                <span class="c1"># If we failed to read a message, disable.</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">disable</span><span class="p">(</span><span class="s2">&quot;read processing error&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EchoUdpConnection"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.EchoUdpConnection">[docs]</a><span class="k">class</span> <span class="nc">EchoUdpConnection</span><span class="p">(</span><span class="n">UdpConnection</span><span class="p">,</span> <span class="n">_EchoConnection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An echo connection for UDP.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EchoUdpConnection.process_datagram"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.EchoUdpConnection.process_datagram">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">process_datagram</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Process a datagram.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="n">addr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+
+
+<div class="viewcode-block" id="NullUdpConnection"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.NullUdpConnection">[docs]</a><span class="k">class</span> <span class="nc">NullUdpConnection</span><span class="p">(</span><span class="n">UdpConnection</span><span class="p">,</span> <span class="n">_NullConnection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A null UDP connection.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="NullUdpConnection.process_datagram"><a class="viewcode-back" href="../../../../runtimepy.net.udp.html#runtimepy.net.factories.NullUdpConnection.process_datagram">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">process_datagram</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">addr</span><span class="p">:</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Process a datagram.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">runtimepy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../runtimepy.html">runtimepy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

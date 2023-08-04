@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>yambs.translation package &#8212; yambs  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="yambs.uf2 package" href="yambs.uf2.html" />
+    <link rel="prev" title="yambs.github package" href="yambs.github.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="yambs-translation-package">
+<h1>yambs.translation package<a class="headerlink" href="#yambs-translation-package" title="Permalink to this heading">¶</a></h1>
+<section id="module-yambs.translation">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yambs.translation" title="Permalink to this heading">¶</a></h2>
+<p>A module with interfaces for describing how sources are translated into
+outputs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="yambs.translation.SourceTranslator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.translation.</span></span><span class="sig-name descname"><span class="pre">SourceTranslator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cc'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'.o'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('$build_dir')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/translation.html#SourceTranslator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.translation.SourceTranslator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A structure for keeping track of how source files become different types
+of output files.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yambs.translation.SourceTranslator.dest">
+<span class="sig-name descname"><span class="pre">dest</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#yambs.translation.SourceTranslator.dest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="yambs.translation.SourceTranslator.generated_header">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generated_header</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#yambs.translation.SourceTranslator.generated_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this translation produces a header file.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="yambs.translation.SourceTranslator.gets_linked">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gets_linked</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#yambs.translation.SourceTranslator.gets_linked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this source’s output gets linked into a final image or
+executable.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.translation.SourceTranslator.output">
+<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/yambs/translation.html#SourceTranslator.output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.translation.SourceTranslator.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the output file from a given path.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yambs.translation.SourceTranslator.output_extension">
+<span class="sig-name descname"><span class="pre">output_extension</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#yambs.translation.SourceTranslator.output_extension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yambs.translation.SourceTranslator.rule">
+<span class="sig-name descname"><span class="pre">rule</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#yambs.translation.SourceTranslator.rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.translation.get_translator">
+<span class="sig-prename descclassname"><span class="pre">yambs.translation.</span></span><span class="sig-name descname"><span class="pre">get_translator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#yambs.translation.SourceTranslator" title="yambs.translation.SourceTranslator"><span class="pre">SourceTranslator</span></a></span></span><a class="reference internal" href="_modules/yambs/translation.html#get_translator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.translation.get_translator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the source translator for a given source.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.translation.is_header">
+<span class="sig-prename descclassname"><span class="pre">yambs.translation.</span></span><span class="sig-name descname"><span class="pre">is_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/yambs/translation.html#is_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.translation.is_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>determine if a path points to a header file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.translation.is_source">
+<span class="sig-prename descclassname"><span class="pre">yambs.translation.</span></span><span class="sig-name descname"><span class="pre">is_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#yambs.translation.SourceTranslator" title="yambs.translation.SourceTranslator"><span class="pre">SourceTranslator</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/translation.html#is_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.translation.is_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a file is a source file.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">yambs</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="yambs.html">yambs package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="yambs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html">yambs.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.config.html">yambs.config package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.dependency.html">yambs.dependency package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.dist.html">yambs.dist package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.environment.html">yambs.environment package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html">yambs.generate package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.github.html">yambs.github package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">yambs.translation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-yambs.translation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.uf2.html">yambs.uf2 package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.app">yambs.app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.entry">yambs.entry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.schemas">yambs.schemas module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="yambs.html">yambs package</a><ul>
+      <li>Previous: <a href="yambs.github.html" title="previous chapter">yambs.github package</a></li>
+      <li>Next: <a href="yambs.uf2.html" title="next chapter">yambs.uf2 package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/yambs.translation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

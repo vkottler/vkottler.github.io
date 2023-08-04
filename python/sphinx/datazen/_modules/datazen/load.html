@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>datazen.load &#8212; datazen  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for datazen.load</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">datazen - APIs for loading data from directory trees.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict</span> <span class="kn">import</span> <span class="n">GenericStrDict</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io.types</span> <span class="kn">import</span> <span class="n">LoadResult</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths</span> <span class="kn">import</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="n">get_file_name</span><span class="p">,</span> <span class="n">normalize</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">datazen</span> <span class="kn">import</span> <span class="n">GLOBAL_KEY</span>
+<span class="kn">from</span> <span class="nn">datazen.parsing</span> <span class="kn">import</span> <span class="n">load</span> <span class="k">as</span> <span class="n">load_raw_resolve</span>
+<span class="kn">from</span> <span class="nn">datazen.parsing</span> <span class="kn">import</span> <span class="n">set_file_hash</span>
+<span class="kn">from</span> <span class="nn">datazen.paths</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">advance_dict_by_path</span><span class="p">,</span>
+    <span class="n">get_path_list</span><span class="p">,</span>
+    <span class="n">walk_with_excludes</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="LoadedFiles"><a class="viewcode-back" href="../../datazen.html#datazen.load.LoadedFiles">[docs]</a><span class="k">class</span> <span class="nc">LoadedFiles</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A collection of data for files loaded at runtime (or, a continuation of</span>
+<span class="sd">    this information loaded from a cache).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">files</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">file_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">GenericStrDict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<span class="n">DEFAULT_LOADS</span> <span class="o">=</span> <span class="n">LoadedFiles</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="data_added"><a class="viewcode-back" href="../../datazen.html#datazen.load.data_added">[docs]</a><span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">data_added</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">GenericStrDict</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">GenericStrDict</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inject a key-value pair into a dictionary, in a context.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">data</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="meld_and_resolve"><a class="viewcode-back" href="../../datazen.html#datazen.load.meld_and_resolve">[docs]</a><span class="k">def</span> <span class="nf">meld_and_resolve</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span>
+    <span class="n">existing_data</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span>
+    <span class="n">variables</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span>
+    <span class="n">globals_added</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">is_template</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Meld dictionary data from a file into an existing dictionary, assume</span>
+<span class="sd">    existing data is a template and attempt to resolve variables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">variables_root</span><span class="p">:</span> <span class="n">GenericStrDict</span> <span class="o">=</span> <span class="n">variables</span>
+
+    <span class="c1"># allow directory/.{file_type} to be equivalent to directory.{file_type}</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">get_file_name</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="p">:</span>
+        <span class="n">data_dict</span> <span class="o">=</span> <span class="n">existing_data</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">existing_data</span><span class="p">:</span>
+            <span class="n">existing_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">data_dict</span> <span class="o">=</span> <span class="n">existing_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+            <span class="n">variables</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="c1"># meld the data</span>
+    <span class="n">global_add_success</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">globals_added</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">GLOBAL_KEY</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+            <span class="n">variables</span><span class="p">[</span><span class="n">GLOBAL_KEY</span><span class="p">]</span> <span class="o">=</span> <span class="n">variables_root</span><span class="p">[</span><span class="n">GLOBAL_KEY</span><span class="p">]</span>
+            <span class="n">global_add_success</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">load_raw_resolve</span><span class="p">(</span>
+        <span class="n">path</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">expect_overwrite</span><span class="p">,</span> <span class="n">is_template</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">global_add_success</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">variables</span><span class="p">[</span><span class="n">GLOBAL_KEY</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span></div>
+
+
+<div class="viewcode-block" id="load_dir"><a class="viewcode-back" href="../../datazen.html#datazen.load.load_dir">[docs]</a><span class="k">def</span> <span class="nf">load_dir</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span>
+    <span class="n">existing_data</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span>
+    <span class="n">variables</span><span class="p">:</span> <span class="n">GenericStrDict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">loads</span><span class="p">:</span> <span class="n">LoadedFiles</span> <span class="o">=</span> <span class="n">DEFAULT_LOADS</span><span class="p">,</span>
+    <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">are_templates</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">=</span> <span class="n">LOG</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LoadResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load a directory tree into a dictionary, optionally meld.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">variables</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">variables</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">total_errors</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">walk_with_excludes</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;loading &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="n">root</span><span class="p">)</span>
+
+        <span class="n">path_list</span> <span class="o">=</span> <span class="n">get_path_list</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">root</span><span class="p">)</span>
+        <span class="n">variable_data</span> <span class="o">=</span> <span class="n">advance_dict_by_path</span><span class="p">(</span><span class="n">path_list</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
+
+        <span class="c1"># expose data globally, if it was provided</span>
+        <span class="n">added_globals</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">GLOBAL_KEY</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variable_data</span><span class="p">:</span>
+            <span class="n">variable_data</span><span class="p">[</span><span class="n">GLOBAL_KEY</span><span class="p">]</span> <span class="o">=</span> <span class="n">variables</span>
+            <span class="n">added_globals</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;can&#39;t add &#39;global&#39; data to &#39;</span><span class="si">%s</span><span class="s2">&#39;, key was already found&quot;</span><span class="p">,</span>
+                <span class="n">root</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># extend the provided list of files that were newly loaded, or at</span>
+        <span class="c1"># least have new content</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span>
+            <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">],</span> <span class="n">files</span><span class="p">),</span>
+            <span class="n">root</span><span class="p">,</span>
+            <span class="p">(</span>
+                <span class="n">advance_dict_by_path</span><span class="p">(</span><span class="n">path_list</span><span class="p">,</span> <span class="n">existing_data</span><span class="p">),</span>
+                <span class="n">variable_data</span><span class="p">,</span>
+                <span class="n">added_globals</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">loads</span><span class="o">.</span><span class="n">file_data</span><span class="p">,</span>
+            <span class="n">expect_overwrite</span><span class="p">,</span>
+            <span class="n">are_templates</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">new</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> errors loading &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">new</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">root</span><span class="p">)</span>
+        <span class="n">total_errors</span> <span class="o">+=</span> <span class="n">new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">loads</span><span class="o">.</span><span class="n">files</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">loads</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">added_globals</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">variable_data</span><span class="p">[</span><span class="n">GLOBAL_KEY</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">LoadResult</span><span class="p">(</span><span class="n">existing_data</span><span class="p">,</span> <span class="n">total_errors</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_dir_only"><a class="viewcode-back" href="../../datazen.html#datazen.load.load_dir_only">[docs]</a><span class="k">def</span> <span class="nf">load_dir_only</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span>
+    <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">are_templates</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">=</span> <span class="n">LOG</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LoadResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A convenient wrapper for loading just directory data from a path without</span>
+<span class="sd">    worrying about melding data, resolving variables, enforcing schemas, etc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">load_dir</span><span class="p">(</span>
+        <span class="n">path</span><span class="p">,</span>
+        <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">),</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">DEFAULT_LOADS</span><span class="p">,</span>
+        <span class="n">expect_overwrite</span><span class="p">,</span>
+        <span class="n">are_templates</span><span class="p">,</span>
+        <span class="n">logger</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_files"><a class="viewcode-back" href="../../datazen.html#datazen.load.load_files">[docs]</a><span class="k">def</span> <span class="nf">load_files</span><span class="p">(</span>
+    <span class="n">file_paths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">],</span>
+    <span class="n">root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">meld_data</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">GenericStrDict</span><span class="p">,</span> <span class="n">GenericStrDict</span><span class="p">,</span> <span class="nb">bool</span><span class="p">],</span>
+    <span class="n">hashes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">GenericStrDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">are_templates</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load files into a dictionary and return a list of the files that are</span>
+<span class="sd">    new or had hash mismatches.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">new_or_changed</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># load (or meld) data</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">file_paths</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="n">meld_and_resolve</span><span class="p">(</span>
+            <span class="n">full_path</span><span class="p">,</span>
+            <span class="n">meld_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">meld_data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">meld_data</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">expect_overwrite</span><span class="p">,</span>
+            <span class="n">are_templates</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">errors</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="ow">not</span> <span class="n">success</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">success</span> <span class="ow">and</span> <span class="n">hashes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="n">set_file_hash</span><span class="p">(</span><span class="n">hashes</span><span class="p">,</span> <span class="n">full_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+            <span class="n">new_or_changed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_or_changed</span><span class="p">,</span> <span class="n">errors</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">datazen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../datazen.html">datazen package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  <li><a href="../datazen.html">datazen</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rcmpy.state &#8212; rcmpy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for rcmpy.state</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module implementing this package&#39;s stateful information that persists across</span>
+<span class="sd">invocations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ExitStack</span><span class="p">,</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict</span> <span class="kn">import</span> <span class="n">merge</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict.cache</span> <span class="kn">import</span> <span class="n">FileCache</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io</span> <span class="kn">import</span> <span class="n">ARBITER</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io.types</span> <span class="kn">import</span> <span class="n">DataStream</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io.types</span> <span class="kn">import</span> <span class="n">JsonObject</span> <span class="k">as</span> <span class="n">_JsonObject</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths</span> <span class="kn">import</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="n">normalize</span><span class="p">,</span> <span class="n">rel</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">rcmpy.paths</span> <span class="kn">import</span> <span class="n">default_config_directory</span><span class="p">,</span> <span class="n">default_state_directory</span>
+<span class="kn">from</span> <span class="nn">rcmpy.schemas</span> <span class="kn">import</span> <span class="n">RcmpyDictCodec</span> <span class="k">as</span> <span class="n">_RcmpyDictCodec</span>
+
+<span class="n">LOG</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="State"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.State">[docs]</a><span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">_RcmpyDictCodec</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The top-level configuration object for the package.&quot;&quot;&quot;</span>
+
+    <span class="n">directory</span><span class="p">:</span> <span class="n">Path</span>
+    <span class="n">variant</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">variables_new</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">configs_new</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">manifest</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="n">manifest_new</span><span class="p">:</span> <span class="nb">bool</span>
+
+<div class="viewcode-block" id="State.init"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.State.init">[docs]</a>    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">_JsonObject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform implementation-specific initialization.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">LOG</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span>
+            <span class="n">cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;directory&quot;</span><span class="p">,</span> <span class="n">default_config_directory</span><span class="p">()))</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using directory &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">rel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;variant&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using variant &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">)</span>
+
+        <span class="n">data</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;previous&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;previous&quot;</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;variant&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Variables.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variables_new</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;variables&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_variables</span><span class="p">()</span>
+
+        <span class="c1"># Configs.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs_new</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;configs&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_configs</span><span class="p">()</span>
+
+        <span class="c1"># Manifest configuration.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">manifest</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span>
+            <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;manifest&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">manifest_new</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="State.is_new"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.State.is_new">[docs]</a>    <span class="k">def</span> <span class="nf">is_new</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if state has changed.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">variant</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="p">[</span><span class="s2">&quot;variant&quot;</span><span class="p">]</span>
+            <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">variables_new</span>
+            <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs_new</span>
+            <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">manifest_new</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="State.update_manifest"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.State.update_manifest">[docs]</a>    <span class="k">def</span> <span class="nf">update_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set new manifest data.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">manifest_new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manifest</span> <span class="o">!=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">manifest</span> <span class="o">=</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="State.root_directories"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.State.root_directories">[docs]</a>    <span class="k">def</span> <span class="nf">root_directories</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">subdir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">common_first</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get up to a pair of directories from some sub-directory of the current</span>
+<span class="sd">        root.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">subdir</span><span class="p">)</span>
+
+        <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;common&quot;</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">common_first</span><span class="p">:</span>
+                <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">candidates</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">candidates</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()]</span></div>
+
+    <span class="k">def</span> <span class="nf">_load_configs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load data for configs.&quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">stack</span><span class="p">:</span>
+
+            <span class="k">def</span> <span class="nf">preprocessor</span><span class="p">(</span><span class="n">stream</span><span class="p">:</span> <span class="n">DataStream</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataStream</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Render the variable file as a template.&quot;&quot;&quot;</span>
+
+                <span class="k">return</span> <span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span>
+                    <span class="n">StringIO</span><span class="p">(</span><span class="n">Template</span><span class="p">(</span><span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">))</span>
+                <span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_directories</span><span class="p">(</span><span class="s2">&quot;configs&quot;</span><span class="p">):</span>
+                <span class="n">merge</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">configs</span><span class="p">,</span>
+                    <span class="n">ARBITER</span><span class="o">.</span><span class="n">decode_directory</span><span class="p">(</span>
+                        <span class="n">path</span><span class="p">,</span>
+                        <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span>
+                        <span class="n">require_success</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">recurse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">includes_key</span><span class="o">=</span><span class="s2">&quot;includes&quot;</span><span class="p">,</span>
+                        <span class="n">expect_overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">preprocessor</span><span class="o">=</span><span class="n">preprocessor</span><span class="p">,</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                    <span class="n">expect_overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span>
+                <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">configs_new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="p">[</span><span class="s2">&quot;configs&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="p">[</span><span class="s2">&quot;configs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configs_new</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Configuration data is updated.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_load_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load data for variables.&quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_directories</span><span class="p">(</span><span class="s2">&quot;variables&quot;</span><span class="p">):</span>
+            <span class="n">merge</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span>
+                <span class="n">ARBITER</span><span class="o">.</span><span class="n">decode_directory</span><span class="p">(</span>
+                    <span class="n">path</span><span class="p">,</span>
+                    <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span>
+                    <span class="n">require_success</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">recurse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">includes_key</span><span class="o">=</span><span class="s2">&quot;includes&quot;</span><span class="p">,</span>
+                    <span class="n">expect_overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                <span class="n">expect_overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">variables_new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">variables</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="p">[</span><span class="s2">&quot;variables&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="p">[</span><span class="s2">&quot;variables&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">variables</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">variables_new</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Variable data is updated.&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="State.set_directory"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.State.set_directory">[docs]</a>    <span class="k">def</span> <span class="nf">set_directory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set a new directory to use as the data repository.&quot;&quot;&quot;</span>
+
+        <span class="n">new_dir</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">new_dir</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;New directory &#39;</span><span class="si">%s</span><span class="s2">&#39; same as current.&quot;</span><span class="p">,</span> <span class="n">rel</span><span class="p">(</span><span class="n">new_dir</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">new_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Set directory to &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">rel</span><span class="p">(</span><span class="n">new_dir</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="State.set_variant"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.State.set_variant">[docs]</a>    <span class="k">def</span> <span class="nf">set_variant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variant</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set a new variant value.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">variant</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Current variant: &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">variant</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="p">[</span><span class="s2">&quot;variant&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="n">variant</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Updating variant to &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="State.asdict"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.State.asdict">[docs]</a>    <span class="k">def</span> <span class="nf">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_JsonObject</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain a dictionary representing this instance.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;directory&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="p">),</span>
+            <span class="s2">&quot;variant&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="p">,</span>
+            <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous</span><span class="p">,</span>
+            <span class="s2">&quot;manifest&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">manifest</span><span class="p">,</span>
+        <span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="load_state"><a class="viewcode-back" href="../../rcmpy.state.html#rcmpy.state.load_state">[docs]</a><span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">load_state</span><span class="p">(</span>
+    <span class="n">root</span><span class="p">:</span> <span class="n">Pathlike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;state.json&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">State</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This needs to be a context manager, so it get&#39;s written back to disk.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">default_state_directory</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">normalize</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span><span class="o">.</span><span class="n">loaded</span><span class="p">()</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">state</span>
+
+        <span class="c1"># Update the original dictionary with any changes to the state object.</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">asdict</span><span class="p">())</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">rcmpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../rcmpy.html">rcmpy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

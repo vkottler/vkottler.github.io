@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vcorelib.dict &#8212; vcorelib  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for vcorelib.dict</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Dictionary manipulation utilities.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span> <span class="k">as</span> <span class="n">_contextmanager</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span> <span class="k">as</span> <span class="n">_Enum</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">auto</span> <span class="k">as</span> <span class="n">_auto</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span> <span class="k">as</span> <span class="n">_Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">vcorelib.logging</span> <span class="kn">import</span> <span class="n">LoggerType</span>
+
+<span class="n">_LOG</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">GenericDict</span> <span class="o">=</span> <span class="n">_Dict</span><span class="p">[</span><span class="n">_Any</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span>
+<span class="n">GenericStrDict</span> <span class="o">=</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="consume"><a class="viewcode-back" href="../../vcorelib.dict.html#vcorelib.dict.consume">[docs]</a><span class="k">def</span> <span class="nf">consume</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_Any</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">_Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Attempt to obtain dictionary data via key, removing the data if it was</span>
+<span class="sd">    present.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="set_if_not"><a class="viewcode-back" href="../../vcorelib.dict.html#vcorelib.dict.set_if_not">[docs]</a><span class="k">def</span> <span class="nf">set_if_not</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_Any</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">_Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set a value in a dictionary if one wasn&#39;t already set and return the value</span>
+<span class="sd">    that ends up at that key.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="limited"><a class="viewcode-back" href="../../vcorelib.dict.html#vcorelib.dict.limited">[docs]</a><span class="nd">@_contextmanager</span>
+<span class="k">def</span> <span class="nf">limited</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">_Any</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">_Any</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure that dictionary data is only temporarily added.&quot;&quot;&quot;</span>
+
+    <span class="n">had_key</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">orig_value</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Provide the new value.</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">had_key</span> <span class="o">=</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data</span>
+        <span class="k">if</span> <span class="n">had_key</span><span class="p">:</span>
+            <span class="n">orig_value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="c1"># If no value is provided, ensure that this key isn&#39;t already present</span>
+    <span class="c1"># to prevent ambiguity.</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span>
+
+    <span class="k">yield</span>
+
+    <span class="c1"># Restore the dictionary to its initial state.</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">had_key</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">orig_value</span></div>
+
+
+<div class="viewcode-block" id="MergeStrategy"><a class="viewcode-back" href="../../vcorelib.dict.html#vcorelib.dict.MergeStrategy">[docs]</a><span class="k">class</span> <span class="nc">MergeStrategy</span><span class="p">(</span><span class="n">_Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An enumeration describing strategies for combining various data structures.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">RECURSIVE</span> <span class="o">=</span> <span class="n">_auto</span><span class="p">()</span>
+    <span class="n">UPDATE</span> <span class="o">=</span> <span class="n">_auto</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="merge_recursive"><a class="viewcode-back" href="../../vcorelib.dict.html#vcorelib.dict.merge_recursive">[docs]</a><span class="k">def</span> <span class="nf">merge_recursive</span><span class="p">(</span>
+    <span class="n">dict_a</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span>
+    <span class="n">dict_b</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">strategy</span><span class="p">:</span> <span class="n">MergeStrategy</span> <span class="o">=</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">RECURSIVE</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenericDict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combine two dictionaries recursively, prefers dict_a in a conflict. For</span>
+<span class="sd">    values of the same key that are lists, the lists are combined. Otherwise</span>
+<span class="sd">    the resulting dictionary is cleanly merged.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">_LOG</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">right_val</span> <span class="ow">in</span> <span class="n">dict_b</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dict_a</span><span class="p">:</span>
+            <span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">right_val</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># first try to coerce b&#39;s type into a&#39;s</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">right_val</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">])):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">right_val</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">])(</span><span class="n">right_val</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="c1"># same leaf value</span>
+        <span class="k">if</span> <span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">right_val</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">right_val</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">merge</span><span class="p">(</span>
+                <span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
+                <span class="n">right_val</span><span class="p">,</span>
+                <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)],</span>
+                <span class="n">expect_overwrite</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">,</span>
+                <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">right_val</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">right_val</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">right_val</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">])):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Type mismatch at &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;left:  </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">]),</span> <span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;right: </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">right_val</span><span class="p">),</span> <span class="n">right_val</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">expect_overwrite</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Conflict at &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;left:  </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;right: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">right_val</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">right_val</span>
+
+    <span class="k">return</span> <span class="n">dict_a</span></div>
+
+
+<div class="viewcode-block" id="merge"><a class="viewcode-back" href="../../vcorelib.dict.html#vcorelib.dict.merge">[docs]</a><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span>
+    <span class="n">dict_a</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span>
+    <span class="n">dict_b</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">strategy</span><span class="p">:</span> <span class="n">MergeStrategy</span> <span class="o">=</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">RECURSIVE</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenericDict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Combine two dictionaries based on a provided merge strategy.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">strategy</span> <span class="ow">is</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">UPDATE</span><span class="p">:</span>
+        <span class="n">dict_a</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dict_b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dict_a</span>
+
+    <span class="k">return</span> <span class="n">merge_recursive</span><span class="p">(</span>
+        <span class="n">dict_a</span><span class="p">,</span>
+        <span class="n">dict_b</span><span class="p">,</span>
+        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+        <span class="n">expect_overwrite</span><span class="o">=</span><span class="n">expect_overwrite</span><span class="p">,</span>
+        <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
+        <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="merge_dicts"><a class="viewcode-back" href="../../vcorelib.dict.html#vcorelib.dict.merge_dicts">[docs]</a><span class="k">def</span> <span class="nf">merge_dicts</span><span class="p">(</span>
+    <span class="n">dicts</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">GenericDict</span><span class="p">],</span>
+    <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">LoggerType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">strategy</span><span class="p">:</span> <span class="n">MergeStrategy</span> <span class="o">=</span> <span class="n">MergeStrategy</span><span class="o">.</span><span class="n">RECURSIVE</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenericDict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Merge a list of dictionary data into a single set (mutates the first</span>
+<span class="sd">    element).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">dicts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">right_dict</span> <span class="ow">in</span> <span class="n">dicts</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span>
+            <span class="n">result</span><span class="p">,</span>
+            <span class="n">right_dict</span><span class="p">,</span>
+            <span class="n">expect_overwrite</span><span class="o">=</span><span class="n">expect_overwrite</span><span class="p">,</span>
+            <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
+            <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">vcorelib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../vcorelib.html">vcorelib package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

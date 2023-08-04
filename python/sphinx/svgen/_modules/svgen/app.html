@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>svgen.app &#8212; svgen  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for svgen.app</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">svgen - This package&#39;s command-line entry-point application.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict</span> <span class="kn">import</span> <span class="n">GenericStrDict</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict.config</span> <span class="kn">import</span> <span class="n">Config</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">svgen</span> <span class="kn">import</span> <span class="n">PKG_NAME</span>
+<span class="kn">from</span> <span class="nn">svgen.attribute.viewbox</span> <span class="kn">import</span> <span class="n">ViewBox</span>
+<span class="kn">from</span> <span class="nn">svgen.color.theme.manager</span> <span class="kn">import</span> <span class="n">DEFAULT_THEME</span><span class="p">,</span> <span class="n">THEMES</span>
+<span class="kn">from</span> <span class="nn">svgen.element.svg</span> <span class="kn">import</span> <span class="n">Svg</span><span class="p">,</span> <span class="n">add_background_grid</span>
+<span class="kn">from</span> <span class="nn">svgen.generation.images</span> <span class="kn">import</span> <span class="n">generate_images</span>
+<span class="kn">from</span> <span class="nn">svgen.script</span> <span class="kn">import</span> <span class="n">invoke_script</span>
+
+
+<div class="viewcode-block" id="generate"><a class="viewcode-back" href="../../svgen.html#svgen.app.generate">[docs]</a><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Config</span><span class="p">,</span>
+    <span class="n">output</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">cwd</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">scripts</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span>
+    <span class="n">images</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a single SVG document.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Set a theme for this variant.</span>
+    <span class="n">THEMES</span><span class="o">.</span><span class="n">theme</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Add the specified directory to the import path, so external scripts</span>
+    <span class="c1"># can load their own dependencies.</span>
+    <span class="n">cwd_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cwd</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cwd_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cwd_str</span><span class="p">)</span>
+
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">Svg</span><span class="p">(</span><span class="n">ViewBox</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">GenericStrDict</span><span class="p">,</span> <span class="n">config</span><span class="p">)))</span>
+    <span class="n">add_background_grid</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;background&quot;</span><span class="p">],</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;grid&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Compose the document, via the external script.</span>
+    <span class="k">for</span> <span class="n">script</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">scripts</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;scripts&quot;</span><span class="p">]]:</span>
+        <span class="n">invoke_script</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="c1"># Write the composed document to the output file.</span>
+    <span class="k">with</span> <span class="n">output</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_fd</span><span class="p">:</span>
+        <span class="n">doc</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">output_fd</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated &#39;</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Generate image outputs.</span>
+    <span class="k">if</span> <span class="n">images</span><span class="p">:</span>
+        <span class="n">generate_images</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="initialize_config"><a class="viewcode-back" href="../../svgen.html#svgen.app.initialize_config">[docs]</a><span class="k">def</span> <span class="nf">initialize_config</span><span class="p">(</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Config</span><span class="p">,</span> <span class="n">default_height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">default_width</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set initial values for SVG document configurations.&quot;&quot;&quot;</span>
+
+    <span class="n">config</span><span class="o">.</span><span class="n">set_if_not</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">default_height</span><span class="p">)</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">set_if_not</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="n">default_width</span><span class="p">)</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">set_if_not</span><span class="p">(</span><span class="s2">&quot;scripts&quot;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">set_if_not</span><span class="p">(</span><span class="s2">&quot;grid&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">set_if_not</span><span class="p">(</span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">set_if_not</span><span class="p">(</span><span class="s2">&quot;theme&quot;</span><span class="p">,</span> <span class="n">DEFAULT_THEME</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="entry"><a class="viewcode-back" href="../../svgen.html#svgen.app.entry">[docs]</a><span class="k">def</span> <span class="nf">entry</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Execute the requested task.&quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">from_path</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+    <span class="n">initialize_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+
+    <span class="c1"># Save the initial configuration data.</span>
+    <span class="n">original</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">scripts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">scripts</span><span class="p">)</span>
+
+    <span class="c1"># Generate the main document.</span>
+    <span class="n">generate</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">scripts</span><span class="p">,</span> <span class="n">images</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">images</span><span class="p">)</span>
+
+    <span class="c1"># Generate any document variants.</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">variant</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;variants&quot;</span><span class="p">,</span> <span class="p">[])):</span>
+        <span class="c1"># Load the variant&#39;s data.</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="n">initialize_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+
+        <span class="c1"># Set the output name for this variant.</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">variant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="p">)</span><span class="si">}</span><span class="s2">.svg&quot;</span>
+        <span class="p">)</span>
+
+        <span class="n">generate</span><span class="p">(</span>
+            <span class="n">config</span><span class="p">,</span>
+            <span class="n">output</span><span class="p">,</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span>
+            <span class="n">scripts</span>
+            <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">variant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;scripts&quot;</span><span class="p">,</span> <span class="p">[])),</span>
+            <span class="n">images</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="add_app_args"><a class="viewcode-back" href="../../svgen.html#svgen.app.add_app_args">[docs]</a><span class="k">def</span> <span class="nf">add_app_args</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add application-specific arguments to the command-line parser.&quot;&quot;&quot;</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-c&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--config&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">Path</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PKG_NAME</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="p">),</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;top-level configuration to load (default: &#39;</span><span class="si">%(default)s</span><span class="s2">&#39;)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--height&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+            <span class="s2">&quot;height of the document, if not specified by &quot;</span>
+            <span class="s2">&quot;configuration (default: </span><span class="si">%(default)s</span><span class="s2">)&quot;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--width&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+            <span class="s2">&quot;width of the document, if not specified by &quot;</span>
+            <span class="s2">&quot;configuration (default: </span><span class="si">%(default)s</span><span class="s2">)&quot;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--images&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;generate output images&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--output&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">Path</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PKG_NAME</span><span class="si">}</span><span class="s2">.svg&quot;</span><span class="p">),</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file to write SVG output (default: &#39;</span><span class="si">%(default)s</span><span class="s2">&#39;)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;scripts&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">Path</span><span class="p">,</span>
+        <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;scripts to run for composing the SVG document (in order)&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">svgen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../svgen.html">svgen package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

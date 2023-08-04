@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vcorelib.math.time &#8212; vcorelib  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for vcorelib.math.time</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Math utilities involving units of time and other conversions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">INFO</span> <span class="k">as</span> <span class="n">_INFO</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">Logger</span> <span class="k">as</span> <span class="n">_Logger</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">LoggerAdapter</span> <span class="k">as</span> <span class="n">_LoggerAdapter</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span> <span class="k">as</span> <span class="n">_floor</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter_ns</span> <span class="k">as</span> <span class="n">_perf_counter_ns</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time_ns</span> <span class="k">as</span> <span class="n">_time_ns</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span> <span class="k">as</span> <span class="n">_Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">vcorelib.math.unit</span> <span class="kn">import</span> <span class="n">KIBI_UNITS</span> <span class="k">as</span> <span class="n">_KIBI_UNITS</span>
+<span class="kn">from</span> <span class="nn">vcorelib.math.unit</span> <span class="kn">import</span> <span class="n">SI_UNITS</span> <span class="k">as</span> <span class="n">_SI_UNITS</span>
+<span class="kn">from</span> <span class="nn">vcorelib.math.unit</span> <span class="kn">import</span> <span class="n">UnitSystem</span> <span class="k">as</span> <span class="n">_UnitSystem</span>
+<span class="kn">from</span> <span class="nn">vcorelib.math.unit</span> <span class="kn">import</span> <span class="n">unit_traverse</span> <span class="k">as</span> <span class="n">_unit_traverse</span>
+
+
+<div class="viewcode-block" id="default_time_ns"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.default_time_ns">[docs]</a><span class="k">def</span> <span class="nf">default_time_ns</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a timestamp value using a default method.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_time_ns</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="seconds_str"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.seconds_str">[docs]</a><span class="k">def</span> <span class="nf">seconds_str</span><span class="p">(</span><span class="n">seconds</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Attempt to characterize a large amount of seconds into a string describing</span>
+<span class="sd">    hours and minutes, returning the string (may be empty) and the seconds</span>
+<span class="sd">    left over.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">minutes</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">seconds</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">minutes</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">//</span> <span class="mi">60</span>
+        <span class="n">seconds</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">%</span> <span class="mi">60</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">minutes</span><span class="si">}</span><span class="s2">m&quot;</span>
+
+    <span class="k">if</span> <span class="n">minutes</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">hours</span> <span class="o">=</span> <span class="n">minutes</span> <span class="o">//</span> <span class="mi">60</span>
+        <span class="n">minutes</span> <span class="o">=</span> <span class="n">minutes</span> <span class="o">%</span> <span class="mi">60</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hours</span><span class="si">}</span><span class="s2">h </span><span class="si">{</span><span class="n">minutes</span><span class="si">}</span><span class="s2">m&quot;</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">seconds</span></div>
+
+
+<div class="viewcode-block" id="nano_str"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.nano_str">[docs]</a><span class="k">def</span> <span class="nf">nano_str</span><span class="p">(</span>
+    <span class="n">nanos</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">is_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">max_prefix</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">unit</span><span class="p">:</span> <span class="n">_UnitSystem</span> <span class="o">=</span> <span class="n">_SI_UNITS</span><span class="p">,</span>
+    <span class="n">prefix_space</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">iteration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert an arbitrary value in a 10^-9 domain into as concise of a string</span>
+<span class="sd">    as possible.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">decimal</span><span class="p">,</span> <span class="n">fractional</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">_unit_traverse</span><span class="p">(</span>
+        <span class="n">nanos</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">max_prefix</span><span class="p">,</span> <span class="n">iteration</span>
+    <span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">StringIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">prefix</span> <span class="ow">and</span> <span class="n">is_time</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">,</span> <span class="n">decimal</span> <span class="o">=</span> <span class="n">seconds_str</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+        <span class="c1"># Normalize the fractional component if necessary.</span>
+        <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">divisor</span> <span class="o">!=</span> <span class="mi">1000</span> <span class="ow">and</span> <span class="n">fractional</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">fractional</span> <span class="o">=</span> <span class="n">_floor</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">fractional</span> <span class="o">/</span> <span class="n">unit</span><span class="o">.</span><span class="n">divisor</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span><span class="p">)</span>
+
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">decimal</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">fractional</span><span class="p">:</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;.</span><span class="si">{</span><span class="n">fractional</span><span class="si">:</span><span class="s2">03</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">prefix_space</span><span class="p">:</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="rate_str"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.rate_str">[docs]</a><span class="k">def</span> <span class="nf">rate_str</span><span class="p">(</span><span class="n">period_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a string representing a rate in Hz.&quot;&quot;&quot;</span>
+
+    <span class="n">period_str</span> <span class="o">=</span> <span class="n">nano_str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">period_s</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">))</span>
+    <span class="n">freq_str</span> <span class="o">=</span> <span class="n">nano_str</span><span class="p">(</span><span class="nb">int</span><span class="p">((</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">period_s</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">),</span> <span class="n">prefix_space</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">freq_str</span><span class="si">}</span><span class="s2">Hz (</span><span class="si">{</span><span class="n">period_str</span><span class="si">}</span><span class="s2">s)&quot;</span></div>
+
+
+<div class="viewcode-block" id="byte_count_str"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.byte_count_str">[docs]</a><span class="k">def</span> <span class="nf">byte_count_str</span><span class="p">(</span><span class="n">byte_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a string representing a number of bytes.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nano_str</span><span class="p">(</span><span class="n">byte_count</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="n">_KIBI_UNITS</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;B&quot;</span></div>
+
+
+<span class="n">LoggerType</span> <span class="o">=</span> <span class="n">_Union</span><span class="p">[</span><span class="n">_Logger</span><span class="p">,</span> <span class="n">_LoggerAdapter</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Timer"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.Timer">[docs]</a><span class="k">class</span> <span class="nc">Timer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class for measuring and logging how long events take.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this timer.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="Timer.measure_ns"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.Timer.measure_ns">[docs]</a>    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">measure_ns</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the time that the caller&#39;s context takes, provides an integer</span>
+<span class="sd">        token that can be used to query for the result afterwards.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">_perf_counter_ns</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">curr</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">curr</span><span class="p">]</span> <span class="o">=</span> <span class="n">_perf_counter_ns</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span></div>
+
+<div class="viewcode-block" id="Timer.result"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.Timer.result">[docs]</a>    <span class="k">def</span> <span class="nf">result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the timer result.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Timer.log"><a class="viewcode-back" href="../../../vcorelib.math.html#vcorelib.math.time.Timer.log">[docs]</a>    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">log</span><span class="p">:</span> <span class="n">LoggerType</span><span class="p">,</span>
+        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">_INFO</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log how long the caller&#39;s context took to execute.&quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">measure_ns</span><span class="p">()</span> <span class="k">as</span> <span class="n">token</span><span class="p">:</span>
+            <span class="k">yield</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+
+        <span class="c1"># Log the duration spent yielded.</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+            <span class="n">level</span><span class="p">,</span>
+            <span class="n">message</span> <span class="o">+</span> <span class="s2">&quot; completed in </span><span class="si">%s</span><span class="s2">s.&quot;</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="n">nano_str</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<span class="n">TIMER</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">vcorelib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../vcorelib.html">vcorelib package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

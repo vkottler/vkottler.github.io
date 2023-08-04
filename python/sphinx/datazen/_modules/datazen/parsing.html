@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>datazen.parsing &#8212; datazen  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for datazen.parsing</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">datazen - APIs for loading raw data from files.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ExitStack</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">import</span> <span class="nn">jinja2</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict</span> <span class="kn">import</span> <span class="n">GenericDict</span><span class="p">,</span> <span class="n">GenericStrDict</span><span class="p">,</span> <span class="n">merge</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io</span> <span class="kn">import</span> <span class="n">ARBITER</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io.types</span> <span class="kn">import</span> <span class="n">DataStream</span><span class="p">,</span> <span class="n">LoadResult</span><span class="p">,</span> <span class="n">StreamProcessor</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths</span> <span class="kn">import</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="n">file_md5_hex</span><span class="p">,</span> <span class="n">normalize</span>
+
+<span class="n">LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="dedup_dict_lists"><a class="viewcode-back" href="../../datazen.html#datazen.parsing.dedup_dict_lists">[docs]</a><span class="k">def</span> <span class="nf">dedup_dict_lists</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">GenericDict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenericDict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds list elements in a dictionary and removes duplicate entries, mutates</span>
+<span class="sd">    the original list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dedup_dict_lists</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new_list</span><span class="p">:</span>
+                    <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_list</span>
+
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="template_preprocessor_factory"><a class="viewcode-back" href="../../datazen.html#datazen.parsing.template_preprocessor_factory">[docs]</a><span class="k">def</span> <span class="nf">template_preprocessor_factory</span><span class="p">(</span>
+    <span class="n">variables</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span> <span class="n">is_template</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">stack</span><span class="p">:</span> <span class="n">ExitStack</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StreamProcessor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a stream-processing function for data decoding.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">processor</span><span class="p">(</span><span class="n">stream</span><span class="p">:</span> <span class="n">DataStream</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataStream</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If the stream should be interpreted as a template, load and render it,</span>
+<span class="sd">        returning a readable stream as a result. Otherwise return the original</span>
+<span class="sd">        stream.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">variables</span> <span class="ow">and</span> <span class="n">is_template</span><span class="p">:</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="n">stream</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">variables</span><span class="p">)))</span>
+
+        <span class="k">return</span> <span class="n">stream</span>
+
+    <span class="k">return</span> <span class="n">processor</span></div>
+
+
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../datazen.html#datazen.parsing.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span>
+    <span class="n">variables</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span>
+    <span class="n">dict_to_update</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span>
+    <span class="n">expect_overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">is_template</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">=</span> <span class="n">LOG</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LoadResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load raw file data and meld it into an existing dictionary. Update</span>
+<span class="sd">    the result as if it&#39;s a template using the provided variables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">LoadResult</span><span class="p">({},</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">load_result</span> <span class="o">=</span> <span class="n">ARBITER</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+                <span class="n">path</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">,</span>
+                <span class="n">preprocessor</span><span class="o">=</span><span class="n">template_preprocessor_factory</span><span class="p">(</span>
+                    <span class="n">variables</span><span class="p">,</span> <span class="n">is_template</span><span class="p">,</span> <span class="n">stack</span>
+                <span class="p">),</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">TemplateError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s2">&quot;couldn&#39;t render &#39;</span><span class="si">%s</span><span class="s2">&#39;: </span><span class="si">%s</span><span class="s2"> (variables: </span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span>
+                <span class="n">path</span><span class="p">,</span>
+                <span class="n">exc</span><span class="p">,</span>
+                <span class="n">variables</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">return</span> <span class="n">LoadResult</span><span class="p">(</span>
+        <span class="n">merge</span><span class="p">(</span>
+            <span class="n">dict_to_update</span><span class="p">,</span> <span class="n">load_result</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">expect_overwrite</span><span class="o">=</span><span class="n">expect_overwrite</span>
+        <span class="p">),</span>
+        <span class="n">load_result</span><span class="o">.</span><span class="n">success</span><span class="p">,</span>
+        <span class="n">load_result</span><span class="o">.</span><span class="n">time_ns</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="set_file_hash"><a class="viewcode-back" href="../../datazen.html#datazen.parsing.set_file_hash">[docs]</a><span class="k">def</span> <span class="nf">set_file_hash</span><span class="p">(</span>
+    <span class="n">hashes</span><span class="p">:</span> <span class="n">GenericStrDict</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="n">set_new</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluate a hash dictionary and update it on a miss.&quot;&quot;&quot;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">normalize</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="n">str_hash</span> <span class="o">=</span> <span class="n">file_md5_hex</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">hashes</span> <span class="ow">and</span> <span class="n">str_hash</span> <span class="o">==</span> <span class="n">hashes</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="s2">&quot;hash&quot;</span><span class="p">]:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="n">set_new</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">hashes</span><span class="p">:</span>
+            <span class="n">hashes</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">hashes</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="s2">&quot;hash&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">str_hash</span>
+        <span class="n">hashes</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">datazen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../datazen.html">datazen package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  <li><a href="../datazen.html">datazen</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

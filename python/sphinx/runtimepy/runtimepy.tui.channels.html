@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>runtimepy.tui.channels package &#8212; runtimepy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="runtimepy.tui package" href="runtimepy.tui.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="runtimepy-tui-channels-package">
+<h1>runtimepy.tui.channels package<a class="headerlink" href="#runtimepy-tui-channels-package" title="Permalink to this heading">¶</a></h1>
+<section id="module-runtimepy.tui.channels">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.tui.channels" title="Permalink to this heading">¶</a></h2>
+<p>A module implementing a channel-environment user interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.tui.channels.</span></span><span class="sig-name descname"><span class="pre">ChannelTui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.channel.environment.html#runtimepy.channel.environment.ChannelEnvironment" title="runtimepy.channel.environment.ChannelEnvironment"><span class="pre">ChannelEnvironment</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/tui/channels.html#ChannelTui"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for implementing a text user-interface for channel environments.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.body">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">body</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this interface’s body window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.dispatch">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/tui/channels.html#ChannelTui.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dispatch this user interface.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.handle_char">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handle_char</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/tui/channels.html#ChannelTui.handle_char"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.handle_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle character input.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.header">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">header</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this interface’s header window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.init">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/tui/channels.html#ChannelTui.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize this interface’s window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.update_body">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_body</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/tui/channels.html#ChannelTui.update_body"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.update_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the body portion of the interface.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.update_dimensions">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_dimensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/tui/channels.html#ChannelTui.update_dimensions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.update_dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle an update to the window’s dimensions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.update_header">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/tui/channels.html#ChannelTui.update_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.update_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the header portion of the interface.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="runtimepy.tui.channels.ChannelTui.window">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">window</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#runtimepy.tui.channels.ChannelTui.window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this interface’s window.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">runtimepy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="runtimepy.html">runtimepy package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="runtimepy.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="runtimepy.tui.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#module-runtimepy.tui.task">runtimepy.tui.task module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.tui.html#module-runtimepy.tui">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.app">runtimepy.app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.entry">runtimepy.entry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.mapping">runtimepy.mapping module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.schemas">runtimepy.schemas module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="runtimepy.html">runtimepy package</a><ul>
+  <li><a href="runtimepy.tui.html">runtimepy.tui package</a><ul>
+      <li>Previous: <a href="runtimepy.tui.html" title="previous chapter">runtimepy.tui package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/runtimepy.tui.channels.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

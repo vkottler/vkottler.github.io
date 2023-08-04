@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>runtimepy.task.asynchronous &#8212; runtimepy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for runtimepy.task.asynchronous</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module implementing an asynchronous task interface.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">import</span> <span class="nn">asyncio</span> <span class="k">as</span> <span class="nn">_asyncio</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span> <span class="k">as</span> <span class="n">_getLogger</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.logging</span> <span class="kn">import</span> <span class="n">LoggerMixin</span> <span class="k">as</span> <span class="n">_LoggerMixin</span>
+<span class="kn">from</span> <span class="nn">vcorelib.math</span> <span class="kn">import</span> <span class="n">MovingAverage</span> <span class="k">as</span> <span class="n">_MovingAverage</span>
+<span class="kn">from</span> <span class="nn">vcorelib.math</span> <span class="kn">import</span> <span class="n">RateTracker</span> <span class="k">as</span> <span class="n">_RateTracker</span>
+<span class="kn">from</span> <span class="nn">vcorelib.math</span> <span class="kn">import</span> <span class="n">rate_str</span> <span class="k">as</span> <span class="n">_rate_str</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">runtimepy.channel.environment</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ChannelEnvironment</span> <span class="k">as</span> <span class="n">_ChannelEnvironment</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="AsyncTask"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask">[docs]</a><span class="k">class</span> <span class="nc">AsyncTask</span><span class="p">(</span><span class="n">_LoggerMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A basic implementation of a periodic task.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">period_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">env</span><span class="p">:</span> <span class="n">_ChannelEnvironment</span><span class="p">,</span>
+        <span class="n">average_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">max_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this asynchronous task.&quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="n">_getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_rate</span> <span class="o">=</span> <span class="n">_RateTracker</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">average_depth</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_time</span> <span class="o">=</span> <span class="n">_MovingAverage</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">average_depth</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">env</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+            <span class="c1"># Track whether or not this task is currently enabled.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">bool_channel</span><span class="p">(</span><span class="s2">&quot;enabled&quot;</span><span class="p">,</span> <span class="n">commandable</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># Keep track of the time between task iterations in seconds.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">period_s</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">float_channel</span><span class="p">(</span><span class="s2">&quot;period_s&quot;</span><span class="p">,</span> <span class="n">commandable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">period_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">period_s</span>
+
+            <span class="c1"># Allow commanding a maximum number of iterations.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max_iterations</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">int_channel</span><span class="p">(</span>
+                <span class="s2">&quot;max_iterations&quot;</span><span class="p">,</span> <span class="n">commandable</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max_iterations</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">max_iterations</span>
+
+            <span class="k">with</span> <span class="n">env</span><span class="o">.</span><span class="n">names_pushed</span><span class="p">(</span><span class="s2">&quot;metrics&quot;</span><span class="p">):</span>
+                <span class="c1"># Track the number of times this task has been dispatched.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dispatches</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">int_channel</span><span class="p">(</span><span class="s2">&quot;dispatches&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;uint8&quot;</span><span class="p">)[</span>
+                    <span class="mi">0</span>
+                <span class="p">]</span>
+
+                <span class="c1"># Track metrics for how long this task takes to execute.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rate_hz</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">float_channel</span><span class="p">(</span><span class="s2">&quot;rate_hz&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">average_s</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">float_channel</span><span class="p">(</span><span class="s2">&quot;average_s&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">max_s</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">float_channel</span><span class="p">(</span><span class="s2">&quot;max_s&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">min_s</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">float_channel</span><span class="p">(</span><span class="s2">&quot;min_s&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Initialize task-specific channels.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_channels</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+
+<div class="viewcode-block" id="AsyncTask.init_channels"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask.init_channels">[docs]</a>    <span class="k">def</span> <span class="nf">init_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">_ChannelEnvironment</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize task-specific channels.&quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="AsyncTask.init"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask.init">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="o">**</span><span class="n">__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this task.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="AsyncTask.dispatch"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask.dispatch">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="o">**</span><span class="n">__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dispatch this task.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="AsyncTask.reset_metrics"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask.reset_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">reset_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset metrics channel values.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_rate</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_time</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dispatches</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate_hz</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">average_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+
+<div class="viewcode-block" id="AsyncTask.log_metrics"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask.log_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">log_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log information related to metrics channels.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; dispatches: </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatches</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; rate: </span><span class="si">%0.6f</span><span class="s2"> Hz.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_hz</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; average time: </span><span class="si">%0.6f</span><span class="s2">s.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">average_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; max time: </span><span class="si">%0.6f</span><span class="s2">s.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; min time: </span><span class="si">%0.6f</span><span class="s2">s.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rate_str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get this periodic&#39;s rate as a string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_rate_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">period_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AsyncTask.enable"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask.enable">[docs]</a>    <span class="k">def</span> <span class="nf">enable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enable this task.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="AsyncTask.disable"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask.disable">[docs]</a>    <span class="k">def</span> <span class="nf">disable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Disable this task.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="AsyncTask.run"><a class="viewcode-back" href="../../../runtimepy.task.html#runtimepy.task.asynchronous.AsyncTask.run">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">stop_sig</span><span class="p">:</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">Event</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run this task while it&#39;s enabled.&quot;&quot;&quot;</span>
+
+        <span class="n">eloop</span> <span class="o">=</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting task &#39;</span><span class="si">%s</span><span class="s2">&#39; at </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_str</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_metrics</span><span class="p">()</span>
+
+        <span class="c1"># Always re-enable the task if this is called.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+
+        <span class="c1"># Run this task&#39;s initialization.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">&amp;=</span> <span class="k">await</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">shield</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
+            <span class="c1"># Keep track of the rate that this task is running at.</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">eloop</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rate_hz</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_rate</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">start</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">&amp;=</span> <span class="k">await</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">shield</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">exec_time</span> <span class="o">=</span> <span class="n">eloop</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+            <span class="c1"># Update runtime metrics.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dispatches</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">average_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_time</span><span class="p">(</span><span class="n">exec_time</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_time</span><span class="o">.</span><span class="n">max</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_time</span><span class="o">.</span><span class="n">min</span>
+
+            <span class="c1"># Check if we&#39;ve performed the maximum specified number of</span>
+            <span class="c1"># dispatches.</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">max_iterations</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatches</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_iterations</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span>
+            <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">stop_sig</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">stop_sig</span><span class="o">.</span><span class="n">is_set</span><span class="p">()):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span>
+                        <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">period_s</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="n">exec_time</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="k">except</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">CancelledError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Task &#39;</span><span class="si">%s</span><span class="s2">&#39; was cancelled!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Task &#39;</span><span class="si">%s</span><span class="s2">&#39; stopped.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">()</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">runtimepy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../runtimepy.html">runtimepy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

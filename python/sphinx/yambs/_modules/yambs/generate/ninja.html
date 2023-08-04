@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>yambs.generate.ninja &#8212; yambs  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for yambs.generate.ninja</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module for working with ninja syntax.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">linesep</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">TextIO</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">yambs.config.board</span> <span class="kn">import</span> <span class="n">Board</span>
+<span class="kn">from</span> <span class="nn">yambs.environment</span> <span class="kn">import</span> <span class="n">SourceSets</span>
+<span class="kn">from</span> <span class="nn">yambs.translation</span> <span class="kn">import</span> <span class="n">BUILD_DIR_VAR</span><span class="p">,</span> <span class="n">SourceTranslator</span>
+
+
+<div class="viewcode-block" id="write_source_line"><a class="viewcode-back" href="../../../yambs.generate.ninja.html#yambs.generate.ninja.write_source_line">[docs]</a><span class="k">def</span> <span class="nf">write_source_line</span><span class="p">(</span>
+    <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">base</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">current_sources</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span>
+    <span class="n">board</span><span class="p">:</span> <span class="n">Board</span><span class="p">,</span>
+    <span class="n">translator</span><span class="p">:</span> <span class="n">SourceTranslator</span><span class="p">,</span>
+    <span class="n">board_specific</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a ninja configuration line for a source file.&quot;&quot;&quot;</span>
+
+    <span class="n">dest</span> <span class="o">=</span> <span class="n">source</span>
+    <span class="k">if</span> <span class="n">board_specific</span><span class="p">:</span>
+        <span class="n">dest</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="n">build_loc</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span>
+
+    <span class="c1"># Don&#39;t generate any duplicate compilation rules.</span>
+    <span class="k">if</span> <span class="n">build_loc</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">current_sources</span><span class="p">:</span>
+        <span class="n">current_sources</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">build_loc</span><span class="p">)</span>
+
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">translator</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">dest</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">base</span><span class="p">))</span><span class="si">}</span><span class="s2">: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">translator</span><span class="o">.</span><span class="n">rule</span><span class="si">}</span><span class="s2"> $src_dir/</span><span class="si">{</span><span class="n">source</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">base</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Any regular source file depends on all of the boards generated</span>
+        <span class="c1"># depencencies.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">translator</span><span class="o">.</span><span class="n">generated_header</span><span class="p">:</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; || $</span><span class="si">{board}</span><span class="s2">_generated&quot;</span><span class="p">)</span>
+
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dest</span></div>
+
+
+<div class="viewcode-block" id="write_continuation"><a class="viewcode-back" href="../../../yambs.generate.ninja.html#yambs.generate.ninja.write_continuation">[docs]</a><span class="k">def</span> <span class="nf">write_continuation</span><span class="p">(</span><span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write a line continuation.&quot;&quot;&quot;</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; $&quot;</span> <span class="o">+</span> <span class="n">linesep</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="write_link_line"><a class="viewcode-back" href="../../../yambs.generate.ninja.html#yambs.generate.ninja.write_link_line">[docs]</a><span class="k">def</span> <span class="nf">write_link_line</span><span class="p">(</span>
+    <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">base</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="n">Board</span><span class="p">,</span> <span class="n">sources</span><span class="p">:</span> <span class="n">SourceSets</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Write a ninja configuration line for an application requiring linking.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+
+    <span class="n">by_suffix</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">source</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;.</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;elf&quot;</span><span class="p">,</span> <span class="s2">&quot;bin&quot;</span><span class="p">,</span> <span class="s2">&quot;hex&quot;</span><span class="p">,</span> <span class="s2">&quot;dump&quot;</span><span class="p">,</span> <span class="s2">&quot;uf2&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="n">elf</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BUILD_DIR_VAR</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">by_suffix</span><span class="p">[</span><span class="s1">&#39;elf&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">elf</span><span class="si">}</span><span class="s2">: link &quot;</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BUILD_DIR_VAR</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">by_suffix</span><span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">trans</span> <span class="ow">in</span> <span class="n">sources</span><span class="o">.</span><span class="n">link_sources</span><span class="p">():</span>
+        <span class="n">write_continuation</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trans</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">base</span><span class="p">))))</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span><span class="p">)</span>
+
+    <span class="c1"># Add lines for creating binaries.</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">BUILD_DIR_VAR</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">by_suffix</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: bin </span><span class="si">{</span><span class="n">elf</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">linesep</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add an objdump target.</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">BUILD_DIR_VAR</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">by_suffix</span><span class="p">[</span><span class="s1">&#39;dump&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: dump </span><span class="si">{</span><span class="n">elf</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">linesep</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add an hex target.</span>
+    <span class="n">hex_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BUILD_DIR_VAR</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">by_suffix</span><span class="p">[</span><span class="s1">&#39;hex&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">hex_path</span><span class="si">}</span><span class="s2">: hex </span><span class="si">{</span><span class="n">elf</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">linesep</span><span class="p">)</span>
+
+    <span class="c1"># Add a uf2 target.</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">BUILD_DIR_VAR</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">by_suffix</span><span class="p">[</span><span class="s1">&#39;uf2&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: uf2 </span><span class="si">{</span><span class="n">hex_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span> <span class="o">+</span> <span class="n">linesep</span><span class="p">)</span>
+
+    <span class="c1"># Add this application to the board&#39;s data structure.</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">by_suffix</span><span class="p">[</span><span class="s2">&quot;elf&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">apps</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="p">)]</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">out</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="write_generated_phony"><a class="viewcode-back" href="../../../yambs.generate.ninja.html#yambs.generate.ninja.write_generated_phony">[docs]</a><span class="k">def</span> <span class="nf">write_generated_phony</span><span class="p">(</span>
+    <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">sources</span><span class="p">:</span> <span class="n">SourceSets</span><span class="p">,</span> <span class="n">src_root</span><span class="p">:</span> <span class="n">Path</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write generated-file phony target.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Write generated-file phony target.</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;# A target to generate additional headers.&quot;</span> <span class="o">+</span> <span class="n">linesep</span><span class="p">)</span>
+    <span class="n">phony_line</span> <span class="o">=</span> <span class="s2">&quot;build $</span><span class="si">{board}</span><span class="s2">_generated: phony&quot;</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">phony_line</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">phony_line</span><span class="p">)</span>
+
+    <span class="n">implicit</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sources</span><span class="o">.</span><span class="n">implicit_sources</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">implicit</span><span class="p">:</span>
+        <span class="n">src</span><span class="p">,</span> <span class="n">trans</span> <span class="o">=</span> <span class="n">implicit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">trans</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">src_root</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">trans</span> <span class="ow">in</span> <span class="n">implicit</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">write_continuation</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trans</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">src_root</span><span class="p">))))</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span> <span class="o">+</span> <span class="n">linesep</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="write_link_lines"><a class="viewcode-back" href="../../../yambs.generate.ninja.html#yambs.generate.ninja.write_link_lines">[docs]</a><span class="k">def</span> <span class="nf">write_link_lines</span><span class="p">(</span>
+    <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">src_root</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="n">Board</span><span class="p">,</span> <span class="n">sources</span><span class="p">:</span> <span class="n">SourceSets</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write the application manifest and phony targets.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Write the application manifest.</span>
+    <span class="k">for</span> <span class="n">app_src</span> <span class="ow">in</span> <span class="n">sources</span><span class="o">.</span><span class="n">apps</span><span class="p">:</span>
+        <span class="n">write_link_line</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">app_src</span><span class="p">,</span> <span class="n">src_root</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">sources</span><span class="p">)</span>
+
+    <span class="n">write_generated_phony</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">src_root</span><span class="p">)</span>
+
+    <span class="c1"># Write the phony target.</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;# A target to build all applications.&quot;</span> <span class="o">+</span> <span class="n">linesep</span><span class="p">)</span>
+    <span class="n">write_phony</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">sources</span><span class="o">.</span><span class="n">apps</span><span class="p">,</span> <span class="n">src_root</span><span class="p">,</span> <span class="n">board</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="write_phony"><a class="viewcode-back" href="../../../yambs.generate.ninja.html#yambs.generate.ninja.write_phony">[docs]</a><span class="k">def</span> <span class="nf">write_phony</span><span class="p">(</span>
+    <span class="n">stream</span><span class="p">:</span> <span class="n">TextIO</span><span class="p">,</span> <span class="n">app_srcs</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span> <span class="n">base</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write the phony target.&quot;&quot;&quot;</span>
+
+    <span class="n">phonies</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;apps&quot;</span><span class="p">,</span> <span class="s2">&quot;.bin&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;hexs&quot;</span><span class="p">,</span> <span class="s2">&quot;.hex&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;dumps&quot;</span><span class="p">,</span> <span class="s2">&quot;.dump&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;uf2s&quot;</span><span class="p">,</span> <span class="s2">&quot;.uf2&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">app_srcs</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">phony</span><span class="p">,</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">phonies</span><span class="p">:</span>
+            <span class="n">srcs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">app_srcs</span><span class="p">)</span>
+            <span class="n">first</span> <span class="o">=</span> <span class="n">srcs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+            <span class="n">srcs</span> <span class="o">=</span> <span class="n">srcs</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+            <span class="n">line</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;build </span><span class="si">{</span><span class="n">board</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">phony</span><span class="si">}</span><span class="s2">: phony &quot;</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BUILD_DIR_VAR</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">first</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">src</span> <span class="ow">in</span> <span class="n">srcs</span><span class="p">:</span>
+                <span class="n">write_continuation</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+                <span class="n">src</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+                <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BUILD_DIR_VAR</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">src</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">yambs</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yambs.html">yambs package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  <li><a href="../generate.html">yambs.generate</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

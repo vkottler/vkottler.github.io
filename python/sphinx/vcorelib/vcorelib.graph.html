@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>vcorelib.graph package &#8212; vcorelib  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vcorelib.io package" href="vcorelib.io.html" />
+    <link rel="prev" title="vcorelib.dict package" href="vcorelib.dict.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="vcorelib-graph-package">
+<h1>vcorelib.graph package<a class="headerlink" href="#vcorelib-graph-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-vcorelib.graph.abc">
+<span id="vcorelib-graph-abc-module"></span><h2>vcorelib.graph.abc module<a class="headerlink" href="#module-vcorelib.graph.abc" title="Permalink to this heading">¶</a></h2>
+<p>A module containing abstract base-classes related to graphs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.graph.abc.</span></span><span class="sig-name descname"><span class="pre">AbstractDiGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialdata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserDict</span></code>, <a class="reference internal" href="vcorelib.io.html#vcorelib.io.abc.Serializable" title="vcorelib.io.abc.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializable</span></code></a></p>
+<p>A simple, directed-graph interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraph.add_edge">
+<span class="sig-name descname"><span class="pre">add_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraph.add_edge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraph.add_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an edge between nodes in the graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraph.add_parallel">
+<span class="sig-name descname"><span class="pre">add_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_port1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_port1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_port2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_port2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraph.add_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraph.add_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an edge in each direction for two nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraph.add_vertex">
+<span class="sig-name descname"><span class="pre">add_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraph.add_vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraph.add_vertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a vertext to the graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraph.handle_node">
+<span class="sig-name descname"><span class="pre">handle_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraph.handle_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraph.handle_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle either adding a node as a new vertex or obtaining an existing
+one.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraph.is_parallel">
+<span class="sig-name descname"><span class="pre">is_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraph.is_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraph.is_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if parallel edges exist between two nodes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.graph.abc.</span></span><span class="sig-name descname"><span class="pre">AbstractDiGraphNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">V</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraphNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vcorelib.io.html#vcorelib.io.abc.Serializable" title="vcorelib.io.abc.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializable</span></code></a></p>
+<p>A base interface for a directed-graph node.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode.add_port">
+<span class="sig-name descname"><span class="pre">add_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraphNode.add_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode.add_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a port to this graph node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode.allocate_port">
+<span class="sig-name descname"><span class="pre">allocate_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraphNode.allocate_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode.allocate_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate a port on this node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode.graph">
+<span class="sig-name descname"><span class="pre">graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">V</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">V</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraphNode.graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode.graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the graph that this node belongs to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode.incoming">
+<span class="sig-name descname"><span class="pre">incoming</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">V</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraphNode.incoming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode.incoming" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over nodes that have incoming edges.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode.join_graph">
+<span class="sig-name descname"><span class="pre">join_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraphNode.join_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode.join_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to join a graph.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode.label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this node’s label.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode.outgoing">
+<span class="sig-name descname"><span class="pre">outgoing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">V</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraphNode.outgoing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode.outgoing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over nodes that we have outgoing edges to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.abc.AbstractDiGraphNode.parallel">
+<span class="sig-name descname"><span class="pre">parallel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/graph/abc.html#AbstractDiGraphNode.parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.abc.AbstractDiGraphNode.parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over nodes that this instance shares parallel edges with.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-vcorelib.graph.edge">
+<span id="vcorelib-graph-edge-module"></span><h2>vcorelib.graph.edge module<a class="headerlink" href="#module-vcorelib.graph.edge" title="Permalink to this heading">¶</a></h2>
+<p>A module for defining and working with graph edges.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.GraphEdge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.graph.edge.</span></span><span class="sig-name descname"><span class="pre">GraphEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/graph/edge.html#GraphEdge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.edge.GraphEdge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A grouping of attributes describing a directed edge in a graph.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.GraphEdge.attrs">
+<span class="sig-name descname"><span class="pre">attrs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#vcorelib.graph.edge.GraphEdge.attrs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.GraphEdge.dst">
+<span class="sig-name descname"><span class="pre">dst</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#vcorelib.graph.edge.GraphEdge.dst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.GraphEdge.dst_port">
+<span class="sig-name descname"><span class="pre">dst_port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#vcorelib.graph.edge.GraphEdge.dst_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.GraphEdge.src">
+<span class="sig-name descname"><span class="pre">src</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#vcorelib.graph.edge.GraphEdge.src" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.GraphEdge.src_port">
+<span class="sig-name descname"><span class="pre">src_port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#vcorelib.graph.edge.GraphEdge.src_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.GraphEdge.to_stream">
+<span class="sig-name descname"><span class="pre">to_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgeop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-&gt;'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/edge.html#GraphEdge.to_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.edge.GraphEdge.to_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write this object to a text stream.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.write_attributes">
+<span class="sig-prename descclassname"><span class="pre">vcorelib.graph.edge.</span></span><span class="sig-name descname"><span class="pre">write_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/edge.html#write_attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.edge.write_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple attribute writer for Graphviz’s DOT language.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vcorelib.graph.edge.write_node_id">
+<span class="sig-prename descclassname"><span class="pre">vcorelib.graph.edge.</span></span><span class="sig-name descname"><span class="pre">write_node_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/edge.html#write_node_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.edge.write_node_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a node identifier to a stream.</p>
+</dd></dl>
+
+</section>
+<section id="module-vcorelib.graph.node">
+<span id="vcorelib-graph-node-module"></span><h2>vcorelib.graph.node module<a class="headerlink" href="#module-vcorelib.graph.node" title="Permalink to this heading">¶</a></h2>
+<p>A module for working with graph nodes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.graph.node.DiGraphNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.graph.node.</span></span><span class="sig-name descname"><span class="pre">DiGraphNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">V</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/graph/node.html#DiGraphNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.node.DiGraphNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vcorelib.graph.abc.AbstractDiGraphNode" title="vcorelib.graph.abc.AbstractDiGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractDiGraphNode</span></code></a></p>
+<p>A base implementation for a directed-graph node.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.node.DiGraphNode.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">V</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/node.html#DiGraphNode.add_child"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.node.DiGraphNode.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an edge between this node (source) and the other node
+(destination).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.node.DiGraphNode.add_parallel">
+<span class="sig-name descname"><span class="pre">add_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">V</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/node.html#DiGraphNode.add_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.node.DiGraphNode.add_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a parallel edge between two nodes. This instance is used as
+‘node1’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.node.DiGraphNode.add_parent">
+<span class="sig-name descname"><span class="pre">add_parent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">V</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/node.html#DiGraphNode.add_parent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.node.DiGraphNode.add_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an edge between this node (destination) and the other node
+(source).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.node.DiGraphNode.to_stream">
+<span class="sig-name descname"><span class="pre">to_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/node.html#DiGraphNode.to_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.node.DiGraphNode.to_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write this object to a text stream.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-vcorelib.graph.port">
+<span id="vcorelib-graph-port-module"></span><h2>vcorelib.graph.port module<a class="headerlink" href="#module-vcorelib.graph.port" title="Permalink to this heading">¶</a></h2>
+<p>A module for working with graph ports.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.graph.port.Port">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.graph.port.</span></span><span class="sig-name descname"><span class="pre">Port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.graph.port.PortType" title="vcorelib.graph.port.PortType"><span class="pre">PortType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PortType.INOUT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allocated</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/graph/port.html#Port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.Port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A simple implementation for generic, input and output ports.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.port.Port.alias">
+<span class="sig-name descname"><span class="pre">alias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#vcorelib.graph.port.Port.alias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.port.Port.allocate">
+<span class="sig-name descname"><span class="pre">allocate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a></span></span><a class="reference internal" href="_modules/vcorelib/graph/port.html#Port.allocate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.Port.allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate this port.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.port.Port.allocated">
+<span class="sig-name descname"><span class="pre">allocated</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#vcorelib.graph.port.Port.allocated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="vcorelib.graph.port.Port.is_input">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_input</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#vcorelib.graph.port.Port.is_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this is an input port.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="vcorelib.graph.port.Port.is_output">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_output</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#vcorelib.graph.port.Port.is_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this is an output port.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.port.Port.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#vcorelib.graph.port.PortType" title="vcorelib.graph.port.PortType"><span class="pre">PortType</span></a></em><a class="headerlink" href="#vcorelib.graph.port.Port.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.port.Port.label">
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#vcorelib.graph.port.Port.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.graph.port.</span></span><span class="sig-name descname"><span class="pre">PortManager</span></span><a class="reference internal" href="_modules/vcorelib/graph/port.html#PortManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.PortManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An interface for managing input and output ports.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortManager.allocate">
+<span class="sig-name descname"><span class="pre">allocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a></span></span><a class="reference internal" href="_modules/vcorelib/graph/port.html#PortManager.allocate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.PortManager.allocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate a labeled port.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortManager.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#vcorelib.graph.port.Port" title="vcorelib.graph.port.Port"><span class="pre">Port</span></a></span></span><a class="reference internal" href="_modules/vcorelib/graph/port.html#PortManager.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.PortManager.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new port to this port manager.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortManager.inout_labels">
+<span class="sig-name descname"><span class="pre">inout_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/graph/port.html#PortManager.inout_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.PortManager.inout_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get inout port labels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortManager.input_labels">
+<span class="sig-name descname"><span class="pre">input_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_inout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/graph/port.html#PortManager.input_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.PortManager.input_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get input port labels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortManager.label">
+<span class="sig-name descname"><span class="pre">label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph/port.html#PortManager.label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.PortManager.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a record label based on the current port configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortManager.output_labels">
+<span class="sig-name descname"><span class="pre">output_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_inout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/graph/port.html#PortManager.output_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.PortManager.output_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get output port labels.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.graph.port.</span></span><span class="sig-name descname"><span class="pre">PortType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/graph/port.html#PortType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.port.PortType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration of port types.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortType.INOUT">
+<span class="sig-name descname"><span class="pre">INOUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#vcorelib.graph.port.PortType.INOUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortType.INPUT">
+<span class="sig-name descname"><span class="pre">INPUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#vcorelib.graph.port.PortType.INPUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortType.OUTPUT">
+<span class="sig-name descname"><span class="pre">OUTPUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#vcorelib.graph.port.PortType.OUTPUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortType.is_input">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_input</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#vcorelib.graph.port.PortType.is_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this port type is capable of input.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="vcorelib.graph.port.PortType.is_output">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_output</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#vcorelib.graph.port.PortType.is_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this port type is capable of output.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-vcorelib.graph">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vcorelib.graph" title="Permalink to this heading">¶</a></h2>
+<p>A module for implementing graph-like data structures.</p>
+<p>See Graphviz’s ‘DOT Language’ here: <a class="reference external" href="https://graphviz.org/doc/info/lang.html">https://graphviz.org/doc/info/lang.html</a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.graph.DiGraph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.graph.</span></span><span class="sig-name descname"><span class="pre">DiGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialdata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph_attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/graph.html#DiGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.DiGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vcorelib.graph.abc.AbstractDiGraph" title="vcorelib.graph.abc.AbstractDiGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractDiGraph</span></code></a></p>
+<p>A simple, directed-graph implementation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.graph.DiGraph.to_stream">
+<span class="sig-name descname"><span class="pre">to_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph.html#DiGraph.to_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.DiGraph.to_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write this object to a text stream.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vcorelib.graph.write_indent">
+<span class="sig-prename descclassname"><span class="pre">vcorelib.graph.</span></span><span class="sig-name descname"><span class="pre">write_indent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linesep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/graph.html#write_indent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.graph.write_indent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle indented prefixes for new lines in a text stream.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">vcorelib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="vcorelib.html">vcorelib package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="vcorelib.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.args.html">vcorelib.args package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.asyncio.html">vcorelib.asyncio package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.dict.html">vcorelib.dict package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">vcorelib.graph package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.graph.abc">vcorelib.graph.abc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.graph.edge">vcorelib.graph.edge module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.graph.node">vcorelib.graph.node module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.graph.port">vcorelib.graph.port module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.graph">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.html">vcorelib.io package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.math.html">vcorelib.math package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.paths.html">vcorelib.paths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.platform.html">vcorelib.platform package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.schemas.html">vcorelib.schemas package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.script.html">vcorelib.script package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.target.html">vcorelib.target package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.html">vcorelib.task package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.logging">vcorelib.logging module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.names">vcorelib.names module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.namespace">vcorelib.namespace module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.python">vcorelib.python module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="vcorelib.html">vcorelib package</a><ul>
+      <li>Previous: <a href="vcorelib.dict.html" title="previous chapter">vcorelib.dict package</a></li>
+      <li>Next: <a href="vcorelib.io.html" title="next chapter">vcorelib.io package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/vcorelib.graph.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

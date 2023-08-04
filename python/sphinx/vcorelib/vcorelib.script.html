@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>vcorelib.script package &#8212; vcorelib  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vcorelib.target package" href="vcorelib.target.html" />
+    <link rel="prev" title="vcorelib.schemas package" href="vcorelib.schemas.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="vcorelib-script-package">
+<h1>vcorelib.script package<a class="headerlink" href="#vcorelib-script-package" title="Permalink to this heading">¶</a></h1>
+<section id="module-vcorelib.script">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vcorelib.script" title="Permalink to this heading">¶</a></h2>
+<p>A module for working with external scripts.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vcorelib.script.ScriptableMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.script.</span></span><span class="sig-name descname"><span class="pre">ScriptableMixin</span></span><a class="reference internal" href="_modules/vcorelib/script.html#ScriptableMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.script.ScriptableMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A mixin for classes to pass themselves to external scripts that may
+update their state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.script.ScriptableMixin.invoked">
+<span class="sig-name descname"><span class="pre">invoked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/vcorelib/script.html#ScriptableMixin.invoked"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.script.ScriptableMixin.invoked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a script has been invoked or not.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.script.ScriptableMixin.script">
+<span class="sig-name descname"><span class="pre">script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">once</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/vcorelib/script.html#ScriptableMixin.script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.script.ScriptableMixin.script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoke a script while passing this object reference.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="vcorelib.script.invoke_script">
+<span class="sig-prename descclassname"><span class="pre">vcorelib.script.</span></span><span class="sig-name descname"><span class="pre">invoke_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/vcorelib/script.html#invoke_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.script.invoke_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invoke a method from an external script.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">vcorelib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="vcorelib.html">vcorelib package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="vcorelib.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.args.html">vcorelib.args package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.asyncio.html">vcorelib.asyncio package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.dict.html">vcorelib.dict package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.graph.html">vcorelib.graph package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.html">vcorelib.io package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.math.html">vcorelib.math package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.paths.html">vcorelib.paths package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.platform.html">vcorelib.platform package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.schemas.html">vcorelib.schemas package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">vcorelib.script package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.script">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.target.html">vcorelib.target package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.html">vcorelib.task package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.logging">vcorelib.logging module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.names">vcorelib.names module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.namespace">vcorelib.namespace module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.python">vcorelib.python module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="vcorelib.html">vcorelib package</a><ul>
+      <li>Previous: <a href="vcorelib.schemas.html" title="previous chapter">vcorelib.schemas package</a></li>
+      <li>Next: <a href="vcorelib.target.html" title="next chapter">vcorelib.target package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/vcorelib.script.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vcorelib.graph.abc &#8212; vcorelib  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for vcorelib.graph.abc</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module containing abstract base-classes related to graphs.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">UserDict</span> <span class="k">as</span> <span class="n">_UserDict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span> <span class="k">as</span> <span class="n">_Set</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span> <span class="k">as</span> <span class="n">_Type</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypeVar</span> <span class="k">as</span> <span class="n">_TypeVar</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">vcorelib.graph.edge</span> <span class="kn">import</span> <span class="n">AttributeMap</span> <span class="k">as</span> <span class="n">_AttributeMap</span>
+<span class="kn">from</span> <span class="nn">vcorelib.graph.edge</span> <span class="kn">import</span> <span class="n">GraphEdge</span> <span class="k">as</span> <span class="n">_GraphEdge</span>
+<span class="kn">from</span> <span class="nn">vcorelib.graph.port</span> <span class="kn">import</span> <span class="n">Port</span> <span class="k">as</span> <span class="n">_Port</span>
+<span class="kn">from</span> <span class="nn">vcorelib.graph.port</span> <span class="kn">import</span> <span class="n">PortManager</span> <span class="k">as</span> <span class="n">_PortManager</span>
+<span class="kn">from</span> <span class="nn">vcorelib.io.abc</span> <span class="kn">import</span> <span class="n">Serializable</span> <span class="k">as</span> <span class="n">_Serializable</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">_TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;AbstractDiGraphNode&quot;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">_TypeVar</span><span class="p">(</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;AbstractDiGraph&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AbstractDiGraphNode"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode">[docs]</a><span class="k">class</span> <span class="nc">AbstractDiGraphNode</span><span class="p">(</span><span class="n">_Serializable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A base interface for a directed-graph node.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">V</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="n">_Port</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this graph node.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="o">=</span> <span class="n">graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">attrs</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ports</span> <span class="o">=</span> <span class="n">_PortManager</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AbstractDiGraphNode.add_port"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode.add_port">[docs]</a>    <span class="k">def</span> <span class="nf">add_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Port</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a port to this graph node.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ports</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraphNode.allocate_port"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode.allocate_port">[docs]</a>    <span class="k">def</span> <span class="nf">allocate_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Port</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Allocate a port on this node.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ports</span><span class="o">.</span><span class="n">allocate</span><span class="p">(</span><span class="n">label</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraphNode.graph"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode.graph">[docs]</a>    <span class="k">def</span> <span class="nf">graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="n">_Type</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">V</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the graph that this node belongs to.&quot;&quot;&quot;</span>
+        <span class="k">del</span> <span class="n">kind</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Node hasn&#39;t joined a graph!&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get this node&#39;s label.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Node hasn&#39;t joined a graph!&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span>
+
+<div class="viewcode-block" id="AbstractDiGraphNode.join_graph"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode.join_graph">[docs]</a>    <span class="k">def</span> <span class="nf">join_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">V</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Attempt to join a graph.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Verify the graph assignment.</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="ow">is</span> <span class="n">graph</span>
+        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Node &#39;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">&#39; is already part of a different graph!&quot;</span>
+
+        <span class="c1"># Verify the label assignment.</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">==</span> <span class="n">label</span>
+        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Node already has label &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_label</span><span class="si">}</span><span class="s2">&#39; (!= &#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&#39;)!&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="o">=</span> <span class="n">graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">label</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraphNode.outgoing"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode.outgoing">[docs]</a>    <span class="k">def</span> <span class="nf">outgoing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_kind</span><span class="p">:</span> <span class="n">_Type</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Iterate over nodes that we have outgoing edges to.&quot;&quot;&quot;</span>
+
+        <span class="n">graph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="n">graph_kind</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">]:</span>
+            <span class="k">yield</span> <span class="n">graph</span><span class="p">[</span><span class="n">edge</span><span class="o">.</span><span class="n">dst</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraphNode.incoming"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode.incoming">[docs]</a>    <span class="k">def</span> <span class="nf">incoming</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_kind</span><span class="p">:</span> <span class="n">_Type</span><span class="p">[</span><span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Iterate over nodes that have incoming edges.&quot;&quot;&quot;</span>
+
+        <span class="n">graph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="n">graph_kind</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">edges</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">==</span> <span class="n">edge</span><span class="o">.</span><span class="n">dst</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">graph</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+                    <span class="k">break</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraphNode.parallel"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraphNode.parallel">[docs]</a>    <span class="k">def</span> <span class="nf">parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Set</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Iterate over nodes that this instance shares parallel edges with.&quot;&quot;&quot;</span>
+
+        <span class="n">outgoing</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outgoing</span><span class="p">())</span>
+        <span class="n">incoming</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">incoming</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">outgoing</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">incoming</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="AbstractDiGraph"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraph">[docs]</a><span class="k">class</span> <span class="nc">AbstractDiGraph</span><span class="p">(</span>
+    <span class="n">_UserDict</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+    <span class="n">_Serializable</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A simple, directed-graph interface.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">initialdata</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">graph_attrs</span><span class="p">:</span> <span class="n">_AttributeMap</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">node_attrs</span><span class="p">:</span> <span class="n">_AttributeMap</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">edge_attrs</span><span class="p">:</span> <span class="n">_AttributeMap</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this graph.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">initialdata</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph_attrs</span> <span class="o">=</span> <span class="n">graph_attrs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_attrs</span> <span class="o">=</span> <span class="n">node_attrs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edge_attrs</span> <span class="o">=</span> <span class="n">edge_attrs</span>
+
+        <span class="c1"># Source node -&gt; a set of all destination edges.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Set</span><span class="p">[</span><span class="n">_GraphEdge</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="AbstractDiGraph.handle_node"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraph.handle_node">[docs]</a>    <span class="k">def</span> <span class="nf">handle_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">T</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle either adding a node as a new vertex or obtaining an existing</span>
+<span class="sd">        one.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;No node &#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&#39;!&quot;</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">node</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraph.add_vertex"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraph.add_vertex">[docs]</a>    <span class="k">def</span> <span class="nf">add_vertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a vertext to the graph.&quot;&quot;&quot;</span>
+
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="ow">is</span> <span class="n">node</span>
+        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Duplicate label &#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&#39;!&quot;</span>
+
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="c1"># Add a reference for the graph node to the graph itself.</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">join_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+
+            <span class="c1"># Add the node to the graph.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">node</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraph.add_edge"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraph.add_edge">[docs]</a>    <span class="k">def</span> <span class="nf">add_edge</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">src</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">dst</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">src_port</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dst_port</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">attrs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add an edge between nodes in the graph.&quot;&quot;&quot;</span>
+
+        <span class="k">assert</span> <span class="n">src</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Source vertex &#39;</span><span class="si">{</span><span class="n">src</span><span class="si">}</span><span class="s2">&#39; not in graph!&quot;</span>
+        <span class="k">assert</span> <span class="n">dst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Destination vertex &#39;</span><span class="si">{</span><span class="n">dst</span><span class="si">}</span><span class="s2">&#39; not in graph!&quot;</span>
+
+        <span class="c1"># Allocate a source port if a label was provided.</span>
+        <span class="n">sport</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">src_port</span><span class="p">:</span>
+            <span class="n">sport</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">src</span><span class="p">]</span><span class="o">.</span><span class="n">allocate_port</span><span class="p">(</span><span class="n">src_port</span><span class="p">)</span>
+
+            <span class="c1"># Verify the source port is an output.</span>
+            <span class="k">assert</span> <span class="p">(</span>
+                <span class="n">sport</span><span class="o">.</span><span class="n">is_output</span>
+            <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Source port &#39;</span><span class="si">{</span><span class="n">sport</span><span class="si">}</span><span class="s2">&#39; (&#39;</span><span class="si">{</span><span class="n">src</span><span class="si">}</span><span class="s2">&#39;) is not an output!&quot;</span>
+
+        <span class="c1"># Allocate a destination port if a label was provided.</span>
+        <span class="n">dport</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">dst_port</span><span class="p">:</span>
+            <span class="n">dport</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">dst</span><span class="p">]</span><span class="o">.</span><span class="n">allocate_port</span><span class="p">(</span><span class="n">dst_port</span><span class="p">)</span>
+
+            <span class="c1"># Verify the destination port is an input.</span>
+            <span class="k">assert</span> <span class="p">(</span>
+                <span class="n">dport</span><span class="o">.</span><span class="n">is_input</span>
+            <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Destination port &#39;</span><span class="si">{</span><span class="n">dport</span><span class="si">}</span><span class="s2">&#39; (&#39;</span><span class="si">{</span><span class="n">dst</span><span class="si">}</span><span class="s2">&#39;) is not an input!&quot;</span>
+
+        <span class="n">edge</span> <span class="o">=</span> <span class="n">_GraphEdge</span><span class="p">(</span>
+            <span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">src_port</span><span class="o">=</span><span class="n">sport</span><span class="p">,</span> <span class="n">dst_port</span><span class="o">=</span><span class="n">dport</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">attrs</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">src</span><span class="p">]</span>
+
+        <span class="c1"># Prevent adding duplicate edges if desired.</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="ow">not</span> <span class="n">strict</span> <span class="ow">or</span> <span class="n">edge</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">edges</span>
+        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Edge &#39;</span><span class="si">{</span><span class="n">src</span><span class="si">}</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">{</span><span class="n">dst</span><span class="si">}</span><span class="s2">&#39; already present!&quot;</span>
+
+        <span class="n">edges</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraph.add_parallel"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraph.add_parallel">[docs]</a>    <span class="k">def</span> <span class="nf">add_parallel</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">node1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">node2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">src_port1</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dst_port1</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">src_port2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dst_port2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add an edge in each direction for two nodes.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span>
+            <span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">,</span> <span class="n">src_port</span><span class="o">=</span><span class="n">src_port1</span><span class="p">,</span> <span class="n">dst_port</span><span class="o">=</span><span class="n">dst_port1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span>
+            <span class="n">node2</span><span class="p">,</span> <span class="n">node1</span><span class="p">,</span> <span class="n">src_port</span><span class="o">=</span><span class="n">src_port2</span><span class="p">,</span> <span class="n">dst_port</span><span class="o">=</span><span class="n">dst_port2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractDiGraph.is_parallel"><a class="viewcode-back" href="../../../vcorelib.graph.html#vcorelib.graph.abc.AbstractDiGraph.is_parallel">[docs]</a>    <span class="k">def</span> <span class="nf">is_parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">node2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine if parallel edges exist between two nodes.&quot;&quot;&quot;</span>
+
+        <span class="n">success</span> <span class="o">=</span> <span class="n">node1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">and</span> <span class="n">node2</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+
+        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+
+            <span class="c1"># Check if we have a destination edge to node1 from node2.</span>
+            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">node1</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">edge</span><span class="o">.</span><span class="n">dst</span> <span class="o">==</span> <span class="n">node2</span><span class="p">:</span>
+                    <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">break</span>
+
+            <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+                <span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+
+                <span class="c1"># Check if we have a destination edge to node2 from node1.</span>
+                <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">node2</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">edge</span><span class="o">.</span><span class="n">dst</span> <span class="o">==</span> <span class="n">node1</span><span class="p">:</span>
+                        <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">break</span>
+
+        <span class="k">return</span> <span class="n">success</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">vcorelib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../vcorelib.html">vcorelib package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  <li><a href="../graph.html">vcorelib.graph</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

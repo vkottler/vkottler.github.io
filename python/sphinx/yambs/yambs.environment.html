@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>yambs.environment package &#8212; yambs  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="yambs.generate package" href="yambs.generate.html" />
+    <link rel="prev" title="yambs.dist package" href="yambs.dist.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="yambs-environment-package">
+<h1>yambs.environment package<a class="headerlink" href="#yambs-environment-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-yambs.environment.native">
+<span id="yambs-environment-native-module"></span><h2>yambs.environment.native module<a class="headerlink" href="#module-yambs.environment.native" title="Permalink to this heading">¶</a></h2>
+<p>A module implementing a native-build environment.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.environment.native.</span></span><span class="sig-name descname"><span class="pre">NativeBuildEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.native.Native" title="yambs.config.native.Native"><span class="pre">Native</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<p>A class implementing a native-build environment.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment.generate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate ninja files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render a template.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment.write_app_rules">
+<span class="sig-name descname"><span class="pre">write_app_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment.write_app_rules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment.write_app_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write app rules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment.write_compile_line">
+<span class="sig-name descname"><span class="pre">write_compile_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment.write_compile_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment.write_compile_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a single source-compile line.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment.write_source_rules">
+<span class="sig-name descname"><span class="pre">write_source_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment.write_source_rules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment.write_source_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write source rules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.native.NativeBuildEnvironment.write_static_library_rule">
+<span class="sig-name descname"><span class="pre">write_static_library_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#NativeBuildEnvironment.write_static_library_rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.NativeBuildEnvironment.write_static_library_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a rule for a static library output.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.environment.native.resolve_build_dir">
+<span class="sig-prename descclassname"><span class="pre">yambs.environment.native.</span></span><span class="sig-name descname"><span class="pre">resolve_build_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">build_root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="_modules/yambs/environment/native.html#resolve_build_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.native.resolve_build_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve the build-directory variable in a path.</p>
+</dd></dl>
+
+</section>
+<section id="module-yambs.environment">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yambs.environment" title="Permalink to this heading">¶</a></h2>
+<p>A module implementing a build environment state manager.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="yambs.environment.BuildEnvironment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.environment.</span></span><span class="sig-name descname"><span class="pre">BuildEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.Config" title="yambs.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment.html#BuildEnvironment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.BuildEnvironment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<p>A class implementing a simple build environment.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.BuildEnvironment.first_party_sources_headers">
+<span class="sig-name descname"><span class="pre">first_party_sources_headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/environment.html#BuildEnvironment.first_party_sources_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.BuildEnvironment.first_party_sources_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all first-party sources and headers. This could be useful for
+formatting or static analysis tooling where third-party sources
+should be excluded.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.BuildEnvironment.set_board_sources">
+<span class="sig-name descname"><span class="pre">set_board_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="yambs.config.html#yambs.config.board.Board" title="yambs.config.board.Board"><span class="pre">Board</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">regular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#yambs.environment.SourceSets" title="yambs.environment.SourceSets"><span class="pre">SourceSets</span></a></span></span><a class="reference internal" href="_modules/yambs/environment.html#BuildEnvironment.set_board_sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.BuildEnvironment.set_board_sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finalize source sets for a given board.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="yambs.environment.SourceSets">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.environment.</span></span><span class="sig-name descname"><span class="pre">SourceSets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regular</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/environment.html#SourceSets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.SourceSets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A structure for managing different kinds of source paths.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yambs.environment.SourceSets.apps">
+<span class="sig-name descname"><span class="pre">apps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#yambs.environment.SourceSets.apps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.SourceSets.implicit_sources">
+<span class="sig-name descname"><span class="pre">implicit_sources</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="yambs.translation.html#yambs.translation.SourceTranslator" title="yambs.translation.SourceTranslator"><span class="pre">SourceTranslator</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/environment.html#SourceSets.implicit_sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.SourceSets.implicit_sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over generated sources.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.SourceSets.link_sources">
+<span class="sig-name descname"><span class="pre">link_sources</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="yambs.translation.html#yambs.translation.SourceTranslator" title="yambs.translation.SourceTranslator"><span class="pre">SourceTranslator</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/environment.html#SourceSets.link_sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.SourceSets.link_sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all sources that are directly provided to the linker.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yambs.environment.SourceSets.regular">
+<span class="sig-name descname"><span class="pre">regular</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#yambs.environment.SourceSets.regular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="yambs.environment.SourceSets.sources">
+<span class="sig-name descname"><span class="pre">sources</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="yambs.translation.html#yambs.translation.SourceTranslator" title="yambs.translation.SourceTranslator"><span class="pre">SourceTranslator</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/environment.html#SourceSets.sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.environment.SourceSets.sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over sources and their source translator.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">yambs</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="yambs.html">yambs package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="yambs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html">yambs.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.config.html">yambs.config package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.dependency.html">yambs.dependency package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.dist.html">yambs.dist package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">yambs.environment package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-yambs.environment.native">yambs.environment.native module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-yambs.environment">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html">yambs.generate package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.github.html">yambs.github package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.translation.html">yambs.translation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.uf2.html">yambs.uf2 package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.app">yambs.app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.entry">yambs.entry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.schemas">yambs.schemas module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="yambs.html">yambs package</a><ul>
+      <li>Previous: <a href="yambs.dist.html" title="previous chapter">yambs.dist package</a></li>
+      <li>Next: <a href="yambs.generate.html" title="next chapter">yambs.generate package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/yambs.environment.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

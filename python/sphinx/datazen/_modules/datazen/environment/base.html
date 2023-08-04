@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>datazen.environment.base &#8212; datazen  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for datazen.environment.base</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">datazen - A base class to be extended for runtime data loading and storing.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">NamedTuple</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.dict</span> <span class="kn">import</span> <span class="n">GenericStrDict</span>
+<span class="kn">from</span> <span class="nn">vcorelib.math.time</span> <span class="kn">import</span> <span class="n">nano_str</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths</span> <span class="kn">import</span> <span class="n">Pathlike</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">datazen</span> <span class="kn">import</span> <span class="n">ROOT_NAMESPACE</span>
+<span class="kn">from</span> <span class="nn">datazen.enums</span> <span class="kn">import</span> <span class="n">DataType</span>
+<span class="kn">from</span> <span class="nn">datazen.environment</span> <span class="kn">import</span> <span class="n">EnvironmentNamespace</span><span class="p">,</span> <span class="n">clone</span>
+
+<span class="n">SLUG_DELIM</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
+
+
+<div class="viewcode-block" id="Task"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.Task">[docs]</a><span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parameters identifying a task.&quot;&quot;&quot;</span>
+
+    <span class="n">variant</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">slug</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert this task into its &#39;slug&#39; form.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">variant</span><span class="si">}{</span><span class="n">SLUG_DELIM</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+<div class="viewcode-block" id="TaskResult"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.TaskResult">[docs]</a><span class="k">class</span> <span class="nc">TaskResult</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return value for a task, express whether or not the task succeeded and if</span>
+<span class="sd">    this tasks&#39; result should be considered &#39;new&#39; from the last time it was</span>
+<span class="sd">    evaluated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">success</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">fresh</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">time_ns</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Don&#39;t compare timing when checking equivalence.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="p">(</span><span class="n">TaskResult</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">==</span> <span class="n">other</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">fresh</span> <span class="o">==</span> <span class="n">other</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<div class="viewcode-block" id="TaskResult.with_time"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.TaskResult.with_time">[docs]</a>    <span class="k">def</span> <span class="nf">with_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_ns</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TaskResult&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new result from this one, with the time set.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TaskResult</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fresh</span><span class="p">,</span> <span class="n">time_ns</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TaskResult.log"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.TaskResult.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log status based on this task result.&quot;&quot;&quot;</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+            <span class="n">level</span><span class="p">,</span>
+            <span class="s2">&quot;task &#39;</span><span class="si">%s</span><span class="s2">&#39; </span><span class="si">%s</span><span class="s2"> in </span><span class="si">%s</span><span class="s2">s&quot;</span><span class="p">,</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">slug</span><span class="p">,</span>
+            <span class="s2">&quot;succeeded&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="k">else</span> <span class="s2">&quot;failed&quot;</span><span class="p">,</span>
+            <span class="n">nano_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_ns</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="dep_slug_unwrap"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.dep_slug_unwrap">[docs]</a><span class="k">def</span> <span class="nf">dep_slug_unwrap</span><span class="p">(</span><span class="n">slug</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default_op</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    From a slug String, determine the operation + target pair, if the</span>
+<span class="sd">    operation isn&#39;t specified use a default.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">default_op</span><span class="p">,</span> <span class="n">slug</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">SLUG_DELIM</span> <span class="ow">in</span> <span class="n">slug</span><span class="p">:</span>
+        <span class="n">split</span> <span class="o">=</span> <span class="n">slug</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SLUG_DELIM</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="BaseEnvironment"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment">[docs]</a><span class="k">class</span> <span class="nc">BaseEnvironment</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The base class for environment loading-and-storing management.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">default_ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span><span class="p">,</span>
+        <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">),</span>
+        <span class="n">newline</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">_</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Manage environments by names, set up a dictionary with a root</span>
+<span class="sd">        namespace.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">default_ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">EnvironmentNamespace</span><span class="p">(</span><span class="n">default_ns</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">RLock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">newline</span> <span class="o">=</span> <span class="n">newline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger_init</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span>
+
+<div class="viewcode-block" id="BaseEnvironment.add_namespace"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.add_namespace">[docs]</a>    <span class="k">def</span> <span class="nf">add_namespace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">clone_root</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a new namespace, optionally clone from the existing root.&quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">EnvironmentNamespace</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">clone_root</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">!=</span> <span class="n">ROOT_NAMESPACE</span><span class="p">:</span>
+                <span class="n">clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">ROOT_NAMESPACE</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.get_valid"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.get_valid">[docs]</a>    <span class="k">def</span> <span class="nf">get_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the &#39;valid&#39; flag for a namespace.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">valid</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.set_valid"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.set_valid">[docs]</a>    <span class="k">def</span> <span class="nf">set_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the &#39;valid&#39; flag for a namespace.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">valid</span> <span class="o">=</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.get_to_load"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.get_to_load">[docs]</a>    <span class="k">def</span> <span class="nf">get_to_load</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">dir_type</span><span class="p">:</span> <span class="n">DataType</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Proxy for a namespace&#39;s get_to_load.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">get_to_load</span><span class="p">(</span><span class="n">dir_type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.get_data"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.get_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">dir_type</span><span class="p">:</span> <span class="n">DataType</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenericStrDict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the raw data for a directory type from a namespace.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">dir_type</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.unload_all"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.unload_all">[docs]</a>    <span class="k">def</span> <span class="nf">unload_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Unload all of the directories for a namespace.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">unload_all</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.update_load_state"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.update_load_state">[docs]</a>    <span class="k">def</span> <span class="nf">update_load_state</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dir_type</span><span class="p">:</span> <span class="n">DataType</span><span class="p">,</span>
+        <span class="n">to_load</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">],</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Proxy for update_load_state for a namespace.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">update_load_state</span><span class="p">(</span><span class="n">dir_type</span><span class="p">,</span> <span class="n">to_load</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.add_dir"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.add_dir">[docs]</a>    <span class="k">def</span> <span class="nf">add_dir</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dir_type</span><span class="p">:</span> <span class="n">DataType</span><span class="p">,</span>
+        <span class="n">dir_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">rel_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span><span class="p">,</span>
+        <span class="n">allow_dup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Proxy for add_dir for a namespace.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">add_dir</span><span class="p">(</span>
+            <span class="n">dir_type</span><span class="p">,</span> <span class="n">dir_path</span><span class="p">,</span> <span class="n">rel_path</span><span class="p">,</span> <span class="n">allow_dup</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.add_dirs"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.add_dirs">[docs]</a>    <span class="k">def</span> <span class="nf">add_dirs</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dir_type</span><span class="p">:</span> <span class="n">DataType</span><span class="p">,</span>
+        <span class="n">dir_paths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">rel_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ROOT_NAMESPACE</span><span class="p">,</span>
+        <span class="n">allow_dup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Proxy for add_dirs for a namespace.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">add_dirs</span><span class="p">(</span>
+            <span class="n">dir_type</span><span class="p">,</span> <span class="n">dir_paths</span><span class="p">,</span> <span class="n">rel_path</span><span class="p">,</span> <span class="n">allow_dup</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseEnvironment.get_namespace"><a class="viewcode-back" href="../../../datazen.environment.html#datazen.environment.base.BaseEnvironment.get_namespace">[docs]</a>    <span class="k">def</span> <span class="nf">get_namespace</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">key_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">GenericStrDict</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine the namespace that a target should use, in general they</span>
+<span class="sd">        all should be unique unless they don&#39;t load anything new.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">load_deps</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="n">schema_deps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;schemas&quot;</span><span class="p">,</span> <span class="s2">&quot;schema_types&quot;</span><span class="p">]</span>
+        <span class="n">load_deps</span><span class="p">[</span><span class="s2">&quot;compiles&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;configs&quot;</span><span class="p">,</span> <span class="s2">&quot;variables&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">schema_deps</span>
+        <span class="n">load_deps</span><span class="p">[</span><span class="s2">&quot;renders&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;templates&quot;</span><span class="p">]</span>
+
+        <span class="c1"># add a unique namespace for this target if it loads</span>
+        <span class="c1"># any new data as to not load any of this data upstream,</span>
+        <span class="c1"># but still cache it (edge cases here?)</span>
+        <span class="n">load_dep_list</span> <span class="o">=</span> <span class="n">load_deps</span><span class="p">[</span><span class="n">key_name</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">load_dep</span> <span class="ow">in</span> <span class="n">load_dep_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">load_dep</span> <span class="ow">in</span> <span class="n">target_data</span><span class="p">:</span>
+                <span class="n">namespace</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">key_name</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">slug</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_namespace</span><span class="p">(</span><span class="n">namespace</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">namespace</span>
+
+        <span class="c1"># don&#39;t make a new namespace if we don&#39;t load</span>
+        <span class="c1"># new data</span>
+        <span class="k">return</span> <span class="n">ROOT_NAMESPACE</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">datazen</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../datazen.html">datazen package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  <li><a href="../../datazen.html">datazen</a><ul>
+  <li><a href="../environment.html">datazen.environment</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

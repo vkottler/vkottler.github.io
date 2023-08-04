@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>runtimepy.net.util &#8212; runtimepy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for runtimepy.net.util</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module implementing various networking utilities.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">suppress</span> <span class="k">as</span> <span class="n">_suppress</span>
+<span class="kn">import</span> <span class="nn">socket</span> <span class="k">as</span> <span class="nn">_socket</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
+
+
+<div class="viewcode-block" id="IPv4Host"><a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.IPv4Host">[docs]</a><span class="k">class</span> <span class="nc">IPv4Host</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See: https://docs.python.org/3/library/socket.html#socket-families.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get this host as a string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">hostname_port</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IPv6Host"><a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.IPv6Host">[docs]</a><span class="k">class</span> <span class="nc">IPv6Host</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See: https://docs.python.org/3/library/socket.html#socket-families.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">flowinfo</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">scope_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get this host as a string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">hostname_port</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">)</span></div>
+
+
+<span class="n">IpHost</span> <span class="o">=</span> <span class="n">_Union</span><span class="p">[</span><span class="n">IPv4Host</span><span class="p">,</span> <span class="n">IPv6Host</span><span class="p">]</span>
+<span class="n">IpHostlike</span> <span class="o">=</span> <span class="n">_Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">IpHost</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="normalize_host"><a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.normalize_host">[docs]</a><span class="k">def</span> <span class="nf">normalize_host</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">IpHostlike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IpHost</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a host object from caller parameters.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Default.</span>
+    <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">IPv4Host</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">IPv4Host</span><span class="p">,</span> <span class="n">IPv6Host</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">([</span><span class="o">*</span><span class="n">args</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">IPv4Host</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="k">return</span> <span class="n">IPv6Host</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="hostname"><a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.hostname">[docs]</a><span class="k">def</span> <span class="nf">hostname</span><span class="p">(</span><span class="n">ip_address</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Attempt to get a string hostname for a string IP address argument that</span>
+<span class="sd">    &#39;gethostbyaddr&#39; accepts. Otherwise return the original string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">ip_address</span>
+    <span class="k">with</span> <span class="n">_suppress</span><span class="p">(</span><span class="n">_socket</span><span class="o">.</span><span class="n">herror</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">_socket</span><span class="o">.</span><span class="n">gethostbyaddr</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="hostname_port"><a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.hostname_port">[docs]</a><span class="k">def</span> <span class="nf">hostname_port</span><span class="p">(</span><span class="n">ip_address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a hostname string with a port appended.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hostname</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+<div class="viewcode-block" id="sockname"><a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.sockname">[docs]</a><span class="k">def</span> <span class="nf">sockname</span><span class="p">(</span><span class="n">sock</span><span class="p">:</span> <span class="n">_socket</span><span class="o">.</span><span class="n">SocketType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IpHost</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get address information from a socket.&quot;&quot;&quot;</span>
+
+    <span class="k">assert</span> <span class="n">sock</span><span class="o">.</span><span class="n">family</span> <span class="o">==</span> <span class="n">_socket</span><span class="o">.</span><span class="n">AF_INET</span>
+    <span class="k">return</span> <span class="n">normalize_host</span><span class="p">(</span><span class="o">*</span><span class="n">sock</span><span class="o">.</span><span class="n">getsockname</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="get_free_socket"><a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.get_free_socket">[docs]</a><span class="k">def</span> <span class="nf">get_free_socket</span><span class="p">(</span>
+    <span class="n">local</span><span class="p">:</span> <span class="n">IpHost</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">_socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">,</span>
+    <span class="n">reuse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_socket</span><span class="o">.</span><span class="n">SocketType</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Attempt to get an available socket.&quot;&quot;&quot;</span>
+
+    <span class="n">local</span> <span class="o">=</span> <span class="n">normalize_host</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
+
+    <span class="n">sock</span> <span class="o">=</span> <span class="n">_socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">_socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">reuse</span><span class="p">:</span>
+        <span class="n">sock</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">_socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">_socket</span><span class="o">.</span><span class="n">SO_REUSEADDR</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">local</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">local</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">sock</span></div>
+
+
+<div class="viewcode-block" id="get_free_socket_name"><a class="viewcode-back" href="../../../runtimepy.net.html#runtimepy.net.util.get_free_socket_name">[docs]</a><span class="k">def</span> <span class="nf">get_free_socket_name</span><span class="p">(</span>
+    <span class="n">local</span><span class="p">:</span> <span class="n">IpHost</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">_socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IpHost</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a socket to determine an arbitrary port number that&#39;s available.</span>
+<span class="sd">    There is an inherent race condition using this strategy.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sock</span> <span class="o">=</span> <span class="n">get_free_socket</span><span class="p">(</span><span class="n">local</span><span class="o">=</span><span class="n">local</span><span class="p">,</span> <span class="n">reuse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">sockname</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+    <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">name</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">runtimepy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../runtimepy.html">runtimepy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

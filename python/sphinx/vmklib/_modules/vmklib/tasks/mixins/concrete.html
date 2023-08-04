@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vmklib.tasks.mixins.concrete &#8212; vmklib  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for vmklib.tasks.mixins.concrete</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A task mixin for writing concrete outputs to a build directory.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">linesep</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">asctime</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths</span> <span class="kn">import</span> <span class="n">Pathlike</span><span class="p">,</span> <span class="n">modified_after</span>
+<span class="kn">from</span> <span class="nn">vcorelib.target</span> <span class="kn">import</span> <span class="n">Substitutions</span>
+<span class="kn">from</span> <span class="nn">vcorelib.task</span> <span class="kn">import</span> <span class="n">Inbox</span><span class="p">,</span> <span class="n">Outbox</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">vmklib.tasks</span> <span class="kn">import</span> <span class="n">VmklibBase</span>
+
+
+<div class="viewcode-block" id="ConcreteBuilderMixin"><a class="viewcode-back" href="../../../../vmklib.tasks.mixins.html#vmklib.tasks.mixins.concrete.ConcreteBuilderMixin">[docs]</a><span class="k">class</span> <span class="nc">ConcreteBuilderMixin</span><span class="p">(</span><span class="n">VmklibBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a concrete file output after a task completes.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConcreteBuilderMixin.concrete_path"><a class="viewcode-back" href="../../../../vmklib.tasks.mixins.html#vmklib.tasks.mixins.concrete.ConcreteBuilderMixin.concrete_path">[docs]</a>    <span class="k">def</span> <span class="nf">concrete_path</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">inbox</span><span class="p">:</span> <span class="n">Inbox</span><span class="p">,</span>
+        <span class="n">substitutions</span><span class="p">:</span> <span class="n">Substitutions</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;By default name the concrete after the compiled target name.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dir</span><span class="p">(</span><span class="n">inbox</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">substitutions</span><span class="p">)</span><span class="si">}</span><span class="s2">.txt&quot;</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConcreteBuilderMixin.is_concrete_stale"><a class="viewcode-back" href="../../../../vmklib.tasks.mixins.html#vmklib.tasks.mixins.concrete.ConcreteBuilderMixin.is_concrete_stale">[docs]</a>    <span class="k">def</span> <span class="nf">is_concrete_stale</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">inbox</span><span class="p">:</span> <span class="n">Inbox</span><span class="p">,</span>
+        <span class="n">candidates</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">],</span>
+        <span class="n">substitutions</span><span class="p">:</span> <span class="n">Substitutions</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if any candidate paths are modified after the concrete was.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">modified_after</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">concrete_path</span><span class="p">(</span><span class="n">inbox</span><span class="p">,</span> <span class="n">substitutions</span><span class="p">),</span> <span class="n">candidates</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConcreteBuilderMixin.update_concrete"><a class="viewcode-back" href="../../../../vmklib.tasks.mixins.html#vmklib.tasks.mixins.concrete.ConcreteBuilderMixin.update_concrete">[docs]</a>    <span class="k">def</span> <span class="nf">update_concrete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inbox</span><span class="p">:</span> <span class="n">Inbox</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Write a text file to disk in the build directory based on the name of</span>
+<span class="sd">        this task.</span>
+
+<span class="sd">        This is useful to bootstrap compatibility with other tools like GNU</span>
+<span class="sd">        Make that assess concrete targets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">concrete</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">concrete_path</span><span class="p">(</span><span class="n">inbox</span><span class="p">,</span> <span class="p">{</span><span class="o">**</span><span class="n">kwargs</span><span class="p">})</span>
+
+        <span class="c1"># Write data to the concrete file.</span>
+        <span class="n">concrete</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">concrete</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">concrete_fd</span><span class="p">:</span>
+            <span class="n">concrete_fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">asctime</span><span class="p">())</span>
+            <span class="n">concrete_fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">linesep</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">concrete</span></div>
+
+<div class="viewcode-block" id="ConcreteBuilderMixin.run_exit"><a class="viewcode-back" href="../../../../vmklib.tasks.mixins.html#vmklib.tasks.mixins.concrete.ConcreteBuilderMixin.run_exit">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">run_exit</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">_inbox</span><span class="p">:</span> <span class="n">Inbox</span><span class="p">,</span> <span class="n">_outbox</span><span class="p">:</span> <span class="n">Outbox</span><span class="p">,</span> <span class="o">*</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the concrete target after main execution by default.&quot;&quot;&quot;</span>
+
+        <span class="n">_outbox</span><span class="p">[</span><span class="s2">&quot;concrete&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_concrete</span><span class="p">(</span><span class="n">_inbox</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+
+
+<div class="viewcode-block" id="ConcreteOnceMixin"><a class="viewcode-back" href="../../../../vmklib.tasks.mixins.html#vmklib.tasks.mixins.concrete.ConcreteOnceMixin">[docs]</a><span class="k">class</span> <span class="nc">ConcreteOnceMixin</span><span class="p">(</span><span class="n">ConcreteBuilderMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A mixin for tasks that only need to run once.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConcreteOnceMixin.run_enter"><a class="viewcode-back" href="../../../../vmklib.tasks.mixins.html#vmklib.tasks.mixins.concrete.ConcreteOnceMixin.run_enter">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">run_enter</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">_inbox</span><span class="p">:</span> <span class="n">Inbox</span><span class="p">,</span>
+        <span class="n">_outbox</span><span class="p">:</span> <span class="n">Outbox</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">_args</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">_kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure that this task only runs once.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;once&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">concrete_path</span><span class="p">(</span><span class="n">_inbox</span><span class="p">,</span> <span class="p">{</span><span class="o">**</span><span class="n">_kwargs</span><span class="p">})</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_continue</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">vmklib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vmklib.html">vmklib package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  <li><a href="../../tasks.html">vmklib.tasks</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

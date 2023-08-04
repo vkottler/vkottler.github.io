@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rcmpy.commands.all &#8212; rcmpy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for rcmpy.commands.all</h1><div class="highlight"><pre>
+<span></span><span class="c1"># =====================================</span>
+<span class="c1"># generator=datazen</span>
+<span class="c1"># version=3.1.2</span>
+<span class="c1"># hash=2b9927a9d538a17ed80c0411b8d02364</span>
+<span class="c1"># =====================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A module aggregating package commands.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span> <span class="k">as</span> <span class="n">_Tuple</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.args</span> <span class="kn">import</span> <span class="n">CommandRegister</span> <span class="k">as</span> <span class="n">_CommandRegister</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">rcmpy.commands.apply</span> <span class="kn">import</span> <span class="n">add_apply_cmd</span>
+<span class="kn">from</span> <span class="nn">rcmpy.commands.dump</span> <span class="kn">import</span> <span class="n">add_dump_cmd</span>
+<span class="kn">from</span> <span class="nn">rcmpy.commands.use</span> <span class="kn">import</span> <span class="n">add_use_cmd</span>
+<span class="kn">from</span> <span class="nn">rcmpy.commands.variant</span> <span class="kn">import</span> <span class="n">add_variant_cmd</span>
+<span class="kn">from</span> <span class="nn">rcmpy.commands.watch</span> <span class="kn">import</span> <span class="n">add_watch_cmd</span>
+
+
+<div class="viewcode-block" id="commands"><a class="viewcode-back" href="../../../rcmpy.commands.html#rcmpy.commands.all.commands">[docs]</a><span class="k">def</span> <span class="nf">commands</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">_CommandRegister</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get this package&#39;s commands.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;apply&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;apply any pending changes from the active data repository&quot;</span><span class="p">,</span>
+            <span class="n">add_apply_cmd</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;dump&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dump template data to stdout as JSON&quot;</span><span class="p">,</span>
+            <span class="n">add_dump_cmd</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;use&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;set the directory to use as the rcmpy data repository&quot;</span><span class="p">,</span>
+            <span class="n">add_use_cmd</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;variant&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;set the variant of configuration data to use&quot;</span><span class="p">,</span>
+            <span class="n">add_variant_cmd</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;watch&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;do a task whenever a file in a specified directory changes&quot;</span><span class="p">,</span>
+            <span class="n">add_watch_cmd</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;noop&quot;</span><span class="p">,</span> <span class="s2">&quot;command stub (does nothing)&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">]</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">rcmpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../rcmpy.html">rcmpy package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

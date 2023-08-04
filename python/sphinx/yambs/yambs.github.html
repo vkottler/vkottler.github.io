@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>yambs.github package &#8212; yambs  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="yambs.translation package" href="yambs.translation.html" />
+    <link rel="prev" title="yambs.generate.ninja package" href="yambs.generate.ninja.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="yambs-github-package">
+<h1>yambs.github package<a class="headerlink" href="#yambs-github-package" title="Permalink to this heading">¶</a></h1>
+<section id="module-yambs.github">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yambs.github" title="Permalink to this heading">¶</a></h2>
+<p>A module for working with GitHub releases.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="yambs.github.Github">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yambs.github.</span></span><span class="sig-name descname"><span class="pre">Github</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SchemaMap</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yambs/github.html#Github"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.github.Github" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="yambs.html#yambs.schemas.YambsDictCodec" title="yambs.schemas.YambsDictCodec"><code class="xref py py-class docutils literal notranslate"><span class="pre">YambsDictCodec</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BasicDictCodec</span></code></p>
+<p>GitHub repository information.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.github.check_api_token">
+<span class="sig-prename descclassname"><span class="pre">yambs.github.</span></span><span class="sig-name descname"><span class="pre">check_api_token</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/yambs/github.html#check_api_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.github.check_api_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for a GitHub API token set via the environment.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.github.github_url">
+<span class="sig-prename descclassname"><span class="pre">yambs.github.</span></span><span class="sig-name descname"><span class="pre">github_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">netloc_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'https'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ParseResult</span></span></span><a class="reference internal" href="_modules/yambs/github.html#github_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.github.github_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>See: <a class="reference external" href="https://docs.python.org/3/library/urllib.parse.html">https://docs.python.org/3/library/urllib.parse.html</a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.github.latest_release_data">
+<span class="sig-prename descclassname"><span class="pre">yambs.github.</span></span><span class="sig-name descname"><span class="pre">latest_release_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/yambs/github.html#latest_release_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.github.latest_release_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get latest-release data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yambs.github.latest_repo_release_api_url">
+<span class="sig-prename descclassname"><span class="pre">yambs.github.</span></span><span class="sig-name descname"><span class="pre">latest_repo_release_api_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/yambs/github.html#latest_repo_release_api_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yambs.github.latest_repo_release_api_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a URL string for a repository’s latest release.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">yambs</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="yambs.html">yambs package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="yambs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="yambs.aggregation.html">yambs.aggregation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.commands.html">yambs.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.config.html">yambs.config package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.dependency.html">yambs.dependency package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.dist.html">yambs.dist package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.environment.html">yambs.environment package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.generate.html">yambs.generate package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">yambs.github package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-yambs.github">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.translation.html">yambs.translation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yambs.uf2.html">yambs.uf2 package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.app">yambs.app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.entry">yambs.entry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs.schemas">yambs.schemas module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yambs.html#module-yambs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="yambs.html">yambs package</a><ul>
+      <li>Previous: <a href="yambs.generate.ninja.html" title="previous chapter">yambs.generate.ninja package</a></li>
+      <li>Next: <a href="yambs.translation.html" title="next chapter">yambs.translation package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/yambs.github.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

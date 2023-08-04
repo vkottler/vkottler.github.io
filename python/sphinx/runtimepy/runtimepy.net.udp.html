@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>runtimepy.net.udp package &#8212; runtimepy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="runtimepy.net.websocket package" href="runtimepy.net.websocket.html" />
+    <link rel="prev" title="runtimepy.net.tcp.telnet package" href="runtimepy.net.tcp.telnet.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="runtimepy-net-udp-package">
+<h1>runtimepy.net.udp package<a class="headerlink" href="#runtimepy-net-udp-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-runtimepy.net.udp.connection">
+<span id="runtimepy-net-udp-connection-module"></span><h2>runtimepy.net.udp.connection module<a class="headerlink" href="#module-runtimepy.net.udp.connection" title="Permalink to this heading">¶</a></h2>
+<p>A module implementing a UDP connection interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.EchoUdpConnection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.connection.</span></span><span class="sig-name descname"><span class="pre">EchoUdpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.connection.UdpQueueProtocol" title="runtimepy.net.udp.connection.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#EchoUdpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.EchoUdpConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#runtimepy.net.udp.connection.UdpConnection" title="runtimepy.net.udp.connection.UdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnection</span></code></a>, <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.EchoConnection" title="runtimepy.net.connection.EchoConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoConnection</span></code></a></p>
+<p>An echo connection for UDP.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.EchoUdpConnection.process_datagram">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_datagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#EchoUdpConnection.process_datagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.EchoUdpConnection.process_datagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a datagram.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.NullUdpConnection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.connection.</span></span><span class="sig-name descname"><span class="pre">NullUdpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.connection.UdpQueueProtocol" title="runtimepy.net.udp.connection.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#NullUdpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.NullUdpConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#runtimepy.net.udp.connection.UdpConnection" title="runtimepy.net.udp.connection.UdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnection</span></code></a>, <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.NullConnection" title="runtimepy.net.connection.NullConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullConnection</span></code></a></p>
+<p>A null UDP connection.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.NullUdpConnection.process_datagram">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_datagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#NullUdpConnection.process_datagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.NullUdpConnection.process_datagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a datagram.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.connection.</span></span><span class="sig-name descname"><span class="pre">UdpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.connection.UdpQueueProtocol" title="runtimepy.net.udp.connection.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection" title="runtimepy.net.connection.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a>, <a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin" title="runtimepy.net.mixin.TransportMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransportMixin</span></code></a></p>
+<p>A UDP connection interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.close">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close this connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.create_connection">
+<em class="property"><span class="pre">async</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.create_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.create_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a UDP connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.create_pair">
+<em class="property"><span class="pre">async</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_pair</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.create_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.create_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a connection pair.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">LoggerType</span></em><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.process_datagram">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_datagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.process_datagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.process_datagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a datagram.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.send_binary">
+<span class="sig-name descname"><span class="pre">send_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytearray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">memoryview</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.send_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.send_binary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enqueue a binary message tos end.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.send_text">
+<span class="sig-name descname"><span class="pre">send_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.send_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.send_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enqueue a text message to send.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.sendto">
+<span class="sig-name descname"><span class="pre">sendto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.sendto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.sendto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send to a specific address.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.set_remote_address">
+<span class="sig-name descname"><span class="pre">set_remote_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.set_remote_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.set_remote_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a new remote address. Note that this doesn’t interact with or
+attempt to ‘connect’ the underlying socket. That should be done at
+creation time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.tx_binary_hwm">
+<span class="sig-name descname"><span class="pre">tx_binary_hwm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.tx_binary_hwm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.tx_text_hwm">
+<span class="sig-name descname"><span class="pre">tx_text_hwm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.tx_text_hwm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.uses_binary_tx_queue">
+<span class="sig-name descname"><span class="pre">uses_binary_tx_queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.uses_binary_tx_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpConnection.uses_text_tx_queue">
+<span class="sig-name descname"><span class="pre">uses_text_tx_queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.udp.connection.UdpConnection.uses_text_tx_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpQueueProtocol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.connection.</span></span><span class="sig-name descname"><span class="pre">UdpQueueProtocol</span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpQueueProtocol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpQueueProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DatagramProtocol</span></code></p>
+<p>A simple UDP protocol that populates a message queue.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpQueueProtocol.datagram_received">
+<span class="sig-name descname"><span class="pre">datagram_received</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpQueueProtocol.datagram_received"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpQueueProtocol.datagram_received" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle incoming data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpQueueProtocol.error_received">
+<span class="sig-name descname"><span class="pre">error_received</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpQueueProtocol.error_received"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.connection.UdpQueueProtocol.error_received" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log any received errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.connection.UdpQueueProtocol.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span></em><a class="headerlink" href="#runtimepy.net.udp.connection.UdpQueueProtocol.logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-runtimepy.net.udp">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.net.udp" title="Permalink to this heading">¶</a></h2>
+<p>A module implementing networking utilities relevant to UDP.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.EchoUdpConnection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.</span></span><span class="sig-name descname"><span class="pre">EchoUdpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.connection.UdpQueueProtocol" title="runtimepy.net.udp.connection.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#EchoUdpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.EchoUdpConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#runtimepy.net.udp.connection.UdpConnection" title="runtimepy.net.udp.connection.UdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnection</span></code></a>, <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.EchoConnection" title="runtimepy.net.connection.EchoConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">EchoConnection</span></code></a></p>
+<p>An echo connection for UDP.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.EchoUdpConnection.process_datagram">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_datagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#EchoUdpConnection.process_datagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.EchoUdpConnection.process_datagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a datagram.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.NullUdpConnection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.</span></span><span class="sig-name descname"><span class="pre">NullUdpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.connection.UdpQueueProtocol" title="runtimepy.net.udp.connection.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#NullUdpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.NullUdpConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#runtimepy.net.udp.connection.UdpConnection" title="runtimepy.net.udp.connection.UdpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">UdpConnection</span></code></a>, <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.NullConnection" title="runtimepy.net.connection.NullConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullConnection</span></code></a></p>
+<p>A null UDP connection.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.NullUdpConnection.process_datagram">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_datagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#NullUdpConnection.process_datagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.NullUdpConnection.process_datagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a datagram.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.net.udp.</span></span><span class="sig-name descname"><span class="pre">UdpConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatagramTransport</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.net.udp.connection.UdpQueueProtocol" title="runtimepy.net.udp.connection.UdpQueueProtocol"><span class="pre">UdpQueueProtocol</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection" title="runtimepy.net.connection.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></a>, <a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin" title="runtimepy.net.mixin.TransportMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransportMixin</span></code></a></p>
+<p>A UDP connection interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.close">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close this connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.create_connection">
+<em class="property"><span class="pre">async</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.create_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.create_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a UDP connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.create_pair">
+<em class="property"><span class="pre">async</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_pair</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.create_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.create_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a connection pair.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">LoggerType</span></em><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.process_datagram">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_datagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.process_datagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.process_datagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a datagram.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.send_binary">
+<span class="sig-name descname"><span class="pre">send_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytearray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">memoryview</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.send_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.send_binary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enqueue a binary message tos end.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.send_text">
+<span class="sig-name descname"><span class="pre">send_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.send_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.send_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enqueue a text message to send.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.sendto">
+<span class="sig-name descname"><span class="pre">sendto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.sendto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.sendto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send to a specific address.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.set_remote_address">
+<span class="sig-name descname"><span class="pre">set_remote_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv4Host" title="runtimepy.net.util.IPv4Host"><span class="pre">IPv4Host</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.IPv6Host" title="runtimepy.net.util.IPv6Host"><span class="pre">IPv6Host</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/net/udp/connection.html#UdpConnection.set_remote_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.set_remote_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a new remote address. Note that this doesn’t interact with or
+attempt to ‘connect’ the underlying socket. That should be done at
+creation time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.tx_binary_hwm">
+<span class="sig-name descname"><span class="pre">tx_binary_hwm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.tx_binary_hwm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.tx_text_hwm">
+<span class="sig-name descname"><span class="pre">tx_text_hwm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.tx_text_hwm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.uses_binary_tx_queue">
+<span class="sig-name descname"><span class="pre">uses_binary_tx_queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.uses_binary_tx_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.net.udp.UdpConnection.uses_text_tx_queue">
+<span class="sig-name descname"><span class="pre">uses_text_tx_queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#runtimepy.net.udp.UdpConnection.uses_text_tx_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">runtimepy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="runtimepy.html">runtimepy package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="runtimepy.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="runtimepy.net.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.connection">runtimepy.net.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.manager">runtimepy.net.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.metrics">runtimepy.net.metrics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.mixin">runtimepy.net.mixin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.util">runtimepy.net.util module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.app">runtimepy.app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.entry">runtimepy.entry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.mapping">runtimepy.mapping module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy.schemas">runtimepy.schemas module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.html#module-runtimepy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="runtimepy.html">runtimepy package</a><ul>
+  <li><a href="runtimepy.net.html">runtimepy.net package</a><ul>
+      <li>Previous: <a href="runtimepy.net.tcp.telnet.html" title="previous chapter">runtimepy.net.tcp.telnet package</a></li>
+      <li>Next: <a href="runtimepy.net.websocket.html" title="next chapter">runtimepy.net.websocket package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/runtimepy.net.udp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

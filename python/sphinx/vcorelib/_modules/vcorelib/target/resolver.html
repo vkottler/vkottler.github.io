@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vcorelib.target.resolver &#8212; vcorelib  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for vcorelib.target.resolver</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Implements management of target objects.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># built-in</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span> <span class="k">as</span> <span class="n">_Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span> <span class="k">as</span> <span class="n">_Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span> <span class="k">as</span> <span class="n">_Iterable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span> <span class="k">as</span> <span class="n">_NamedTuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span> <span class="k">as</span> <span class="n">_Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
+
+<span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">vcorelib.target</span> <span class="kn">import</span> <span class="n">LITERAL_MATCH</span> <span class="k">as</span> <span class="n">_LITERAL_MATCH</span>
+<span class="kn">from</span> <span class="nn">vcorelib.target</span> <span class="kn">import</span> <span class="n">NO_MATCH</span> <span class="k">as</span> <span class="n">_NO_MATCH</span>
+<span class="kn">from</span> <span class="nn">vcorelib.target</span> <span class="kn">import</span> <span class="n">Target</span><span class="p">,</span> <span class="n">TargetMatch</span>
+
+
+<div class="viewcode-block" id="TargetResolution"><a class="viewcode-back" href="../../../vcorelib.target.html#vcorelib.target.resolver.TargetResolution">[docs]</a><span class="k">class</span> <span class="nc">TargetResolution</span><span class="p">(</span><span class="n">_NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A return type for the target resolver.&quot;&quot;&quot;</span>
+
+    <span class="n">result</span><span class="p">:</span> <span class="n">TargetMatch</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return whether or not this target resolution is a match.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">matched</span></div>
+
+
+<span class="n">NOT_RESOLVED</span> <span class="o">=</span> <span class="n">TargetResolution</span><span class="p">(</span><span class="n">_NO_MATCH</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="TargetResolver"><a class="viewcode-back" href="../../../vcorelib.target.html#vcorelib.target.resolver.TargetResolver">[docs]</a><span class="k">class</span> <span class="nc">TargetResolver</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for registering target prototypes that can be used to match</span>
+<span class="sd">    incoming data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this target resolver.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">literals</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="p">:</span> <span class="n">_Dict</span><span class="p">[</span><span class="n">Target</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="TargetResolver.register"><a class="viewcode-back" href="../../../vcorelib.target.html#vcorelib.target.resolver.TargetResolver.register">[docs]</a>    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">_Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Register a target to this resolver. If it is ever resolved in</span>
+<span class="sd">        evaluation, value will be returned. Return whether or not any target</span>
+<span class="sd">        was registered.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">added</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">Target</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># Don&#39;t allow double registration but let the caller handle this.</span>
+        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">literal</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">literals</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">literals</span><span class="p">[</span><span class="n">data</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="n">added</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">target</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">added</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="n">added</span></div>
+
+<div class="viewcode-block" id="TargetResolver.evaluate"><a class="viewcode-back" href="../../../vcorelib.target.html#vcorelib.target.resolver.TargetResolver.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TargetResolution</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find the target that matches data, if one can be found.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Optimize matching candidate data against many targets by first</span>
+        <span class="c1"># testing the literal set.</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">literals</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TargetResolution</span><span class="p">(</span><span class="n">_LITERAL_MATCH</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">literals</span><span class="p">[</span><span class="n">data</span><span class="p">])</span>
+
+        <span class="n">matches</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">_Tuple</span><span class="p">[</span><span class="n">Target</span><span class="p">,</span> <span class="n">TargetMatch</span><span class="p">,</span> <span class="n">_Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">candidate</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">test</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">test</span><span class="o">.</span><span class="n">matched</span><span class="p">:</span>
+                <span class="n">matches</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">candidate</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+
+        <span class="c1"># If we find any dynamic match, ensure that we only matched a single</span>
+        <span class="c1"># target.</span>
+        <span class="k">if</span> <span class="n">matches</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Matched &#39;</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&#39; to </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="si">}</span><span class="s2"> targets: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">matches</span><span class="p">)</span><span class="si">}</span><span class="s2">!&quot;</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">TargetResolution</span><span class="p">(</span><span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">NOT_RESOLVED</span></div>
+
+<div class="viewcode-block" id="TargetResolver.evaluate_all"><a class="viewcode-back" href="../../../vcorelib.target.html#vcorelib.target.resolver.TargetResolver.evaluate_all">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate_all</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">_Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="n">_Union</span><span class="p">[</span><span class="n">TargetResolution</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate all targets and optionally enforce that they all matched.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">evaluation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">evaluation</span> <span class="k">if</span> <span class="n">evaluation</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">matched</span> <span class="k">else</span> <span class="n">item</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">vcorelib</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../vcorelib.html">vcorelib package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  <li><a href="../target.html">vcorelib.target</a><ul>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Vaughn Kottler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
