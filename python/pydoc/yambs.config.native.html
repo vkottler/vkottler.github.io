@@ -53,7 +53,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="yambs.config.common.html#CommonConfig">yambs.config.common.CommonConfig</a>:<br>
-<dl><dt><a name="Native-directory"><strong>directory</strong></a>(self, name: str, mkdir: bool = True) -&gt; pathlib.Path</dt><dd><span class="code">Get&nbsp;a&nbsp;configurable&nbsp;directory.</span></dd></dl>
+<dl><dt><a name="Native-directory"><strong>directory</strong></a>(self, name: str, mkdir: bool = True, root: pathlib.Path = None) -&gt; pathlib.Path</dt><dd><span class="code">Get&nbsp;a&nbsp;configurable&nbsp;directory.</span></dd></dl>
 
 <dl><dt><a name="Native-init"><strong>init</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
@@ -62,8 +62,13 @@ Class methods inherited from <a href="yambs.config.common.html#CommonConfig">yam
 <dl><dt><a name="Native-load"><strong>load</strong></a>(path: Union[pathlib.Path, str, NoneType] = 'yambs.yaml', package_config: str = 'yambs.yaml', root: Union[pathlib.Path, str, NoneType] = None) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Load&nbsp;a&nbsp;configuration.</span></dd></dl>
 
 <hr>
+Readonly properties inherited from <a href="yambs.config.common.html#CommonConfig">yambs.config.common.CommonConfig</a>:<br>
+<dl><dt><strong>third_party_script</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;third-party&nbsp;build&nbsp;script.</span></dd>
+</dl>
+<hr>
 Data and other attributes inherited from <a href="yambs.schemas.html#YambsDictCodec">yambs.schemas.YambsDictCodec</a>:<br>
-<dl><dt><strong>default_schemas</strong> = {'Variant': &lt;vcorelib.schemas.json.JsonSchema ob...chemas.json.JsonSchema object at 0x7f181072e390&gt;}</dl>
+<dl><dt><strong>default_schemas</strong> = {'Architecture': &lt;vcorelib.schemas.json.JsonSche...chemas.json.JsonSchema object at 0x7f033ac385d0&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.dict.codec.html#BasicDictCodec">vcorelib.dict.codec.BasicDictCodec</a>:<br>
@@ -86,11 +91,11 @@ Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dic
 <dl><dt><a name="Native-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</span></dd></dl>
 
-<dl><dt><a name="Native-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f1811743350&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Native-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f033bbec1d0&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
-<dl><dt><a name="Native-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f1811743350&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Native-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f033bbec1d0&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>

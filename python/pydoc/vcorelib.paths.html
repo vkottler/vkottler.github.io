@@ -49,6 +49,7 @@ directory,&nbsp;if&nbsp;not&nbsp;provided).</span></dd></dl>
  <dl><dt><a name="-stats"><strong>stats</strong></a>(path: Union[pathlib.Path, str, NoneType]) -&gt; Optional[os.stat_result]</dt><dd><span class="code">Get&nbsp;stats&nbsp;for&nbsp;a&nbsp;file&nbsp;on&nbsp;disk&nbsp;if&nbsp;it&nbsp;exists.</span></dd></dl>
  <dl><dt><a name="-str_hash_hex"><strong>str_hash_hex</strong></a>(data: str, encoding: str = 'utf-8', algorithm: str = 'sha256') -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;hex&nbsp;digest&nbsp;for&nbsp;string&nbsp;data.</span></dd></dl>
  <dl><dt><a name="-str_md5_hex"><strong>str_md5_hex</strong></a>(data: str, encoding: str = 'utf-8') -&gt; str</dt><dd><span class="code">Get&nbsp;an&nbsp;md5&nbsp;hex&nbsp;string&nbsp;from&nbsp;string&nbsp;data.</span></dd></dl>
+ <dl><dt><a name="-validate_hex_digest"><strong>validate_hex_digest</strong></a>(path: Union[pathlib.Path, str, NoneType], root: Union[pathlib.Path, str, NoneType] = None, strict: bool = False) -&gt; None</dt><dd><span class="code">Attempt&nbsp;to&nbsp;validate&nbsp;a&nbsp;hex-digest&nbsp;file.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
@@ -57,5 +58,5 @@ directory,&nbsp;if&nbsp;not&nbsp;provided).</span></dd></dl>
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>DEFAULT_HASH</strong> = 'sha256'<br>
 <strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
-<strong>__all__</strong> = ['Pathlike', 'normalize', 'stats', 'modified_ns', 'modified_after', 'get_file_name', 'get_file_ext', 'DEFAULT_HASH', 'bytes_hash_hex', 'str_hash_hex', 'file_hash_hex', 'bytes_md5_hex', 'str_md5_hex', 'file_md5_hex', 'set_exec_flags', 'rel', 'find_file', 'resource', 'create_hex_digest']</td></tr></table>
+<strong>__all__</strong> = ['Pathlike', 'normalize', 'stats', 'modified_ns', 'modified_after', 'get_file_name', 'get_file_ext', 'DEFAULT_HASH', 'bytes_hash_hex', 'str_hash_hex', 'file_hash_hex', 'bytes_md5_hex', 'str_md5_hex', 'file_md5_hex', 'set_exec_flags', 'rel', 'find_file', 'resource', 'create_hex_digest', 'validate_hex_digest']</td></tr></table>
 </body></html>

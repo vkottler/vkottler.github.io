@@ -37,9 +37,7 @@
 <dt class="heading-text"><a href="vcorelib.math.analysis.average.html#MovingSum">vcorelib.math.analysis.average.MovingSum</a>
 </dt></dl>
 </dd>
-<dt class="heading-text"><a href="vcorelib.math.analysis.rate.html#RateTracker">vcorelib.math.analysis.rate.RateTracker</a>
-</dt><dt class="heading-text"><a href="vcorelib.math.analysis.rate.limiter.html#RateLimiter">vcorelib.math.analysis.rate.limiter.RateLimiter</a>
-</dt><dt class="heading-text"><a href="vcorelib.math.analysis.weighted.html#WeightedAverage">vcorelib.math.analysis.weighted.WeightedAverage</a>
+<dt class="heading-text"><a href="vcorelib.math.analysis.weighted.html#WeightedAverage">vcorelib.math.analysis.weighted.WeightedAverage</a>
 </dt></dl>
 </dd>
 </dl>
@@ -136,75 +134,6 @@ Data descriptors inherited from <a href="vcorelib.math.analysis.buffer.html#Floa
 </td></tr></table> <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><a name="RateLimiter">class <strong>RateLimiter</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
-    
-<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#RateLimiter">RateLimiter</a>(period_ns:&nbsp;int,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
-&nbsp;<br>
-A&nbsp;class&nbsp;for&nbsp;limiting&nbsp;the&nbsp;rate&nbsp;of&nbsp;runtime&nbsp;work.<br>&nbsp;</span></td></tr>
-<tr><td>&nbsp;</td>
-<td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="RateLimiter-__call__"><strong>__call__</strong></a>(self, time_ns: int = None, task: Callable[[], NoneType] = None) -&gt; bool</dt><dd><span class="code">Query&nbsp;the&nbsp;limiter&nbsp;to&nbsp;determine&nbsp;if&nbsp;the&nbsp;current&nbsp;time&nbsp;would&nbsp;allow&nbsp;a<br>
-governed&nbsp;task&nbsp;to&nbsp;run.</span></dd></dl>
-
-<dl><dt><a name="RateLimiter-__init__"><strong>__init__</strong></a>(self, period_ns: int, **kwargs) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;rate-limiter.</span></dd></dl>
-
-<hr>
-Readonly properties defined here:<br>
-<dl><dt><strong>rate_hz</strong></dt>
-<dd><span class="code">Get&nbsp;the&nbsp;underlying&nbsp;rate&nbsp;that&nbsp;this&nbsp;limiter&nbsp;is&nbsp;governing.&nbsp;This&nbsp;is&nbsp;useful<br>
-to&nbsp;determine&nbsp;if&nbsp;the&nbsp;rate&nbsp;limitation&nbsp;is&nbsp;or&nbsp;isn't&nbsp;impacting&nbsp;the&nbsp;rate&nbsp;of<br>
-some&nbsp;task.</span></dd>
-</dl>
-<hr>
-Data descriptors defined here:<br>
-<dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
-</dl>
-<dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
-</dl>
-</td></tr></table> <p>
-<table class="section">
-<tr class="decor title-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><a name="RateTracker">class <strong>RateTracker</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
-    
-<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#RateTracker">RateTracker</a>(**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
-&nbsp;<br>
-A&nbsp;class&nbsp;for&nbsp;managing&nbsp;rate&nbsp;information&nbsp;for&nbsp;some&nbsp;data&nbsp;channel.<br>&nbsp;</span></td></tr>
-<tr><td>&nbsp;</td>
-<td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="RateTracker-__call__"><strong>__call__</strong></a>(self, time_ns: int = None, value: float = 1.0) -&gt; float</dt><dd><span class="code">Submit&nbsp;new&nbsp;data&nbsp;to&nbsp;the&nbsp;rate&nbsp;tracker.&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called&nbsp;with<br>
-default&nbsp;arguments,&nbsp;the&nbsp;returned&nbsp;value&nbsp;will&nbsp;reflect&nbsp;the&nbsp;rate&nbsp;that&nbsp;this<br>
-method&nbsp;is&nbsp;being&nbsp;called&nbsp;in&nbsp;hertz.</span></dd></dl>
-
-<dl><dt><a name="RateTracker-__init__"><strong>__init__</strong></a>(self, **kwargs) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;rate&nbsp;tracker.</span></dd></dl>
-
-<dl><dt><a name="RateTracker-measure"><strong>measure</strong></a>(self, value: float = 1.0, timer: vcorelib.math.time.Timer = &lt;vcorelib.math.time.Timer object at 0x7f16177dc390&gt;) -&gt; Iterator[NoneType]</dt><dd><span class="code">Track&nbsp;the&nbsp;time&nbsp;that&nbsp;the&nbsp;caller's&nbsp;context&nbsp;takes.</span></dd></dl>
-
-<dl><dt><a name="RateTracker-poll"><strong>poll</strong></a>(self, time_ns: int = None) -&gt; float</dt><dd><span class="code">Siphon&nbsp;accumulated&nbsp;time&nbsp;and&nbsp;update&nbsp;rate&nbsp;tracking.</span></dd></dl>
-
-<dl><dt><a name="RateTracker-reset"><strong>reset</strong></a>(self) -&gt; None</dt><dd><span class="code">Reset&nbsp;this&nbsp;rate&nbsp;tracker.</span></dd></dl>
-
-<dl><dt><a name="RateTracker-with_dt"><strong>with_dt</strong></a>(self, delta_s: float, value: float = 1.0) -&gt; None</dt><dd><span class="code">Update&nbsp;this&nbsp;rate&nbsp;by&nbsp;directly&nbsp;providing&nbsp;the&nbsp;delta-time&nbsp;value.</span></dd></dl>
-
-<hr>
-Readonly properties defined here:<br>
-<dl><dt><strong>value</strong></dt>
-<dd><span class="code">An&nbsp;accessor&nbsp;for&nbsp;the&nbsp;underlying&nbsp;value.</span></dd>
-</dl>
-<hr>
-Data descriptors defined here:<br>
-<dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
-</dl>
-<dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
-</dl>
-</td></tr></table> <p>
-<table class="section">
-<tr class="decor title-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><a name="WeightedAverage">class <strong>WeightedAverage</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
@@ -248,5 +177,5 @@ Data descriptors defined here:<br>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>DEFAULT_DEPTH</strong> = 10<br>
-<strong>__all__</strong> = ['MovingAverage', 'MovingSum', 'WeightedAverage', 'DEFAULT_DEPTH', 'FloatBuffer', 'ns_to_s', 'RateTracker', 'RateLimiter']</td></tr></table>
+<strong>__all__</strong> = ['MovingAverage', 'MovingSum', 'WeightedAverage', 'DEFAULT_DEPTH', 'FloatBuffer', 'ns_to_s']</td></tr></table>
 </body></html>

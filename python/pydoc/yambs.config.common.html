@@ -58,7 +58,7 @@ A&nbsp;common,&nbsp;base&nbsp;configuration.<br>&nbsp;</span></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="CommonConfig-directory"><strong>directory</strong></a>(self, name: str, mkdir: bool = True) -&gt; pathlib.Path</dt><dd><span class="code">Get&nbsp;a&nbsp;configurable&nbsp;directory.</span></dd></dl>
+<dl><dt><a name="CommonConfig-directory"><strong>directory</strong></a>(self, name: str, mkdir: bool = True, root: pathlib.Path = None) -&gt; pathlib.Path</dt><dd><span class="code">Get&nbsp;a&nbsp;configurable&nbsp;directory.</span></dd></dl>
 
 <dl><dt><a name="CommonConfig-init"><strong>init</strong></a>(self, data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
@@ -67,14 +67,19 @@ Class methods defined here:<br>
 <dl><dt><a name="CommonConfig-load"><strong>load</strong></a>(path: Union[pathlib.Path, str, NoneType] = 'yambs.yaml', package_config: str = 'yambs.yaml', root: Union[pathlib.Path, str, NoneType] = None) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Load&nbsp;a&nbsp;configuration.</span></dd></dl>
 
 <hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>third_party_script</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;third-party&nbsp;build&nbsp;script.</span></dd>
+</dl>
+<hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
 
-<dl><dt><strong>__annotations__</strong> = {'build_root': &lt;class 'pathlib.Path'&gt;, 'data': typing.Dict[str, typing.Any], 'dist_root': &lt;class 'pathlib.Path'&gt;, 'ninja_root': &lt;class 'pathlib.Path'&gt;, 'root': &lt;class 'pathlib.Path'&gt;, 'src_root': &lt;class 'pathlib.Path'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'build_root': &lt;class 'pathlib.Path'&gt;, 'data': typing.Dict[str, typing.Any], 'dependencies': typing.Set[yambs.dependency.config.Dependency], 'dist_root': &lt;class 'pathlib.Path'&gt;, 'file': typing.Optional[pathlib.Path], 'ninja_root': &lt;class 'pathlib.Path'&gt;, 'root': &lt;class 'pathlib.Path'&gt;, 'src_root': &lt;class 'pathlib.Path'&gt;, 'third_party_root': &lt;class 'pathlib.Path'&gt;}</dl>
 
 <hr>
 Data and other attributes inherited from <a href="yambs.schemas.html#YambsDictCodec">yambs.schemas.YambsDictCodec</a>:<br>
-<dl><dt><strong>default_schemas</strong> = {'Variant': &lt;vcorelib.schemas.json.JsonSchema ob...chemas.json.JsonSchema object at 0x7ff539f4e410&gt;}</dl>
+<dl><dt><strong>default_schemas</strong> = {'Architecture': &lt;vcorelib.schemas.json.JsonSche...chemas.json.JsonSchema object at 0x7f7db127eb50&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.dict.codec.html#BasicDictCodec">vcorelib.dict.codec.BasicDictCodec</a>:<br>
@@ -97,11 +102,11 @@ Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dic
 <dl><dt><a name="CommonConfig-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</span></dd></dl>
 
-<dl><dt><a name="CommonConfig-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7ff53b157250&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="CommonConfig-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f7db20a40d0&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
-<dl><dt><a name="CommonConfig-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7ff53b157250&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="CommonConfig-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f7db20a40d0&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
@@ -251,6 +256,7 @@ Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<b
 <strong>Optional</strong> = typing.Optional<br>
 <strong>PKG_NAME</strong> = 'yambs'<br>
 <strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
+<strong>Set</strong> = typing.Set<br>
 <strong>T</strong> = ~T<br>
 <strong>Type</strong> = typing.Type</td></tr></table>
 </body></html>

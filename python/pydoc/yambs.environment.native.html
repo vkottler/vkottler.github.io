@@ -53,6 +53,8 @@ Methods defined here:<br>
 
 <dl><dt><a name="NativeBuildEnvironment-write_source_rules"><strong>write_source_rules</strong></a>(self, stream: &lt;class 'TextIO'&gt;) -&gt; Set[pathlib.Path]</dt><dd><span class="code">Write&nbsp;source&nbsp;rules.</span></dd></dl>
 
+<dl><dt><a name="NativeBuildEnvironment-write_static_library_rule"><strong>write_static_library_rule</strong></a>(self, stream: &lt;class 'TextIO'&gt;, outputs: Set[pathlib.Path]) -&gt; pathlib.Path</dt><dd><span class="code">Create&nbsp;a&nbsp;rule&nbsp;for&nbsp;a&nbsp;static&nbsp;library&nbsp;output.</span></dd></dl>
+
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__annotations__</strong> = {}</dl>
@@ -83,7 +85,7 @@ Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcor
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>ARBITER</strong> = &lt;vcorelib.io.arbiter.DataArbiter object&gt;<br>
-<strong>BUILD_DIR_VAR</strong> = '$build_dir'<br>
+<strong>BUILD_DIR_PATH</strong> = PosixPath('$build_dir')<br>
 <strong>Dict</strong> = typing.Dict<br>
 <strong>Set</strong> = typing.Set<br>
 <strong>linesep</strong> = '<span class="repr">\n</span>'</td></tr></table>
