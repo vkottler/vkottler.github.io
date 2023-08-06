@@ -1,40 +1,349 @@
+
+
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>svgen package &#8212; svgen  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'svgen';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="svgen.attribute package" href="svgen.attribute.html" />
     <link rel="prev" title="Welcome to svgen’s documentation!" href="index.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
   
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-  </head><body>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">svgen  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">svgen package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="svgen.attribute.html">svgen.attribute package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.cartesian.html">svgen.cartesian package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.rectangle.html">svgen.cartesian.rectangle package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.color.html">svgen.color package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.color.theme.html">svgen.color.theme package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.element.html">svgen.element package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.generation.html">svgen.generation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html">svgen.shapes package</a></li>
+</ul>
+</li>
+</ul>
 
-          <div class="body" role="main">
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/svgen.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>svgen package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.app">svgen.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.initialize_config"><code class="docutils literal notranslate"><span class="pre">initialize_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.display">svgen.display module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio"><code class="docutils literal notranslate"><span class="pre">AspectRatio</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.args"><code class="docutils literal notranslate"><span class="pre">AspectRatio.args</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.as_str"><code class="docutils literal notranslate"><span class="pre">AspectRatio.as_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.create"><code class="docutils literal notranslate"><span class="pre">AspectRatio.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.final"><code class="docutils literal notranslate"><span class="pre">AspectRatio.final</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.landscape"><code class="docutils literal notranslate"><span class="pre">AspectRatio.landscape</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.over_height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.over_height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.portrait"><code class="docutils literal notranslate"><span class="pre">AspectRatio.portrait</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.rotate"><code class="docutils literal notranslate"><span class="pre">AspectRatio.rotate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.square"><code class="docutils literal notranslate"><span class="pre">AspectRatio.square</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.width"><code class="docutils literal notranslate"><span class="pre">AspectRatio.width</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.common_sizes"><code class="docutils literal notranslate"><span class="pre">common_sizes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.entry">svgen.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.inkscape">svgen.inkscape module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.InkscapeTask"><code class="docutils literal notranslate"><span class="pre">InkscapeTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.InkscapeTask.invoke"><code class="docutils literal notranslate"><span class="pre">InkscapeTask.invoke()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.invoke"><code class="docutils literal notranslate"><span class="pre">invoke()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.invoke_multiple"><code class="docutils literal notranslate"><span class="pre">invoke_multiple()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.script">svgen.script module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.script.invoke_script"><code class="docutils literal notranslate"><span class="pre">invoke_script()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="svgen-package">
-<h1>svgen package<a class="headerlink" href="#svgen-package" title="Permalink to this heading">¶</a></h1>
+<h1>svgen package<a class="headerlink" href="#svgen-package" title="Permalink to this heading">#</a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="svgen.attribute.html">svgen.attribute package</a><ul>
@@ -398,107 +707,107 @@
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="module-svgen.app">
-<span id="svgen-app-module"></span><h2>svgen.app module<a class="headerlink" href="#module-svgen.app" title="Permalink to this heading">¶</a></h2>
+<span id="svgen-app-module"></span><h2>svgen.app module<a class="headerlink" href="#module-svgen.app" title="Permalink to this heading">#</a></h2>
 <p>svgen - This package’s command-line entry-point application.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.app.add_app_args">
-<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.add_app_args" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.add_app_args" title="Permalink to this definition">#</a></dt>
 <dd><p>Add application-specific arguments to the command-line parser.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.app.entry">
-<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/svgen/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.entry" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/svgen/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.entry" title="Permalink to this definition">#</a></dt>
 <dd><p>Execute the requested task.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.app.generate">
-<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scripts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.generate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scripts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.generate" title="Permalink to this definition">#</a></dt>
 <dd><p>Generate a single SVG document.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.app.initialize_config">
-<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">initialize_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#initialize_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.initialize_config" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.app.</span></span><span class="sig-name descname"><span class="pre">initialize_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/app.html#initialize_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.app.initialize_config" title="Permalink to this definition">#</a></dt>
 <dd><p>Set initial values for SVG document configurations.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.display">
-<span id="svgen-display-module"></span><h2>svgen.display module<a class="headerlink" href="#module-svgen.display" title="Permalink to this heading">¶</a></h2>
+<span id="svgen-display-module"></span><h2>svgen.display module<a class="headerlink" href="#module-svgen.display" title="Permalink to this heading">#</a></h2>
 <p>A module for working with common display assets.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.display.</span></span><span class="sig-name descname"><span class="pre">AspectRatio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.display.</span></span><span class="sig-name descname"><span class="pre">AspectRatio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A class to storge a width and height ratio.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.args">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#svgen.display.AspectRatio.args" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#svgen.display.AspectRatio.args" title="Permalink to this definition">#</a></dt>
 <dd><p>Get inkscape command-line arguments.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.as_str">
-<span class="sig-name descname"><span class="pre">as_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">':'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.as_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.as_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">':'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.as_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.as_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Get this aspect ratio as a string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.create">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">':'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">':'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.create" title="Permalink to this definition">#</a></dt>
 <dd><p>Create an aspect ration from a string.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.final">
-<span class="sig-name descname"><span class="pre">final</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.final" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">final</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.final" title="Permalink to this definition">#</a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.height">
-<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.display.AspectRatio.height" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.display.AspectRatio.height" title="Permalink to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.landscape">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">landscape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.landscape" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">landscape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.landscape" title="Permalink to this definition">#</a></dt>
 <dd><p>Determine if this ratio is landscape.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.over_height">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">over_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.display.AspectRatio.over_height" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">over_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.display.AspectRatio.over_height" title="Permalink to this definition">#</a></dt>
 <dd><p>Express this ratio as one of width over height.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.portrait">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">portrait</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.portrait" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">portrait</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.portrait" title="Permalink to this definition">#</a></dt>
 <dd><p>Determine if this ratio is portrait.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.rotate">
-<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.rotate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a></span></span><a class="reference internal" href="_modules/svgen/display.html#AspectRatio.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.AspectRatio.rotate" title="Permalink to this definition">#</a></dt>
 <dd><p>Get this aspect ratio rotated.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.square">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">square</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.square" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">square</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#svgen.display.AspectRatio.square" title="Permalink to this definition">#</a></dt>
 <dd><p>Determine if this is a square aspect ratio.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.display.AspectRatio.width">
-<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.display.AspectRatio.width" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#svgen.display.AspectRatio.width" title="Permalink to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -506,33 +815,33 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.display.common_sizes">
-<span class="sig-prename descclassname"><span class="pre">svgen.display.</span></span><span class="sig-name descname"><span class="pre">common_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox" title="svgen.attribute.viewbox.ViewBox"><span class="pre">ViewBox</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/svgen/display.html#common_sizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.common_sizes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.display.</span></span><span class="sig-name descname"><span class="pre">common_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="svgen.attribute.html#svgen.attribute.viewbox.ViewBox" title="svgen.attribute.viewbox.ViewBox"><span class="pre">ViewBox</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#svgen.display.AspectRatio" title="svgen.display.AspectRatio"><span class="pre">AspectRatio</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/svgen/display.html#common_sizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.display.common_sizes" title="Permalink to this definition">#</a></dt>
 <dd><p>Iterate over common sizes for a given aspect ratio.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.entry">
-<span id="svgen-entry-module"></span><h2>svgen.entry module<a class="headerlink" href="#module-svgen.entry" title="Permalink to this heading">¶</a></h2>
+<span id="svgen-entry-module"></span><h2>svgen.entry module<a class="headerlink" href="#module-svgen.entry" title="Permalink to this heading">#</a></h2>
 <p>This package’s command-line entry-point (boilerplate).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.entry.main">
-<span class="sig-prename descclassname"><span class="pre">svgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/svgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.entry.main" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/svgen/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.entry.main" title="Permalink to this definition">#</a></dt>
 <dd><p>Program entry-point.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.inkscape">
-<span id="svgen-inkscape-module"></span><h2>svgen.inkscape module<a class="headerlink" href="#module-svgen.inkscape" title="Permalink to this heading">¶</a></h2>
+<span id="svgen-inkscape-module"></span><h2>svgen.inkscape module<a class="headerlink" href="#module-svgen.inkscape" title="Permalink to this heading">#</a></h2>
 <p>A module for generating image outputs from SVG via Inkscape.</p>
-<p><a class="reference external" href="https://gitlab.com/inkscape/inkscape">https://gitlab.com/inkscape/inkscape</a></p>
+<p><a class="gitlab reference external" href="https://gitlab.com/inkscape/inkscape">inkscape/inkscape</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.inkscape.InkscapeTask">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">InkscapeTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Timer</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Target</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/inkscape.html#InkscapeTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.InkscapeTask" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">InkscapeTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Timer</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Target</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/inkscape.html#InkscapeTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.InkscapeTask" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SubprocessExecStreamed</span></code></p>
 <p>A task implementation for invoking inkscape at command-line.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.inkscape.InkscapeTask.invoke">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cli_args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#InkscapeTask.invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.InkscapeTask.invoke" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cli_args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#InkscapeTask.invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.InkscapeTask.invoke" title="Permalink to this definition">#</a></dt>
 <dd><p>Invoke inkscape.</p>
 </dd></dl>
 
@@ -540,155 +849,177 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.inkscape.invoke">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cli_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.invoke" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cli_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.invoke" title="Permalink to this definition">#</a></dt>
 <dd><p>Run an inkscape command-line command.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.inkscape.invoke_multiple">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">invoke_multiple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#invoke_multiple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.invoke_multiple" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.inkscape.</span></span><span class="sig-name descname"><span class="pre">invoke_multiple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inkscape'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/svgen/inkscape.html#invoke_multiple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.inkscape.invoke_multiple" title="Permalink to this definition">#</a></dt>
 <dd><p>Run multiple inkscape invocations at the same time.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.script">
-<span id="svgen-script-module"></span><h2>svgen.script module<a class="headerlink" href="#module-svgen.script" title="Permalink to this heading">¶</a></h2>
+<span id="svgen-script-module"></span><h2>svgen.script module<a class="headerlink" href="#module-svgen.script" title="Permalink to this heading">#</a></h2>
 <p>svgen - A module for working with external scripts.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.script.invoke_script">
-<span class="sig-prename descclassname"><span class="pre">svgen.script.</span></span><span class="sig-name descname"><span class="pre">invoke_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.element.html#svgen.element.svg.Svg" title="svgen.element.svg.Svg"><span class="pre">Svg</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/script.html#invoke_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.script.invoke_script" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.script.</span></span><span class="sig-name descname"><span class="pre">invoke_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.element.html#svgen.element.svg.Svg" title="svgen.element.svg.Svg"><span class="pre">Svg</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Config</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/svgen/script.html#invoke_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.script.invoke_script" title="Permalink to this definition">#</a></dt>
 <dd><p>Invoke an external script’s ‘compose’ function.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-svgen" title="Permalink to this heading">¶</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-svgen" title="Permalink to this heading">#</a></h2>
 <p>Useful defaults and other package metadata.</p>
 </section>
 </section>
 
 
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to svgen’s documentation!</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="svgen.attribute.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">svgen.attribute package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.app">svgen.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.app.initialize_config"><code class="docutils literal notranslate"><span class="pre">initialize_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.display">svgen.display module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio"><code class="docutils literal notranslate"><span class="pre">AspectRatio</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.args"><code class="docutils literal notranslate"><span class="pre">AspectRatio.args</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.as_str"><code class="docutils literal notranslate"><span class="pre">AspectRatio.as_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.create"><code class="docutils literal notranslate"><span class="pre">AspectRatio.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.final"><code class="docutils literal notranslate"><span class="pre">AspectRatio.final</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.landscape"><code class="docutils literal notranslate"><span class="pre">AspectRatio.landscape</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.over_height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.over_height</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.portrait"><code class="docutils literal notranslate"><span class="pre">AspectRatio.portrait</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.rotate"><code class="docutils literal notranslate"><span class="pre">AspectRatio.rotate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.square"><code class="docutils literal notranslate"><span class="pre">AspectRatio.square</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.AspectRatio.width"><code class="docutils literal notranslate"><span class="pre">AspectRatio.width</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.display.common_sizes"><code class="docutils literal notranslate"><span class="pre">common_sizes()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.entry">svgen.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.inkscape">svgen.inkscape module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.InkscapeTask"><code class="docutils literal notranslate"><span class="pre">InkscapeTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.InkscapeTask.invoke"><code class="docutils literal notranslate"><span class="pre">InkscapeTask.invoke()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.invoke"><code class="docutils literal notranslate"><span class="pre">invoke()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.inkscape.invoke_multiple"><code class="docutils literal notranslate"><span class="pre">invoke_multiple()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen.script">svgen.script module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svgen.script.invoke_script"><code class="docutils literal notranslate"><span class="pre">invoke_script()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-svgen">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">svgen</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">svgen package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="svgen.attribute.html">svgen.attribute package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="svgen.cartesian.html">svgen.cartesian package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="svgen.color.html">svgen.color package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="svgen.element.html">svgen.element package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="svgen.generation.html">svgen.generation package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="svgen.shapes.html">svgen.shapes package</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-svgen.app">svgen.app module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.app.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.app.initialize_config"><code class="docutils literal notranslate"><span class="pre">initialize_config()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-svgen.display">svgen.display module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.display.AspectRatio"><code class="docutils literal notranslate"><span class="pre">AspectRatio</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.args"><code class="docutils literal notranslate"><span class="pre">AspectRatio.args</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.as_str"><code class="docutils literal notranslate"><span class="pre">AspectRatio.as_str()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.create"><code class="docutils literal notranslate"><span class="pre">AspectRatio.create()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.final"><code class="docutils literal notranslate"><span class="pre">AspectRatio.final</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.height</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.landscape"><code class="docutils literal notranslate"><span class="pre">AspectRatio.landscape</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.over_height"><code class="docutils literal notranslate"><span class="pre">AspectRatio.over_height</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.portrait"><code class="docutils literal notranslate"><span class="pre">AspectRatio.portrait</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.rotate"><code class="docutils literal notranslate"><span class="pre">AspectRatio.rotate()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.square"><code class="docutils literal notranslate"><span class="pre">AspectRatio.square</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.display.AspectRatio.width"><code class="docutils literal notranslate"><span class="pre">AspectRatio.width</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.display.common_sizes"><code class="docutils literal notranslate"><span class="pre">common_sizes()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-svgen.entry">svgen.entry module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-svgen.inkscape">svgen.inkscape module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.inkscape.InkscapeTask"><code class="docutils literal notranslate"><span class="pre">InkscapeTask</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#svgen.inkscape.InkscapeTask.invoke"><code class="docutils literal notranslate"><span class="pre">InkscapeTask.invoke()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.inkscape.invoke"><code class="docutils literal notranslate"><span class="pre">invoke()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.inkscape.invoke_multiple"><code class="docutils literal notranslate"><span class="pre">invoke_multiple()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-svgen.script">svgen.script module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#svgen.script.invoke_script"><code class="docutils literal notranslate"><span class="pre">invoke_script()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-svgen">Module contents</a></li>
-</ul>
-</li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to svgen’s documentation!</a></li>
-      <li>Next: <a href="svgen.attribute.html" title="next chapter">svgen.attribute package</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2023, Vaughn Kottler.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
-      
-      |
-      <a href="_sources/svgen.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
     
+<p class="component-author">
+By Vaughn Kottler
+</p>
 
+  </div>
+  
+  <div class="footer-item">
     
+  <p class="copyright">
+    
+      © Copyright 2023, Vaughn Kottler.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

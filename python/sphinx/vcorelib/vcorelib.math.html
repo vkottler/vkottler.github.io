@@ -1,40 +1,397 @@
+
+
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>vcorelib.math package &#8212; vcorelib  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vcorelib.math';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="vcorelib.math.analysis package" href="vcorelib.math.analysis.html" />
     <link rel="prev" title="vcorelib.io.archive package" href="vcorelib.io.archive.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
   
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-  </head><body>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">vcorelib  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="vcorelib.html">vcorelib package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.args.html">vcorelib.args package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.asyncio.html">vcorelib.asyncio package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.dict.html">vcorelib.dict package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.graph.html">vcorelib.graph package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.io.html">vcorelib.io package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.arbiter.html">vcorelib.io.arbiter package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">vcorelib.math package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="vcorelib.math.analysis.html">vcorelib.math.analysis package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="vcorelib.math.analysis.rate.html">vcorelib.math.analysis.rate package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.paths.html">vcorelib.paths package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.platform.html">vcorelib.platform package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.schemas.html">vcorelib.schemas package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.script.html">vcorelib.script package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.target.html">vcorelib.target package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.task.html">vcorelib.task package</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.dict.html">vcorelib.task.dict package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.subprocess.html">vcorelib.task.subprocess package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.time.html">vcorelib.task.time package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-          <div class="body" role="main">
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/vcorelib.math.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>vcorelib.math package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.math.time">vcorelib.math.time module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.Timer"><code class="docutils literal notranslate"><span class="pre">Timer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.Timer.log"><code class="docutils literal notranslate"><span class="pre">Timer.log()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.Timer.measure_ns"><code class="docutils literal notranslate"><span class="pre">Timer.measure_ns()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.Timer.result"><code class="docutils literal notranslate"><span class="pre">Timer.result()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.byte_count_str"><code class="docutils literal notranslate"><span class="pre">byte_count_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.default_time_ns"><code class="docutils literal notranslate"><span class="pre">default_time_ns()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.nano_str"><code class="docutils literal notranslate"><span class="pre">nano_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.rate_str"><code class="docutils literal notranslate"><span class="pre">rate_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.seconds_str"><code class="docutils literal notranslate"><span class="pre">seconds_str()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.math.unit">vcorelib.math.unit module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit.UnitSystem"><code class="docutils literal notranslate"><span class="pre">UnitSystem</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit.UnitSystem.divisor"><code class="docutils literal notranslate"><span class="pre">UnitSystem.divisor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit.UnitSystem.prefixes"><code class="docutils literal notranslate"><span class="pre">UnitSystem.prefixes</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit.unit_traverse"><code class="docutils literal notranslate"><span class="pre">unit_traverse()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.math">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.FloatBuffer"><code class="docutils literal notranslate"><span class="pre">FloatBuffer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.FloatBuffer.reset"><code class="docutils literal notranslate"><span class="pre">FloatBuffer.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.FloatBuffer.resize"><code class="docutils literal notranslate"><span class="pre">FloatBuffer.resize()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingAverage"><code class="docutils literal notranslate"><span class="pre">MovingAverage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingAverage.reset"><code class="docutils literal notranslate"><span class="pre">MovingAverage.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingAverage.resize"><code class="docutils literal notranslate"><span class="pre">MovingAverage.resize()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingSum"><code class="docutils literal notranslate"><span class="pre">MovingSum</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingSum.reset"><code class="docutils literal notranslate"><span class="pre">MovingSum.reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateLimiter"><code class="docutils literal notranslate"><span class="pre">RateLimiter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateLimiter.rate_hz"><code class="docutils literal notranslate"><span class="pre">RateLimiter.rate_hz</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker"><code class="docutils literal notranslate"><span class="pre">RateTracker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.measure"><code class="docutils literal notranslate"><span class="pre">RateTracker.measure()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.poll"><code class="docutils literal notranslate"><span class="pre">RateTracker.poll()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.reset"><code class="docutils literal notranslate"><span class="pre">RateTracker.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.value"><code class="docutils literal notranslate"><span class="pre">RateTracker.value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.with_dt"><code class="docutils literal notranslate"><span class="pre">RateTracker.with_dt()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.Timer"><code class="docutils literal notranslate"><span class="pre">Timer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.Timer.log"><code class="docutils literal notranslate"><span class="pre">Timer.log()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.Timer.measure_ns"><code class="docutils literal notranslate"><span class="pre">Timer.measure_ns()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.Timer.result"><code class="docutils literal notranslate"><span class="pre">Timer.result()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.UnitSystem"><code class="docutils literal notranslate"><span class="pre">UnitSystem</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.UnitSystem.divisor"><code class="docutils literal notranslate"><span class="pre">UnitSystem.divisor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.UnitSystem.prefixes"><code class="docutils literal notranslate"><span class="pre">UnitSystem.prefixes</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.WeightedAverage"><code class="docutils literal notranslate"><span class="pre">WeightedAverage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.WeightedAverage.average"><code class="docutils literal notranslate"><span class="pre">WeightedAverage.average()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.WeightedAverage.depth"><code class="docutils literal notranslate"><span class="pre">WeightedAverage.depth</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.WeightedAverage.reset"><code class="docutils literal notranslate"><span class="pre">WeightedAverage.reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.byte_count_str"><code class="docutils literal notranslate"><span class="pre">byte_count_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.default_time_ns"><code class="docutils literal notranslate"><span class="pre">default_time_ns()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.nano_str"><code class="docutils literal notranslate"><span class="pre">nano_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.ns_to_s"><code class="docutils literal notranslate"><span class="pre">ns_to_s()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.rate_str"><code class="docutils literal notranslate"><span class="pre">rate_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.seconds_str"><code class="docutils literal notranslate"><span class="pre">seconds_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit_traverse"><code class="docutils literal notranslate"><span class="pre">unit_traverse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="vcorelib-math-package">
-<h1>vcorelib.math package<a class="headerlink" href="#vcorelib-math-package" title="Permalink to this heading">¶</a></h1>
+<h1>vcorelib.math package<a class="headerlink" href="#vcorelib-math-package" title="Permalink to this heading">#</a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="vcorelib.math.analysis.html">vcorelib.math.analysis package</a><ul>
@@ -107,32 +464,32 @@
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="module-vcorelib.math.time">
-<span id="vcorelib-math-time-module"></span><h2>vcorelib.math.time module<a class="headerlink" href="#module-vcorelib.math.time" title="Permalink to this heading">¶</a></h2>
+<span id="vcorelib-math-time-module"></span><h2>vcorelib.math.time module<a class="headerlink" href="#module-vcorelib.math.time" title="Permalink to this heading">#</a></h2>
 <p>Math utilities involving units of time and other conversions.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.time.Timer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.Timer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.Timer" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for measuring and logging how long events take.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.time.Timer.log">
-<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.Timer.log" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.Timer.log" title="Permalink to this definition">#</a></dt>
 <dd><p>Log how long the caller’s context took to execute.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.time.Timer.measure_ns">
-<span class="sig-name descname"><span class="pre">measure_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.measure_ns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.Timer.measure_ns" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">measure_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.measure_ns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.Timer.measure_ns" title="Permalink to this definition">#</a></dt>
 <dd><p>Compute the time that the caller’s context takes, provides an integer
 token that can be used to query for the result afterwards.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.time.Timer.result">
-<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.Timer.result" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.Timer.result" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the timer result.</p>
 </dd></dl>
 
@@ -140,32 +497,32 @@ token that can be used to query for the result afterwards.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.time.byte_count_str">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">byte_count_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#byte_count_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.byte_count_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">byte_count_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#byte_count_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.byte_count_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a string representing a number of bytes.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.time.default_time_ns">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">default_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#default_time_ns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.default_time_ns" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">default_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#default_time_ns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.default_time_ns" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a timestamp value using a default method.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.time.nano_str">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">nano_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nanos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.math.unit.UnitSystem" title="vcorelib.math.unit.UnitSystem"><span class="pre">UnitSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">UnitSystem(prefixes=['n',</span> <span class="pre">'u',</span> <span class="pre">'m',</span> <span class="pre">'',</span> <span class="pre">'k',</span> <span class="pre">'M',</span> <span class="pre">'G',</span> <span class="pre">'T'],</span> <span class="pre">divisor=1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#nano_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.nano_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">nano_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nanos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.math.unit.UnitSystem" title="vcorelib.math.unit.UnitSystem"><span class="pre">UnitSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">UnitSystem(prefixes=['n',</span> <span class="pre">'u',</span> <span class="pre">'m',</span> <span class="pre">'',</span> <span class="pre">'k',</span> <span class="pre">'M',</span> <span class="pre">'G',</span> <span class="pre">'T'],</span> <span class="pre">divisor=1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#nano_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.nano_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Convert an arbitrary value in a 10^-9 domain into as concise of a string
 as possible.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.time.rate_str">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">rate_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#rate_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.rate_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">rate_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#rate_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.rate_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a string representing a rate in Hz.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.time.seconds_str">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">seconds_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#seconds_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.seconds_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.time.</span></span><span class="sig-name descname"><span class="pre">seconds_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#seconds_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.time.seconds_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Attempt to characterize a large amount of seconds into a string describing
 hours and minutes, returning the string (may be empty) and the seconds
 left over.</p>
@@ -173,23 +530,23 @@ left over.</p>
 
 </section>
 <section id="module-vcorelib.math.unit">
-<span id="vcorelib-math-unit-module"></span><h2>vcorelib.math.unit module<a class="headerlink" href="#module-vcorelib.math.unit" title="Permalink to this heading">¶</a></h2>
+<span id="vcorelib-math-unit-module"></span><h2>vcorelib.math.unit module<a class="headerlink" href="#module-vcorelib.math.unit" title="Permalink to this heading">#</a></h2>
 <p>A module for working with units.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.unit.UnitSystem">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.unit.</span></span><span class="sig-name descname"><span class="pre">UnitSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefixes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/unit.html#UnitSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.unit.UnitSystem" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.unit.</span></span><span class="sig-name descname"><span class="pre">UnitSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefixes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/unit.html#UnitSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.unit.UnitSystem" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A pairing of prefixes defining a unit, and the amount that indicates the
 multiplicative step-size between them.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="vcorelib.math.unit.UnitSystem.divisor">
-<span class="sig-name descname"><span class="pre">divisor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#vcorelib.math.unit.UnitSystem.divisor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">divisor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#vcorelib.math.unit.UnitSystem.divisor" title="Permalink to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="vcorelib.math.unit.UnitSystem.prefixes">
-<span class="sig-name descname"><span class="pre">prefixes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#vcorelib.math.unit.UnitSystem.prefixes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prefixes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#vcorelib.math.unit.UnitSystem.prefixes" title="Permalink to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -197,7 +554,7 @@ multiplicative step-size between them.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.unit.unit_traverse">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.unit.</span></span><span class="sig-name descname"><span class="pre">unit_traverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.math.unit.UnitSystem" title="vcorelib.math.unit.UnitSystem"><span class="pre">UnitSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">UnitSystem(prefixes=['n',</span> <span class="pre">'u',</span> <span class="pre">'m',</span> <span class="pre">'',</span> <span class="pre">'k',</span> <span class="pre">'M',</span> <span class="pre">'G',</span> <span class="pre">'T'],</span> <span class="pre">divisor=1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/unit.html#unit_traverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.unit.unit_traverse" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.unit.</span></span><span class="sig-name descname"><span class="pre">unit_traverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.math.unit.UnitSystem" title="vcorelib.math.unit.UnitSystem"><span class="pre">UnitSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">UnitSystem(prefixes=['n',</span> <span class="pre">'u',</span> <span class="pre">'m',</span> <span class="pre">'',</span> <span class="pre">'k',</span> <span class="pre">'M',</span> <span class="pre">'G',</span> <span class="pre">'T'],</span> <span class="pre">divisor=1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/unit.html#unit_traverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.unit.unit_traverse" title="Permalink to this definition">#</a></dt>
 <dd><p>Given an initial value, traverse a unit system to get the largest
 representative unit prefix. Also return a fractional component, in units
 of the next-smallest prefix.</p>
@@ -205,22 +562,22 @@ of the next-smallest prefix.</p>
 
 </section>
 <section id="module-vcorelib.math">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vcorelib.math" title="Permalink to this heading">¶</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vcorelib.math" title="Permalink to this heading">#</a></h2>
 <p>Math utilities.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.FloatBuffer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">FloatBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/buffer.html#FloatBuffer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.FloatBuffer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">FloatBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/buffer.html#FloatBuffer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.FloatBuffer" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class implementing a simple circular buffer for floats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.FloatBuffer.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/buffer.html#FloatBuffer.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.FloatBuffer.reset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/buffer.html#FloatBuffer.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.FloatBuffer.reset" title="Permalink to this definition">#</a></dt>
 <dd><p>Reset the buffer.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.FloatBuffer.resize">
-<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/buffer.html#FloatBuffer.resize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.FloatBuffer.resize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/buffer.html#FloatBuffer.resize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.FloatBuffer.resize" title="Permalink to this definition">#</a></dt>
 <dd><p>Set a new depth for this buffer average and reset the values.</p>
 </dd></dl>
 
@@ -228,18 +585,18 @@ of the next-smallest prefix.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.MovingAverage">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">MovingAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingAverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingAverage" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">MovingAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingAverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingAverage" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for managing a moving average of floats.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.MovingAverage.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingAverage.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingAverage.reset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingAverage.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingAverage.reset" title="Permalink to this definition">#</a></dt>
 <dd><p>Reset the average value.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.MovingAverage.resize">
-<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingAverage.resize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingAverage.resize" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingAverage.resize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingAverage.resize" title="Permalink to this definition">#</a></dt>
 <dd><p>Set a new depth for this moving average and reset the value.</p>
 </dd></dl>
 
@@ -247,12 +604,12 @@ of the next-smallest prefix.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.MovingSum">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">MovingSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingSum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingSum" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">MovingSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingSum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingSum" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vcorelib.math.analysis.html#vcorelib.math.analysis.buffer.FloatBuffer" title="vcorelib.math.analysis.buffer.FloatBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatBuffer</span></code></a></p>
 <p>A simple moving sum implementation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.MovingSum.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingSum.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingSum.reset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/average.html#MovingSum.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.MovingSum.reset" title="Permalink to this definition">#</a></dt>
 <dd><p>Reset the buffer and sum.</p>
 </dd></dl>
 
@@ -260,12 +617,12 @@ of the next-smallest prefix.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.RateLimiter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">RateLimiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_ns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate/limiter.html#RateLimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateLimiter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">RateLimiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_ns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate/limiter.html#RateLimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateLimiter" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for limiting the rate of runtime work.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="vcorelib.math.RateLimiter.rate_hz">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate_hz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#vcorelib.math.RateLimiter.rate_hz" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate_hz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#vcorelib.math.RateLimiter.rate_hz" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the underlying rate that this limiter is governing. This is useful
 to determine if the rate limitation is or isn’t impacting the rate of
 some task.</p>
@@ -275,36 +632,36 @@ some task.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.RateTracker">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">RateTracker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">RateTracker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for managing rate information for some data channel.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.RateTracker.measure">
-<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer:</span> <span class="pre">~vcorelib.math.time.Timer</span> <span class="pre">=</span> <span class="pre">&lt;vcorelib.math.time.Timer</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker.measure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker.measure" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer:</span> <span class="pre">~vcorelib.math.time.Timer</span> <span class="pre">=</span> <span class="pre">&lt;vcorelib.math.time.Timer</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker.measure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker.measure" title="Permalink to this definition">#</a></dt>
 <dd><p>Track the time that the caller’s context takes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.RateTracker.poll">
-<span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_ns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker.poll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker.poll" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_ns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker.poll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker.poll" title="Permalink to this definition">#</a></dt>
 <dd><p>Siphon accumulated time and update rate tracking.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.RateTracker.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker.reset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker.reset" title="Permalink to this definition">#</a></dt>
 <dd><p>Reset this rate tracker.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="vcorelib.math.RateTracker.value">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#vcorelib.math.RateTracker.value" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#vcorelib.math.RateTracker.value" title="Permalink to this definition">#</a></dt>
 <dd><p>An accessor for the underlying value.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.RateTracker.with_dt">
-<span class="sig-name descname"><span class="pre">with_dt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker.with_dt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker.with_dt" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">with_dt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#RateTracker.with_dt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.RateTracker.with_dt" title="Permalink to this definition">#</a></dt>
 <dd><p>Update this rate by directly providing the delta-time value.</p>
 </dd></dl>
 
@@ -312,25 +669,25 @@ some task.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.Timer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.Timer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.Timer" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for measuring and logging how long events take.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.Timer.log">
-<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.Timer.log" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.Timer.log" title="Permalink to this definition">#</a></dt>
 <dd><p>Log how long the caller’s context took to execute.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.Timer.measure_ns">
-<span class="sig-name descname"><span class="pre">measure_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.measure_ns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.Timer.measure_ns" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">measure_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.measure_ns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.Timer.measure_ns" title="Permalink to this definition">#</a></dt>
 <dd><p>Compute the time that the caller’s context takes, provides an integer
 token that can be used to query for the result afterwards.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.Timer.result">
-<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.Timer.result" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#Timer.result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.Timer.result" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the timer result.</p>
 </dd></dl>
 
@@ -338,19 +695,19 @@ token that can be used to query for the result afterwards.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.UnitSystem">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">UnitSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefixes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/unit.html#UnitSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.UnitSystem" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">UnitSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefixes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/unit.html#UnitSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.UnitSystem" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A pairing of prefixes defining a unit, and the amount that indicates the
 multiplicative step-size between them.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="vcorelib.math.UnitSystem.divisor">
-<span class="sig-name descname"><span class="pre">divisor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#vcorelib.math.UnitSystem.divisor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">divisor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#vcorelib.math.UnitSystem.divisor" title="Permalink to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="vcorelib.math.UnitSystem.prefixes">
-<span class="sig-name descname"><span class="pre">prefixes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#vcorelib.math.UnitSystem.prefixes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">prefixes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#vcorelib.math.UnitSystem.prefixes" title="Permalink to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -358,24 +715,24 @@ multiplicative step-size between them.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="vcorelib.math.WeightedAverage">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">WeightedAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/weighted.html#WeightedAverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.WeightedAverage" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">WeightedAverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vcorelib/math/analysis/weighted.html#WeightedAverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.WeightedAverage" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class implementing a weighted average.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.WeightedAverage.average">
-<span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/weighted.html#WeightedAverage.average"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.WeightedAverage.average" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/weighted.html#WeightedAverage.average"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.WeightedAverage.average" title="Permalink to this definition">#</a></dt>
 <dd><p>Compute the overall weighted average.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="vcorelib.math.WeightedAverage.depth">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#vcorelib.math.WeightedAverage.depth" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#vcorelib.math.WeightedAverage.depth" title="Permalink to this definition">#</a></dt>
 <dd><p>This average’s depth.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vcorelib.math.WeightedAverage.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/weighted.html#WeightedAverage.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.WeightedAverage.reset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/weighted.html#WeightedAverage.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.WeightedAverage.reset" title="Permalink to this definition">#</a></dt>
 <dd><p>Reset the average.</p>
 </dd></dl>
 
@@ -383,38 +740,38 @@ multiplicative step-size between them.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.byte_count_str">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">byte_count_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#byte_count_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.byte_count_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">byte_count_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#byte_count_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.byte_count_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a string representing a number of bytes.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.default_time_ns">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">default_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#default_time_ns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.default_time_ns" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">default_time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#default_time_ns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.default_time_ns" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a timestamp value using a default method.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.nano_str">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">nano_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nanos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.math.unit.UnitSystem" title="vcorelib.math.unit.UnitSystem"><span class="pre">UnitSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">UnitSystem(prefixes=['n',</span> <span class="pre">'u',</span> <span class="pre">'m',</span> <span class="pre">'',</span> <span class="pre">'k',</span> <span class="pre">'M',</span> <span class="pre">'G',</span> <span class="pre">'T'],</span> <span class="pre">divisor=1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#nano_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.nano_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">nano_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nanos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.math.unit.UnitSystem" title="vcorelib.math.unit.UnitSystem"><span class="pre">UnitSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">UnitSystem(prefixes=['n',</span> <span class="pre">'u',</span> <span class="pre">'m',</span> <span class="pre">'',</span> <span class="pre">'k',</span> <span class="pre">'M',</span> <span class="pre">'G',</span> <span class="pre">'T'],</span> <span class="pre">divisor=1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#nano_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.nano_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Convert an arbitrary value in a 10^-9 domain into as concise of a string
 as possible.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.ns_to_s">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">ns_to_s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nanos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#ns_to_s"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.ns_to_s" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">ns_to_s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nanos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/vcorelib/math/analysis/rate.html#ns_to_s"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.ns_to_s" title="Permalink to this definition">#</a></dt>
 <dd><p>Convert integer nanoseconds to floating-point seconds.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.rate_str">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">rate_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#rate_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.rate_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">rate_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#rate_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.rate_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a string representing a rate in Hz.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.seconds_str">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">seconds_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#seconds_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.seconds_str" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">seconds_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/time.html#seconds_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.seconds_str" title="Permalink to this definition">#</a></dt>
 <dd><p>Attempt to characterize a large amount of seconds into a string describing
 hours and minutes, returning the string (may be empty) and the seconds
 left over.</p>
@@ -422,7 +779,7 @@ left over.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="vcorelib.math.unit_traverse">
-<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">unit_traverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.math.unit.UnitSystem" title="vcorelib.math.unit.UnitSystem"><span class="pre">UnitSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">UnitSystem(prefixes=['n',</span> <span class="pre">'u',</span> <span class="pre">'m',</span> <span class="pre">'',</span> <span class="pre">'k',</span> <span class="pre">'M',</span> <span class="pre">'G',</span> <span class="pre">'T'],</span> <span class="pre">divisor=1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/unit.html#unit_traverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.unit_traverse" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">vcorelib.math.</span></span><span class="sig-name descname"><span class="pre">unit_traverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#vcorelib.math.unit.UnitSystem" title="vcorelib.math.unit.UnitSystem"><span class="pre">UnitSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">UnitSystem(prefixes=['n',</span> <span class="pre">'u',</span> <span class="pre">'m',</span> <span class="pre">'',</span> <span class="pre">'k',</span> <span class="pre">'M',</span> <span class="pre">'G',</span> <span class="pre">'T'],</span> <span class="pre">divisor=1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/math/unit.html#unit_traverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.math.unit_traverse" title="Permalink to this definition">#</a></dt>
 <dd><p>Given an initial value, traverse a unit system to get the largest
 representative unit prefix. Also return a fractional component, in units
 of the next-smallest prefix.</p>
@@ -432,104 +789,182 @@ of the next-smallest prefix.</p>
 </section>
 
 
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vcorelib.io.archive.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">vcorelib.io.archive package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vcorelib.math.analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">vcorelib.math.analysis package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.math.time">vcorelib.math.time module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.Timer"><code class="docutils literal notranslate"><span class="pre">Timer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.Timer.log"><code class="docutils literal notranslate"><span class="pre">Timer.log()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.Timer.measure_ns"><code class="docutils literal notranslate"><span class="pre">Timer.measure_ns()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.Timer.result"><code class="docutils literal notranslate"><span class="pre">Timer.result()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.byte_count_str"><code class="docutils literal notranslate"><span class="pre">byte_count_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.default_time_ns"><code class="docutils literal notranslate"><span class="pre">default_time_ns()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.nano_str"><code class="docutils literal notranslate"><span class="pre">nano_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.rate_str"><code class="docutils literal notranslate"><span class="pre">rate_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.time.seconds_str"><code class="docutils literal notranslate"><span class="pre">seconds_str()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.math.unit">vcorelib.math.unit module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit.UnitSystem"><code class="docutils literal notranslate"><span class="pre">UnitSystem</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit.UnitSystem.divisor"><code class="docutils literal notranslate"><span class="pre">UnitSystem.divisor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit.UnitSystem.prefixes"><code class="docutils literal notranslate"><span class="pre">UnitSystem.prefixes</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit.unit_traverse"><code class="docutils literal notranslate"><span class="pre">unit_traverse()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-vcorelib.math">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.FloatBuffer"><code class="docutils literal notranslate"><span class="pre">FloatBuffer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.FloatBuffer.reset"><code class="docutils literal notranslate"><span class="pre">FloatBuffer.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.FloatBuffer.resize"><code class="docutils literal notranslate"><span class="pre">FloatBuffer.resize()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingAverage"><code class="docutils literal notranslate"><span class="pre">MovingAverage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingAverage.reset"><code class="docutils literal notranslate"><span class="pre">MovingAverage.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingAverage.resize"><code class="docutils literal notranslate"><span class="pre">MovingAverage.resize()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingSum"><code class="docutils literal notranslate"><span class="pre">MovingSum</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.MovingSum.reset"><code class="docutils literal notranslate"><span class="pre">MovingSum.reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateLimiter"><code class="docutils literal notranslate"><span class="pre">RateLimiter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateLimiter.rate_hz"><code class="docutils literal notranslate"><span class="pre">RateLimiter.rate_hz</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker"><code class="docutils literal notranslate"><span class="pre">RateTracker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.measure"><code class="docutils literal notranslate"><span class="pre">RateTracker.measure()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.poll"><code class="docutils literal notranslate"><span class="pre">RateTracker.poll()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.reset"><code class="docutils literal notranslate"><span class="pre">RateTracker.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.value"><code class="docutils literal notranslate"><span class="pre">RateTracker.value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.RateTracker.with_dt"><code class="docutils literal notranslate"><span class="pre">RateTracker.with_dt()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.Timer"><code class="docutils literal notranslate"><span class="pre">Timer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.Timer.log"><code class="docutils literal notranslate"><span class="pre">Timer.log()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.Timer.measure_ns"><code class="docutils literal notranslate"><span class="pre">Timer.measure_ns()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.Timer.result"><code class="docutils literal notranslate"><span class="pre">Timer.result()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.UnitSystem"><code class="docutils literal notranslate"><span class="pre">UnitSystem</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.UnitSystem.divisor"><code class="docutils literal notranslate"><span class="pre">UnitSystem.divisor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.UnitSystem.prefixes"><code class="docutils literal notranslate"><span class="pre">UnitSystem.prefixes</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.WeightedAverage"><code class="docutils literal notranslate"><span class="pre">WeightedAverage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.WeightedAverage.average"><code class="docutils literal notranslate"><span class="pre">WeightedAverage.average()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.WeightedAverage.depth"><code class="docutils literal notranslate"><span class="pre">WeightedAverage.depth</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.WeightedAverage.reset"><code class="docutils literal notranslate"><span class="pre">WeightedAverage.reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.byte_count_str"><code class="docutils literal notranslate"><span class="pre">byte_count_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.default_time_ns"><code class="docutils literal notranslate"><span class="pre">default_time_ns()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.nano_str"><code class="docutils literal notranslate"><span class="pre">nano_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.ns_to_s"><code class="docutils literal notranslate"><span class="pre">ns_to_s()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.rate_str"><code class="docutils literal notranslate"><span class="pre">rate_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.seconds_str"><code class="docutils literal notranslate"><span class="pre">seconds_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.math.unit_traverse"><code class="docutils literal notranslate"><span class="pre">unit_traverse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
           </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">vcorelib</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="vcorelib.html">vcorelib package</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="vcorelib.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.args.html">vcorelib.args package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.asyncio.html">vcorelib.asyncio package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.dict.html">vcorelib.dict package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.graph.html">vcorelib.graph package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.io.html">vcorelib.io package</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">vcorelib.math package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.math.time">vcorelib.math.time module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.math.unit">vcorelib.math.unit module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-vcorelib.math">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.paths.html">vcorelib.paths package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.platform.html">vcorelib.platform package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.schemas.html">vcorelib.schemas package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.script.html">vcorelib.script package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.target.html">vcorelib.target package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vcorelib.task.html">vcorelib.task package</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.logging">vcorelib.logging module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.names">vcorelib.names module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.namespace">vcorelib.namespace module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib.python">vcorelib.python module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcorelib.html#module-vcorelib">Module contents</a></li>
-</ul>
-</li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="vcorelib.html">vcorelib package</a><ul>
-      <li>Previous: <a href="vcorelib.io.archive.html" title="previous chapter">vcorelib.io.archive package</a></li>
-      <li>Next: <a href="vcorelib.math.analysis.html" title="next chapter">vcorelib.math.analysis package</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2023, Vaughn Kottler.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
-      
-      |
-      <a href="_sources/vcorelib.math.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
     
+<p class="component-author">
+By Vaughn Kottler
+</p>
 
+  </div>
+  
+  <div class="footer-item">
     
+  <p class="copyright">
+    
+      © Copyright 2023, Vaughn Kottler.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
