@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    runtimepy.codec.protocol
+   runtimepy.codec.system
 
 Module contents
 ---------------

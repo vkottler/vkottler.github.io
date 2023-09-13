@@ -11,6 +11,7 @@ Subpackages
    runtimepy.codec
    runtimepy.commands
    runtimepy.enum
+   runtimepy.metrics
    runtimepy.mixins
    runtimepy.net
    runtimepy.primitives

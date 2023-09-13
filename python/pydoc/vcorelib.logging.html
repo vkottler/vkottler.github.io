@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Python: module vcorelib.logging</title>
+<title>Python: package vcorelib.logging</title>
 </head><body>
 
 <table class="heading">
 <tr class="heading-text decor">
 <td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.logging</strong></td>
-<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/logging.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/logging.py</a></td></tr></table>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/logging/__init__.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/logging/__init__.py</a></td></tr></table>
     <p><span class="code">Utilities&nbsp;for&nbsp;logging&nbsp;information.</span></p>
 <p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="vcorelib.logging.args.html">args</a><br>
+</td><td class="multicolumn"><a href="vcorelib.logging.time.html">time</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
@@ -57,13 +65,22 @@ Data and other attributes defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-log_time"><strong>log_time</strong></a>(log: Union[logging.Logger, logging.LoggerAdapter], message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;context&nbsp;manager&nbsp;for&nbsp;conveniently&nbsp;logging&nbsp;time&nbsp;taken&nbsp;for&nbsp;a&nbsp;task.</span></dd></dl>
+<td class="singlecolumn"><dl><dt><a name="-forward_flags"><strong>forward_flags</strong></a>(args: argparse.Namespace, names: Iterable[str]) -&gt; Iterator[str]</dt><dd><span class="code">Forward&nbsp;flag&nbsp;arguments.</span></dd></dl>
+ <dl><dt><a name="-forward_logging_flags"><strong>forward_logging_flags</strong></a>(args: argparse.Namespace) -&gt; Iterator[str]</dt><dd><span class="code">Forward&nbsp;logging-related&nbsp;flags&nbsp;passed&nbsp;to&nbsp;this&nbsp;program&nbsp;to&nbsp;some&nbsp;other<br>
+program.</span></dd></dl>
+ <dl><dt><a name="-init_logging"><strong>init_logging</strong></a>(args: argparse.Namespace, default_format: str = '%(name)-36s - %(levelname)-6s - %(message)s') -&gt; None</dt><dd><span class="code">Initialize&nbsp;logging&nbsp;based&nbsp;on&nbsp;command-line&nbsp;arguments.</span></dd></dl>
+ <dl><dt><a name="-log_time"><strong>log_time</strong></a>(log: Union[logging.Logger, logging.LoggerAdapter], message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;context&nbsp;manager&nbsp;for&nbsp;conveniently&nbsp;logging&nbsp;time&nbsp;taken&nbsp;for&nbsp;a&nbsp;task.</span></dd></dl>
+ <dl><dt><a name="-logging_args"><strong>logging_args</strong></a>(parser: argparse.ArgumentParser, curses: bool = True, uvloop: bool = True) -&gt; None</dt><dd><span class="code">Add&nbsp;logging&nbsp;related&nbsp;command-line&nbsp;arguments&nbsp;to&nbsp;a&nbsp;parser.</span></dd></dl>
+ <dl><dt><a name="-normalize"><strong>normalize</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; logging.Logger</dt><dd><span class="code">Normalize&nbsp;a&nbsp;logger&nbsp;instance.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
-<strong>__all__</strong> = ['LoggerType', 'log_time', 'LoggerMixin']</td></tr></table>
+<td class="singlecolumn"><strong>DEFAULT_FORMAT</strong> = '%(name)-36s - %(levelname)-6s - %(message)s'<br>
+<strong>LogRecordQueue</strong> = _queue.SimpleQueue[logging.LogRecord]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<strong>TIMER</strong> = &lt;vcorelib.math.time.Timer object&gt;<br>
+<strong>__all__</strong> = ['LoggerType', 'log_time', 'LoggerMixin', 'TIMER', 'LogRecordQueue', 'normalize', 'DEFAULT_FORMAT', 'init_logging', 'logging_args', 'forward_flags', 'forward_logging_flags']</td></tr></table>
 </body></html>

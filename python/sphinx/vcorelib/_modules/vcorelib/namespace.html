@@ -130,6 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../vcorelib.logging.html">vcorelib.logging package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../vcorelib.math.html">vcorelib.math package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../vcorelib.math.analysis.html">vcorelib.math.analysis package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../vcorelib.math.analysis.rate.html">vcorelib.math.analysis.rate package</a></li>
@@ -137,6 +138,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../vcorelib.namespace.html">vcorelib.namespace package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../vcorelib.paths.html">vcorelib.paths package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../vcorelib.platform.html">vcorelib.platform package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../vcorelib.schemas.html">vcorelib.schemas package</a></li>
@@ -260,34 +262,68 @@ document.write(`
 <span class="kn">from</span> <span class="nn">re</span> <span class="kn">import</span> <span class="nb">compile</span> <span class="k">as</span> <span class="n">_compile</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span> <span class="k">as</span> <span class="n">_Iterator</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span> <span class="k">as</span> <span class="n">_Set</span>
 
 <span class="n">DEFAULT_DELIM</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">CPP_DELIM</span> <span class="o">=</span> <span class="s2">&quot;::&quot;</span>
 
 
-<div class="viewcode-block" id="Namespace"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.Namespace">[docs]</a><span class="k">class</span> <span class="nc">Namespace</span><span class="p">:</span>
+<div class="viewcode-block" id="Namespace"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.Namespace">[docs]</a><span class="k">class</span> <span class="nc">Namespace</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class for implementing a basic namespace interface.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_DELIM</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_DELIM</span><span class="p">,</span>
+        <span class="n">parent</span><span class="p">:</span> <span class="s2">&quot;Namespace&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize this namespace.&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">names</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">:</span> <span class="n">_Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">delim</span> <span class="o">=</span> <span class="n">delim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="s2">&quot;Namespace&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent</span>
 
         <span class="c1"># Use this attribute from preventing this namespace from colliding with</span>
         <span class="c1"># its parent namespace.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Namespace.child"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.Namespace.child">[docs]</a>    <span class="k">def</span> <span class="nf">child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Namespace&quot;</span><span class="p">:</span>
+<div class="viewcode-block" id="Namespace.child"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.Namespace.child">[docs]</a>    <span class="k">def</span> <span class="nf">child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Namespace&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a child namespace from this one.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">Namespace</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">delim</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">Namespace</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">delim</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Namespace.push"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.Namespace.push">[docs]</a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="Namespace.suggest"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.Namespace.suggest">[docs]</a>    <span class="k">def</span> <span class="nf">suggest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">delta</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find the shortest name suggestion.&quot;&quot;&quot;</span>
+
+        <span class="n">data_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">found</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">found_length</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">found</span> <span class="o">==</span> <span class="n">data</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">found_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">length</span> <span class="o">&gt;=</span> <span class="n">found_length</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="n">name</span>
+                <span class="n">found_length</span> <span class="o">=</span> <span class="n">length</span>
+
+        <span class="k">if</span> <span class="n">found</span> <span class="ow">and</span> <span class="n">delta</span><span class="p">:</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="n">found</span><span class="p">[</span><span class="n">data_length</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">found</span></div>
+
+<div class="viewcode-block" id="Namespace.push"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.Namespace.push">[docs]</a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Push a name onto the stack.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Namespace.pop"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.Namespace.pop">[docs]</a>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Namespace.pop"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.Namespace.pop">[docs]</a>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Pop the latest name off the stack.&quot;&quot;&quot;</span>
 
         <span class="c1"># Ensure that the namespace can&#39;t be traversed beyond its</span>
@@ -308,7 +344,7 @@ document.write(`
         <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">&#39; != &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;!&quot;</span>
         <span class="k">return</span> <span class="n">val</span></div>
 
-<div class="viewcode-block" id="Namespace.pushed"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.Namespace.pushed">[docs]</a>    <span class="nd">@_contextmanager</span>
+<div class="viewcode-block" id="Namespace.pushed"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.Namespace.pushed">[docs]</a>    <span class="nd">@_contextmanager</span>
     <span class="k">def</span> <span class="nf">pushed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provide this namespace with some names pushed onto the stack as a</span>
@@ -324,7 +360,7 @@ document.write(`
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">to_push</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Namespace.namespace"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.Namespace.namespace">[docs]</a>    <span class="k">def</span> <span class="nf">namespace</span><span class="p">(</span>
+<div class="viewcode-block" id="Namespace.namespace"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.Namespace.namespace">[docs]</a>    <span class="k">def</span> <span class="nf">namespace</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">track</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -347,35 +383,63 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Namespace.search"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.Namespace.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.*&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">parents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="s2">&quot;Namespace&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Iterate over parents.&quot;&quot;&quot;</span>
+
+        <span class="n">curr</span><span class="p">:</span> <span class="n">_Optional</span><span class="p">[</span><span class="s2">&quot;Namespace&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">while</span> <span class="n">curr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">curr</span><span class="o">.</span><span class="n">parent</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">parent</span>
+
+<div class="viewcode-block" id="Namespace.search"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.Namespace.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.*&quot;</span><span class="p">,</span>
+        <span class="n">recursive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">exact</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Iterate over names in this namespace that match a given pattern.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="c1"># Push provided names onto the stack while yielding matches.</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">pushed</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">):</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespace</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">to_search</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span>
 
-            <span class="c1"># Add a trailing delimeter if we land on a non-empty name. Also</span>
-            <span class="c1"># enforce that the namespaced portion is at the beginning.</span>
-            <span class="k">if</span> <span class="n">start</span><span class="p">:</span>
-                <span class="n">start</span> <span class="o">=</span> <span class="s2">&quot;^&quot;</span> <span class="o">+</span> <span class="n">start</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">delim</span>
+        <span class="k">if</span> <span class="n">recursive</span><span class="p">:</span>
+            <span class="n">to_search</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parents</span><span class="p">))</span>
 
-            <span class="c1"># Ensure that dots are escaped to match literally.</span>
-            <span class="k">if</span> <span class="n">start</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">delim</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
-                <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">to_search</span><span class="p">:</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">to_search</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 
-            <span class="c1"># Allow the provided search string to appear anywhere in the name.</span>
-            <span class="k">if</span> <span class="n">start</span><span class="p">:</span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="s2">&quot;.*&quot;</span>
+            <span class="c1"># Push provided names onto the stack while yielding matches.</span>
+            <span class="k">with</span> <span class="n">current</span><span class="o">.</span><span class="n">pushed</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">):</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">namespace</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-            <span class="n">compiled</span> <span class="o">=</span> <span class="n">_compile</span><span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">pattern</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">compiled</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="k">yield</span> <span class="n">name</span></div></div>
+                <span class="c1"># Add a trailing delimeter if we land on a non-empty name. Also</span>
+                <span class="c1"># enforce that the namespaced portion is at the beginning.</span>
+                <span class="k">if</span> <span class="n">start</span><span class="p">:</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="s2">&quot;^&quot;</span> <span class="o">+</span> <span class="n">start</span> <span class="o">+</span> <span class="n">current</span><span class="o">.</span><span class="n">delim</span>
+
+                <span class="c1"># Ensure that dots are escaped to match literally.</span>
+                <span class="k">if</span> <span class="n">start</span> <span class="ow">and</span> <span class="n">current</span><span class="o">.</span><span class="n">delim</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
+                    <span class="n">start</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Allow the provided search string to appear anywhere in the</span>
+                <span class="c1"># name.</span>
+                <span class="k">if</span> <span class="n">start</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">exact</span><span class="p">:</span>
+                    <span class="n">start</span> <span class="o">+=</span> <span class="s2">&quot;.*&quot;</span>
+
+                <span class="n">compiled</span> <span class="o">=</span> <span class="n">_compile</span><span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">pattern</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">current</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span> <span class="ow">and</span> <span class="n">compiled</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">exact</span> <span class="ow">or</span> <span class="n">name</span> <span class="o">==</span> <span class="n">pattern</span><span class="p">:</span>
+                            <span class="k">yield</span> <span class="n">name</span></div></div>
 
 
-<div class="viewcode-block" id="NamespaceMixin"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.NamespaceMixin">[docs]</a><span class="k">class</span> <span class="nc">NamespaceMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="NamespaceMixin"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.NamespaceMixin">[docs]</a><span class="k">class</span> <span class="nc">NamespaceMixin</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class for giving arbitrary objects namespace capabilities.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -395,7 +459,7 @@ document.write(`
             <span class="n">namespace</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_namespace</span>
         <span class="k">return</span> <span class="n">namespace</span>
 
-<div class="viewcode-block" id="NamespaceMixin.namespace"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.NamespaceMixin.namespace">[docs]</a>    <span class="k">def</span> <span class="nf">namespace</span><span class="p">(</span>
+<div class="viewcode-block" id="NamespaceMixin.namespace"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.NamespaceMixin.namespace">[docs]</a>    <span class="k">def</span> <span class="nf">namespace</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">delim</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a namespace string for this object.&quot;&quot;&quot;</span>
@@ -404,14 +468,14 @@ document.write(`
             <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="n">delim</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="NamespaceMixin.child_namespace"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.NamespaceMixin.child_namespace">[docs]</a>    <span class="k">def</span> <span class="nf">child_namespace</span><span class="p">(</span>
+<div class="viewcode-block" id="NamespaceMixin.child_namespace"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.NamespaceMixin.child_namespace">[docs]</a>    <span class="k">def</span> <span class="nf">child_namespace</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Namespace</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain a child namespace.&quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_namespace</span><span class="p">(</span><span class="n">namespace</span><span class="o">=</span><span class="n">namespace</span><span class="p">)</span><span class="o">.</span><span class="n">child</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="NamespaceMixin.names_pushed"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.NamespaceMixin.names_pushed">[docs]</a>    <span class="nd">@_contextmanager</span>
+<div class="viewcode-block" id="NamespaceMixin.names_pushed"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.NamespaceMixin.names_pushed">[docs]</a>    <span class="nd">@_contextmanager</span>
     <span class="k">def</span> <span class="nf">names_pushed</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
@@ -420,17 +484,26 @@ document.write(`
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_namespace</span><span class="p">(</span><span class="n">namespace</span><span class="o">=</span><span class="n">namespace</span><span class="p">)</span><span class="o">.</span><span class="n">pushed</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">):</span>
             <span class="k">yield</span></div>
 
-<div class="viewcode-block" id="NamespaceMixin.push_name"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.NamespaceMixin.push_name">[docs]</a>    <span class="k">def</span> <span class="nf">push_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="NamespaceMixin.namespace_suggest"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.NamespaceMixin.namespace_suggest">[docs]</a>    <span class="k">def</span> <span class="nf">namespace_suggest</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">delta</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find the shortest name suggestion.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_namespace</span><span class="p">(</span><span class="n">namespace</span><span class="o">=</span><span class="n">namespace</span><span class="p">)</span><span class="o">.</span><span class="n">suggest</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="NamespaceMixin.push_name"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.NamespaceMixin.push_name">[docs]</a>    <span class="k">def</span> <span class="nf">push_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Push a name onto the stack.&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_namespace</span><span class="p">(</span><span class="n">namespace</span><span class="o">=</span><span class="n">namespace</span><span class="p">)</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="NamespaceMixin.pop_name"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.NamespaceMixin.pop_name">[docs]</a>    <span class="k">def</span> <span class="nf">pop_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="NamespaceMixin.pop_name"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.NamespaceMixin.pop_name">[docs]</a>    <span class="k">def</span> <span class="nf">pop_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Pop the latest name off the stack.&quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_namespace</span><span class="p">(</span><span class="n">namespace</span><span class="o">=</span><span class="n">namespace</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="NamespaceMixin.namespace_search"><a class="viewcode-back" href="../../vcorelib.html#vcorelib.namespace.NamespaceMixin.namespace_search">[docs]</a>    <span class="k">def</span> <span class="nf">namespace_search</span><span class="p">(</span>
+<div class="viewcode-block" id="NamespaceMixin.namespace_search"><a class="viewcode-back" href="../../vcorelib.namespace.html#vcorelib.namespace.NamespaceMixin.namespace_search">[docs]</a>    <span class="k">def</span> <span class="nf">namespace_search</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">names</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.*&quot;</span><span class="p">,</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Namespace</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a search on the namespace.&quot;&quot;&quot;</span>

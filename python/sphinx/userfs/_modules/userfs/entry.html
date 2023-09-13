@@ -235,7 +235,7 @@ document.write(`
 <span></span><span class="c1"># =====================================</span>
 <span class="c1"># generator=datazen</span>
 <span class="c1"># version=3.1.2</span>
-<span class="c1"># hash=6f4f4ec976b701ab5d90e6c5fc2a46b4</span>
+<span class="c1"># hash=145a14a5b38e8a9f107bdedef7c2e7af</span>
 <span class="c1"># =====================================</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -244,11 +244,13 @@ document.write(`
 
 <span class="c1"># built-in</span>
 <span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="c1"># third-party</span>
+<span class="kn">from</span> <span class="nn">vcorelib.logging</span> <span class="kn">import</span> <span class="n">init_logging</span><span class="p">,</span> <span class="n">logging_args</span>
 
 <span class="c1"># internal</span>
 <span class="kn">from</span> <span class="nn">userfs</span> <span class="kn">import</span> <span class="n">DESCRIPTION</span><span class="p">,</span> <span class="n">VERSION</span>
@@ -272,12 +274,7 @@ document.write(`
         <span class="n">action</span><span class="o">=</span><span class="s2">&quot;version&quot;</span><span class="p">,</span>
         <span class="n">version</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;%(prog)s </span><span class="si">{</span><span class="n">VERSION</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-v&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;set to increase logging verbosity&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="n">logging_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">&quot;-C&quot;</span><span class="p">,</span>
         <span class="s2">&quot;--dir&quot;</span><span class="p">,</span>
@@ -297,10 +294,8 @@ document.write(`
         <span class="n">args</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 
         <span class="c1"># initialize logging</span>
-        <span class="n">log_level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span> <span class="k">else</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-            <span class="n">level</span><span class="o">=</span><span class="n">log_level</span><span class="p">,</span>
-            <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(name)-36s</span><span class="s2"> - </span><span class="si">%(levelname)-6s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">init_logging</span><span class="p">(</span>
+            <span class="n">args</span><span class="p">,</span> <span class="n">default_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(name)-36s</span><span class="s2"> - </span><span class="si">%(levelname)-6s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
         <span class="p">)</span>
 
         <span class="c1"># change to the specified directory</span>

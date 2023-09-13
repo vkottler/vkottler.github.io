@@ -259,6 +259,12 @@ document.write(`
 <span class="c1"># internal</span>
 <span class="kn">from</span> <span class="nn">yambs.schemas</span> <span class="kn">import</span> <span class="n">YambsDictCodec</span> <span class="k">as</span> <span class="n">_YambsDictCodec</span>
 
+<span class="n">GIHTUB_HEADERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/vnd.github+json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X-GitHub-Api-Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-11-28&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">ReleaseData</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
 
 <div class="viewcode-block" id="Github"><a class="viewcode-back" href="../../yambs.github.html#yambs.github.Github">[docs]</a><span class="k">class</span> <span class="nc">Github</span><span class="p">(</span><span class="n">_YambsDictCodec</span><span class="p">,</span> <span class="n">_BasicDictCodec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;GitHub repository information.&quot;&quot;&quot;</span></div>
@@ -295,12 +301,6 @@ document.write(`
     <span class="p">)</span><span class="o">.</span><span class="n">geturl</span><span class="p">()</span></div>
 
 
-<span class="n">GIHTUB_HEADERS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/vnd.github+json&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;X-GitHub-Api-Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-11-28&quot;</span><span class="p">,</span>
-<span class="p">}</span>
-
-
 <div class="viewcode-block" id="check_api_token"><a class="viewcode-back" href="../../yambs.github.html#yambs.github.check_api_token">[docs]</a><span class="k">def</span> <span class="nf">check_api_token</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Check for a GitHub API token set via the environment.&quot;&quot;&quot;</span>
 
@@ -311,9 +311,6 @@ document.write(`
             <span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;GITHUB_API_TOKEN&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span></div>
 
 
-<span class="n">ReleaseData</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
-
-
 <div class="viewcode-block" id="latest_release_data"><a class="viewcode-back" href="../../yambs.github.html#yambs.github.latest_release_data">[docs]</a><span class="k">def</span> <span class="nf">latest_release_data</span><span class="p">(</span>
     <span class="n">owner</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">repo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReleaseData</span><span class="p">:</span>
@@ -321,13 +318,30 @@ document.write(`
 
     <span class="n">check_api_token</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
-        <span class="n">latest_repo_release_api_url</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">repo</span><span class="p">),</span>
-        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-        <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
-        <span class="n">headers</span><span class="o">=</span><span class="n">GIHTUB_HEADERS</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+    <span class="n">result</span><span class="p">:</span> <span class="n">ReleaseData</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># codecov was bugging out.</span>
+    <span class="n">tries</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tries&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">validate_release</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tries</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">latest_repo_release_api_url</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">repo</span><span class="p">),</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">GIHTUB_HEADERS</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">tries</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">assert</span> <span class="n">validate_release</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">result</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="validate_release"><a class="viewcode-back" href="../../yambs.github.html#yambs.github.validate_release">[docs]</a><span class="k">def</span> <span class="nf">validate_release</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">ReleaseData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensure that GitHub release data actually contains data.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;html_url&quot;</span><span class="p">,</span> <span class="s2">&quot;assets&quot;</span><span class="p">])</span></div>
 </pre></div>
 
                 </article>

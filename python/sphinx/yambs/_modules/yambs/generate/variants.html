@@ -258,47 +258,59 @@ document.write(`
 <span class="kn">from</span> <span class="nn">yambs.config.common</span> <span class="kn">import</span> <span class="n">CommonConfig</span>
 <span class="kn">from</span> <span class="nn">yambs.generate.common</span> <span class="kn">import</span> <span class="n">render_template</span>
 
+<span class="n">FlagGroups</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+
 
 <div class="viewcode-block" id="modified_variant_data"><a class="viewcode-back" href="../../../yambs.generate.html#yambs.generate.variants.modified_variant_data">[docs]</a><span class="nd">@contextmanager</span>
 <span class="k">def</span> <span class="nf">modified_variant_data</span><span class="p">(</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">cflag_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">cflag_groups</span><span class="p">:</span> <span class="n">FlagGroups</span><span class="p">,</span>
+    <span class="n">ldflag_groups</span><span class="p">:</span> <span class="n">FlagGroups</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Ensure that cflag groups are processed, and that the variant has access to</span>
 <span class="sd">    its name while rendering.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">orig</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="s2">&quot;extra_cflags&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="n">orig</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_cflags&quot;</span><span class="p">]</span>
+    <span class="n">orig_c</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_cflags&quot;</span><span class="p">]</span>
+    <span class="n">orig_ld</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_ldflags&quot;</span><span class="p">]</span>
 
-        <span class="c1"># Process cflag groups.</span>
-        <span class="n">flags</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">orig</span> <span class="o">+</span> <span class="n">cflag_groups</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">[]))</span>
-        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;cflag_groups&quot;</span><span class="p">]:</span>
-            <span class="n">flags</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span><span class="n">cflag_groups</span><span class="p">[</span><span class="n">group</span><span class="p">])</span>
+    <span class="c1"># Process cflag groups.</span>
+    <span class="n">flags</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">orig_c</span> <span class="o">+</span> <span class="n">cflag_groups</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">[]))</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;cflag_groups&quot;</span><span class="p">]:</span>
+        <span class="n">flags</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span><span class="n">cflag_groups</span><span class="p">[</span><span class="n">group</span><span class="p">])</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_cflags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flags</span>
 
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_cflags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flags</span>
+    <span class="c1"># Process ldflag groups.</span>
+    <span class="n">flags</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">orig_ld</span> <span class="o">+</span> <span class="n">ldflag_groups</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">[]))</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;ldflag_groups&quot;</span><span class="p">]:</span>
+        <span class="n">flags</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ldflag_groups</span><span class="p">[</span><span class="n">group</span><span class="p">])</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_ldflags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flags</span>
 
+    <span class="c1"># Add other useful data.</span>
     <span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
 
     <span class="k">yield</span>
 
+    <span class="c1"># Restore original data.</span>
     <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-    <span class="k">if</span> <span class="s2">&quot;extra_cflags&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_cflags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">orig</span></div>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_cflags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">orig_c</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;extra_ldflags&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">orig_ld</span></div>
 
 
 <div class="viewcode-block" id="generate"><a class="viewcode-back" href="../../../yambs.generate.html#yambs.generate.variants.generate">[docs]</a><span class="k">def</span> <span class="nf">generate</span><span class="p">(</span>
     <span class="n">jinja</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="n">CommonConfig</span><span class="p">,</span>
-    <span class="n">cflag_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+    <span class="n">cflag_groups</span><span class="p">:</span> <span class="n">FlagGroups</span><span class="p">,</span>
+    <span class="n">ldflag_groups</span><span class="p">:</span> <span class="n">FlagGroups</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate variant-related ninja files.&quot;&quot;&quot;</span>
 
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;variants&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">variants_root</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ninja_root</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;variants&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="n">variants_root</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">with</span> <span class="n">modified_variant_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">cflag_groups</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">modified_variant_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">cflag_groups</span><span class="p">,</span> <span class="n">ldflag_groups</span><span class="p">):</span>
             <span class="n">render_template</span><span class="p">(</span>
                 <span class="n">jinja</span><span class="p">,</span>
                 <span class="n">variants_root</span><span class="p">,</span>

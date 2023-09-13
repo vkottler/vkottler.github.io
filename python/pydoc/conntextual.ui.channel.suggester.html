@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module conntextual.ui.channel.suggester</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="conntextual.html" class="white">conntextual</a>.<a href="conntextual.ui.html" class="white">ui</a>.<a href="conntextual.ui.channel.html" class="white">channel</a>.suggester</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/conntextual/conntextual/ui/channel/suggester.py">/home/vkottler/src/vkottler/workspace/conntextual/conntextual/ui/channel/suggester.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;an&nbsp;input&nbsp;suggester&nbsp;for&nbsp;the&nbsp;channel-environment<br>
+command&nbsp;widget.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="textual.suggester.html#Suggester">textual.suggester.Suggester</a>(<a href="abc.html#ABC">abc.ABC</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="conntextual.ui.channel.suggester.html#CommandSuggester">CommandSuggester</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="CommandSuggester">class <strong>CommandSuggester</strong></a>(<a href="textual.suggester.html#Suggester">textual.suggester.Suggester</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CommandSuggester">CommandSuggester</a>(*,&nbsp;use_cache:&nbsp;'bool'&nbsp;=&nbsp;True,&nbsp;case_sensitive:&nbsp;'bool'&nbsp;=&nbsp;False)&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+An&nbsp;input&nbsp;suggester&nbsp;for&nbsp;channel&nbsp;environment&nbsp;commands.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="conntextual.ui.channel.suggester.html#CommandSuggester">CommandSuggester</a></dd>
+<dd><a href="textual.suggester.html#Suggester">textual.suggester.Suggester</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="CommandSuggester-get_suggestion"><strong>get_suggestion</strong></a>(self, value: str) -&gt; Optional[str]</dt><dd><span class="code">Get&nbsp;an&nbsp;input&nbsp;suggestion.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="CommandSuggester-create"><strong>create</strong></a>(env: runtimepy.channel.environment.ChannelEnvironment, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; 'CommandSuggester'</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;creating&nbsp;a&nbsp;command&nbsp;suggester.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {'processor': &lt;class 'conntextual.ui.channel.command.CommandProcessor'&gt;}</dl>
+
+<hr>
+Methods inherited from <a href="textual.suggester.html#Suggester">textual.suggester.Suggester</a>:<br>
+<dl><dt><a name="CommandSuggester-__init__"><strong>__init__</strong></a>(self, *, use_cache: 'bool' = True, case_sensitive: 'bool' = False) -&gt; 'None'</dt><dd><span class="code">Create&nbsp;a&nbsp;suggester&nbsp;object.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;use_cache:&nbsp;Whether&nbsp;to&nbsp;cache&nbsp;suggestion&nbsp;results.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;case_sensitive:&nbsp;Whether&nbsp;suggestions&nbsp;are&nbsp;case&nbsp;sensitive&nbsp;or&nbsp;not.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;not,&nbsp;incoming&nbsp;values&nbsp;are&nbsp;casefolded&nbsp;before&nbsp;generating<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;suggestion.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="textual.suggester.html#Suggester">textual.suggester.Suggester</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<strong>Optional</strong> = typing.Optional</td></tr></table>
+</body></html>

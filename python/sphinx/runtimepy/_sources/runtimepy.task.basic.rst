@@ -12,14 +12,6 @@ runtimepy.task.basic.manager module
    :undoc-members:
    :show-inheritance:
 
-runtimepy.task.basic.metrics module
------------------------------------
-
-.. automodule:: runtimepy.task.basic.metrics
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 runtimepy.task.basic.periodic module
 ------------------------------------
 

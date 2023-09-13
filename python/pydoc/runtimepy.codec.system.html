@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package runtimepy.codec.system</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.codec.html" class="white">codec</a>.system</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/codec/system/__init__.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/codec/system/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;basic&nbsp;type-system&nbsp;implementation.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.codec.system.html#TypeSystem">TypeSystem</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TypeSystem">class <strong>TypeSystem</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TypeSystem">TypeSystem</a>(*namespace:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;managing&nbsp;a&nbsp;custom&nbsp;type&nbsp;system.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="TypeSystem-__init__"><strong>__init__</strong></a>(self, *namespace: str) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="TypeSystem-add"><strong>add</strong></a>(self, custom_type: str, field_name: str, field_type: str) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;field&nbsp;to&nbsp;a&nbsp;custom&nbsp;type.</span></dd></dl>
+
+<dl><dt><a name="TypeSystem-enum"><strong>enum</strong></a>(self, name: str, items: Dict[str, int], *namespace: str, primitive: str = 'uint8') -&gt; None</dt><dd><span class="code">Register&nbsp;an&nbsp;enumeration.</span></dd></dl>
+
+<dl><dt><a name="TypeSystem-get_enum"><strong>get_enum</strong></a>(self, name: str, *namespace: str) -&gt; runtimepy.enum.RuntimeEnum</dt><dd><span class="code">Lookup&nbsp;an&nbsp;enum&nbsp;type&nbsp;at&nbsp;runtime.</span></dd></dl>
+
+<dl><dt><a name="TypeSystem-get_protocol"><strong>get_protocol</strong></a>(self, name: str, *namespace: str) -&gt; runtimepy.codec.protocol.Protocol</dt><dd><span class="code">Get&nbsp;a&nbsp;custom&nbsp;protocol&nbsp;by&nbsp;name.</span></dd></dl>
+
+<dl><dt><a name="TypeSystem-register"><strong>register</strong></a>(self, name: str, *namespace: str) -&gt; runtimepy.codec.protocol.Protocol</dt><dd><span class="code">Register&nbsp;a&nbsp;custom&nbsp;type.</span></dd></dl>
+
+<dl><dt><a name="TypeSystem-runtime_int_enum"><strong>runtime_int_enum</strong></a>(self, enum: Type[runtimepy.enum.registry.RuntimeIntEnum]) -&gt; None</dt><dd><span class="code">Register&nbsp;an&nbsp;enumeration&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="TypeSystem-size"><strong>size</strong></a>(self, name: str, *namespace: str) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;size&nbsp;of&nbsp;a&nbsp;named&nbsp;type.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>AnyPrimitiveType</strong> = typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]<br>
+<strong>CPP_DELIM</strong> = '::'<br>
+<strong>DEFAULT_ENUM_PRIMITIVE</strong> = 'uint8'<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>PKG_NAME</strong> = 'runtimepy'<br>
+<strong>PrimitiveTypes</strong> = {'bool': &lt;runtimepy.primitives.type.bool.BooleanType object&gt;, 'double': &lt;runtimepy.primitives.type.float.DoubleType object&gt;, 'float': &lt;runtimepy.primitives.type.float.FloatType object&gt;, 'half': &lt;runtimepy.primitives.type.float.HalfType object&gt;, 'int16': &lt;runtimepy.primitives.type.int.Int16Type object&gt;, 'int32': &lt;runtimepy.primitives.type.int.Int32Type object&gt;, 'int64': &lt;runtimepy.primitives.type.int.Int64Type object&gt;, 'int8': &lt;runtimepy.primitives.type.int.Int8Type object&gt;, 'uint16': &lt;runtimepy.primitives.type.int.Uint16Type object&gt;, 'uint32': &lt;runtimepy.primitives.type.int.Uint32Type object&gt;, ...}<br>
+<strong>Type</strong> = typing.Type</td></tr></table>
+</body></html>

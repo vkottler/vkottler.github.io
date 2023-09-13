@@ -23,7 +23,7 @@
 <dt class="heading-text"><a href="runtimepy.net.arbiter.task.html#ArbiterTaskManager">ArbiterTaskManager</a>
 </dt></dl>
 </dd>
-<dt class="heading-text"><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+<dt class="heading-text"><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
 </dt><dd>
 <dl>
 <dt class="heading-text"><a href="runtimepy.net.arbiter.task.html#ArbiterTask">ArbiterTask</a>
@@ -42,7 +42,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="ArbiterTask">class <strong>ArbiterTask</strong></a>(<a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#ArbiterTask">ArbiterTask</a>(name:&nbsp;'str',&nbsp;average_depth:&nbsp;'int'&nbsp;=&nbsp;10,&nbsp;metrics:&nbsp;'PeriodicTaskMetrics'&nbsp;=&nbsp;None,&nbsp;period_s:&nbsp;'float'&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;'None'<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ArbiterTask">ArbiterTask</a>(name:&nbsp;'str',&nbsp;average_depth:&nbsp;'int'&nbsp;=&nbsp;10,&nbsp;metrics:&nbsp;'PeriodicTaskMetrics'&nbsp;=&nbsp;None,&nbsp;period_s:&nbsp;'float'&nbsp;=&nbsp;1.0,&nbsp;env:&nbsp;'ChannelEnvironment'&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;'None'<br>
 &nbsp;<br>
 A&nbsp;base&nbsp;class&nbsp;for&nbsp;arbiter&nbsp;periodic&nbsp;tasks.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -50,6 +50,7 @@ A&nbsp;base&nbsp;class&nbsp;for&nbsp;arbiter&nbsp;periodic&nbsp;tasks.<br>&nbsp;
 <dd><a href="runtimepy.net.arbiter.task.html#ArbiterTask">ArbiterTask</a></dd>
 <dd><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
@@ -61,11 +62,11 @@ Methods defined here:<br>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset({'dispatch'})</dl>
 
-<dl><dt><strong>__annotations__</strong> = {}</dl>
+<dl><dt><strong>__annotations__</strong> = {'app': &lt;class 'runtimepy.net.arbiter.info.AppInfo'&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>:<br>
-<dl><dt><a name="ArbiterTask-__init__"><strong>__init__</strong></a>(self, name: 'str', average_depth: 'int' = 10, metrics: 'PeriodicTaskMetrics' = None, period_s: 'float' = None) -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
+<dl><dt><a name="ArbiterTask-__init__"><strong>__init__</strong></a>(self, name: 'str', average_depth: 'int' = 10, metrics: 'PeriodicTaskMetrics' = None, period_s: 'float' = 1.0, env: 'ChannelEnvironment' = None) -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
 
 <dl><dt><a name="ArbiterTask-disable"><strong>disable</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Disable&nbsp;this&nbsp;task,&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;any&nbsp;action&nbsp;was&nbsp;taken.</span></dd></dl>
 
@@ -92,6 +93,12 @@ Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcor
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="ArbiterTask-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="ArbiterTask-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
 </td></tr></table> <p>
 <table class="section">
 <tr class="decor title-decor heading-text">

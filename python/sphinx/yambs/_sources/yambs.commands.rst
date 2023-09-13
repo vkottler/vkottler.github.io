@@ -20,6 +20,14 @@ yambs.commands.common module
    :undoc-members:
    :show-inheritance:
 
+yambs.commands.compile\_config module
+-------------------------------------
+
+.. automodule:: yambs.commands.compile_config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yambs.commands.dist module
 --------------------------
 

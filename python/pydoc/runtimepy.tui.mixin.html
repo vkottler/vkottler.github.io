@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.tui.mixin</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.tui.html" class="white">tui</a>.mixin</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/tui/mixin.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/tui/mixin.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;for&nbsp;terminal&nbsp;user-interface&nbsp;application&nbsp;mixins.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="curses.html">curses</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.tui.cursor.html#Cursor">runtimepy.tui.cursor.Cursor</a>
+</dt><dt class="heading-text"><a href="runtimepy.tui.mixin.html#TuiMixin">TuiMixin</a>
+</dt><dt class="heading-text"><a href="typing.html#Any">typing.Any</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong>CursesWindow</strong> = <a name="CursesWindow">class Any</a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CursesWindow">CursesWindow</a>(*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Special&nbsp;type&nbsp;indicating&nbsp;an&nbsp;unconstrained&nbsp;type.<br>
+&nbsp;<br>
+-&nbsp;Any&nbsp;is&nbsp;compatible&nbsp;with&nbsp;every&nbsp;type.<br>
+-&nbsp;Any&nbsp;assumed&nbsp;to&nbsp;have&nbsp;all&nbsp;methods.<br>
+-&nbsp;All&nbsp;values&nbsp;assumed&nbsp;to&nbsp;be&nbsp;instances&nbsp;of&nbsp;Any.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;all&nbsp;the&nbsp;above&nbsp;statements&nbsp;are&nbsp;true&nbsp;from&nbsp;the&nbsp;point&nbsp;of&nbsp;view&nbsp;of<br>
+static&nbsp;type&nbsp;checkers.&nbsp;At&nbsp;runtime,&nbsp;Any&nbsp;should&nbsp;not&nbsp;be&nbsp;used&nbsp;with&nbsp;instance<br>
+checks.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Static methods defined here:<br>
+<dl><dt><a name="Any-__new__"><strong>__new__</strong></a>(cls, *args, **kwargs)</dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Cursor">class <strong>Cursor</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Cursor">Cursor</a>(window:&nbsp;Any)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;cursor&nbsp;implementation.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Cursor-__init__"><strong>__init__</strong></a>(self, window: Any) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;cursor.</span></dd></dl>
+
+<dl><dt><a name="Cursor-inc_x"><strong>inc_x</strong></a>(self, amount: int = 1) -&gt; bool</dt><dd><span class="code">Increment&nbsp;the&nbsp;cursor's&nbsp;X&nbsp;coordinate.</span></dd></dl>
+
+<dl><dt><a name="Cursor-inc_y"><strong>inc_y</strong></a>(self, amount: int = 1) -&gt; bool</dt><dd><span class="code">Increment&nbsp;the&nbsp;cursor's&nbsp;Y&nbsp;coordinate.</span></dd></dl>
+
+<dl><dt><a name="Cursor-move"><strong>move</strong></a>(self, new_y: int = None, new_x: int = None) -&gt; bool</dt><dd><span class="code">Perform&nbsp;the&nbsp;underlying&nbsp;cursor&nbsp;move.</span></dd></dl>
+
+<dl><dt><a name="Cursor-poll_max"><strong>poll_max</strong></a>(self) -&gt; bool</dt><dd><span class="code">Update&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;cursor&nbsp;positions.</span></dd></dl>
+
+<dl><dt><a name="Cursor-reset"><strong>reset</strong></a>(self) -&gt; None</dt><dd><span class="code">Reset&nbsp;this&nbsp;cursor.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>height</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;height&nbsp;of&nbsp;this&nbsp;cursor's&nbsp;window.</span></dd>
+</dl>
+<dl><dt><strong>width</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;width&nbsp;of&nbsp;this&nbsp;cursor's&nbsp;window.</span></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TuiMixin">class <strong>TuiMixin</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TuiMixin">TuiMixin</a>(window:&nbsp;Optional[Any]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;mixin&nbsp;for&nbsp;building&nbsp;TUI&nbsp;applications.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="TuiMixin-__init__"><strong>__init__</strong></a>(self, window: Optional[Any] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="TuiMixin-handle_char"><strong>handle_char</strong></a>(self, char: int) -&gt; bool</dt><dd><span class="code">Handle&nbsp;character&nbsp;input.</span></dd></dl>
+
+<dl><dt><a name="TuiMixin-init"><strong>init</strong></a>(self, window: Optional[Any]) -&gt; bool</dt><dd><span class="code">Initialize&nbsp;this&nbsp;interface's&nbsp;window.</span></dd></dl>
+
+<dl><dt><a name="TuiMixin-tui_update"><strong>tui_update</strong></a>(self) -&gt; None</dt><dd><span class="code">Re-draw&nbsp;the&nbsp;screen.</span></dd></dl>
+
+<dl><dt><a name="TuiMixin-update_dimensions"><strong>update_dimensions</strong></a>(self) -&gt; Any</dt><dd><span class="code">Handle&nbsp;an&nbsp;update&nbsp;to&nbsp;the&nbsp;window's&nbsp;dimensions.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>window</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;window&nbsp;for&nbsp;this&nbsp;instance.</span></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'cursor': &lt;class 'runtimepy.tui.cursor.Cursor'&gt;}</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>__all__</strong> = ['CursesWindow', 'Cursor', 'TuiMixin']</td></tr></table>
+</body></html>

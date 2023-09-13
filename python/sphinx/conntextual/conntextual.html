@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>conntextual package &#8212; conntextual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'conntextual';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="conntextual.commands package" href="conntextual.commands.html" />
+    <link rel="prev" title="Welcome to conntextual’s documentation!" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">conntextual  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">conntextual package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.commands.html">conntextual.commands package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.curses.html">conntextual.curses package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="conntextual.ui.html">conntextual.ui package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html">conntextual.ui.channel package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/conntextual.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>conntextual package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.app">conntextual.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.entry">conntextual.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="conntextual-package">
+<h1>conntextual package<a class="headerlink" href="#conntextual-package" title="Permalink to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conntextual.commands.html">conntextual.commands package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.commands.html#module-conntextual.commands.all">conntextual.commands.all module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.commands.html#conntextual.commands.all.commands"><code class="docutils literal notranslate"><span class="pre">commands()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.commands.html#module-conntextual.commands.ui">conntextual.commands.ui module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.commands.html#conntextual.commands.ui.add_ui_cmd"><code class="docutils literal notranslate"><span class="pre">add_ui_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.commands.html#conntextual.commands.ui.ui_cmd"><code class="docutils literal notranslate"><span class="pre">ui_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.commands.html#module-conntextual.commands">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conntextual.curses.html">conntextual.curses package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.curses.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.curses.html#module-conntextual.curses.base">conntextual.curses.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase"><code class="docutils literal notranslate"><span class="pre">AppBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase.app"><code class="docutils literal notranslate"><span class="pre">AppBase.app</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase.cursor"><code class="docutils literal notranslate"><span class="pre">AppBase.cursor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase.dispatch"><code class="docutils literal notranslate"><span class="pre">AppBase.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase.draw"><code class="docutils literal notranslate"><span class="pre">AppBase.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase.handle_char"><code class="docutils literal notranslate"><span class="pre">AppBase.handle_char()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase.init"><code class="docutils literal notranslate"><span class="pre">AppBase.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase.input_queue"><code class="docutils literal notranslate"><span class="pre">AppBase.input_queue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.base.AppBase.window"><code class="docutils literal notranslate"><span class="pre">AppBase.window</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.curses.html#module-conntextual.curses.tui">conntextual.curses.tui module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.tui.Tui"><code class="docutils literal notranslate"><span class="pre">Tui</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.tui.Tui.draw"><code class="docutils literal notranslate"><span class="pre">Tui.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.tui.Tui.envs"><code class="docutils literal notranslate"><span class="pre">Tui.envs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.tui.Tui.init"><code class="docutils literal notranslate"><span class="pre">Tui.init()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.curses.html#module-conntextual.curses">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.TuiApp"><code class="docutils literal notranslate"><span class="pre">TuiApp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.TuiApp.kind"><code class="docutils literal notranslate"><span class="pre">TuiApp.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.curses.html#conntextual.curses.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conntextual.ui.html">conntextual.ui package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html">conntextual.ui.channel package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.command">conntextual.ui.channel.command module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.environment">conntextual.ui.channel.environment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.log">conntextual.ui.channel.log module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.model">conntextual.ui.channel.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.parser">conntextual.ui.channel.parser module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.result">conntextual.ui.channel.result module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.suggester">conntextual.ui.channel.suggester module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.html#module-conntextual.ui.base">conntextual.ui.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base.BINDINGS"><code class="docutils literal notranslate"><span class="pre">Base.BINDINGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base.CSS_PATH"><code class="docutils literal notranslate"><span class="pre">Base.CSS_PATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base.action_tab"><code class="docutils literal notranslate"><span class="pre">Base.action_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base.compose"><code class="docutils literal notranslate"><span class="pre">Base.compose()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base.compose_app"><code class="docutils literal notranslate"><span class="pre">Base.compose_app()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base.create"><code class="docutils literal notranslate"><span class="pre">Base.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base.dispatch"><code class="docutils literal notranslate"><span class="pre">Base.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.base.Base.model"><code class="docutils literal notranslate"><span class="pre">Base.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.html#module-conntextual.ui.model">conntextual.ui.model module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.app"><code class="docutils literal notranslate"><span class="pre">Model.app</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.create"><code class="docutils literal notranslate"><span class="pre">Model.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.dispatch_rate"><code class="docutils literal notranslate"><span class="pre">Model.dispatch_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.dispatch_time"><code class="docutils literal notranslate"><span class="pre">Model.dispatch_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.env"><code class="docutils literal notranslate"><span class="pre">Model.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.environments"><code class="docutils literal notranslate"><span class="pre">Model.environments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.iter_time"><code class="docutils literal notranslate"><span class="pre">Model.iter_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.metrics"><code class="docutils literal notranslate"><span class="pre">Model.metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.start"><code class="docutils literal notranslate"><span class="pre">Model.start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.tab_to_id"><code class="docutils literal notranslate"><span class="pre">Model.tab_to_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.model.Model.uptime"><code class="docutils literal notranslate"><span class="pre">Model.uptime</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.html#module-conntextual.ui.sample">conntextual.ui.sample module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.sample.Sample"><code class="docutils literal notranslate"><span class="pre">Sample</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.sample.Sample.kind"><code class="docutils literal notranslate"><span class="pre">Sample.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.sample.SampleTask"><code class="docutils literal notranslate"><span class="pre">SampleTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.sample.SampleTask.app"><code class="docutils literal notranslate"><span class="pre">SampleTask.app</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.sample.SampleTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleTask.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.sample.SampleTask.init"><code class="docutils literal notranslate"><span class="pre">SampleTask.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.sample.random"><code class="docutils literal notranslate"><span class="pre">random()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.html#module-conntextual.ui">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.BINDINGS"><code class="docutils literal notranslate"><span class="pre">Base.BINDINGS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.CSS_PATH"><code class="docutils literal notranslate"><span class="pre">Base.CSS_PATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.action_tab"><code class="docutils literal notranslate"><span class="pre">Base.action_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.compose"><code class="docutils literal notranslate"><span class="pre">Base.compose()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.compose_app"><code class="docutils literal notranslate"><span class="pre">Base.compose_app()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.create"><code class="docutils literal notranslate"><span class="pre">Base.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.dark"><code class="docutils literal notranslate"><span class="pre">Base.dark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.devtools"><code class="docutils literal notranslate"><span class="pre">Base.devtools</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.dispatch"><code class="docutils literal notranslate"><span class="pre">Base.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.features"><code class="docutils literal notranslate"><span class="pre">Base.features</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.model"><code class="docutils literal notranslate"><span class="pre">Base.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.mouse_captured"><code class="docutils literal notranslate"><span class="pre">Base.mouse_captured</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.mouse_over"><code class="docutils literal notranslate"><span class="pre">Base.mouse_over</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.scroll_sensitivity_x"><code class="docutils literal notranslate"><span class="pre">Base.scroll_sensitivity_x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.scroll_sensitivity_y"><code class="docutils literal notranslate"><span class="pre">Base.scroll_sensitivity_y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.styles"><code class="docutils literal notranslate"><span class="pre">Base.styles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.sub_title"><code class="docutils literal notranslate"><span class="pre">Base.sub_title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.Base.title"><code class="docutils literal notranslate"><span class="pre">Base.title</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.by_index"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.by_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.can_focus"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.can_focus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.can_focus_children"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.can_focus_children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.columns"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.columns</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.compose"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.compose()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.create"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.label"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.model"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.on_mount"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.on_mount()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentDisplay.update_channels"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.update_channels()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentSource"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentSource.CONNECTION_LOCAL"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.CONNECTION_LOCAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentSource.CONNECTION_REMOTE"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.CONNECTION_REMOTE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentSource.TASK"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.TASK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.ChannelEnvironmentSource.UI"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.UI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.html#conntextual.ui.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="module-conntextual.app">
+<span id="conntextual-app-module"></span><h2>conntextual.app module<a class="headerlink" href="#module-conntextual.app" title="Permalink to this heading">#</a></h2>
+<p>This package’s command-line entry-point application.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.app.add_app_args">
+<span class="sig-prename descclassname"><span class="pre">conntextual.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.app.add_app_args" title="Permalink to this definition">#</a></dt>
+<dd><p>Add application-specific arguments to the command-line parser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.app.entry">
+<span class="sig-prename descclassname"><span class="pre">conntextual.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/conntextual/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.app.entry" title="Permalink to this definition">#</a></dt>
+<dd><p>Execute the requested task.</p>
+</dd></dl>
+
+</section>
+<section id="module-conntextual.entry">
+<span id="conntextual-entry-module"></span><h2>conntextual.entry module<a class="headerlink" href="#module-conntextual.entry" title="Permalink to this heading">#</a></h2>
+<p>This package’s command-line entry-point (boilerplate).</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.entry.main">
+<span class="sig-prename descclassname"><span class="pre">conntextual.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/conntextual/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.entry.main" title="Permalink to this definition">#</a></dt>
+<dd><p>Program entry-point.</p>
+</dd></dl>
+
+</section>
+<section id="module-conntextual">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-conntextual" title="Permalink to this heading">#</a></h2>
+<p>Useful defaults and other package metadata.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to conntextual’s documentation!</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="conntextual.commands.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">conntextual.commands package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.app">conntextual.app module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.app.add_app_args"><code class="docutils literal notranslate"><span class="pre">add_app_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.app.entry"><code class="docutils literal notranslate"><span class="pre">entry()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.entry">conntextual.entry module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.entry.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vaughn Kottler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Vaughn Kottler.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

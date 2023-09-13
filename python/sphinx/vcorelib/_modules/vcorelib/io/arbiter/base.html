@@ -130,6 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../vcorelib.logging.html">vcorelib.logging package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../vcorelib.math.html">vcorelib.math package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../vcorelib.math.analysis.html">vcorelib.math.analysis package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../vcorelib.math.analysis.rate.html">vcorelib.math.analysis.rate package</a></li>
@@ -137,6 +138,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../vcorelib.namespace.html">vcorelib.namespace package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../vcorelib.paths.html">vcorelib.paths package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../vcorelib.platform.html">vcorelib.platform package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../vcorelib.schemas.html">vcorelib.schemas package</a></li>
@@ -362,6 +364,24 @@ document.write(`
                                 <span class="n">includes_key</span><span class="o">=</span><span class="n">includes_key</span><span class="p">,</span>
                                 <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
                             <span class="p">),</span>
+                            <span class="n">expect_overwrite</span><span class="o">=</span><span class="n">expect_overwrite</span><span class="p">,</span>
+                            <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
+                            <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>
+                        <span class="p">)</span>
+
+                    <span class="k">for</span> <span class="n">include</span> <span class="ow">in</span> <span class="n">consume</span><span class="p">(</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">includes_key</span><span class="si">}</span><span class="s2">_left&quot;</span><span class="p">,</span> <span class="p">[]</span>
+                    <span class="p">):</span>
+                        <span class="c1"># Load the included file.</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+                                <span class="n">find_file</span><span class="p">(</span><span class="n">include</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="n">path</span><span class="p">),</span>
+                                <span class="n">logger</span><span class="p">,</span>
+                                <span class="n">require_success</span><span class="o">=</span><span class="n">require_success</span><span class="p">,</span>
+                                <span class="n">includes_key</span><span class="o">=</span><span class="n">includes_key</span><span class="p">,</span>
+                                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+                            <span class="p">),</span>
+                            <span class="n">is_left</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                             <span class="n">expect_overwrite</span><span class="o">=</span><span class="n">expect_overwrite</span><span class="p">,</span>
                             <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
                             <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span>

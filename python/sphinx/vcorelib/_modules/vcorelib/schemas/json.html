@@ -130,6 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.logging.html">vcorelib.logging package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../vcorelib.math.html">vcorelib.math package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../vcorelib.math.analysis.html">vcorelib.math.analysis package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../vcorelib.math.analysis.rate.html">vcorelib.math.analysis.rate package</a></li>
@@ -137,6 +138,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.namespace.html">vcorelib.namespace package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.paths.html">vcorelib.paths package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.platform.html">vcorelib.platform package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../vcorelib.schemas.html">vcorelib.schemas package</a></li>
@@ -259,7 +261,6 @@ document.write(`
 <span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span> <span class="k">as</span> <span class="n">_getLogger</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span> <span class="k">as</span> <span class="n">_Any</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span> <span class="k">as</span> <span class="n">_Type</span>
-<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span> <span class="k">as</span> <span class="n">_urlparse</span>
 
 <span class="c1"># third-party</span>
 <span class="kn">from</span> <span class="nn">fastjsonschema</span> <span class="kn">import</span> <span class="n">JsonSchemaException</span> <span class="k">as</span> <span class="n">_JsonSchemaException</span>
@@ -280,11 +281,9 @@ document.write(`
 <div class="viewcode-block" id="package_handler"><a class="viewcode-back" href="../../../vcorelib.schemas.html#vcorelib.schemas.json.package_handler">[docs]</a><span class="k">def</span> <span class="nf">package_handler</span><span class="p">(</span><span class="n">uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_JsonObject</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load data from a package.&quot;&quot;&quot;</span>
 
-    <span class="n">parsed</span> <span class="o">=</span> <span class="n">_urlparse</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">parsed</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;package&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">find_file</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOG</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="n">uri</span>
 
-    <span class="n">path</span> <span class="o">=</span> <span class="n">find_file</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">package</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">hostname</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOG</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="n">path</span>
     <span class="k">return</span> <span class="n">_ARBITER</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
         <span class="n">path</span><span class="p">,</span> <span class="n">includes_key</span><span class="o">=</span><span class="n">_DEFAULT_INCLUDES_KEY</span><span class="p">,</span> <span class="n">require_success</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span><span class="o">.</span><span class="n">data</span></div>

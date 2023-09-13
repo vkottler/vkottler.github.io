@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.net.stream.json.base</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.stream.html" class="white">stream</a>.<a href="runtimepy.net.stream.json.html" class="white">json</a>.base</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/stream/json/base.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/stream/json/base.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;base&nbsp;JSON&nbsp;messaging&nbsp;connection&nbsp;interface.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="asyncio.html">asyncio</a><br>
+</td><td class="multicolumn"><a href="logging.html">logging</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>(<a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">JsonMessageConnection</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="JsonMessageConnection">class <strong>JsonMessageConnection</strong></a>(<a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#JsonMessageConnection">JsonMessageConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;connection&nbsp;interface&nbsp;for&nbsp;JSON&nbsp;messaging.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">JsonMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="JsonMessageConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-basic_handler"><strong>basic_handler</strong></a>(self, key: str, handler: Callable[[Dict[str, Any], Dict[str, Any]], Awaitable[NoneType]] = &lt;function loopback_handler at 0x7fd045a2fec0&gt;) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;basic&nbsp;handler.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageConnection-loopback"><strong>loopback</strong></a>(self, data: Dict[str, Any] = None, addr: Tuple[str, int] = None, timeout: float = 3) -&gt; bool</dt><dd><span class="code">Perform&nbsp;a&nbsp;simple&nbsp;loopback&nbsp;test&nbsp;on&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageConnection-process_json"><strong>process_json</strong></a>(self, data: Dict[str, Any], addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageConnection-process_message"><strong>process_message</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;string&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-send_json"><strong>send_json</strong></a>(self, data: Union[Dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-stage_remote_log"><strong>stage_remote_log</strong></a>(self, msg: str, *args, level: int = 20) -&gt; None</dt><dd><span class="code">Log&nbsp;a&nbsp;message&nbsp;on&nbsp;the&nbsp;remote.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-typed_handler"><strong>typed_handler</strong></a>(self, key: str, kind: Type[~T], handler: Callable[[Dict[str, Any], ~T], Awaitable[NoneType]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;typed&nbsp;handler.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageConnection-wait_json"><strong>wait_json</strong></a>(self, data: Union[Dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: Tuple[str, int] = None, timeout: float = 3) -&gt; Dict[str, Any]</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message&nbsp;and&nbsp;wait&nbsp;for&nbsp;a&nbsp;response.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {'_log_messages': typing.List[typing.Dict[str, typing.Any]], 'remote_meta': typing.Optional[typing.Dict[str, typing.Any]]}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>:<br>
+<dl><dt>async <a name="JsonMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
+<dl><dt>async <a name="JsonMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
+<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><a name="JsonMessageConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageConnection-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
+
+<dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="JsonMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="JsonMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_LOOPBACK</strong> = {'a': 1, 'b': 2, 'c': 3}<br>
+<strong>DEFAULT_TIMEOUT</strong> = 3<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>JsonMessage</strong> = typing.Dict[str, typing.Any]<br>
+<strong>List</strong> = typing.List<br>
+<strong>MessageHandler</strong> = typing.Callable[[typing.Dict[str, typing.Any], t...ct[str, typing.Any]], typing.Awaitable[NoneType]]<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>PKG_NAME</strong> = 'runtimepy'<br>
+<strong>RESERVED_KEYS</strong> = {'__id__', '__log_messages__', 'keys_ignored'}<br>
+<strong>T</strong> = ~T<br>
+<strong>Tuple</strong> = typing.Tuple<br>
+<strong>Type</strong> = typing.Type<br>
+<strong>TypedHandler</strong> = typing.Callable[[typing.Dict[str, typing.Any], ~T], typing.Awaitable[NoneType]]<br>
+<strong>Union</strong> = typing.Union<br>
+<strong>VERSION</strong> = '2.7.0'</td></tr></table>
+</body></html>

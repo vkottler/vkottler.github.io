@@ -18,12 +18,14 @@
 <tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><table><tr><td class="multicolumn"><a href="vcorelib.io.abc.html">abc</a><br>
 <a href="vcorelib.io.arbiter.html"><strong>arbiter</strong>&nbsp;(package)</a><br>
-</td><td class="multicolumn"><a href="vcorelib.io.archive.html"><strong>archive</strong>&nbsp;(package)</a><br>
-<a href="vcorelib.io.cache.html">cache</a><br>
-</td><td class="multicolumn"><a href="vcorelib.io.decode.html">decode</a><br>
+<a href="vcorelib.io.archive.html"><strong>archive</strong>&nbsp;(package)</a><br>
+</td><td class="multicolumn"><a href="vcorelib.io.cache.html">cache</a><br>
+<a href="vcorelib.io.decode.html">decode</a><br>
 <a href="vcorelib.io.encode.html">encode</a><br>
-</td><td class="multicolumn"><a href="vcorelib.io.mapping.html">mapping</a><br>
-<a href="vcorelib.io.types.html">types</a><br>
+</td><td class="multicolumn"><a href="vcorelib.io.fifo.html">fifo</a><br>
+<a href="vcorelib.io.file_writer.html">file_writer</a><br>
+<a href="vcorelib.io.mapping.html">mapping</a><br>
+</td><td class="multicolumn"><a href="vcorelib.io.types.html">types</a><br>
 </td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor index-decor heading-text">
@@ -41,6 +43,13 @@
 </dt></dl>
 </dd>
 </dl>
+</dd>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.io.fifo.html#ByteFifo">vcorelib.io.fifo.ByteFifo</a>
+</dt><dt class="heading-text"><a href="vcorelib.io.file_writer.html#IndentedFileWriter">vcorelib.io.file_writer.IndentedFileWriter</a>
+</dt></dl>
 </dd>
 <dt class="heading-text"><a href="builtins.html#tuple">builtins.tuple</a>(<a href="builtins.html#object">builtins.object</a>)
 </dt><dd>
@@ -62,6 +71,31 @@
 </dd>
 </dl>
  <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ByteFifo">class <strong>ByteFifo</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ByteFifo">ByteFifo</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;fifo&nbsp;for&nbsp;bytes.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="ByteFifo-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="ByteFifo-ingest"><strong>ingest</strong></a>(self, data: bytes) -&gt; None</dt><dd><span class="code">Append&nbsp;new&nbsp;data&nbsp;to&nbsp;the&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="ByteFifo-pop"><strong>pop</strong></a>(self, size: int) -&gt; Optional[bytes]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;read&nbsp;some&nbsp;number&nbsp;of&nbsp;bytes&nbsp;from&nbsp;the&nbsp;front.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><a name="DataArbiter">class <strong>DataArbiter</strong></a>(<a href="vcorelib.io.arbiter.context.html#DataArbiterContext">vcorelib.io.arbiter.context.DataArbiterContext</a>)</td></tr>
@@ -144,9 +178,9 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="vcorelib.io.abc.html#Serializable">Serializable</a>:<br>
-<dl><dt><a name="FileEntity-to_file"><strong>to_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType] = None, encoding: str = 'utf-8', **kwargs) -&gt; None</dt><dd><span class="code">Write&nbsp;this&nbsp;object&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="FileEntity-to_file"><strong>to_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType] = None, encoding: str = 'utf-8', **kwargs) -&gt; None</dt><dd><span class="code">Write&nbsp;this&nbsp;<a href="builtins.html#object">object</a>&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
-<dl><dt><a name="FileEntity-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'TextIO'&gt;, **kwargs) -&gt; None</dt><dd><span class="code">Write&nbsp;this&nbsp;object&nbsp;to&nbsp;a&nbsp;text&nbsp;stream.</span></dd></dl>
+<dl><dt><a name="FileEntity-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'TextIO'&gt;, **kwargs) -&gt; None</dt><dd><span class="code">Write&nbsp;this&nbsp;<a href="builtins.html#object">object</a>&nbsp;to&nbsp;a&nbsp;text&nbsp;stream.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.io.abc.html#Serializable">Serializable</a>:<br>
@@ -222,6 +256,69 @@ is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.<
 </td></tr></table> <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="IndentedFileWriter">class <strong>IndentedFileWriter</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#IndentedFileWriter">IndentedFileWriter</a>(stream:&nbsp;&amp;lt;class&nbsp;'TextIO'&amp;gt;,&nbsp;space:&nbsp;str&nbsp;=&nbsp;'&nbsp;',&nbsp;per_indent:&nbsp;int&nbsp;=&nbsp;1,&nbsp;prefix:&nbsp;str&nbsp;=&nbsp;'',&nbsp;suffix:&nbsp;str&nbsp;=&nbsp;'')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;writing&nbsp;lines&nbsp;to&nbsp;a&nbsp;file&nbsp;and&nbsp;tracking&nbsp;indentation.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="IndentedFileWriter-__init__"><strong>__init__</strong></a>(self, stream: &lt;class 'TextIO'&gt;, space: str = ' ', per_indent: int = 1, prefix: str = '', suffix: str = '') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-c_comment"><strong>c_comment</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;writing&nbsp;C-style&nbsp;comments.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-cpp_comment"><strong>cpp_comment</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;writing&nbsp;C++-style&nbsp;comments.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-dedent"><strong>dedent</strong></a>(self, amount: int = 1) -&gt; None</dt><dd><span class="code">Decrease&nbsp;the&nbsp;current&nbsp;indent&nbsp;depth&nbsp;(if&nbsp;not&nbsp;zero).</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-empty"><strong>empty</strong></a>(self, count: int = 1) -&gt; int</dt><dd><span class="code">Add&nbsp;some&nbsp;number&nbsp;of&nbsp;empty&nbsp;lines.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-ends"><strong>ends</strong></a>(self, prefix: str = '', suffix: str = '') -&gt; Iterator[NoneType]</dt><dd><span class="code">Adds&nbsp;a&nbsp;temporary&nbsp;prefix&nbsp;and&nbsp;suffix&nbsp;to&nbsp;lines.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-indent"><strong>indent</strong></a>(self, amount: int = 1) -&gt; None</dt><dd><span class="code">Increase&nbsp;the&nbsp;current&nbsp;indent&nbsp;depth.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-indented"><strong>indented</strong></a>(self, amount: int = 1) -&gt; Iterator[NoneType]</dt><dd><span class="code">Increase&nbsp;the&nbsp;current&nbsp;indent&nbsp;depth&nbsp;and&nbsp;decrease&nbsp;upon&nbsp;exit.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-javadoc"><strong>javadoc</strong></a>(self, opener: str = '/**', closer: str = ' */', prefix: str = ' * ') -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;writing&nbsp;javadoc-style&nbsp;comments.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-join"><strong>join</strong></a>(self, *lines: str, joiner=',') -&gt; None</dt><dd><span class="code">Join&nbsp;lines&nbsp;with&nbsp;some&nbsp;joiner&nbsp;(appended&nbsp;to&nbsp;end),&nbsp;except&nbsp;after&nbsp;the&nbsp;last<br>
+line.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-padding"><strong>padding</strong></a>(self, count: int = 1) -&gt; Iterator[NoneType]</dt><dd><span class="code">Add&nbsp;padding&nbsp;lines&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-prefix"><strong>prefix</strong></a>(self, prefix: str) -&gt; Iterator[NoneType]</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;line&nbsp;prefix&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-scope"><strong>scope</strong></a>(self, opener: str = '{', closer: str = '}', prefix: str = '', suffix: str = '', indent: int = 1) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;common&nbsp;programming&nbsp;syntax&nbsp;scoping.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-suffix"><strong>suffix</strong></a>(self, suffix: str) -&gt; Iterator[NoneType]</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;line&nbsp;suffix&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-trailing_comment_lines"><strong>trailing_comment_lines</strong></a>(self, style: vcorelib.io.file_writer.CommentStyle = &lt;CommentStyle.C: 1&gt;, pad: str = ' ', min_pad: int = 1) -&gt; Iterator[List[Tuple[str, Optional[str]]]]</dt><dd><span class="code">Align&nbsp;indentations&nbsp;for&nbsp;trailing&nbsp;comments.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-write"><strong>write</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">method&nbsp;taking&nbsp;the&nbsp;str&nbsp;data&nbsp;for&nbsp;a&nbsp;new&nbsp;line&nbsp;of&nbsp;text&nbsp;to&nbsp;write<br>
+to&nbsp;the&nbsp;file:&nbsp;first&nbsp;writes&nbsp;the&nbsp;indent&nbsp;(some&nbsp;number&nbsp;of<br>
+e.g.&nbsp;space&nbsp;characters),&nbsp;then&nbsp;writes&nbsp;the&nbsp;str&nbsp;data&nbsp;(function&nbsp;parameter),<br>
+then&nbsp;writes&nbsp;a&nbsp;newline&nbsp;character&nbsp;(os.linesep).</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="IndentedFileWriter-from_path"><strong>from_path</strong></a>(path: pathlib.Path, space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;from&nbsp;a&nbsp;path&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-string"><strong>string</strong></a>(space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;for&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-temporary"><strong>temporary</strong></a>(space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;from&nbsp;a&nbsp;temporary&nbsp;file&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><a name="LoadResult">class <strong>LoadResult</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
@@ -245,15 +342,15 @@ Methods defined here:<br>
 
 <dl><dt><a name="LoadResult-_asdict"><strong>_asdict</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;dict&nbsp;which&nbsp;maps&nbsp;field&nbsp;names&nbsp;to&nbsp;their&nbsp;values.</span></dd></dl>
 
-<dl><dt><a name="LoadResult-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;<a href="#LoadResult">LoadResult</a>&nbsp;object&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</span></dd></dl>
+<dl><dt><a name="LoadResult-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;<a href="#LoadResult">LoadResult</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</span></dd></dl>
 
-<dl><dt><a name="LoadResult-merge"><strong>merge</strong></a>(self, other: 'LoadResult', **kwargs) -&gt; 'LoadResult'</dt><dd><span class="code">Merge&nbsp;two&nbsp;load&nbsp;results.</span></dd></dl>
+<dl><dt><a name="LoadResult-merge"><strong>merge</strong></a>(self, other: 'LoadResult', is_left: bool = False, **kwargs) -&gt; 'LoadResult'</dt><dd><span class="code">Merge&nbsp;two&nbsp;load&nbsp;results.</span></dd></dl>
 
 <dl><dt><a name="LoadResult-require_success"><strong>require_success</strong></a>(self, path: Union[pathlib.Path, str]) -&gt; None</dt><dd><span class="code">Raise&nbsp;a&nbsp;canonical&nbsp;exception&nbsp;if&nbsp;this&nbsp;result&nbsp;is&nbsp;a&nbsp;failure.</span></dd></dl>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="LoadResult-_make"><strong>_make</strong></a>(iterable)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Make&nbsp;a&nbsp;new&nbsp;<a href="#LoadResult">LoadResult</a>&nbsp;object&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</span></dd></dl>
+<dl><dt><a name="LoadResult-_make"><strong>_make</strong></a>(iterable)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Make&nbsp;a&nbsp;new&nbsp;<a href="#LoadResult">LoadResult</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</span></dd></dl>
 
 <hr>
 Static methods defined here:<br>
@@ -339,9 +436,9 @@ Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<b
 Methods defined here:<br>
 <dl><dt><a name="Serializable-default_location"><strong>default_location</strong></a>(self) -&gt; Union[pathlib.Path, str, NoneType]</dt><dd><span class="code">Get&nbsp;a&nbsp;default&nbsp;serialization&nbsp;destination&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt><a name="Serializable-to_file"><strong>to_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType] = None, encoding: str = 'utf-8', **kwargs) -&gt; None</dt><dd><span class="code">Write&nbsp;this&nbsp;object&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Serializable-to_file"><strong>to_file</strong></a>(self, path: Union[pathlib.Path, str, NoneType] = None, encoding: str = 'utf-8', **kwargs) -&gt; None</dt><dd><span class="code">Write&nbsp;this&nbsp;<a href="builtins.html#object">object</a>&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
-<dl><dt><a name="Serializable-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'TextIO'&gt;, **kwargs) -&gt; None</dt><dd><span class="code">Write&nbsp;this&nbsp;object&nbsp;to&nbsp;a&nbsp;text&nbsp;stream.</span></dd></dl>
+<dl><dt><a name="Serializable-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'TextIO'&gt;, **kwargs) -&gt; None</dt><dd><span class="code">Write&nbsp;this&nbsp;<a href="builtins.html#object">object</a>&nbsp;to&nbsp;a&nbsp;text&nbsp;stream.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -372,5 +469,5 @@ Data and other attributes defined here:<br>
 <strong>JsonPrimitive</strong> = typing.Union[str, int, float, bool, NoneType]<br>
 <strong>JsonValue</strong> = typing.Union[str, int, float, bool, NoneType, ty...t[typing.Union[str, int, float, bool, NoneType]]]<br>
 <strong>StreamProcessor</strong> = typing.Callable[[typing.Union[typing.TextIO, _io...gIO]], typing.Union[typing.TextIO, _io.StringIO]]<br>
-<strong>__all__</strong> = ['DataArbiter', 'ARBITER', 'JsonPrimitive', 'JsonValue', 'JsonArray', 'JsonObject', 'FileExtension', 'LoadResult', 'EncodeResult', 'DataStream', 'StreamProcessor', 'DataDecoder', 'DataEncoder', 'Serializable', 'FileEntity', 'DEFAULT_INCLUDES_KEY']</td></tr></table>
+<strong>__all__</strong> = ['DataArbiter', 'ARBITER', 'JsonPrimitive', 'JsonValue', 'JsonArray', 'JsonObject', 'FileExtension', 'LoadResult', 'EncodeResult', 'DataStream', 'StreamProcessor', 'DataDecoder', 'DataEncoder', 'Serializable', 'FileEntity', 'DEFAULT_INCLUDES_KEY', 'IndentedFileWriter', 'ByteFifo']</td></tr></table>
 </body></html>

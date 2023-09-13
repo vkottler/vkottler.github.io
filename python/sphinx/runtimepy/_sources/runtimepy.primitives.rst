@@ -7,19 +7,13 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   runtimepy.primitives.array
    runtimepy.primitives.field
+   runtimepy.primitives.serializable
    runtimepy.primitives.type
 
 Submodules
 ----------
-
-runtimepy.primitives.array module
----------------------------------
-
-.. automodule:: runtimepy.primitives.array
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 runtimepy.primitives.base module
 --------------------------------

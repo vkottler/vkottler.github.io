@@ -133,6 +133,7 @@
 <li class="toctree-l3"><a class="reference internal" href="vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.logging.html">vcorelib.logging package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="vcorelib.math.html">vcorelib.math package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="vcorelib.math.analysis.html">vcorelib.math.analysis package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="vcorelib.math.analysis.rate.html">vcorelib.math.analysis.rate package</a></li>
@@ -140,6 +141,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="vcorelib.namespace.html">vcorelib.namespace package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.paths.html">vcorelib.paths package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.platform.html">vcorelib.platform package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vcorelib.schemas.html">vcorelib.schemas package</a></li>
@@ -333,6 +335,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.dict.codec.JsonCodec.create"><code class="docutils literal notranslate"><span class="pre">JsonCodec.create()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.dict.codec.JsonCodec.decode"><code class="docutils literal notranslate"><span class="pre">JsonCodec.decode()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.dict.codec.JsonCodec.encode"><code class="docutils literal notranslate"><span class="pre">JsonCodec.encode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.dict.codec.JsonCodec.normalize"><code class="docutils literal notranslate"><span class="pre">JsonCodec.normalize()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -510,6 +513,12 @@ disk and encoded back to disk.</p>
 <dt class="sig sig-object py" id="vcorelib.dict.codec.JsonCodec.encode">
 <span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathlike:</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arbiter:</span> <span class="pre">~vcorelib.io.arbiter.DataArbiter</span> <span class="pre">=</span> <span class="pre">&lt;vcorelib.io.arbiter.DataArbiter</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/vcorelib/dict/codec.html#JsonCodec.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.dict.codec.JsonCodec.encode" title="Permalink to this definition">#</a></dt>
 <dd><p>Encode this object instance to a file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vcorelib.dict.codec.JsonCodec.normalize">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/vcorelib/dict/codec.html#JsonCodec.normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vcorelib.dict.codec.JsonCodec.normalize" title="Permalink to this definition">#</a></dt>
+<dd><p>Ensure that some object is an instance of this class.</p>
 </dd></dl>
 
 </dd></dl>
@@ -736,6 +745,7 @@ that ends up at that key.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.dict.codec.JsonCodec.create"><code class="docutils literal notranslate"><span class="pre">JsonCodec.create()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.dict.codec.JsonCodec.decode"><code class="docutils literal notranslate"><span class="pre">JsonCodec.decode()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.dict.codec.JsonCodec.encode"><code class="docutils literal notranslate"><span class="pre">JsonCodec.encode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vcorelib.dict.codec.JsonCodec.normalize"><code class="docutils literal notranslate"><span class="pre">JsonCodec.normalize()</span></code></a></li>
 </ul>
 </li>
 </ul>

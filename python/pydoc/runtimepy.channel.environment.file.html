@@ -30,7 +30,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="FileChannelEnvironment">class <strong>FileChannelEnvironment</strong></a>(<a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#FileChannelEnvironment">FileChannelEnvironment</a>(channels:&nbsp;runtimepy.channel.registry.ChannelRegistry&nbsp;=&nbsp;None,&nbsp;enums:&nbsp;runtimepy.enum.registry.EnumRegistry&nbsp;=&nbsp;None,&nbsp;values:&nbsp;Dict[Union[str,&nbsp;int],&nbsp;Union[bool,&nbsp;int,&nbsp;float,&nbsp;str]]&nbsp;=&nbsp;None,&nbsp;fields:&nbsp;Iterable[runtimepy.primitives.field.fields.BitFields]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FileChannelEnvironment">FileChannelEnvironment</a>(channels:&nbsp;runtimepy.channel.registry.ChannelRegistry&nbsp;=&nbsp;None,&nbsp;enums:&nbsp;runtimepy.enum.registry.EnumRegistry&nbsp;=&nbsp;None,&nbsp;values:&nbsp;Dict[Union[str,&nbsp;int],&nbsp;Union[bool,&nbsp;int,&nbsp;float,&nbsp;str]]&nbsp;=&nbsp;None,&nbsp;fields:&nbsp;Iterable[runtimepy.primitives.field.fields.BitFields]&nbsp;=&nbsp;None,&nbsp;namespace:&nbsp;vcorelib.namespace.Namespace&nbsp;=&nbsp;None,&nbsp;namespace_delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;integrating&nbsp;file-system&nbsp;operations&nbsp;with&nbsp;channel&nbsp;environments.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -62,7 +62,7 @@ Methods inherited from <a href="runtimepy.channel.environment.base.html#BaseChan
 
 <dl><dt><a name="FileChannelEnvironment-__getitem__"><strong>__getitem__</strong></a>(self, key: Union[str, int]) -&gt; Tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], Optional[runtimepy.enum.RuntimeEnum]]</dt><dd><span class="code">Get&nbsp;a&nbsp;channel&nbsp;and&nbsp;its&nbsp;enumeration.</span></dd></dl>
 
-<dl><dt><a name="FileChannelEnvironment-__init__"><strong>__init__</strong></a>(self, channels: runtimepy.channel.registry.ChannelRegistry = None, enums: runtimepy.enum.registry.EnumRegistry = None, values: Dict[Union[str, int], Union[bool, int, float, str]] = None, fields: Iterable[runtimepy.primitives.field.fields.BitFields] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;channel&nbsp;environment.</span></dd></dl>
+<dl><dt><a name="FileChannelEnvironment-__init__"><strong>__init__</strong></a>(self, channels: runtimepy.channel.registry.ChannelRegistry = None, enums: runtimepy.enum.registry.EnumRegistry = None, values: Dict[Union[str, int], Union[bool, int, float, str]] = None, fields: Iterable[runtimepy.primitives.field.fields.BitFields] = None, namespace: vcorelib.namespace.Namespace = None, namespace_delim: str = '.') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;channel&nbsp;environment.</span></dd></dl>
 
 <dl><dt><a name="FileChannelEnvironment-apply"><strong>apply</strong></a>(self, values: Dict[Union[str, int], Union[bool, int, float, str]]) -&gt; None</dt><dd><span class="code">Apply&nbsp;a&nbsp;map&nbsp;of&nbsp;values&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
 
@@ -93,6 +93,8 @@ Methods inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib
 <dl><dt><a name="FileChannelEnvironment-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;object.</span></dd></dl>
 
 <dl><dt><a name="FileChannelEnvironment-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
+
+<dl><dt><a name="FileChannelEnvironment-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
 
 <dl><dt><a name="FileChannelEnvironment-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
 

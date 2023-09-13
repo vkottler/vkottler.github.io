@@ -255,7 +255,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">vcorelib.args</span> <span class="kn">import</span> <span class="n">CommandFunction</span> <span class="k">as</span> <span class="n">_CommandFunction</span>
 
 <span class="c1"># internal</span>
-<span class="kn">from</span> <span class="nn">yambs.commands.common</span> <span class="kn">import</span> <span class="n">add_common_args</span><span class="p">,</span> <span class="n">run_watch</span>
+<span class="kn">from</span> <span class="nn">yambs.commands.common</span> <span class="kn">import</span> <span class="n">add_common_args</span><span class="p">,</span> <span class="n">handle_build</span><span class="p">,</span> <span class="n">run_watch</span>
 <span class="kn">from</span> <span class="nn">yambs.config.native</span> <span class="kn">import</span> <span class="n">load_native</span>
 <span class="kn">from</span> <span class="nn">yambs.environment.native</span> <span class="kn">import</span> <span class="n">NativeBuildEnvironment</span>
 
@@ -266,6 +266,7 @@ document.write(`
     <span class="n">config</span> <span class="o">=</span> <span class="n">load_native</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">dir</span><span class="p">)</span>
 
     <span class="n">NativeBuildEnvironment</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">sources_only</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">sources</span><span class="p">)</span>
+    <span class="n">handle_build</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">run_watch</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">src_root</span><span class="p">,</span> <span class="s2">&quot;native&quot;</span><span class="p">)</span></div>
 

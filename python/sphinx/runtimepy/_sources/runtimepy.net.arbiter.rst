@@ -9,6 +9,7 @@ Subpackages
 
    runtimepy.net.arbiter.factory
    runtimepy.net.arbiter.housekeeping
+   runtimepy.net.arbiter.tcp
 
 Submodules
 ----------
@@ -49,14 +50,6 @@ runtimepy.net.arbiter.task module
 ---------------------------------
 
 .. automodule:: runtimepy.net.arbiter.task
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-runtimepy.net.arbiter.tcp module
---------------------------------
-
-.. automodule:: runtimepy.net.arbiter.tcp
    :members:
    :undoc-members:
    :show-inheritance:

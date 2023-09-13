@@ -1,0 +1,1098 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>conntextual.ui package &#8212; conntextual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'conntextual.ui';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="conntextual.ui.channel package" href="conntextual.ui.channel.html" />
+    <link rel="prev" title="conntextual.curses package" href="conntextual.curses.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">conntextual  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="conntextual.html">conntextual package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conntextual.commands.html">conntextual.commands package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.curses.html">conntextual.curses package</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">conntextual.ui package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html">conntextual.ui.channel package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/conntextual.ui.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>conntextual.ui package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.ui.base">conntextual.ui.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.BINDINGS"><code class="docutils literal notranslate"><span class="pre">Base.BINDINGS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.CSS_PATH"><code class="docutils literal notranslate"><span class="pre">Base.CSS_PATH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.action_tab"><code class="docutils literal notranslate"><span class="pre">Base.action_tab()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.compose"><code class="docutils literal notranslate"><span class="pre">Base.compose()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.compose_app"><code class="docutils literal notranslate"><span class="pre">Base.compose_app()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.create"><code class="docutils literal notranslate"><span class="pre">Base.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.dispatch"><code class="docutils literal notranslate"><span class="pre">Base.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.model"><code class="docutils literal notranslate"><span class="pre">Base.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.ui.model">conntextual.ui.model module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.app"><code class="docutils literal notranslate"><span class="pre">Model.app</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.create"><code class="docutils literal notranslate"><span class="pre">Model.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.dispatch_rate"><code class="docutils literal notranslate"><span class="pre">Model.dispatch_rate</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.dispatch_time"><code class="docutils literal notranslate"><span class="pre">Model.dispatch_time</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.env"><code class="docutils literal notranslate"><span class="pre">Model.env</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.environments"><code class="docutils literal notranslate"><span class="pre">Model.environments</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.iter_time"><code class="docutils literal notranslate"><span class="pre">Model.iter_time</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.metrics"><code class="docutils literal notranslate"><span class="pre">Model.metrics</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.start"><code class="docutils literal notranslate"><span class="pre">Model.start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.tab_to_id"><code class="docutils literal notranslate"><span class="pre">Model.tab_to_id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.uptime"><code class="docutils literal notranslate"><span class="pre">Model.uptime</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.ui.sample">conntextual.ui.sample module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.Sample"><code class="docutils literal notranslate"><span class="pre">Sample</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.Sample.kind"><code class="docutils literal notranslate"><span class="pre">Sample.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.SampleTask"><code class="docutils literal notranslate"><span class="pre">SampleTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.SampleTask.app"><code class="docutils literal notranslate"><span class="pre">SampleTask.app</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.SampleTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.SampleTask.init"><code class="docutils literal notranslate"><span class="pre">SampleTask.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.random"><code class="docutils literal notranslate"><span class="pre">random()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.ui">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.BINDINGS"><code class="docutils literal notranslate"><span class="pre">Base.BINDINGS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.CSS_PATH"><code class="docutils literal notranslate"><span class="pre">Base.CSS_PATH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.action_tab"><code class="docutils literal notranslate"><span class="pre">Base.action_tab()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.compose"><code class="docutils literal notranslate"><span class="pre">Base.compose()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.compose_app"><code class="docutils literal notranslate"><span class="pre">Base.compose_app()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.create"><code class="docutils literal notranslate"><span class="pre">Base.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.dark"><code class="docutils literal notranslate"><span class="pre">Base.dark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.devtools"><code class="docutils literal notranslate"><span class="pre">Base.devtools</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.dispatch"><code class="docutils literal notranslate"><span class="pre">Base.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.features"><code class="docutils literal notranslate"><span class="pre">Base.features</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.model"><code class="docutils literal notranslate"><span class="pre">Base.model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.mouse_captured"><code class="docutils literal notranslate"><span class="pre">Base.mouse_captured</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.mouse_over"><code class="docutils literal notranslate"><span class="pre">Base.mouse_over</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.scroll_sensitivity_x"><code class="docutils literal notranslate"><span class="pre">Base.scroll_sensitivity_x</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.scroll_sensitivity_y"><code class="docutils literal notranslate"><span class="pre">Base.scroll_sensitivity_y</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.styles"><code class="docutils literal notranslate"><span class="pre">Base.styles</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.sub_title"><code class="docutils literal notranslate"><span class="pre">Base.sub_title</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.title"><code class="docutils literal notranslate"><span class="pre">Base.title</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.by_index"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.by_index</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.can_focus"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.can_focus</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.can_focus_children"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.can_focus_children</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.columns"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.columns</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.compose"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.compose()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.create"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.label"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.label</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.model"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.on_mount"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.on_mount()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.update_channels"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.update_channels()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource.CONNECTION_LOCAL"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.CONNECTION_LOCAL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource.CONNECTION_REMOTE"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.CONNECTION_REMOTE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource.TASK"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.TASK</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource.UI"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.UI</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="conntextual-ui-package">
+<h1>conntextual.ui package<a class="headerlink" href="#conntextual-ui-package" title="Permalink to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conntextual.ui.channel.html">conntextual.ui.channel package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.command">conntextual.ui.channel.command module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.command.CommandProcessor"><code class="docutils literal notranslate"><span class="pre">CommandProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.command.CommandProcessor.command"><code class="docutils literal notranslate"><span class="pre">CommandProcessor.command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.command.CommandProcessor.do_set"><code class="docutils literal notranslate"><span class="pre">CommandProcessor.do_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.command.CommandProcessor.do_toggle"><code class="docutils literal notranslate"><span class="pre">CommandProcessor.do_toggle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.command.CommandProcessor.get_suggestion"><code class="docutils literal notranslate"><span class="pre">CommandProcessor.get_suggestion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.command.CommandProcessor.handle_command"><code class="docutils literal notranslate"><span class="pre">CommandProcessor.handle_command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.command.CommandProcessor.parse"><code class="docutils literal notranslate"><span class="pre">CommandProcessor.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.environment">conntextual.ui.channel.environment module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.auto_links"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.auto_links</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.by_index"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.by_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.can_focus"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.can_focus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.can_focus_children"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.can_focus_children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.columns"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.columns</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.compose"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.compose()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.create"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.disabled"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.disabled</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.expand"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.expand</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.has_focus"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.has_focus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.highlight_link_id"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.highlight_link_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.highlight_style"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.highlight_style</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.hover_style"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.hover_style</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.label"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.model"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.mouse_over"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.mouse_over</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.on_mount"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.on_mount()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.scroll_x"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.scroll_x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.scroll_y"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.scroll_y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.show_horizontal_scrollbar"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.show_horizontal_scrollbar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.show_vertical_scrollbar"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.show_vertical_scrollbar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.shrink"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.shrink</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.styles"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.styles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.update_channels"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.update_channels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay.virtual_size"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.virtual_size</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.log">conntextual.ui.channel.log module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog.can_focus"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog.can_focus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog.can_focus_children"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog.can_focus_children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog.compose"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog.compose()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog.dispatch"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog.handle_submit"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog.handle_submit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog.logger"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog.queue"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog.queue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.log.ChannelEnvironmentLog.suggester"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentLog.suggester</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.model">conntextual.ui.channel.model module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.ChannelEnvironmentSource"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.ChannelEnvironmentSource.CONNECTION_LOCAL"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.CONNECTION_LOCAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.ChannelEnvironmentSource.CONNECTION_REMOTE"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.CONNECTION_REMOTE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.ChannelEnvironmentSource.TASK"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.TASK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.ChannelEnvironmentSource.UI"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.UI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.Model.env"><code class="docutils literal notranslate"><span class="pre">Model.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.Model.logger"><code class="docutils literal notranslate"><span class="pre">Model.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.Model.name"><code class="docutils literal notranslate"><span class="pre">Model.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.Model.source"><code class="docutils literal notranslate"><span class="pre">Model.source</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.parser">conntextual.ui.channel.parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.parser.ChannelCommand"><code class="docutils literal notranslate"><span class="pre">ChannelCommand</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.parser.ChannelCommand.SET"><code class="docutils literal notranslate"><span class="pre">ChannelCommand.SET</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.parser.ChannelCommand.TOGGLE"><code class="docutils literal notranslate"><span class="pre">ChannelCommand.TOGGLE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.parser.CommandParser"><code class="docutils literal notranslate"><span class="pre">CommandParser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.parser.CommandParser.data"><code class="docutils literal notranslate"><span class="pre">CommandParser.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.parser.CommandParser.error"><code class="docutils literal notranslate"><span class="pre">CommandParser.error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.parser.CommandParser.exit"><code class="docutils literal notranslate"><span class="pre">CommandParser.exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.parser.CommandParser.initialize"><code class="docutils literal notranslate"><span class="pre">CommandParser.initialize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.result">conntextual.ui.channel.result module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.result.CommandResult"><code class="docutils literal notranslate"><span class="pre">CommandResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.result.CommandResult.reason"><code class="docutils literal notranslate"><span class="pre">CommandResult.reason</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.result.CommandResult.success"><code class="docutils literal notranslate"><span class="pre">CommandResult.success</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel.suggester">conntextual.ui.channel.suggester module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.suggester.CommandSuggester"><code class="docutils literal notranslate"><span class="pre">CommandSuggester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.suggester.CommandSuggester.create"><code class="docutils literal notranslate"><span class="pre">CommandSuggester.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.suggester.CommandSuggester.get_suggestion"><code class="docutils literal notranslate"><span class="pre">CommandSuggester.get_suggestion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.suggester.CommandSuggester.processor"><code class="docutils literal notranslate"><span class="pre">CommandSuggester.processor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conntextual.ui.channel.html#module-conntextual.ui.channel">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="module-conntextual.ui.base">
+<span id="conntextual-ui-base-module"></span><h2>conntextual.ui.base module<a class="headerlink" href="#module-conntextual.ui.base" title="Permalink to this heading">#</a></h2>
+<p>A module implementing a user interface base application.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conntextual.ui.base.</span></span><span class="sig-name descname"><span class="pre">Base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">driver_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">Driver</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">css_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PurePath</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PurePath</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">watch_css</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.base.Base" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</p>
+<p>A simple textual application.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base.BINDINGS">
+<span class="sig-name descname"><span class="pre">BINDINGS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">BindingType</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('q',</span> <span class="pre">'quit',</span> <span class="pre">'Quit'),</span> <span class="pre">('d',</span> <span class="pre">'toggle_dark',</span> <span class="pre">'Toggle</span> <span class="pre">dark</span> <span class="pre">mode'),</span> <span class="pre">Binding(key=&lt;Keys.Tab:</span> <span class="pre">'tab'&gt;,</span> <span class="pre">action='tab(True)',</span> <span class="pre">description='Next</span> <span class="pre">tab',</span> <span class="pre">show=True,</span> <span class="pre">key_display=None,</span> <span class="pre">priority=True),</span> <span class="pre">Binding(key=&lt;Keys.BackTab:</span> <span class="pre">'shift+tab'&gt;,</span> <span class="pre">action='tab(False)',</span> <span class="pre">description='Previous</span> <span class="pre">tab',</span> <span class="pre">show=True,</span> <span class="pre">key_display=None,</span> <span class="pre">priority=True)]</span></em><a class="headerlink" href="#conntextual.ui.base.Base.BINDINGS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base.CSS_PATH">
+<span class="sig-name descname"><span class="pre">CSS_PATH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">CSSPathType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'base.tcss'</span></em><a class="headerlink" href="#conntextual.ui.base.Base.CSS_PATH" title="Permalink to this definition">#</a></dt>
+<dd><p>File paths to load CSS from.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base.action_tab">
+<span class="sig-name descname"><span class="pre">action_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forward</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.action_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.base.Base.action_tab" title="Permalink to this definition">#</a></dt>
+<dd><p>Change the active tab.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base.compose">
+<span class="sig-name descname"><span class="pre">compose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Widget</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.compose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.base.Base.compose" title="Permalink to this definition">#</a></dt>
+<dd><p>Create child nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base.compose_app">
+<span class="sig-name descname"><span class="pre">compose_app</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Widget</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.compose_app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.base.Base.compose_app" title="Permalink to this definition">#</a></dt>
+<dd><p>Application-specific interface creation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base.create">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AppInfo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle_debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#conntextual.ui.base.Base" title="conntextual.ui.base.Base"><span class="pre">Base</span></a></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.base.Base.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Create an application instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base.dispatch">
+<span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.base.Base.dispatch" title="Permalink to this definition">#</a></dt>
+<dd><p>Update channel values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.base.Base.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#conntextual.ui.model.Model" title="conntextual.ui.model.Model"><span class="pre">Model</span></a></em><a class="headerlink" href="#conntextual.ui.base.Base.model" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-conntextual.ui.model">
+<span id="conntextual-ui-model-module"></span><h2>conntextual.ui.model module<a class="headerlink" href="#module-conntextual.ui.model" title="Permalink to this heading">#</a></h2>
+<p>A module implementing a data model for base applications.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conntextual.ui.model.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AppInfo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ChannelEnvironment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">environments</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay" title="conntextual.ui.channel.environment.ChannelEnvironmentDisplay"><span class="pre">ChannelEnvironmentDisplay</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PeriodicTaskMetrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dispatch_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RateTracker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dispatch_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MovingAverage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DoublePrimitive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uptime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DoublePrimitive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tab_to_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/conntextual/ui/model.html#Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.model.Model" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin</span></code></p>
+<p>A base application model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.app">
+<span class="sig-name descname"><span class="pre">app</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">AppInfo</span></em><a class="headerlink" href="#conntextual.ui.model.Model.app" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.create">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AppInfo</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#conntextual.ui.model.Model" title="conntextual.ui.model.Model"><span class="pre">Model</span></a></span></span><a class="reference internal" href="_modules/conntextual/ui/model.html#Model.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.model.Model.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a model instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.dispatch_rate">
+<span class="sig-name descname"><span class="pre">dispatch_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">RateTracker</span></em><a class="headerlink" href="#conntextual.ui.model.Model.dispatch_rate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.dispatch_time">
+<span class="sig-name descname"><span class="pre">dispatch_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MovingAverage</span></em><a class="headerlink" href="#conntextual.ui.model.Model.dispatch_time" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.env">
+<span class="sig-name descname"><span class="pre">env</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ChannelEnvironment</span></em><a class="headerlink" href="#conntextual.ui.model.Model.env" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.environments">
+<span class="sig-name descname"><span class="pre">environments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay" title="conntextual.ui.channel.environment.ChannelEnvironmentDisplay"><span class="pre">ChannelEnvironmentDisplay</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#conntextual.ui.model.Model.environments" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.iter_time">
+<span class="sig-name descname"><span class="pre">iter_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DoublePrimitive</span></em><a class="headerlink" href="#conntextual.ui.model.Model.iter_time" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.metrics">
+<span class="sig-name descname"><span class="pre">metrics</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PeriodicTaskMetrics</span></em><a class="headerlink" href="#conntextual.ui.model.Model.metrics" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.start">
+<span class="sig-name descname"><span class="pre">start</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#conntextual.ui.model.Model.start" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.tab_to_id">
+<span class="sig-name descname"><span class="pre">tab_to_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#conntextual.ui.model.Model.tab_to_id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.model.Model.uptime">
+<span class="sig-name descname"><span class="pre">uptime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DoublePrimitive</span></em><a class="headerlink" href="#conntextual.ui.model.Model.uptime" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-conntextual.ui.sample">
+<span id="conntextual-ui-sample-module"></span><h2>conntextual.ui.sample module<a class="headerlink" href="#module-conntextual.ui.sample" title="Permalink to this heading">#</a></h2>
+<p>A module implementing a sample task for UI testing purposes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="conntextual.ui.sample.Sample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conntextual.ui.sample.</span></span><span class="sig-name descname"><span class="pre">Sample</span></span><a class="reference internal" href="_modules/conntextual/ui/sample.html#Sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.sample.Sample" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TaskFactory</span></code>[<a class="reference internal" href="#conntextual.ui.sample.SampleTask" title="conntextual.ui.sample.SampleTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleTask</span></code></a>]</p>
+<p>A TUI application factory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.sample.Sample.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#conntextual.ui.sample.Sample.kind" title="Permalink to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#conntextual.ui.sample.SampleTask" title="conntextual.ui.sample.SampleTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">SampleTask</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conntextual.ui.sample.SampleTask">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conntextual.ui.sample.</span></span><span class="sig-name descname"><span class="pre">SampleTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PeriodicTaskMetrics</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ChannelEnvironment</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/conntextual/ui/sample.html#SampleTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.sample.SampleTask" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ArbiterTask</span></code></p>
+<p>A base TUI application.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.sample.SampleTask.app">
+<span class="sig-name descname"><span class="pre">app</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">AppInfo</span></em><a class="headerlink" href="#conntextual.ui.sample.SampleTask.app" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.sample.SampleTask.dispatch">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/conntextual/ui/sample.html#SampleTask.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.sample.SampleTask.dispatch" title="Permalink to this definition">#</a></dt>
+<dd><p>Dispatch an iteration of this task.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.sample.SampleTask.init">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AppInfo</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/ui/sample.html#SampleTask.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.sample.SampleTask.init" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize this task with application information.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.ui.sample.random">
+<span class="sig-prename descclassname"><span class="pre">conntextual.ui.sample.</span></span><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">interval</span> <span class="pre">[0,</span> <span class="pre">1).</span></span></span><a class="headerlink" href="#conntextual.ui.sample.random" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-conntextual.ui">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-conntextual.ui" title="Permalink to this heading">#</a></h2>
+<p>A module implementing a basic user interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="conntextual.ui.Base">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conntextual.ui.</span></span><span class="sig-name descname"><span class="pre">Base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">driver_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">Driver</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">css_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PurePath</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PurePath</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">watch_css</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.Base" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</p>
+<p>A simple textual application.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.BINDINGS">
+<span class="sig-name descname"><span class="pre">BINDINGS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">BindingType</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('q',</span> <span class="pre">'quit',</span> <span class="pre">'Quit'),</span> <span class="pre">('d',</span> <span class="pre">'toggle_dark',</span> <span class="pre">'Toggle</span> <span class="pre">dark</span> <span class="pre">mode'),</span> <span class="pre">Binding(key=&lt;Keys.Tab:</span> <span class="pre">'tab'&gt;,</span> <span class="pre">action='tab(True)',</span> <span class="pre">description='Next</span> <span class="pre">tab',</span> <span class="pre">show=True,</span> <span class="pre">key_display=None,</span> <span class="pre">priority=True),</span> <span class="pre">Binding(key=&lt;Keys.BackTab:</span> <span class="pre">'shift+tab'&gt;,</span> <span class="pre">action='tab(False)',</span> <span class="pre">description='Previous</span> <span class="pre">tab',</span> <span class="pre">show=True,</span> <span class="pre">key_display=None,</span> <span class="pre">priority=True)]</span></em><a class="headerlink" href="#conntextual.ui.Base.BINDINGS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.CSS_PATH">
+<span class="sig-name descname"><span class="pre">CSS_PATH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">CSSPathType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'base.tcss'</span></em><a class="headerlink" href="#conntextual.ui.Base.CSS_PATH" title="Permalink to this definition">#</a></dt>
+<dd><p>File paths to load CSS from.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.Base.action_tab">
+<span class="sig-name descname"><span class="pre">action_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forward</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.action_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.Base.action_tab" title="Permalink to this definition">#</a></dt>
+<dd><p>Change the active tab.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.Base.compose">
+<span class="sig-name descname"><span class="pre">compose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Widget</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.compose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.Base.compose" title="Permalink to this definition">#</a></dt>
+<dd><p>Create child nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.Base.compose_app">
+<span class="sig-name descname"><span class="pre">compose_app</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Widget</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.compose_app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.Base.compose_app" title="Permalink to this definition">#</a></dt>
+<dd><p>Application-specific interface creation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.Base.create">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AppInfo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle_debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#conntextual.ui.base.Base" title="conntextual.ui.base.Base"><span class="pre">Base</span></a></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.Base.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Create an application instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.dark">
+<span class="sig-name descname"><span class="pre">dark</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Reactive</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#conntextual.ui.Base.dark" title="Permalink to this definition">#</a></dt>
+<dd><p>Use a dark theme if <cite>True</cite>, otherwise use a light theme.</p>
+<p>Modify this attribute to switch between light and dark themes.</p>
+<dl class="simple">
+<dt>Example:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">self.app.dark</span> <span class="pre">=</span> <span class="pre">not</span> <span class="pre">self.app.dark</span>&#160; <span class="pre">#</span> <span class="pre">Toggle</span> <span class="pre">dark</span> <span class="pre">mode</span>
+<span class="pre">`</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.devtools">
+<span class="sig-name descname"><span class="pre">devtools</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DevtoolsClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#conntextual.ui.Base.devtools" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.Base.dispatch">
+<span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/ui/base.html#Base.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.Base.dispatch" title="Permalink to this definition">#</a></dt>
+<dd><p>Update channel values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.features">
+<span class="sig-name descname"><span class="pre">features</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">frozenset</span><span class="p"><span class="pre">[</span></span><span class="pre">FeatureFlag</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#conntextual.ui.Base.features" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#conntextual.ui.model.Model" title="conntextual.ui.model.Model"><span class="pre">Model</span></a></em><a class="headerlink" href="#conntextual.ui.Base.model" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.mouse_captured">
+<span class="sig-name descname"><span class="pre">mouse_captured</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Widget</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#conntextual.ui.Base.mouse_captured" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.mouse_over">
+<span class="sig-name descname"><span class="pre">mouse_over</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Widget</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#conntextual.ui.Base.mouse_over" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.scroll_sensitivity_x">
+<span class="sig-name descname"><span class="pre">scroll_sensitivity_x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#conntextual.ui.Base.scroll_sensitivity_x" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of columns to scroll in the X direction with wheel or trackpad.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.scroll_sensitivity_y">
+<span class="sig-name descname"><span class="pre">scroll_sensitivity_y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#conntextual.ui.Base.scroll_sensitivity_y" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of lines to scroll in the Y direction with wheel or trackpad.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.styles">
+<span class="sig-name descname"><span class="pre">styles</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">RenderStyles</span></em><a class="headerlink" href="#conntextual.ui.Base.styles" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.sub_title">
+<span class="sig-name descname"><span class="pre">sub_title</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Reactive</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#conntextual.ui.Base.sub_title" title="Permalink to this definition">#</a></dt>
+<dd><p>The sub-title for the application.</p>
+<p>The initial value for <cite>sub_title</cite> will be set to the <cite>SUB_TITLE</cite> class variable if it exists, or
+an empty string if it doesn’t.</p>
+<p>Sub-titles are typically used to show the high-level state of the app, such as the current mode, or path to
+the file being worker on.</p>
+<p>Assign a new value to this attribute to change the sub-title.
+The new value is always converted to string.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.Base.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Reactive</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#conntextual.ui.Base.title" title="Permalink to this definition">#</a></dt>
+<dd><p>The title for the application.</p>
+<p>The initial value for <cite>title</cite> will be set to the <cite>TITLE</cite> class variable if it exists, or
+the name of the app if it doesn’t.</p>
+<p>Assign a new value to this attribute to change the title.
+The new value is always converted to string.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conntextual.ui.</span></span><span class="sig-name descname"><span class="pre">ChannelEnvironmentDisplay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConsoleRenderable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">RichCast</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shrink</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disabled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/conntextual/ui/channel/environment.html#ChannelEnvironmentDisplay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Static</span></code></p>
+<p>A channel-environment interface element.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.by_index">
+<span class="sig-name descname"><span class="pre">by_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Coordinate</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">Int8Primitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">Int16Primitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">Int32Primitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">Int64Primitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">Uint8Primitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">Uint16Primitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">Uint32Primitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">Uint64Primitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">FloatPrimitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">DoublePrimitive</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Channel</span><span class="p"><span class="pre">[</span></span><span class="pre">BooleanPrimitive</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.by_index" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.can_focus">
+<span class="sig-name descname"><span class="pre">can_focus</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.can_focus" title="Permalink to this definition">#</a></dt>
+<dd><p>Widget may receive focus.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.can_focus_children">
+<span class="sig-name descname"><span class="pre">can_focus_children</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.can_focus_children" title="Permalink to this definition">#</a></dt>
+<dd><p>Widget’s children may receive focus.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.columns">
+<span class="sig-name descname"><span class="pre">columns</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'type',</span> <span class="pre">'name',</span> <span class="pre">'value']</span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.columns" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.compose">
+<span class="sig-name descname"><span class="pre">compose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Widget</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/ui/channel/environment.html#ChannelEnvironmentDisplay.compose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.compose" title="Permalink to this definition">#</a></dt>
+<dd><p>Create child nodes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.create">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ChannelEnvironment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.ChannelEnvironmentSource" title="conntextual.ui.channel.model.ChannelEnvironmentSource"><span class="pre">ChannelEnvironmentSource</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LoggerAdapter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.environment.ChannelEnvironmentDisplay" title="conntextual.ui.channel.environment.ChannelEnvironmentDisplay"><span class="pre">ChannelEnvironmentDisplay</span></a></span></span><a class="reference internal" href="_modules/conntextual/ui/channel/environment.html#ChannelEnvironmentDisplay.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a channel-environment display.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.label" title="Permalink to this definition">#</a></dt>
+<dd><p>Obtain a label string for this instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="conntextual.ui.channel.html#conntextual.ui.channel.model.Model" title="conntextual.ui.channel.model.Model"><span class="pre">Model</span></a></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.model" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.on_mount">
+<span class="sig-name descname"><span class="pre">on_mount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/ui/channel/environment.html#ChannelEnvironmentDisplay.on_mount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.on_mount" title="Permalink to this definition">#</a></dt>
+<dd><p>Populate channel table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentDisplay.update_channels">
+<span class="sig-name descname"><span class="pre">update_channels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/ui/channel/environment.html#ChannelEnvironmentDisplay.update_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentDisplay.update_channels" title="Permalink to this definition">#</a></dt>
+<dd><p>Update all channel values.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conntextual.ui.</span></span><span class="sig-name descname"><span class="pre">ChannelEnvironmentSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/conntextual/ui/channel/model.html#ChannelEnvironmentSource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentSource" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>Possible sources of channel environments.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentSource.CONNECTION_LOCAL">
+<span class="sig-name descname"><span class="pre">CONNECTION_LOCAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'local</span> <span class="pre">connection'</span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentSource.CONNECTION_LOCAL" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentSource.CONNECTION_REMOTE">
+<span class="sig-name descname"><span class="pre">CONNECTION_REMOTE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'remote</span> <span class="pre">connection'</span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentSource.CONNECTION_REMOTE" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentSource.TASK">
+<span class="sig-name descname"><span class="pre">TASK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'task'</span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentSource.TASK" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conntextual.ui.ChannelEnvironmentSource.UI">
+<span class="sig-name descname"><span class="pre">UI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ui'</span></em><a class="headerlink" href="#conntextual.ui.ChannelEnvironmentSource.UI" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.ui.run">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conntextual.ui.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AppInfo</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/conntextual/ui.html#run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.ui.run" title="Permalink to this definition">#</a></dt>
+<dd><p>Run a textual application.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="conntextual.curses.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">conntextual.curses package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="conntextual.ui.channel.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">conntextual.ui.channel package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.ui.base">conntextual.ui.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.BINDINGS"><code class="docutils literal notranslate"><span class="pre">Base.BINDINGS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.CSS_PATH"><code class="docutils literal notranslate"><span class="pre">Base.CSS_PATH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.action_tab"><code class="docutils literal notranslate"><span class="pre">Base.action_tab()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.compose"><code class="docutils literal notranslate"><span class="pre">Base.compose()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.compose_app"><code class="docutils literal notranslate"><span class="pre">Base.compose_app()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.create"><code class="docutils literal notranslate"><span class="pre">Base.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.dispatch"><code class="docutils literal notranslate"><span class="pre">Base.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.base.Base.model"><code class="docutils literal notranslate"><span class="pre">Base.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.ui.model">conntextual.ui.model module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.app"><code class="docutils literal notranslate"><span class="pre">Model.app</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.create"><code class="docutils literal notranslate"><span class="pre">Model.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.dispatch_rate"><code class="docutils literal notranslate"><span class="pre">Model.dispatch_rate</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.dispatch_time"><code class="docutils literal notranslate"><span class="pre">Model.dispatch_time</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.env"><code class="docutils literal notranslate"><span class="pre">Model.env</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.environments"><code class="docutils literal notranslate"><span class="pre">Model.environments</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.iter_time"><code class="docutils literal notranslate"><span class="pre">Model.iter_time</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.metrics"><code class="docutils literal notranslate"><span class="pre">Model.metrics</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.start"><code class="docutils literal notranslate"><span class="pre">Model.start</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.tab_to_id"><code class="docutils literal notranslate"><span class="pre">Model.tab_to_id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.model.Model.uptime"><code class="docutils literal notranslate"><span class="pre">Model.uptime</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.ui.sample">conntextual.ui.sample module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.Sample"><code class="docutils literal notranslate"><span class="pre">Sample</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.Sample.kind"><code class="docutils literal notranslate"><span class="pre">Sample.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.SampleTask"><code class="docutils literal notranslate"><span class="pre">SampleTask</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.SampleTask.app"><code class="docutils literal notranslate"><span class="pre">SampleTask.app</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.SampleTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleTask.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.SampleTask.init"><code class="docutils literal notranslate"><span class="pre">SampleTask.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.sample.random"><code class="docutils literal notranslate"><span class="pre">random()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.ui">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.BINDINGS"><code class="docutils literal notranslate"><span class="pre">Base.BINDINGS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.CSS_PATH"><code class="docutils literal notranslate"><span class="pre">Base.CSS_PATH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.action_tab"><code class="docutils literal notranslate"><span class="pre">Base.action_tab()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.compose"><code class="docutils literal notranslate"><span class="pre">Base.compose()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.compose_app"><code class="docutils literal notranslate"><span class="pre">Base.compose_app()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.create"><code class="docutils literal notranslate"><span class="pre">Base.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.dark"><code class="docutils literal notranslate"><span class="pre">Base.dark</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.devtools"><code class="docutils literal notranslate"><span class="pre">Base.devtools</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.dispatch"><code class="docutils literal notranslate"><span class="pre">Base.dispatch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.features"><code class="docutils literal notranslate"><span class="pre">Base.features</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.model"><code class="docutils literal notranslate"><span class="pre">Base.model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.mouse_captured"><code class="docutils literal notranslate"><span class="pre">Base.mouse_captured</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.mouse_over"><code class="docutils literal notranslate"><span class="pre">Base.mouse_over</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.scroll_sensitivity_x"><code class="docutils literal notranslate"><span class="pre">Base.scroll_sensitivity_x</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.scroll_sensitivity_y"><code class="docutils literal notranslate"><span class="pre">Base.scroll_sensitivity_y</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.styles"><code class="docutils literal notranslate"><span class="pre">Base.styles</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.sub_title"><code class="docutils literal notranslate"><span class="pre">Base.sub_title</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.Base.title"><code class="docutils literal notranslate"><span class="pre">Base.title</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.by_index"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.by_index</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.can_focus"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.can_focus</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.can_focus_children"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.can_focus_children</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.columns"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.columns</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.compose"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.compose()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.create"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.label"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.label</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.model"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.on_mount"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.on_mount()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentDisplay.update_channels"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentDisplay.update_channels()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource.CONNECTION_LOCAL"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.CONNECTION_LOCAL</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource.CONNECTION_REMOTE"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.CONNECTION_REMOTE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource.TASK"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.TASK</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.ChannelEnvironmentSource.UI"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentSource.UI</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.ui.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vaughn Kottler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Vaughn Kottler.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

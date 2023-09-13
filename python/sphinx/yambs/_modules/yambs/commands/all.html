@@ -245,8 +245,8 @@ document.write(`
   <h1>Source code for yambs.commands.all</h1><div class="highlight"><pre>
 <span></span><span class="c1"># =====================================</span>
 <span class="c1"># generator=datazen</span>
-<span class="c1"># version=3.1.2</span>
-<span class="c1"># hash=f12a77b15954045668945389858afc26</span>
+<span class="c1"># version=3.1.3</span>
+<span class="c1"># hash=e10efb5b655cacd368d023aacf84f288</span>
 <span class="c1"># =====================================</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -261,6 +261,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">vcorelib.args</span> <span class="kn">import</span> <span class="n">CommandRegister</span> <span class="k">as</span> <span class="n">_CommandRegister</span>
 
 <span class="c1"># internal</span>
+<span class="kn">from</span> <span class="nn">yambs.commands.compile_config</span> <span class="kn">import</span> <span class="n">add_compile_config_cmd</span>
 <span class="kn">from</span> <span class="nn">yambs.commands.dist</span> <span class="kn">import</span> <span class="n">add_dist_cmd</span>
 <span class="kn">from</span> <span class="nn">yambs.commands.gen</span> <span class="kn">import</span> <span class="n">add_gen_cmd</span>
 <span class="kn">from</span> <span class="nn">yambs.commands.native</span> <span class="kn">import</span> <span class="n">add_native_cmd</span>
@@ -271,6 +272,11 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get this package&#39;s commands.&quot;&quot;&quot;</span>
 
     <span class="k">return</span> <span class="p">[</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;compile_config&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;load configuration data and write results to a file&quot;</span><span class="p">,</span>
+            <span class="n">add_compile_config_cmd</span><span class="p">,</span>
+        <span class="p">),</span>
         <span class="p">(</span>
             <span class="s2">&quot;dist&quot;</span><span class="p">,</span>
             <span class="s2">&quot;create a source distribution&quot;</span><span class="p">,</span>

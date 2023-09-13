@@ -20,6 +20,14 @@ vcorelib.paths.context module
    :undoc-members:
    :show-inheritance:
 
+vcorelib.paths.find module
+--------------------------
+
+.. automodule:: vcorelib.paths.find
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 vcorelib.paths.hashing module
 -----------------------------
 

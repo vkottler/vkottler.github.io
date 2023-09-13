@@ -44,7 +44,7 @@ runtime.</span></p>
 <td class="section-title" colspan=3>&nbsp;<br><a name="ConnectionMetricsLogger">class <strong>ConnectionMetricsLogger</strong></a>(<a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#ConnectionMetricsLogger">ConnectionMetricsLogger</a>(name:&nbsp;'str',&nbsp;average_depth:&nbsp;'int'&nbsp;=&nbsp;10,&nbsp;metrics:&nbsp;'PeriodicTaskMetrics'&nbsp;=&nbsp;None,&nbsp;period_s:&nbsp;'float'&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;'None'<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ConnectionMetricsLogger">ConnectionMetricsLogger</a>(name:&nbsp;'str',&nbsp;average_depth:&nbsp;'int'&nbsp;=&nbsp;10,&nbsp;metrics:&nbsp;'PeriodicTaskMetrics'&nbsp;=&nbsp;None,&nbsp;period_s:&nbsp;'float'&nbsp;=&nbsp;1.0,&nbsp;env:&nbsp;'ChannelEnvironment'&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;'None'<br>
 &nbsp;<br>
 A&nbsp;task&nbsp;for&nbsp;logging&nbsp;metrics.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -53,6 +53,7 @@ A&nbsp;task&nbsp;for&nbsp;logging&nbsp;metrics.<br>&nbsp;</span></td></tr>
 <dd><a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a></dd>
 <dd><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
@@ -70,7 +71,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>:<br>
-<dl><dt><a name="ConnectionMetricsLogger-__init__"><strong>__init__</strong></a>(self, name: 'str', average_depth: 'int' = 10, metrics: 'PeriodicTaskMetrics' = None, period_s: 'float' = None) -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
+<dl><dt><a name="ConnectionMetricsLogger-__init__"><strong>__init__</strong></a>(self, name: 'str', average_depth: 'int' = 10, metrics: 'PeriodicTaskMetrics' = None, period_s: 'float' = 1.0, env: 'ChannelEnvironment' = None) -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
 
 <dl><dt><a name="ConnectionMetricsLogger-disable"><strong>disable</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Disable&nbsp;this&nbsp;task,&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;any&nbsp;action&nbsp;was&nbsp;taken.</span></dd></dl>
 
@@ -95,6 +96,12 @@ Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcor
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="ConnectionMetricsLogger-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="ConnectionMetricsLogger-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
 </td></tr></table> <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
@@ -158,6 +165,7 @@ A&nbsp;class&nbsp;that&nbsp;periodically&nbsp;polls&nbsp;connection&nbsp;metrics
 <dd><a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a></dd>
 <dd><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
@@ -202,6 +210,12 @@ Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcor
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="ConnectionMetricsPoller-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="ConnectionMetricsPoller-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
 </td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor functions-decor heading-text">

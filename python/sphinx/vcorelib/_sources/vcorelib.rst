@@ -12,7 +12,9 @@ Subpackages
    vcorelib.dict
    vcorelib.graph
    vcorelib.io
+   vcorelib.logging
    vcorelib.math
+   vcorelib.namespace
    vcorelib.paths
    vcorelib.platform
    vcorelib.schemas
@@ -23,26 +25,10 @@ Subpackages
 Submodules
 ----------
 
-vcorelib.logging module
------------------------
-
-.. automodule:: vcorelib.logging
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 vcorelib.names module
 ---------------------
 
 .. automodule:: vcorelib.names
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-vcorelib.namespace module
--------------------------
-
-.. automodule:: vcorelib.namespace
    :members:
    :undoc-members:
    :show-inheritance:

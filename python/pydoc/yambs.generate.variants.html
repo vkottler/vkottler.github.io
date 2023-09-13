@@ -16,8 +16,8 @@
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-generate"><strong>generate</strong></a>(jinja: jinja2.environment.Environment, config: yambs.config.common.CommonConfig, cflag_groups: Dict[str, List[str]]) -&gt; None</dt><dd><span class="code">Generate&nbsp;variant-related&nbsp;ninja&nbsp;files.</span></dd></dl>
- <dl><dt><a name="-modified_variant_data"><strong>modified_variant_data</strong></a>(name: str, data: Dict[str, Any], cflag_groups: Dict[str, List[str]]) -&gt; Iterator[NoneType]</dt><dd><span class="code">Ensure&nbsp;that&nbsp;cflag&nbsp;groups&nbsp;are&nbsp;processed,&nbsp;and&nbsp;that&nbsp;the&nbsp;variant&nbsp;has&nbsp;access&nbsp;to<br>
+<td class="singlecolumn"><dl><dt><a name="-generate"><strong>generate</strong></a>(jinja: jinja2.environment.Environment, config: yambs.config.common.CommonConfig, cflag_groups: Dict[str, List[str]], ldflag_groups: Dict[str, List[str]]) -&gt; None</dt><dd><span class="code">Generate&nbsp;variant-related&nbsp;ninja&nbsp;files.</span></dd></dl>
+ <dl><dt><a name="-modified_variant_data"><strong>modified_variant_data</strong></a>(name: str, data: Dict[str, Any], cflag_groups: Dict[str, List[str]], ldflag_groups: Dict[str, List[str]]) -&gt; Iterator[NoneType]</dt><dd><span class="code">Ensure&nbsp;that&nbsp;cflag&nbsp;groups&nbsp;are&nbsp;processed,&nbsp;and&nbsp;that&nbsp;the&nbsp;variant&nbsp;has&nbsp;access&nbsp;to<br>
 its&nbsp;name&nbsp;while&nbsp;rendering.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
@@ -26,6 +26,7 @@ its&nbsp;name&nbsp;while&nbsp;rendering.</span></dd></dl>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>Dict</strong> = typing.Dict<br>
+<strong>FlagGroups</strong> = typing.Dict[str, typing.List[str]]<br>
 <strong>Iterator</strong> = typing.Iterator<br>
 <strong>List</strong> = typing.List</td></tr></table>
 </body></html>

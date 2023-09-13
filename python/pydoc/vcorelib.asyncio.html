@@ -25,23 +25,25 @@
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><dl><dt><a name="-all_stop_signals"><strong>all_stop_signals</strong></a>() -&gt; '_Set[int]'</dt><dd><span class="code">Get&nbsp;a&nbsp;set&nbsp;of&nbsp;all&nbsp;stop&nbsp;signals&nbsp;on&nbsp;this&nbsp;platform.</span></dd></dl>
- <dl><dt><a name="-event_setter"><strong>event_setter</strong></a>(stop_sig: '_Event', eloop: '_AbstractEventLoop' = None, logger: '_LoggerType' = None) -&gt; 'SignalHandler'</dt><dd><span class="code">Create&nbsp;a&nbsp;function&nbsp;that&nbsp;sets&nbsp;an&nbsp;event.</span></dd></dl>
- <dl><dt><a name="-log_exceptions"><strong>log_exceptions</strong></a>(tasks: '_Iterable[_Task[T]]', logger: '_LoggerType' = None) -&gt; '_List[_Task[T]]'</dt><dd><span class="code">Log&nbsp;task&nbsp;exception&nbsp;and&nbsp;return&nbsp;the&nbsp;list&nbsp;of&nbsp;tasks&nbsp;that&nbsp;aren't&nbsp;complete.</span></dd></dl>
- <dl><dt><a name="-log_task_exception"><strong>log_task_exception</strong></a>(task: '_Task[_Any]', logger: '_LoggerType' = None) -&gt; 'None'</dt><dd><span class="code">If&nbsp;a&nbsp;task&nbsp;is&nbsp;done&nbsp;and&nbsp;raised&nbsp;an&nbsp;exception,&nbsp;log&nbsp;it.</span></dd></dl>
- <dl><dt><a name="-normalize_eloop"><strong>normalize_eloop</strong></a>(eloop: '_AbstractEventLoop' = None) -&gt; '_AbstractEventLoop'</dt><dd><span class="code">Get&nbsp;the&nbsp;active&nbsp;event&nbsp;loop&nbsp;if&nbsp;one&nbsp;isn't&nbsp;provided&nbsp;explicitly.</span></dd></dl>
- <dl><dt><a name="-run_handle_interrupt"><strong>run_handle_interrupt</strong></a>(to_run: '_Awaitable[_Any]', eloop: '_AbstractEventLoop' = None) -&gt; '_Optional[_Any]'</dt><dd><span class="code">Run&nbsp;a&nbsp;task&nbsp;in&nbsp;an&nbsp;event&nbsp;loop&nbsp;and&nbsp;gracefully&nbsp;handle&nbsp;keyboard&nbsp;interrupts.<br>
+ <dl><dt><a name="-event_setter"><strong>event_setter</strong></a>(stop_sig: '_asyncio.Event', eloop: '_asyncio.AbstractEventLoop' = None, logger: '_LoggerType' = None) -&gt; 'SignalHandler'</dt><dd><span class="code">Create&nbsp;a&nbsp;function&nbsp;that&nbsp;sets&nbsp;an&nbsp;event.</span></dd></dl>
+ <dl><dt><a name="-log_exceptions"><strong>log_exceptions</strong></a>(tasks: '_Iterable[_asyncio.Task[T]]', logger: '_LoggerType' = None) -&gt; '_List[_asyncio.Task[T]]'</dt><dd><span class="code">Log&nbsp;task&nbsp;exception&nbsp;and&nbsp;return&nbsp;the&nbsp;list&nbsp;of&nbsp;tasks&nbsp;that&nbsp;aren't&nbsp;complete.</span></dd></dl>
+ <dl><dt><a name="-log_task_exception"><strong>log_task_exception</strong></a>(task: '_asyncio.Task[_Any]', logger: '_LoggerType' = None) -&gt; 'None'</dt><dd><span class="code">If&nbsp;a&nbsp;task&nbsp;is&nbsp;done&nbsp;and&nbsp;raised&nbsp;an&nbsp;exception,&nbsp;log&nbsp;it.</span></dd></dl>
+ <dl><dt><a name="-normalize_eloop"><strong>normalize_eloop</strong></a>(eloop: '_asyncio.AbstractEventLoop' = None) -&gt; '_asyncio.AbstractEventLoop'</dt><dd><span class="code">Get&nbsp;the&nbsp;active&nbsp;event&nbsp;loop&nbsp;if&nbsp;one&nbsp;isn't&nbsp;provided&nbsp;explicitly.</span></dd></dl>
+ <dl><dt><a name="-run_handle_interrupt"><strong>run_handle_interrupt</strong></a>(to_run: '_Awaitable[_Any]', eloop: '_asyncio.AbstractEventLoop' = None, enable_uvloop: 'bool' = True) -&gt; '_Optional[_Any]'</dt><dd><span class="code">Run&nbsp;a&nbsp;task&nbsp;in&nbsp;an&nbsp;event&nbsp;loop&nbsp;and&nbsp;gracefully&nbsp;handle&nbsp;keyboard&nbsp;interrupts.<br>
 &nbsp;<br>
 Return&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;awaitable&nbsp;or&nbsp;None&nbsp;if&nbsp;execution&nbsp;was&nbsp;interrupted.</span></dd></dl>
- <dl><dt><a name="-run_handle_stop"><strong>run_handle_stop</strong></a>(stop_sig: '_Event', task: '_Coroutine[None, None, T]', eloop: '_AbstractEventLoop' = None, signals: '_Iterable[int]' = None) -&gt; 'T'</dt><dd><span class="code">Publish&nbsp;the&nbsp;stop&nbsp;signal&nbsp;on&nbsp;keyboard&nbsp;interrupt&nbsp;and&nbsp;wait&nbsp;for&nbsp;the&nbsp;task&nbsp;to<br>
+ <dl><dt><a name="-run_handle_stop"><strong>run_handle_stop</strong></a>(stop_sig: '_asyncio.Event', task: '_Coroutine[None, None, T]', eloop: '_asyncio.AbstractEventLoop' = None, signals: '_Iterable[int]' = None, enable_uvloop: 'bool' = True) -&gt; 'T'</dt><dd><span class="code">Publish&nbsp;the&nbsp;stop&nbsp;signal&nbsp;on&nbsp;keyboard&nbsp;interrupt&nbsp;and&nbsp;wait&nbsp;for&nbsp;the&nbsp;task&nbsp;to<br>
 complete.</span></dd></dl>
- <dl><dt><a name="-shutdown_loop"><strong>shutdown_loop</strong></a>(eloop: '_AbstractEventLoop' = None, logger: '_LoggerType' = None) -&gt; 'None'</dt><dd><span class="code">Attempt&nbsp;to&nbsp;shut&nbsp;down&nbsp;an&nbsp;event&nbsp;loop.</span></dd></dl>
+ <dl><dt><a name="-shutdown_loop"><strong>shutdown_loop</strong></a>(eloop: '_asyncio.AbstractEventLoop' = None, logger: '_LoggerType' = None) -&gt; 'None'</dt><dd><span class="code">Attempt&nbsp;to&nbsp;shut&nbsp;down&nbsp;an&nbsp;event&nbsp;loop.</span></dd></dl>
+ <dl><dt><a name="-try_uvloop_runner"><strong>try_uvloop_runner</strong></a>(debug: 'bool' = None, eloop: '_asyncio.AbstractEventLoop' = None, enable: 'bool' = True) -&gt; 'Iterator[_asyncio.AbstractEventLoop]'</dt><dd><span class="code">Try&nbsp;to&nbsp;set&nbsp;up&nbsp;an&nbsp;asyncio&nbsp;runner&nbsp;using&nbsp;uvloop.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>LOG</strong> = &lt;Logger vcorelib.asyncio (WARNING)&gt;<br>
+<td class="singlecolumn"><strong>Iterator</strong> = typing.Iterator<br>
+<strong>LOG</strong> = &lt;Logger vcorelib.asyncio (WARNING)&gt;<br>
 <strong>SignalHandler</strong> = typing.Callable[[int, typing.Optional[frame]], NoneType]<br>
 <strong>T</strong> = ~T</td></tr></table>
 </body></html>

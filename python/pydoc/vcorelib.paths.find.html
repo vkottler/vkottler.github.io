@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.paths.find</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.paths.html" class="white">paths</a>.find</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/paths/find.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/paths/find.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;interfaces&nbsp;for&nbsp;finding&nbsp;files.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="importlib_resources.html">importlib_resources</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-find_file"><strong>find_file</strong></a>(path: Union[pathlib.Path, str, NoneType], *parts: Union[str, pathlib.Path], search_paths: Iterable[Union[pathlib.Path, str, NoneType]] = None, include_cwd: bool = False, relative_to: Union[pathlib.Path, str, NoneType] = None, package: str = None, package_subdir: str = 'data', logger: logging.Logger = None) -&gt; Optional[pathlib.Path]</dt><dd><span class="code">Combines&nbsp;a&nbsp;few&nbsp;simple&nbsp;strategies&nbsp;to&nbsp;locate&nbsp;a&nbsp;file&nbsp;on&nbsp;disk.</span></dd></dl>
+ <dl><dt><a name="-find_package_file"><strong>find_package_file</strong></a>(parsed: urllib.parse.ParseResult, package_subdir: str, logger: Optional[logging.Logger]) -&gt; Optional[pathlib.Path]</dt><dd><span class="code">Find&nbsp;a&nbsp;file&nbsp;from&nbsp;a&nbsp;package.</span></dd></dl>
+ <dl><dt><a name="-register_file_finder"><strong>register_file_finder</strong></a>(scheme: str, finder: Callable[[urllib.parse.ParseResult, str, Optional[logging.Logger]], Optional[pathlib.Path]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;custom,&nbsp;runtime&nbsp;file&nbsp;finder&nbsp;(for&nbsp;URI&nbsp;paths).</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>FINDERS</strong> = {'package': &lt;function find_package_file&gt;}<br>
+<strong>FileFinder</strong> = typing.Callable[[urllib.parse.ParseResult, str, ...[logging.Logger]], typing.Optional[pathlib.Path]]<br>
+<strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
+<strong>__annotations__</strong> = {'FINDERS': typing.Dict[str, typing.Callable[[urllib.parse.P...logging.Logger]], typing.Optional[pathlib.Path]]]}</td></tr></table>
+</body></html>

@@ -27,7 +27,19 @@
 <dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
 </dt><dd>
 <dl>
-<dt class="heading-text"><a href="runtimepy.net.connection.html#Connection">Connection</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+<dt class="heading-text"><a href="runtimepy.net.connection.html#Connection">Connection</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.connection.html#EchoConnection">EchoConnection</a>
+</dt><dt class="heading-text"><a href="runtimepy.net.connection.html#NullConnection">NullConnection</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+<dt class="heading-text"><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.connection.html#Connection">Connection</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
 </dt><dd>
 <dl>
 <dt class="heading-text"><a href="runtimepy.net.connection.html#EchoConnection">EchoConnection</a>
@@ -39,7 +51,7 @@
 <dt class="heading-text"><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>(<a href="builtins.html#object">builtins.object</a>)
 </dt><dd>
 <dl>
-<dt class="heading-text"><a href="runtimepy.net.connection.html#Connection">Connection</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+<dt class="heading-text"><a href="runtimepy.net.connection.html#Connection">Connection</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
 </dt><dd>
 <dl>
 <dt class="heading-text"><a href="runtimepy.net.connection.html#EchoConnection">EchoConnection</a>
@@ -52,22 +64,23 @@
  <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><a name="Connection">class <strong>Connection</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+<td class="section-title" colspan=3>&nbsp;<br><a name="Connection">class <strong>Connection</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Connection">Connection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter])&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Connection">Connection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;connection&nbsp;interface.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn"><dl><dt>Method resolution order:</dt>
 <dd><a href="runtimepy.net.connection.html#Connection">Connection</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Connection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="Connection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="Connection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
 
@@ -100,7 +113,9 @@ Readonly properties defined here:<br>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
 
-<dl><dt><strong>__annotations__</strong> = {}</dl>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;}</dl>
+
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
 
@@ -118,13 +133,19 @@ Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcor
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="Connection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="Connection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
 </td></tr></table> <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><a name="EchoConnection">class <strong>EchoConnection</strong></a>(<a href="runtimepy.net.connection.html#Connection">Connection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoConnection">EchoConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter])&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoConnection">EchoConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;connection&nbsp;that&nbsp;just&nbsp;echoes&nbsp;what&nbsp;it&nbsp;was&nbsp;sent.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -132,6 +153,7 @@ A&nbsp;connection&nbsp;that&nbsp;just&nbsp;echoes&nbsp;what&nbsp;it&nbsp;was&nbs
 <dd><a href="runtimepy.net.connection.html#EchoConnection">EchoConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">Connection</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
@@ -149,7 +171,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.connection.html#Connection">Connection</a>:<br>
-<dl><dt><a name="EchoConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="EchoConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="EchoConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
 
@@ -176,6 +198,8 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">Connection</a>:<br>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
+
 <dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
 
 <dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
@@ -192,13 +216,19 @@ Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcor
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="EchoConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="EchoConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
 </td></tr></table> <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><a name="NullConnection">class <strong>NullConnection</strong></a>(<a href="runtimepy.net.connection.html#Connection">Connection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#NullConnection">NullConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter])&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#NullConnection">NullConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;connection&nbsp;that&nbsp;doesn't&nbsp;do&nbsp;anything&nbsp;with&nbsp;incoming&nbsp;data.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -206,6 +236,7 @@ A&nbsp;connection&nbsp;that&nbsp;doesn't&nbsp;do&nbsp;anything&nbsp;with&nbsp;in
 <dd><a href="runtimepy.net.connection.html#NullConnection">NullConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">Connection</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
@@ -223,7 +254,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.connection.html#Connection">Connection</a>:<br>
-<dl><dt><a name="NullConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="NullConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="NullConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
 
@@ -250,6 +281,8 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">Connection</a>:<br>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
+
 <dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
 
 <dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
@@ -266,11 +299,18 @@ Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcor
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="NullConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="NullConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
 </td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>BinaryMessage</strong> = typing.Union[bytes, bytearray, memoryview]</td></tr></table>
+<td class="singlecolumn"><strong>BinaryMessage</strong> = typing.Union[bytes, bytearray, memoryview]<br>
+<strong>DEFAULT_BYTE_ORDER</strong> = &lt;ByteOrder.NETWORK: 4&gt;</td></tr></table>
 </body></html>

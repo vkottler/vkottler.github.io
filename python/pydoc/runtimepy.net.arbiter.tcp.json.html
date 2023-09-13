@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.net.arbiter.tcp.json</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.arbiter.html" class="white">arbiter</a>.<a href="runtimepy.net.arbiter.tcp.html" class="white">tcp</a>.json</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/tcp/json.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/tcp/json.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;JSON-message&nbsp;connection&nbsp;factories.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.net.stream.html#UdpPrefixedMessageConnection">runtimepy.net.stream.UdpPrefixedMessageConnection</a>(<a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>, <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.tcp.json.html#UdpJsonMessageConnection">UdpJsonMessageConnection</a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.stream.html#UdpPrefixedMessageConnection">runtimepy.net.stream.UdpPrefixedMessageConnection</a>)
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>(<a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.tcp.json.html#TcpJsonMessageConnection">TcpJsonMessageConnection</a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>)
+</dt><dt class="heading-text"><a href="runtimepy.net.arbiter.tcp.json.html#UdpJsonMessageConnection">UdpJsonMessageConnection</a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.stream.html#UdpPrefixedMessageConnection">runtimepy.net.stream.UdpPrefixedMessageConnection</a>)
+</dt><dt class="heading-text"><a href="runtimepy.net.arbiter.tcp.json.html#WebsocketJsonMessageConnection">WebsocketJsonMessageConnection</a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>)
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>(<a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>, <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.tcp.json.html#TcpJsonMessageConnection">TcpJsonMessageConnection</a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>)
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>(<a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.arbiter.tcp.json.html#WebsocketJsonMessageConnection">WebsocketJsonMessageConnection</a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>)
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TcpJsonMessageConnection">class <strong>TcpJsonMessageConnection</strong></a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TcpJsonMessageConnection">TcpJsonMessageConnection</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.connection.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;TCP&nbsp;connection&nbsp;interface&nbsp;for&nbsp;JSON&nbsp;messaging.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.arbiter.tcp.json.html#TcpJsonMessageConnection">TcpJsonMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
+<dd><a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>:<br>
+<dl><dt>async <a name="TcpJsonMessageConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-basic_handler"><strong>basic_handler</strong></a>(self, key: str, handler: Callable[[Dict[str, Any], Dict[str, Any]], Awaitable[NoneType]] = &lt;function loopback_handler at 0x7f2cc7afd3a0&gt;) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;basic&nbsp;handler.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-loopback"><strong>loopback</strong></a>(self, data: Dict[str, Any] = None, addr: Tuple[str, int] = None, timeout: float = 3) -&gt; bool</dt><dd><span class="code">Perform&nbsp;a&nbsp;simple&nbsp;loopback&nbsp;test&nbsp;on&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-process_json"><strong>process_json</strong></a>(self, data: Dict[str, Any], addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-process_message"><strong>process_message</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;string&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-send_json"><strong>send_json</strong></a>(self, data: Union[Dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-stage_remote_log"><strong>stage_remote_log</strong></a>(self, msg: str, *args, level: int = 20) -&gt; None</dt><dd><span class="code">Log&nbsp;a&nbsp;message&nbsp;on&nbsp;the&nbsp;remote.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-typed_handler"><strong>typed_handler</strong></a>(self, key: str, kind: Type[~T], handler: Callable[[Dict[str, Any], ~T], Awaitable[NoneType]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;typed&nbsp;handler.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-wait_json"><strong>wait_json</strong></a>(self, data: Union[Dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: Tuple[str, int] = None, timeout: float = 3) -&gt; Dict[str, Any]</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message&nbsp;and&nbsp;wait&nbsp;for&nbsp;a&nbsp;response.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>:<br>
+<dl><dt>async <a name="TcpJsonMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
+<dl><dt>async <a name="TcpJsonMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
+<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><a name="TcpJsonMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.connection.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt>async <a name="TcpJsonMessageConnection-app"><strong>app</strong></a>(stop_sig: asyncio.locks.Event, callback: Callable[[~T], NoneType] = None, serving_callback: Callable[[Any], NoneType] = None, manager: runtimepy.net.manager.ConnectionManager = None, **kwargs) -&gt; None<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;an&nbsp;application&nbsp;that&nbsp;serves&nbsp;new&nbsp;connections.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-create_connection"><strong>create_connection</strong></a>(**kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; Tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-serve"><strong>serve</strong></a>(callback: Callable[[~T], NoneType] = None, **kwargs) -&gt; AsyncIterator[Any]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;incoming&nbsp;connections.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><strong>uses_binary_tx_queue</strong> = False</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><a name="TcpJsonMessageConnection-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<dl><dt>async <a name="TcpJsonMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="TcpJsonMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="TcpJsonMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="TcpJsonMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
+<dl><dt><a name="TcpJsonMessageConnection-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
+<dl><dt><strong>socket</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;instance's&nbsp;underlying&nbsp;socket.</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="UdpJsonMessageConnection">class <strong>UdpJsonMessageConnection</strong></a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.stream.html#UdpPrefixedMessageConnection">runtimepy.net.stream.UdpPrefixedMessageConnection</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#UdpJsonMessageConnection">UdpJsonMessageConnection</a>(transport:&nbsp;'_DatagramTransport',&nbsp;protocol:&nbsp;'UdpQueueProtocol')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;UDP&nbsp;connection&nbsp;interface&nbsp;for&nbsp;JSON&nbsp;messaging.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.arbiter.tcp.json.html#UdpJsonMessageConnection">UdpJsonMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.html#UdpPrefixedMessageConnection">runtimepy.net.stream.UdpPrefixedMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
+<dd><a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>:<br>
+<dl><dt>async <a name="UdpJsonMessageConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-basic_handler"><strong>basic_handler</strong></a>(self, key: str, handler: Callable[[Dict[str, Any], Dict[str, Any]], Awaitable[NoneType]] = &lt;function loopback_handler at 0x7f2cc7afd3a0&gt;) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;basic&nbsp;handler.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="UdpJsonMessageConnection-loopback"><strong>loopback</strong></a>(self, data: Dict[str, Any] = None, addr: Tuple[str, int] = None, timeout: float = 3) -&gt; bool</dt><dd><span class="code">Perform&nbsp;a&nbsp;simple&nbsp;loopback&nbsp;test&nbsp;on&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="UdpJsonMessageConnection-process_json"><strong>process_json</strong></a>(self, data: Dict[str, Any], addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt>async <a name="UdpJsonMessageConnection-process_message"><strong>process_message</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;string&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-send_json"><strong>send_json</strong></a>(self, data: Union[Dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-stage_remote_log"><strong>stage_remote_log</strong></a>(self, msg: str, *args, level: int = 20) -&gt; None</dt><dd><span class="code">Log&nbsp;a&nbsp;message&nbsp;on&nbsp;the&nbsp;remote.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-typed_handler"><strong>typed_handler</strong></a>(self, key: str, kind: Type[~T], handler: Callable[[Dict[str, Any], ~T], Awaitable[NoneType]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;typed&nbsp;handler.</span></dd></dl>
+
+<dl><dt>async <a name="UdpJsonMessageConnection-wait_json"><strong>wait_json</strong></a>(self, data: Union[Dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: Tuple[str, int] = None, timeout: float = 3) -&gt; Dict[str, Any]</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message&nbsp;and&nbsp;wait&nbsp;for&nbsp;a&nbsp;response.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>:<br>
+<dl><dt>async <a name="UdpJsonMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.html#UdpPrefixedMessageConnection">runtimepy.net.stream.UdpPrefixedMessageConnection</a>:<br>
+<dl><dt>async <a name="UdpJsonMessageConnection-process_datagram"><strong>process_datagram</strong></a>(self, data: bytes, addr: Tuple[str, int]) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;datagram.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
+<dl><dt>async <a name="UdpJsonMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
+<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
+<dl><dt><a name="UdpJsonMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: '_DatagramTransport', protocol: 'UdpQueueProtocol') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;UDP&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="UdpJsonMessageConnection-close"><strong>close</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: '_BinaryMessage') -&gt; 'None'</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-send_text"><strong>send_text</strong></a>(self, data: 'str') -&gt; 'None'</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-sendto"><strong>sendto</strong></a>(self, data: 'bytes', addr: '_Union[IpHost, _Tuple[str, int]]' = None) -&gt; 'None'</dt><dd><span class="code">Send&nbsp;to&nbsp;a&nbsp;specific&nbsp;address.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-set_remote_address"><strong>set_remote_address</strong></a>(self, addr: 'IpHost') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;remote&nbsp;address.&nbsp;Note&nbsp;that&nbsp;this&nbsp;doesn't&nbsp;interact&nbsp;with&nbsp;or<br>
+attempt&nbsp;to&nbsp;'connect'&nbsp;the&nbsp;underlying&nbsp;socket.&nbsp;That&nbsp;should&nbsp;be&nbsp;done&nbsp;at<br>
+creation&nbsp;time.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
+<dl><dt>async <a name="UdpJsonMessageConnection-create_connection"><strong>create_connection</strong></a>(connect: 'bool' = True, **kwargs) -&gt; 'T'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;UDP&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="UdpJsonMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; '_Tuple[T, T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
+<dl><dt><strong>uses_binary_tx_queue</strong> = False</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><a name="UdpJsonMessageConnection-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="UdpJsonMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<dl><dt>async <a name="UdpJsonMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="UdpJsonMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="UdpJsonMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="UdpJsonMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
+<dl><dt><a name="UdpJsonMessageConnection-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
+<dl><dt><strong>socket</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;instance's&nbsp;underlying&nbsp;socket.</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="WebsocketJsonMessageConnection">class <strong>WebsocketJsonMessageConnection</strong></a>(<a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>, <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#WebsocketJsonMessageConnection">WebsocketJsonMessageConnection</a>(protocol:&nbsp;'_Union[_WebSocketClientProtocol,&nbsp;_WebSocketServerProtocol]')&nbsp;-&amp;gt;&nbsp;'None'<br>
+&nbsp;<br>
+A&nbsp;websocket&nbsp;connection&nbsp;interface&nbsp;for&nbsp;JSON&nbsp;messaging.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.arbiter.tcp.json.html#WebsocketJsonMessageConnection">WebsocketJsonMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a></dd>
+<dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
+<dd><a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a></dd>
+<dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.json.base.html#JsonMessageConnection">runtimepy.net.stream.json.base.JsonMessageConnection</a>:<br>
+<dl><dt>async <a name="WebsocketJsonMessageConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-basic_handler"><strong>basic_handler</strong></a>(self, key: str, handler: Callable[[Dict[str, Any], Dict[str, Any]], Awaitable[NoneType]] = &lt;function loopback_handler at 0x7f2cc7afd3a0&gt;) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;basic&nbsp;handler.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketJsonMessageConnection-loopback"><strong>loopback</strong></a>(self, data: Dict[str, Any] = None, addr: Tuple[str, int] = None, timeout: float = 3) -&gt; bool</dt><dd><span class="code">Perform&nbsp;a&nbsp;simple&nbsp;loopback&nbsp;test&nbsp;on&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketJsonMessageConnection-process_json"><strong>process_json</strong></a>(self, data: Dict[str, Any], addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketJsonMessageConnection-process_message"><strong>process_message</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;string&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-send_json"><strong>send_json</strong></a>(self, data: Union[Dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-stage_remote_log"><strong>stage_remote_log</strong></a>(self, msg: str, *args, level: int = 20) -&gt; None</dt><dd><span class="code">Log&nbsp;a&nbsp;message&nbsp;on&nbsp;the&nbsp;remote.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-typed_handler"><strong>typed_handler</strong></a>(self, key: str, kind: Type[~T], handler: Callable[[Dict[str, Any], ~T], Awaitable[NoneType]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;typed&nbsp;handler.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketJsonMessageConnection-wait_json"><strong>wait_json</strong></a>(self, data: Union[Dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: Tuple[str, int] = None, timeout: float = 3) -&gt; Dict[str, Any]</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message&nbsp;and&nbsp;wait&nbsp;for&nbsp;a&nbsp;response.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>:<br>
+<dl><dt>async <a name="WebsocketJsonMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
+<dl><dt>async <a name="WebsocketJsonMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
+<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>:<br>
+<dl><dt><a name="WebsocketJsonMessageConnection-__init__"><strong>__init__</strong></a>(self, protocol: '_Union[_WebSocketClientProtocol, _WebSocketServerProtocol]') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketJsonMessageConnection-close"><strong>close</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.net.websocket.connection.html#WebsocketConnection">runtimepy.net.websocket.connection.WebsocketConnection</a>:<br>
+<dl><dt>async <a name="WebsocketJsonMessageConnection-app"><strong>app</strong></a>(stop_sig: '_asyncio.Event', init: 'ConnectionInit[T]' = None, manager: '_ConnectionManager' = None, serving_callback: '_Callable[[_WebSocketServer], None]' = None, **kwargs) -&gt; 'None'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;a&nbsp;WebSocket-server&nbsp;application.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-client"><strong>client</strong></a>(uri: 'str', **kwargs) -&gt; '_AsyncIterator[T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">A&nbsp;wrapper&nbsp;for&nbsp;connecting&nbsp;a&nbsp;client.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketJsonMessageConnection-create_connection"><strong>create_connection</strong></a>(uri: 'str', **kwargs) -&gt; 'T'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Connect&nbsp;a&nbsp;client&nbsp;to&nbsp;an&nbsp;endpoint.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; '_AsyncIterator[_Tuple[T, T]]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Obtain&nbsp;a&nbsp;connected&nbsp;pair&nbsp;of&nbsp;<a href="runtimepy.net.websocket.connection.html#WebsocketConnection">WebsocketConnection</a>&nbsp;objects.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-serve"><strong>serve</strong></a>(init: 'ConnectionInit[T]' = None, stop_sig: '_asyncio.Event' = None, manager: '_ConnectionManager' = None, **kwargs) -&gt; '_AsyncIterator[_WebSocketServer]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;a&nbsp;WebSocket&nbsp;server.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-server_handler"><strong>server_handler</strong></a>(init: 'ConnectionInit[T]' = None, stop_sig: '_asyncio.Event' = None, manager: '_ConnectionManager' = None) -&gt; '_Callable[[_WebSocketServerProtocol], _Awaitable[None]]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">A&nbsp;wrapper&nbsp;for&nbsp;passing&nbsp;in&nbsp;a&nbsp;websocket&nbsp;handler&nbsp;and&nbsp;initializing&nbsp;a<br>
+connection.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><a name="WebsocketJsonMessageConnection-disable"><strong>disable</strong></a>(self, reason: str) -&gt; None</dt><dd><span class="code">Disable&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketJsonMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+
+<dl><dt>async <a name="WebsocketJsonMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>disabled</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
+
+<dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
+
+<dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="WebsocketJsonMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="WebsocketJsonMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="WebsocketJsonMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

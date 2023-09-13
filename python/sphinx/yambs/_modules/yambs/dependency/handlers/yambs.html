@@ -322,7 +322,16 @@ document.write(`
         <span class="c1"># if the desired library isn&#39;t already built.</span>
         <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">dep</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="n">DependencySource</span><span class="o">.</span><span class="n">DIRECTORY</span><span class="p">:</span>
             <span class="n">cmd</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-                <span class="p">[</span><span class="n">executable</span><span class="p">,</span> <span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="n">PKG_NAME</span><span class="p">,</span> <span class="s2">&quot;-C&quot;</span><span class="p">,</span> <span class="n">rel_dir_arg</span><span class="p">,</span> <span class="s2">&quot;native&quot;</span><span class="p">,</span> <span class="s2">&quot;&amp;&amp;&quot;</span><span class="p">]</span>
+                <span class="p">[</span>
+                    <span class="n">executable</span><span class="p">,</span>
+                    <span class="s2">&quot;-m&quot;</span><span class="p">,</span>
+                    <span class="n">PKG_NAME</span><span class="p">,</span>
+                    <span class="s2">&quot;-C&quot;</span><span class="p">,</span>
+                    <span class="n">rel_dir_arg</span><span class="p">,</span>
+                    <span class="s2">&quot;native&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;-n&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;&amp;&amp;&quot;</span><span class="p">,</span>
+                <span class="p">]</span>
             <span class="p">)</span>
 
         <span class="c1"># Add a build command if the library still needs to be built.</span>

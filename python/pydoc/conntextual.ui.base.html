@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module conntextual.ui.base</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="conntextual.html" class="white">conntextual</a>.<a href="conntextual.ui.html" class="white">ui</a>.base</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/conntextual/conntextual/ui/base.py">/home/vkottler/src/vkottler/workspace/conntextual/conntextual/ui/base.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;user&nbsp;interface&nbsp;base&nbsp;application.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="asyncio.html">asyncio</a><br>
+</td><td class="multicolumn"><a href="logging.html">logging</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="textual.app.html#App">textual.app.App</a>(<a href="typing.html#Generic">typing.Generic</a>, <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="conntextual.ui.base.html#Base">Base</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Base">class <strong>Base</strong></a>(<a href="textual.app.html#App">textual.app.App</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Base">Base</a>(driver_class:&nbsp;'Type[Driver]&nbsp;|&nbsp;None'&nbsp;=&nbsp;None,&nbsp;css_path:&nbsp;'CSSPathType&nbsp;|&nbsp;None'&nbsp;=&nbsp;None,&nbsp;watch_css:&nbsp;'bool'&nbsp;=&nbsp;False)<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;textual&nbsp;application.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="conntextual.ui.base.html#Base">Base</a></dd>
+<dd><a href="textual.app.html#App">textual.app.App</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a></dd>
+<dd><a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Base-action_tab"><strong>action_tab</strong></a>(self, forward: bool) -&gt; None</dt><dd><span class="code">Change&nbsp;the&nbsp;active&nbsp;tab.</span></dd></dl>
+
+<dl><dt><a name="Base-compose"><strong>compose</strong></a>(self) -&gt; Iterable[textual.widget.Widget]</dt><dd><span class="code">Create&nbsp;child&nbsp;nodes.</span></dd></dl>
+
+<dl><dt><a name="Base-compose_app"><strong>compose_app</strong></a>(self) -&gt; Iterable[textual.widget.Widget]</dt><dd><span class="code">Application-specific&nbsp;interface&nbsp;creation.</span></dd></dl>
+
+<dl><dt><a name="Base-dispatch"><strong>dispatch</strong></a>(self) -&gt; None</dt><dd><span class="code">Update&nbsp;channel&nbsp;values.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Base-create"><strong>create</strong></a>(app: runtimepy.net.arbiter.info.AppInfo, handle_debug: bool = True) -&gt; 'Base'</dt><dd><span class="code">Create&nbsp;an&nbsp;application&nbsp;instance.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>BINDINGS</strong> = [('q', 'quit', 'Quit'), ('d', 'toggle_dark', 'Toggle dark mode'), Binding(key=&lt;Keys.Tab: 'tab'&gt;, action='tab(True)...tab', show=True, key_display=None, priority=True), Binding(key=&lt;Keys.BackTab: 'shift+tab'&gt;, action=...tab', show=True, key_display=None, priority=True)]</dl>
+
+<dl><dt><strong>CSS_PATH</strong> = 'base.tcss'</dl>
+
+<dl><dt><strong>__annotations__</strong> = {'model': &lt;class 'conntextual.ui.model.Model'&gt;}</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (textual.app.App[NoneType],)</dl>
+
+<dl><dt><strong>__parameters__</strong> = ()</dl>
+
+<hr>
+Methods inherited from <a href="textual.app.html#App">textual.app.App</a>:<br>
+<dl><dt><a name="Base-__init__"><strong>__init__</strong></a>(self, driver_class: 'Type[Driver] | None' = None, css_path: 'CSSPathType | None' = None, watch_css: 'bool' = False)</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;of&nbsp;an&nbsp;app.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;driver_class:&nbsp;Driver&nbsp;class&nbsp;or&nbsp;`None`&nbsp;to&nbsp;auto-detect.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;be&nbsp;used&nbsp;by&nbsp;some&nbsp;Textual&nbsp;tools.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;css_path:&nbsp;Path&nbsp;to&nbsp;CSS&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;the&nbsp;`CSS_PATH`&nbsp;class&nbsp;variable.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;load&nbsp;multiple&nbsp;CSS&nbsp;files,&nbsp;pass&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;or&nbsp;paths&nbsp;which<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;loaded&nbsp;in&nbsp;order.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;watch_css:&nbsp;Reload&nbsp;CSS&nbsp;if&nbsp;the&nbsp;files&nbsp;changed.&nbsp;This&nbsp;is&nbsp;set&nbsp;automatically&nbsp;if<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;you&nbsp;are&nbsp;using&nbsp;`textual&nbsp;run`&nbsp;with&nbsp;the&nbsp;`dev`&nbsp;switch.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CssPathError:&nbsp;When&nbsp;the&nbsp;supplied&nbsp;CSS&nbsp;path(s)&nbsp;are&nbsp;an&nbsp;unexpected&nbsp;type.</span></dd></dl>
+
+<dl><dt><a name="Base-__repr__"><strong>__repr__</strong></a> = auto_repr(self: ~T) -&gt; str</dt><dd><span class="code">Return&nbsp;repr(self)</span></dd></dl>
+
+<dl><dt><a name="Base-__rich_repr__"><strong>__rich_repr__</strong></a>(self) -&gt; 'rich.repr.Result'</dt></dl>
+
+<dl><dt>async <a name="Base-action_add_class"><strong>action_add_class</strong></a>(self, selector: 'str', class_name: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;add&nbsp;a&nbsp;CSS&nbsp;class&nbsp;to&nbsp;the&nbsp;selected&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;Selects&nbsp;the&nbsp;widget&nbsp;to&nbsp;add&nbsp;the&nbsp;class&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_name:&nbsp;The&nbsp;class&nbsp;to&nbsp;add&nbsp;to&nbsp;the&nbsp;selected&nbsp;widget.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_back"><strong>action_back</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;go&nbsp;back&nbsp;to&nbsp;the&nbsp;previous&nbsp;screen&nbsp;(pop&nbsp;the&nbsp;current&nbsp;screen).<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;screen&nbsp;to&nbsp;go&nbsp;back&nbsp;to,&nbsp;this&nbsp;is&nbsp;a&nbsp;non-operation&nbsp;(in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;other&nbsp;words&nbsp;it's&nbsp;safe&nbsp;to&nbsp;call&nbsp;even&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;other&nbsp;screens<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;stack.)</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_bell"><strong>action_bell</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;play&nbsp;the&nbsp;terminal&nbsp;'bell'.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_check_bindings"><strong>action_check_bindings</strong></a>(self, key: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;handle&nbsp;a&nbsp;key&nbsp;press&nbsp;using&nbsp;the&nbsp;binding&nbsp;system.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key:&nbsp;The&nbsp;key&nbsp;to&nbsp;process.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_focus"><strong>action_focus</strong></a>(self, widget_id: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;focus&nbsp;the&nbsp;given&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget_id:&nbsp;ID&nbsp;of&nbsp;widget&nbsp;to&nbsp;focus.</span></dd></dl>
+
+<dl><dt><a name="Base-action_focus_next"><strong>action_focus_next</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;focus&nbsp;the&nbsp;next&nbsp;widget.</span></dd></dl>
+
+<dl><dt><a name="Base-action_focus_previous"><strong>action_focus_previous</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;focus&nbsp;the&nbsp;previous&nbsp;widget.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_pop_screen"><strong>action_pop_screen</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;remove&nbsp;the&nbsp;topmost&nbsp;screen&nbsp;and&nbsp;makes&nbsp;the&nbsp;new&nbsp;topmost&nbsp;screen&nbsp;active.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_push_screen"><strong>action_push_screen</strong></a>(self, screen: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;push&nbsp;a&nbsp;new&nbsp;screen&nbsp;on&nbsp;to&nbsp;the&nbsp;stack&nbsp;and&nbsp;make&nbsp;it&nbsp;active.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;Name&nbsp;of&nbsp;the&nbsp;screen.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_quit"><strong>action_quit</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;quit&nbsp;the&nbsp;app&nbsp;as&nbsp;soon&nbsp;as&nbsp;possible.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_remove_class"><strong>action_remove_class</strong></a>(self, selector: 'str', class_name: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;remove&nbsp;a&nbsp;CSS&nbsp;class&nbsp;from&nbsp;the&nbsp;selected&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;Selects&nbsp;the&nbsp;widget&nbsp;to&nbsp;remove&nbsp;the&nbsp;class&nbsp;from.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_name:&nbsp;The&nbsp;class&nbsp;to&nbsp;remove&nbsp;from&nbsp;&nbsp;the&nbsp;selected&nbsp;widget.</span></dd></dl>
+
+<dl><dt><a name="Base-action_screenshot"><strong>action_screenshot</strong></a>(self, filename: 'str | None' = None, path: 'str' = './') -&gt; 'None'</dt><dd><span class="code">This&nbsp;[action](/guide/actions)&nbsp;will&nbsp;save&nbsp;an&nbsp;SVG&nbsp;file&nbsp;containing&nbsp;the&nbsp;current&nbsp;contents&nbsp;of&nbsp;the&nbsp;screen.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filename:&nbsp;Filename&nbsp;of&nbsp;screenshot,&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-generate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path:&nbsp;Path&nbsp;to&nbsp;directory.&nbsp;Defaults&nbsp;to&nbsp;current&nbsp;working&nbsp;directory.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_switch_mode"><strong>action_switch_mode</strong></a>(self, mode: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;that&nbsp;switches&nbsp;to&nbsp;the&nbsp;given&nbsp;mode..</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_switch_screen"><strong>action_switch_screen</strong></a>(self, screen: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;switch&nbsp;screens.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;Name&nbsp;of&nbsp;the&nbsp;screen.</span></dd></dl>
+
+<dl><dt>async <a name="Base-action_toggle_class"><strong>action_toggle_class</strong></a>(self, selector: 'str', class_name: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;toggle&nbsp;a&nbsp;CSS&nbsp;class&nbsp;on&nbsp;the&nbsp;selected&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;Selects&nbsp;the&nbsp;widget&nbsp;to&nbsp;toggle&nbsp;the&nbsp;class&nbsp;on.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_name:&nbsp;The&nbsp;class&nbsp;to&nbsp;toggle&nbsp;on&nbsp;the&nbsp;selected&nbsp;widget.</span></dd></dl>
+
+<dl><dt><a name="Base-action_toggle_dark"><strong>action_toggle_dark</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;toggle&nbsp;dark&nbsp;mode.</span></dd></dl>
+
+<dl><dt><a name="Base-add_mode"><strong>add_mode</strong></a>(self, mode: 'str', base_screen: 'str | Screen | Callable[[], Screen]') -&gt; 'None'</dt><dd><span class="code">Adds&nbsp;a&nbsp;mode&nbsp;and&nbsp;its&nbsp;corresponding&nbsp;base&nbsp;screen&nbsp;to&nbsp;the&nbsp;app.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mode:&nbsp;The&nbsp;new&nbsp;mode.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;base_screen:&nbsp;The&nbsp;base&nbsp;screen&nbsp;associated&nbsp;with&nbsp;the&nbsp;given&nbsp;mode.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;InvalidModeError:&nbsp;If&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;mode&nbsp;is&nbsp;not&nbsp;valid/duplicated.</span></dd></dl>
+
+<dl><dt><a name="Base-animate"><strong>animate</strong></a>(self, attribute: 'str', value: 'float | Animatable', *, final_value: 'object' = Ellipsis, duration: 'float | None' = None, speed: 'float | None' = None, delay: 'float' = 0.0, easing: 'EasingFunction | str' = 'in_out_cubic', on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Animate&nbsp;an&nbsp;attribute.<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;guide&nbsp;for&nbsp;how&nbsp;to&nbsp;use&nbsp;the&nbsp;[animation](/guide/animation)&nbsp;system.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute&nbsp;to&nbsp;animate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;The&nbsp;value&nbsp;to&nbsp;animate&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;final_value:&nbsp;The&nbsp;final&nbsp;value&nbsp;of&nbsp;the&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;The&nbsp;duration&nbsp;of&nbsp;the&nbsp;animate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;The&nbsp;speed&nbsp;of&nbsp;the&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;A&nbsp;delay&nbsp;(in&nbsp;seconds)&nbsp;before&nbsp;the&nbsp;animation&nbsp;starts.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+
+<dl><dt><a name="Base-batch_update"><strong>batch_update</strong></a>(self) -&gt; 'Generator[None, None, None]'</dt><dd><span class="code">A&nbsp;context&nbsp;manager&nbsp;to&nbsp;suspend&nbsp;all&nbsp;repaints&nbsp;until&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;batch.</span></dd></dl>
+
+<dl><dt><a name="Base-begin_capture_print"><strong>begin_capture_print</strong></a>(self, target: 'MessageTarget', stdout: 'bool' = True, stderr: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Capture&nbsp;content&nbsp;that&nbsp;is&nbsp;printed&nbsp;(or&nbsp;written&nbsp;to&nbsp;stdout&nbsp;/&nbsp;stderr).<br>
+&nbsp;<br>
+If&nbsp;printing&nbsp;is&nbsp;captured,&nbsp;the&nbsp;`target`&nbsp;will&nbsp;be&nbsp;send&nbsp;an&nbsp;[events.Print][textual.events.Print]&nbsp;message.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;target:&nbsp;The&nbsp;widget&nbsp;where&nbsp;print&nbsp;content&nbsp;will&nbsp;be&nbsp;sent.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stdout:&nbsp;Capture&nbsp;stdout.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stderr:&nbsp;Capture&nbsp;stderr.</span></dd></dl>
+
+<dl><dt><a name="Base-bell"><strong>bell</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Play&nbsp;the&nbsp;console&nbsp;'bell'.<br>
+&nbsp;<br>
+For&nbsp;terminals&nbsp;that&nbsp;support&nbsp;a&nbsp;bell,&nbsp;this&nbsp;typically&nbsp;makes&nbsp;a&nbsp;notification&nbsp;or&nbsp;error&nbsp;sound.<br>
+Some&nbsp;terminals&nbsp;may&nbsp;make&nbsp;no&nbsp;sound&nbsp;or&nbsp;display&nbsp;a&nbsp;visual&nbsp;bell&nbsp;indicator,&nbsp;depending&nbsp;on&nbsp;configuration.</span></dd></dl>
+
+<dl><dt><a name="Base-bind"><strong>bind</strong></a>(self, keys: 'str', action: 'str', *, description: 'str' = '', show: 'bool' = True, key_display: 'str | None' = None) -&gt; 'None'</dt><dd><span class="code">Bind&nbsp;a&nbsp;key&nbsp;to&nbsp;an&nbsp;action.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;keys:&nbsp;A&nbsp;comma&nbsp;separated&nbsp;list&nbsp;of&nbsp;keys,&nbsp;i.e.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;action:&nbsp;Action&nbsp;to&nbsp;bind&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;description:&nbsp;Short&nbsp;description&nbsp;of&nbsp;action.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;show:&nbsp;Show&nbsp;key&nbsp;in&nbsp;UI.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key_display:&nbsp;Replacement&nbsp;text&nbsp;for&nbsp;key,&nbsp;or&nbsp;None&nbsp;to&nbsp;use&nbsp;default.</span></dd></dl>
+
+<dl><dt><a name="Base-call_from_thread"><strong>call_from_thread</strong></a>(self, callback: 'Callable[..., CallThreadReturnType | Awaitable[CallThreadReturnType]]', *args: 'object', **kwargs: 'object') -&gt; 'CallThreadReturnType'</dt><dd><span class="code">Run&nbsp;a&nbsp;callable&nbsp;from&nbsp;another&nbsp;thread,&nbsp;and&nbsp;return&nbsp;the&nbsp;result.<br>
+&nbsp;<br>
+Like&nbsp;asyncio&nbsp;apps&nbsp;in&nbsp;general,&nbsp;Textual&nbsp;apps&nbsp;are&nbsp;not&nbsp;thread-safe.&nbsp;If&nbsp;you&nbsp;call&nbsp;methods<br>
+or&nbsp;set&nbsp;attributes&nbsp;on&nbsp;Textual&nbsp;objects&nbsp;from&nbsp;a&nbsp;thread,&nbsp;you&nbsp;may&nbsp;get&nbsp;unpredictable&nbsp;results.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;will&nbsp;ensure&nbsp;that&nbsp;your&nbsp;code&nbsp;runs&nbsp;within&nbsp;the&nbsp;correct&nbsp;context.<br>
+&nbsp;<br>
+!!!&nbsp;tip<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Consider&nbsp;using&nbsp;[post_message][textual.message_pump.MessagePump.post_message]&nbsp;which&nbsp;is&nbsp;also&nbsp;thread-safe.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;A&nbsp;callable&nbsp;to&nbsp;run.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*args:&nbsp;Arguments&nbsp;to&nbsp;the&nbsp;callback.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**kwargs:&nbsp;Keyword&nbsp;arguments&nbsp;for&nbsp;the&nbsp;callback.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;RuntimeError:&nbsp;If&nbsp;the&nbsp;app&nbsp;isn't&nbsp;running&nbsp;or&nbsp;if&nbsp;this&nbsp;method&nbsp;is&nbsp;called&nbsp;from&nbsp;the&nbsp;same<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thread&nbsp;where&nbsp;the&nbsp;app&nbsp;is&nbsp;running.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;result&nbsp;of&nbsp;the&nbsp;callback.</span></dd></dl>
+
+<dl><dt><a name="Base-capture_mouse"><strong>capture_mouse</strong></a>(self, widget: 'Widget | None') -&gt; 'None'</dt><dd><span class="code">Send&nbsp;all&nbsp;mouse&nbsp;events&nbsp;to&nbsp;the&nbsp;given&nbsp;widget&nbsp;or&nbsp;disable&nbsp;mouse&nbsp;capture.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;If&nbsp;a&nbsp;widget,&nbsp;capture&nbsp;mouse&nbsp;event,&nbsp;or&nbsp;`None`&nbsp;to&nbsp;end&nbsp;mouse&nbsp;capture.</span></dd></dl>
+
+<dl><dt>async <a name="Base-check_bindings"><strong>check_bindings</strong></a>(self, key: 'str', priority: 'bool' = False) -&gt; 'bool'</dt><dd><span class="code">Handle&nbsp;a&nbsp;key&nbsp;press.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;bindings&nbsp;system,&nbsp;but&nbsp;may&nbsp;be&nbsp;called&nbsp;directly<br>
+if&nbsp;you&nbsp;wish&nbsp;to&nbsp;*simulate*&nbsp;a&nbsp;key&nbsp;being&nbsp;pressed.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key:&nbsp;A&nbsp;key.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;priority:&nbsp;If&nbsp;`True`&nbsp;check&nbsp;from&nbsp;`<a href="textual.app.html#App">App</a>`&nbsp;down,&nbsp;otherwise&nbsp;from&nbsp;focused&nbsp;up.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;key&nbsp;was&nbsp;handled&nbsp;by&nbsp;a&nbsp;binding,&nbsp;otherwise&nbsp;False</span></dd></dl>
+
+<dl><dt><a name="Base-clear_notifications"><strong>clear_notifications</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Clear&nbsp;all&nbsp;the&nbsp;current&nbsp;notifications.</span></dd></dl>
+
+<dl><dt><a name="Base-end_capture_print"><strong>end_capture_print</strong></a>(self, target: 'MessageTarget') -&gt; 'None'</dt><dd><span class="code">End&nbsp;capturing&nbsp;of&nbsp;prints.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;target:&nbsp;The&nbsp;widget&nbsp;that&nbsp;was&nbsp;capturing&nbsp;prints.</span></dd></dl>
+
+<dl><dt><a name="Base-exit"><strong>exit</strong></a>(self, result: 'ReturnType | None' = None, return_code: 'int' = 0, message: 'RenderableType | None' = None) -&gt; 'None'</dt><dd><span class="code">Exit&nbsp;the&nbsp;app,&nbsp;and&nbsp;return&nbsp;the&nbsp;supplied&nbsp;result.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;result:&nbsp;Return&nbsp;value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return_code:&nbsp;The&nbsp;return&nbsp;code.&nbsp;Use&nbsp;non-zero&nbsp;values&nbsp;for&nbsp;error&nbsp;codes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;Optional&nbsp;message&nbsp;to&nbsp;display&nbsp;on&nbsp;exit.</span></dd></dl>
+
+<dl><dt><a name="Base-export_screenshot"><strong>export_screenshot</strong></a>(self, *, title: 'str | None' = None) -&gt; 'str'</dt><dd><span class="code">Export&nbsp;an&nbsp;SVG&nbsp;screenshot&nbsp;of&nbsp;the&nbsp;current&nbsp;screen.<br>
+&nbsp;<br>
+See&nbsp;also&nbsp;[save_screenshot][textual.app.<a href="textual.app.html#App">App</a>.save_screenshot]&nbsp;which&nbsp;writes&nbsp;the&nbsp;screenshot&nbsp;to&nbsp;a&nbsp;file.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;The&nbsp;title&nbsp;of&nbsp;the&nbsp;exported&nbsp;screenshot&nbsp;or&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;use&nbsp;app&nbsp;title.</span></dd></dl>
+
+<dl><dt><a name="Base-get_child_by_id"><strong>get_child_by_id</strong></a>(self, id: 'str', expect_type: 'type[ExpectType] | None' = None) -&gt; 'ExpectType | Widget'</dt><dd><span class="code">Get&nbsp;the&nbsp;first&nbsp;child&nbsp;(immediate&nbsp;descendent)&nbsp;of&nbsp;this&nbsp;DOMNode&nbsp;with&nbsp;the&nbsp;given&nbsp;ID.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;node&nbsp;to&nbsp;search&nbsp;for.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;use&nbsp;`None`&nbsp;to&nbsp;apply&nbsp;no&nbsp;type&nbsp;restriction.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;child&nbsp;of&nbsp;this&nbsp;node&nbsp;with&nbsp;the&nbsp;specified&nbsp;ID.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;children&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;this&nbsp;ID.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WrongType:&nbsp;If&nbsp;the&nbsp;wrong&nbsp;type&nbsp;was&nbsp;found.</span></dd></dl>
+
+<dl><dt><a name="Base-get_child_by_type"><strong>get_child_by_type</strong></a>(self, expect_type: 'type[ExpectType]') -&gt; 'ExpectType'</dt><dd><span class="code">Get&nbsp;a&nbsp;child&nbsp;of&nbsp;a&nbsp;give&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;The&nbsp;type&nbsp;of&nbsp;the&nbsp;expected&nbsp;child.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;valid&nbsp;child&nbsp;is&nbsp;found.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget.</span></dd></dl>
+
+<dl><dt><a name="Base-get_css_variables"><strong>get_css_variables</strong></a>(self) -&gt; 'dict[str, str]'</dt><dd><span class="code">Get&nbsp;a&nbsp;mapping&nbsp;of&nbsp;variables&nbsp;used&nbsp;to&nbsp;pre-populate&nbsp;CSS.<br>
+&nbsp;<br>
+May&nbsp;be&nbsp;implemented&nbsp;in&nbsp;a&nbsp;subclass&nbsp;to&nbsp;add&nbsp;new&nbsp;CSS&nbsp;variables.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;mapping&nbsp;of&nbsp;variable&nbsp;name&nbsp;to&nbsp;value.</span></dd></dl>
+
+<dl><dt><a name="Base-get_driver_class"><strong>get_driver_class</strong></a>(self) -&gt; 'Type[Driver]'</dt><dd><span class="code">Get&nbsp;a&nbsp;driver&nbsp;class&nbsp;for&nbsp;this&nbsp;platform.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;called&nbsp;by&nbsp;the&nbsp;constructor,&nbsp;and&nbsp;unlikely&nbsp;to&nbsp;be&nbsp;required&nbsp;when<br>
+building&nbsp;a&nbsp;Textual&nbsp;app.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Driver&nbsp;class&nbsp;which&nbsp;manages&nbsp;input&nbsp;and&nbsp;display.</span></dd></dl>
+
+<dl><dt><a name="Base-get_key_display"><strong>get_key_display</strong></a>(self, key: 'str') -&gt; 'str'</dt><dd><span class="code">For&nbsp;a&nbsp;given&nbsp;key,&nbsp;return&nbsp;how&nbsp;it&nbsp;should&nbsp;be&nbsp;displayed&nbsp;in&nbsp;an&nbsp;app<br>
+(e.g.&nbsp;in&nbsp;the&nbsp;Footer&nbsp;widget).<br>
+By&nbsp;key,&nbsp;we&nbsp;refer&nbsp;to&nbsp;the&nbsp;string&nbsp;used&nbsp;in&nbsp;the&nbsp;"key"&nbsp;argument&nbsp;for<br>
+a&nbsp;Binding&nbsp;instance.&nbsp;By&nbsp;overriding&nbsp;this&nbsp;method,&nbsp;you&nbsp;can&nbsp;ensure&nbsp;that<br>
+keys&nbsp;are&nbsp;displayed&nbsp;consistently&nbsp;throughout&nbsp;your&nbsp;app,&nbsp;without<br>
+needing&nbsp;to&nbsp;add&nbsp;a&nbsp;key_display&nbsp;to&nbsp;every&nbsp;binding.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key:&nbsp;The&nbsp;binding&nbsp;key&nbsp;string.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;display&nbsp;string&nbsp;for&nbsp;the&nbsp;input&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="Base-get_screen"><strong>get_screen</strong></a>(self, screen: 'Screen | str') -&gt; 'Screen'</dt><dd><span class="code">Get&nbsp;an&nbsp;installed&nbsp;screen.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;Either&nbsp;a&nbsp;Screen&nbsp;object&nbsp;or&nbsp;screen&nbsp;name&nbsp;(the&nbsp;`name`&nbsp;argument&nbsp;when&nbsp;installed).<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;KeyError:&nbsp;If&nbsp;the&nbsp;named&nbsp;screen&nbsp;doesn't&nbsp;exist.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;screen&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Base-get_widget_at"><strong>get_widget_at</strong></a>(self, x: 'int', y: 'int') -&gt; 'tuple[Widget, Region]'</dt><dd><span class="code">Get&nbsp;the&nbsp;widget&nbsp;under&nbsp;the&nbsp;given&nbsp;coordinates.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;X&nbsp;coordinate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:&nbsp;Y&nbsp;coordinate.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;widget&nbsp;and&nbsp;the&nbsp;widget's&nbsp;screen&nbsp;region.</span></dd></dl>
+
+<dl><dt><a name="Base-get_widget_by_id"><strong>get_widget_by_id</strong></a>(self, id: 'str', expect_type: 'type[ExpectType] | None' = None) -&gt; 'ExpectType | Widget'</dt><dd><span class="code">Get&nbsp;the&nbsp;first&nbsp;descendant&nbsp;widget&nbsp;with&nbsp;the&nbsp;given&nbsp;ID.<br>
+&nbsp;<br>
+Performs&nbsp;a&nbsp;breadth-first&nbsp;search&nbsp;rooted&nbsp;at&nbsp;the&nbsp;current&nbsp;screen.<br>
+It&nbsp;will&nbsp;not&nbsp;return&nbsp;the&nbsp;Screen&nbsp;if&nbsp;that&nbsp;matches&nbsp;the&nbsp;ID.<br>
+To&nbsp;get&nbsp;the&nbsp;screen,&nbsp;use&nbsp;`self.<strong>screen</strong>`.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;The&nbsp;ID&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;subtree<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;any&nbsp;type.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;None.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;descendant&nbsp;encountered&nbsp;with&nbsp;this&nbsp;ID.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;if&nbsp;no&nbsp;children&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;this&nbsp;ID<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WrongType:&nbsp;if&nbsp;the&nbsp;wrong&nbsp;type&nbsp;was&nbsp;found.</span></dd></dl>
+
+<dl><dt><a name="Base-install_screen"><strong>install_screen</strong></a>(self, screen: 'Screen', name: 'str') -&gt; 'None'</dt><dd><span class="code">Install&nbsp;a&nbsp;screen.<br>
+&nbsp;<br>
+Installing&nbsp;a&nbsp;screen&nbsp;prevents&nbsp;Textual&nbsp;from&nbsp;destroying&nbsp;it&nbsp;when&nbsp;it&nbsp;is&nbsp;no&nbsp;longer&nbsp;on&nbsp;the&nbsp;screen&nbsp;stack.<br>
+Note&nbsp;that&nbsp;you&nbsp;don't&nbsp;need&nbsp;to&nbsp;install&nbsp;a&nbsp;screen&nbsp;to&nbsp;use&nbsp;it.&nbsp;See&nbsp;[push_screen][textual.app.<a href="textual.app.html#App">App</a>.push_screen]<br>
+or&nbsp;[switch_screen][textual.app.<a href="textual.app.html#App">App</a>.switch_screen]&nbsp;to&nbsp;make&nbsp;a&nbsp;new&nbsp;screen&nbsp;current.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;Screen&nbsp;to&nbsp;install.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Unique&nbsp;name&nbsp;to&nbsp;identify&nbsp;the&nbsp;screen.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ScreenError:&nbsp;If&nbsp;the&nbsp;screen&nbsp;can't&nbsp;be&nbsp;installed.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;that&nbsp;awaits&nbsp;the&nbsp;mounting&nbsp;of&nbsp;the&nbsp;screen&nbsp;and&nbsp;its&nbsp;children.</span></dd></dl>
+
+<dl><dt><a name="Base-is_mounted"><strong>is_mounted</strong></a>(self, widget: 'Widget') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;widget&nbsp;is&nbsp;mounted.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;widget.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;of&nbsp;the&nbsp;widget&nbsp;is&nbsp;mounted.</span></dd></dl>
+
+<dl><dt><a name="Base-is_screen_installed"><strong>is_screen_installed</strong></a>(self, screen: 'Screen | str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;given&nbsp;screen&nbsp;has&nbsp;been&nbsp;installed.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;Either&nbsp;a&nbsp;Screen&nbsp;object&nbsp;or&nbsp;screen&nbsp;name&nbsp;(the&nbsp;`name`&nbsp;argument&nbsp;when&nbsp;installed).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;screen&nbsp;is&nbsp;currently&nbsp;installed,</span></dd></dl>
+
+<dl><dt><a name="Base-mount"><strong>mount</strong></a>(self, *widgets: 'Widget', before: 'int | str | Widget | None' = None, after: 'int | str | Widget | None' = None) -&gt; 'AwaitMount'</dt><dd><span class="code">Mount&nbsp;the&nbsp;given&nbsp;widgets&nbsp;relative&nbsp;to&nbsp;the&nbsp;app's&nbsp;screen.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*widgets:&nbsp;The&nbsp;widget(s)&nbsp;to&nbsp;mount.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;before:&nbsp;Optional&nbsp;location&nbsp;to&nbsp;mount&nbsp;before.&nbsp;An&nbsp;`int`&nbsp;is&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;mount&nbsp;before,&nbsp;a&nbsp;`str`&nbsp;is&nbsp;a&nbsp;`query_one`&nbsp;query&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;the&nbsp;widget&nbsp;to&nbsp;mount&nbsp;before.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;after:&nbsp;Optional&nbsp;location&nbsp;to&nbsp;mount&nbsp;after.&nbsp;An&nbsp;`int`&nbsp;is&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;mount&nbsp;after,&nbsp;a&nbsp;`str`&nbsp;is&nbsp;a&nbsp;`query_one`&nbsp;query&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;the&nbsp;widget&nbsp;to&nbsp;mount&nbsp;after.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;widgets&nbsp;to&nbsp;be&nbsp;mounted.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MountError:&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;problem&nbsp;with&nbsp;the&nbsp;mount&nbsp;request.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;``before``&nbsp;or&nbsp;``after``&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;both&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;provided&nbsp;a&nbsp;``MountError``&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
+
+<dl><dt><a name="Base-mount_all"><strong>mount_all</strong></a>(self, widgets: 'Iterable[Widget]', *, before: 'int | str | Widget | None' = None, after: 'int | str | Widget | None' = None) -&gt; 'AwaitMount'</dt><dd><span class="code">Mount&nbsp;widgets&nbsp;from&nbsp;an&nbsp;iterable.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widgets:&nbsp;An&nbsp;iterable&nbsp;of&nbsp;widgets.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;before:&nbsp;Optional&nbsp;location&nbsp;to&nbsp;mount&nbsp;before.&nbsp;An&nbsp;`int`&nbsp;is&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;mount&nbsp;before,&nbsp;a&nbsp;`str`&nbsp;is&nbsp;a&nbsp;`query_one`&nbsp;query&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;the&nbsp;widget&nbsp;to&nbsp;mount&nbsp;before.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;after:&nbsp;Optional&nbsp;location&nbsp;to&nbsp;mount&nbsp;after.&nbsp;An&nbsp;`int`&nbsp;is&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;mount&nbsp;after,&nbsp;a&nbsp;`str`&nbsp;is&nbsp;a&nbsp;`query_one`&nbsp;query&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;the&nbsp;widget&nbsp;to&nbsp;mount&nbsp;after.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;widgets&nbsp;to&nbsp;be&nbsp;mounted.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MountError:&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;problem&nbsp;with&nbsp;the&nbsp;mount&nbsp;request.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;``before``&nbsp;or&nbsp;``after``&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;both&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;provided&nbsp;a&nbsp;``MountError``&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
+
+<dl><dt><a name="Base-notify"><strong>notify</strong></a>(self, message: 'str', *, title: 'str' = '', severity: 'SeverityLevel' = 'information', timeout: 'float' = 3) -&gt; 'Notification'</dt><dd><span class="code">Create&nbsp;a&nbsp;notification.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;The&nbsp;message&nbsp;for&nbsp;the&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;The&nbsp;title&nbsp;for&nbsp;the&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;severity:&nbsp;The&nbsp;severity&nbsp;of&nbsp;the&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;The&nbsp;timeout&nbsp;for&nbsp;the&nbsp;notification.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;new&nbsp;notification.<br>
+&nbsp;<br>
+The&nbsp;`notify`&nbsp;method&nbsp;is&nbsp;used&nbsp;to&nbsp;create&nbsp;an&nbsp;application-wide<br>
+notification,&nbsp;shown&nbsp;in&nbsp;a&nbsp;[`Toast`][textual.widgets._toast.Toast],<br>
+normally&nbsp;originating&nbsp;in&nbsp;the&nbsp;bottom&nbsp;right&nbsp;corner&nbsp;of&nbsp;the&nbsp;display.<br>
+&nbsp;<br>
+Notifications&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;severity&nbsp;levels:<br>
+&nbsp;<br>
+-&nbsp;`information`<br>
+-&nbsp;`warning`<br>
+-&nbsp;`error`<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;is&nbsp;`information`.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Show&nbsp;an&nbsp;information&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#Base-notify">notify</a>("It's&nbsp;an&nbsp;older&nbsp;code,&nbsp;sir,&nbsp;but&nbsp;it&nbsp;checks&nbsp;out.")<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Show&nbsp;a&nbsp;warning.&nbsp;Note&nbsp;that&nbsp;Textual's&nbsp;notification&nbsp;system&nbsp;allows<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;for&nbsp;the&nbsp;use&nbsp;of&nbsp;Rich&nbsp;console&nbsp;markup.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#Base-notify">notify</a>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Now&nbsp;witness&nbsp;the&nbsp;firepower&nbsp;of&nbsp;this&nbsp;fully&nbsp;"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"[b]ARMED[/b]&nbsp;and&nbsp;[i][b]OPERATIONAL[/b][/i]&nbsp;battle&nbsp;station!",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title="Possible&nbsp;trap&nbsp;detected",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;severity="warning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Show&nbsp;an&nbsp;error.&nbsp;Set&nbsp;a&nbsp;longer&nbsp;timeout&nbsp;so&nbsp;it's&nbsp;noticed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#Base-notify">notify</a>("It's&nbsp;a&nbsp;trap!",&nbsp;severity="error",&nbsp;timeout=10)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Show&nbsp;an&nbsp;information&nbsp;notification,&nbsp;but&nbsp;without&nbsp;any&nbsp;sort&nbsp;of&nbsp;title.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#Base-notify">notify</a>("It's&nbsp;against&nbsp;my&nbsp;programming&nbsp;to&nbsp;impersonate&nbsp;a&nbsp;deity.",&nbsp;title="")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd></dl>
+
+<dl><dt>async <a name="Base-on_event"><strong>on_event</strong></a>(self, event: 'events.Event') -&gt; 'None'</dt><dd><span class="code">Called&nbsp;to&nbsp;process&nbsp;an&nbsp;event.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;An&nbsp;Event&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Base-panic"><strong>panic</strong></a>(self, *renderables: 'RenderableType') -&gt; 'None'</dt><dd><span class="code">Exits&nbsp;the&nbsp;app&nbsp;and&nbsp;display&nbsp;error&nbsp;message(s).<br>
+&nbsp;<br>
+Used&nbsp;in&nbsp;response&nbsp;to&nbsp;unexpected&nbsp;errors.<br>
+For&nbsp;a&nbsp;more&nbsp;graceful&nbsp;exit,&nbsp;see&nbsp;the&nbsp;[exit][textual.app.<a href="textual.app.html#App">App</a>.exit]&nbsp;method.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*renderables:&nbsp;Text&nbsp;or&nbsp;Rich&nbsp;renderable(s)&nbsp;to&nbsp;display&nbsp;on&nbsp;exit.</span></dd></dl>
+
+<dl><dt><a name="Base-pop_screen"><strong>pop_screen</strong></a>(self) -&gt; 'Screen[object]'</dt><dd><span class="code">Pop&nbsp;the&nbsp;current&nbsp;[screen](/guide/screens)&nbsp;from&nbsp;the&nbsp;stack,&nbsp;and&nbsp;switch&nbsp;to&nbsp;the&nbsp;previous&nbsp;screen.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;screen&nbsp;that&nbsp;was&nbsp;replaced.</span></dd></dl>
+
+<dl><dt><a name="Base-post_display_hook"><strong>post_display_hook</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Called&nbsp;immediately&nbsp;after&nbsp;a&nbsp;display&nbsp;is&nbsp;done.&nbsp;Used&nbsp;in&nbsp;tests.</span></dd></dl>
+
+<dl><dt><a name="Base-push_screen"><strong>push_screen</strong></a>(self, screen: 'Screen[ScreenResultType] | str', callback: 'ScreenResultCallbackType[ScreenResultType] | None' = None) -&gt; 'AwaitMount'</dt><dd><span class="code">Push&nbsp;a&nbsp;new&nbsp;[screen](/guide/screens)&nbsp;on&nbsp;the&nbsp;screen&nbsp;stack,&nbsp;making&nbsp;it&nbsp;the&nbsp;current&nbsp;screen.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;A&nbsp;Screen&nbsp;instance&nbsp;or&nbsp;the&nbsp;name&nbsp;of&nbsp;an&nbsp;installed&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;An&nbsp;optional&nbsp;callback&nbsp;function&nbsp;that&nbsp;will&nbsp;be&nbsp;called&nbsp;if&nbsp;the&nbsp;screen&nbsp;is&nbsp;[dismissed][textual.screen.Screen.dismiss]&nbsp;with&nbsp;a&nbsp;result.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;optional&nbsp;awaitable&nbsp;that&nbsp;awaits&nbsp;the&nbsp;mounting&nbsp;of&nbsp;the&nbsp;screen&nbsp;and&nbsp;its&nbsp;children.</span></dd></dl>
+
+<dl><dt><a name="Base-refresh"><strong>refresh</strong></a>(self, *, repaint: 'bool' = True, layout: 'bool' = False) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Base-refresh_css"><strong>refresh_css</strong></a>(self, animate: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Refresh&nbsp;CSS.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Also&nbsp;execute&nbsp;CSS&nbsp;animations.</span></dd></dl>
+
+<dl><dt><a name="Base-remove_mode"><strong>remove_mode</strong></a>(self, mode: 'str') -&gt; 'None'</dt><dd><span class="code">Removes&nbsp;a&nbsp;mode&nbsp;from&nbsp;the&nbsp;app.<br>
+&nbsp;<br>
+Screens&nbsp;that&nbsp;are&nbsp;running&nbsp;in&nbsp;the&nbsp;stack&nbsp;of&nbsp;that&nbsp;mode&nbsp;are&nbsp;scheduled&nbsp;for&nbsp;pruning.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mode:&nbsp;The&nbsp;mode&nbsp;to&nbsp;remove.&nbsp;It&nbsp;can't&nbsp;be&nbsp;the&nbsp;active&nbsp;mode.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ActiveModeError:&nbsp;If&nbsp;trying&nbsp;to&nbsp;remove&nbsp;the&nbsp;active&nbsp;mode.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;UnknownModeError:&nbsp;If&nbsp;trying&nbsp;to&nbsp;remove&nbsp;an&nbsp;unknown&nbsp;mode.</span></dd></dl>
+
+<dl><dt><a name="Base-render"><strong>render</strong></a>(self) -&gt; 'RenderableType'</dt></dl>
+
+<dl><dt><a name="Base-run"><strong>run</strong></a>(self, *, headless: 'bool' = False, size: 'tuple[int, int] | None' = None, auto_pilot: 'AutopilotCallbackType | None' = None) -&gt; 'ReturnType | None'</dt><dd><span class="code">Run&nbsp;the&nbsp;app.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;headless:&nbsp;Run&nbsp;in&nbsp;headless&nbsp;mode&nbsp;(no&nbsp;output).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;size:&nbsp;Force&nbsp;terminal&nbsp;size&nbsp;to&nbsp;`(WIDTH,&nbsp;HEIGHT)`,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-detect.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auto_pilot:&nbsp;An&nbsp;auto&nbsp;pilot&nbsp;coroutine.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="textual.app.html#App">App</a>&nbsp;return&nbsp;value.</span></dd></dl>
+
+<dl><dt>async <a name="Base-run_action"><strong>run_action</strong></a>(self, action: 'str | ActionParseResult', default_namespace: 'object | None' = None) -&gt; 'bool'</dt><dd><span class="code">Perform&nbsp;an&nbsp;[action](/guide/actions).<br>
+&nbsp;<br>
+Actions&nbsp;are&nbsp;typically&nbsp;associated&nbsp;with&nbsp;key&nbsp;bindings,&nbsp;where&nbsp;you&nbsp;wouldn't&nbsp;need&nbsp;to&nbsp;call&nbsp;this&nbsp;method&nbsp;manually.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;action:&nbsp;Action&nbsp;encoded&nbsp;in&nbsp;a&nbsp;string.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;default_namespace:&nbsp;Namespace&nbsp;to&nbsp;use&nbsp;if&nbsp;not&nbsp;provided&nbsp;in&nbsp;the&nbsp;action,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;to&nbsp;use&nbsp;app.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;event&nbsp;has&nbsp;been&nbsp;handled.</span></dd></dl>
+
+<dl><dt>async <a name="Base-run_async"><strong>run_async</strong></a>(self, *, headless: 'bool' = False, size: 'tuple[int, int] | None' = None, auto_pilot: 'AutopilotCallbackType | None' = None) -&gt; 'ReturnType | None'</dt><dd><span class="code">Run&nbsp;the&nbsp;app&nbsp;asynchronously.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;headless:&nbsp;Run&nbsp;in&nbsp;headless&nbsp;mode&nbsp;(no&nbsp;output).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;size:&nbsp;Force&nbsp;terminal&nbsp;size&nbsp;to&nbsp;`(WIDTH,&nbsp;HEIGHT)`,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-detect.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auto_pilot:&nbsp;An&nbsp;auto&nbsp;pilot&nbsp;coroutine.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="textual.app.html#App">App</a>&nbsp;return&nbsp;value.</span></dd></dl>
+
+<dl><dt><a name="Base-run_test"><strong>run_test</strong></a>(self, *, headless: 'bool' = True, size: 'tuple[int, int] | None' = (80, 24), tooltips: 'bool' = False, notifications: 'bool' = False, message_hook: 'Callable[[Message], None] | None' = None) -&gt; 'AsyncGenerator[Pilot, None]'</dt><dd><span class="code">An&nbsp;asynchronous&nbsp;context&nbsp;manager&nbsp;for&nbsp;testing&nbsp;app.<br>
+&nbsp;<br>
+Use&nbsp;this&nbsp;to&nbsp;run&nbsp;your&nbsp;app&nbsp;in&nbsp;"headless"&nbsp;(no&nbsp;output)&nbsp;mode&nbsp;and&nbsp;driver&nbsp;the&nbsp;app&nbsp;via&nbsp;a&nbsp;[Pilot][textual.pilot.Pilot]&nbsp;object.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;async&nbsp;with&nbsp;app.<a href="#Base-run_test">run_test</a>()&nbsp;as&nbsp;pilot:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;pilot.click("#Button.ok")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;headless:&nbsp;Run&nbsp;in&nbsp;headless&nbsp;mode&nbsp;(no&nbsp;output&nbsp;or&nbsp;input).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;size:&nbsp;Force&nbsp;terminal&nbsp;size&nbsp;to&nbsp;`(WIDTH,&nbsp;HEIGHT)`,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-detect.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tooltips:&nbsp;Enable&nbsp;tooltips&nbsp;when&nbsp;testing.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;notifications:&nbsp;Enable&nbsp;notifications&nbsp;when&nbsp;testing.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message_hook:&nbsp;An&nbsp;optional&nbsp;callback&nbsp;that&nbsp;will&nbsp;called&nbsp;with&nbsp;every&nbsp;message&nbsp;going&nbsp;through&nbsp;the&nbsp;app.</span></dd></dl>
+
+<dl><dt><a name="Base-save_screenshot"><strong>save_screenshot</strong></a>(self, filename: 'str | None' = None, path: 'str' = './', time_format: 'str | None' = None) -&gt; 'str'</dt><dd><span class="code">Save&nbsp;an&nbsp;SVG&nbsp;screenshot&nbsp;of&nbsp;the&nbsp;current&nbsp;screen.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filename:&nbsp;Filename&nbsp;of&nbsp;SVG&nbsp;screenshot,&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-generate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;filename&nbsp;with&nbsp;the&nbsp;date&nbsp;and&nbsp;time.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path:&nbsp;Path&nbsp;to&nbsp;directory&nbsp;for&nbsp;output.&nbsp;Defaults&nbsp;to&nbsp;current&nbsp;working&nbsp;directory.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;time_format:&nbsp;Date&nbsp;and&nbsp;time&nbsp;format&nbsp;to&nbsp;use&nbsp;if&nbsp;filename&nbsp;is&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;a&nbsp;format&nbsp;like&nbsp;ISO&nbsp;8601&nbsp;with&nbsp;some&nbsp;reserved&nbsp;characters&nbsp;replaced&nbsp;with&nbsp;underscores.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Filename&nbsp;of&nbsp;screenshot.</span></dd></dl>
+
+<dl><dt><a name="Base-set_focus"><strong>set_focus</strong></a>(self, widget: 'Widget | None', scroll_visible: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Focus&nbsp;(or&nbsp;unfocus)&nbsp;a&nbsp;widget.&nbsp;A&nbsp;focused&nbsp;widget&nbsp;will&nbsp;receive&nbsp;key&nbsp;events&nbsp;first.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;Widget&nbsp;to&nbsp;focus.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scroll_visible:&nbsp;Scroll&nbsp;widget&nbsp;in&nbsp;to&nbsp;view.</span></dd></dl>
+
+<dl><dt>async <a name="Base-stop_animation"><strong>stop_animation</strong></a>(self, attribute: 'str', complete: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Stop&nbsp;an&nbsp;animation&nbsp;on&nbsp;an&nbsp;attribute.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute&nbsp;whose&nbsp;animation&nbsp;should&nbsp;be&nbsp;stopped.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;complete:&nbsp;Should&nbsp;the&nbsp;animation&nbsp;be&nbsp;set&nbsp;to&nbsp;its&nbsp;final&nbsp;value?<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;animation&nbsp;scheduled&nbsp;or&nbsp;running,&nbsp;this&nbsp;is&nbsp;a&nbsp;no-op.</span></dd></dl>
+
+<dl><dt><a name="Base-switch_mode"><strong>switch_mode</strong></a>(self, mode: 'str') -&gt; 'None'</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;given&nbsp;mode.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mode:&nbsp;The&nbsp;mode&nbsp;to&nbsp;switch&nbsp;to.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;UnknownModeError:&nbsp;If&nbsp;trying&nbsp;to&nbsp;switch&nbsp;to&nbsp;an&nbsp;unknown&nbsp;mode.</span></dd></dl>
+
+<dl><dt><a name="Base-switch_screen"><strong>switch_screen</strong></a>(self, screen: 'Screen | str') -&gt; 'AwaitMount'</dt><dd><span class="code">Switch&nbsp;to&nbsp;another&nbsp;[screen](/guide/screens)&nbsp;by&nbsp;replacing&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;screen&nbsp;stack&nbsp;with&nbsp;a&nbsp;new&nbsp;screen.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;Either&nbsp;a&nbsp;Screen&nbsp;object&nbsp;or&nbsp;screen&nbsp;name&nbsp;(the&nbsp;`name`&nbsp;argument&nbsp;when&nbsp;installed).</span></dd></dl>
+
+<dl><dt><a name="Base-uninstall_screen"><strong>uninstall_screen</strong></a>(self, screen: 'Screen | str') -&gt; 'str | None'</dt><dd><span class="code">Uninstall&nbsp;a&nbsp;screen.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;screen&nbsp;was&nbsp;not&nbsp;previously&nbsp;installed&nbsp;then&nbsp;this&nbsp;method&nbsp;is&nbsp;a&nbsp;null-op.<br>
+Uninstalling&nbsp;a&nbsp;screen&nbsp;allows&nbsp;Textual&nbsp;to&nbsp;delete&nbsp;it&nbsp;when&nbsp;it&nbsp;is&nbsp;popped&nbsp;or&nbsp;switched.<br>
+Note&nbsp;that&nbsp;uninstalling&nbsp;a&nbsp;screen&nbsp;is&nbsp;only&nbsp;required&nbsp;if&nbsp;you&nbsp;have&nbsp;previously&nbsp;installed&nbsp;it<br>
+with&nbsp;[install_screen][textual.app.<a href="textual.app.html#App">App</a>.install_screen].<br>
+Textual&nbsp;will&nbsp;also&nbsp;uninstall&nbsp;screens&nbsp;automatically&nbsp;on&nbsp;exit.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;The&nbsp;screen&nbsp;to&nbsp;uninstall&nbsp;or&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;installed&nbsp;screen.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;screen&nbsp;that&nbsp;was&nbsp;uninstalled,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;screen&nbsp;was&nbsp;uninstalled.</span></dd></dl>
+
+<dl><dt><a name="Base-unnotify"><strong>unnotify</strong></a>(self, notification: 'Notification', refresh: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Remove&nbsp;a&nbsp;notification&nbsp;from&nbsp;the&nbsp;notification&nbsp;collection.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;notification:&nbsp;The&nbsp;notification&nbsp;to&nbsp;remove.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;refresh:&nbsp;Flag&nbsp;to&nbsp;say&nbsp;if&nbsp;the&nbsp;display&nbsp;of&nbsp;notifications&nbsp;should&nbsp;be&nbsp;refreshed.</span></dd></dl>
+
+<dl><dt><a name="Base-update_styles"><strong>update_styles</strong></a>(self, node: 'DOMNode') -&gt; 'None'</dt><dd><span class="code">Immediately&nbsp;update&nbsp;the&nbsp;styles&nbsp;of&nbsp;this&nbsp;node&nbsp;and&nbsp;all&nbsp;descendant&nbsp;nodes.<br>
+&nbsp;<br>
+Should&nbsp;be&nbsp;called&nbsp;whenever&nbsp;CSS&nbsp;classes&nbsp;/&nbsp;pseudo&nbsp;classes&nbsp;change.<br>
+For&nbsp;example,&nbsp;when&nbsp;you&nbsp;hover&nbsp;over&nbsp;a&nbsp;button,&nbsp;the&nbsp;:hover&nbsp;pseudo&nbsp;class<br>
+will&nbsp;be&nbsp;added,&nbsp;and&nbsp;this&nbsp;method&nbsp;is&nbsp;called&nbsp;to&nbsp;apply&nbsp;the&nbsp;corresponding<br>
+:hover&nbsp;styles.</span></dd></dl>
+
+<dl><dt><a name="Base-validate_sub_title"><strong>validate_sub_title</strong></a>(self, sub_title: 'Any') -&gt; 'str'</dt><dd><span class="code">Make&nbsp;sure&nbsp;the&nbsp;sub-title&nbsp;is&nbsp;set&nbsp;to&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="Base-validate_title"><strong>validate_title</strong></a>(self, title: 'Any') -&gt; 'str'</dt><dd><span class="code">Make&nbsp;sure&nbsp;the&nbsp;title&nbsp;is&nbsp;set&nbsp;to&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="Base-watch_dark"><strong>watch_dark</strong></a>(self, dark: 'bool') -&gt; 'None'</dt><dd><span class="code">Watches&nbsp;the&nbsp;dark&nbsp;bool.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;handles&nbsp;the&nbsp;transition&nbsp;between&nbsp;light&nbsp;and&nbsp;dark&nbsp;mode&nbsp;when&nbsp;you<br>
+change&nbsp;the&nbsp;[dark][textual.app.<a href="textual.app.html#App">App</a>.dark]&nbsp;attribute.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="textual.app.html#App">textual.app.App</a>:<br>
+<dl><dt><strong>animator</strong></dt>
+</dl>
+<dl><dt><strong>children</strong></dt>
+<dd><span class="code">A&nbsp;view&nbsp;onto&nbsp;the&nbsp;app's&nbsp;immediate&nbsp;children.<br>
+&nbsp;<br>
+This&nbsp;attribute&nbsp;exists&nbsp;on&nbsp;all&nbsp;widgets.<br>
+In&nbsp;the&nbsp;case&nbsp;of&nbsp;the&nbsp;App,&nbsp;it&nbsp;will&nbsp;only&nbsp;ever&nbsp;contain&nbsp;a&nbsp;single&nbsp;child,&nbsp;which&nbsp;will<br>
+be&nbsp;the&nbsp;currently&nbsp;active&nbsp;screen.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;sequence&nbsp;of&nbsp;widgets.</span></dd>
+</dl>
+<dl><dt><strong>current_mode</strong></dt>
+<dd><span class="code">The&nbsp;name&nbsp;of&nbsp;the&nbsp;currently&nbsp;active&nbsp;mode.</span></dd>
+</dl>
+<dl><dt><strong>debug</strong></dt>
+<dd><span class="code">Is&nbsp;debug&nbsp;mode&nbsp;enabled?</span></dd>
+</dl>
+<dl><dt><strong>focused</strong></dt>
+<dd><span class="code">The&nbsp;widget&nbsp;that&nbsp;is&nbsp;focused&nbsp;on&nbsp;the&nbsp;currently&nbsp;active&nbsp;screen,&nbsp;or&nbsp;`None`.<br>
+&nbsp;<br>
+Focused&nbsp;widgets&nbsp;receive&nbsp;keyboard&nbsp;input.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;currently&nbsp;focused&nbsp;widget,&nbsp;or&nbsp;`None`&nbsp;if&nbsp;nothing&nbsp;is&nbsp;focused.</span></dd>
+</dl>
+<dl><dt><strong>is_headless</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;driver&nbsp;running&nbsp;in&nbsp;'headless'&nbsp;mode?<br>
+&nbsp;<br>
+Headless&nbsp;mode&nbsp;is&nbsp;used&nbsp;when&nbsp;running&nbsp;tests&nbsp;with&nbsp;[run_test][textual.app.App.run_test].</span></dd>
+</dl>
+<dl><dt><strong>log</strong></dt>
+<dd><span class="code">The&nbsp;textual&nbsp;logger.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.log("Hello,&nbsp;World!")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.log(self.<strong>tree</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Textual&nbsp;logger.</span></dd>
+</dl>
+<dl><dt><strong>namespace_bindings</strong></dt>
+<dd><span class="code">Get&nbsp;currently&nbsp;active&nbsp;bindings.<br>
+&nbsp;<br>
+If&nbsp;no&nbsp;widget&nbsp;is&nbsp;focused,&nbsp;then&nbsp;app-level&nbsp;bindings&nbsp;are&nbsp;returned.<br>
+If&nbsp;a&nbsp;widget&nbsp;is&nbsp;focused,&nbsp;then&nbsp;any&nbsp;bindings&nbsp;present&nbsp;in&nbsp;the&nbsp;active&nbsp;screen&nbsp;and&nbsp;app&nbsp;are&nbsp;merged&nbsp;and&nbsp;returned.<br>
+&nbsp;<br>
+This&nbsp;property&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;inspect&nbsp;current&nbsp;bindings.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;mapping&nbsp;of&nbsp;keys&nbsp;onto&nbsp;pairs&nbsp;of&nbsp;nodes&nbsp;and&nbsp;bindings.</span></dd>
+</dl>
+<dl><dt><strong>return_code</strong></dt>
+<dd><span class="code">The&nbsp;return&nbsp;code&nbsp;with&nbsp;which&nbsp;the&nbsp;app&nbsp;exited.<br>
+&nbsp;<br>
+Non-zero&nbsp;codes&nbsp;indicate&nbsp;errors.<br>
+A&nbsp;value&nbsp;of&nbsp;1&nbsp;means&nbsp;the&nbsp;app&nbsp;exited&nbsp;with&nbsp;a&nbsp;fatal&nbsp;error.<br>
+If&nbsp;the&nbsp;app&nbsp;wasn't&nbsp;exited&nbsp;yet,&nbsp;this&nbsp;will&nbsp;be&nbsp;`None`.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;return&nbsp;code&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;exit&nbsp;the&nbsp;process&nbsp;via&nbsp;`sys.exit`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;my_app.run()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(my_app.return_code)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd>
+</dl>
+<dl><dt><strong>return_value</strong></dt>
+<dd><span class="code">The&nbsp;return&nbsp;value&nbsp;of&nbsp;the&nbsp;app,&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;not&nbsp;yet&nbsp;been&nbsp;set.<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;value&nbsp;is&nbsp;set&nbsp;when&nbsp;calling&nbsp;[exit][textual.app.App.exit].</span></dd>
+</dl>
+<dl><dt><strong>screen</strong></dt>
+<dd><span class="code">The&nbsp;current&nbsp;active&nbsp;screen.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;currently&nbsp;active&nbsp;(visible)&nbsp;screen.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ScreenStackError:&nbsp;If&nbsp;there&nbsp;are&nbsp;no&nbsp;screens&nbsp;on&nbsp;the&nbsp;stack.</span></dd>
+</dl>
+<dl><dt><strong>screen_stack</strong></dt>
+<dd><span class="code">A&nbsp;snapshot&nbsp;of&nbsp;the&nbsp;current&nbsp;screen&nbsp;stack.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;snapshot&nbsp;of&nbsp;the&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;screen&nbsp;stack.</span></dd>
+</dl>
+<dl><dt><strong>size</strong></dt>
+<dd><span class="code">The&nbsp;size&nbsp;of&nbsp;the&nbsp;terminal.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Size&nbsp;of&nbsp;the&nbsp;terminal.</span></dd>
+</dl>
+<dl><dt><strong>workers</strong></dt>
+<dd><span class="code">The&nbsp;[worker](guide/workers/)&nbsp;manager.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;object&nbsp;to&nbsp;manage&nbsp;workers.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="textual.app.html#App">textual.app.App</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>dark</strong></dt>
+</dl>
+<dl><dt><strong>sub_title</strong></dt>
+</dl>
+<dl><dt><strong>title</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="textual.app.html#App">textual.app.App</a>:<br>
+<dl><dt><strong>AUTO_FOCUS</strong> = '*'</dl>
+
+<dl><dt><strong>CSS</strong> = ''</dl>
+
+<dl><dt><strong>DEFAULT_CSS</strong> = '<span class="repr">\n</span>    App {<span class="repr">\n</span>        background: $background;<span class="repr">\n</span>    ...led:can-focus {<span class="repr">\n</span>        opacity: 0.7;<span class="repr">\n\n</span>    }<span class="repr">\n</span>    '</dl>
+
+<dl><dt><strong>ExpectType</strong> = ~ExpectType</dl>
+
+<dl><dt><strong>MODES</strong> = {}</dl>
+
+<dl><dt><strong>SCREENS</strong> = {}</dl>
+
+<dl><dt><strong>SUB_TITLE</strong> = None</dl>
+
+<dl><dt><strong>TITLE</strong> = None</dl>
+
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="Base-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="textual.message_pump.html#_MessagePumpMeta">textual.message_pump._MessagePumpMeta</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+&nbsp;<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
+does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
+do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+&nbsp;<br>
+However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+
+<dl><dt><a name="Base-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="textual.message_pump.html#_MessagePumpMeta">textual.message_pump._MessagePumpMeta</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
+<dl><dt><a name="Base-add_class"><strong>add_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;class&nbsp;names&nbsp;to&nbsp;this&nbsp;Node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;add.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Base-compose_add_child"><strong>compose_add_child</strong></a>(self, widget: 'Widget') -&gt; 'None'</dt><dd><span class="code">Add&nbsp;a&nbsp;node&nbsp;to&nbsp;children.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;by&nbsp;the&nbsp;compose&nbsp;process&nbsp;when&nbsp;it&nbsp;adds&nbsp;children.<br>
+There&nbsp;is&nbsp;no&nbsp;need&nbsp;to&nbsp;use&nbsp;it&nbsp;directly,&nbsp;but&nbsp;you&nbsp;may&nbsp;want&nbsp;to&nbsp;override&nbsp;it&nbsp;in&nbsp;a&nbsp;subclass<br>
+if&nbsp;you&nbsp;want&nbsp;children&nbsp;to&nbsp;be&nbsp;attached&nbsp;to&nbsp;a&nbsp;different&nbsp;node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;Widget&nbsp;to&nbsp;add.</span></dd></dl>
+
+<dl><dt><a name="Base-get_component_styles"><strong>get_component_styles</strong></a>(self, name: 'str') -&gt; 'RenderStyles'</dt><dd><span class="code">Get&nbsp;a&nbsp;"component"&nbsp;styles&nbsp;object&nbsp;(must&nbsp;be&nbsp;defined&nbsp;in&nbsp;COMPONENT_CLASSES&nbsp;classvar).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;component.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;KeyError:&nbsp;If&nbsp;the&nbsp;component&nbsp;class&nbsp;doesn't&nbsp;exist.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Styles&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Base-get_pseudo_classes"><strong>get_pseudo_classes</strong></a>(self) -&gt; 'Iterable[str]'</dt><dd><span class="code">Get&nbsp;any&nbsp;pseudo&nbsp;classes&nbsp;applicable&nbsp;to&nbsp;this&nbsp;Node,&nbsp;e.g.&nbsp;hover,&nbsp;focus.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Iterable&nbsp;of&nbsp;strings,&nbsp;such&nbsp;as&nbsp;a&nbsp;generator.</span></dd></dl>
+
+<dl><dt><a name="Base-has_class"><strong>has_class</strong></a>(self, *class_names: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;the&nbsp;Node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;class&nbsp;names.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;check.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;``True``&nbsp;if&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;class&nbsp;names,&nbsp;otherwise&nbsp;``False``.</span></dd></dl>
+
+<dl><dt><a name="Base-has_pseudo_class"><strong>has_pseudo_class</strong></a>(self, *class_names: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;for&nbsp;pseudo&nbsp;classes&nbsp;(such&nbsp;as&nbsp;hover,&nbsp;focus&nbsp;etc)<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;The&nbsp;pseudo&nbsp;classes&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;DOM&nbsp;node&nbsp;has&nbsp;those&nbsp;pseudo&nbsp;classes,&nbsp;`False`&nbsp;if&nbsp;not.</span></dd></dl>
+
+<dl><dt><a name="Base-notify_style_update"><strong>notify_style_update</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Called&nbsp;after&nbsp;styles&nbsp;are&nbsp;updated.<br>
+&nbsp;<br>
+Implement&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;clear&nbsp;any&nbsp;cached&nbsp;data&nbsp;when&nbsp;the&nbsp;CSS&nbsp;is&nbsp;reloaded.</span></dd></dl>
+
+<dl><dt><a name="Base-query"><strong>query</strong></a>(self, selector: 'str | type[QueryType] | None' = None) -&gt; 'DOMQuery[Widget] | DOMQuery[QueryType]'</dt><dd><span class="code">Get&nbsp;a&nbsp;DOM&nbsp;query&nbsp;matching&nbsp;a&nbsp;selector.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector&nbsp;or&nbsp;`None`&nbsp;for&nbsp;all&nbsp;nodes.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;query&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Base-query_one"><strong>query_one</strong></a>(self, selector: 'str | type[QueryType]', expect_type: 'type[QueryType] | None' = None) -&gt; 'QueryType | Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;single&nbsp;Widget&nbsp;matching&nbsp;the&nbsp;given&nbsp;selector&nbsp;or&nbsp;selector&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;selector.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;any&nbsp;type.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WrongType:&nbsp;If&nbsp;the&nbsp;wrong&nbsp;type&nbsp;was&nbsp;found.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;node&nbsp;matches&nbsp;the&nbsp;query.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TooManyMatches:&nbsp;If&nbsp;there&nbsp;is&nbsp;more&nbsp;than&nbsp;one&nbsp;matching&nbsp;node&nbsp;in&nbsp;the&nbsp;query.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;matching&nbsp;the&nbsp;selector.</span></dd></dl>
+
+<dl><dt><a name="Base-remove_class"><strong>remove_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Remove&nbsp;class&nbsp;names&nbsp;from&nbsp;this&nbsp;Node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;remove.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Base-reset_styles"><strong>reset_styles</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Reset&nbsp;styles&nbsp;back&nbsp;to&nbsp;their&nbsp;initial&nbsp;state.</span></dd></dl>
+
+<dl><dt><a name="Base-run_worker"><strong>run_worker</strong></a>(self, work: 'WorkType[ResultType]', name: 'str | None' = '', group: 'str' = 'default', description: 'str' = '', exit_on_error: 'bool' = True, start: 'bool' = True, exclusive: 'bool' = False, thread: 'bool' = False) -&gt; 'Worker[ResultType]'</dt><dd><span class="code">Run&nbsp;work&nbsp;in&nbsp;a&nbsp;worker.<br>
+&nbsp;<br>
+A&nbsp;worker&nbsp;runs&nbsp;a&nbsp;function,&nbsp;coroutine,&nbsp;or&nbsp;awaitable,&nbsp;in&nbsp;the&nbsp;*background*&nbsp;as&nbsp;an&nbsp;async&nbsp;task&nbsp;or&nbsp;as&nbsp;a&nbsp;thread.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;work:&nbsp;A&nbsp;function,&nbsp;async&nbsp;function,&nbsp;or&nbsp;an&nbsp;awaitable&nbsp;object&nbsp;to&nbsp;run&nbsp;in&nbsp;a&nbsp;worker.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;A&nbsp;short&nbsp;string&nbsp;to&nbsp;identify&nbsp;the&nbsp;worker&nbsp;(in&nbsp;logs&nbsp;and&nbsp;debugging).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;A&nbsp;short&nbsp;string&nbsp;to&nbsp;identify&nbsp;a&nbsp;group&nbsp;of&nbsp;workers.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;description:&nbsp;A&nbsp;longer&nbsp;string&nbsp;to&nbsp;store&nbsp;longer&nbsp;information&nbsp;on&nbsp;the&nbsp;worker.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exit_on_error:&nbsp;Exit&nbsp;the&nbsp;app&nbsp;if&nbsp;the&nbsp;worker&nbsp;raises&nbsp;an&nbsp;error.&nbsp;Set&nbsp;to&nbsp;`False`&nbsp;to&nbsp;suppress&nbsp;exceptions.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;start:&nbsp;Start&nbsp;the&nbsp;worker&nbsp;immediately.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exclusive:&nbsp;Cancel&nbsp;all&nbsp;workers&nbsp;in&nbsp;the&nbsp;same&nbsp;group.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;thread:&nbsp;Mark&nbsp;the&nbsp;worker&nbsp;as&nbsp;a&nbsp;thread&nbsp;worker.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;Worker&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Base-set_class"><strong>set_class</strong></a>(self, add: 'bool', *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;or&nbsp;remove&nbsp;class(es)&nbsp;based&nbsp;on&nbsp;a&nbsp;condition.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;add:&nbsp;Add&nbsp;the&nbsp;classes&nbsp;if&nbsp;True,&nbsp;otherwise&nbsp;remove&nbsp;them.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Base-set_classes"><strong>set_classes</strong></a>(self, classes: 'str | Iterable[str]') -&gt; 'Self'</dt><dd><span class="code">Replace&nbsp;all&nbsp;classes.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;classes:&nbsp;A&nbsp;string&nbsp;containing&nbsp;space&nbsp;separated&nbsp;classes,&nbsp;or&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iterable&nbsp;of&nbsp;class&nbsp;names.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Base-set_styles"><strong>set_styles</strong></a>(self, css: 'str | None' = None, **update_styles) -&gt; 'Self'</dt><dd><span class="code">Set&nbsp;custom&nbsp;styles&nbsp;on&nbsp;this&nbsp;object.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;css:&nbsp;Styles&nbsp;in&nbsp;CSS&nbsp;format.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**update_styles:&nbsp;Keyword&nbsp;arguments&nbsp;map&nbsp;style&nbsp;names&nbsp;on&nbsp;to&nbsp;style.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Base-toggle_class"><strong>toggle_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Toggle&nbsp;class&nbsp;names&nbsp;on&nbsp;this&nbsp;Node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;toggle.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Base-walk_children"><strong>walk_children</strong></a>(self, filter_type: 'type[WalkType] | None' = None, *, with_self: 'bool' = False, method: 'WalkMethod' = 'depth', reverse: 'bool' = False) -&gt; 'list[DOMNode] | list[WalkType]'</dt><dd><span class="code">Walk&nbsp;the&nbsp;subtree&nbsp;rooted&nbsp;at&nbsp;this&nbsp;node,&nbsp;and&nbsp;return&nbsp;every&nbsp;descendant&nbsp;encountered&nbsp;in&nbsp;a&nbsp;list.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filter_type:&nbsp;Filter&nbsp;only&nbsp;this&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;no&nbsp;filter.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with_self:&nbsp;Also&nbsp;yield&nbsp;self&nbsp;in&nbsp;addition&nbsp;to&nbsp;descendants.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;method:&nbsp;One&nbsp;of&nbsp;"depth"&nbsp;or&nbsp;"breadth".<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reverse:&nbsp;Reverse&nbsp;the&nbsp;order&nbsp;(bottom&nbsp;up).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd></dl>
+
+<dl><dt><a name="Base-watch"><strong>watch</strong></a>(self, obj: 'DOMNode', attribute_name: 'str', callback: 'WatchCallbackType', init: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Watches&nbsp;for&nbsp;modifications&nbsp;to&nbsp;reactive&nbsp;attributes&nbsp;on&nbsp;another&nbsp;object.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Here's&nbsp;how&nbsp;you&nbsp;could&nbsp;detect&nbsp;when&nbsp;the&nbsp;app&nbsp;changes&nbsp;from&nbsp;dark&nbsp;to&nbsp;light&nbsp;mode&nbsp;(and&nbsp;vice&nbsp;versa).<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;on_dark_change(old_value:bool,&nbsp;new_value:bool):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Called&nbsp;when&nbsp;app.dark&nbsp;changes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("<a href="textual.app.html#App">App</a>.dark&nbsp;when&nbsp;from&nbsp;{old_value}&nbsp;to&nbsp;{new_value}")<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#Base-watch">watch</a>(self.<strong>app</strong>,&nbsp;"dark",&nbsp;self.<strong>on_dark_change</strong>,&nbsp;init=False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;Object&nbsp;containing&nbsp;attribute&nbsp;to&nbsp;watch.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute_name:&nbsp;Attribute&nbsp;to&nbsp;watch.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;A&nbsp;callback&nbsp;to&nbsp;run&nbsp;when&nbsp;attribute&nbsp;changes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;init:&nbsp;Check&nbsp;watchers&nbsp;on&nbsp;first&nbsp;call.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
+<dl><dt><strong>ancestors</strong></dt>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;Nodes&nbsp;by&nbsp;tracing&nbsp;ancestors&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
+</dl>
+<dl><dt><strong>ancestors_with_self</strong></dt>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;Nodes&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;inclusive&nbsp;of&nbsp;``self``.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
+</dl>
+<dl><dt><strong>background_colors</strong></dt>
+<dd><span class="code">The&nbsp;background&nbsp;color&nbsp;and&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;parent's&nbsp;background.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`(&lt;background&nbsp;color&gt;,&nbsp;&lt;color&gt;)`</span></dd>
+</dl>
+<dl><dt><strong>colors</strong></dt>
+<dd><span class="code">The&nbsp;widget's&nbsp;background&nbsp;and&nbsp;foreground&nbsp;colors,&nbsp;and&nbsp;the&nbsp;parent's&nbsp;background&nbsp;and&nbsp;foreground&nbsp;colors.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`(&lt;parent&nbsp;background&gt;,&nbsp;&lt;parent&nbsp;color&gt;,&nbsp;&lt;background&gt;,&nbsp;&lt;color&gt;)`</span></dd>
+</dl>
+<dl><dt><strong>css_identifier</strong></dt>
+<dd><span class="code">A&nbsp;CSS&nbsp;selector&nbsp;that&nbsp;identifies&nbsp;this&nbsp;DOM&nbsp;node.</span></dd>
+</dl>
+<dl><dt><strong>css_identifier_styled</strong></dt>
+<dd><span class="code">A&nbsp;syntax&nbsp;highlighted&nbsp;CSS&nbsp;identifier.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Rich&nbsp;Text&nbsp;object.</span></dd>
+</dl>
+<dl><dt><strong>css_path_nodes</strong></dt>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;nodes&nbsp;from&nbsp;the&nbsp;App&nbsp;to&nbsp;this&nbsp;node,&nbsp;forming&nbsp;a&nbsp;"path".<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes,&nbsp;where&nbsp;the&nbsp;first&nbsp;item&nbsp;is&nbsp;the&nbsp;App,&nbsp;and&nbsp;the&nbsp;last&nbsp;is&nbsp;this&nbsp;node.</span></dd>
+</dl>
+<dl><dt><strong>css_tree</strong></dt>
+<dd><span class="code">A&nbsp;Rich&nbsp;tree&nbsp;to&nbsp;display&nbsp;the&nbsp;DOM,&nbsp;annotated&nbsp;with&nbsp;the&nbsp;node's&nbsp;CSS.<br>
+&nbsp;<br>
+Log&nbsp;this&nbsp;to&nbsp;visualize&nbsp;your&nbsp;app&nbsp;in&nbsp;the&nbsp;textual&nbsp;console.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.log(self.<strong>css_tree</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Tree&nbsp;renderable.</span></dd>
+</dl>
+<dl><dt><strong>displayed_children</strong></dt>
+<dd><span class="code">The&nbsp;child&nbsp;nodes&nbsp;which&nbsp;will&nbsp;be&nbsp;displayed.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
+</dl>
+<dl><dt><strong>is_modal</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;node&nbsp;a&nbsp;modal?</span></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+<dd><span class="code">The&nbsp;name&nbsp;of&nbsp;the&nbsp;node.</span></dd>
+</dl>
+<dl><dt><strong>parent</strong></dt>
+<dd><span class="code">The&nbsp;parent&nbsp;node.<br>
+&nbsp;<br>
+All&nbsp;nodes&nbsp;have&nbsp;parent&nbsp;once&nbsp;added&nbsp;to&nbsp;the&nbsp;DOM,&nbsp;with&nbsp;the&nbsp;exception&nbsp;of&nbsp;the&nbsp;App&nbsp;which&nbsp;is&nbsp;the&nbsp;*root*&nbsp;node.</span></dd>
+</dl>
+<dl><dt><strong>pseudo_classes</strong></dt>
+<dd><span class="code">A&nbsp;(frozen)&nbsp;set&nbsp;of&nbsp;all&nbsp;pseudo&nbsp;classes.</span></dd>
+</dl>
+<dl><dt><strong>rich_style</strong></dt>
+<dd><span class="code">Get&nbsp;a&nbsp;Rich&nbsp;Style&nbsp;object&nbsp;for&nbsp;this&nbsp;DOMNode.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Rich&nbsp;style.</span></dd>
+</dl>
+<dl><dt><strong>text_style</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;text&nbsp;style&nbsp;object.<br>
+&nbsp;<br>
+A&nbsp;widget's&nbsp;style&nbsp;is&nbsp;influenced&nbsp;by&nbsp;its&nbsp;parent.&nbsp;for&nbsp;instance&nbsp;if&nbsp;a&nbsp;parent&nbsp;is&nbsp;bold,&nbsp;then<br>
+the&nbsp;child&nbsp;will&nbsp;also&nbsp;be&nbsp;bold.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Rich&nbsp;Style.</span></dd>
+</dl>
+<dl><dt><strong>tree</strong></dt>
+<dd><span class="code">A&nbsp;Rich&nbsp;tree&nbsp;to&nbsp;display&nbsp;the&nbsp;DOM.<br>
+&nbsp;<br>
+Log&nbsp;this&nbsp;to&nbsp;visualize&nbsp;your&nbsp;app&nbsp;in&nbsp;the&nbsp;textual&nbsp;console.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.log(self.<strong>tree</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Tree&nbsp;renderable.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
+<dl><dt><strong>auto_refresh</strong></dt>
+<dd><span class="code">Number&nbsp;of&nbsp;seconds&nbsp;between&nbsp;automatic&nbsp;refresh,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;no&nbsp;automatic&nbsp;refresh.</span></dd>
+</dl>
+<dl><dt><strong>classes</strong></dt>
+</dl>
+<dl><dt><strong>display</strong></dt>
+<dd><span class="code">Should&nbsp;the&nbsp;DOM&nbsp;node&nbsp;be&nbsp;displayed?<br>
+&nbsp;<br>
+May&nbsp;be&nbsp;set&nbsp;to&nbsp;a&nbsp;boolean&nbsp;to&nbsp;show&nbsp;or&nbsp;hide&nbsp;the&nbsp;node,&nbsp;or&nbsp;to&nbsp;any&nbsp;valid&nbsp;value&nbsp;for&nbsp;the&nbsp;`display`&nbsp;rule.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;my_widget.display&nbsp;=&nbsp;False&nbsp;&nbsp;#&nbsp;Hide&nbsp;my_widget<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd>
+</dl>
+<dl><dt><strong>id</strong></dt>
+<dd><span class="code">The&nbsp;ID&nbsp;of&nbsp;this&nbsp;node,&nbsp;or&nbsp;None&nbsp;if&nbsp;the&nbsp;node&nbsp;has&nbsp;no&nbsp;ID.</span></dd>
+</dl>
+<dl><dt><strong>visible</strong></dt>
+<dd><span class="code">Is&nbsp;this&nbsp;widget&nbsp;visible&nbsp;in&nbsp;the&nbsp;DOM?<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;widget&nbsp;hasn't&nbsp;had&nbsp;its&nbsp;visibility&nbsp;set&nbsp;explicitly,&nbsp;then&nbsp;it&nbsp;inherits&nbsp;it&nbsp;from&nbsp;its<br>
+DOM&nbsp;ancestors.<br>
+&nbsp;<br>
+This&nbsp;may&nbsp;be&nbsp;set&nbsp;explicitly&nbsp;to&nbsp;override&nbsp;inherited&nbsp;values.<br>
+The&nbsp;valid&nbsp;values&nbsp;include&nbsp;the&nbsp;valid&nbsp;values&nbsp;for&nbsp;the&nbsp;`visibility`&nbsp;rule&nbsp;and&nbsp;the&nbsp;booleans<br>
+`True`&nbsp;or&nbsp;`False`,&nbsp;to&nbsp;set&nbsp;the&nbsp;widget&nbsp;to&nbsp;be&nbsp;visible&nbsp;or&nbsp;invisible,&nbsp;respectively.<br>
+&nbsp;<br>
+When&nbsp;a&nbsp;node&nbsp;is&nbsp;invisible,&nbsp;Textual&nbsp;will&nbsp;reserve&nbsp;space&nbsp;for&nbsp;it,&nbsp;but&nbsp;won't&nbsp;display&nbsp;anything.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
+<dl><dt><strong>COMPONENT_CLASSES</strong> = set()</dl>
+
+<dl><dt><strong>DEFAULT_CLASSES</strong> = ''</dl>
+
+<dl><dt><strong>WalkType</strong> = ~WalkType</dl>
+
+<hr>
+Methods inherited from <a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a>:<br>
+<dl><dt><a name="Base-call_after_refresh"><strong>call_after_refresh</strong></a>(self, callback: 'Callback', *args: 'Any', **kwargs: 'Any') -&gt; 'bool'</dt><dd><span class="code">Schedule&nbsp;a&nbsp;callback&nbsp;to&nbsp;run&nbsp;after&nbsp;all&nbsp;messages&nbsp;are&nbsp;processed&nbsp;and&nbsp;the&nbsp;screen<br>
+has&nbsp;been&nbsp;refreshed.&nbsp;Positional&nbsp;and&nbsp;keyword&nbsp;arguments&nbsp;are&nbsp;passed&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;A&nbsp;callable.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;callback&nbsp;was&nbsp;scheduled,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;the&nbsp;callback&nbsp;could&nbsp;not&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduled&nbsp;(may&nbsp;occur&nbsp;if&nbsp;the&nbsp;message&nbsp;pump&nbsp;was&nbsp;closed&nbsp;or&nbsp;closing).</span></dd></dl>
+
+<dl><dt><a name="Base-call_later"><strong>call_later</strong></a>(self, callback: 'Callback', *args: 'Any', **kwargs: 'Any') -&gt; 'bool'</dt><dd><span class="code">Schedule&nbsp;a&nbsp;callback&nbsp;to&nbsp;run&nbsp;after&nbsp;all&nbsp;messages&nbsp;are&nbsp;processed&nbsp;in&nbsp;this&nbsp;object.<br>
+Positional&nbsp;and&nbsp;keywords&nbsp;arguments&nbsp;are&nbsp;passed&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callable&nbsp;to&nbsp;call&nbsp;next.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*args:&nbsp;Positional&nbsp;arguments&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**kwargs:&nbsp;Keyword&nbsp;arguments&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;callback&nbsp;was&nbsp;scheduled,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;the&nbsp;callback&nbsp;could&nbsp;not&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduled&nbsp;(may&nbsp;occur&nbsp;if&nbsp;the&nbsp;message&nbsp;pump&nbsp;was&nbsp;closed&nbsp;or&nbsp;closing).</span></dd></dl>
+
+<dl><dt><a name="Base-call_next"><strong>call_next</strong></a>(self, callback: 'Callback', *args: 'Any', **kwargs: 'Any') -&gt; 'None'</dt><dd><span class="code">Schedule&nbsp;a&nbsp;callback&nbsp;to&nbsp;run&nbsp;immediately&nbsp;after&nbsp;processing&nbsp;the&nbsp;current&nbsp;message.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callable&nbsp;to&nbsp;run&nbsp;after&nbsp;current&nbsp;event.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*args:&nbsp;Positional&nbsp;arguments&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**kwargs:&nbsp;Keyword&nbsp;arguments&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;callable.</span></dd></dl>
+
+<dl><dt><a name="Base-check_idle"><strong>check_idle</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Prompt&nbsp;the&nbsp;message&nbsp;pump&nbsp;to&nbsp;call&nbsp;idle&nbsp;if&nbsp;the&nbsp;queue&nbsp;is&nbsp;empty.</span></dd></dl>
+
+<dl><dt><a name="Base-check_message_enabled"><strong>check_message_enabled</strong></a>(self, message: 'Message') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;given&nbsp;message&nbsp;is&nbsp;enabled&nbsp;(allowed&nbsp;to&nbsp;be&nbsp;sent).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;A&nbsp;message&nbsp;object.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;message&nbsp;will&nbsp;be&nbsp;sent,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;it&nbsp;is&nbsp;disabled.</span></dd></dl>
+
+<dl><dt><a name="Base-disable_messages"><strong>disable_messages</strong></a>(self, *messages: 'type[Message]') -&gt; 'None'</dt><dd><span class="code">Disable&nbsp;message&nbsp;types&nbsp;from&nbsp;being&nbsp;processed.</span></dd></dl>
+
+<dl><dt>async <a name="Base-dispatch_key"><strong>dispatch_key</strong></a>(self, event: 'events.Key') -&gt; 'bool'</dt><dd><span class="code">Dispatch&nbsp;a&nbsp;key&nbsp;event&nbsp;to&nbsp;method.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;will&nbsp;call&nbsp;the&nbsp;method&nbsp;named&nbsp;'key_&lt;event.key&gt;'&nbsp;if&nbsp;it&nbsp;exists.<br>
+Some&nbsp;keys&nbsp;have&nbsp;aliases.&nbsp;The&nbsp;first&nbsp;alias&nbsp;found&nbsp;will&nbsp;be&nbsp;invoked&nbsp;if&nbsp;it&nbsp;exists.<br>
+If&nbsp;multiple&nbsp;handlers&nbsp;exist&nbsp;that&nbsp;match&nbsp;the&nbsp;key,&nbsp;an&nbsp;exception&nbsp;is&nbsp;raised.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;A&nbsp;key&nbsp;event.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;key&nbsp;was&nbsp;handled,&nbsp;otherwise&nbsp;False.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DuplicateKeyHandlers:&nbsp;When&nbsp;there's&nbsp;more&nbsp;than&nbsp;1&nbsp;handler&nbsp;that&nbsp;could&nbsp;handle&nbsp;this&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="Base-enable_messages"><strong>enable_messages</strong></a>(self, *messages: 'type[Message]') -&gt; 'None'</dt><dd><span class="code">Enable&nbsp;processing&nbsp;of&nbsp;messages&nbsp;types.</span></dd></dl>
+
+<dl><dt>async <a name="Base-on_callback"><strong>on_callback</strong></a>(self, event: 'events.Callback') -&gt; 'None'</dt></dl>
+
+<dl><dt>async <a name="Base-on_timer"><strong>on_timer</strong></a>(self, event: 'events.Timer') -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Base-post_message"><strong>post_message</strong></a>(self, message: 'Message') -&gt; 'bool'</dt><dd><span class="code">Posts&nbsp;a&nbsp;message&nbsp;on&nbsp;to&nbsp;this&nbsp;widget's&nbsp;queue.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;A&nbsp;message&nbsp;(including&nbsp;Event).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;messages&nbsp;was&nbsp;processed,&nbsp;`False`&nbsp;if&nbsp;it&nbsp;wasn't.</span></dd></dl>
+
+<dl><dt><a name="Base-prevent"><strong>prevent</strong></a>(self, *message_types: 'type[Message]') -&gt; 'Generator[None, None, None]'</dt><dd><span class="code">A&nbsp;context&nbsp;manager&nbsp;to&nbsp;*temporarily*&nbsp;prevent&nbsp;the&nbsp;given&nbsp;message&nbsp;types&nbsp;from&nbsp;being&nbsp;posted.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;=&nbsp;self.<a href="#Base-query_one">query_one</a>(Input)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;self.<a href="#Base-prevent">prevent</a>(Input.Changed):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input.value&nbsp;=&nbsp;"foo"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd></dl>
+
+<dl><dt><a name="Base-set_interval"><strong>set_interval</strong></a>(self, interval: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, repeat: 'int' = 0, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Call&nbsp;a&nbsp;function&nbsp;at&nbsp;periodic&nbsp;intervals.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interval:&nbsp;Time&nbsp;between&nbsp;calls.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Function&nbsp;to&nbsp;call.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat:&nbsp;Number&nbsp;of&nbsp;times&nbsp;to&nbsp;repeat&nbsp;the&nbsp;call&nbsp;or&nbsp;0&nbsp;for&nbsp;continuous.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pause:&nbsp;Start&nbsp;the&nbsp;timer&nbsp;paused.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;timer&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Base-set_timer"><strong>set_timer</strong></a>(self, delay: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Make&nbsp;a&nbsp;function&nbsp;call&nbsp;after&nbsp;a&nbsp;delay.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;Time&nbsp;to&nbsp;wait&nbsp;before&nbsp;invoking&nbsp;callback.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callback&nbsp;to&nbsp;call&nbsp;after&nbsp;time&nbsp;has&nbsp;expired.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;(for&nbsp;debug).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pause:&nbsp;Start&nbsp;timer&nbsp;paused.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;timer&nbsp;object.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a>:<br>
+<dl><dt><strong>app</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;app.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;current&nbsp;app.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoActiveAppError:&nbsp;if&nbsp;no&nbsp;active&nbsp;app&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;the&nbsp;current&nbsp;asyncio&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>has_parent</strong></dt>
+<dd><span class="code">Does&nbsp;this&nbsp;object&nbsp;have&nbsp;a&nbsp;parent?</span></dd>
+</dl>
+<dl><dt><strong>is_attached</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;node&nbsp;attached&nbsp;to&nbsp;the&nbsp;app&nbsp;via&nbsp;the&nbsp;DOM?</span></dd>
+</dl>
+<dl><dt><strong>is_parent_active</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;parent&nbsp;active?</span></dd>
+</dl>
+<dl><dt><strong>is_running</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;message&nbsp;pump&nbsp;running&nbsp;(potentially&nbsp;processing&nbsp;messages)?</span></dd>
+</dl>
+<dl><dt><strong>task</strong></dt>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ComposeResult</strong> = typing.Iterable[textual.widget.Widget]</td></tr></table>
+</body></html>

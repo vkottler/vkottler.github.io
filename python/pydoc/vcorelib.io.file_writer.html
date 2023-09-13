@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.io.file_writer</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.io.html" class="white">io</a>.file_writer</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/io/file_writer.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/io/file_writer.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;an&nbsp;interface&nbsp;for&nbsp;writing&nbsp;to&nbsp;variably&nbsp;indented&nbsp;files.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.io.file_writer.html#IndentedFileWriter">IndentedFileWriter</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="enum.html#Enum">enum.Enum</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.io.file_writer.html#CommentStyle">CommentStyle</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="CommentStyle">class <strong>CommentStyle</strong></a>(<a href="enum.html#Enum">enum.Enum</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CommentStyle">CommentStyle</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+&nbsp;<br>
+An&nbsp;enumeration&nbsp;describing&nbsp;different&nbsp;comment&nbsp;styles.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="vcorelib.io.file_writer.html#CommentStyle">CommentStyle</a></dd>
+<dd><a href="enum.html#Enum">enum.Enum</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>C</strong> = &lt;CommentStyle.C: 1&gt;</dl>
+
+<dl><dt><strong>CPP</strong> = &lt;CommentStyle.CPP: 3&gt;</dl>
+
+<dl><dt><strong>C_DOXYGEN</strong> = &lt;CommentStyle.C_DOXYGEN: 2&gt;</dl>
+
+<dl><dt><strong>SCRIPT</strong> = &lt;CommentStyle.SCRIPT: 4&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
+<dl><dt><strong>name</strong></dt>
+<dd><span class="code">The&nbsp;name&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<dl><dt><strong>value</strong></dt>
+<dd><span class="code">The&nbsp;value&nbsp;of&nbsp;the&nbsp;Enum&nbsp;member.</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><a name="CommentStyle-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
+raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+&nbsp;<br>
+note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
+returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+
+<dl><dt><a name="CommentStyle-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
+
+<dl><dt><a name="CommentStyle-__iter__"><strong>__iter__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;members&nbsp;in&nbsp;definition&nbsp;order.</span></dd></dl>
+
+<dl><dt><a name="CommentStyle-__len__"><strong>__len__</strong></a>()<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;number&nbsp;of&nbsp;members&nbsp;(no&nbsp;aliases)</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
+<dl><dt><strong>__members__</strong></dt>
+<dd><span class="code">Returns&nbsp;a&nbsp;mapping&nbsp;of&nbsp;member&nbsp;name-&gt;value.<br>
+&nbsp;<br>
+This&nbsp;mapping&nbsp;lists&nbsp;all&nbsp;enum&nbsp;members,&nbsp;including&nbsp;aliases.&nbsp;Note&nbsp;that&nbsp;this<br>
+is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="IndentedFileWriter">class <strong>IndentedFileWriter</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#IndentedFileWriter">IndentedFileWriter</a>(stream:&nbsp;&amp;lt;class&nbsp;'TextIO'&amp;gt;,&nbsp;space:&nbsp;str&nbsp;=&nbsp;'&nbsp;',&nbsp;per_indent:&nbsp;int&nbsp;=&nbsp;1,&nbsp;prefix:&nbsp;str&nbsp;=&nbsp;'',&nbsp;suffix:&nbsp;str&nbsp;=&nbsp;'')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;writing&nbsp;lines&nbsp;to&nbsp;a&nbsp;file&nbsp;and&nbsp;tracking&nbsp;indentation.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="IndentedFileWriter-__init__"><strong>__init__</strong></a>(self, stream: &lt;class 'TextIO'&gt;, space: str = ' ', per_indent: int = 1, prefix: str = '', suffix: str = '') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-c_comment"><strong>c_comment</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;writing&nbsp;C-style&nbsp;comments.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-cpp_comment"><strong>cpp_comment</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;writing&nbsp;C++-style&nbsp;comments.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-dedent"><strong>dedent</strong></a>(self, amount: int = 1) -&gt; None</dt><dd><span class="code">Decrease&nbsp;the&nbsp;current&nbsp;indent&nbsp;depth&nbsp;(if&nbsp;not&nbsp;zero).</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-empty"><strong>empty</strong></a>(self, count: int = 1) -&gt; int</dt><dd><span class="code">Add&nbsp;some&nbsp;number&nbsp;of&nbsp;empty&nbsp;lines.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-ends"><strong>ends</strong></a>(self, prefix: str = '', suffix: str = '') -&gt; Iterator[NoneType]</dt><dd><span class="code">Adds&nbsp;a&nbsp;temporary&nbsp;prefix&nbsp;and&nbsp;suffix&nbsp;to&nbsp;lines.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-indent"><strong>indent</strong></a>(self, amount: int = 1) -&gt; None</dt><dd><span class="code">Increase&nbsp;the&nbsp;current&nbsp;indent&nbsp;depth.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-indented"><strong>indented</strong></a>(self, amount: int = 1) -&gt; Iterator[NoneType]</dt><dd><span class="code">Increase&nbsp;the&nbsp;current&nbsp;indent&nbsp;depth&nbsp;and&nbsp;decrease&nbsp;upon&nbsp;exit.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-javadoc"><strong>javadoc</strong></a>(self, opener: str = '/**', closer: str = ' */', prefix: str = ' * ') -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;writing&nbsp;javadoc-style&nbsp;comments.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-join"><strong>join</strong></a>(self, *lines: str, joiner=',') -&gt; None</dt><dd><span class="code">Join&nbsp;lines&nbsp;with&nbsp;some&nbsp;joiner&nbsp;(appended&nbsp;to&nbsp;end),&nbsp;except&nbsp;after&nbsp;the&nbsp;last<br>
+line.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-padding"><strong>padding</strong></a>(self, count: int = 1) -&gt; Iterator[NoneType]</dt><dd><span class="code">Add&nbsp;padding&nbsp;lines&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-prefix"><strong>prefix</strong></a>(self, prefix: str) -&gt; Iterator[NoneType]</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;line&nbsp;prefix&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-scope"><strong>scope</strong></a>(self, opener: str = '{', closer: str = '}', prefix: str = '', suffix: str = '', indent: int = 1) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;common&nbsp;programming&nbsp;syntax&nbsp;scoping.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-suffix"><strong>suffix</strong></a>(self, suffix: str) -&gt; Iterator[NoneType]</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;line&nbsp;suffix&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-trailing_comment_lines"><strong>trailing_comment_lines</strong></a>(self, style: vcorelib.io.file_writer.CommentStyle = &lt;CommentStyle.C: 1&gt;, pad: str = ' ', min_pad: int = 1) -&gt; Iterator[List[Tuple[str, Optional[str]]]]</dt><dd><span class="code">Align&nbsp;indentations&nbsp;for&nbsp;trailing&nbsp;comments.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-write"><strong>write</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">method&nbsp;taking&nbsp;the&nbsp;str&nbsp;data&nbsp;for&nbsp;a&nbsp;new&nbsp;line&nbsp;of&nbsp;text&nbsp;to&nbsp;write<br>
+to&nbsp;the&nbsp;file:&nbsp;first&nbsp;writes&nbsp;the&nbsp;indent&nbsp;(some&nbsp;number&nbsp;of<br>
+e.g.&nbsp;space&nbsp;characters),&nbsp;then&nbsp;writes&nbsp;the&nbsp;str&nbsp;data&nbsp;(function&nbsp;parameter),<br>
+then&nbsp;writes&nbsp;a&nbsp;newline&nbsp;character&nbsp;(os.linesep).</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="IndentedFileWriter-from_path"><strong>from_path</strong></a>(path: pathlib.Path, space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;from&nbsp;a&nbsp;path&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-string"><strong>string</strong></a>(space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;for&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="IndentedFileWriter-temporary"><strong>temporary</strong></a>(space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;from&nbsp;a&nbsp;temporary&nbsp;file&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_ENCODING</strong> = 'utf-8'<br>
+<strong>Iterator</strong> = typing.Iterator<br>
+<strong>LineWithComment</strong> = typing.Tuple[str, typing.Optional[str]]<br>
+<strong>LinesWithComments</strong> = typing.List[typing.Tuple[str, typing.Optional[str]]]<br>
+<strong>List</strong> = typing.List<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>Tuple</strong> = typing.Tuple<br>
+<strong>linesep</strong> = '<span class="repr">\n</span>'</td></tr></table>
+</body></html>

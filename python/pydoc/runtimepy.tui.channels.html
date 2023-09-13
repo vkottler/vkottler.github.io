@@ -26,32 +26,44 @@
 <dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
 </dt><dd>
 <dl>
+<dt class="heading-text"><a href="runtimepy.tui.mixin.html#TuiMixin">runtimepy.tui.mixin.TuiMixin</a>
+</dt><dd>
+<dl>
 <dt class="heading-text"><a href="runtimepy.tui.channels.html#ChannelTui">ChannelTui</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="typing.html#Any">typing.Any</a>
 </dt></dl>
 </dd>
 </dl>
  <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><a name="ChannelTui">class <strong>ChannelTui</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+<td class="section-title" colspan=3>&nbsp;<br><a name="ChannelTui">class <strong>ChannelTui</strong></a>(<a href="runtimepy.tui.mixin.html#TuiMixin">runtimepy.tui.mixin.TuiMixin</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
 <td class="decor title-decor" colspan=2><span class="code"><a href="#ChannelTui">ChannelTui</a>(env:&nbsp;runtimepy.channel.environment.ChannelEnvironment)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;implementing&nbsp;a&nbsp;text&nbsp;user-interface&nbsp;for&nbsp;channel&nbsp;environments.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
-<td class="singlecolumn">Methods defined here:<br>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.tui.channels.html#ChannelTui">ChannelTui</a></dd>
+<dd><a href="runtimepy.tui.mixin.html#TuiMixin">runtimepy.tui.mixin.TuiMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
 <dl><dt><a name="ChannelTui-__init__"><strong>__init__</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;text&nbsp;user-interface&nbsp;for&nbsp;a&nbsp;channel&nbsp;environment.</span></dd></dl>
 
 <dl><dt>async <a name="ChannelTui-dispatch"><strong>dispatch</strong></a>(self) -&gt; bool</dt><dd><span class="code">Dispatch&nbsp;this&nbsp;user&nbsp;interface.</span></dd></dl>
 
-<dl><dt>async <a name="ChannelTui-handle_char"><strong>handle_char</strong></a>(self, char: int) -&gt; None</dt><dd><span class="code">Handle&nbsp;character&nbsp;input.</span></dd></dl>
+<dl><dt>async <a name="ChannelTui-handle_char"><strong>handle_char</strong></a>(self, char: int) -&gt; bool</dt><dd><span class="code">Handle&nbsp;character&nbsp;input.</span></dd></dl>
 
-<dl><dt>async <a name="ChannelTui-init"><strong>init</strong></a>(self, window: Any) -&gt; bool</dt><dd><span class="code">Initialize&nbsp;this&nbsp;interface's&nbsp;window.</span></dd></dl>
+<dl><dt><a name="ChannelTui-init"><strong>init</strong></a>(self, window: Any) -&gt; bool</dt><dd><span class="code">Initialize&nbsp;this&nbsp;interface's&nbsp;window.</span></dd></dl>
 
 <dl><dt>async <a name="ChannelTui-update_body"><strong>update_body</strong></a>(self) -&gt; None</dt><dd><span class="code">Update&nbsp;the&nbsp;body&nbsp;portion&nbsp;of&nbsp;the&nbsp;interface.</span></dd></dl>
 
-<dl><dt>async <a name="ChannelTui-update_dimensions"><strong>update_dimensions</strong></a>(self) -&gt; None</dt><dd><span class="code">Handle&nbsp;an&nbsp;update&nbsp;to&nbsp;the&nbsp;window's&nbsp;dimensions.</span></dd></dl>
+<dl><dt><a name="ChannelTui-update_dimensions"><strong>update_dimensions</strong></a>(self) -&gt; Any</dt><dd><span class="code">Handle&nbsp;an&nbsp;update&nbsp;to&nbsp;the&nbsp;window's&nbsp;dimensions.</span></dd></dl>
 
 <dl><dt>async <a name="ChannelTui-update_header"><strong>update_header</strong></a>(self) -&gt; None</dt><dd><span class="code">Update&nbsp;the&nbsp;header&nbsp;portion&nbsp;of&nbsp;the&nbsp;interface.</span></dd></dl>
 
@@ -63,8 +75,81 @@ Readonly properties defined here:<br>
 <dl><dt><strong>header</strong></dt>
 <dd><span class="code">Get&nbsp;this&nbsp;interface's&nbsp;header&nbsp;window.</span></dd>
 </dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.tui.mixin.html#TuiMixin">runtimepy.tui.mixin.TuiMixin</a>:<br>
+<dl><dt><a name="ChannelTui-tui_update"><strong>tui_update</strong></a>(self) -&gt; None</dt><dd><span class="code">Re-draw&nbsp;the&nbsp;screen.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.tui.mixin.html#TuiMixin">runtimepy.tui.mixin.TuiMixin</a>:<br>
 <dl><dt><strong>window</strong></dt>
-<dd><span class="code">Get&nbsp;this&nbsp;interface's&nbsp;window.</span></dd>
+<dd><span class="code">Get&nbsp;the&nbsp;window&nbsp;for&nbsp;this&nbsp;instance.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="runtimepy.tui.mixin.html#TuiMixin">runtimepy.tui.mixin.TuiMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong>CursesWindow</strong> = <a name="CursesWindow">class Any</a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CursesWindow">CursesWindow</a>(*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Special&nbsp;type&nbsp;indicating&nbsp;an&nbsp;unconstrained&nbsp;type.<br>
+&nbsp;<br>
+-&nbsp;Any&nbsp;is&nbsp;compatible&nbsp;with&nbsp;every&nbsp;type.<br>
+-&nbsp;Any&nbsp;assumed&nbsp;to&nbsp;have&nbsp;all&nbsp;methods.<br>
+-&nbsp;All&nbsp;values&nbsp;assumed&nbsp;to&nbsp;be&nbsp;instances&nbsp;of&nbsp;Any.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;all&nbsp;the&nbsp;above&nbsp;statements&nbsp;are&nbsp;true&nbsp;from&nbsp;the&nbsp;point&nbsp;of&nbsp;view&nbsp;of<br>
+static&nbsp;type&nbsp;checkers.&nbsp;At&nbsp;runtime,&nbsp;Any&nbsp;should&nbsp;not&nbsp;be&nbsp;used&nbsp;with&nbsp;instance<br>
+checks.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Static methods defined here:<br>
+<dl><dt><a name="Any-__new__"><strong>__new__</strong></a>(cls, *args, **kwargs)</dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="TuiMixin">class <strong>TuiMixin</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TuiMixin">TuiMixin</a>(window:&nbsp;Optional[Any]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;mixin&nbsp;for&nbsp;building&nbsp;TUI&nbsp;applications.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="TuiMixin-__init__"><strong>__init__</strong></a>(self, window: Optional[Any] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="TuiMixin-handle_char"><strong>handle_char</strong></a>(self, char: int) -&gt; bool</dt><dd><span class="code">Handle&nbsp;character&nbsp;input.</span></dd></dl>
+
+<dl><dt><a name="TuiMixin-init"><strong>init</strong></a>(self, window: Optional[Any]) -&gt; bool</dt><dd><span class="code">Initialize&nbsp;this&nbsp;interface's&nbsp;window.</span></dd></dl>
+
+<dl><dt><a name="TuiMixin-tui_update"><strong>tui_update</strong></a>(self) -&gt; None</dt><dd><span class="code">Re-draw&nbsp;the&nbsp;screen.</span></dd></dl>
+
+<dl><dt><a name="TuiMixin-update_dimensions"><strong>update_dimensions</strong></a>(self) -&gt; Any</dt><dd><span class="code">Handle&nbsp;an&nbsp;update&nbsp;to&nbsp;the&nbsp;window's&nbsp;dimensions.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>window</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;window&nbsp;for&nbsp;this&nbsp;instance.</span></dd>
 </dl>
 <hr>
 Data descriptors defined here:<br>
@@ -74,5 +159,15 @@ Data descriptors defined here:<br>
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
 </dl>
-</td></tr></table></td></tr></table>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'cursor': &lt;class 'runtimepy.tui.cursor.Cursor'&gt;}</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>__all__</strong> = ['ChannelTui', 'TuiMixin', 'CursesWindow']</td></tr></table>
 </body></html>

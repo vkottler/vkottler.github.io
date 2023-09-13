@@ -130,6 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../vcorelib.io.archive.html">vcorelib.io.archive package</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../vcorelib.logging.html">vcorelib.logging package</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../vcorelib.math.html">vcorelib.math package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../vcorelib.math.analysis.html">vcorelib.math.analysis package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../vcorelib.math.analysis.rate.html">vcorelib.math.analysis.rate package</a></li>
@@ -137,6 +138,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../vcorelib.namespace.html">vcorelib.namespace package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../vcorelib.paths.html">vcorelib.paths package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../vcorelib.platform.html">vcorelib.platform package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../vcorelib.schemas.html">vcorelib.schemas package</a></li>
@@ -256,15 +258,8 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># built-in</span>
-<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">Logger</span> <span class="k">as</span> <span class="n">_Logger</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span> <span class="k">as</span> <span class="n">_Path</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span> <span class="k">as</span> <span class="n">_Iterable</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span> <span class="k">as</span> <span class="n">_List</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span> <span class="k">as</span> <span class="n">_Optional</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span> <span class="k">as</span> <span class="n">_Union</span>
-
-<span class="c1"># third-party</span>
-<span class="kn">import</span> <span class="nn">importlib_resources</span> <span class="k">as</span> <span class="nn">_importlib_resources</span>
 
 <span class="c1"># internal</span>
 <span class="kn">from</span> <span class="nn">vcorelib.paths.base</span> <span class="kn">import</span> <span class="p">(</span>
@@ -276,6 +271,7 @@ document.write(`
     <span class="n">set_exec_flags</span><span class="p">,</span>
     <span class="n">stats</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">vcorelib.paths.find</span> <span class="kn">import</span> <span class="n">find_file</span>
 <span class="kn">from</span> <span class="nn">vcorelib.paths.hashing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">DEFAULT_HASH</span><span class="p">,</span>
     <span class="n">bytes_hash_hex</span><span class="p">,</span>
@@ -342,92 +338,6 @@ document.write(`
             <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">return</span> <span class="kc">False</span></div>
-
-
-<span class="k">def</span> <span class="nf">_construct_search_path</span><span class="p">(</span>
-    <span class="n">search_paths</span><span class="p">:</span> <span class="n">_Iterable</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">include_cwd</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">relative_to</span><span class="p">:</span> <span class="n">Pathlike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">package</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">package_subdir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
-    <span class="n">logger</span><span class="p">:</span> <span class="n">_Logger</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_List</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Construct a list of paths to search for a resource.&quot;&quot;&quot;</span>
-
-    <span class="n">to_check</span><span class="p">:</span> <span class="n">_List</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># Add a package resource to the search path if a package name was provided.</span>
-    <span class="k">if</span> <span class="n">package</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">to_check</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">_importlib_resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">package</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">package_subdir</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                    <span class="s2">&quot;Can&#39;t search package &#39;</span><span class="si">%s</span><span class="s2">&#39;, not found.&quot;</span><span class="p">,</span> <span class="n">package</span>
-                <span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">search_paths</span><span class="p">:</span>
-        <span class="n">to_check</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="n">search_paths</span><span class="p">)</span>
-
-    <span class="c1"># Check the working directory if it was specified.</span>
-    <span class="k">if</span> <span class="n">include_cwd</span><span class="p">:</span>
-        <span class="n">to_check</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
-
-    <span class="c1"># Check if the provided path exists relative to some other path.</span>
-    <span class="k">if</span> <span class="n">relative_to</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">relative_to</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">relative_to</span><span class="p">)</span>
-        <span class="n">to_check</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="n">relative_to</span> <span class="k">if</span> <span class="n">relative_to</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="k">else</span> <span class="n">relative_to</span><span class="o">.</span><span class="n">parent</span>
-        <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">to_check</span>
-
-
-<div class="viewcode-block" id="find_file"><a class="viewcode-back" href="../../vcorelib.paths.html#vcorelib.paths.find_file">[docs]</a><span class="k">def</span> <span class="nf">find_file</span><span class="p">(</span>
-    <span class="n">path</span><span class="p">:</span> <span class="n">Pathlike</span><span class="p">,</span>
-    <span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="n">_Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">_Path</span><span class="p">],</span>
-    <span class="n">search_paths</span><span class="p">:</span> <span class="n">_Iterable</span><span class="p">[</span><span class="n">Pathlike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">include_cwd</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">relative_to</span><span class="p">:</span> <span class="n">Pathlike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">package</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">package_subdir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
-    <span class="n">logger</span><span class="p">:</span> <span class="n">_Logger</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Optional</span><span class="p">[</span><span class="n">_Path</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Combines a few simple strategies to locate a file on disk.&quot;&quot;&quot;</span>
-
-    <span class="n">path</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">parts</span><span class="p">)</span>
-
-    <span class="c1"># If path is absolute we can&#39;t search for it.</span>
-    <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="k">return</span> <span class="n">path</span>
-        <span class="k">return</span> <span class="kc">None</span>
-
-    <span class="c1"># Return the first file we find on the search path, if we find one.</span>
-    <span class="k">for</span> <span class="n">search</span> <span class="ow">in</span> <span class="p">[</span>
-        <span class="n">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_construct_search_path</span><span class="p">(</span>
-            <span class="n">search_paths</span><span class="o">=</span><span class="n">search_paths</span><span class="p">,</span>
-            <span class="n">include_cwd</span><span class="o">=</span><span class="n">include_cwd</span><span class="p">,</span>
-            <span class="n">relative_to</span><span class="o">=</span><span class="n">relative_to</span><span class="p">,</span>
-            <span class="n">package</span><span class="o">=</span><span class="n">package</span><span class="p">,</span>
-            <span class="n">package_subdir</span><span class="o">=</span><span class="n">package_subdir</span><span class="p">,</span>
-            <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
-        <span class="p">)</span>
-    <span class="p">]:</span>
-        <span class="k">if</span> <span class="n">search</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
-            <span class="n">candidate</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">candidate</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Found &#39;</span><span class="si">%s</span><span class="s2">&#39; at &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">search</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">candidate</span>
-
-            <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Didn&#39;t find &#39;</span><span class="si">%s</span><span class="s2">&#39; at &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">search</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="kc">None</span></div>
 
 
 <span class="c1"># An alias for &#39;find_file&#39; for convenience.</span>

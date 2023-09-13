@@ -10,6 +10,7 @@ Subpackages
    runtimepy.net.apps
    runtimepy.net.arbiter
    runtimepy.net.factories
+   runtimepy.net.stream
    runtimepy.net.tcp
    runtimepy.net.udp
    runtimepy.net.websocket
@@ -29,14 +30,6 @@ runtimepy.net.manager module
 ----------------------------
 
 .. automodule:: runtimepy.net.manager
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-runtimepy.net.metrics module
-----------------------------
-
-.. automodule:: runtimepy.net.metrics
    :members:
    :undoc-members:
    :show-inheritance:

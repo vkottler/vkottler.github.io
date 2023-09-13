@@ -12,6 +12,14 @@ runtimepy.mixins.enum module
    :undoc-members:
    :show-inheritance:
 
+runtimepy.mixins.environment module
+-----------------------------------
+
+.. automodule:: runtimepy.mixins.environment
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 runtimepy.mixins.regex module
 -----------------------------
 

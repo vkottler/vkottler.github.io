@@ -53,7 +53,7 @@ A&nbsp;runtime&nbsp;enumeration&nbsp;registry.<br>&nbsp;</span></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="EnumRegistry-enum"><strong>enum</strong></a>(self, name: str, kind: Union[str, ForwardRef('EnumType')], items: Union[MutableMapping[Union[str, int], Union[str, int]], MutableMapping[Union[str, bool], Union[str, bool]], MutableMapping[str, bool], MutableMapping[str, int]] = None) -&gt; Optional[runtimepy.enum.RuntimeEnum]</dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;runtime&nbsp;enumeration.</span></dd></dl>
+<dl><dt><a name="EnumRegistry-enum"><strong>enum</strong></a>(self, name: str, kind: Union[str, ForwardRef('EnumType')], items: Union[MutableMapping[Union[str, int], Union[str, int]], MutableMapping[Union[str, bool], Union[str, bool]], MutableMapping[str, bool], MutableMapping[str, int]] = None, primitive: str = 'uint8') -&gt; Optional[runtimepy.enum.RuntimeEnum]</dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;runtime&nbsp;enumeration.</span></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -90,7 +90,7 @@ Data and other attributes inherited from <a href="runtimepy.registry.html#Regist
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.schemas.html#RuntimepyDictCodec">runtimepy.schemas.RuntimepyDictCodec</a>:<br>
-<dl><dt><strong>default_schemas</strong> = {'BitFields': &lt;vcorelib.schemas.json.JsonSchema ...chemas.json.JsonSchema object at 0x7f46b8fe2dd0&gt;}</dl>
+<dl><dt><strong>default_schemas</strong> = {'BitFields': &lt;vcorelib.schemas.json.JsonSchema ...chemas.json.JsonSchema object at 0x7faa61effd50&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>:<br>
@@ -109,11 +109,13 @@ Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dic
 <dl><dt><a name="EnumRegistry-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</span></dd></dl>
 
-<dl><dt><a name="EnumRegistry-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f46ba059150&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="EnumRegistry-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7faa62df1710&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
-<dl><dt><a name="EnumRegistry-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f46ba059150&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="EnumRegistry-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7faa62df1710&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+
+<dl><dt><a name="EnumRegistry-normalize"><strong>normalize</strong></a>(data: Union[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], ~T]) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Ensure&nbsp;that&nbsp;some&nbsp;object&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
@@ -398,5 +400,11 @@ Readonly properties inherited from <a href="enum.html#EnumType">enum.EnumType</a
 This&nbsp;mapping&nbsp;lists&nbsp;all&nbsp;enum&nbsp;members,&nbsp;including&nbsp;aliases.&nbsp;Note&nbsp;that&nbsp;this<br>
 is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.</span></dd>
 </dl>
-</td></tr></table></td></tr></table>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_ENUM_PRIMITIVE</strong> = 'uint8'</td></tr></table>
 </body></html>

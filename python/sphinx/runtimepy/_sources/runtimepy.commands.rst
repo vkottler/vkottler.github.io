@@ -20,6 +20,14 @@ runtimepy.commands.arbiter module
    :undoc-members:
    :show-inheritance:
 
+runtimepy.commands.common module
+--------------------------------
+
+.. automodule:: runtimepy.commands.common
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 runtimepy.commands.tui module
 -----------------------------
 

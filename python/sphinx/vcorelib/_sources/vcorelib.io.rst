@@ -45,6 +45,22 @@ vcorelib.io.encode module
    :undoc-members:
    :show-inheritance:
 
+vcorelib.io.fifo module
+-----------------------
+
+.. automodule:: vcorelib.io.fifo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+vcorelib.io.file\_writer module
+-------------------------------
+
+.. automodule:: vcorelib.io.file_writer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 vcorelib.io.mapping module
 --------------------------
 

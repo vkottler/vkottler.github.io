@@ -2,15 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Python: module vcorelib.namespace</title>
+<title>Python: package vcorelib.namespace</title>
 </head><body>
 
 <table class="heading">
 <tr class="heading-text decor">
 <td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.namespace</strong></td>
-<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/namespace.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/namespace.py</a></td></tr></table>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/namespace/__init__.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/namespace/__init__.py</a></td></tr></table>
     <p><span class="code">A&nbsp;module&nbsp;for&nbsp;implementing&nbsp;namespaces.</span></p>
 <p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
@@ -31,12 +37,12 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="Namespace">class <strong>Namespace</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Namespace">Namespace</a>(*names:&nbsp;str,&nbsp;delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Namespace">Namespace</a>(*names:&nbsp;str,&nbsp;delim:&nbsp;str&nbsp;=&nbsp;'.',&nbsp;parent:&nbsp;'<a href="#Namespace">Namespace</a>'&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;namespace&nbsp;interface.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="Namespace-__init__"><strong>__init__</strong></a>(self, *names: str, delim: str = '.') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;namespace.</span></dd></dl>
+<dl><dt><a name="Namespace-__init__"><strong>__init__</strong></a>(self, *names: str, delim: str = '.', parent: 'Namespace' = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;namespace.</span></dd></dl>
 
 <dl><dt><a name="Namespace-child"><strong>child</strong></a>(self, *names: str) -&gt; 'Namespace'</dt><dd><span class="code">Create&nbsp;a&nbsp;child&nbsp;namespace&nbsp;from&nbsp;this&nbsp;one.</span></dd></dl>
 
@@ -50,8 +56,15 @@ applied.</span></dd></dl>
 <dl><dt><a name="Namespace-pushed"><strong>pushed</strong></a>(self, *names: str) -&gt; Iterator[NoneType]</dt><dd><span class="code">Provide&nbsp;this&nbsp;namespace&nbsp;with&nbsp;some&nbsp;names&nbsp;pushed&nbsp;onto&nbsp;the&nbsp;stack&nbsp;as&nbsp;a<br>
 context.</span></dd></dl>
 
-<dl><dt><a name="Namespace-search"><strong>search</strong></a>(self, *names: str, pattern: str = '.*') -&gt; Iterator[str]</dt><dd><span class="code">Iterate&nbsp;over&nbsp;names&nbsp;in&nbsp;this&nbsp;namespace&nbsp;that&nbsp;match&nbsp;a&nbsp;given&nbsp;pattern.</span></dd></dl>
+<dl><dt><a name="Namespace-search"><strong>search</strong></a>(self, *names: str, pattern: str = '.*', recursive: bool = True, exact: bool = False) -&gt; Iterator[str]</dt><dd><span class="code">Iterate&nbsp;over&nbsp;names&nbsp;in&nbsp;this&nbsp;namespace&nbsp;that&nbsp;match&nbsp;a&nbsp;given&nbsp;pattern.</span></dd></dl>
 
+<dl><dt><a name="Namespace-suggest"><strong>suggest</strong></a>(self, data: str, delta: bool = True) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>parents</strong></dt>
+<dd><span class="code">Iterate&nbsp;over&nbsp;parents.</span></dd>
+</dl>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
@@ -81,6 +94,8 @@ A&nbsp;class&nbsp;for&nbsp;giving&nbsp;arbitrary&nbsp;objects&nbsp;namespace&nbs
 
 <dl><dt><a name="NamespaceMixin-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
 
+<dl><dt><a name="NamespaceMixin-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
+
 <dl><dt><a name="NamespaceMixin-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
 
 <dl><dt><a name="NamespaceMixin-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
@@ -99,5 +114,6 @@ Data descriptors defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>DEFAULT_DELIM</strong> = '.'</td></tr></table>
+<td class="singlecolumn"><strong>CPP_DELIM</strong> = '::'<br>
+<strong>DEFAULT_DELIM</strong> = '.'</td></tr></table>
 </body></html>
