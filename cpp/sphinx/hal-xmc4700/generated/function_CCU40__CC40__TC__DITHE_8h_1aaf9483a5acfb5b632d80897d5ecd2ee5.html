@@ -1,0 +1,1351 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Function XMC4700::to_string(CCU40_CC40_TC_DITHE) &#8212; hal-xmc4700 1.1.3 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/function_CCU40__CC40__TC__DITHE_8h_1aaf9483a5acfb5b632d80897d5ecd2ee5';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function XMC4700::to_string(CCU40_CC40_TC_ENDM)" href="function_CCU40__CC40__TC__ENDM_8h_1a251d2a58fe9c4cf87ef597e7a42abe01.html" />
+    <link rel="prev" title="Function XMC4700::to_string(CCU40_CC40_TC_CAPC)" href="function_CCU40__CC40__TC__CAPC_8h_1a06aab7e09cbe0ba79c1003063b7bee92.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">hal-xmc4700 1.1.3 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="root.html">Library API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="namespace_XMC4700.html">Namespace XMC4700</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1can.html">Struct can</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1CAN__MO.html">Struct CAN_MO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1can__mo.html">Struct can_mo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1can__node0.html">Struct can_node0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1ccu40.html">Struct ccu40</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1ccu40__cc40.html">Struct ccu40_cc40</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1ccu80.html">Struct ccu80</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1ccu80__cc80.html">Struct ccu80_cc80</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1dac.html">Struct dac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1dlr.html">Struct dlr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1dsd.html">Struct dsd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1dsd__ch0.html">Struct dsd_ch0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1ebu.html">Struct ebu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1eru0.html">Struct eru0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1eth0.html">Struct eth0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1eth0__con.html">Struct eth0_con</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1fce.html">Struct fce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1fce__ke0.html">Struct fce_ke0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1flash0.html">Struct flash0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1gpdma0.html">Struct gpdma0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1gpdma0__ch0.html">Struct gpdma0_ch0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1gpdma0__ch2.html">Struct gpdma0_ch2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1gpdma1.html">Struct gpdma1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1gpdma1__ch0.html">Struct gpdma1_ch0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1ledts0.html">Struct ledts0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1pba0.html">Struct pba0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1pmu0.html">Struct pmu0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1port0.html">Struct port0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1port14.html">Struct port14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1port15.html">Struct port15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1port4.html">Struct port4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1port5.html">Struct port5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1posif0.html">Struct posif0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1ppb.html">Struct ppb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1pref.html">Struct pref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__clk.html">Struct scu_clk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__hibernate.html">Struct scu_hibernate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__interrupt.html">Struct scu_interrupt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__osc.html">Struct scu_osc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__parity.html">Struct scu_parity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__pll.html">Struct scu_pll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__power.html">Struct scu_power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__reset.html">Struct scu_reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1scu__trap.html">Struct scu_trap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1sdmmc.html">Struct sdmmc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1sdmmc__con.html">Struct sdmmc_con</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1usb0.html">Struct usb0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1usb0__ch0.html">Struct usb0_ch0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1usb0__ep0.html">Struct usb0_ep0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1usb0__ep1.html">Struct usb0_ep1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1usic0.html">Struct usic0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1usic0__ch0.html">Struct usic0_ch0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1vadc.html">Struct vadc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structXMC4700_1_1vadc__g0.html">Struct vadc_g0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CAN__ID__MOD__TYPE_8h_1a2dc6ef03c251bf45981c3b803bded84c.html">Enum CAN_ID_MOD_TYPE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CAN__MCR__CLKSEL_8h_1a0ef58711a778e2b4dac911f1a3830c76.html">Enum CAN_MCR_CLKSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CAN__MO__MOAR__PRI_8h_1a470f1356c71055bd59a22b67b7aa145f.html">Enum CAN_MO_MOAR_PRI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CAN__MO__MOFCR__MMC_8h_1a2dfb1ae34c5cb3037cc43285f13c6121.html">Enum CAN_MO_MOFCR_MMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CAN__MO__MOIPR__TXINP_8h_1aee8e7b77c29fcef1b7ee6705832b6aa8.html">Enum CAN_MO_MOIPR_TXINP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CAN__NODE0__NFCR__CFMOD_8h_1a8d6588d8447d7ad35ef4c5fe1582874d.html">Enum CAN_NODE0_NFCR_CFMOD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CAN__NODE0__NIPR__CFCINP_8h_1af07cfb254adcfb9fab12e319a5f66e49.html">Enum CAN_NODE0_NIPR_CFCINP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__CC40__CMC__CNTS_8h_1aa32a5a97b7d9f09f634003b8b5b15bc9.html">Enum CCU40_CC40_CMC_CNTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__CC40__INS__EV2EM_8h_1a6670662ab8f33caa16cf094bb698220c.html">Enum CCU40_CC40_INS_EV2EM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__CC40__INS__EV2IS_8h_1ac85579f997c5a5208c1eddb8363cc0a1.html">Enum CCU40_CC40_INS_EV2IS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__CC40__INS__LPF2M_8h_1a59432f838a140f83e69defc62f63df6b.html">Enum CCU40_CC40_INS_LPF2M</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__CC40__SRS__E2SR_8h_1a4e3f6c2f60577a10dff1fc52b0846e4c.html">Enum CCU40_CC40_SRS_E2SR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__CC40__TC__CAPC_8h_1acb77096affce7bb966a328176c94fb9c.html">Enum CCU40_CC40_TC_CAPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__CC40__TC__DITHE_8h_1a6e1fae99a5de3b0b6fb881727468d0ed.html">Enum CCU40_CC40_TC_DITHE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__CC40__TC__ENDM_8h_1a2787654562d459621f4c2b41ebdfff28.html">Enum CCU40_CC40_TC_ENDM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__GCTRL__MSDE_8h_1ab5ad1fc107e601f6e6de868017393ad9.html">Enum CCU40_GCTRL_MSDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__GCTRL__PCIS_8h_1a9f4b430f12bf3d46853c7a85b0290f41.html">Enum CCU40_GCTRL_PCIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__GCTRL__PRBC_8h_1a0cf329d03becf05da8a769bcf724fe26.html">Enum CCU40_GCTRL_PRBC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU40__GCTRL__SUSCFG_8h_1a7c0f621fae20b9da94731d4f38dc47a7.html">Enum CCU40_GCTRL_SUSCFG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__CMC__CNTS_8h_1a0ad009ae01f5f61f443c86b8bc16647a.html">Enum CCU80_CC80_CMC_CNTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__DTC__DTCC_8h_1a54b1369b6cbfde31ce9b8bd495b27836.html">Enum CCU80_CC80_DTC_DTCC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__INS__EV2EM_8h_1a8a4350d1c20dacc41d197de58a4d2be2.html">Enum CCU80_CC80_INS_EV2EM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__INS__EV2IS_8h_1a6ffaba4effe540f3eca6ce985039b468.html">Enum CCU80_CC80_INS_EV2IS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__INS__LPF2M_8h_1af749a150298ff37631239b55b192bf41.html">Enum CCU80_CC80_INS_LPF2M</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__SRS__E0SR_8h_1a146480a3d98e7d20cda1c3160eaa88cf.html">Enum CCU80_CC80_SRS_E0SR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__SRS__E1SR_8h_1a2cf896720fa99a8573b8c599efdbb30f.html">Enum CCU80_CC80_SRS_E1SR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__SRS__E2SR_8h_1adec9bf99145bbeb31b2d7c1992465653.html">Enum CCU80_CC80_SRS_E2SR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__STC__STM_8h_1aa88a10b038fa00a1cc4ca1d1c42de1b3.html">Enum CCU80_CC80_STC_STM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__TC__CAPC_8h_1a3e96ddd0f4eb0d660f51420d16deefab.html">Enum CCU80_CC80_TC_CAPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__TC__DITHE_8h_1af7b72df770f910a69f6cf2e8622988b8.html">Enum CCU80_CC80_TC_DITHE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__TC__EME_8h_1a1f96959d62f7724dc156f415e5e6ff38.html">Enum CCU80_CC80_TC_EME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__TC__ENDM_8h_1a48c127deddd55c83ddd5bf5c7a7e9b91.html">Enum CCU80_CC80_TC_ENDM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__CC80__TC__STOS_8h_1a84fa2ee73ad8c208368628fddf4ebb1a.html">Enum CCU80_CC80_TC_STOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__GCTRL__MSDE_8h_1aaf3021d1ed86ae54b8b5dcfc808cadb0.html">Enum CCU80_GCTRL_MSDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__GCTRL__PCIS_8h_1adda9c775419cad6e756a4b048d4d034f.html">Enum CCU80_GCTRL_PCIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__GCTRL__PRBC_8h_1a74d9877c9b51511c570a3f098af109b8.html">Enum CCU80_GCTRL_PRBC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__GCTRL__SUSCFG_8h_1acaef5818523e466d4e1c20330036d8c5.html">Enum CCU80_GCTRL_SUSCFG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__GPCHK__PACS_8h_1a6eaeb65ec0402c27e9d854cf243f00dc.html">Enum CCU80_GPCHK_PACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__GPCHK__PCDS_8h_1a889f2406a2f792426b86f9cd2fb1fc9e.html">Enum CCU80_GPCHK_PCDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_CCU80__GPCHK__PISEL_8h_1abd451d31e2bea37a1701f72168269a36.html">Enum CCU80_GPCHK_PISEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DAC__DAC0CFG0__MODE_8h_1ad199ec13b877c5fd9a031c38c11fb9a7.html">Enum DAC_DAC0CFG0_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DAC__DAC0CFG1__SCALE_8h_1a654e99e21f79fc8640eea9c6fe3d6c59.html">Enum DAC_DAC0CFG1_SCALE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DAC__DAC0CFG1__TRIGMOD_8h_1a5d23893c33571d7133b0d7f5768c0afc.html">Enum DAC_DAC0CFG1_TRIGMOD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CGCFG__CGMOD_8h_1abd788f24c96a25bf2849a796cc3865d7.html">Enum DSD_CGCFG_CGMOD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CGCFG__DIVCG_8h_1a1c5d58e597d61c7eb9b5e2dd5557659c.html">Enum DSD_CGCFG_DIVCG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__DICFG__CSRC_8h_1ae9bab1d3be74f36b71011bb2cb509121.html">Enum DSD_CH0_DICFG_CSRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__DICFG__DSRC_8h_1a350364730edeb7b8c46f03bdc77c150b.html">Enum DSD_CH0_DICFG_DSRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__DICFG__ITRMODE_8h_1a2641feb9145df23e69f233d0f1fcf44c.html">Enum DSD_CH0_DICFG_ITRMODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__DICFG__STROBE_8h_1a08f2e1cab74416d6c95db27947582474.html">Enum DSD_CH0_DICFG_STROBE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__DICFG__TSTRMODE_8h_1a68eb7c2ce0acc67ca045ebce7541c2c1.html">Enum DSD_CH0_DICFG_TSTRMODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__FCFGA__ESEL_8h_1a2a706d916114055cb93a6f83c22722cc.html">Enum DSD_CH0_FCFGA_ESEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__FCFGA__SRGA_8h_1af97e72946d9e1ddcbeb808cf6ec00127.html">Enum DSD_CH0_FCFGA_SRGA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__FCFGC__CFMC_8h_1ac7b00a7185f5c2732077f7d4e000ecf3.html">Enum DSD_CH0_FCFGC_CFMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__FCFGC__SRGM_8h_1ab59083a1232a5783bf04f833eef8eeaa.html">Enum DSD_CH0_FCFGC_SRGM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__MODCFG__DIVM_8h_1a90ce48bf8e743b835128792d26b64f49.html">Enum DSD_CH0_MODCFG_DIVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__CH0__RECTCFG__SSRC_8h_1a7ea5de64174539a8d10cea311a81bbb7.html">Enum DSD_CH0_RECTCFG_SSRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__GLOBCFG__MCSEL_8h_1a302e1eb72a4d13b333676c0c735a4f74.html">Enum DSD_GLOBCFG_MCSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_DSD__OCS__SUS_8h_1aff19c3bafe5956d84d4ad432bad19ade.html">Enum DSD_OCS_SUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRAP0__ADDRC_8h_1ae748cb82a38d543b3686f9e4bc496b19.html">Enum EBU_BUSRAP0_ADDRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRAP0__AHOLDC_8h_1aa44e21728988b98f6894a402b1bbe244.html">Enum EBU_BUSRAP0_AHOLDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRAP0__EXTCLOCK_8h_1ae8492e3fa96897d4b44d95714d95f210.html">Enum EBU_BUSRAP0_EXTCLOCK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRAP0__EXTDATA_8h_1aa7628cf8a1e7a2ea4172dc44e2e68ab3.html">Enum EBU_BUSRAP0_EXTDATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRAP0__RDDTACS_8h_1ac5c515eca6d73fa7cff5b3bc287b77c2.html">Enum EBU_BUSRAP0_RDDTACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRAP0__RDRECOVC_8h_1a3e8e13baa62ec979b739ccfb508df2d0.html">Enum EBU_BUSRAP0_RDRECOVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRAP0__WAITRDC_8h_1aca9ae27b42217b99bb0e54d7ebea8500.html">Enum EBU_BUSRAP0_WAITRDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRCON0__BCGEN_8h_1a6e7a7b772c75ee6b82cc7cfc27fb5f31.html">Enum EBU_BUSRCON0_BCGEN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__BUSRCON0__FETBLEN_8h_1a3317ec4e80a6dd04432104911faa4db4.html">Enum EBU_BUSRCON0_FETBLEN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__CLC__EBUDIVACK_8h_1a88b57af33dbef60ba3bea617506730cc.html">Enum EBU_CLC_EBUDIVACK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__MODCON__ARBMODE_8h_1ad81944ce81bb549a63fb5427c76c9470.html">Enum EBU_MODCON_ARBMODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__MODCON__TIMEOUTC_8h_1a80d08b588a7ce674632f2746fe0544c7.html">Enum EBU_MODCON_TIMEOUTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__SDRMCON__AWIDTH_8h_1acd226a9445a24a1c249f8f1266ed9b6f.html">Enum EBU_SDRMCON_AWIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__SDRMCON__BANKM_8h_1ae905a0358377d89bf9e255d3dfa6f53e.html">Enum EBU_SDRMCON_BANKM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__SDRMCON__PWR__MODE_8h_1ad62f3253355b117a211a549c8541305c.html">Enum EBU_SDRMCON_PWR_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__SDRMCON__ROWM_8h_1a349e03ba700f17ab5975660b3b94927d.html">Enum EBU_SDRMCON_ROWM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__SDRMOD__BURSTL_8h_1a82e88fa2a4313543ef666ce4f4c1b605.html">Enum EBU_SDRMOD_BURSTL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__SDRMOD__CASLAT_8h_1af1060c9f7efa23d495f7a2081db9084c.html">Enum EBU_SDRMOD_CASLAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__SDRMOD__OPMODE_8h_1af30170684b1f3b6b3a314d0c8bc09925.html">Enum EBU_SDRMOD_OPMODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_EBU__USERCON__ADDIO_8h_1a148752e45c015ff64b5ddaac5b5a3e11.html">Enum EBU_USERCON_ADDIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_ERU0__EXICON__OCS_8h_1acbdb6876b94119127f3554e65a7955d4.html">Enum ERU0_EXICON_OCS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_ERU0__EXICON__SS_8h_1a84224ca6344671d366ea13aabb1a26bb.html">Enum ERU0_EXICON_SS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_ERU0__EXISEL__EXS3B_8h_1adb0db47621d5ecac84ab0028a8de1735.html">Enum ERU0_EXISEL_EXS3B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_ERU0__EXOCON__GP_8h_1aee247cd8c44f26ed83f015f47eec30a1.html">Enum ERU0_EXOCON_GP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_ERU0__EXOCON__ISS_8h_1a0a42f4fbf68003c92f12ffef76a3a2c3.html">Enum ERU0_EXOCON_ISS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_ETH0__CON__ETH0__CON__CRS_8h_1ae4ce360683f399e97bf22ba3c5df25e2.html">Enum ETH0_CON_ETH0_CON_CRS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_ETH0__CON__ETH0__CON__MDIO_8h_1a26f834721bfaac394117aa7b024d1f7b.html">Enum ETH0_CON_ETH0_CON_MDIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_FLASH0__FCON__WSPFLASH_8h_1ab0dce3b4eb8f343683ec39200641e06a.html">Enum FLASH0_FCON_WSPFLASH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_FLASH0__MARP__MARGIN_8h_1a5928e19774b53222f8810bfc981c5290.html">Enum FLASH0_MARP_MARGIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_GPDMA0__CH0__CFGL__LOCK__CH__L_8h_1a59e308be4566c4d843374b73f7a1b1e0.html">Enum GPDMA0_CH0_CFGL_LOCK_CH_L</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_GPDMA0__CH0__CTLL__DINC_8h_1afcaa41793754a8296c68e53312018b12.html">Enum GPDMA0_CH0_CTLL_DINC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_GPDMA0__CH2__CFGL__LOCK__CH__L_8h_1acb540ae9c62929a50b5e6ce5fc88f159.html">Enum GPDMA0_CH2_CFGL_LOCK_CH_L</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_GPDMA0__CH2__CTLL__DINC_8h_1a35f0150f2baf5daf978ede035569fe80.html">Enum GPDMA0_CH2_CTLL_DINC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_GPDMA0__CHENREG__CH_8h_1a4fa1a2a178ceb3afac3f881291114c39.html">Enum GPDMA0_CHENREG_CH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_GPDMA1__CH0__CFGL__LOCK__CH__L_8h_1acc417db6ee7e271465be66bc224f9500.html">Enum GPDMA1_CH0_CFGL_LOCK_CH_L</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_GPDMA1__CH0__CTLL__DINC_8h_1a98ded770fb24c9b0d7168313cb08479f.html">Enum GPDMA1_CH0_CTLL_DINC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_GPDMA1__CHENREG__CH_8h_1a69ae6c86599295ba433ec8a97ed1e655.html">Enum GPDMA1_CHENREG_CH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_LEDTS0__FNCTL__ACCCNT_8h_1aee3717564de6a440b158b776b436e284.html">Enum LEDTS0_FNCTL_ACCCNT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_LEDTS0__FNCTL__NR__LEDCOL_8h_1abfdb93faded4e9afd875361b82a718ef.html">Enum LEDTS0_FNCTL_NR_LEDCOL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_LEDTS0__FNCTL__NR__TSIN_8h_1a048e8f5380d1ebbf35106297a5633c15.html">Enum LEDTS0_FNCTL_NR_TSIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_LEDTS0__FNCTL__PADT_8h_1ae1417f3b915a1ed930c8bc022cc261af.html">Enum LEDTS0_FNCTL_PADT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_LEDTS0__FNCTL__TSOEXT_8h_1a3e919411008c2a4eac7b324a0521e453.html">Enum LEDTS0_FNCTL_TSOEXT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_LEDTS0__GLOBCTL__MASKVAL_8h_1a54c9e0eff45f9f323f1ad9293e031875.html">Enum LEDTS0_GLOBCTL_MASKVAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT0__HWSEL__HW15_8h_1aadda912ab47422a379f43e05d0b9af08.html">Enum PORT0_HWSEL_HW15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT0__IOCR0__PC3_8h_1ab4ed658167cef5852d30a725b7b562ef.html">Enum PORT0_IOCR0_PC3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT0__PDR0__PD1_8h_1a2b33d5fd75b305ac625483a8075b6bbc.html">Enum PORT0_PDR0_PD1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT0__PDR0__PD7_8h_1a1b9c6d2f0d3eff8377130e8c34e7e10c.html">Enum PORT0_PDR0_PD7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT14__HWSEL__HW15_8h_1a45a677d90bc6493ac32883777793195b.html">Enum PORT14_HWSEL_HW15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT14__IOCR0__PC3_8h_1a6e009f6ee6809229aa396a38044942b5.html">Enum PORT14_IOCR0_PC3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT15__HWSEL__HW15_8h_1a57160dab92c0f96ead14034bb38d4db9.html">Enum PORT15_HWSEL_HW15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT15__IOCR0__PC3_8h_1ab071b0528bdfb879ca07c5db1a83f3ee.html">Enum PORT15_IOCR0_PC3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT4__HWSEL__HW15_8h_1ab2772fb6b6ee629d760b391885a3dfca.html">Enum PORT4_HWSEL_HW15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT4__IOCR0__PC3_8h_1ac3393ceaa3426ee8f4d968eb869de32f.html">Enum PORT4_IOCR0_PC3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT4__PDR0__PD1_8h_1a5c7f9dee31ac3d3f7c88b3ab44f2ed61.html">Enum PORT4_PDR0_PD1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT4__PDR0__PD7_8h_1ade34fca3fbdfc6953de6b7b4f01e48a4.html">Enum PORT4_PDR0_PD7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT5__HWSEL__HW15_8h_1a11f617de078bf756a57fd8beb7e1ca39.html">Enum PORT5_HWSEL_HW15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT5__IOCR0__PC3_8h_1a593359dba2107e04087d57111c92b4bb.html">Enum PORT5_IOCR0_PC3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT5__PDR0__PD6_8h_1a563ff2837a9410d082ad2ad0ce883f47.html">Enum PORT5_PDR0_PD6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PORT5__PDR0__PD7_8h_1a453be0d747e4aff7fb400db67a0db4d0.html">Enum PORT5_PDR0_PD7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_POSIF0__PCONF__EWIS_8h_1a39d9fa05caceb7c8710b590ffd87e8c4.html">Enum POSIF0_PCONF_EWIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_POSIF0__PCONF__FSEL_8h_1afc6d31fc98ded137c715ef75b49a8750.html">Enum POSIF0_PCONF_FSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_POSIF0__PCONF__LPC_8h_1a58c4324996c123fe71663aa1abd9344f.html">Enum POSIF0_PCONF_LPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_POSIF0__PCONF__MSETS_8h_1a3f7e06f70373d8a5b071f80051ced588.html">Enum POSIF0_PCONF_MSETS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_POSIF0__PSUS__MSUS_8h_1a86145b95527b4a2ed8b21dacc65fb55d.html">Enum POSIF0_PSUS_MSUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_POSIF0__PSUS__QSUS_8h_1a1c14d82877a0978c8cdb33c1971d1c7c.html">Enum POSIF0_PSUS_QSUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_POSIF0__QDC__ICM_8h_1ab11c43573a331645db30f886ae58adb5.html">Enum POSIF0_QDC_ICM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__CPACR__CP11_8h_1a48d829c37c29422db179fe2c4a44d6bc.html">Enum PPB_CPACR_CP11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__CPUID__Implementer_8h_1a19f32929c1324bf7910c4c8dd6c30e5e.html">Enum PPB_CPUID_Implementer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__CPUID__PartNo_8h_1a96229aefcddabc965ada1fb75a825320.html">Enum PPB_CPUID_PartNo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__CPUID__Revision_8h_1a5611d3bb79ad568ca40df19e0921018e.html">Enum PPB_CPUID_Revision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__CPUID__Variant_8h_1aa5e619872247015b335c0c8c2622ffa0.html">Enum PPB_CPUID_Variant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__ICSR__VECTACTIVE_8h_1afffc589de38b79905554f97ba9a0d593.html">Enum PPB_ICSR_VECTACTIVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__ICSR__VECTPENDING_8h_1ac071ebc592a98cae9a614a223f1c6b66.html">Enum PPB_ICSR_VECTPENDING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__MPU__RASR__SRD_8h_1a319507c60229ce8d43e4a7fb04e8ed6c.html">Enum PPB_MPU_RASR_SRD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__NVIC__IABR0__ACTIVE_8h_1a2d9f4d0665fe66088727395938aaad02.html">Enum PPB_NVIC_IABR0_ACTIVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__NVIC__ISER0__SETENA_8h_1acb051d5e6d653700b0af290765ddfcd1.html">Enum PPB_NVIC_ISER0_SETENA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_PPB__NVIC__ISPR0__SETPEND_8h_1a80d8967bfdb1e77c9ccc44c614756c60.html">Enum PPB_NVIC_ISPR0_SETPEND</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__CLK__EXTCLKCR__ECKSEL_8h_1a1f3a4353767af5eb5181c49b50468400.html">Enum SCU_CLK_EXTCLKCR_ECKSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__CLK__MLINKCLKCR__WDTSEL_8h_1a16bdc351f112991969010cd0d5b60574.html">Enum SCU_CLK_MLINKCLKCR_WDTSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__CLK__WDTCLKCR__WDTSEL_8h_1a4168ab8bb7b8adfe46a798867b61c556.html">Enum SCU_CLK_WDTCLKCR_WDTSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__HIBERNATE__HDCR__HIBIO1SEL_8h_1a1be29729f42aedb48e6c96b0ee8fae5b.html">Enum SCU_HIBERNATE_HDCR_HIBIO1SEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__HIBERNATE__OSCULCTRL__MODE_8h_1aa9b233dd1ec7958fe9404d61f311cdd9.html">Enum SCU_HIBERNATE_OSCULCTRL_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__OSC__OSCHPCTRL__GAINSEL_8h_1ab97eef5a12f2081dbb3394d2d2529605.html">Enum SCU_OSC_OSCHPCTRL_GAINSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__OSC__OSCHPCTRL__MODE_8h_1af633b31a706ed6ec7798d197fda2f25f.html">Enum SCU_OSC_OSCHPCTRL_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__PLL__CLKMXSTAT__SYSCLKMUX_8h_1acab2e453b71280a5db269da064d77de3.html">Enum SCU_PLL_CLKMXSTAT_SYSCLKMUX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SCU__RESET__RSTSTAT__RSTSTAT_8h_1a059a31cd0e1e12dac09200b6c51c676e.html">Enum SCU_RESET_RSTSTAT_RSTSTAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__CAPABILITIES__BASE__SD__CLOCK__FREQ_8h_1ac438d7b3b7289223b53c41b624ece740.html">Enum SDMMC_CAPABILITIES_BASE_SD_CLOCK_FREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__CAPABILITIES__HI__CLK__MULT_8h_1ac941c30fe8e9b464179bb5eea6076f05.html">Enum SDMMC_CAPABILITIES_HI_CLK_MULT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__CAPABILITIES__HI__RE__TUNING__MODES_8h_1a8ef5767a7f245d08efd9f9e7413ffa78.html">Enum SDMMC_CAPABILITIES_HI_RE_TUNING_MODES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__CAPABILITIES__HI__TIM__CNT__RETUNE_8h_1a1d8f1d39c08e96bee1adc347bccde36d.html">Enum SDMMC_CAPABILITIES_HI_TIM_CNT_RETUNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__CAPABILITIES__MAX__BLOCK__LENGTH_8h_1a8bf4ade35ac366100b16e0e815a12e49.html">Enum SDMMC_CAPABILITIES_MAX_BLOCK_LENGTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__CAPABILITIES__SLOT__TYPE_8h_1a606dcdac75b1acf12b7971f613f38fd8.html">Enum SDMMC_CAPABILITIES_SLOT_TYPE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__CLOCK__CTRL__SDCLK__FREQ__SEL_8h_1a19a0a38be8707cfe1356c4cec3168e0b.html">Enum SDMMC_CLOCK_CTRL_SDCLK_FREQ_SEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__COMMAND__CMD__TYPE_8h_1a20576e82fc9605ea8f7a54ca0ba83e8d.html">Enum SDMMC_COMMAND_CMD_TYPE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__COMMAND__RESP__TYPE__SELECT_8h_1a00bc7ed0325226c2c0b80f3a072ea02f.html">Enum SDMMC_COMMAND_RESP_TYPE_SELECT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__POWER__CTRL__SD__BUS__VOLTAGE__SEL_8h_1a79724dadb871790ad470c3f91ba55269.html">Enum SDMMC_POWER_CTRL_SD_BUS_VOLTAGE_SEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__SLOT__INT__STATUS__SLOT__INT__STATUS_8h_1a32237359fe5574452dbd878ed1624690.html">Enum SDMMC_SLOT_INT_STATUS_SLOT_INT_STATUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__TIMEOUT__CTRL__DAT__TIMEOUT__CNT__VAL_8h_1a6b982e3a296bddc768055ad26c254266.html">Enum SDMMC_TIMEOUT_CTRL_DAT_TIMEOUT_CNT_VAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_SDMMC__TRANSFER__MODE__ACMD__EN_8h_1a23e584861929aad4d10be6575798fbcc.html">Enum SDMMC_TRANSFER_MODE_ACMD_EN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__CH0__HCCHAR__EPType_8h_1a3c6ec662cd3c114f04b628ac4c78bc36.html">Enum USB0_CH0_HCCHAR_EPType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__CH0__HCCHAR__MC__EC_8h_1a727695af25b3ae372d28204d121e7277.html">Enum USB0_CH0_HCCHAR_MC_EC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__CH0__HCDMA__SCATGATHER__CTD_8h_1a308ef88f21f2cc810fb3e9de505c58d4.html">Enum USB0_CH0_HCDMA_SCATGATHER_CTD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__CH0__HCTSIZ__BUFFERMODE__Pid_8h_1a39be5a2e687225158a2050d9b2727a6e.html">Enum USB0_CH0_HCTSIZ_BUFFERMODE_Pid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__CH0__HCTSIZ__SCATGATHER__Pid_8h_1a981519be3592003dea10859b7750c7f3.html">Enum USB0_CH0_HCTSIZ_SCATGATHER_Pid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__DCFG__DevSpd_8h_1a590316a9f7f41f88799337ecead4fd7d.html">Enum USB0_DCFG_DevSpd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__DCFG__PerFrInt_8h_1a87b904799d111e1295aba55fcf9b61dd.html">Enum USB0_DCFG_PerFrInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__DCFG__PerSchIntvl_8h_1a33057aca2ad4aa0f12da4c08073ea4a8.html">Enum USB0_DCFG_PerSchIntvl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__DCTL__GMC_8h_1aa7da5b85b2a447f88e516724d193d8e5.html">Enum USB0_DCTL_GMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__DSTS__EnumSpd_8h_1a0469fa3f1a9d431338a038b622a6ff64.html">Enum USB0_DSTS_EnumSpd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__EP0__DIEPCTL0__MPS_8h_1ae1b4911f663e6fdeb4d96058fe08a36b.html">Enum USB0_EP0_DIEPCTL0_MPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__EP0__DOEPTSIZ0__SUPCnt_8h_1a720ec9e7c90aadcbe94fb26bed7d9b0a.html">Enum USB0_EP0_DOEPTSIZ0_SUPCnt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__EP0__DTXFSTS0__INEPTxFSpcAvail_8h_1ae55f4ad96bee7916e56be4d2669b631d.html">Enum USB0_EP0_DTXFSTS0_INEPTxFSpcAvail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__EP1__DIEPCTL__ISOCONT__EPType_8h_1abc21a58b0ee5cf2515b258dfd051beec.html">Enum USB0_EP1_DIEPCTL_ISOCONT_EPType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__EP1__DOEPTSIZ__ISO__RxDPID_8h_1a8bf011c8de2bcd9f24e79936ea3447ae.html">Enum USB0_EP1_DOEPTSIZ_ISO_RxDPID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__EP1__DTXFSTS__INEPTxFSpcAvail_8h_1a9adaf597711a77d76bab2c1034f453c0.html">Enum USB0_EP1_DTXFSTS_INEPTxFSpcAvail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__GAHBCFG__HBstLen_8h_1a1932c37910f69cfbe4b76a0644616539.html">Enum USB0_GAHBCFG_HBstLen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__GNPTXSTS__NPTxFSpcAvail_8h_1a7f3b7548105afe803f3b01b8fe094b3e.html">Enum USB0_GNPTXSTS_NPTxFSpcAvail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__GNPTXSTS__NPTxQSpcAvail_8h_1acf2ca000ad87f729aec69b15c9352696.html">Enum USB0_GNPTXSTS_NPTxQSpcAvail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__GNPTXSTS__NPTxQTop_8h_1a37fadf502492ceafa26441500efffbfe.html">Enum USB0_GNPTXSTS_NPTxQTop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__GRSTCTL__TxFNum_8h_1a1f7915d790f45b6e9ccb6cc121d8debd.html">Enum USB0_GRSTCTL_TxFNum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__GRXSTSR__DEVICEMODE__PktSts_8h_1a239f27588a6be12897427b3cc25ad026.html">Enum USB0_GRXSTSR_DEVICEMODE_PktSts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__GRXSTSR__HOSTMODE__DPID_8h_1a64574d6aae8e0af976e1c0c0a573ccd5.html">Enum USB0_GRXSTSR_HOSTMODE_DPID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__GRXSTSR__HOSTMODE__PktSts_8h_1aa8c1e99a38b8c09d6ab308e89673367b.html">Enum USB0_GRXSTSR_HOSTMODE_PktSts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__HCFG__FrListEn_8h_1a0d360c578ff05013098d555f74e6f28b.html">Enum USB0_HCFG_FrListEn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__HCFG__FSLSPclkSel_8h_1adc0725948ca59a3f1c60a714957961c4.html">Enum USB0_HCFG_FSLSPclkSel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__HPRT__PrtSpd_8h_1a104f5d74e72b23aa47b134bcc7810873.html">Enum USB0_HPRT_PrtSpd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__HPTXSTS__PTxFSpcAvail_8h_1aa7498e9744b516fbbbc6d5eb65dab402.html">Enum USB0_HPTXSTS_PTxFSpcAvail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USB0__HPTXSTS__PTxQSpcAvail_8h_1aac6f81b19e2017a5ece3fc8504fb3454.html">Enum USB0_HPTXSTS_PTxQSpcAvail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__BRG__CLKSEL_8h_1a74179958fb10d93f8edd1a2e2782b198.html">Enum USIC0_CH0_BRG_CLKSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__BRG__CTQSEL_8h_1a0236b632e33106cb3d436e7d416d05c8.html">Enum USIC0_CH0_BRG_CTQSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__BRG__SCLKCFG_8h_1a6025955c856e5d1c98ddf91cd73f6b21.html">Enum USIC0_CH0_BRG_SCLKCFG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__BYPCR__BDEN_8h_1a5f81d358e48f4f76194c07203e9a0334.html">Enum USIC0_CH0_BYPCR_BDEN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__CCR__HPCEN_8h_1abccfbc43a5a7ae1be86bc5df8c5c139c.html">Enum USIC0_CH0_CCR_HPCEN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__CCR__MODE_8h_1a2a7ddb9c353532a00500b702b98db345.html">Enum USIC0_CH0_CCR_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__CCR__PM_8h_1a1138e637bb1a0e2a51a58ad9b93470c3.html">Enum USIC0_CH0_CCR_PM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__DX0CR__CM_8h_1abfa3983f7ff73bd6c510238fa65e8ecb.html">Enum USIC0_CH0_DX0CR_CM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__DX0CR__DSEL_8h_1add09d75e7d078dee24c11f78e9e11618.html">Enum USIC0_CH0_DX0CR_DSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__DX1CR__CM_8h_1aaa71346addfa565bf3d376b00254a3e8.html">Enum USIC0_CH0_DX1CR_CM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__DX1CR__DSEL_8h_1a3c13207110b202d8953e98093b2e80cc.html">Enum USIC0_CH0_DX1CR_DSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__FDR__DM_8h_1aec2d4e5d9eefe482e462213356508ad3.html">Enum USIC0_CH0_FDR_DM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__FMR__MTDV_8h_1a1a42d2526c3bed0bc7af409bea66c82f.html">Enum USIC0_CH0_FMR_MTDV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__INPR__TSINP_8h_1a6a0ef239a7ad4808a6502be3f16e8559.html">Enum USIC0_CH0_INPR_TSINP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__KSCFG__NOMCFG_8h_1a7a41cd76003fc9473e53ff338a755cbd.html">Enum USIC0_CH0_KSCFG_NOMCFG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__PCR__ASCMode__PL_8h_1acb42115aa41cdde2b09c3bc716879720.html">Enum USIC0_CH0_PCR_ASCMode_PL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__PCR__SSCMode__SELO_8h_1a4c11fae54267ad805957dd069b43adc2.html">Enum USIC0_CH0_PCR_SSCMode_SELO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__RBCTR__RCIM_8h_1aa873125a091981236bde65c790507f2e.html">Enum USIC0_CH0_RBCTR_RCIM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__RBUF01SR__WLEN1_8h_1afafaa7ca5fb7dc6e962dab904d4aa618.html">Enum USIC0_CH0_RBUF01SR_WLEN1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__SCTR__DOCFG_8h_1aead01843fc530cb208066af983e34ec9.html">Enum USIC0_CH0_SCTR_DOCFG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__SCTR__DSM_8h_1a53b230034d6f53fdb538e5b5f5d7c838.html">Enum USIC0_CH0_SCTR_DSM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__SCTR__TRM_8h_1a6412e0cfdbb71b465c0c5cc48ded62ab.html">Enum USIC0_CH0_SCTR_TRM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__SCTR__WLE_8h_1ade7fc1107962223c394635def0ebe0be.html">Enum USIC0_CH0_SCTR_WLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__TBCTR__SIZE_8h_1a89f7e23f807d2d1a14e6e7272dd7bdc3.html">Enum USIC0_CH0_TBCTR_SIZE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_USIC0__CH0__TCSR__TDEN_8h_1a2bc7ee82c201b3475f192ff09e3107ec.html">Enum USIC0_CH0_TCSR_TDEN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__BRSCTRL__SRCRESREG_8h_1aa2b9278a83b021f80fd38b9e6cfdd385.html">Enum VADC_BRSCTRL_SRCRESREG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__BRSCTRL__XTMODE_8h_1a0fa2bb35d86d3d20e2ebd384ae28a03c.html">Enum VADC_BRSCTRL_XTMODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__BRSMR__ENGT_8h_1ae5647bbe03177f25ff54b4492f8cb6cc.html">Enum VADC_BRSMR_ENGT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__ARBCFG__ANONS_8h_1a2066b60d568b2f76dd3312e9cbd7e4a5.html">Enum VADC_G0_ARBCFG_ANONS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__ARBCFG__ARBRND_8h_1ab8c796cf4fc0d1fa37612d4071eed374.html">Enum VADC_G0_ARBCFG_ARBRND</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__ARBPR__PRIO2_8h_1ad9db30d7390c08427eac8b684960e381.html">Enum VADC_G0_ARBPR_PRIO2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__ASMR__ENGT_8h_1ad9eb42625bb9a56d3a409c69b005b615.html">Enum VADC_G0_ASMR_ENGT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__BFLC__BFM3_8h_1a3d01fb6544e0eadab5e4f8226227b39c.html">Enum VADC_G0_BFLC_BFM3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__BFLNP__BFL3NP_8h_1a624861e2cb876052567644fa47830f6b.html">Enum VADC_G0_BFLNP_BFL3NP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__CEVNP0__CEV7NP_8h_1a4689bca775cb1b69e1be117390e38912.html">Enum VADC_G0_CEVNP0_CEV7NP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__CHCTR__BNDSELU_8h_1a9d544f6cf6e0b8eb0f1f22e840806867.html">Enum VADC_G0_CHCTR_BNDSELU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__CHCTR__BWDCH_8h_1aa3b41870c53b4f410a21f886813b15be.html">Enum VADC_G0_CHCTR_BWDCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__CHCTR__CHEVMODE_8h_1aa46f623bdcd211acbaf6035518753bc8.html">Enum VADC_G0_CHCTR_CHEVMODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__CHCTR__ICLSEL_8h_1ae682c650747b16bb806f27e69f6fddc2.html">Enum VADC_G0_CHCTR_ICLSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__CHCTR__RESREG_8h_1a5fdf1fd81802aa44a618dfa85dedc185.html">Enum VADC_G0_CHCTR_RESREG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__EMUXCTR__EMUXMODE_8h_1ad77de16ecb4b3cffb98f7ec687126434.html">Enum VADC_G0_EMUXCTR_EMUXMODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__ICLASS__CME_8h_1a6c427be27af8ce9646813ba98664851f.html">Enum VADC_G0_ICLASS_CME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__QCTRL0__SRCRESREG_8h_1a6069ab1647e4daa2016d52616a0d041b.html">Enum VADC_G0_QCTRL0_SRCRESREG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__QCTRL0__XTMODE_8h_1a04d5eca8013c9a525da8a05ab1657103.html">Enum VADC_G0_QCTRL0_XTMODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__QMR0__ENGT_8h_1a9fa092f9a883e4fa9d1ae20d51eb94f7.html">Enum VADC_G0_QMR0_ENGT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__QSR0__FILL_8h_1a397ca8fa1843699f4bc9326597a4a083.html">Enum VADC_G0_QSR0_FILL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__RCR__DMM_8h_1ada3ef7bfe9a0ffbcf73c4830b278e802.html">Enum VADC_G0_RCR_DMM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__RCR__FEN_8h_1af6583a3eb5f4cf6994d48d673ad6a5bd.html">Enum VADC_G0_RCR_FEN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__RES__CRS_8h_1a2980ff666ddca906bd2b4370f098e195.html">Enum VADC_G0_RES_CRS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__G0__SYNCTR__STSEL_8h_1a9e30337214f6fef17c3bad47f5b23dff.html">Enum VADC_G0_SYNCTR_STSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__GLOBCFG__DIVA_8h_1a7e5db479b3b0253016eb1b68a6425fda.html">Enum VADC_GLOBCFG_DIVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__GLOBCFG__DIVD_8h_1a9b9fc44f5287fa4bb14919aa060e58c6.html">Enum VADC_GLOBCFG_DIVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__GLOBEVNP__REV0NP_8h_1a4df85bc11db1bebe8637fa3a3f1e1d2d.html">Enum VADC_GLOBEVNP_REV0NP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__GLOBICLASS__CME_8h_1a07e61daaaef10ca843d905440370ac5c.html">Enum VADC_GLOBICLASS_CME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__GLOBRCR__DRCTR_8h_1a79c6b8b9efddb14939832dce5f0c3203.html">Enum VADC_GLOBRCR_DRCTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__GLOBTF__CDSEL_8h_1aec670b30f6c91a08eb7b3c7f8c102d12.html">Enum VADC_GLOBTF_CDSEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__OCS__SUS_8h_1afa9740aa8bcf8e541bc907a6ae0a05e2.html">Enum VADC_OCS_SUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum_VADC__OCS__TGS_8h_1a4ee58b1385233dd359ecf4fee953d427.html">Enum VADC_OCS_TGS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_test__common_8cc_1a840291bc02cba5474a4cb46a9b9566fe.html">Function main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__ID__MOD__TYPE_8h_1af739a3f54781a8bf1a643f309167855e.html">Function XMC4700::from_string(const char *, CAN_ID_MOD_TYPE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__MCR__CLKSEL_8h_1aa4288e5ef4b011e39d721b516667c267.html">Function XMC4700::from_string(const char *, CAN_MCR_CLKSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__MO__MOAR__PRI_8h_1a65880ba522101640cfa6ae45bce10f78.html">Function XMC4700::from_string(const char *, CAN_MO_MOAR_PRI&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__MO__MOFCR__MMC_8h_1ae9e497a876941418eacdac015d8bf53e.html">Function XMC4700::from_string(const char *, CAN_MO_MOFCR_MMC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__MO__MOIPR__TXINP_8h_1ae104263654d2116ffce89568b967d405.html">Function XMC4700::from_string(const char *, CAN_MO_MOIPR_TXINP&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__NODE0__NFCR__CFMOD_8h_1a4fc759f791c690d60694eb72b795d97e.html">Function XMC4700::from_string(const char *, CAN_NODE0_NFCR_CFMOD&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__NODE0__NIPR__CFCINP_8h_1a85463d3a14bd603448b80b86eb62df3a.html">Function XMC4700::from_string(const char *, CAN_NODE0_NIPR_CFCINP&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__CMC__CNTS_8h_1abe3f55f361c204c8cf56a436a6b6076f.html">Function XMC4700::from_string(const char *, CCU40_CC40_CMC_CNTS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__INS__EV2EM_8h_1a718ccfcc6c3e8a048db6e30ac0a916f2.html">Function XMC4700::from_string(const char *, CCU40_CC40_INS_EV2EM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__INS__EV2IS_8h_1aa0e9cccdde8963cc949d64fe99da8e4e.html">Function XMC4700::from_string(const char *, CCU40_CC40_INS_EV2IS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__INS__LPF2M_8h_1a261e2eb989c804322c1f9b4fe874f599.html">Function XMC4700::from_string(const char *, CCU40_CC40_INS_LPF2M&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__SRS__E2SR_8h_1a0a3f0428b399a9e6ec46a6760dc97ab4.html">Function XMC4700::from_string(const char *, CCU40_CC40_SRS_E2SR&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__TC__CAPC_8h_1aaaa51f037873d15ab5d6c99d80a33cf7.html">Function XMC4700::from_string(const char *, CCU40_CC40_TC_CAPC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__TC__DITHE_8h_1a6d8d75e35d664651a26c4ee39c638b8e.html">Function XMC4700::from_string(const char *, CCU40_CC40_TC_DITHE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__TC__ENDM_8h_1a9ecef426d6202c79cdc3173176520065.html">Function XMC4700::from_string(const char *, CCU40_CC40_TC_ENDM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__GCTRL__MSDE_8h_1acd81ca24f8b784e1736857f4f6b2b5d9.html">Function XMC4700::from_string(const char *, CCU40_GCTRL_MSDE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__GCTRL__PCIS_8h_1af9afdad6d07ac9415fb23d9e5df87e88.html">Function XMC4700::from_string(const char *, CCU40_GCTRL_PCIS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__GCTRL__PRBC_8h_1af37abdc38a20eebe7d4183344af0dc3f.html">Function XMC4700::from_string(const char *, CCU40_GCTRL_PRBC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__GCTRL__SUSCFG_8h_1a94c752df4a824c14658a0594414405f5.html">Function XMC4700::from_string(const char *, CCU40_GCTRL_SUSCFG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__CMC__CNTS_8h_1a77e992f9e8071da44b1566f6313ada9e.html">Function XMC4700::from_string(const char *, CCU80_CC80_CMC_CNTS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__DTC__DTCC_8h_1aa5135ebd4f7873bc5339ddf0e1900d85.html">Function XMC4700::from_string(const char *, CCU80_CC80_DTC_DTCC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__INS__EV2EM_8h_1aa999eea6e02afbb8dcfaa3ee4671ab18.html">Function XMC4700::from_string(const char *, CCU80_CC80_INS_EV2EM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__INS__EV2IS_8h_1a6452f05a30380add1fc0b803915c9fe8.html">Function XMC4700::from_string(const char *, CCU80_CC80_INS_EV2IS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__INS__LPF2M_8h_1a9a6eadaa841eecb02ec5fb425dff0455.html">Function XMC4700::from_string(const char *, CCU80_CC80_INS_LPF2M&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__SRS__E0SR_8h_1a638e6c23454357d338973f7c8cca9f33.html">Function XMC4700::from_string(const char *, CCU80_CC80_SRS_E0SR&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__SRS__E1SR_8h_1ab3f626455020ca187f699a731a1abeb1.html">Function XMC4700::from_string(const char *, CCU80_CC80_SRS_E1SR&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__SRS__E2SR_8h_1a51005220a13fd4841171b559480660a2.html">Function XMC4700::from_string(const char *, CCU80_CC80_SRS_E2SR&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__STC__STM_8h_1aede3ca8176ef5500b924de0ee52ac220.html">Function XMC4700::from_string(const char *, CCU80_CC80_STC_STM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__CAPC_8h_1a63eaa2b371bcd7dbf6c3919a40222d2c.html">Function XMC4700::from_string(const char *, CCU80_CC80_TC_CAPC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__DITHE_8h_1a60b79829df6a0583311a1d7f31ae150e.html">Function XMC4700::from_string(const char *, CCU80_CC80_TC_DITHE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__EME_8h_1af91b72cc29a265559a841fca79daf6c0.html">Function XMC4700::from_string(const char *, CCU80_CC80_TC_EME&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__ENDM_8h_1a0d8d96f65b4445c39e4985f24931af0c.html">Function XMC4700::from_string(const char *, CCU80_CC80_TC_ENDM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__STOS_8h_1a1b7f302edac4d49d0e0a354893a57968.html">Function XMC4700::from_string(const char *, CCU80_CC80_TC_STOS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GCTRL__MSDE_8h_1a79f13f9bc31928c10b9e04add937f82d.html">Function XMC4700::from_string(const char *, CCU80_GCTRL_MSDE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GCTRL__PCIS_8h_1a5df5ed98657ba6cc9f7facd828c6f337.html">Function XMC4700::from_string(const char *, CCU80_GCTRL_PCIS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GCTRL__PRBC_8h_1a87962d19fa2c2eaa3ce18d4612018cdb.html">Function XMC4700::from_string(const char *, CCU80_GCTRL_PRBC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GCTRL__SUSCFG_8h_1ab741f44c52dcb7f44e42341fc42e6e9a.html">Function XMC4700::from_string(const char *, CCU80_GCTRL_SUSCFG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GPCHK__PACS_8h_1a2aa52f28fe877cfcfcb899843f2926b2.html">Function XMC4700::from_string(const char *, CCU80_GPCHK_PACS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GPCHK__PCDS_8h_1a40c39206152f6b1205791277d46b6684.html">Function XMC4700::from_string(const char *, CCU80_GPCHK_PCDS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GPCHK__PISEL_8h_1afac2abe9ad4ca8fc032f28db2db543ba.html">Function XMC4700::from_string(const char *, CCU80_GPCHK_PISEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DAC__DAC0CFG0__MODE_8h_1a35f501cdd6b482ec8bc69581f10e4b7c.html">Function XMC4700::from_string(const char *, DAC_DAC0CFG0_MODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DAC__DAC0CFG1__SCALE_8h_1a043be3787ddf894d216ee1aead9da26f.html">Function XMC4700::from_string(const char *, DAC_DAC0CFG1_SCALE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DAC__DAC0CFG1__TRIGMOD_8h_1afb436c9f58633d2cadcb361bda1dc892.html">Function XMC4700::from_string(const char *, DAC_DAC0CFG1_TRIGMOD&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CGCFG__CGMOD_8h_1aeb12ef99882f60f085dd0f0d1ca1d56c.html">Function XMC4700::from_string(const char *, DSD_CGCFG_CGMOD&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CGCFG__DIVCG_8h_1acd2434fadbb2199cf77d39de7f39cfb0.html">Function XMC4700::from_string(const char *, DSD_CGCFG_DIVCG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__CSRC_8h_1aee64501cff5ce0d5631999953f189f1d.html">Function XMC4700::from_string(const char *, DSD_CH0_DICFG_CSRC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__DSRC_8h_1a7b9c6b8ed9a1ef7dd3afcf26750ab8d4.html">Function XMC4700::from_string(const char *, DSD_CH0_DICFG_DSRC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__ITRMODE_8h_1a1bd94ae2faa6289ed05d0c0db652332c.html">Function XMC4700::from_string(const char *, DSD_CH0_DICFG_ITRMODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__STROBE_8h_1ae1ffa9289a79d2d145b62507cbf6e018.html">Function XMC4700::from_string(const char *, DSD_CH0_DICFG_STROBE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__TSTRMODE_8h_1a20f7d1fc28082f833dc2899a9a579ee4.html">Function XMC4700::from_string(const char *, DSD_CH0_DICFG_TSTRMODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__FCFGA__ESEL_8h_1aff29adc8a7a396fb64b986898e41f09c.html">Function XMC4700::from_string(const char *, DSD_CH0_FCFGA_ESEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__FCFGA__SRGA_8h_1a1b743a2593a589af98e8d16493defb00.html">Function XMC4700::from_string(const char *, DSD_CH0_FCFGA_SRGA&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__FCFGC__CFMC_8h_1a724479f0148871357feb803433e2bdf7.html">Function XMC4700::from_string(const char *, DSD_CH0_FCFGC_CFMC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__FCFGC__SRGM_8h_1ab06059674cf1dab5279ec77d0d18cfef.html">Function XMC4700::from_string(const char *, DSD_CH0_FCFGC_SRGM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__MODCFG__DIVM_8h_1a61b89e19c88a00ab26f8e3afa7bb3922.html">Function XMC4700::from_string(const char *, DSD_CH0_MODCFG_DIVM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__RECTCFG__SSRC_8h_1a8c2fe87f92ceb136bbb5e3be2b59b4ca.html">Function XMC4700::from_string(const char *, DSD_CH0_RECTCFG_SSRC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__GLOBCFG__MCSEL_8h_1a30d204e8c9fc6510a98fec9fe319a7c2.html">Function XMC4700::from_string(const char *, DSD_GLOBCFG_MCSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__OCS__SUS_8h_1af4a0578d7893808c2d2e39cdd60dea98.html">Function XMC4700::from_string(const char *, DSD_OCS_SUS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__ADDRC_8h_1ab6b176def66cdc892b3670801b1da621.html">Function XMC4700::from_string(const char *, EBU_BUSRAP0_ADDRC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__AHOLDC_8h_1ae2c0346847a3b280ce8e3b0e9efd8f7a.html">Function XMC4700::from_string(const char *, EBU_BUSRAP0_AHOLDC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__EXTCLOCK_8h_1aa097dba4c81585a8c38a065e86e36d9a.html">Function XMC4700::from_string(const char *, EBU_BUSRAP0_EXTCLOCK&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__EXTDATA_8h_1a10abc5b19117182ba20fb488e2190efc.html">Function XMC4700::from_string(const char *, EBU_BUSRAP0_EXTDATA&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__RDDTACS_8h_1aae339193dfda227fee0d928de6216e40.html">Function XMC4700::from_string(const char *, EBU_BUSRAP0_RDDTACS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__RDRECOVC_8h_1ae01f637421d15d21655ff873540417aa.html">Function XMC4700::from_string(const char *, EBU_BUSRAP0_RDRECOVC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__WAITRDC_8h_1afe2a4b579c41084cea85a698fd6b95e2.html">Function XMC4700::from_string(const char *, EBU_BUSRAP0_WAITRDC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRCON0__BCGEN_8h_1ac5247a97b8a47edc33fd7b4648ae0e74.html">Function XMC4700::from_string(const char *, EBU_BUSRCON0_BCGEN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRCON0__FETBLEN_8h_1a66988492862d94f1612c200374997e9b.html">Function XMC4700::from_string(const char *, EBU_BUSRCON0_FETBLEN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__CLC__EBUDIVACK_8h_1a8c5ad8ba3eb7ad535bdb9a68739d11a1.html">Function XMC4700::from_string(const char *, EBU_CLC_EBUDIVACK&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__MODCON__ARBMODE_8h_1a27bc5be480a7147e0d868ff88f729c96.html">Function XMC4700::from_string(const char *, EBU_MODCON_ARBMODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__MODCON__TIMEOUTC_8h_1a2f28c4f2dbb96eb7cce786c0ea0057e8.html">Function XMC4700::from_string(const char *, EBU_MODCON_TIMEOUTC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMCON__AWIDTH_8h_1a7e0da41b78aebb5a5267ee06821ac8f9.html">Function XMC4700::from_string(const char *, EBU_SDRMCON_AWIDTH&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMCON__BANKM_8h_1a798c792e293ccd0b536f7be3d685e3f1.html">Function XMC4700::from_string(const char *, EBU_SDRMCON_BANKM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMCON__PWR__MODE_8h_1ac1c762e6fdce1baa60d0287ed345ba38.html">Function XMC4700::from_string(const char *, EBU_SDRMCON_PWR_MODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMCON__ROWM_8h_1a5e69099c9f99e8769584704a52dc933b.html">Function XMC4700::from_string(const char *, EBU_SDRMCON_ROWM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMOD__BURSTL_8h_1a469c8b512d27a52e7bdcad8ecc466825.html">Function XMC4700::from_string(const char *, EBU_SDRMOD_BURSTL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMOD__CASLAT_8h_1a9ab3d99553d795bf8fdd01979de30d0b.html">Function XMC4700::from_string(const char *, EBU_SDRMOD_CASLAT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMOD__OPMODE_8h_1a3c15d7a3a6c5ffb17720532943c1ab04.html">Function XMC4700::from_string(const char *, EBU_SDRMOD_OPMODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__USERCON__ADDIO_8h_1aaa78971d3e94aee5af3808f02b635441.html">Function XMC4700::from_string(const char *, EBU_USERCON_ADDIO&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXICON__OCS_8h_1a7a01a8c3ddb2d08d1043ae1d9e269abe.html">Function XMC4700::from_string(const char *, ERU0_EXICON_OCS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXICON__SS_8h_1ab9049104e9091fd97ae7ef9cbc521485.html">Function XMC4700::from_string(const char *, ERU0_EXICON_SS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXISEL__EXS3B_8h_1a0439a149dd230013e012a055e8b15e71.html">Function XMC4700::from_string(const char *, ERU0_EXISEL_EXS3B&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXOCON__GP_8h_1a364bee9633ecb80da48b96d906cd9948.html">Function XMC4700::from_string(const char *, ERU0_EXOCON_GP&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXOCON__ISS_8h_1a27c75d8403e853fcf7d33c123f33fdd9.html">Function XMC4700::from_string(const char *, ERU0_EXOCON_ISS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ETH0__CON__ETH0__CON__CRS_8h_1aa25412eebdaa48cacc216ae5d2ea6991.html">Function XMC4700::from_string(const char *, ETH0_CON_ETH0_CON_CRS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ETH0__CON__ETH0__CON__MDIO_8h_1a91218cd55ef4e8ee1a7c13c5e96779f2.html">Function XMC4700::from_string(const char *, ETH0_CON_ETH0_CON_MDIO&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_FLASH0__FCON__WSPFLASH_8h_1ada17ca4ac71f09283c7add0863c8a467.html">Function XMC4700::from_string(const char *, FLASH0_FCON_WSPFLASH&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_FLASH0__MARP__MARGIN_8h_1a2b96f21c247ee06384c709ce2f291449.html">Function XMC4700::from_string(const char *, FLASH0_MARP_MARGIN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CH0__CFGL__LOCK__CH__L_8h_1a11cc23d12f5e22e69edb75001b4d4b17.html">Function XMC4700::from_string(const char *, GPDMA0_CH0_CFGL_LOCK_CH_L&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CH0__CTLL__DINC_8h_1ad4c2c2547b50612be279baadff7f1935.html">Function XMC4700::from_string(const char *, GPDMA0_CH0_CTLL_DINC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CH2__CFGL__LOCK__CH__L_8h_1ab4b2990e458807491af78aac3b27d15f.html">Function XMC4700::from_string(const char *, GPDMA0_CH2_CFGL_LOCK_CH_L&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CH2__CTLL__DINC_8h_1ab529a093bf2f01e098fdec29fb42b1ef.html">Function XMC4700::from_string(const char *, GPDMA0_CH2_CTLL_DINC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CHENREG__CH_8h_1afe8c5b132a412baac57f39e97a535672.html">Function XMC4700::from_string(const char *, GPDMA0_CHENREG_CH&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA1__CH0__CFGL__LOCK__CH__L_8h_1ab60403351dbd297852bd3bba71e162a1.html">Function XMC4700::from_string(const char *, GPDMA1_CH0_CFGL_LOCK_CH_L&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA1__CH0__CTLL__DINC_8h_1ad3780ea00fd9ed295506635024b71ac8.html">Function XMC4700::from_string(const char *, GPDMA1_CH0_CTLL_DINC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA1__CHENREG__CH_8h_1a45569e00550472dbbeab45227cd38ce6.html">Function XMC4700::from_string(const char *, GPDMA1_CHENREG_CH&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__ACCCNT_8h_1a3215da4338dc920f76aae8bff97b3023.html">Function XMC4700::from_string(const char *, LEDTS0_FNCTL_ACCCNT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__NR__LEDCOL_8h_1a4ca19b7780e67db9f25a37ee6dd27324.html">Function XMC4700::from_string(const char *, LEDTS0_FNCTL_NR_LEDCOL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__NR__TSIN_8h_1a7e1b40fe5d76cbb3a0ea5dc34130d26f.html">Function XMC4700::from_string(const char *, LEDTS0_FNCTL_NR_TSIN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__PADT_8h_1adb55ccdec7c9871eff415d3eea338d69.html">Function XMC4700::from_string(const char *, LEDTS0_FNCTL_PADT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__TSOEXT_8h_1a1ce688261a97ad4fa301cfd77b4ae90f.html">Function XMC4700::from_string(const char *, LEDTS0_FNCTL_TSOEXT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__GLOBCTL__MASKVAL_8h_1af880736e919bd2db4f4f5e553d56d2f0.html">Function XMC4700::from_string(const char *, LEDTS0_GLOBCTL_MASKVAL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT0__HWSEL__HW15_8h_1adb756b8c6659eeeba05d872bbc8556bc.html">Function XMC4700::from_string(const char *, PORT0_HWSEL_HW15&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT0__IOCR0__PC3_8h_1a2753a366cd0ad7bff216e9c027c02147.html">Function XMC4700::from_string(const char *, PORT0_IOCR0_PC3&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT0__PDR0__PD1_8h_1a90c8288967b25d96716416ea3d848d21.html">Function XMC4700::from_string(const char *, PORT0_PDR0_PD1&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT0__PDR0__PD7_8h_1a86fad4d9d3230ba7ccea38a006f329d6.html">Function XMC4700::from_string(const char *, PORT0_PDR0_PD7&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT14__HWSEL__HW15_8h_1a9b3b7cb13d3bee4a5ed560cbecc61186.html">Function XMC4700::from_string(const char *, PORT14_HWSEL_HW15&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT14__IOCR0__PC3_8h_1a6864463e04355668569a1d1137fdd133.html">Function XMC4700::from_string(const char *, PORT14_IOCR0_PC3&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT15__HWSEL__HW15_8h_1aa941a96b1d1861b5d102ccb9f6dd3327.html">Function XMC4700::from_string(const char *, PORT15_HWSEL_HW15&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT15__IOCR0__PC3_8h_1ab623d281609839bf459c3d577a948556.html">Function XMC4700::from_string(const char *, PORT15_IOCR0_PC3&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT4__HWSEL__HW15_8h_1ac445b21062e2fc8788fc6229d1ccdc9b.html">Function XMC4700::from_string(const char *, PORT4_HWSEL_HW15&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT4__IOCR0__PC3_8h_1ad37e7c7da04afec0689485620232db58.html">Function XMC4700::from_string(const char *, PORT4_IOCR0_PC3&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT4__PDR0__PD1_8h_1a4f1b0ebd380b945b776338c0a7b9683d.html">Function XMC4700::from_string(const char *, PORT4_PDR0_PD1&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT4__PDR0__PD7_8h_1ad9fe90046d8f147ba59b1beeed7c3700.html">Function XMC4700::from_string(const char *, PORT4_PDR0_PD7&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT5__HWSEL__HW15_8h_1adac2787a20cc7b2aaa07b4ea0b586fb3.html">Function XMC4700::from_string(const char *, PORT5_HWSEL_HW15&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT5__IOCR0__PC3_8h_1a80e22192d0d487a7c22d7a798d35bb67.html">Function XMC4700::from_string(const char *, PORT5_IOCR0_PC3&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT5__PDR0__PD6_8h_1a54d8bc10d5deacc32e17321e87124a1b.html">Function XMC4700::from_string(const char *, PORT5_PDR0_PD6&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT5__PDR0__PD7_8h_1ad0e9979d6b70435e4fcd5d29b32165ea.html">Function XMC4700::from_string(const char *, PORT5_PDR0_PD7&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PCONF__EWIS_8h_1a65e3d521f2f6b71d7121f3fcd4629571.html">Function XMC4700::from_string(const char *, POSIF0_PCONF_EWIS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PCONF__FSEL_8h_1a53bf229787fc0a3905313593cc7bbe63.html">Function XMC4700::from_string(const char *, POSIF0_PCONF_FSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PCONF__LPC_8h_1aa27f1bef53679bc0d06509c2f584a5f6.html">Function XMC4700::from_string(const char *, POSIF0_PCONF_LPC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PCONF__MSETS_8h_1a78a5795dbbd355b148d7d1a5ef38b2ac.html">Function XMC4700::from_string(const char *, POSIF0_PCONF_MSETS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PSUS__MSUS_8h_1a7437c6ec8481853bde89efce57e679d2.html">Function XMC4700::from_string(const char *, POSIF0_PSUS_MSUS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PSUS__QSUS_8h_1a725c82b8d077b1c6e7676819cc75d480.html">Function XMC4700::from_string(const char *, POSIF0_PSUS_QSUS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__QDC__ICM_8h_1a23a3f4ffe966745368061789a9757643.html">Function XMC4700::from_string(const char *, POSIF0_QDC_ICM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPACR__CP11_8h_1a9884db585bdaaa4d0133fce8280f474a.html">Function XMC4700::from_string(const char *, PPB_CPACR_CP11&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPUID__Implementer_8h_1a946dc700f6a2e41020b9536d9de94908.html">Function XMC4700::from_string(const char *, PPB_CPUID_Implementer&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPUID__PartNo_8h_1a12d31aa155dc24242a06d7fdeda70c13.html">Function XMC4700::from_string(const char *, PPB_CPUID_PartNo&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPUID__Revision_8h_1a01bba601284e0baaa2e2b8946e224cdf.html">Function XMC4700::from_string(const char *, PPB_CPUID_Revision&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPUID__Variant_8h_1a4ae33583b44f310bcbe06a95492e0af7.html">Function XMC4700::from_string(const char *, PPB_CPUID_Variant&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__ICSR__VECTACTIVE_8h_1a0b7967aedbd8dba1252508548a162e62.html">Function XMC4700::from_string(const char *, PPB_ICSR_VECTACTIVE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__ICSR__VECTPENDING_8h_1adbade4f1633de17e129f9e1d63813d48.html">Function XMC4700::from_string(const char *, PPB_ICSR_VECTPENDING&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__MPU__RASR__SRD_8h_1a2a1a5f690c1d56bdfa4b84b48fe25bb4.html">Function XMC4700::from_string(const char *, PPB_MPU_RASR_SRD&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__NVIC__IABR0__ACTIVE_8h_1aea4d5bcbcdb53c0c90a8e7458493482d.html">Function XMC4700::from_string(const char *, PPB_NVIC_IABR0_ACTIVE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__NVIC__ISER0__SETENA_8h_1a586c2ba4ee5b5815163f3b845d233332.html">Function XMC4700::from_string(const char *, PPB_NVIC_ISER0_SETENA&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__NVIC__ISPR0__SETPEND_8h_1a5093d464baa146f49bcfd06f291253e8.html">Function XMC4700::from_string(const char *, PPB_NVIC_ISPR0_SETPEND&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__CLK__EXTCLKCR__ECKSEL_8h_1a61bcd43aa86cdbce8bc55b44bc8e4c4e.html">Function XMC4700::from_string(const char *, SCU_CLK_EXTCLKCR_ECKSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__CLK__MLINKCLKCR__WDTSEL_8h_1a1c43ed194b8224c996e507ef8fa8854b.html">Function XMC4700::from_string(const char *, SCU_CLK_MLINKCLKCR_WDTSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__CLK__WDTCLKCR__WDTSEL_8h_1a1cbda73f336e9711c62bb90bdb08c614.html">Function XMC4700::from_string(const char *, SCU_CLK_WDTCLKCR_WDTSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__HIBERNATE__HDCR__HIBIO1SEL_8h_1abb3dd86d89d1bbf39ff8297c9a1ec639.html">Function XMC4700::from_string(const char *, SCU_HIBERNATE_HDCR_HIBIO1SEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__HIBERNATE__OSCULCTRL__MODE_8h_1a461a9f2eca8aab55fa5de45828484636.html">Function XMC4700::from_string(const char *, SCU_HIBERNATE_OSCULCTRL_MODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__OSC__OSCHPCTRL__GAINSEL_8h_1a1b5af07025ec7c0025ae1fcce9948e49.html">Function XMC4700::from_string(const char *, SCU_OSC_OSCHPCTRL_GAINSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__OSC__OSCHPCTRL__MODE_8h_1ae1bd6e0e4312de1130f965929c8d820c.html">Function XMC4700::from_string(const char *, SCU_OSC_OSCHPCTRL_MODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__PLL__CLKMXSTAT__SYSCLKMUX_8h_1aee94744184becc23ae319681ee64d4f9.html">Function XMC4700::from_string(const char *, SCU_PLL_CLKMXSTAT_SYSCLKMUX&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__RESET__RSTSTAT__RSTSTAT_8h_1aa6e269cea9713164cad5e6a168760300.html">Function XMC4700::from_string(const char *, SCU_RESET_RSTSTAT_RSTSTAT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__BASE__SD__CLOCK__FREQ_8h_1a28a401b71135e3067184daaaa8fdc7b4.html">Function XMC4700::from_string(const char *, SDMMC_CAPABILITIES_BASE_SD_CLOCK_FREQ&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__HI__CLK__MULT_8h_1a8e7ea3cffafd4a4be89d71ad5a3a0707.html">Function XMC4700::from_string(const char *, SDMMC_CAPABILITIES_HI_CLK_MULT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__HI__RE__TUNING__MODES_8h_1a6a1fce21f57c30f59a9dbb0ca4fec57a.html">Function XMC4700::from_string(const char *, SDMMC_CAPABILITIES_HI_RE_TUNING_MODES&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__HI__TIM__CNT__RETUNE_8h_1a930a162dad9c94fcfc9ae487d6aafe25.html">Function XMC4700::from_string(const char *, SDMMC_CAPABILITIES_HI_TIM_CNT_RETUNE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__MAX__BLOCK__LENGTH_8h_1a1cc10dc74a4e50c3a4efbac5f0a3d1c8.html">Function XMC4700::from_string(const char *, SDMMC_CAPABILITIES_MAX_BLOCK_LENGTH&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__SLOT__TYPE_8h_1a3fe193be4fa4f51a671c8697f1d375d0.html">Function XMC4700::from_string(const char *, SDMMC_CAPABILITIES_SLOT_TYPE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CLOCK__CTRL__SDCLK__FREQ__SEL_8h_1ac71fe89fdf212b4a2613a4fe07b8d837.html">Function XMC4700::from_string(const char *, SDMMC_CLOCK_CTRL_SDCLK_FREQ_SEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__COMMAND__CMD__TYPE_8h_1a7232cb368ec003c476ac838c2e7f3264.html">Function XMC4700::from_string(const char *, SDMMC_COMMAND_CMD_TYPE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__COMMAND__RESP__TYPE__SELECT_8h_1a94d90c774df31b1c565ef66ac1a61386.html">Function XMC4700::from_string(const char *, SDMMC_COMMAND_RESP_TYPE_SELECT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__POWER__CTRL__SD__BUS__VOLTAGE__SEL_8h_1afd9a8a77cb035e903497ddae352ff8bb.html">Function XMC4700::from_string(const char *, SDMMC_POWER_CTRL_SD_BUS_VOLTAGE_SEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__SLOT__INT__STATUS__SLOT__INT__STATUS_8h_1aade56f6d6339642467969c1303d13699.html">Function XMC4700::from_string(const char *, SDMMC_SLOT_INT_STATUS_SLOT_INT_STATUS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__TIMEOUT__CTRL__DAT__TIMEOUT__CNT__VAL_8h_1a2410803cc7f0caf3a069ec23aef9444e.html">Function XMC4700::from_string(const char *, SDMMC_TIMEOUT_CTRL_DAT_TIMEOUT_CNT_VAL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__TRANSFER__MODE__ACMD__EN_8h_1ad64f29700dfaf2fdc72cd64d4bc1d1ac.html">Function XMC4700::from_string(const char *, SDMMC_TRANSFER_MODE_ACMD_EN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCCHAR__EPType_8h_1a66fdd7b4990691ecac01511bfa2548c5.html">Function XMC4700::from_string(const char *, USB0_CH0_HCCHAR_EPType&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCCHAR__MC__EC_8h_1a713a451c45b71dbe4cf06b8b3b5d196c.html">Function XMC4700::from_string(const char *, USB0_CH0_HCCHAR_MC_EC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCDMA__SCATGATHER__CTD_8h_1af2673dce5437b8b7b69e2b5bad115fd5.html">Function XMC4700::from_string(const char *, USB0_CH0_HCDMA_SCATGATHER_CTD&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCTSIZ__BUFFERMODE__Pid_8h_1acdeee7b631c7a725f7d8ea8dca64406c.html">Function XMC4700::from_string(const char *, USB0_CH0_HCTSIZ_BUFFERMODE_Pid&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCTSIZ__SCATGATHER__Pid_8h_1afc140ee36eb1abc9a97c4b20c03430f4.html">Function XMC4700::from_string(const char *, USB0_CH0_HCTSIZ_SCATGATHER_Pid&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DCFG__DevSpd_8h_1aa139ac458694555a88b374512426d2ba.html">Function XMC4700::from_string(const char *, USB0_DCFG_DevSpd&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DCFG__PerFrInt_8h_1a9badfde06cd87c8a2ef73b013c2689d4.html">Function XMC4700::from_string(const char *, USB0_DCFG_PerFrInt&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DCFG__PerSchIntvl_8h_1a367efa6c68db7879b404f360b909af50.html">Function XMC4700::from_string(const char *, USB0_DCFG_PerSchIntvl&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DCTL__GMC_8h_1add864b08e2b9572cd2b23ee051930abc.html">Function XMC4700::from_string(const char *, USB0_DCTL_GMC&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DSTS__EnumSpd_8h_1a2532bbd0103ece2647a90f379daaf0f4.html">Function XMC4700::from_string(const char *, USB0_DSTS_EnumSpd&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP0__DIEPCTL0__MPS_8h_1a0c728231745332f8c7ca5a23ec438f1f.html">Function XMC4700::from_string(const char *, USB0_EP0_DIEPCTL0_MPS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP0__DOEPTSIZ0__SUPCnt_8h_1a1034ac6114e800f6b88b9f47b6909580.html">Function XMC4700::from_string(const char *, USB0_EP0_DOEPTSIZ0_SUPCnt&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP0__DTXFSTS0__INEPTxFSpcAvail_8h_1ab330870a5a8fa4cd53a45953ddb01f22.html">Function XMC4700::from_string(const char *, USB0_EP0_DTXFSTS0_INEPTxFSpcAvail&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP1__DIEPCTL__ISOCONT__EPType_8h_1a8ca288e90a9fa8813220e8d15eb4ae4c.html">Function XMC4700::from_string(const char *, USB0_EP1_DIEPCTL_ISOCONT_EPType&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP1__DOEPTSIZ__ISO__RxDPID_8h_1a2f5cb431299f83a3a7e7f061c1614414.html">Function XMC4700::from_string(const char *, USB0_EP1_DOEPTSIZ_ISO_RxDPID&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP1__DTXFSTS__INEPTxFSpcAvail_8h_1a8e4c15b810ada4733a34d3e8efb3c747.html">Function XMC4700::from_string(const char *, USB0_EP1_DTXFSTS_INEPTxFSpcAvail&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GAHBCFG__HBstLen_8h_1aa210aac8ae303f266a014133b0e81589.html">Function XMC4700::from_string(const char *, USB0_GAHBCFG_HBstLen&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GNPTXSTS__NPTxFSpcAvail_8h_1a36d902d689565615d8fa6e1540a0d724.html">Function XMC4700::from_string(const char *, USB0_GNPTXSTS_NPTxFSpcAvail&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GNPTXSTS__NPTxQSpcAvail_8h_1a7dbda499dcb5f1cb4f2aea15b86c2d1f.html">Function XMC4700::from_string(const char *, USB0_GNPTXSTS_NPTxQSpcAvail&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GNPTXSTS__NPTxQTop_8h_1a5141df1daefd75f0c7f890a6607e9514.html">Function XMC4700::from_string(const char *, USB0_GNPTXSTS_NPTxQTop&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GRSTCTL__TxFNum_8h_1a6d3fb756d006c99af217affec5d746fe.html">Function XMC4700::from_string(const char *, USB0_GRSTCTL_TxFNum&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GRXSTSR__DEVICEMODE__PktSts_8h_1ac83f8a9d0a0dbce793d5283560517aec.html">Function XMC4700::from_string(const char *, USB0_GRXSTSR_DEVICEMODE_PktSts&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GRXSTSR__HOSTMODE__DPID_8h_1ae87b3126ed8f6554f3aa99a1cddddf65.html">Function XMC4700::from_string(const char *, USB0_GRXSTSR_HOSTMODE_DPID&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GRXSTSR__HOSTMODE__PktSts_8h_1a46bf3f64561887cbf6ed1647534c04b6.html">Function XMC4700::from_string(const char *, USB0_GRXSTSR_HOSTMODE_PktSts&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HCFG__FrListEn_8h_1adc24ce490d443e1a263691b4bf5f4abf.html">Function XMC4700::from_string(const char *, USB0_HCFG_FrListEn&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HCFG__FSLSPclkSel_8h_1a587a1058d99476e36c9f6d8e5ab0e165.html">Function XMC4700::from_string(const char *, USB0_HCFG_FSLSPclkSel&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HPRT__PrtSpd_8h_1abf193543490b81ba7c206ce42c6b8f44.html">Function XMC4700::from_string(const char *, USB0_HPRT_PrtSpd&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HPTXSTS__PTxFSpcAvail_8h_1a7eae3e27a7de2120cbf8e0b9251dd53e.html">Function XMC4700::from_string(const char *, USB0_HPTXSTS_PTxFSpcAvail&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HPTXSTS__PTxQSpcAvail_8h_1a532c0277aa020be501df75ca28bc1254.html">Function XMC4700::from_string(const char *, USB0_HPTXSTS_PTxQSpcAvail&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__BRG__CLKSEL_8h_1a5dfd53fef6fb08b3343356b22ff1e161.html">Function XMC4700::from_string(const char *, USIC0_CH0_BRG_CLKSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__BRG__CTQSEL_8h_1a766f1992b5ef53b5b925752c79853319.html">Function XMC4700::from_string(const char *, USIC0_CH0_BRG_CTQSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__BRG__SCLKCFG_8h_1a659752eb6ac75e73a0e9eb7ec062dafd.html">Function XMC4700::from_string(const char *, USIC0_CH0_BRG_SCLKCFG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__BYPCR__BDEN_8h_1a7b312dceb6bd96e9c76cc44f34b2c1fb.html">Function XMC4700::from_string(const char *, USIC0_CH0_BYPCR_BDEN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__CCR__HPCEN_8h_1af515a18b5e80d5d8e096bf7d7184adcc.html">Function XMC4700::from_string(const char *, USIC0_CH0_CCR_HPCEN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__CCR__MODE_8h_1a562f0a8492aac3b65190f5e2b579f8d9.html">Function XMC4700::from_string(const char *, USIC0_CH0_CCR_MODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__CCR__PM_8h_1a446f632a2bfd0d9c98055b60aa62cd98.html">Function XMC4700::from_string(const char *, USIC0_CH0_CCR_PM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__DX0CR__CM_8h_1a27ef368d4149c15f85af6fa5dca5d516.html">Function XMC4700::from_string(const char *, USIC0_CH0_DX0CR_CM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__DX0CR__DSEL_8h_1ac37a407836aa5ece7c529ef791bda18e.html">Function XMC4700::from_string(const char *, USIC0_CH0_DX0CR_DSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__DX1CR__CM_8h_1a61b5abeeee0a7696ca0320ecbb41f91a.html">Function XMC4700::from_string(const char *, USIC0_CH0_DX1CR_CM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__DX1CR__DSEL_8h_1a9c87edfb5a122fcbba780a03ade9a4ab.html">Function XMC4700::from_string(const char *, USIC0_CH0_DX1CR_DSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__FDR__DM_8h_1ae26f99507310daa6338721ad9d6ee986.html">Function XMC4700::from_string(const char *, USIC0_CH0_FDR_DM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__FMR__MTDV_8h_1a726e36da7cd49030236188b449ca2f7e.html">Function XMC4700::from_string(const char *, USIC0_CH0_FMR_MTDV&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__INPR__TSINP_8h_1a35895f80706ad25ecb3fa63b6580a8ca.html">Function XMC4700::from_string(const char *, USIC0_CH0_INPR_TSINP&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__KSCFG__NOMCFG_8h_1ac4e784b889b19f6c0a59ac633db61fd0.html">Function XMC4700::from_string(const char *, USIC0_CH0_KSCFG_NOMCFG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__PCR__ASCMode__PL_8h_1a434df756166be2d81d017be3f0e3e4a1.html">Function XMC4700::from_string(const char *, USIC0_CH0_PCR_ASCMode_PL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__PCR__SSCMode__SELO_8h_1a20da458e4bd81f50e4ae7b515837efae.html">Function XMC4700::from_string(const char *, USIC0_CH0_PCR_SSCMode_SELO&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__RBCTR__RCIM_8h_1a0c11381d7942c1fb17349f0b3ba9b9b7.html">Function XMC4700::from_string(const char *, USIC0_CH0_RBCTR_RCIM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__RBUF01SR__WLEN1_8h_1a81ec7fe994b71b64c7a073e083d55d03.html">Function XMC4700::from_string(const char *, USIC0_CH0_RBUF01SR_WLEN1&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__SCTR__DOCFG_8h_1a9a7e50d276a7698c45a2e75c27791a25.html">Function XMC4700::from_string(const char *, USIC0_CH0_SCTR_DOCFG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__SCTR__DSM_8h_1a1abc390d27ad83f1358ecf9fd33bcc6b.html">Function XMC4700::from_string(const char *, USIC0_CH0_SCTR_DSM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__SCTR__TRM_8h_1aa65fb6052b122bb3aa871deb324c8f2c.html">Function XMC4700::from_string(const char *, USIC0_CH0_SCTR_TRM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__SCTR__WLE_8h_1aaa56466771c83a78b67e0849385dfe52.html">Function XMC4700::from_string(const char *, USIC0_CH0_SCTR_WLE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__TBCTR__SIZE_8h_1a776b7a3130f41041f5b5a9ae175183f1.html">Function XMC4700::from_string(const char *, USIC0_CH0_TBCTR_SIZE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__TCSR__TDEN_8h_1a3c7c7528cbf036e0dc32827ed580fae3.html">Function XMC4700::from_string(const char *, USIC0_CH0_TCSR_TDEN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__BRSCTRL__SRCRESREG_8h_1a17c1d029d29a1c9465ebc085ef162aac.html">Function XMC4700::from_string(const char *, VADC_BRSCTRL_SRCRESREG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__BRSCTRL__XTMODE_8h_1a88b8b27426a1bae8d8f55feba568392c.html">Function XMC4700::from_string(const char *, VADC_BRSCTRL_XTMODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__BRSMR__ENGT_8h_1a4dd053291dfb9a33368b9097d410dfc2.html">Function XMC4700::from_string(const char *, VADC_BRSMR_ENGT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ARBCFG__ANONS_8h_1abef618c491a6a374271a4bff4577ce29.html">Function XMC4700::from_string(const char *, VADC_G0_ARBCFG_ANONS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ARBCFG__ARBRND_8h_1a17e00049ae5516828c139ccb04c672a0.html">Function XMC4700::from_string(const char *, VADC_G0_ARBCFG_ARBRND&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ARBPR__PRIO2_8h_1adf8e8d364f847d912cf5f4d9272314bc.html">Function XMC4700::from_string(const char *, VADC_G0_ARBPR_PRIO2&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ASMR__ENGT_8h_1a1693f706b926e4987ee015e7ef485477.html">Function XMC4700::from_string(const char *, VADC_G0_ASMR_ENGT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__BFLC__BFM3_8h_1a381eb530f5569b956e9d8ee1939aa21e.html">Function XMC4700::from_string(const char *, VADC_G0_BFLC_BFM3&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__BFLNP__BFL3NP_8h_1ab5b8e725b9bd303a2b0d8a7e1c087126.html">Function XMC4700::from_string(const char *, VADC_G0_BFLNP_BFL3NP&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CEVNP0__CEV7NP_8h_1a569aeb6964695d04ed642f73d4aeef3c.html">Function XMC4700::from_string(const char *, VADC_G0_CEVNP0_CEV7NP&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__BNDSELU_8h_1ab40a4af5a079f66822f5f27ee53f903d.html">Function XMC4700::from_string(const char *, VADC_G0_CHCTR_BNDSELU&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__BWDCH_8h_1abba62bf50d0d37d641e5865cfc896891.html">Function XMC4700::from_string(const char *, VADC_G0_CHCTR_BWDCH&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__CHEVMODE_8h_1a6e5c674099a5553e7659ec62fb2395f8.html">Function XMC4700::from_string(const char *, VADC_G0_CHCTR_CHEVMODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__ICLSEL_8h_1a3b20a7d6718895cee573a0ed3ea256a0.html">Function XMC4700::from_string(const char *, VADC_G0_CHCTR_ICLSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__RESREG_8h_1a7ba7b90af7618cfdd262d5290ca31a10.html">Function XMC4700::from_string(const char *, VADC_G0_CHCTR_RESREG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__EMUXCTR__EMUXMODE_8h_1aba81cff03e79cca1f07d29e71a8b7adb.html">Function XMC4700::from_string(const char *, VADC_G0_EMUXCTR_EMUXMODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ICLASS__CME_8h_1aab1f73d7c55461f6f6ab7671e4e3abb9.html">Function XMC4700::from_string(const char *, VADC_G0_ICLASS_CME&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__QCTRL0__SRCRESREG_8h_1a257b189c089685157d7908fc401b6d65.html">Function XMC4700::from_string(const char *, VADC_G0_QCTRL0_SRCRESREG&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__QCTRL0__XTMODE_8h_1ad57b05ea5920cc8794b6769ab2a5bcde.html">Function XMC4700::from_string(const char *, VADC_G0_QCTRL0_XTMODE&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__QMR0__ENGT_8h_1ac9e56ceb26b2af3328908a777d535235.html">Function XMC4700::from_string(const char *, VADC_G0_QMR0_ENGT&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__QSR0__FILL_8h_1a4cea40fa7b238ba1730af253be6a7e2b.html">Function XMC4700::from_string(const char *, VADC_G0_QSR0_FILL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__RCR__DMM_8h_1a086060fd42430d4519be2122d3bb56e5.html">Function XMC4700::from_string(const char *, VADC_G0_RCR_DMM&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__RCR__FEN_8h_1a3db76b078e408e02c8f44d8375375623.html">Function XMC4700::from_string(const char *, VADC_G0_RCR_FEN&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__RES__CRS_8h_1a385a9cda26768a06ed8ae6b9c3e57ec4.html">Function XMC4700::from_string(const char *, VADC_G0_RES_CRS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__SYNCTR__STSEL_8h_1a56d08c4661c6d1b434cba839920fd942.html">Function XMC4700::from_string(const char *, VADC_G0_SYNCTR_STSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBCFG__DIVA_8h_1a839782f759f5c27099619ddd070f3ad7.html">Function XMC4700::from_string(const char *, VADC_GLOBCFG_DIVA&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBCFG__DIVD_8h_1a9c835ebf1b2c16d602c0d16a6bd1eb71.html">Function XMC4700::from_string(const char *, VADC_GLOBCFG_DIVD&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBEVNP__REV0NP_8h_1ac0152cc5bbd12cb0fe9a3e129d44fb64.html">Function XMC4700::from_string(const char *, VADC_GLOBEVNP_REV0NP&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBICLASS__CME_8h_1ac42d501020c9c1fd2ba5b767407dcb3f.html">Function XMC4700::from_string(const char *, VADC_GLOBICLASS_CME&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBRCR__DRCTR_8h_1a2594354fd8aec7aa4f4952920bdfe106.html">Function XMC4700::from_string(const char *, VADC_GLOBRCR_DRCTR&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBTF__CDSEL_8h_1a2766820674101595fb5f52d1074b1185.html">Function XMC4700::from_string(const char *, VADC_GLOBTF_CDSEL&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__OCS__SUS_8h_1a701c16bffad9d0cf55b193ed547175ca.html">Function XMC4700::from_string(const char *, VADC_OCS_SUS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__OCS__TGS_8h_1a5409b3ae9a42d5c76dbb06cae0e1dfa0.html">Function XMC4700::from_string(const char *, VADC_OCS_TGS&amp;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__ID__MOD__TYPE_8h_1a91a0f02f0017bdc47546f81c3927fd0e.html">Function XMC4700::to_string(CAN_ID_MOD_TYPE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__MCR__CLKSEL_8h_1ad1457b6d42ecef02f67867947733173d.html">Function XMC4700::to_string(CAN_MCR_CLKSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__MO__MOAR__PRI_8h_1a9d0dace6079323287c5e128ce9eb4e1e.html">Function XMC4700::to_string(CAN_MO_MOAR_PRI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__MO__MOFCR__MMC_8h_1a007418bed694e3eb101ec1b81474912a.html">Function XMC4700::to_string(CAN_MO_MOFCR_MMC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__MO__MOIPR__TXINP_8h_1a9d0307018171f72a67a54d3c7deb8e65.html">Function XMC4700::to_string(CAN_MO_MOIPR_TXINP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__NODE0__NFCR__CFMOD_8h_1af61709495755ecacf79a7d139a822fba.html">Function XMC4700::to_string(CAN_NODE0_NFCR_CFMOD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CAN__NODE0__NIPR__CFCINP_8h_1a245d284566360a6dba3ea5dc5bb92428.html">Function XMC4700::to_string(CAN_NODE0_NIPR_CFCINP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__CMC__CNTS_8h_1a1d279a90ac715eb2fc5028ba1ccf634e.html">Function XMC4700::to_string(CCU40_CC40_CMC_CNTS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__INS__EV2EM_8h_1ab9028f67e45fd2fe2142cb636670ade2.html">Function XMC4700::to_string(CCU40_CC40_INS_EV2EM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__INS__EV2IS_8h_1afb37ebaa758507b8ee9523047343b378.html">Function XMC4700::to_string(CCU40_CC40_INS_EV2IS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__INS__LPF2M_8h_1ad66610626b96be4cd0d70baf4846eaa4.html">Function XMC4700::to_string(CCU40_CC40_INS_LPF2M)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__SRS__E2SR_8h_1a319bc74b2aeef66cb6e6b57b086dd788.html">Function XMC4700::to_string(CCU40_CC40_SRS_E2SR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__TC__CAPC_8h_1a06aab7e09cbe0ba79c1003063b7bee92.html">Function XMC4700::to_string(CCU40_CC40_TC_CAPC)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Function XMC4700::to_string(CCU40_CC40_TC_DITHE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__CC40__TC__ENDM_8h_1a251d2a58fe9c4cf87ef597e7a42abe01.html">Function XMC4700::to_string(CCU40_CC40_TC_ENDM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__GCTRL__MSDE_8h_1a35cd323a9179130fa355656bc426b4eb.html">Function XMC4700::to_string(CCU40_GCTRL_MSDE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__GCTRL__PCIS_8h_1a91ebfc5293436c59cb917bda2c2361c1.html">Function XMC4700::to_string(CCU40_GCTRL_PCIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__GCTRL__PRBC_8h_1a5e9d5af54e33e6a7b2d0752f410d5da1.html">Function XMC4700::to_string(CCU40_GCTRL_PRBC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU40__GCTRL__SUSCFG_8h_1a3f18fc32e33fd6be45e791ab8872b09a.html">Function XMC4700::to_string(CCU40_GCTRL_SUSCFG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__CMC__CNTS_8h_1a8ae9eacc9999adaef2e8dda354ec948b.html">Function XMC4700::to_string(CCU80_CC80_CMC_CNTS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__DTC__DTCC_8h_1af49cb43f8ddbd6f0f82b38271c235df2.html">Function XMC4700::to_string(CCU80_CC80_DTC_DTCC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__INS__EV2EM_8h_1a7fe5fb06d19295cc4553dfaffbf3897d.html">Function XMC4700::to_string(CCU80_CC80_INS_EV2EM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__INS__EV2IS_8h_1a0a37fb681e5d8608ad3fb503d3684dba.html">Function XMC4700::to_string(CCU80_CC80_INS_EV2IS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__INS__LPF2M_8h_1aba4225a97b5aa2ee76e5d941bab201f9.html">Function XMC4700::to_string(CCU80_CC80_INS_LPF2M)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__SRS__E0SR_8h_1a991fe747e7a5fbc356b65b7ce30f685d.html">Function XMC4700::to_string(CCU80_CC80_SRS_E0SR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__SRS__E1SR_8h_1a5fffa0e1b5822abec00e54b84b81cadf.html">Function XMC4700::to_string(CCU80_CC80_SRS_E1SR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__SRS__E2SR_8h_1a1bcad4be2f1b1c047fdc396a8bf72b80.html">Function XMC4700::to_string(CCU80_CC80_SRS_E2SR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__STC__STM_8h_1ad52c3a8c61026d7b3b6f59cac85ade89.html">Function XMC4700::to_string(CCU80_CC80_STC_STM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__CAPC_8h_1a1fdbb7d091004d9c24195d07f320a04f.html">Function XMC4700::to_string(CCU80_CC80_TC_CAPC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__DITHE_8h_1a4734c0234323400a969e8952efa49cd3.html">Function XMC4700::to_string(CCU80_CC80_TC_DITHE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__EME_8h_1a0a01dc482c7be374dff0e6a3f7b8cab2.html">Function XMC4700::to_string(CCU80_CC80_TC_EME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__ENDM_8h_1ab51cb0d37c9dcf8ef117cf0603cfed60.html">Function XMC4700::to_string(CCU80_CC80_TC_ENDM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__CC80__TC__STOS_8h_1a0bd8bdd17c64eb6e0637c1766441fc9f.html">Function XMC4700::to_string(CCU80_CC80_TC_STOS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GCTRL__MSDE_8h_1a93a339f247d874fa124d57b51a0340ce.html">Function XMC4700::to_string(CCU80_GCTRL_MSDE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GCTRL__PCIS_8h_1a684c13097f71a60b875eeb0eef669416.html">Function XMC4700::to_string(CCU80_GCTRL_PCIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GCTRL__PRBC_8h_1aaf237ed24ebfaa47092c127d80c8c9ac.html">Function XMC4700::to_string(CCU80_GCTRL_PRBC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GCTRL__SUSCFG_8h_1a13a9c439d9e51298e390583ca14bcfb7.html">Function XMC4700::to_string(CCU80_GCTRL_SUSCFG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GPCHK__PACS_8h_1ac77a419941a1c18de97661d175c67e1a.html">Function XMC4700::to_string(CCU80_GPCHK_PACS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GPCHK__PCDS_8h_1af9d971a3f5c1cd8e284b68109f65aeb4.html">Function XMC4700::to_string(CCU80_GPCHK_PCDS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_CCU80__GPCHK__PISEL_8h_1aaf84d3b40a438534a32062baea5a893a.html">Function XMC4700::to_string(CCU80_GPCHK_PISEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DAC__DAC0CFG0__MODE_8h_1ab68d17bafbbda1e0028258bfa005b6e0.html">Function XMC4700::to_string(DAC_DAC0CFG0_MODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DAC__DAC0CFG1__SCALE_8h_1a491087290b3a1444d19ccf88d5c63939.html">Function XMC4700::to_string(DAC_DAC0CFG1_SCALE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DAC__DAC0CFG1__TRIGMOD_8h_1a604d79c48e84a0140e9fdb38c8d82f7d.html">Function XMC4700::to_string(DAC_DAC0CFG1_TRIGMOD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CGCFG__CGMOD_8h_1a5e87740c1c8dd15352515f7319762e52.html">Function XMC4700::to_string(DSD_CGCFG_CGMOD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CGCFG__DIVCG_8h_1a08ac57cd626ba76aad4168ad109f42a5.html">Function XMC4700::to_string(DSD_CGCFG_DIVCG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__CSRC_8h_1a91a8d0e762c03d77622a1f2d7da90a1c.html">Function XMC4700::to_string(DSD_CH0_DICFG_CSRC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__DSRC_8h_1af7b3d7487c9fce18a23cdd84a82eb941.html">Function XMC4700::to_string(DSD_CH0_DICFG_DSRC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__ITRMODE_8h_1ad82176652575d9e054c066dc25e6d58d.html">Function XMC4700::to_string(DSD_CH0_DICFG_ITRMODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__STROBE_8h_1ab54f61c8118d7bb9811b1cb099e4831e.html">Function XMC4700::to_string(DSD_CH0_DICFG_STROBE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__DICFG__TSTRMODE_8h_1a3f2b6669717086c7f86cd3b8db795d4d.html">Function XMC4700::to_string(DSD_CH0_DICFG_TSTRMODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__FCFGA__ESEL_8h_1a0f49a1c95fb477ef05ef1f1b61cc7eac.html">Function XMC4700::to_string(DSD_CH0_FCFGA_ESEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__FCFGA__SRGA_8h_1a0222c47fd91c07ed126f9aad738247c3.html">Function XMC4700::to_string(DSD_CH0_FCFGA_SRGA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__FCFGC__CFMC_8h_1afd6be06d6d6004f23f9778ec74708ad8.html">Function XMC4700::to_string(DSD_CH0_FCFGC_CFMC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__FCFGC__SRGM_8h_1a4ed156111a66f05e17131d74f55f3f11.html">Function XMC4700::to_string(DSD_CH0_FCFGC_SRGM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__MODCFG__DIVM_8h_1ac4c8391f487c855ddac687c270733084.html">Function XMC4700::to_string(DSD_CH0_MODCFG_DIVM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__CH0__RECTCFG__SSRC_8h_1a23f37b31622255a2380188dc995295de.html">Function XMC4700::to_string(DSD_CH0_RECTCFG_SSRC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__GLOBCFG__MCSEL_8h_1a8a5a402057c539bd6a0225114c07aa54.html">Function XMC4700::to_string(DSD_GLOBCFG_MCSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_DSD__OCS__SUS_8h_1ae5b4ae1974fc3471f46d3429587f8090.html">Function XMC4700::to_string(DSD_OCS_SUS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__ADDRC_8h_1ad043a00849a25a6a4abd21161650b5cd.html">Function XMC4700::to_string(EBU_BUSRAP0_ADDRC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__AHOLDC_8h_1a666b85a0a7d972bcd5b367fb224ab254.html">Function XMC4700::to_string(EBU_BUSRAP0_AHOLDC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__EXTCLOCK_8h_1a825098223b3cf680c2ed0b1e4ccbb72b.html">Function XMC4700::to_string(EBU_BUSRAP0_EXTCLOCK)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__EXTDATA_8h_1a4ccb4949149e11434f081b25654213a9.html">Function XMC4700::to_string(EBU_BUSRAP0_EXTDATA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__RDDTACS_8h_1abb52e2004bf631445e5a4667111ddac3.html">Function XMC4700::to_string(EBU_BUSRAP0_RDDTACS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__RDRECOVC_8h_1aba413556bbb2125833d06016bdcb28ea.html">Function XMC4700::to_string(EBU_BUSRAP0_RDRECOVC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRAP0__WAITRDC_8h_1aab251f949c863553613fdab208548b01.html">Function XMC4700::to_string(EBU_BUSRAP0_WAITRDC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRCON0__BCGEN_8h_1a9056938b3f865d022ac1c3dc2fb951e7.html">Function XMC4700::to_string(EBU_BUSRCON0_BCGEN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__BUSRCON0__FETBLEN_8h_1ab6eae48c95e8939bd994be683e19a7b7.html">Function XMC4700::to_string(EBU_BUSRCON0_FETBLEN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__CLC__EBUDIVACK_8h_1ae608d9870f93c883d6389d97f27c73bf.html">Function XMC4700::to_string(EBU_CLC_EBUDIVACK)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__MODCON__ARBMODE_8h_1ae9203699ebaa734cd71593b16e7be015.html">Function XMC4700::to_string(EBU_MODCON_ARBMODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__MODCON__TIMEOUTC_8h_1afd3f7db9ffebbfe67afb54530c961aea.html">Function XMC4700::to_string(EBU_MODCON_TIMEOUTC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMCON__AWIDTH_8h_1a5e1644ca22f9a62b1310c47df9a57361.html">Function XMC4700::to_string(EBU_SDRMCON_AWIDTH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMCON__BANKM_8h_1a6fb2e25069c5b40e07f048c6d9ee1adf.html">Function XMC4700::to_string(EBU_SDRMCON_BANKM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMCON__PWR__MODE_8h_1a79b557eec81232ca3fc2651b92d8ddcb.html">Function XMC4700::to_string(EBU_SDRMCON_PWR_MODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMCON__ROWM_8h_1a4773ff1859f7382f25e676fcb499efaf.html">Function XMC4700::to_string(EBU_SDRMCON_ROWM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMOD__BURSTL_8h_1abd4f61580b66989812f3fa1f7e6108d6.html">Function XMC4700::to_string(EBU_SDRMOD_BURSTL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMOD__CASLAT_8h_1afdfef4e9ac82fa859558b1b1ed71e867.html">Function XMC4700::to_string(EBU_SDRMOD_CASLAT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__SDRMOD__OPMODE_8h_1ae477af6e8be4b6c57032cda59870f8fe.html">Function XMC4700::to_string(EBU_SDRMOD_OPMODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_EBU__USERCON__ADDIO_8h_1a3617577a7b6acda204632a7ff3836a63.html">Function XMC4700::to_string(EBU_USERCON_ADDIO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXICON__OCS_8h_1adfe1c2013a6871f925303551a9754d89.html">Function XMC4700::to_string(ERU0_EXICON_OCS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXICON__SS_8h_1ae491cd6637f71d49b37f091559daaa86.html">Function XMC4700::to_string(ERU0_EXICON_SS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXISEL__EXS3B_8h_1a087ff72a9e10c3959b24c4a0ba23bc40.html">Function XMC4700::to_string(ERU0_EXISEL_EXS3B)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXOCON__GP_8h_1a1c2e2622c7802b2b0534ab3dc4f49eb0.html">Function XMC4700::to_string(ERU0_EXOCON_GP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ERU0__EXOCON__ISS_8h_1aeff162b06b1ba8a048082cbffe3b295c.html">Function XMC4700::to_string(ERU0_EXOCON_ISS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ETH0__CON__ETH0__CON__CRS_8h_1a0e902888a2b213b0eaf89e7d0723c6fc.html">Function XMC4700::to_string(ETH0_CON_ETH0_CON_CRS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_ETH0__CON__ETH0__CON__MDIO_8h_1ab6895be07c5f14945c3a12bcab2b6fd7.html">Function XMC4700::to_string(ETH0_CON_ETH0_CON_MDIO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_FLASH0__FCON__WSPFLASH_8h_1ae9c390de5790d666815bb27efb52837e.html">Function XMC4700::to_string(FLASH0_FCON_WSPFLASH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_FLASH0__MARP__MARGIN_8h_1a8f3ffc3eb7353b95abcf674f663b21c2.html">Function XMC4700::to_string(FLASH0_MARP_MARGIN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CH0__CFGL__LOCK__CH__L_8h_1a29807cd9c01d7c1d490a75990a829654.html">Function XMC4700::to_string(GPDMA0_CH0_CFGL_LOCK_CH_L)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CH0__CTLL__DINC_8h_1a138dc88f65296aab313d93207ac1642a.html">Function XMC4700::to_string(GPDMA0_CH0_CTLL_DINC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CH2__CFGL__LOCK__CH__L_8h_1a93ddd7bbb4858b12bbbd1f8c6aa62fc8.html">Function XMC4700::to_string(GPDMA0_CH2_CFGL_LOCK_CH_L)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CH2__CTLL__DINC_8h_1ac2bacebb1f9c0f847e26c942995a943c.html">Function XMC4700::to_string(GPDMA0_CH2_CTLL_DINC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA0__CHENREG__CH_8h_1adcd0bc0efeb99bd99937502ce48ebf26.html">Function XMC4700::to_string(GPDMA0_CHENREG_CH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA1__CH0__CFGL__LOCK__CH__L_8h_1a575f53be164e42d9d068669c5645e13f.html">Function XMC4700::to_string(GPDMA1_CH0_CFGL_LOCK_CH_L)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA1__CH0__CTLL__DINC_8h_1aa5139bf31eb9740ebe5bfab860a2048c.html">Function XMC4700::to_string(GPDMA1_CH0_CTLL_DINC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_GPDMA1__CHENREG__CH_8h_1a12cb392ee931daf99b82d186020b191f.html">Function XMC4700::to_string(GPDMA1_CHENREG_CH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__ACCCNT_8h_1a9fb2c0d2df2233ff7d255800cf4677b2.html">Function XMC4700::to_string(LEDTS0_FNCTL_ACCCNT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__NR__LEDCOL_8h_1a69998a45c8a06347336b209748729bc9.html">Function XMC4700::to_string(LEDTS0_FNCTL_NR_LEDCOL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__NR__TSIN_8h_1a6544504f235222beb4bce7e05f93d6e3.html">Function XMC4700::to_string(LEDTS0_FNCTL_NR_TSIN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__PADT_8h_1ac910df43a8b6b48fabbc71fac89d4fac.html">Function XMC4700::to_string(LEDTS0_FNCTL_PADT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__FNCTL__TSOEXT_8h_1a5f16ec46643171988bc764996982280a.html">Function XMC4700::to_string(LEDTS0_FNCTL_TSOEXT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_LEDTS0__GLOBCTL__MASKVAL_8h_1aaa67a485d65baa9a32b9dd9a5bd53a5c.html">Function XMC4700::to_string(LEDTS0_GLOBCTL_MASKVAL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT0__HWSEL__HW15_8h_1a22d54bdd5375144aef78c0e287aeb3bb.html">Function XMC4700::to_string(PORT0_HWSEL_HW15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT0__IOCR0__PC3_8h_1a6943013cdf22eb496ffbc7cfcd416204.html">Function XMC4700::to_string(PORT0_IOCR0_PC3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT0__PDR0__PD1_8h_1a157a2146840edceae1018f33507b3e14.html">Function XMC4700::to_string(PORT0_PDR0_PD1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT0__PDR0__PD7_8h_1adcbbeacee2b2a475bc79e55d9c713415.html">Function XMC4700::to_string(PORT0_PDR0_PD7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT14__HWSEL__HW15_8h_1a7516bd09cb027c61bb015edacb8de0fb.html">Function XMC4700::to_string(PORT14_HWSEL_HW15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT14__IOCR0__PC3_8h_1a31c59e635a9a4a5bac82249057c22d70.html">Function XMC4700::to_string(PORT14_IOCR0_PC3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT15__HWSEL__HW15_8h_1a70eb2e534cd437e822d0ba5fe0302197.html">Function XMC4700::to_string(PORT15_HWSEL_HW15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT15__IOCR0__PC3_8h_1afe8a5a8dfbc74155a7f7d76079e56d50.html">Function XMC4700::to_string(PORT15_IOCR0_PC3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT4__HWSEL__HW15_8h_1a55b447f45be1f851ff85f69ac07e3221.html">Function XMC4700::to_string(PORT4_HWSEL_HW15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT4__IOCR0__PC3_8h_1a1771093fedde843bee2a58e939dd9185.html">Function XMC4700::to_string(PORT4_IOCR0_PC3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT4__PDR0__PD1_8h_1afce4228b2addad1b265c499a47f97def.html">Function XMC4700::to_string(PORT4_PDR0_PD1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT4__PDR0__PD7_8h_1a158abf00e653ccc2722b746dcff32f58.html">Function XMC4700::to_string(PORT4_PDR0_PD7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT5__HWSEL__HW15_8h_1aaa070f39c93dde63d6115aa0af54641d.html">Function XMC4700::to_string(PORT5_HWSEL_HW15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT5__IOCR0__PC3_8h_1aa62c27e4d0273c30b6f316514a7c6668.html">Function XMC4700::to_string(PORT5_IOCR0_PC3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT5__PDR0__PD6_8h_1af61344701182313b2a251db88b518c1d.html">Function XMC4700::to_string(PORT5_PDR0_PD6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PORT5__PDR0__PD7_8h_1ae5cb437ca4b1516da6de5d83ee2c5759.html">Function XMC4700::to_string(PORT5_PDR0_PD7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PCONF__EWIS_8h_1a9f582f2ac505fa055519e5a5bcbc3d4c.html">Function XMC4700::to_string(POSIF0_PCONF_EWIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PCONF__FSEL_8h_1a27a3b887499bc7f428158b61c3fe0bf7.html">Function XMC4700::to_string(POSIF0_PCONF_FSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PCONF__LPC_8h_1a1d31787398868ea8717508eb894d543a.html">Function XMC4700::to_string(POSIF0_PCONF_LPC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PCONF__MSETS_8h_1aef9632349981c2b7571dfba8d3682c7c.html">Function XMC4700::to_string(POSIF0_PCONF_MSETS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PSUS__MSUS_8h_1a9baeea814a185458cb8e519906d3c685.html">Function XMC4700::to_string(POSIF0_PSUS_MSUS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__PSUS__QSUS_8h_1a747e2f18509a8faf7142ebf5901e2a54.html">Function XMC4700::to_string(POSIF0_PSUS_QSUS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_POSIF0__QDC__ICM_8h_1ad0af7a485d95a6d975a118241eae08d0.html">Function XMC4700::to_string(POSIF0_QDC_ICM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPACR__CP11_8h_1ac9f62405a9b9fbcedab526d8230b9bf9.html">Function XMC4700::to_string(PPB_CPACR_CP11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPUID__Implementer_8h_1a4f550588af07f2ace3e2b37de5b999e5.html">Function XMC4700::to_string(PPB_CPUID_Implementer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPUID__PartNo_8h_1aebd932377b1d756964f9c2f7459ab391.html">Function XMC4700::to_string(PPB_CPUID_PartNo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPUID__Revision_8h_1a001e13c9b0dbb444ebe1e66f8b4759ff.html">Function XMC4700::to_string(PPB_CPUID_Revision)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__CPUID__Variant_8h_1aca79afb90b3b315cb3aac463dcf5fc6b.html">Function XMC4700::to_string(PPB_CPUID_Variant)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__ICSR__VECTACTIVE_8h_1a529bd163d01ffdf584d2ce1f26815235.html">Function XMC4700::to_string(PPB_ICSR_VECTACTIVE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__ICSR__VECTPENDING_8h_1ae716a755804b4e9f3fab0302413553c8.html">Function XMC4700::to_string(PPB_ICSR_VECTPENDING)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__MPU__RASR__SRD_8h_1ab84a2a3aae43e50b7aaacc82364c0ef6.html">Function XMC4700::to_string(PPB_MPU_RASR_SRD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__NVIC__IABR0__ACTIVE_8h_1a98fcb71da7f46d3c262c6167c71d8f85.html">Function XMC4700::to_string(PPB_NVIC_IABR0_ACTIVE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__NVIC__ISER0__SETENA_8h_1a32464819dc056657419d91da65274ed3.html">Function XMC4700::to_string(PPB_NVIC_ISER0_SETENA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_PPB__NVIC__ISPR0__SETPEND_8h_1a1eab9d52454dada5430a447183e57e70.html">Function XMC4700::to_string(PPB_NVIC_ISPR0_SETPEND)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__CLK__EXTCLKCR__ECKSEL_8h_1a67912ba24035fb7111243bdffbdb8c53.html">Function XMC4700::to_string(SCU_CLK_EXTCLKCR_ECKSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__CLK__MLINKCLKCR__WDTSEL_8h_1a231da31e496d3af909c5b8a974f932b4.html">Function XMC4700::to_string(SCU_CLK_MLINKCLKCR_WDTSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__CLK__WDTCLKCR__WDTSEL_8h_1a363d73108b890bb578ea43f76e18a4cb.html">Function XMC4700::to_string(SCU_CLK_WDTCLKCR_WDTSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__HIBERNATE__HDCR__HIBIO1SEL_8h_1ae9d0c6f7d3297281f82334f91fe265d0.html">Function XMC4700::to_string(SCU_HIBERNATE_HDCR_HIBIO1SEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__HIBERNATE__OSCULCTRL__MODE_8h_1aad0471e94d7d286bb2d212d7badab7f5.html">Function XMC4700::to_string(SCU_HIBERNATE_OSCULCTRL_MODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__OSC__OSCHPCTRL__GAINSEL_8h_1a76c838421a3cc1f6da7340515130c7a1.html">Function XMC4700::to_string(SCU_OSC_OSCHPCTRL_GAINSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__OSC__OSCHPCTRL__MODE_8h_1a02be61e0bcec9084f8fd042e822172b7.html">Function XMC4700::to_string(SCU_OSC_OSCHPCTRL_MODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__PLL__CLKMXSTAT__SYSCLKMUX_8h_1afdaa9d10bb59f504b2f4a6dd30d73993.html">Function XMC4700::to_string(SCU_PLL_CLKMXSTAT_SYSCLKMUX)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SCU__RESET__RSTSTAT__RSTSTAT_8h_1ac198566820dc14adc85bda13bc2448a5.html">Function XMC4700::to_string(SCU_RESET_RSTSTAT_RSTSTAT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__BASE__SD__CLOCK__FREQ_8h_1ae279a3a9c5dd9c1014e738b75d88014e.html">Function XMC4700::to_string(SDMMC_CAPABILITIES_BASE_SD_CLOCK_FREQ)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__HI__CLK__MULT_8h_1a8a66ad8861d6a0751bdbbb489ada5ada.html">Function XMC4700::to_string(SDMMC_CAPABILITIES_HI_CLK_MULT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__HI__RE__TUNING__MODES_8h_1a00c1e3d87d4872e9f216f1cf5b1d7b15.html">Function XMC4700::to_string(SDMMC_CAPABILITIES_HI_RE_TUNING_MODES)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__HI__TIM__CNT__RETUNE_8h_1ae608c98133877817bc12c68182436ea4.html">Function XMC4700::to_string(SDMMC_CAPABILITIES_HI_TIM_CNT_RETUNE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__MAX__BLOCK__LENGTH_8h_1aff3872e2edf9245486dc965362aa1c44.html">Function XMC4700::to_string(SDMMC_CAPABILITIES_MAX_BLOCK_LENGTH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CAPABILITIES__SLOT__TYPE_8h_1a5fba1dc38f6604890fe65350dbf8d64a.html">Function XMC4700::to_string(SDMMC_CAPABILITIES_SLOT_TYPE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__CLOCK__CTRL__SDCLK__FREQ__SEL_8h_1a5c5efe1f9c2d853e12663b4455a92bab.html">Function XMC4700::to_string(SDMMC_CLOCK_CTRL_SDCLK_FREQ_SEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__COMMAND__CMD__TYPE_8h_1a409150b05a237a7b1d175c1cc2efcdb2.html">Function XMC4700::to_string(SDMMC_COMMAND_CMD_TYPE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__COMMAND__RESP__TYPE__SELECT_8h_1a5a45701fd0e575f35655e871826f0392.html">Function XMC4700::to_string(SDMMC_COMMAND_RESP_TYPE_SELECT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__POWER__CTRL__SD__BUS__VOLTAGE__SEL_8h_1a91884ccfadecb83bd5787c0f1c06d79c.html">Function XMC4700::to_string(SDMMC_POWER_CTRL_SD_BUS_VOLTAGE_SEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__SLOT__INT__STATUS__SLOT__INT__STATUS_8h_1a1d7b53d3629490b3077d6cd0ee1abcb7.html">Function XMC4700::to_string(SDMMC_SLOT_INT_STATUS_SLOT_INT_STATUS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__TIMEOUT__CTRL__DAT__TIMEOUT__CNT__VAL_8h_1a244d221a40e47a16ff35ee6d24388f43.html">Function XMC4700::to_string(SDMMC_TIMEOUT_CTRL_DAT_TIMEOUT_CNT_VAL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_SDMMC__TRANSFER__MODE__ACMD__EN_8h_1a0c5f19eb476245df9ee448155c14faa2.html">Function XMC4700::to_string(SDMMC_TRANSFER_MODE_ACMD_EN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCCHAR__EPType_8h_1a1c3f67c47d17e4c3ba2ccde9cbb82280.html">Function XMC4700::to_string(USB0_CH0_HCCHAR_EPType)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCCHAR__MC__EC_8h_1addf262748e9a257e3181464dedf14ac2.html">Function XMC4700::to_string(USB0_CH0_HCCHAR_MC_EC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCDMA__SCATGATHER__CTD_8h_1a2a8f178e73e948cf61669831488a5023.html">Function XMC4700::to_string(USB0_CH0_HCDMA_SCATGATHER_CTD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCTSIZ__BUFFERMODE__Pid_8h_1a7ac57c09130d8a9fcf4fa365033bc18c.html">Function XMC4700::to_string(USB0_CH0_HCTSIZ_BUFFERMODE_Pid)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__CH0__HCTSIZ__SCATGATHER__Pid_8h_1a828a48774e584d605500e496feb09ea6.html">Function XMC4700::to_string(USB0_CH0_HCTSIZ_SCATGATHER_Pid)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DCFG__DevSpd_8h_1a74c5ff13837872217e16a4ccb8cde254.html">Function XMC4700::to_string(USB0_DCFG_DevSpd)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DCFG__PerFrInt_8h_1a2ea89c659e63a0394c1ecafd338053ef.html">Function XMC4700::to_string(USB0_DCFG_PerFrInt)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DCFG__PerSchIntvl_8h_1a4d57a8ab9a6a3cc75cf5a635aab7d2c6.html">Function XMC4700::to_string(USB0_DCFG_PerSchIntvl)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DCTL__GMC_8h_1ac926c958b014c6a8456bf4634a8d4320.html">Function XMC4700::to_string(USB0_DCTL_GMC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__DSTS__EnumSpd_8h_1a79b019cd4e652b99c123648eb65b4852.html">Function XMC4700::to_string(USB0_DSTS_EnumSpd)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP0__DIEPCTL0__MPS_8h_1a8c007752e032cad5c5a6fc3e60e2ecf1.html">Function XMC4700::to_string(USB0_EP0_DIEPCTL0_MPS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP0__DOEPTSIZ0__SUPCnt_8h_1a0df100ca39d8ec30b742881d0906812a.html">Function XMC4700::to_string(USB0_EP0_DOEPTSIZ0_SUPCnt)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP0__DTXFSTS0__INEPTxFSpcAvail_8h_1a7181d21d601a25625ae04d26b81c0781.html">Function XMC4700::to_string(USB0_EP0_DTXFSTS0_INEPTxFSpcAvail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP1__DIEPCTL__ISOCONT__EPType_8h_1ac133005e80859084f76d7b29d3ffc61f.html">Function XMC4700::to_string(USB0_EP1_DIEPCTL_ISOCONT_EPType)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP1__DOEPTSIZ__ISO__RxDPID_8h_1aea55c32d419ce303df3ec000f9ef13d7.html">Function XMC4700::to_string(USB0_EP1_DOEPTSIZ_ISO_RxDPID)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__EP1__DTXFSTS__INEPTxFSpcAvail_8h_1a6ce4d0b1c2ab3fbd0fb37b5f63690622.html">Function XMC4700::to_string(USB0_EP1_DTXFSTS_INEPTxFSpcAvail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GAHBCFG__HBstLen_8h_1ae542877f4d2fe85d710af2bb2314f24c.html">Function XMC4700::to_string(USB0_GAHBCFG_HBstLen)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GNPTXSTS__NPTxFSpcAvail_8h_1adc3b434da5e3c1f890ae30691adbec00.html">Function XMC4700::to_string(USB0_GNPTXSTS_NPTxFSpcAvail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GNPTXSTS__NPTxQSpcAvail_8h_1a7391b7e090a1f3e716eef4f87ace0525.html">Function XMC4700::to_string(USB0_GNPTXSTS_NPTxQSpcAvail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GNPTXSTS__NPTxQTop_8h_1a27caf710ef1d653d1cc4296626fdab2d.html">Function XMC4700::to_string(USB0_GNPTXSTS_NPTxQTop)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GRSTCTL__TxFNum_8h_1af1cf265906562c1dfcfba5bc445a5523.html">Function XMC4700::to_string(USB0_GRSTCTL_TxFNum)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GRXSTSR__DEVICEMODE__PktSts_8h_1af3cfc019d17092444913862364bc7509.html">Function XMC4700::to_string(USB0_GRXSTSR_DEVICEMODE_PktSts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GRXSTSR__HOSTMODE__DPID_8h_1afad28d9e7f40196fb38dcaa62aad9464.html">Function XMC4700::to_string(USB0_GRXSTSR_HOSTMODE_DPID)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__GRXSTSR__HOSTMODE__PktSts_8h_1ac3d827f89478083b903d1002c9c879b4.html">Function XMC4700::to_string(USB0_GRXSTSR_HOSTMODE_PktSts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HCFG__FrListEn_8h_1a8a654f4e1eb89704b2acc781bfc11615.html">Function XMC4700::to_string(USB0_HCFG_FrListEn)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HCFG__FSLSPclkSel_8h_1ab3367ad74a9fe2e30bcffd9cbb37b5f8.html">Function XMC4700::to_string(USB0_HCFG_FSLSPclkSel)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HPRT__PrtSpd_8h_1a79e78da1fc248de5bc5c8b33c101bfb7.html">Function XMC4700::to_string(USB0_HPRT_PrtSpd)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HPTXSTS__PTxFSpcAvail_8h_1a7a741d38f8013fca20dae9bc48e764a9.html">Function XMC4700::to_string(USB0_HPTXSTS_PTxFSpcAvail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USB0__HPTXSTS__PTxQSpcAvail_8h_1ad88b5a10b7b5a0cd3016ebda9fb52972.html">Function XMC4700::to_string(USB0_HPTXSTS_PTxQSpcAvail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__BRG__CLKSEL_8h_1a83f3f079f8fb07ee617014d29cc4452d.html">Function XMC4700::to_string(USIC0_CH0_BRG_CLKSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__BRG__CTQSEL_8h_1a69b5ac04b479ee9475c4c0aebd811158.html">Function XMC4700::to_string(USIC0_CH0_BRG_CTQSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__BRG__SCLKCFG_8h_1ac1db9f2dc241226888e130f0a1ab1127.html">Function XMC4700::to_string(USIC0_CH0_BRG_SCLKCFG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__BYPCR__BDEN_8h_1ab2765ff2bb86222716097d354b54ef42.html">Function XMC4700::to_string(USIC0_CH0_BYPCR_BDEN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__CCR__HPCEN_8h_1a907d7eb53cbc234f7530391650a2bd61.html">Function XMC4700::to_string(USIC0_CH0_CCR_HPCEN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__CCR__MODE_8h_1a21006b6d401fc18a11642f6edd8bf3c7.html">Function XMC4700::to_string(USIC0_CH0_CCR_MODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__CCR__PM_8h_1a0a577faa365d64d130b64b58f6d84736.html">Function XMC4700::to_string(USIC0_CH0_CCR_PM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__DX0CR__CM_8h_1acca5cbe41dc1f42672b365061285b2e0.html">Function XMC4700::to_string(USIC0_CH0_DX0CR_CM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__DX0CR__DSEL_8h_1addb119af69eeefe7050481af40fc8a46.html">Function XMC4700::to_string(USIC0_CH0_DX0CR_DSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__DX1CR__CM_8h_1a580a466ec53d869d771ae564a7bff5f9.html">Function XMC4700::to_string(USIC0_CH0_DX1CR_CM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__DX1CR__DSEL_8h_1a1929fc8a69b8108d1dbbbc0ce98b1311.html">Function XMC4700::to_string(USIC0_CH0_DX1CR_DSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__FDR__DM_8h_1a7ba31b20c27e7e96aa765befbcdbb20a.html">Function XMC4700::to_string(USIC0_CH0_FDR_DM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__FMR__MTDV_8h_1a1d082d970776b9d21aa355244a03f204.html">Function XMC4700::to_string(USIC0_CH0_FMR_MTDV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__INPR__TSINP_8h_1a8de2ea991bb9f7448de3694fbfd74265.html">Function XMC4700::to_string(USIC0_CH0_INPR_TSINP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__KSCFG__NOMCFG_8h_1a47835a433bcf1619435e8d7fe1fcaec0.html">Function XMC4700::to_string(USIC0_CH0_KSCFG_NOMCFG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__PCR__ASCMode__PL_8h_1a53ab71a852e7e2694a1f64786d5453d2.html">Function XMC4700::to_string(USIC0_CH0_PCR_ASCMode_PL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__PCR__SSCMode__SELO_8h_1aa72f51874d41797b22b2674e984d99a9.html">Function XMC4700::to_string(USIC0_CH0_PCR_SSCMode_SELO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__RBCTR__RCIM_8h_1aadf8fff2cde1c11e4e2c508a8ab8ec85.html">Function XMC4700::to_string(USIC0_CH0_RBCTR_RCIM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__RBUF01SR__WLEN1_8h_1aa8a7604d72f3152366845049ccf3c75b.html">Function XMC4700::to_string(USIC0_CH0_RBUF01SR_WLEN1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__SCTR__DOCFG_8h_1a23a871498042377ba90a272cc8bd9f1a.html">Function XMC4700::to_string(USIC0_CH0_SCTR_DOCFG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__SCTR__DSM_8h_1a111be7c716f1471bdc9ee3e21e7a617b.html">Function XMC4700::to_string(USIC0_CH0_SCTR_DSM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__SCTR__TRM_8h_1a475436ad3030764115f77f2aa94667e6.html">Function XMC4700::to_string(USIC0_CH0_SCTR_TRM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__SCTR__WLE_8h_1a3e2603137d3668e86fd15ebea25bb36d.html">Function XMC4700::to_string(USIC0_CH0_SCTR_WLE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__TBCTR__SIZE_8h_1a444c63da61beb2fdfd017f9ab5ac1ba1.html">Function XMC4700::to_string(USIC0_CH0_TBCTR_SIZE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_USIC0__CH0__TCSR__TDEN_8h_1abd19cc1e0378d6839887773e7e1c4359.html">Function XMC4700::to_string(USIC0_CH0_TCSR_TDEN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__BRSCTRL__SRCRESREG_8h_1a3687a9da5d926ef68a8c3691fcab08aa.html">Function XMC4700::to_string(VADC_BRSCTRL_SRCRESREG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__BRSCTRL__XTMODE_8h_1a005f7ad0526786d6e76f989cdfc5e9d2.html">Function XMC4700::to_string(VADC_BRSCTRL_XTMODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__BRSMR__ENGT_8h_1ae1c3e5d966c37b07dd829a016aa116fe.html">Function XMC4700::to_string(VADC_BRSMR_ENGT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ARBCFG__ANONS_8h_1a7520ad44a09310b1d38115dbc3008ace.html">Function XMC4700::to_string(VADC_G0_ARBCFG_ANONS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ARBCFG__ARBRND_8h_1a7779d4bbe838708bdbe695ebb3b5bb9f.html">Function XMC4700::to_string(VADC_G0_ARBCFG_ARBRND)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ARBPR__PRIO2_8h_1a41103d57e65e90e1f31db590f2d267fc.html">Function XMC4700::to_string(VADC_G0_ARBPR_PRIO2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ASMR__ENGT_8h_1a4b25e72fe8fb38703a2d8fa5e022217d.html">Function XMC4700::to_string(VADC_G0_ASMR_ENGT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__BFLC__BFM3_8h_1a4614799803c0bccf17326a1052ea043a.html">Function XMC4700::to_string(VADC_G0_BFLC_BFM3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__BFLNP__BFL3NP_8h_1a81adf3ca091182a693caf5e5f1280095.html">Function XMC4700::to_string(VADC_G0_BFLNP_BFL3NP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CEVNP0__CEV7NP_8h_1a9704cbc78527c023456e79cec9629cd5.html">Function XMC4700::to_string(VADC_G0_CEVNP0_CEV7NP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__BNDSELU_8h_1a8e82bcccf1a63009fcdbf5353ef684a8.html">Function XMC4700::to_string(VADC_G0_CHCTR_BNDSELU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__BWDCH_8h_1a52bad83324d825d3479983d4b8626a0f.html">Function XMC4700::to_string(VADC_G0_CHCTR_BWDCH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__CHEVMODE_8h_1a6fb659b6ee6579110f5bc460aeea69af.html">Function XMC4700::to_string(VADC_G0_CHCTR_CHEVMODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__ICLSEL_8h_1add3f2b315d5045f7d722447da51d2606.html">Function XMC4700::to_string(VADC_G0_CHCTR_ICLSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__CHCTR__RESREG_8h_1adc3208225fe822e553362bfb9880fe9d.html">Function XMC4700::to_string(VADC_G0_CHCTR_RESREG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__EMUXCTR__EMUXMODE_8h_1a9f4d0ca2414bdad3c233fc13c33e17f7.html">Function XMC4700::to_string(VADC_G0_EMUXCTR_EMUXMODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__ICLASS__CME_8h_1a3989ed8707cdf77e45b41a1d3abc434d.html">Function XMC4700::to_string(VADC_G0_ICLASS_CME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__QCTRL0__SRCRESREG_8h_1a38be9c244fb16d44fc14719b0be405f8.html">Function XMC4700::to_string(VADC_G0_QCTRL0_SRCRESREG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__QCTRL0__XTMODE_8h_1aab18d73bf0e567e83b628d9284ee5803.html">Function XMC4700::to_string(VADC_G0_QCTRL0_XTMODE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__QMR0__ENGT_8h_1afbf4060ccb028b2c16b0914d90b6f7d3.html">Function XMC4700::to_string(VADC_G0_QMR0_ENGT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__QSR0__FILL_8h_1a9f53526173c4907bb2a88318de00cd11.html">Function XMC4700::to_string(VADC_G0_QSR0_FILL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__RCR__DMM_8h_1a0af30c3a77161c69e4a421ee713c360e.html">Function XMC4700::to_string(VADC_G0_RCR_DMM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__RCR__FEN_8h_1a0cd57014bb85a8be6026b79de1024254.html">Function XMC4700::to_string(VADC_G0_RCR_FEN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__RES__CRS_8h_1aac66fd6ce01e6e43574f356b4a2d32c2.html">Function XMC4700::to_string(VADC_G0_RES_CRS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__G0__SYNCTR__STSEL_8h_1a286d509e67861e4cd879228070c32c80.html">Function XMC4700::to_string(VADC_G0_SYNCTR_STSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBCFG__DIVA_8h_1ae95cf5bbcdf56392d2bd710b13aabffa.html">Function XMC4700::to_string(VADC_GLOBCFG_DIVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBCFG__DIVD_8h_1a9ddb8fd4c0ed62d214d6134d29f765e1.html">Function XMC4700::to_string(VADC_GLOBCFG_DIVD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBEVNP__REV0NP_8h_1a4de2eee79597d427b7c59a96f6af1d85.html">Function XMC4700::to_string(VADC_GLOBEVNP_REV0NP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBICLASS__CME_8h_1ac4002935ff4a0eae15a95d49b114de21.html">Function XMC4700::to_string(VADC_GLOBICLASS_CME)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBRCR__DRCTR_8h_1a219ae76d0ada508e2a2f38a16a6b9512.html">Function XMC4700::to_string(VADC_GLOBRCR_DRCTR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__GLOBTF__CDSEL_8h_1a1244b49d31a0ce7329cf2960ae6432ec.html">Function XMC4700::to_string(VADC_GLOBTF_CDSEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__OCS__SUS_8h_1a5b1ee22df6bc06d01aa9dfb7f3c147c5.html">Function XMC4700::to_string(VADC_OCS_SUS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_VADC__OCS__TGS_8h_1a0cc9937b3911a7331760f8b922749dcd.html">Function XMC4700::to_string(VADC_OCS_TGS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_can_8h_1a97d699295fea9dde930a6714a8bf8c1d.html">Variable XMC4700::CAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_can__mo_8h_1a5fc0339f9d7a5d9eb0f3f50618b69fde.html">Variable XMC4700::CAN_MO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_can__node0_8h_1a2e8021fa72ce2d6192710080fe115800.html">Variable XMC4700::CAN_NODE0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_can__node0_8h_1a0c4a6babed321da17412790ed18483df.html">Variable XMC4700::CAN_NODE1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_can__node0_8h_1ad8ce48bb63f358d75e09c10a233ca8ea.html">Variable XMC4700::CAN_NODE2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_can__node0_8h_1a0c3647b03564fac9673ec7367dc21e76.html">Variable XMC4700::CAN_NODE3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_can__node0_8h_1a9c9400156e41364598f7e687ebeb7f28.html">Variable XMC4700::CAN_NODE4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_can__node0_8h_1aeeadcf9d4b8f2430be50eb2676ed7601.html">Variable XMC4700::CAN_NODE5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40_8h_1a68656ff2f4611eadf67a327549efe0bb.html">Variable XMC4700::CCU40</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a8377f1759f2106b54625580faf6efebd.html">Variable XMC4700::CCU40_CC40</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1aa0672cab1716429388ec5038bee3580b.html">Variable XMC4700::CCU40_CC41</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1ad03c185a10a203e7734b5ac47ec146bc.html">Variable XMC4700::CCU40_CC42</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a92369ac9fbbca8b21b9744fb974d9ede.html">Variable XMC4700::CCU40_CC43</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40_8h_1a24de7ba2e8167170cc288c8fc4d2c72c.html">Variable XMC4700::CCU41</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1af5559d8322560f87a48f4cb6e4986a61.html">Variable XMC4700::CCU41_CC40</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a4dcd4ec9f1f56cac16d414190efc6b0e.html">Variable XMC4700::CCU41_CC41</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1af2c1dd2c841fc3b180699c5d92a8a69d.html">Variable XMC4700::CCU41_CC42</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a56549ed39a0e1dbd184cb1eb919122f6.html">Variable XMC4700::CCU41_CC43</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40_8h_1a5306c4788475a30d00430c38dfbce0b5.html">Variable XMC4700::CCU42</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a3c07d54e4b8413fca614c26b7bafd47b.html">Variable XMC4700::CCU42_CC40</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a9c15b2cdb82fe77ea3cce90fc426d348.html">Variable XMC4700::CCU42_CC41</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a776b47fed5573eb579b1a0234d43cfab.html">Variable XMC4700::CCU42_CC42</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1aee5204d320c6d49113177a22b516bca7.html">Variable XMC4700::CCU42_CC43</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40_8h_1a840f7329158b5f0bbbc91d80007ef8f5.html">Variable XMC4700::CCU43</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a4af99aa9177a29b52bc38613db85efc1.html">Variable XMC4700::CCU43_CC40</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a7f5e8f0ecb8db4a10f2ce7a76a538860.html">Variable XMC4700::CCU43_CC41</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a5d96f9109dab52ad57b8f1a4ead8355a.html">Variable XMC4700::CCU43_CC42</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu40__cc40_8h_1a080f4d694271a98a0d7664335dbee4cf.html">Variable XMC4700::CCU43_CC43</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80_8h_1a21f75da826c4754deec0443277c586dd.html">Variable XMC4700::CCU80</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80__cc80_8h_1aae9cfbc01d2e151edf46c3fb20e36303.html">Variable XMC4700::CCU80_CC80</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80__cc80_8h_1afc0ffd10a6176451a6fa96ded8ea7f17.html">Variable XMC4700::CCU80_CC81</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80__cc80_8h_1aa02479b5ad1168dc936b7c4fd2eef1a7.html">Variable XMC4700::CCU80_CC82</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80__cc80_8h_1a93535ac19212c665e715a366357ea9dc.html">Variable XMC4700::CCU80_CC83</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80_8h_1a36284c8a1c38c991ea39da5465c3418d.html">Variable XMC4700::CCU81</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80__cc80_8h_1a01841fa87001543206caad15b1acc5ee.html">Variable XMC4700::CCU81_CC80</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80__cc80_8h_1a2d199fc1016a436e43abc04cea2037fd.html">Variable XMC4700::CCU81_CC81</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80__cc80_8h_1ae9b54d543014de9901f45309563784dd.html">Variable XMC4700::CCU81_CC82</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ccu80__cc80_8h_1aafa264452fcd8fc47616bb5679736b45.html">Variable XMC4700::CCU81_CC83</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_dac_8h_1a1c6f02ef4b6afde96a4b73bd8be693a0.html">Variable XMC4700::DAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_dlr_8h_1a493b9b72abc92c48bf4fd2ffcaef13ce.html">Variable XMC4700::DLR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_dsd_8h_1adbdc13132a29252059ff5c9d3cfcc28c.html">Variable XMC4700::DSD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_dsd__ch0_8h_1ae8bb72c76a060d15bd4b521d00223a36.html">Variable XMC4700::DSD_CH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_dsd__ch0_8h_1aafb327b35efb14cddc3206736ccd7682.html">Variable XMC4700::DSD_CH1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_dsd__ch0_8h_1a4773008d7179e5eb3f6ee080a222f27a.html">Variable XMC4700::DSD_CH2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_dsd__ch0_8h_1a711c1c584c1bc5be9454308f289906fb.html">Variable XMC4700::DSD_CH3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ebu_8h_1a6539ec1a0b47468d905870c27dc70c6c.html">Variable XMC4700::EBU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_eru0_8h_1aeeb59db8b6d0ccb2ecfaccf72d6d2356.html">Variable XMC4700::ERU0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_eru0_8h_1ab7edca7855a93f8012ae496319c2119b.html">Variable XMC4700::ERU1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_eth0_8h_1ab1a5bd226933b0234cbf931b812c1f05.html">Variable XMC4700::ETH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_eth0__con_8h_1a529b69bb90b63ddc0d6d9c8a32e29f4d.html">Variable XMC4700::ETH0_CON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_fce_8h_1a1a3eb627bcc433060f2bf07a6329e668.html">Variable XMC4700::FCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_fce__ke0_8h_1a7286b8e2e89ea0d0858b2f841849ef97.html">Variable XMC4700::FCE_KE0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_fce__ke0_8h_1a3ae11d7742162c0ea72f8795d724bfd7.html">Variable XMC4700::FCE_KE1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_fce__ke0_8h_1a38aa1ad2b9a99978321bea472f13e882.html">Variable XMC4700::FCE_KE2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_fce__ke0_8h_1a3a1575d29ab0ad5090b4899383ea6833.html">Variable XMC4700::FCE_KE3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_flash0_8h_1a0bb058062605478b4aa51b7c7c8d24ea.html">Variable XMC4700::FLASH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0_8h_1af0764bcff110d9d7ee1ece5a00a27299.html">Variable XMC4700::GPDMA0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch0_8h_1afef6580ea272fe575b2d1f533362e10b.html">Variable XMC4700::GPDMA0_CH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch0_8h_1a8679d6c251c67c1578af3f493a892854.html">Variable XMC4700::GPDMA0_CH1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch2_8h_1ac6af2199e4c7447dafb298783c76109b.html">Variable XMC4700::GPDMA0_CH2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch2_8h_1a1c8ef0024eabd409a5dcab282e293a93.html">Variable XMC4700::GPDMA0_CH3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch2_8h_1a5179f209b564e75a12f9a8f0245d6240.html">Variable XMC4700::GPDMA0_CH4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch2_8h_1a5d8f243b25c4549fb584222f47fddb2e.html">Variable XMC4700::GPDMA0_CH5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch2_8h_1a7465d33f8ad09a46f683563867f4a585.html">Variable XMC4700::GPDMA0_CH6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch2_8h_1a704df26248160192fa5e79dd4da6957a.html">Variable XMC4700::GPDMA0_CH7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma1_8h_1a0a39405f00f5d4b522cfd08b8e73aa65.html">Variable XMC4700::GPDMA1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma0__ch2_8h_1a04f02b94cf293e6201d5ee5dc6e44518.html">Variable XMC4700::GPDMA1_CH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma1__ch0_8h_1a182a9c32496928f6cdfc83edd68d253c.html">Variable XMC4700::GPDMA1_CH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma1__ch0_8h_1af97b6a190811c2d6edbfca61fc2ad9d6.html">Variable XMC4700::GPDMA1_CH2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_gpdma1__ch0_8h_1a0a1e3d0491e4c35866dd5f0b28a8fdcc.html">Variable XMC4700::GPDMA1_CH3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ledts0_8h_1a97852011dc614a7463a9ccd801d5b814.html">Variable XMC4700::LEDTS0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_pba0_8h_1ac83f29e411e853f0779c47315d45285b.html">Variable XMC4700::PBA0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_pba0_8h_1abd40e5e79be7aec6d740c4b8412f5f23.html">Variable XMC4700::PBA1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_flash0_8h_1a288c592dc9219e517fd5e5a29f56c695.html">Variable XMC4700::PMU0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_pmu0_8h_1a9172a2187041cebed6b012f4270ffcce.html">Variable XMC4700::PMU0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port0_8h_1a36cc58eadb522419f2d10554a5b14efe.html">Variable XMC4700::PORT0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port0_8h_1aaa60a74f884ff4c8220e454ffe4ef93f.html">Variable XMC4700::PORT1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port14_8h_1ac28f3ecc1e1807e5d0dad72f0f866ce2.html">Variable XMC4700::PORT14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port15_8h_1a0c061a262ba71af9aa5377be9f94bc9f.html">Variable XMC4700::PORT15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port0_8h_1ac11a8a48f340483c2e542ce448031631.html">Variable XMC4700::PORT2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port0_8h_1a2fa4a1855961c1c10ec11aa34ec455f4.html">Variable XMC4700::PORT3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port4_8h_1ad09a7f1c15f971894b9fa1bb408e79e0.html">Variable XMC4700::PORT4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port5_8h_1a7874744e2434a4ec82a7b8f50cb55d17.html">Variable XMC4700::PORT5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port4_8h_1a657517c237dec75e114e8ca2def4a869.html">Variable XMC4700::PORT6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port5_8h_1a633bd1b546652ab32e440de48522b853.html">Variable XMC4700::PORT7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port5_8h_1a7160af8b6c3603dc02cc2f1aa7cb0883.html">Variable XMC4700::PORT8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_port5_8h_1ab8755a048f50487392fbe18f6833c432.html">Variable XMC4700::PORT9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_posif0_8h_1a09a36bce33132d68aea39139ed1a05a2.html">Variable XMC4700::POSIF0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_posif0_8h_1a1d7ba877282b2864c6ad755aaaa188fb.html">Variable XMC4700::POSIF1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_ppb_8h_1aa0edb35ca25187d1c7d0730b8a40e33f.html">Variable XMC4700::PPB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_pref_8h_1afa080c014fd62854842c66e144e02987.html">Variable XMC4700::PREF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__clk_8h_1a838865d288e8713cc9b302f59495533d.html">Variable XMC4700::SCU_CLK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_pmu0_8h_1aa7fcb8f9275f276c0ff5a38207e267d1.html">Variable XMC4700::SCU_GENERAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__hibernate_8h_1a5069bde9e2fd695f68a85dda484223fb.html">Variable XMC4700::SCU_HIBERNATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__interrupt_8h_1a87ad6dd11ee3d3bc38912945e305e5bc.html">Variable XMC4700::SCU_INTERRUPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__osc_8h_1a2c53d87fed73b3e94ba259d3cea40120.html">Variable XMC4700::SCU_OSC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__parity_8h_1a572376114ac363a11ead1c3c059bc99b.html">Variable XMC4700::SCU_PARITY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__pll_8h_1a48a0d19c0d257bf8f14eb7260baefe5b.html">Variable XMC4700::SCU_PLL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__power_8h_1a924d12ddd70775711729c8393891fd9b.html">Variable XMC4700::SCU_POWER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__reset_8h_1a659294e1f3cf9ac1b68ec9268c53418b.html">Variable XMC4700::SCU_RESET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_scu__trap_8h_1a29b1f3d65947353e9242ba1d6485e2ef.html">Variable XMC4700::SCU_TRAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_sdmmc_8h_1a11320abbd70b42f8e36ac801349b3a9f.html">Variable XMC4700::SDMMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_sdmmc__con_8h_1a6e6a3bc32b258ccba1164e0112d9bb4f.html">Variable XMC4700::SDMMC_CON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0_8h_1a85735cba0350dd23b81175dfe602bf32.html">Variable XMC4700::USB0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1a1e46395050375676db71569a1ea0d06b.html">Variable XMC4700::USB0_CH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1a4961b2869324abde750aaf46f94f6906.html">Variable XMC4700::USB0_CH1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1ae9cf9bb1904c69c7ed1dfe7de534f4d5.html">Variable XMC4700::USB0_CH10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1aefd6d53b351faee954f19042212022a5.html">Variable XMC4700::USB0_CH11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1ac396a288ae4c205add8aa1fd38a1e6ab.html">Variable XMC4700::USB0_CH12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1adb8f19cf57b256355605b32cbba8d606.html">Variable XMC4700::USB0_CH13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1a360f636e28861d8b3b27623ae881a5ee.html">Variable XMC4700::USB0_CH2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1accf82cb6e83f9aa3c8cff57419e71863.html">Variable XMC4700::USB0_CH3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1a50e9e2008d48242324c9306ca90ae9bc.html">Variable XMC4700::USB0_CH4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1aecc4653b6432ea07ae3ede375867899b.html">Variable XMC4700::USB0_CH5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1aadfbece93fda7a714fd9fba3163e5cc0.html">Variable XMC4700::USB0_CH6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1aa9176039f4b0787956bbd08140fc1bce.html">Variable XMC4700::USB0_CH7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1a780b9e6a02a85c9f73cfe87caac53737.html">Variable XMC4700::USB0_CH8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ch0_8h_1a3c074688754d9124b54f0b8bddb88cb6.html">Variable XMC4700::USB0_CH9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ep0_8h_1a57232457919b32713c4f68a98ed05c8a.html">Variable XMC4700::USB0_EP0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ep1_8h_1a10c40889db32c8585146b79cc4cc2b84.html">Variable XMC4700::USB0_EP1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ep1_8h_1adf991e8a7c9216b90402fcd161dfa8e5.html">Variable XMC4700::USB0_EP2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ep1_8h_1acc43414b8206dadc8d4b4de06d818087.html">Variable XMC4700::USB0_EP3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ep1_8h_1ac48e91f45e924bce75d62518289a8467.html">Variable XMC4700::USB0_EP4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ep1_8h_1a3a3e3459e942c2cf6d9b95058ac6d82e.html">Variable XMC4700::USB0_EP5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usb0__ep1_8h_1ac96e72f39a5aafbdac2437d6ac7603ea.html">Variable XMC4700::USB0_EP6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_flash0_8h_1ab18e43c4e459a11b6e2b15b9782056af.html">Variable XMC4700::USIC0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usic0_8h_1a25d5076ba1aa1080eed3c292065ffa15.html">Variable XMC4700::USIC0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usic0__ch0_8h_1afd9da4053bc1e11a23971a9234da7276.html">Variable XMC4700::USIC0_CH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usic0__ch0_8h_1af9f6f415a2657ceb9dd631c96b6fb897.html">Variable XMC4700::USIC0_CH1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usic0__ch0_8h_1a4a6f88fa116674fecd7da013c5946864.html">Variable XMC4700::USIC1_CH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usic0__ch0_8h_1ab745d066246bd22c131ba4287a74f69f.html">Variable XMC4700::USIC1_CH1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usic0_8h_1a0e2b49ef1edd1bc096b3f7d01baa83be.html">Variable XMC4700::USIC2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usic0__ch0_8h_1ab1cdd8c9e95d8b52b56ce29d39764f14.html">Variable XMC4700::USIC2_CH0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_usic0__ch0_8h_1a3a9c3e1806edabe4c360c5b0921af751.html">Variable XMC4700::USIC2_CH1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_vadc_8h_1a9af44a750ce4e98b6aa75f466924c927.html">Variable XMC4700::VADC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_vadc__g0_8h_1a873c75d158d09fa494b2f4851df9717a.html">Variable XMC4700::VADC_G0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_vadc__g0_8h_1ac9b1d5441503787a695ceac12aa5f9cf.html">Variable XMC4700::VADC_G1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_vadc__g0_8h_1aa10001a73eadf7168d51cd04c6b484a5.html">Variable XMC4700::VADC_G2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_vadc__g0_8h_1a594e1db59f32e9dde1f3fbbb85708b72.html">Variable XMC4700::VADC_G3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable_pmu0_8h_1a588a91f1f2ced76fe9dd37577c44b6eb.html">Variable XMC4700::WDT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_common_8h_1a831bd9b8cdb756cdb5dbaa342631e928.html">Typedef XMC4700::byte_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_common_8h_1a04ab446b456624f6d4c24c028976e53b.html">Typedef XMC4700::byte_istream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_common_8h_1adf5355f5a7419030bf3fd9c89c4a0bb6.html">Typedef XMC4700::byte_ostream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_common_8h_1ad28b3693941f65fab21e230ee14be4c4.html">Typedef XMC4700::byte_span</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_common_8h_1a05c080acb0fec8cb67e645b862308a23.html">Typedef XMC4700::byte_spanbuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_common_8h_1a48dbf0cde7dea577ed03d1086b7386fe.html">Typedef XMC4700::byte_spanstream</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/generated/function_CCU40__CC40__TC__DITHE_8h_1aaf9483a5acfb5b632d80897d5ecd2ee5.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Function XMC4700::to_string(CCU40_CC40_TC_DITHE)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-documentation">Function Documentation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="function-xmc4700-to-string-ccu40-cc40-tc-dithe">
+<span id="exhale-function-ccu40-cc40-tc-dithe-8h-1aaf9483a5acfb5b632d80897d5ecd2ee5"></span><h1>Function XMC4700::to_string(CCU40_CC40_TC_DITHE)<a class="headerlink" href="#function-xmc4700-to-string-ccu40-cc40-tc-dithe" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_src_generated_enums_CCU40_CC40_TC_DITHE.h.html#file-src-generated-enums-ccu40-cc40-tc-dithe-h"><span class="std std-ref">File CCU40_CC40_TC_DITHE.h</span></a></p></li>
+</ul>
+<section id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">#</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7XMC47009to_stringE19CCU40_CC40_TC_DITHE">
+<span id="_CPPv3N7XMC47009to_stringE19CCU40_CC40_TC_DITHE"></span><span id="_CPPv2N7XMC47009to_stringE19CCU40_CC40_TC_DITHE"></span><span id="XMC4700::to_string__CCU40_CC40_TC_DITHE"></span><span class="target" id="CCU40__CC40__TC__DITHE_8h_1aaf9483a5acfb5b632d80897d5ecd2ee5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-prename descclassname"><span class="n"><span class="pre">XMC4700</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">to_string</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="enum_CCU40__CC40__TC__DITHE_8h_1a6e1fae99a5de3b0b6fb881727468d0ed.html#_CPPv4N7XMC470019CCU40_CC40_TC_DITHEE" title="XMC4700::CCU40_CC40_TC_DITHE"><span class="n"><span class="pre">CCU40_CC40_TC_DITHE</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7XMC47009to_stringE19CCU40_CC40_TC_DITHE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Converts CCU40_CC40_TC_DITHE to a C string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>instance</strong> – <strong>[in]</strong> Value to convert. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A C string representation of the value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="function_CCU40__CC40__TC__CAPC_8h_1a06aab7e09cbe0ba79c1003063b7bee92.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Function XMC4700::to_string(CCU40_CC40_TC_CAPC)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="function_CCU40__CC40__TC__ENDM_8h_1a251d2a58fe9c4cf87ef597e7a42abe01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Function XMC4700::to_string(CCU40_CC40_TC_ENDM)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-documentation">Function Documentation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vaughn Kottler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Vaughn Kottler.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
