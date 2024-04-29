@@ -23,7 +23,7 @@
     
 <tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><dl>
-<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+<dt class="heading-text"><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>(<a href="builtins.html#object">builtins.object</a>)
 </dt><dd>
 <dl>
 <dt class="heading-text"><a href="runtimepy.codec.system.html#TypeSystem">TypeSystem</a>
@@ -33,50 +33,70 @@
  <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><a name="TypeSystem">class <strong>TypeSystem</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+<td class="section-title" colspan=3>&nbsp;<br><a name="TypeSystem">class <strong>TypeSystem</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
 <td class="decor title-decor" colspan=2><span class="code"><a href="#TypeSystem">TypeSystem</a>(*namespace:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;managing&nbsp;a&nbsp;custom&nbsp;type&nbsp;system.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
-<td class="singlecolumn">Methods defined here:<br>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.codec.system.html#TypeSystem">TypeSystem</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
 <dl><dt><a name="TypeSystem-__init__"><strong>__init__</strong></a>(self, *namespace: str) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt><a name="TypeSystem-add"><strong>add</strong></a>(self, custom_type: str, field_name: str, field_type: str) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;field&nbsp;to&nbsp;a&nbsp;custom&nbsp;type.</span></dd></dl>
+<dl><dt><a name="TypeSystem-add"><strong>add</strong></a>(self, custom_type: str, field_name: str, field_type: str, array_length: int = None, exact: bool = True) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;field&nbsp;to&nbsp;a&nbsp;custom&nbsp;type.</span></dd></dl>
 
-<dl><dt><a name="TypeSystem-enum"><strong>enum</strong></a>(self, name: str, items: Dict[str, int], *namespace: str, primitive: str = 'uint8') -&gt; None</dt><dd><span class="code">Register&nbsp;an&nbsp;enumeration.</span></dd></dl>
+<dl><dt><a name="TypeSystem-enum"><strong>enum</strong></a>(self, name: str, items: dict[str, int], *namespace: str, primitive: str = 'uint8') -&gt; None</dt><dd><span class="code">Register&nbsp;an&nbsp;enumeration.</span></dd></dl>
 
-<dl><dt><a name="TypeSystem-get_enum"><strong>get_enum</strong></a>(self, name: str, *namespace: str) -&gt; runtimepy.enum.RuntimeEnum</dt><dd><span class="code">Lookup&nbsp;an&nbsp;enum&nbsp;type&nbsp;at&nbsp;runtime.</span></dd></dl>
+<dl><dt><a name="TypeSystem-get_enum"><strong>get_enum</strong></a>(self, name: str, *namespace: str, exact: bool = True) -&gt; runtimepy.enum.RuntimeEnum</dt><dd><span class="code">Lookup&nbsp;an&nbsp;enum&nbsp;type&nbsp;at&nbsp;runtime.</span></dd></dl>
 
-<dl><dt><a name="TypeSystem-get_protocol"><strong>get_protocol</strong></a>(self, name: str, *namespace: str) -&gt; runtimepy.codec.protocol.Protocol</dt><dd><span class="code">Get&nbsp;a&nbsp;custom&nbsp;protocol&nbsp;by&nbsp;name.</span></dd></dl>
+<dl><dt><a name="TypeSystem-get_protocol"><strong>get_protocol</strong></a>(self, name: str, *namespace: str, exact: bool = True) -&gt; runtimepy.codec.protocol.Protocol</dt><dd><span class="code">Get&nbsp;a&nbsp;custom&nbsp;protocol&nbsp;by&nbsp;name.</span></dd></dl>
 
 <dl><dt><a name="TypeSystem-register"><strong>register</strong></a>(self, name: str, *namespace: str) -&gt; runtimepy.codec.protocol.Protocol</dt><dd><span class="code">Register&nbsp;a&nbsp;custom&nbsp;type.</span></dd></dl>
 
-<dl><dt><a name="TypeSystem-runtime_int_enum"><strong>runtime_int_enum</strong></a>(self, enum: Type[runtimepy.enum.registry.RuntimeIntEnum]) -&gt; None</dt><dd><span class="code">Register&nbsp;an&nbsp;enumeration&nbsp;class.</span></dd></dl>
+<dl><dt><a name="TypeSystem-runtime_int_enum"><strong>runtime_int_enum</strong></a>(self, enum: type[runtimepy.enum.registry.RuntimeIntEnum]) -&gt; None</dt><dd><span class="code">Register&nbsp;an&nbsp;enumeration&nbsp;class.</span></dd></dl>
 
-<dl><dt><a name="TypeSystem-size"><strong>size</strong></a>(self, name: str, *namespace: str) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;size&nbsp;of&nbsp;a&nbsp;named&nbsp;type.</span></dd></dl>
+<dl><dt><a name="TypeSystem-size"><strong>size</strong></a>(self, name: str, *namespace: str, trace: bool = False, exact: bool = True) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;size&nbsp;of&nbsp;a&nbsp;named&nbsp;type.</span></dd></dl>
 
 <hr>
-Data descriptors defined here:<br>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="TypeSystem-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-resolve_name"><strong>resolve_name</strong></a>(matches: Iterable[str]) -&gt; str</dt><dd><span class="code">Resolve&nbsp;a&nbsp;possible&nbsp;name&nbsp;conflict.</span></dd></dl>
+</td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>AnyPrimitiveType</strong> = typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]<br>
+<td class="singlecolumn"><strong>AnyPrimitiveType</strong> = typing.Union[runtimepy.primitives.types.int.Int8...ype, runtimepy.primitives.types.bool.BooleanType]<br>
 <strong>CPP_DELIM</strong> = '::'<br>
 <strong>DEFAULT_ENUM_PRIMITIVE</strong> = 'uint8'<br>
-<strong>Dict</strong> = typing.Dict<br>
+<strong>Iterable</strong> = typing.Iterable<br>
 <strong>Optional</strong> = typing.Optional<br>
 <strong>PKG_NAME</strong> = 'runtimepy'<br>
-<strong>PrimitiveTypes</strong> = {'bool': &lt;runtimepy.primitives.type.bool.BooleanType object&gt;, 'double': &lt;runtimepy.primitives.type.float.DoubleType object&gt;, 'float': &lt;runtimepy.primitives.type.float.FloatType object&gt;, 'half': &lt;runtimepy.primitives.type.float.HalfType object&gt;, 'int16': &lt;runtimepy.primitives.type.int.Int16Type object&gt;, 'int32': &lt;runtimepy.primitives.type.int.Int32Type object&gt;, 'int64': &lt;runtimepy.primitives.type.int.Int64Type object&gt;, 'int8': &lt;runtimepy.primitives.type.int.Int8Type object&gt;, 'uint16': &lt;runtimepy.primitives.type.int.Uint16Type object&gt;, 'uint32': &lt;runtimepy.primitives.type.int.Uint32Type object&gt;, ...}<br>
-<strong>Type</strong> = typing.Type</td></tr></table>
+<strong>PrimitiveTypes</strong> = {'bool': &lt;runtimepy.primitives.types.bool.BooleanType object&gt;, 'double': &lt;runtimepy.primitives.types.float.DoubleType object&gt;, 'float': &lt;runtimepy.primitives.types.float.FloatType object&gt;, 'half': &lt;runtimepy.primitives.types.float.HalfType object&gt;, 'int16': &lt;runtimepy.primitives.types.int.Int16Type object&gt;, 'int32': &lt;runtimepy.primitives.types.int.Int32Type object&gt;, 'int64': &lt;runtimepy.primitives.types.int.Int64Type object&gt;, 'int8': &lt;runtimepy.primitives.types.int.Int8Type object&gt;, 'uint16': &lt;runtimepy.primitives.types.int.Uint16Type object&gt;, 'uint32': &lt;runtimepy.primitives.types.int.Uint32Type object&gt;, ...}</td></tr></table>
 </body></html>

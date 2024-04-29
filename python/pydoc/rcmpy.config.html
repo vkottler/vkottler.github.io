@@ -77,7 +77,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Data and other attributes inherited from <a href="rcmpy.schemas.html#RcmpyDictCodec">rcmpy.schemas.RcmpyDictCodec</a>:<br>
-<dl><dt><strong>default_schemas</strong> = {'Config': &lt;vcorelib.schemas.json.JsonSchema obj...chemas.json.JsonSchema object at 0x7f83282c00d0&gt;}</dl>
+<dl><dt><strong>default_schemas</strong> = {'Config': &lt;vcorelib.schemas.json.JsonSchema obj...chemas.json.JsonSchema object at 0x7ff5122b95e0&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.dict.codec.html#BasicDictCodec">vcorelib.dict.codec.BasicDictCodec</a>:<br>
@@ -100,21 +100,23 @@ Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dic
 <dl><dt><a name="Config-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</span></dd></dl>
 
-<dl><dt><a name="Config-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f83292e7410&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;<a href="builtins.html#object">object</a>&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Config-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7ff512cf8050&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;<a href="builtins.html#object">object</a>&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
-<dl><dt><a name="Config-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f83292e7410&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Config-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7ff512cf8050&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, require_success: bool = True, default_data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+
+<dl><dt><a name="Config-file_cache"><strong>file_cache</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7ff512cf8050&gt;, encode_kwargs: Dict[str, Any] = None, require_success: bool = False, **kwargs) -&gt; Iterator[~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Manage&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class&nbsp;as&nbsp;a&nbsp;disk-backed&nbsp;file.</span></dd></dl>
 
 <dl><dt><a name="Config-normalize"><strong>normalize</strong></a>(data: Union[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], ~T]) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Ensure&nbsp;that&nbsp;some&nbsp;<a href="builtins.html#object">object</a>&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
@@ -147,7 +149,7 @@ A&nbsp;data&nbsp;structure&nbsp;for&nbsp;managed&nbsp;files&nbsp;specified&nbsp;
 
 <dl><dt><a name="ManagedFile-evaluate"><strong>evaluate</strong></a>(self, env: Dict[str, Any]) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;file&nbsp;should&nbsp;be&nbsp;handled.</span></dd></dl>
 
-<dl><dt><a name="ManagedFile-update"><strong>update</strong></a>(self, source: pathlib.Path, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; None</dt><dd><span class="code">Update&nbsp;this&nbsp;managed&nbsp;file&nbsp;based&nbsp;on&nbsp;the&nbsp;provided&nbsp;source&nbsp;file.</span></dd></dl>
+<dl><dt><a name="ManagedFile-update"><strong>update</strong></a>(self, source: pathlib.Path, logger: Union[logging.Logger, logging.LoggerAdapter[Any]]) -&gt; None</dt><dd><span class="code">Update&nbsp;this&nbsp;managed&nbsp;file&nbsp;based&nbsp;on&nbsp;the&nbsp;provided&nbsp;source&nbsp;file.</span></dd></dl>
 
 <dl><dt><a name="ManagedFile-update_root"><strong>update_root</strong></a>(self, root: pathlib.Path) -&gt; None</dt><dd><span class="code">If&nbsp;the&nbsp;output&nbsp;directory&nbsp;is&nbsp;a&nbsp;relative&nbsp;path,&nbsp;update&nbsp;it&nbsp;to&nbsp;be&nbsp;an<br>
 absolute&nbsp;one&nbsp;based&nbsp;on&nbsp;the&nbsp;provided&nbsp;root&nbsp;directory.</span></dd></dl>
@@ -166,10 +168,10 @@ Readonly properties defined here:<br>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
@@ -177,7 +179,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__dataclass_fields__</strong> = {'condition': Field(name='condition',type=&lt;class 'str'&gt;,defaul...appingproxy({}),kw_only=False,_field_type=_FIELD), 'directory': Field(name='directory',type=&lt;class 'pathlib.Path...appingproxy({}),kw_only=False,_field_type=_FIELD), 'executable': Field(name='executable',type=&lt;class 'bool'&gt;,defa...appingproxy({}),kw_only=False,_field_type=_FIELD), 'extra_templates': Field(name='extra_templates',type=typing.Set[str...appingproxy({}),kw_only=False,_field_type=_FIELD), 'link': Field(name='link',type=&lt;class 'bool'&gt;,default=&lt;d...appingproxy({}),kw_only=False,_field_type=_FIELD), 'name': Field(name='name',type=&lt;class 'str'&gt;,default=&lt;da...appingproxy({}),kw_only=False,_field_type=_FIELD), 'platforms': Field(name='platforms',type=typing.Set[str],defa...appingproxy({}),kw_only=False,_field_type=_FIELD), 'template': Field(name='template',type=&lt;class 'str'&gt;,default...appingproxy({}),kw_only=False,_field_type=_FIELD)}</dl>
 
-<dl><dt><strong>__dataclass_params__</strong> = _DataclassParams(init=True,repr=True,eq=True,order=False,unsafe_hash=False,frozen=False)</dl>
+<dl><dt><strong>__dataclass_params__</strong> = _DataclassParams(init=True,repr=True,eq=True,ord...rue,kw_only=False,slots=False,weakref_slot=False)</dl>
 
 <dl><dt><strong>__hash__</strong> = None</dl>
 

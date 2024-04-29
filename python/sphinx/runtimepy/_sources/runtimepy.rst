@@ -11,11 +11,15 @@ Subpackages
    runtimepy.codec
    runtimepy.commands
    runtimepy.enum
+   runtimepy.message
    runtimepy.metrics
    runtimepy.mixins
    runtimepy.net
    runtimepy.primitives
    runtimepy.registry
+   runtimepy.sample
+   runtimepy.struct
+   runtimepy.subprocess
    runtimepy.task
    runtimepy.telemetry
    runtimepy.tui
@@ -51,6 +55,14 @@ runtimepy.schemas module
 ------------------------
 
 .. automodule:: runtimepy.schemas
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+runtimepy.util module
+---------------------
+
+.. automodule:: runtimepy.util
    :members:
    :undoc-members:
    :show-inheritance:

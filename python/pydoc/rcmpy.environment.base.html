@@ -57,15 +57,15 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="BaseEnvironment-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="BaseEnvironment-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -73,9 +73,9 @@ Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcor
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-load_if_single_candidate"><strong>load_if_single_candidate</strong></a>(path: Union[pathlib.Path, str, NoneType], logger: Union[logging.Logger, logging.LoggerAdapter] = None) -&gt; Optional[vcorelib.io.types.LoadResult]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;load&nbsp;a&nbsp;configuration&nbsp;file&nbsp;if&nbsp;a&nbsp;candidate&nbsp;exists&nbsp;at&nbsp;the&nbsp;given<br>
+<td class="singlecolumn"><dl><dt><a name="-load_if_single_candidate"><strong>load_if_single_candidate</strong></a>(path: Union[pathlib.Path, str, NoneType], logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None) -&gt; Optional[vcorelib.io.types.LoadResult]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;load&nbsp;a&nbsp;configuration&nbsp;file&nbsp;if&nbsp;a&nbsp;candidate&nbsp;exists&nbsp;at&nbsp;the&nbsp;given<br>
 path.</span></dd></dl>
- <dl><dt><a name="-load_manifest"><strong>load_manifest</strong></a>(root: pathlib.Path, variant: str, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; Optional[vcorelib.io.types.LoadResult]</dt><dd><span class="code">Load&nbsp;the&nbsp;top-level&nbsp;data&nbsp;repository&nbsp;configuration.</span></dd></dl>
+ <dl><dt><a name="-load_manifest"><strong>load_manifest</strong></a>(root: pathlib.Path, variant: str, logger: Union[logging.Logger, logging.LoggerAdapter[Any]]) -&gt; Optional[vcorelib.io.types.LoadResult]</dt><dd><span class="code">Load&nbsp;the&nbsp;top-level&nbsp;data&nbsp;repository&nbsp;configuration.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
@@ -83,7 +83,7 @@ path.</span></dd></dl>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>ARBITER</strong> = &lt;vcorelib.io.arbiter.DataArbiter object&gt;<br>
-<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
 <strong>Optional</strong> = typing.Optional<br>
 <strong>PKG_NAME</strong> = 'rcmpy'<br>
 <strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]</td></tr></table>

@@ -91,7 +91,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="IPv4Host-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="IPv4Host-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="IPv4Host-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="IPv4Host-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 
@@ -194,7 +194,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="IPv6Host-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="IPv6Host-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="IPv6Host-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="IPv6Host-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 
@@ -246,12 +246,17 @@ There&nbsp;is&nbsp;an&nbsp;inherent&nbsp;race&nbsp;condition&nbsp;using&nbsp;thi
  <dl><dt><a name="-hostname_port"><strong>hostname_port</strong></a>(ip_address: str, port: int) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;hostname&nbsp;string&nbsp;with&nbsp;a&nbsp;port&nbsp;appended.</span></dd></dl>
  <dl><dt><a name="-normalize_host"><strong>normalize_host</strong></a>(*args: Union[str, int, runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host, NoneType]) -&gt; Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host]</dt><dd><span class="code">Get&nbsp;a&nbsp;host&nbsp;object&nbsp;from&nbsp;caller&nbsp;parameters.</span></dd></dl>
  <dl><dt><a name="-sockname"><strong>sockname</strong></a>(sock: _socket.socket) -&gt; Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host]</dt><dd><span class="code">Get&nbsp;address&nbsp;information&nbsp;from&nbsp;a&nbsp;socket.</span></dd></dl>
+ <dl><dt>async <a name="-try_log_connection_error"><strong>try_log_connection_error</strong></a>(future: Awaitable[~T], message: str, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None) -&gt; Optional[~T]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;resolve&nbsp;a&nbsp;future&nbsp;but&nbsp;log&nbsp;any&nbsp;connection-related&nbsp;exceptions.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>IpHost</strong> = typing.Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host]<br>
-<strong>IpHostlike</strong> = typing.Union[str, int, runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host, NoneType]</td></tr></table>
+<td class="singlecolumn"><strong>Awaitable</strong> = typing.Awaitable<br>
+<strong>IpHost</strong> = typing.Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host]<br>
+<strong>IpHostlike</strong> = typing.Union[str, int, runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host, NoneType]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>T</strong> = ~T</td></tr></table>
 </body></html>

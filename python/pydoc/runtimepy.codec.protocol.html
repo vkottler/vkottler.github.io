@@ -25,6 +25,12 @@
     
 <tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.codec.protocol.html#ProtocolFactory">ProtocolFactory</a>
+</dt></dl>
+</dd>
 <dt class="heading-text"><a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a>(<a href="runtimepy.codec.protocol.base.html#ProtocolBase">runtimepy.codec.protocol.base.ProtocolBase</a>)
 </dt><dd>
 <dl>
@@ -38,7 +44,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="Protocol">class <strong>Protocol</strong></a>(<a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Protocol">Protocol</a>(enum_registry:&nbsp;runtimepy.enum.registry.EnumRegistry,&nbsp;names:&nbsp;runtimepy.registry.name.NameRegistry&nbsp;=&nbsp;None,&nbsp;fields:&nbsp;runtimepy.primitives.field.manager.BitFieldsManager&nbsp;=&nbsp;None,&nbsp;build:&nbsp;List[Union[int,&nbsp;runtimepy.codec.protocol.base.FieldSpec]]&nbsp;=&nbsp;None,&nbsp;identifier:&nbsp;int&nbsp;=&nbsp;1,&nbsp;byte_order:&nbsp;Union[runtimepy.primitives.byte_order.ByteOrder,&nbsp;str,&nbsp;int]&nbsp;=&nbsp;&amp;lt;ByteOrder.NETWORK:&nbsp;4&amp;gt;,&nbsp;serializables:&nbsp;Dict[str,&nbsp;runtimepy.primitives.serializable.base.Serializable]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Protocol">Protocol</a>(enum_registry:&nbsp;runtimepy.enum.registry.EnumRegistry,&nbsp;names:&nbsp;runtimepy.registry.name.NameRegistry&nbsp;=&nbsp;None,&nbsp;fields:&nbsp;runtimepy.primitives.field.manager.BitFieldsManager&nbsp;=&nbsp;None,&nbsp;build:&nbsp;list[typing.Union[int,&nbsp;runtimepy.codec.protocol.base.FieldSpec,&nbsp;str]]&nbsp;=&nbsp;None,&nbsp;identifier:&nbsp;int&nbsp;=&nbsp;1,&nbsp;byte_order:&nbsp;Union[runtimepy.primitives.byte_order.ByteOrder,&nbsp;str,&nbsp;int]&nbsp;=&nbsp;&amp;lt;ByteOrder.NETWORK:&nbsp;4&amp;gt;,&nbsp;serializables:&nbsp;dict[str,&nbsp;runtimepy.primitives.serializable.base.Serializable]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;defining&nbsp;runtime&nbsp;communication&nbsp;protocols.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -50,7 +56,7 @@ A&nbsp;class&nbsp;for&nbsp;defining&nbsp;runtime&nbsp;communication&nbsp;protoco
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a>:<br>
-<dl><dt><a name="Protocol-export_json"><strong>export_json</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[str, Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]</dt><dd><span class="code">Export&nbsp;this&nbsp;protocol's&nbsp;data&nbsp;to&nbsp;JSON.</span></dd></dl>
+<dl><dt><a name="Protocol-export_json"><strong>export_json</strong></a>(self, resolve_enum: bool = True) -&gt; dict[str, typing.Dict[str, typing.Union[str, int, float, bool, NoneType, typing.Dict[str, typing.Union[str, int, float, bool, NoneType]], typing.List[typing.Union[str, int, float, bool, NoneType]]]]]</dt><dd><span class="code">Export&nbsp;this&nbsp;protocol's&nbsp;data&nbsp;to&nbsp;JSON.</span></dd></dl>
 
 <dl><dt><a name="Protocol-meta_bytes"><strong>meta_bytes</strong></a>(self, resolve_enum: bool = True) -&gt; bytes</dt><dd><span class="code">Get&nbsp;protocol&nbsp;metadata&nbsp;as&nbsp;a&nbsp;bytes&nbsp;object.</span></dd></dl>
 
@@ -60,7 +66,7 @@ Methods inherited from <a href="runtimepy.codec.protocol.json.html#JsonProtocol"
 
 <hr>
 Class methods inherited from <a href="runtimepy.codec.protocol.json.html#JsonProtocol">runtimepy.codec.protocol.json.JsonProtocol</a>:<br>
-<dl><dt><a name="Protocol-import_json"><strong>import_json</strong></a>(data: Dict[str, Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;bit-fields&nbsp;manager&nbsp;from&nbsp;JSON&nbsp;data.</span></dd></dl>
+<dl><dt><a name="Protocol-import_json"><strong>import_json</strong></a>(data: dict[str, typing.Dict[str, typing.Union[str, int, float, bool, NoneType, typing.Dict[str, typing.Union[str, int, float, bool, NoneType]], typing.List[typing.Union[str, int, float, bool, NoneType]]]]]) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;bit-fields&nbsp;manager&nbsp;from&nbsp;JSON&nbsp;data.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.codec.protocol.base.html#ProtocolBase">runtimepy.codec.protocol.base.ProtocolBase</a>:<br>
@@ -68,15 +74,21 @@ Methods inherited from <a href="runtimepy.codec.protocol.base.html#ProtocolBase"
 
 <dl><dt><a name="Protocol-__getitem__"><strong>__getitem__</strong></a>(self, name: str) -&gt; Union[int, float, bool, str]</dt><dd><span class="code">Get&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;protocol&nbsp;field.</span></dd></dl>
 
-<dl><dt><a name="Protocol-__init__"><strong>__init__</strong></a>(self, enum_registry: runtimepy.enum.registry.EnumRegistry, names: runtimepy.registry.name.NameRegistry = None, fields: runtimepy.primitives.field.manager.BitFieldsManager = None, build: List[Union[int, runtimepy.codec.protocol.base.FieldSpec]] = None, identifier: int = 1, byte_order: Union[runtimepy.primitives.byte_order.ByteOrder, str, int] = &lt;ByteOrder.NETWORK: 4&gt;, serializables: Dict[str, runtimepy.primitives.serializable.base.Serializable] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;protocol.</span></dd></dl>
+<dl><dt><a name="Protocol-__init__"><strong>__init__</strong></a>(self, enum_registry: runtimepy.enum.registry.EnumRegistry, names: runtimepy.registry.name.NameRegistry = None, fields: runtimepy.primitives.field.manager.BitFieldsManager = None, build: list[typing.Union[int, runtimepy.codec.protocol.base.FieldSpec, str]] = None, identifier: int = 1, byte_order: Union[runtimepy.primitives.byte_order.ByteOrder, str, int] = &lt;ByteOrder.NETWORK: 4&gt;, serializables: dict[str, runtimepy.primitives.serializable.base.Serializable] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;protocol.</span></dd></dl>
 
 <dl><dt><a name="Protocol-__setitem__"><strong>__setitem__</strong></a>(self, name: str, val: Union[int, float, bool, str]) -&gt; None</dt><dd><span class="code">Set&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;field&nbsp;belonging&nbsp;to&nbsp;the&nbsp;protocol.</span></dd></dl>
 
 <dl><dt><a name="Protocol-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;instance&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
-<dl><dt><a name="Protocol-add_bit_fields"><strong>add_bit_fields</strong></a>(self, kind: Union[Type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = 'uint8') -&gt; Iterator[runtimepy.primitives.field.fields.BitFields]</dt><dd><span class="code">Add&nbsp;a&nbsp;bit-fields&nbsp;primitive&nbsp;to&nbsp;the&nbsp;protocol.</span></dd></dl>
+<dl><dt><a name="Protocol-add_bit_fields"><strong>add_bit_fields</strong></a>(self, kind: Union[type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = 'uint8') -&gt; Iterator[runtimepy.primitives.field.fields.BitFields]</dt><dd><span class="code">Add&nbsp;a&nbsp;bit-fields&nbsp;primitive&nbsp;to&nbsp;the&nbsp;protocol.</span></dd></dl>
 
-<dl><dt><a name="Protocol-add_field"><strong>add_field</strong></a>(self, name: str, kind: Union[Type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = None, enum: Union[str, int] = None, serializable: runtimepy.primitives.serializable.base.Serializable = None, track: bool = True) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;field&nbsp;to&nbsp;the&nbsp;protocol.</span></dd></dl>
+<dl><dt><a name="Protocol-add_field"><strong>add_field</strong></a>(self, name: str, kind: Union[type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = None, enum: Union[str, int] = None, serializable: runtimepy.primitives.serializable.base.Serializable = None, track: bool = True, array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;field&nbsp;to&nbsp;the&nbsp;protocol.</span></dd></dl>
+
+<dl><dt><a name="Protocol-add_serializable"><strong>add_serializable</strong></a>(self, name: str, serializable: runtimepy.primitives.serializable.base.Serializable, array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;serializable&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Protocol-register_name"><strong>register_name</strong></a>(self, name: str) -&gt; int</dt><dd><span class="code">Register&nbsp;the&nbsp;field&nbsp;name.</span></dd></dl>
+
+<dl><dt><a name="Protocol-trace_size"><strong>trace_size</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter[Any]]) -&gt; None</dt><dd><span class="code">Log&nbsp;a&nbsp;size&nbsp;trace.</span></dd></dl>
 
 <dl><dt><a name="Protocol-value"><strong>value</strong></a>(self, name: str, resolve_enum: bool = True) -&gt; Union[int, float, bool, str]</dt><dd><span class="code">Get&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;field&nbsp;belonging&nbsp;to&nbsp;the&nbsp;protocol.</span></dd></dl>
 
@@ -88,10 +100,56 @@ Readonly properties inherited from <a href="runtimepy.codec.protocol.base.html#P
 <hr>
 Data descriptors inherited from <a href="runtimepy.codec.protocol.base.html#ProtocolBase">runtimepy.codec.protocol.base.ProtocolBase</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
-</td></tr></table></td></tr></table>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ProtocolFactory">class <strong>ProtocolFactory</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">A&nbsp;class&nbsp;implementing&nbsp;an&nbsp;interface&nbsp;for&nbsp;creating&nbsp;runtime&nbsp;instances&nbsp;of&nbsp;a<br>
+prototypes&nbsp;that&nbsp;are&nbsp;unique&nbsp;to&nbsp;the&nbsp;implementing&nbsp;class.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.codec.protocol.html#ProtocolFactory">ProtocolFactory</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="ProtocolFactory-initialize"><strong>initialize</strong></a>(protocol: runtimepy.codec.protocol.Protocol) -&gt; None<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Initialize&nbsp;this&nbsp;protocol.</span></dd></dl>
+
+<dl><dt><a name="ProtocolFactory-instance"><strong>instance</strong></a>() -&gt; runtimepy.codec.protocol.Protocol<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;factory's&nbsp;protocol.</span></dd></dl>
+
+<dl><dt><a name="ProtocolFactory-singleton"><strong>singleton</strong></a>() -&gt; runtimepy.codec.protocol.Protocol<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Get&nbsp;a&nbsp;shared&nbsp;single&nbsp;instance&nbsp;of&nbsp;a&nbsp;protocol&nbsp;for&nbsp;this&nbsp;class.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'initialize'})</dl>
+
+<dl><dt><strong>__annotations__</strong> = {'_singleton': typing.Optional[runtimepy.codec.protocol.Protocol], 'protocol': &lt;class 'runtimepy.codec.protocol.Protocol'&gt;}</dl>
+
+<dl><dt><strong>initialized</strong> = False</dl>
+
+<dl><dt><strong>protocol</strong> = &lt;runtimepy.codec.protocol.Protocol object&gt;</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Optional</strong> = typing.Optional</td></tr></table>
 </body></html>

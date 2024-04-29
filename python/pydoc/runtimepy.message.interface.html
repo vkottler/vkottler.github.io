@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.message.interface</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.message.html" class="white">message</a>.interface</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/message/interface.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/message/interface.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;JSON&nbsp;messaging&nbsp;interface.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="asyncio.html">asyncio</a><br>
+</td><td class="multicolumn"><a href="logging.html">logging</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.message.interface.html#JsonMessageInterface">JsonMessageInterface</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="JsonMessageInterface">class <strong>JsonMessageInterface</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#JsonMessageInterface">JsonMessageInterface</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;JSON&nbsp;messaging&nbsp;interface&nbsp;class.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="JsonMessageInterface-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance</span></dd></dl>
+
+<dl><dt><a name="JsonMessageInterface-basic_handler"><strong>basic_handler</strong></a>(self, key: str, handler: Callable[[dict[str, Any], dict[str, Any]], Awaitable[NoneType]] = &lt;function loopback_handler at 0x7f38d4a3f6a0&gt;) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;basic&nbsp;handler.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageInterface-channel_command"><strong>channel_command</strong></a>(self, command: str, environment: str = 'default', addr: tuple[str, int] = None) -&gt; runtimepy.channel.environment.command.result.CommandResult</dt><dd><span class="code">Send&nbsp;a&nbsp;channel&nbsp;command&nbsp;to&nbsp;an&nbsp;endpoint.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageInterface-handle_log_message"><strong>handle_log_message</strong></a>(self, message: dict[str, typing.Any]) -&gt; None</dt><dd><span class="code">Handle&nbsp;a&nbsp;log&nbsp;message.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageInterface-loopback"><strong>loopback</strong></a>(self, data: dict[str, typing.Any] = None, addr: tuple[str, int] = None, timeout: float = 3) -&gt; bool</dt><dd><span class="code">Perform&nbsp;a&nbsp;simple&nbsp;loopback&nbsp;test&nbsp;on&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageInterface-poll_handler"><strong>poll_handler</strong></a>(self) -&gt; None</dt><dd><span class="code">Poll&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageInterface-process_json"><strong>process_json</strong></a>(self, data: dict[str, typing.Any], addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageInterface-send_json"><strong>send_json</strong></a>(self, data: Union[dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageInterface-send_poll"><strong>send_poll</strong></a>(self, loopback: int = 1) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;poll&nbsp;message&nbsp;with&nbsp;a&nbsp;default&nbsp;loopback&nbsp;of&nbsp;1,&nbsp;so&nbsp;that&nbsp;this&nbsp;instance<br>
+will&nbsp;also&nbsp;be&nbsp;polled.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageInterface-stage_remote_log"><strong>stage_remote_log</strong></a>(self, msg: str, *args, level: int = 20) -&gt; None</dt><dd><span class="code">Log&nbsp;a&nbsp;message&nbsp;on&nbsp;the&nbsp;remote.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageInterface-typed_handler"><strong>typed_handler</strong></a>(self, key: str, kind: type[~T], handler: Callable[[dict[str, Any], ~T], Awaitable[NoneType]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;typed&nbsp;handler.</span></dd></dl>
+
+<dl><dt>async <a name="JsonMessageInterface-wait_json"><strong>wait_json</strong></a>(self, data: Union[dict[str, Any], vcorelib.dict.codec.JsonCodec] = None, addr: tuple[str, int] = None, timeout: float = 3) -&gt; dict[str, typing.Any]</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message&nbsp;and&nbsp;wait&nbsp;for&nbsp;a&nbsp;response.</span></dd></dl>
+
+<dl><dt><a name="JsonMessageInterface-write"><strong>write</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Write&nbsp;data.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'command': &lt;class 'runtimepy.channel.environment.command.processor.ChannelCommandProcessor'&gt;, 'list_handler': &lt;class 'runtimepy.util.ListLogger'&gt;, 'logger': typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]], 'processor': &lt;class 'runtimepy.message.MessageProcessor'&gt;, 'remote_environments': dict[str, runtimepy.channel.environment.ChannelEnvironment]}</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_LOOPBACK</strong> = {'a': 1, 'b': 2, 'c': 3}<br>
+<strong>DEFAULT_TIMEOUT</strong> = 3<br>
+<strong>ENVIRONMENTS</strong> = {}<br>
+<strong>JsonMessage</strong> = dict[str, typing.Any]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
+<strong>MessageHandler</strong> = typing.Callable[[dict[str, typing.Any], dict[str, typing.Any]], typing.Awaitable[NoneType]]<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>PKG_NAME</strong> = 'runtimepy'<br>
+<strong>RESERVED_KEYS</strong> = {'__id__', '__log_messages__', 'keys_ignored'}<br>
+<strong>T</strong> = ~T<br>
+<strong>TypedHandler</strong> = typing.Callable[[dict[str, typing.Any], ~T], typing.Awaitable[NoneType]]<br>
+<strong>Union</strong> = typing.Union<br>
+<strong>VERSION</strong> = '4.4.0'</td></tr></table>
+</body></html>

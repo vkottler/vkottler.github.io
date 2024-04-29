@@ -12,6 +12,22 @@ conntextual.commands.all module
    :undoc-members:
    :show-inheritance:
 
+conntextual.commands.client module
+----------------------------------
+
+.. automodule:: conntextual.commands.client
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+conntextual.commands.common module
+----------------------------------
+
+.. automodule:: conntextual.commands.common
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 conntextual.commands.ui module
 ------------------------------
 

@@ -38,26 +38,26 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="LoggerMixin">class <strong>LoggerMixin</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#LoggerMixin">LoggerMixin</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]&nbsp;=&nbsp;None,&nbsp;logger_name:&nbsp;str&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#LoggerMixin">LoggerMixin</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter[Any]]&nbsp;=&nbsp;None,&nbsp;logger_name:&nbsp;str&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;that&nbsp;provides&nbsp;an&nbsp;inheriting&nbsp;class&nbsp;a&nbsp;logger&nbsp;attribute.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="LoggerMixin-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter] = None, logger_name: str = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;logging&nbsp;capabilities.</span></dd></dl>
+<dl><dt><a name="LoggerMixin-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None, logger_name: str = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;logging&nbsp;capabilities.</span></dd></dl>
 
-<dl><dt><a name="LoggerMixin-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="LoggerMixin-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'logger': typing.Union[logging.Logger, logging.LoggerAdapter]}</dl>
+<dl><dt><strong>__annotations__</strong> = {'logger': typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]}</dl>
 
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -69,9 +69,9 @@ Data and other attributes defined here:<br>
  <dl><dt><a name="-forward_logging_flags"><strong>forward_logging_flags</strong></a>(args: argparse.Namespace) -&gt; Iterator[str]</dt><dd><span class="code">Forward&nbsp;logging-related&nbsp;flags&nbsp;passed&nbsp;to&nbsp;this&nbsp;program&nbsp;to&nbsp;some&nbsp;other<br>
 program.</span></dd></dl>
  <dl><dt><a name="-init_logging"><strong>init_logging</strong></a>(args: argparse.Namespace, default_format: str = '%(name)-36s - %(levelname)-6s - %(message)s') -&gt; None</dt><dd><span class="code">Initialize&nbsp;logging&nbsp;based&nbsp;on&nbsp;command-line&nbsp;arguments.</span></dd></dl>
- <dl><dt><a name="-log_time"><strong>log_time</strong></a>(log: Union[logging.Logger, logging.LoggerAdapter], message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;context&nbsp;manager&nbsp;for&nbsp;conveniently&nbsp;logging&nbsp;time&nbsp;taken&nbsp;for&nbsp;a&nbsp;task.</span></dd></dl>
+ <dl><dt><a name="-log_time"><strong>log_time</strong></a>(log: Union[logging.Logger, logging.LoggerAdapter[Any]], message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;context&nbsp;manager&nbsp;for&nbsp;conveniently&nbsp;logging&nbsp;time&nbsp;taken&nbsp;for&nbsp;a&nbsp;task.</span></dd></dl>
  <dl><dt><a name="-logging_args"><strong>logging_args</strong></a>(parser: argparse.ArgumentParser, curses: bool = True, uvloop: bool = True) -&gt; None</dt><dd><span class="code">Add&nbsp;logging&nbsp;related&nbsp;command-line&nbsp;arguments&nbsp;to&nbsp;a&nbsp;parser.</span></dd></dl>
- <dl><dt><a name="-normalize"><strong>normalize</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; logging.Logger</dt><dd><span class="code">Normalize&nbsp;a&nbsp;logger&nbsp;instance.</span></dd></dl>
+ <dl><dt><a name="-normalize"><strong>normalize</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter[Any]]) -&gt; logging.Logger</dt><dd><span class="code">Normalize&nbsp;a&nbsp;logger&nbsp;instance.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
@@ -79,8 +79,9 @@ program.</span></dd></dl>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>DEFAULT_FORMAT</strong> = '%(name)-36s - %(levelname)-6s - %(message)s'<br>
+<strong>DEFAULT_TIME_FORMAT</strong> = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'<br>
 <strong>LogRecordQueue</strong> = _queue.SimpleQueue[logging.LogRecord]<br>
-<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
 <strong>TIMER</strong> = &lt;vcorelib.math.time.Timer object&gt;<br>
-<strong>__all__</strong> = ['LoggerType', 'log_time', 'LoggerMixin', 'TIMER', 'LogRecordQueue', 'normalize', 'DEFAULT_FORMAT', 'init_logging', 'logging_args', 'forward_flags', 'forward_logging_flags']</td></tr></table>
+<strong>__all__</strong> = ['LoggerType', 'log_time', 'LoggerMixin', 'TIMER', 'LogRecordQueue', 'normalize', 'DEFAULT_FORMAT', 'DEFAULT_TIME_FORMAT', 'init_logging', 'logging_args', 'forward_flags', 'forward_logging_flags']</td></tr></table>
 </body></html>

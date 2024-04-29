@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    runtimepy.channel.environment
+   runtimepy.channel.event
 
 Submodules
 ----------

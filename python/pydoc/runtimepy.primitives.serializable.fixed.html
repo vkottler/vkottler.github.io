@@ -50,8 +50,6 @@ Methods defined here:<br>
 
 <dl><dt><a name="FixedChunk-update"><strong>update</strong></a>(self, data: bytes) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;bytes&nbsp;instance.</span></dd></dl>
 
-<dl><dt><a name="FixedChunk-update_str"><strong>update_str</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;chunk&nbsp;from&nbsp;a&nbsp;string.</span></dd></dl>
-
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
@@ -62,17 +60,23 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
 <dl><dt><a name="FixedChunk-__copy__"><strong>__copy__</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;serializable.</span></dd></dl>
 
-<dl><dt><a name="FixedChunk-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
+<dl><dt><a name="FixedChunk-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T, array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
-<dl><dt><a name="FixedChunk-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
+<dl><dt><a name="FixedChunk-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; int</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
 
 <dl><dt><a name="FixedChunk-copy"><strong>copy</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Create&nbsp;a&nbsp;copy&nbsp;of&nbsp;a&nbsp;serializable&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="FixedChunk-copy_without_chain"><strong>copy_without_chain</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;copying&nbsp;instances&nbsp;without&nbsp;chain&nbsp;references.</span></dd></dl>
 
 <dl><dt><a name="FixedChunk-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;stream.</span></dd></dl>
 
 <dl><dt><a name="FixedChunk-length"><strong>length</strong></a>(self) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;full&nbsp;length&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
+<dl><dt><a name="FixedChunk-length_trace"><strong>length_trace</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;length-tracing&nbsp;string&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="FixedChunk-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Write&nbsp;this&nbsp;serializable&nbsp;to&nbsp;a&nbsp;stream.</span></dd></dl>
+
+<dl><dt><a name="FixedChunk-update_str"><strong>update_str</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;string&nbsp;data.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
@@ -82,10 +86,10 @@ Readonly properties inherited from <a href="runtimepy.primitives.serializable.ba
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table>
 </body></html>

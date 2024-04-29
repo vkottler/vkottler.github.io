@@ -30,7 +30,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="DependencyTask">class <strong>DependencyTask</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#DependencyTask">DependencyTask</a>(root:&nbsp;pathlib.Path,&nbsp;project_root:&nbsp;pathlib.Path,&nbsp;include:&nbsp;pathlib.Path,&nbsp;static:&nbsp;pathlib.Path,&nbsp;build_commands:&nbsp;List[List[str]],&nbsp;compile_flags:&nbsp;List[str],&nbsp;link_flags:&nbsp;List[str],&nbsp;dep:&nbsp;yambs.dependency.config.Dependency,&nbsp;current:&nbsp;yambs.dependency.state.DependencyState,&nbsp;data:&nbsp;Dict[str,&nbsp;Any],&nbsp;nested:&nbsp;Set[yambs.dependency.config.Dependency])<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DependencyTask">DependencyTask</a>(root:&nbsp;pathlib.Path,&nbsp;project_root:&nbsp;pathlib.Path,&nbsp;include:&nbsp;pathlib.Path,&nbsp;static:&nbsp;pathlib.Path,&nbsp;build_commands:&nbsp;List[List[str]],&nbsp;source_dirs:&nbsp;Set[pathlib.Path],&nbsp;compile_flags:&nbsp;List[str],&nbsp;link_flags:&nbsp;List[str],&nbsp;dep:&nbsp;yambs.dependency.config.Dependency,&nbsp;current:&nbsp;yambs.dependency.state.DependencyState,&nbsp;data:&nbsp;Dict[str,&nbsp;Any],&nbsp;nested:&nbsp;Set[yambs.dependency.config.Dependency])<br>
 &nbsp;<br>
 A&nbsp;container&nbsp;for&nbsp;dependency&nbsp;handler&nbsp;invocation&nbsp;data.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -55,7 +55,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="DependencyTask-__new__"><strong>__new__</strong></a>(_cls, root: pathlib.Path, project_root: pathlib.Path, include: pathlib.Path, static: pathlib.Path, build_commands: List[List[str]], compile_flags: List[str], link_flags: List[str], dep: yambs.dependency.config.Dependency, current: yambs.dependency.state.DependencyState, data: Dict[str, Any], nested: Set[yambs.dependency.config.Dependency])</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#DependencyTask">DependencyTask</a>(root,&nbsp;project_root,&nbsp;include,&nbsp;static,&nbsp;build_commands,&nbsp;compile_flags,&nbsp;link_flags,&nbsp;dep,&nbsp;current,&nbsp;data,&nbsp;nested)</span></dd></dl>
+<dl><dt><a name="DependencyTask-__new__"><strong>__new__</strong></a>(_cls, root: pathlib.Path, project_root: pathlib.Path, include: pathlib.Path, static: pathlib.Path, build_commands: List[List[str]], source_dirs: Set[pathlib.Path], compile_flags: List[str], link_flags: List[str], dep: yambs.dependency.config.Dependency, current: yambs.dependency.state.DependencyState, data: Dict[str, Any], nested: Set[yambs.dependency.config.Dependency])</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#DependencyTask">DependencyTask</a>(root,&nbsp;project_root,&nbsp;include,&nbsp;static,&nbsp;build_commands,&nbsp;source_dirs,&nbsp;compile_flags,&nbsp;link_flags,&nbsp;dep,&nbsp;current,&nbsp;data,&nbsp;nested)</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -74,41 +74,44 @@ Data descriptors defined here:<br>
 <dl><dt><strong>build_commands</strong></dt>
 <dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;4</span></dd>
 </dl>
-<dl><dt><strong>compile_flags</strong></dt>
+<dl><dt><strong>source_dirs</strong></dt>
 <dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;5</span></dd>
 </dl>
-<dl><dt><strong>link_flags</strong></dt>
+<dl><dt><strong>compile_flags</strong></dt>
 <dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;6</span></dd>
 </dl>
-<dl><dt><strong>dep</strong></dt>
+<dl><dt><strong>link_flags</strong></dt>
 <dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;7</span></dd>
 </dl>
-<dl><dt><strong>current</strong></dt>
+<dl><dt><strong>dep</strong></dt>
 <dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;8</span></dd>
 </dl>
-<dl><dt><strong>data</strong></dt>
+<dl><dt><strong>current</strong></dt>
 <dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;9</span></dd>
 </dl>
-<dl><dt><strong>nested</strong></dt>
+<dl><dt><strong>data</strong></dt>
 <dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;10</span></dd>
+</dl>
+<dl><dt><strong>nested</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;11</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__annotations__</strong> = {'build_commands': typing.List[typing.List[str]], 'compile_flags': typing.List[str], 'current': &lt;enum 'DependencyState'&gt;, 'data': typing.Dict[str, typing.Any], 'dep': &lt;class 'yambs.dependency.config.Dependency'&gt;, 'include': &lt;class 'pathlib.Path'&gt;, 'link_flags': typing.List[str], 'nested': typing.Set[yambs.dependency.config.Dependency], 'project_root': &lt;class 'pathlib.Path'&gt;, 'root': &lt;class 'pathlib.Path'&gt;, ...}</dl>
 
-<dl><dt><strong>__match_args__</strong> = ('root', 'project_root', 'include', 'static', 'build_commands', 'compile_flags', 'link_flags', 'dep', 'current', 'data', 'nested')</dl>
+<dl><dt><strong>__match_args__</strong> = ('root', 'project_root', 'include', 'static', 'build_commands', 'source_dirs', 'compile_flags', 'link_flags', 'dep', 'current', 'data', 'nested')</dl>
 
 <dl><dt><strong>__orig_bases__</strong> = (&lt;function NamedTuple&gt;,)</dl>
 
 <dl><dt><strong>_field_defaults</strong> = {}</dl>
 
-<dl><dt><strong>_fields</strong> = ('root', 'project_root', 'include', 'static', 'build_commands', 'compile_flags', 'link_flags', 'dep', 'current', 'data', 'nested')</dl>
+<dl><dt><strong>_fields</strong> = ('root', 'project_root', 'include', 'static', 'build_commands', 'source_dirs', 'compile_flags', 'link_flags', 'dep', 'current', 'data', 'nested')</dl>
 
 <hr>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="DependencyTask-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="DependencyTask-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="DependencyTask-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="DependencyTask-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 

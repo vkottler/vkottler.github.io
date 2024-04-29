@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module quasimoto.wave.reader</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="quasimoto.html" class="white">quasimoto</a>.<a href="quasimoto.wave.html" class="white">wave</a>.reader</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/quasimoto/quasimoto/wave/reader.py">/home/vkottler/src/vkottler/workspace/quasimoto/quasimoto/wave/reader.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;interfaces&nbsp;for&nbsp;reading&nbsp;WAVE&nbsp;files.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="quasimoto.wave.mixins.html#FormatMixin">quasimoto.wave.mixins.FormatMixin</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="quasimoto.wave.reader.html#WaveReader">WaveReader</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="WaveReader">class <strong>WaveReader</strong></a>(<a href="quasimoto.wave.mixins.html#FormatMixin">quasimoto.wave.mixins.FormatMixin</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#WaveReader">WaveReader</a>(riff:&nbsp;quasimoto.riff.RiffInterface)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;reading&nbsp;and&nbsp;writing&nbsp;WAVE&nbsp;files.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="quasimoto.wave.reader.html#WaveReader">WaveReader</a></dd>
+<dd><a href="quasimoto.wave.mixins.html#FormatMixin">quasimoto.wave.mixins.FormatMixin</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="WaveReader-__init__"><strong>__init__</strong></a>(self, riff: quasimoto.riff.RiffInterface) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="WaveReader-from_path"><strong>from_path</strong></a>(path: pathlib.Path) -&gt; Iterator[ForwardRef('WaveReader')]</dt><dd><span class="code">Get&nbsp;a&nbsp;WAVE&nbsp;reader&nbsp;from&nbsp;a&nbsp;path.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>duration_s</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;duration&nbsp;in&nbsp;seconds&nbsp;of&nbsp;this&nbsp;data.</span></dd>
+</dl>
+<dl><dt><strong>duration_str</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;data's&nbsp;duration&nbsp;as&nbsp;a&nbsp;human-readable&nbsp;string.</span></dd>
+</dl>
+<dl><dt><strong>num_samples</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;number&nbsp;of&nbsp;samples&nbsp;contained.</span></dd>
+</dl>
+<dl><dt><strong>samples</strong></dt>
+<dd><span class="code">Get&nbsp;raw&nbsp;samples&nbsp;as&nbsp;a&nbsp;generator.</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="quasimoto.wave.mixins.html#FormatMixin">quasimoto.wave.mixins.FormatMixin</a>:<br>
+<dl><dt><a name="WaveReader-validate_header"><strong>validate_header</strong></a>(self, header: runtimepy.codec.protocol.Protocol) -&gt; None</dt><dd><span class="code">Validate&nbsp;the&nbsp;'fmt&nbsp;'&nbsp;chunk&nbsp;data.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="quasimoto.wave.mixins.html#FormatMixin">quasimoto.wave.mixins.FormatMixin</a>:<br>
+<dl><dt><strong>channels</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;number&nbsp;of&nbsp;channels&nbsp;in&nbsp;this&nbsp;stream.</span></dd>
+</dl>
+<dl><dt><strong>sample_bits</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;number&nbsp;of&nbsp;bits&nbsp;per&nbsp;sample.</span></dd>
+</dl>
+<dl><dt><strong>sample_bytes</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;number&nbsp;of&nbsp;bytes&nbsp;per&nbsp;sample.</span></dd>
+</dl>
+<dl><dt><strong>sample_period</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;sample&nbsp;period&nbsp;for&nbsp;this&nbsp;data.</span></dd>
+</dl>
+<dl><dt><strong>sample_rate</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;sample&nbsp;rate.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="quasimoto.wave.mixins.html#FormatMixin">quasimoto.wave.mixins.FormatMixin</a>:<br>
+<dl><dt><strong>byte_order</strong> = &lt;ByteOrder.LITTLE_ENDIAN: 2&gt;</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="WaveReader-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Iterator</strong> = typing.Iterator</td></tr></table>
+</body></html>

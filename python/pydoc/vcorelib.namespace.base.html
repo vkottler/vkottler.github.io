@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.namespace.base</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.namespace.html" class="white">namespace</a>.base</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/namespace/base.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/namespace/base.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;base&nbsp;namespace&nbsp;interface.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.namespace.base.html#Namespace">Namespace</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Namespace">class <strong>Namespace</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Namespace">Namespace</a>(*names:&nbsp;str,&nbsp;delim:&nbsp;str&nbsp;=&nbsp;'.',&nbsp;parent:&nbsp;'<a href="#Namespace">Namespace</a>'&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;namespace&nbsp;interface.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Namespace-__init__"><strong>__init__</strong></a>(self, *names: str, delim: str = '.', parent: 'Namespace' = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;namespace.</span></dd></dl>
+
+<dl><dt><a name="Namespace-child"><strong>child</strong></a>(self, *names: str) -&gt; 'Namespace'</dt><dd><span class="code">Create&nbsp;a&nbsp;child&nbsp;namespace&nbsp;from&nbsp;this&nbsp;one.</span></dd></dl>
+
+<dl><dt><a name="Namespace-length_sorted_suggestions"><strong>length_sorted_suggestions</strong></a>(self, data: str, delta: bool = True) -&gt; List[str]</dt><dd><span class="code">Get&nbsp;suggestions&nbsp;(based&nbsp;on&nbsp;data)&nbsp;sorted&nbsp;by&nbsp;length.</span></dd></dl>
+
+<dl><dt><a name="Namespace-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, track: bool = True) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;namespace&nbsp;string&nbsp;with&nbsp;or&nbsp;without&nbsp;an&nbsp;additional&nbsp;name<br>
+applied.</span></dd></dl>
+
+<dl><dt><a name="Namespace-pop"><strong>pop</strong></a>(self, name: str = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
+
+<dl><dt><a name="Namespace-push"><strong>push</strong></a>(self, name: str) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
+
+<dl><dt><a name="Namespace-pushed"><strong>pushed</strong></a>(self, *names: str) -&gt; Iterator[NoneType]</dt><dd><span class="code">Provide&nbsp;this&nbsp;namespace&nbsp;with&nbsp;some&nbsp;names&nbsp;pushed&nbsp;onto&nbsp;the&nbsp;stack&nbsp;as&nbsp;a<br>
+context.</span></dd></dl>
+
+<dl><dt><a name="Namespace-search"><strong>search</strong></a>(self, *names: str, pattern: str = '.*', recursive: bool = True, exact: bool = False) -&gt; Iterator[str]</dt><dd><span class="code">Iterate&nbsp;over&nbsp;names&nbsp;in&nbsp;this&nbsp;namespace&nbsp;that&nbsp;match&nbsp;a&nbsp;given&nbsp;pattern.</span></dd></dl>
+
+<dl><dt><a name="Namespace-suggest"><strong>suggest</strong></a>(self, data: str, delta: bool = True) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
+
+<dl><dt><a name="Namespace-suggestions"><strong>suggestions</strong></a>(self, data: str, delta: bool = True) -&gt; Iterator[str]</dt><dd><span class="code">Iterate&nbsp;over&nbsp;un-ordered&nbsp;suggestions&nbsp;for&nbsp;a&nbsp;data&nbsp;string&nbsp;that&nbsp;is&nbsp;a<br>
+sub-string&nbsp;of&nbsp;one&nbsp;or&nbsp;more&nbsp;names&nbsp;in&nbsp;this&nbsp;namespace.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>parents</strong></dt>
+<dd><span class="code">Iterate&nbsp;over&nbsp;parents.</span></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>CPP_DELIM</strong> = '::'<br>
+<strong>DEFAULT_DELIM</strong> = '.'</td></tr></table>
+</body></html>

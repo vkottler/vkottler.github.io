@@ -4,10 +4,10 @@ conntextual.ui.channel package
 Submodules
 ----------
 
-conntextual.ui.channel.command module
--------------------------------------
+conntextual.ui.channel.color module
+-----------------------------------
 
-.. automodule:: conntextual.ui.channel.command
+.. automodule:: conntextual.ui.channel.color
    :members:
    :undoc-members:
    :show-inheritance:
@@ -36,18 +36,26 @@ conntextual.ui.channel.model module
    :undoc-members:
    :show-inheritance:
 
-conntextual.ui.channel.parser module
-------------------------------------
+conntextual.ui.channel.pattern module
+-------------------------------------
 
-.. automodule:: conntextual.ui.channel.parser
+.. automodule:: conntextual.ui.channel.pattern
    :members:
    :undoc-members:
    :show-inheritance:
 
-conntextual.ui.channel.result module
-------------------------------------
+conntextual.ui.channel.plot module
+----------------------------------
 
-.. automodule:: conntextual.ui.channel.result
+.. automodule:: conntextual.ui.channel.plot
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+conntextual.ui.channel.selected module
+--------------------------------------
+
+.. automodule:: conntextual.ui.channel.selected
    :members:
    :undoc-members:
    :show-inheritance:

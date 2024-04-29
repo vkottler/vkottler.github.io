@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>runtimepy package &#8212; runtimepy  documentation</title>
   
@@ -19,27 +18,28 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -54,7 +54,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -89,11 +97,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -108,6 +119,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -116,41 +128,68 @@
   
   
   
+  
     <p class="title logo__title">runtimepy  documentation</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">runtimepy package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.factories.html">runtimepy.net.factories package</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.server.html">runtimepy.net.server package</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
 </ul>
 </li>
@@ -158,23 +197,27 @@
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.serializable.html">runtimepy.primitives.serializable package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.type.html">runtimepy.primitives.type package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
 </ul>
 </li>
@@ -286,20 +329,22 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -347,6 +392,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mapping.TwoWayNameMapping.load_name_to_key"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.load_name_to_key()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mapping.TwoWayNameMapping.name"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.name()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mapping.TwoWayNameMapping.names"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mapping.TwoWayNameMapping.search"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.search()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -356,6 +402,26 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.schemas.RuntimepyDictCodec.default_schemas"><code class="docutils literal notranslate"><span class="pre">RuntimepyDictCodec.default_schemas</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.util">runtimepy.util module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.Identifier"><code class="docutils literal notranslate"><span class="pre">Identifier</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger"><code class="docutils literal notranslate"><span class="pre">ListLogger</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.create"><code class="docutils literal notranslate"><span class="pre">ListLogger.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.drain"><code class="docutils literal notranslate"><span class="pre">ListLogger.drain()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.drain_str"><code class="docutils literal notranslate"><span class="pre">ListLogger.drain_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.emit"><code class="docutils literal notranslate"><span class="pre">ListLogger.emit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.log_messages"><code class="docutils literal notranslate"><span class="pre">ListLogger.log_messages</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.StrToBool"><code class="docutils literal notranslate"><span class="pre">StrToBool</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.StrToBool.parse"><code class="docutils literal notranslate"><span class="pre">StrToBool.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.StrToBool.result"><code class="docutils literal notranslate"><span class="pre">StrToBool.result</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.StrToBool.valid"><code class="docutils literal notranslate"><span class="pre">StrToBool.valid</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.import_str_and_item"><code class="docutils literal notranslate"><span class="pre">import_str_and_item()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.name_search"><code class="docutils literal notranslate"><span class="pre">name_search()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy">Module contents</a></li>
@@ -368,24 +434,32 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="runtimepy-package">
-<h1>runtimepy package<a class="headerlink" href="#runtimepy-package" title="Permalink to this heading">#</a></h1>
+<h1>runtimepy package<a class="headerlink" href="#runtimepy-package" title="Link to this heading">#</a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.channel.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#module-runtimepy.channel.environment.array">runtimepy.channel.environment.array module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#module-runtimepy.channel.environment.base">runtimepy.channel.environment.base module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#module-runtimepy.channel.environment.create">runtimepy.channel.environment.create module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#module-runtimepy.channel.environment.file">runtimepy.channel.environment.file module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#module-runtimepy.channel.environment.names">runtimepy.channel.environment.names module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#module-runtimepy.channel.environment.sample">runtimepy.channel.environment.sample module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#module-runtimepy.channel.environment.telemetry">runtimepy.channel.environment.telemetry module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.html#module-runtimepy.channel.environment">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.event.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.event.html#module-runtimepy.channel.event.header">runtimepy.channel.event.header module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.event.html#module-runtimepy.channel.event">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -398,8 +472,20 @@ document.write(`
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry.channel"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry.channel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry.event_fifo"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry.event_fifo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry.event_header"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry.event_header</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry.header_ready"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry.header_ready</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry.init"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry.init()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry.kind"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry.kind</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry.name_registry"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry.name_registry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ChannelRegistry.registered"><code class="docutils literal notranslate"><span class="pre">ChannelRegistry.registered()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ParsedEvent"><code class="docutils literal notranslate"><span class="pre">ParsedEvent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ParsedEvent.by_channel"><code class="docutils literal notranslate"><span class="pre">ParsedEvent.by_channel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ParsedEvent.name"><code class="docutils literal notranslate"><span class="pre">ParsedEvent.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ParsedEvent.timestamp"><code class="docutils literal notranslate"><span class="pre">ParsedEvent.timestamp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.html#runtimepy.channel.registry.ParsedEvent.value"><code class="docutils literal notranslate"><span class="pre">ParsedEvent.value</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -448,6 +534,25 @@ document.write(`
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.common">runtimepy.commands.common module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.common.arbiter_args"><code class="docutils literal notranslate"><span class="pre">arbiter_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.common.arbiter_flags"><code class="docutils literal notranslate"><span class="pre">arbiter_flags()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.common.cmd_with_jit"><code class="docutils literal notranslate"><span class="pre">cmd_with_jit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.common.curses_wrap_if"><code class="docutils literal notranslate"><span class="pre">curses_wrap_if()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.server">runtimepy.commands.server module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.server.add_server_cmd"><code class="docutils literal notranslate"><span class="pre">add_server_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.server.client_data"><code class="docutils literal notranslate"><span class="pre">client_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.server.config_data"><code class="docutils literal notranslate"><span class="pre">config_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.server.is_websocket"><code class="docutils literal notranslate"><span class="pre">is_websocket()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.server.port_name"><code class="docutils literal notranslate"><span class="pre">port_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.server.server_cmd"><code class="docutils literal notranslate"><span class="pre">server_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.server.server_data"><code class="docutils literal notranslate"><span class="pre">server_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.task">runtimepy.commands.task module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.task.add_task_cmd"><code class="docutils literal notranslate"><span class="pre">add_task_cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.task.config_data"><code class="docutils literal notranslate"><span class="pre">config_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.commands.html#runtimepy.commands.task.task_cmd"><code class="docutils literal notranslate"><span class="pre">task_cmd()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html#module-runtimepy.commands.tui">runtimepy.commands.tui module</a><ul>
@@ -470,6 +575,7 @@ document.write(`
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum"><code class="docutils literal notranslate"><span class="pre">RuntimeIntEnum</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum.enum_name"><code class="docutils literal notranslate"><span class="pre">RuntimeIntEnum.enum_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum.normalize"><code class="docutils literal notranslate"><span class="pre">RuntimeIntEnum.normalize()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum.primitive"><code class="docutils literal notranslate"><span class="pre">RuntimeIntEnum.primitive()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum.register_enum"><code class="docutils literal notranslate"><span class="pre">RuntimeIntEnum.register_enum()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.registry.RuntimeIntEnum.runtime_enum"><code class="docutils literal notranslate"><span class="pre">RuntimeIntEnum.runtime_enum()</span></code></a></li>
@@ -477,13 +583,13 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html#module-runtimepy.enum.type">runtimepy.enum.type module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.type.EnumType"><code class="docutils literal notranslate"><span class="pre">EnumType</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.type.EnumType.BOOL"><code class="docutils literal notranslate"><span class="pre">EnumType.BOOL</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.type.EnumType.INT"><code class="docutils literal notranslate"><span class="pre">EnumType.INT</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.type.EnumType.normalize"><code class="docutils literal notranslate"><span class="pre">EnumType.normalize()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.type.EnumType.valid"><code class="docutils literal notranslate"><span class="pre">EnumType.valid()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.type.EnumType.validate"><code class="docutils literal notranslate"><span class="pre">EnumType.validate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html#module-runtimepy.enum.types">runtimepy.enum.types module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.types.EnumType"><code class="docutils literal notranslate"><span class="pre">EnumType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.types.EnumType.BOOL"><code class="docutils literal notranslate"><span class="pre">EnumType.BOOL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.types.EnumType.INT"><code class="docutils literal notranslate"><span class="pre">EnumType.INT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.types.EnumType.normalize"><code class="docutils literal notranslate"><span class="pre">EnumType.normalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.types.EnumType.valid"><code class="docutils literal notranslate"><span class="pre">EnumType.valid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.enum.html#runtimepy.enum.types.EnumType.validate"><code class="docutils literal notranslate"><span class="pre">EnumType.validate()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -512,6 +618,60 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html#module-runtimepy.message.handlers">runtimepy.message.handlers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.handlers.ChannelCommand"><code class="docutils literal notranslate"><span class="pre">ChannelCommand</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.handlers.ChannelCommand.data"><code class="docutils literal notranslate"><span class="pre">ChannelCommand.data</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.handlers.FindFile"><code class="docutils literal notranslate"><span class="pre">FindFile</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.handlers.FindFile.data"><code class="docutils literal notranslate"><span class="pre">FindFile.data</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.handlers.channel_env_handler"><code class="docutils literal notranslate"><span class="pre">channel_env_handler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.handlers.event_wait"><code class="docutils literal notranslate"><span class="pre">event_wait()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.handlers.find_file_request_handler"><code class="docutils literal notranslate"><span class="pre">find_file_request_handler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.handlers.loopback_handler"><code class="docutils literal notranslate"><span class="pre">loopback_handler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html#module-runtimepy.message.interface">runtimepy.message.interface module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.basic_handler"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.basic_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.channel_command"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.channel_command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.command"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.command</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.handle_log_message"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.handle_log_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.list_handler"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.list_handler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.logger"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.loopback"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.loopback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.poll_handler"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.poll_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.process_json"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.process_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.processor"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.processor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.remote_environments"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.remote_environments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.send_json"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.send_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.send_poll"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.send_poll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.stage_remote_log"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.stage_remote_log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.typed_handler"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.typed_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.wait_json"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.wait_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.interface.JsonMessageInterface.write"><code class="docutils literal notranslate"><span class="pre">JsonMessageInterface.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html#module-runtimepy.message.types">runtimepy.message.types module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html#module-runtimepy.message">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.MessageProcessor"><code class="docutils literal notranslate"><span class="pre">MessageProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.MessageProcessor.encode"><code class="docutils literal notranslate"><span class="pre">MessageProcessor.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.MessageProcessor.encode_json"><code class="docutils literal notranslate"><span class="pre">MessageProcessor.encode_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.MessageProcessor.message_length_kind"><code class="docutils literal notranslate"><span class="pre">MessageProcessor.message_length_kind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.MessageProcessor.messages"><code class="docutils literal notranslate"><span class="pre">MessageProcessor.messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.message.html#runtimepy.message.MessageProcessor.process"><code class="docutils literal notranslate"><span class="pre">MessageProcessor.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html#module-runtimepy.metrics.channel">runtimepy.metrics.channel module</a><ul>
@@ -519,6 +679,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.channel.ChannelMetrics.increment"><code class="docutils literal notranslate"><span class="pre">ChannelMetrics.increment()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.channel.ChannelMetrics.poll"><code class="docutils literal notranslate"><span class="pre">ChannelMetrics.poll()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.channel.ChannelMetrics.reset"><code class="docutils literal notranslate"><span class="pre">ChannelMetrics.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.channel.ChannelMetrics.update"><code class="docutils literal notranslate"><span class="pre">ChannelMetrics.update()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -527,6 +688,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.connection.ConnectionMetrics"><code class="docutils literal notranslate"><span class="pre">ConnectionMetrics</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.connection.ConnectionMetrics.poll"><code class="docutils literal notranslate"><span class="pre">ConnectionMetrics.poll()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.connection.ConnectionMetrics.reset"><code class="docutils literal notranslate"><span class="pre">ConnectionMetrics.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.connection.ConnectionMetrics.update"><code class="docutils literal notranslate"><span class="pre">ConnectionMetrics.update()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -539,6 +701,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics.max_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.max_s</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics.measure"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.measure()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics.min_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.min_s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics.overruns"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.overruns</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.task.PeriodicTaskMetrics.rate_hz"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.rate_hz</span></code></a></li>
 </ul>
 </li>
@@ -549,11 +712,13 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.ChannelMetrics.increment"><code class="docutils literal notranslate"><span class="pre">ChannelMetrics.increment()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.ChannelMetrics.poll"><code class="docutils literal notranslate"><span class="pre">ChannelMetrics.poll()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.ChannelMetrics.reset"><code class="docutils literal notranslate"><span class="pre">ChannelMetrics.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.ChannelMetrics.update"><code class="docutils literal notranslate"><span class="pre">ChannelMetrics.update()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.ConnectionMetrics"><code class="docutils literal notranslate"><span class="pre">ConnectionMetrics</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.ConnectionMetrics.poll"><code class="docutils literal notranslate"><span class="pre">ConnectionMetrics.poll()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.ConnectionMetrics.reset"><code class="docutils literal notranslate"><span class="pre">ConnectionMetrics.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.ConnectionMetrics.update"><code class="docutils literal notranslate"><span class="pre">ConnectionMetrics.update()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.PeriodicTaskMetrics"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics</span></code></a><ul>
@@ -563,6 +728,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.PeriodicTaskMetrics.max_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.max_s</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.PeriodicTaskMetrics.measure"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.measure()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.PeriodicTaskMetrics.min_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.min_s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.PeriodicTaskMetrics.overruns"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.overruns</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.metrics.html#runtimepy.metrics.PeriodicTaskMetrics.rate_hz"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.rate_hz</span></code></a></li>
 </ul>
 </li>
@@ -572,6 +738,16 @@ document.write(`
 </li>
 <li class="toctree-l1"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.async_command">runtimepy.mixins.async_command module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.async_command.AsyncCommandProcessingMixin"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.command"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.command</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.handle_command"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.handle_command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.outgoing_commands"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.outgoing_commands</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.async_command.AsyncCommandProcessingMixin.process_command_queue"><code class="docutils literal notranslate"><span class="pre">AsyncCommandProcessingMixin.process_command_queue()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.enum">runtimepy.mixins.enum module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.enum.EnumMixin"><code class="docutils literal notranslate"><span class="pre">EnumMixin</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.enum.EnumMixin.enum"><code class="docutils literal notranslate"><span class="pre">EnumMixin.enum</span></code></a></li>
@@ -583,8 +759,45 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.environment">runtimepy.mixins.environment module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.environment.ChannelEnvironmentMixin"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.environment.ChannelEnvironmentMixin.env"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_channel_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_channel_metrics()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_connection_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_connection_metrics()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.environment.ChannelEnvironmentMixin.register_task_metrics"><code class="docutils literal notranslate"><span class="pre">ChannelEnvironmentMixin.register_task_metrics()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.finalize">runtimepy.mixins.finalize module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.finalize.FinalizeMixin"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.finalize.FinalizeMixin.finalize"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.finalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.finalize.FinalizeMixin.finalized"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.finalized</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.finalize.FinalizeMixin.wait_finalized"><code class="docutils literal notranslate"><span class="pre">FinalizeMixin.wait_finalized()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.logging">runtimepy.mixins.logging module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogLevel.CRITICAL"><code class="docutils literal notranslate"><span class="pre">LogLevel.CRITICAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogLevel.DEBUG"><code class="docutils literal notranslate"><span class="pre">LogLevel.DEBUG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogLevel.ERROR"><code class="docutils literal notranslate"><span class="pre">LogLevel.ERROR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogLevel.INFO"><code class="docutils literal notranslate"><span class="pre">LogLevel.INFO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LogLevel.WARNING"><code class="docutils literal notranslate"><span class="pre">LogLevel.WARNING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LoggerMixinLevelControl"><code class="docutils literal notranslate"><span class="pre">LoggerMixinLevelControl</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.logging.LoggerMixinLevelControl.setup_level_channel"><code class="docutils literal notranslate"><span class="pre">LoggerMixinLevelControl.setup_level_channel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.psutil">runtimepy.mixins.psutil module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.psutil.PsutilMixin"><code class="docutils literal notranslate"><span class="pre">PsutilMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.psutil.PsutilMixin.cpu_average"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.cpu_average</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.psutil.PsutilMixin.cpu_percent"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.cpu_percent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.psutil.PsutilMixin.init_psutil"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.init_psutil()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.psutil.PsutilMixin.memory_percent"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.memory_percent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.psutil.PsutilMixin.poll_psutil"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.poll_psutil()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.psutil.PsutilMixin.process"><code class="docutils literal notranslate"><span class="pre">PsutilMixin.process</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -593,6 +806,13 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.regex.RegexMixin"><code class="docutils literal notranslate"><span class="pre">RegexMixin</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.regex.RegexMixin.name_regex"><code class="docutils literal notranslate"><span class="pre">RegexMixin.name_regex</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.regex.RegexMixin.validate_name"><code class="docutils literal notranslate"><span class="pre">RegexMixin.validate_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html#module-runtimepy.mixins.trig">runtimepy.mixins.trig module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.trig.TrigMixin"><code class="docutils literal notranslate"><span class="pre">TrigMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.trig.TrigMixin.dispatch_trig"><code class="docutils literal notranslate"><span class="pre">TrigMixin.dispatch_trig()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -610,9 +830,8 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#module-runtimepy.net.arbiter.base">runtimepy.net.arbiter.base module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#module-runtimepy.net.arbiter.config">runtimepy.net.arbiter.config module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#module-runtimepy.net.arbiter.imports">runtimepy.net.arbiter.imports module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#module-runtimepy.net.arbiter.info">runtimepy.net.arbiter.info module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#module-runtimepy.net.arbiter.result">runtimepy.net.arbiter.result module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#module-runtimepy.net.arbiter.task">runtimepy.net.arbiter.task module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#module-runtimepy.net.arbiter.udp">runtimepy.net.arbiter.udp module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.html#module-runtimepy.net.arbiter.websocket">runtimepy.net.arbiter.websocket module</a></li>
@@ -621,6 +840,25 @@ document.write(`
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.factories.html">runtimepy.net.factories package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.factories.html#module-runtimepy.net.factories">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.http.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.http.html#module-runtimepy.net.http.common">runtimepy.net.http.common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.http.html#module-runtimepy.net.http.header">runtimepy.net.http.header module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.http.html#module-runtimepy.net.http.request_target">runtimepy.net.http.request_target module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.http.html#module-runtimepy.net.http.response">runtimepy.net.http.response module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.http.html#module-runtimepy.net.http.state">runtimepy.net.http.state module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.http.html#module-runtimepy.net.http.version">runtimepy.net.http.version module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.http.html#module-runtimepy.net.http">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.server.html">runtimepy.net.server package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.html#module-runtimepy.net.server.html">runtimepy.net.server.html module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.html#module-runtimepy.net.server.json">runtimepy.net.server.json module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.html#module-runtimepy.net.server">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><ul>
@@ -635,12 +873,17 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.html#module-runtimepy.net.tcp.connection">runtimepy.net.tcp.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.html#module-runtimepy.net.tcp.create">runtimepy.net.tcp.create module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.html#module-runtimepy.net.tcp.protocol">runtimepy.net.tcp.protocol module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.html#module-runtimepy.net.tcp">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.udp.html">runtimepy.net.udp package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.html#module-runtimepy.net.udp.connection">runtimepy.net.udp.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.html#module-runtimepy.net.udp.create">runtimepy.net.udp.create module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.html#module-runtimepy.net.udp.protocol">runtimepy.net.udp.protocol module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.html#module-runtimepy.net.udp.queue">runtimepy.net.udp.queue module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.udp.html#module-runtimepy.net.udp">Module contents</a></li>
 </ul>
 </li>
@@ -653,19 +896,35 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.net.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.backoff">runtimepy.net.backoff module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.backoff.ExponentialBackoff"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.backoff.ExponentialBackoff.attempt"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.attempt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.backoff.ExponentialBackoff.give_up"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.give_up</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.backoff.ExponentialBackoff.reset"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.backoff.ExponentialBackoff.sleep"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.sleep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.backoff.ExponentialBackoff.wait"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.wait</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.connection">runtimepy.net.connection module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection"><code class="docutils literal notranslate"><span class="pre">Connection</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.async_init"><code class="docutils literal notranslate"><span class="pre">Connection.async_init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.auto_restart"><code class="docutils literal notranslate"><span class="pre">Connection.auto_restart</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.byte_order"><code class="docutils literal notranslate"><span class="pre">Connection.byte_order</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.close"><code class="docutils literal notranslate"><span class="pre">Connection.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.connected"><code class="docutils literal notranslate"><span class="pre">Connection.connected</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.default_auto_restart"><code class="docutils literal notranslate"><span class="pre">Connection.default_auto_restart</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.disable"><code class="docutils literal notranslate"><span class="pre">Connection.disable()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.disable_extra"><code class="docutils literal notranslate"><span class="pre">Connection.disable_extra()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.disable_in"><code class="docutils literal notranslate"><span class="pre">Connection.disable_in()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.disabled"><code class="docutils literal notranslate"><span class="pre">Connection.disabled</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.init"><code class="docutils literal notranslate"><span class="pre">Connection.init()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.log_metrics"><code class="docutils literal notranslate"><span class="pre">Connection.log_metrics()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.process"><code class="docutils literal notranslate"><span class="pre">Connection.process()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.process_binary"><code class="docutils literal notranslate"><span class="pre">Connection.process_binary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.process_text"><code class="docutils literal notranslate"><span class="pre">Connection.process_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.restart"><code class="docutils literal notranslate"><span class="pre">Connection.restart()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.send_binary"><code class="docutils literal notranslate"><span class="pre">Connection.send_binary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.send_text"><code class="docutils literal notranslate"><span class="pre">Connection.send_text()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.connection.Connection.uses_binary_tx_queue"><code class="docutils literal notranslate"><span class="pre">Connection.uses_binary_tx_queue</span></code></a></li>
@@ -686,6 +945,7 @@ document.write(`
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net.manager">runtimepy.net.manager module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager"><code class="docutils literal notranslate"><span class="pre">ConnectionManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager.by_type"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.by_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager.manage"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.manage()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager.num_connections"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.num_connections</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.manager.ConnectionManager.poll_metrics"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.poll_metrics()</span></code></a></li>
@@ -698,6 +958,8 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.BinaryMessageQueueMixin"><code class="docutils literal notranslate"><span class="pre">BinaryMessageQueueMixin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin"><code class="docutils literal notranslate"><span class="pre">TransportMixin</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin.logger_name"><code class="docutils literal notranslate"><span class="pre">TransportMixin.logger_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin.remote_address"><code class="docutils literal notranslate"><span class="pre">TransportMixin.remote_address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin.set_transport"><code class="docutils literal notranslate"><span class="pre">TransportMixin.set_transport()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.mixin.TransportMixin.socket"><code class="docutils literal notranslate"><span class="pre">TransportMixin.socket</span></code></a></li>
 </ul>
 </li>
@@ -722,15 +984,20 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.hostname_port"><code class="docutils literal notranslate"><span class="pre">hostname_port()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.normalize_host"><code class="docutils literal notranslate"><span class="pre">normalize_host()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.sockname"><code class="docutils literal notranslate"><span class="pre">sockname()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.util.try_log_connection_error"><code class="docutils literal notranslate"><span class="pre">try_log_connection_error()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.net.html#module-runtimepy.net">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection"><code class="docutils literal notranslate"><span class="pre">Connection</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.async_init"><code class="docutils literal notranslate"><span class="pre">Connection.async_init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.auto_restart"><code class="docutils literal notranslate"><span class="pre">Connection.auto_restart</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.byte_order"><code class="docutils literal notranslate"><span class="pre">Connection.byte_order</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.close"><code class="docutils literal notranslate"><span class="pre">Connection.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.connected"><code class="docutils literal notranslate"><span class="pre">Connection.connected</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.default_auto_restart"><code class="docutils literal notranslate"><span class="pre">Connection.default_auto_restart</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.disable"><code class="docutils literal notranslate"><span class="pre">Connection.disable()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.disable_extra"><code class="docutils literal notranslate"><span class="pre">Connection.disable_extra()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.disable_in"><code class="docutils literal notranslate"><span class="pre">Connection.disable_in()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.disabled"><code class="docutils literal notranslate"><span class="pre">Connection.disabled</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.env"><code class="docutils literal notranslate"><span class="pre">Connection.env</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.init"><code class="docutils literal notranslate"><span class="pre">Connection.init()</span></code></a></li>
@@ -739,6 +1006,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.process"><code class="docutils literal notranslate"><span class="pre">Connection.process()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.process_binary"><code class="docutils literal notranslate"><span class="pre">Connection.process_binary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.process_text"><code class="docutils literal notranslate"><span class="pre">Connection.process_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.restart"><code class="docutils literal notranslate"><span class="pre">Connection.restart()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.send_binary"><code class="docutils literal notranslate"><span class="pre">Connection.send_binary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.send_text"><code class="docutils literal notranslate"><span class="pre">Connection.send_text()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.Connection.tx_binary_hwm"><code class="docutils literal notranslate"><span class="pre">Connection.tx_binary_hwm</span></code></a></li>
@@ -748,6 +1016,7 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ConnectionManager"><code class="docutils literal notranslate"><span class="pre">ConnectionManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ConnectionManager.by_type"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.by_type()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ConnectionManager.manage"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.manage()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ConnectionManager.num_connections"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.num_connections</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ConnectionManager.poll_metrics"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.poll_metrics()</span></code></a></li>
@@ -757,6 +1026,14 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.EchoConnection"><code class="docutils literal notranslate"><span class="pre">EchoConnection</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.EchoConnection.process_binary"><code class="docutils literal notranslate"><span class="pre">EchoConnection.process_binary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.EchoConnection.process_text"><code class="docutils literal notranslate"><span class="pre">EchoConnection.process_text()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ExponentialBackoff"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ExponentialBackoff.attempt"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.attempt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ExponentialBackoff.give_up"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.give_up</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ExponentialBackoff.reset"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ExponentialBackoff.sleep"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.sleep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.ExponentialBackoff.wait"><code class="docutils literal notranslate"><span class="pre">ExponentialBackoff.wait</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.IPv4Host"><code class="docutils literal notranslate"><span class="pre">IPv4Host</span></code></a><ul>
@@ -781,6 +1058,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.hostname"><code class="docutils literal notranslate"><span class="pre">hostname()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.normalize_host"><code class="docutils literal notranslate"><span class="pre">normalize_host()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.sockname"><code class="docutils literal notranslate"><span class="pre">sockname()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.html#runtimepy.net.try_log_connection_error"><code class="docutils literal notranslate"><span class="pre">try_log_connection_error()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -806,13 +1084,14 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.serializable.html#module-runtimepy.primitives.serializable">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.type.html">runtimepy.primitives.type package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.type.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.type.html#module-runtimepy.primitives.type.base">runtimepy.primitives.type.base module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.type.html#module-runtimepy.primitives.type.bool">runtimepy.primitives.type.bool module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.type.html#module-runtimepy.primitives.type.float">runtimepy.primitives.type.float module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.type.html#module-runtimepy.primitives.type.int">runtimepy.primitives.type.int module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.type.html#module-runtimepy.primitives.type">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.types.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.types.html#module-runtimepy.primitives.types.base">runtimepy.primitives.types.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.types.html#module-runtimepy.primitives.types.bool">runtimepy.primitives.types.bool module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.types.html#module-runtimepy.primitives.types.bounds">runtimepy.primitives.types.bounds module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.types.html#module-runtimepy.primitives.types.float">runtimepy.primitives.types.float module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.types.html#module-runtimepy.primitives.types.int">runtimepy.primitives.types.int module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.types.html#module-runtimepy.primitives.types">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -820,6 +1099,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.primitives.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.base">runtimepy.primitives.base module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive"><code class="docutils literal notranslate"><span class="pre">Primitive</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.age_ns"><code class="docutils literal notranslate"><span class="pre">Primitive.age_ns()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.age_str"><code class="docutils literal notranslate"><span class="pre">Primitive.age_str()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.binary"><code class="docutils literal notranslate"><span class="pre">Primitive.binary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.byte_order"><code class="docutils literal notranslate"><span class="pre">Primitive.byte_order</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.copy"><code class="docutils literal notranslate"><span class="pre">Primitive.copy()</span></code></a></li>
@@ -830,6 +1111,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.read"><code class="docutils literal notranslate"><span class="pre">Primitive.read()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.register_callback"><code class="docutils literal notranslate"><span class="pre">Primitive.register_callback()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.remove_callback"><code class="docutils literal notranslate"><span class="pre">Primitive.remove_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.scaled"><code class="docutils literal notranslate"><span class="pre">Primitive.scaled</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.size"><code class="docutils literal notranslate"><span class="pre">Primitive.size</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.to_stream"><code class="docutils literal notranslate"><span class="pre">Primitive.to_stream()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.base.Primitive.update"><code class="docutils literal notranslate"><span class="pre">Primitive.update()</span></code></a></li>
@@ -922,6 +1204,11 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.scaling">runtimepy.primitives.scaling module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.scaling.apply"><code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.scaling.invert"><code class="docutils literal notranslate"><span class="pre">invert()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.primitives.html#module-runtimepy.primitives.string">runtimepy.primitives.string module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.string.StringPrimitive"><code class="docutils literal notranslate"><span class="pre">StringPrimitive</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.string.StringPrimitive.from_stream"><code class="docutils literal notranslate"><span class="pre">StringPrimitive.from_stream()</span></code></a></li>
@@ -944,6 +1231,8 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Int64"><code class="docutils literal notranslate"><span class="pre">Int64</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Int8"><code class="docutils literal notranslate"><span class="pre">Int8</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive"><code class="docutils literal notranslate"><span class="pre">Primitive</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.age_ns"><code class="docutils literal notranslate"><span class="pre">Primitive.age_ns()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.age_str"><code class="docutils literal notranslate"><span class="pre">Primitive.age_str()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.binary"><code class="docutils literal notranslate"><span class="pre">Primitive.binary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.byte_order"><code class="docutils literal notranslate"><span class="pre">Primitive.byte_order</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.callbacks"><code class="docutils literal notranslate"><span class="pre">Primitive.callbacks</span></code></a></li>
@@ -953,14 +1242,22 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.encode"><code class="docutils literal notranslate"><span class="pre">Primitive.encode()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.from_stream"><code class="docutils literal notranslate"><span class="pre">Primitive.from_stream()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.kind"><code class="docutils literal notranslate"><span class="pre">Primitive.kind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.last_updated_ns"><code class="docutils literal notranslate"><span class="pre">Primitive.last_updated_ns</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.read"><code class="docutils literal notranslate"><span class="pre">Primitive.read()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.register_callback"><code class="docutils literal notranslate"><span class="pre">Primitive.register_callback()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.remove_callback"><code class="docutils literal notranslate"><span class="pre">Primitive.remove_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.scaled"><code class="docutils literal notranslate"><span class="pre">Primitive.scaled</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.size"><code class="docutils literal notranslate"><span class="pre">Primitive.size</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.to_stream"><code class="docutils literal notranslate"><span class="pre">Primitive.to_stream()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.update"><code class="docutils literal notranslate"><span class="pre">Primitive.update()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.value"><code class="docutils literal notranslate"><span class="pre">Primitive.value</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Primitive.write"><code class="docutils literal notranslate"><span class="pre">Primitive.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.StrToBool"><code class="docutils literal notranslate"><span class="pre">StrToBool</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.StrToBool.parse"><code class="docutils literal notranslate"><span class="pre">StrToBool.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.StrToBool.result"><code class="docutils literal notranslate"><span class="pre">StrToBool.result</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.StrToBool.valid"><code class="docutils literal notranslate"><span class="pre">StrToBool.valid</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.Uint16"><code class="docutils literal notranslate"><span class="pre">Uint16</span></code></a></li>
@@ -1005,8 +1302,130 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#runtimepy.registry.Registry.name_registry"><code class="docutils literal notranslate"><span class="pre">Registry.name_registry</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#runtimepy.registry.Registry.register"><code class="docutils literal notranslate"><span class="pre">Registry.register()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#runtimepy.registry.Registry.register_dict"><code class="docutils literal notranslate"><span class="pre">Registry.register_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.registry.html#runtimepy.registry.Registry.search"><code class="docutils literal notranslate"><span class="pre">Registry.search()</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html#module-runtimepy.sample.peer">runtimepy.sample.peer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.sample.html#runtimepy.sample.peer.SamplePeer"><code class="docutils literal notranslate"><span class="pre">SamplePeer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#runtimepy.sample.peer.SamplePeer.main"><code class="docutils literal notranslate"><span class="pre">SamplePeer.main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html#module-runtimepy.sample.program">runtimepy.sample.program module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.sample.html#runtimepy.sample.program.SampleProgram"><code class="docutils literal notranslate"><span class="pre">SampleProgram</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#runtimepy.sample.program.SampleProgram.cleanup"><code class="docutils literal notranslate"><span class="pre">SampleProgram.cleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#runtimepy.sample.program.SampleProgram.log_message_sender"><code class="docutils literal notranslate"><span class="pre">SampleProgram.log_message_sender()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#runtimepy.sample.program.SampleProgram.pre_environment_exchange"><code class="docutils literal notranslate"><span class="pre">SampleProgram.pre_environment_exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.sample.html#runtimepy.sample.program.SampleProgram.stderr_task"><code class="docutils literal notranslate"><span class="pre">SampleProgram.stderr_task</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.sample.html#runtimepy.sample.program.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html#module-runtimepy.sample">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html#module-runtimepy.struct">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.struct.html#runtimepy.struct.RuntimeStructBase"><code class="docutils literal notranslate"><span class="pre">RuntimeStructBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.struct.html#runtimepy.struct.RuntimeStructBase.poll"><code class="docutils literal notranslate"><span class="pre">RuntimeStructBase.poll()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess.interface">runtimepy.subprocess.interface module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.handle_command"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.handle_command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.handle_log_message"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.handle_log_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.handle_stderr"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.handle_stderr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.handle_stdout"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.handle_stdout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.peer_name"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.peer_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.poll_handler"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.poll_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.poll_metrics"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.poll_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.poll_period_s"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.poll_period_s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.share_config"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.share_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.share_environment"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.share_environment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.struct_pre_finalize"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.struct_pre_finalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.interface.RuntimepyPeerInterface.struct_type"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeerInterface.struct_type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess.peer">runtimepy.subprocess.peer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.peer.RuntimepyPeer"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.peer.RuntimepyPeer.exec"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeer.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.peer.RuntimepyPeer.main"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeer.main()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.peer.RuntimepyPeer.running_program"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeer.running_program()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.peer.RuntimepyPeer.service_queues"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeer.service_queues()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.peer.RuntimepyPeer.shell"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeer.shell()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.peer.RuntimepyPeer.write"><code class="docutils literal notranslate"><span class="pre">RuntimepyPeer.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess.program">runtimepy.subprocess.program module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram"><code class="docutils literal notranslate"><span class="pre">PeerProgram</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.cleanup"><code class="docutils literal notranslate"><span class="pre">PeerProgram.cleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.got_eof"><code class="docutils literal notranslate"><span class="pre">PeerProgram.got_eof</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.heartbeat_task"><code class="docutils literal notranslate"><span class="pre">PeerProgram.heartbeat_task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.io_task"><code class="docutils literal notranslate"><span class="pre">PeerProgram.io_task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.json_output"><code class="docutils literal notranslate"><span class="pre">PeerProgram.json_output</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.main"><code class="docutils literal notranslate"><span class="pre">PeerProgram.main()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.poll_handler"><code class="docutils literal notranslate"><span class="pre">PeerProgram.poll_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.pre_environment_exchange"><code class="docutils literal notranslate"><span class="pre">PeerProgram.pre_environment_exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.run"><code class="docutils literal notranslate"><span class="pre">PeerProgram.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.run_standard"><code class="docutils literal notranslate"><span class="pre">PeerProgram.run_standard()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.running"><code class="docutils literal notranslate"><span class="pre">PeerProgram.running()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.singleton"><code class="docutils literal notranslate"><span class="pre">PeerProgram.singleton()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.stream_metrics"><code class="docutils literal notranslate"><span class="pre">PeerProgram.stream_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.stream_output"><code class="docutils literal notranslate"><span class="pre">PeerProgram.stream_output</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.streaming_events"><code class="docutils literal notranslate"><span class="pre">PeerProgram.streaming_events()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.struct_pre_finalize"><code class="docutils literal notranslate"><span class="pre">PeerProgram.struct_pre_finalize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.struct_type"><code class="docutils literal notranslate"><span class="pre">PeerProgram.struct_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.program.PeerProgram.write"><code class="docutils literal notranslate"><span class="pre">PeerProgram.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess.protocol">runtimepy.subprocess.protocol module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.connection_made"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.connection_made()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.elapsed_time"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.elapsed_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.exited"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.exited</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.pid"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.pid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.pipe_connection_lost"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.pipe_connection_lost()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.pipe_data_received"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.pipe_data_received()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.process_exited"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.process_exited()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.start_time"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.start_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.stderr"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.stderr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.stderr_queue"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.stderr_queue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.stderr_transport"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.stderr_transport</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.stdin"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.stdin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.stdout"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.stdout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.stdout_queue"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.stdout_queue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.stdout_transport"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.stdout_transport</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.subproc"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.subproc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.protocol.RuntimepySubprocessProtocol.transport"><code class="docutils literal notranslate"><span class="pre">RuntimepySubprocessProtocol.transport</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html#module-runtimepy.subprocess">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.close_protocol"><code class="docutils literal notranslate"><span class="pre">close_protocol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.shutdown_protocol"><code class="docutils literal notranslate"><span class="pre">shutdown_protocol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.spawn_exec"><code class="docutils literal notranslate"><span class="pre">spawn_exec()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.subprocess.html#runtimepy.subprocess.spawn_shell"><code class="docutils literal notranslate"><span class="pre">spawn_shell()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1018,6 +1437,10 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#module-runtimepy.task.basic.manager">runtimepy.task.basic.manager module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#module-runtimepy.task.basic.periodic">runtimepy.task.basic.periodic module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.basic.html#module-runtimepy.task.basic">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.trig.html#module-runtimepy.task.trig">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -1038,6 +1461,28 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.task.html#module-runtimepy.task.sample">runtimepy.task.sample module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.Sample"><code class="docutils literal notranslate"><span class="pre">Sample</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.Sample.kind"><code class="docutils literal notranslate"><span class="pre">Sample.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleApp"><code class="docutils literal notranslate"><span class="pre">SampleApp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleApp.kind"><code class="docutils literal notranslate"><span class="pre">SampleApp.kind</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleAppTask"><code class="docutils literal notranslate"><span class="pre">SampleAppTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleAppTask.app"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.app</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleAppTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleAppTask.init"><code class="docutils literal notranslate"><span class="pre">SampleAppTask.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleTask"><code class="docutils literal notranslate"><span class="pre">SampleTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleTask.dispatch"><code class="docutils literal notranslate"><span class="pre">SampleTask.dispatch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.sample.SampleTask.init"><code class="docutils literal notranslate"><span class="pre">SampleTask.init()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.task.html#module-runtimepy.task">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.AsyncTask"><code class="docutils literal notranslate"><span class="pre">AsyncTask</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.AsyncTask.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.disable()</span></code></a></li>
@@ -1052,11 +1497,13 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask"><code class="docutils literal notranslate"><span class="pre">PeriodicTask</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask.auto_finalize"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.auto_finalize</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask.disable"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.disable()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask.dispatch"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.dispatch()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask.run"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.run()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask.set_period"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.set_period()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask.stop"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask.stop_extra"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.stop_extra()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTask.task"><code class="docutils literal notranslate"><span class="pre">PeriodicTask.task()</span></code></a></li>
 </ul>
 </li>
@@ -1075,6 +1522,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTaskMetrics.max_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.max_s</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTaskMetrics.measure"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.measure()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTaskMetrics.min_s"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.min_s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTaskMetrics.overruns"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.overruns</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.task.html#runtimepy.task.PeriodicTaskMetrics.rate_hz"><code class="docutils literal notranslate"><span class="pre">PeriodicTaskMetrics.rate_hz</span></code></a></li>
 </ul>
 </li>
@@ -1165,112 +1613,203 @@ document.write(`
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-runtimepy.app">
-<span id="runtimepy-app-module"></span><h2>runtimepy.app module<a class="headerlink" href="#module-runtimepy.app" title="Permalink to this heading">#</a></h2>
+<span id="runtimepy-app-module"></span><h2>runtimepy.app module<a class="headerlink" href="#module-runtimepy.app" title="Link to this heading">#</a></h2>
 <p>This package’s command-line entry-point application.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="runtimepy.app.add_app_args">
-<span class="sig-prename descclassname"><span class="pre">runtimepy.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.app.add_app_args" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">runtimepy.app.</span></span><span class="sig-name descname"><span class="pre">add_app_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/app.html#add_app_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.app.add_app_args" title="Link to this definition">#</a></dt>
 <dd><p>Add application-specific arguments to the command-line parser.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="runtimepy.app.entry">
-<span class="sig-prename descclassname"><span class="pre">runtimepy.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.app.entry" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">runtimepy.app.</span></span><span class="sig-name descname"><span class="pre">entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/app.html#entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.app.entry" title="Link to this definition">#</a></dt>
 <dd><p>Execute the requested task.</p>
 </dd></dl>
 
 </section>
 <section id="module-runtimepy.entry">
-<span id="runtimepy-entry-module"></span><h2>runtimepy.entry module<a class="headerlink" href="#module-runtimepy.entry" title="Permalink to this heading">#</a></h2>
+<span id="runtimepy-entry-module"></span><h2>runtimepy.entry module<a class="headerlink" href="#module-runtimepy.entry" title="Link to this heading">#</a></h2>
 <p>This package’s command-line entry-point (boilerplate).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="runtimepy.entry.main">
-<span class="sig-prename descclassname"><span class="pre">runtimepy.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.entry.main" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">runtimepy.entry.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/entry.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.entry.main" title="Link to this definition">#</a></dt>
 <dd><p>Program entry-point.</p>
 </dd></dl>
 
 </section>
 <section id="module-runtimepy.mapping">
-<span id="runtimepy-mapping-module"></span><h2>runtimepy.mapping module<a class="headerlink" href="#module-runtimepy.mapping" title="Permalink to this heading">#</a></h2>
+<span id="runtimepy-mapping-module"></span><h2>runtimepy.mapping module<a class="headerlink" href="#module-runtimepy.mapping" title="Link to this heading">#</a></h2>
 <p>A module implementing a generic, two-way mapping interface.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mapping.</span></span><span class="sig-name descname"><span class="pre">TwoWayNameMapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.regex.RegexMixin" title="runtimepy.mixins.regex.RegexMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RegexMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.mapping.</span></span><span class="sig-name descname"><span class="pre">TwoWayNameMapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="runtimepy.mixins.html#runtimepy.mixins.regex.RegexMixin" title="runtimepy.mixins.regex.RegexMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RegexMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>A class interface for managing two-way mappings.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.asdict">
-<span class="sig-name descname"><span class="pre">asdict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.asdict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.asdict" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">asdict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.asdict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.asdict" title="Link to this definition">#</a></dt>
 <dd><p>Provide a dictionary representation.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.bool_from_dict">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bool_from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">BoolMapping</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.bool_from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.bool_from_dict" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bool_from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">BoolMapping</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.bool_from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.bool_from_dict" title="Link to this definition">#</a></dt>
 <dd><p>Create a boolean-to-name mapping from a dictionary with arbitrary data.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.identifier">
-<span class="sig-name descname"><span class="pre">identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.identifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.identifier" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.identifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.identifier" title="Link to this definition">#</a></dt>
 <dd><p>Get the integer identifier associated with a registry key.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.int_from_dict">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">int_from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">IntMapping</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.int_from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.int_from_dict" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">int_from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">IntMapping</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.int_from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.int_from_dict" title="Link to this definition">#</a></dt>
 <dd><p>Create an integer-to-name mapping from a dictionary with arbitrary
 data.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.load_key_to_name">
-<span class="sig-name descname"><span class="pre">load_key_to_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.load_key_to_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.load_key_to_name" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load_key_to_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.load_key_to_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.load_key_to_name" title="Link to this definition">#</a></dt>
 <dd><p>Load a key-to-name mapping.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.load_name_to_key">
-<span class="sig-name descname"><span class="pre">load_name_to_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.load_name_to_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.load_name_to_key" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load_name_to_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.load_name_to_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.load_name_to_key" title="Link to this definition">#</a></dt>
 <dd><p>Load a name-to-key mapping.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.name">
-<span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.name" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.name" title="Link to this definition">#</a></dt>
 <dd><p>Get the name associated with a registry key.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.names" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.names" title="Link to this definition">#</a></dt>
 <dd><p>Iterate over names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.mapping.TwoWayNameMapping.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/mapping.html#TwoWayNameMapping.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.mapping.TwoWayNameMapping.search" title="Link to this definition">#</a></dt>
+<dd><p>Get names in this mapping based on a pattern.</p>
 </dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-runtimepy.schemas">
-<span id="runtimepy-schemas-module"></span><h2>runtimepy.schemas module<a class="headerlink" href="#module-runtimepy.schemas" title="Permalink to this heading">#</a></h2>
+<span id="runtimepy-schemas-module"></span><h2>runtimepy.schemas module<a class="headerlink" href="#module-runtimepy.schemas" title="Link to this heading">#</a></h2>
 <p>A module for working with schemas belonging to this package.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.schemas.RuntimepyDictCodec">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.schemas.</span></span><span class="sig-name descname"><span class="pre">RuntimepyDictCodec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SchemaMap</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/schemas.html#RuntimepyDictCodec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.schemas.RuntimepyDictCodec" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.schemas.</span></span><span class="sig-name descname"><span class="pre">RuntimepyDictCodec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SchemaMap</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/schemas.html#RuntimepyDictCodec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.schemas.RuntimepyDictCodec" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DictCodec</span></code></p>
 <p>A simple wrapper for package classes that want to implement DictCodec.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.schemas.RuntimepyDictCodec.default_schemas">
-<span class="sig-name descname"><span class="pre">default_schemas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">SchemaMap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'BitFields':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Channel':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ChannelRegistry':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ClientConnectionConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ServerConnectionConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'TaskConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_factory':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_name':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ConnectionArbiterConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'EnumRegistry':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'FindFile':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'RuntimeEnum':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_request_flag':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#runtimepy.schemas.RuntimepyDictCodec.default_schemas" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">default_schemas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">SchemaMap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'StructConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_request_flag':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ServerConnectionConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_factory':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ClientConnectionConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'RuntimeEnum':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'PeerProcessConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'EnumRegistry':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ConnectionArbiterConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ChannelRegistry':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'TaskConfig':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'ChannelCommand':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_config':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'FindFile':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'has_name':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'Channel':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;,</span> <span class="pre">'BitFields':</span> <span class="pre">&lt;vcorelib.schemas.json.JsonSchema</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#runtimepy.schemas.RuntimepyDictCodec.default_schemas" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
+<section id="module-runtimepy.util">
+<span id="runtimepy-util-module"></span><h2>runtimepy.util module<a class="headerlink" href="#module-runtimepy.util" title="Link to this heading">#</a></h2>
+<p>A module implementing package utilities.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.util.Identifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.util.</span></span><span class="sig-name descname"><span class="pre">Identifier</span></span><a class="reference internal" href="_modules/runtimepy/util.html#Identifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.Identifier" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple message indentifier interface.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.util.ListLogger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.util.</span></span><span class="sig-name descname"><span class="pre">ListLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/util.html#ListLogger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.ListLogger" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></p>
+<p>An interface facilitating sending log messages to browser tabs.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.util.ListLogger.create">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#runtimepy.util.ListLogger" title="runtimepy.util.ListLogger"><span class="pre">ListLogger</span></a></span></span><a class="reference internal" href="_modules/runtimepy/util.html#ListLogger.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.ListLogger.create" title="Link to this definition">#</a></dt>
+<dd><p>Create an instance of this handler.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.util.ListLogger.drain">
+<span class="sig-name descname"><span class="pre">drain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">LogRecord</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/util.html#ListLogger.drain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.ListLogger.drain" title="Link to this definition">#</a></dt>
+<dd><p>Drain messages.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.util.ListLogger.drain_str">
+<span class="sig-name descname"><span class="pre">drain_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/util.html#ListLogger.drain_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.ListLogger.drain_str" title="Link to this definition">#</a></dt>
+<dd><p>Drain formatted messages.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.util.ListLogger.emit">
+<span class="sig-name descname"><span class="pre">emit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">LogRecord</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/util.html#ListLogger.emit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.ListLogger.emit" title="Link to this definition">#</a></dt>
+<dd><p>Send the log message.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.util.ListLogger.log_messages">
+<span class="sig-name descname"><span class="pre">log_messages</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">LogRecord</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#runtimepy.util.ListLogger.log_messages" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="runtimepy.util.StrToBool">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.util.</span></span><span class="sig-name descname"><span class="pre">StrToBool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/util.html#StrToBool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.StrToBool" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>A container for results when converting strings to boolean.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.util.StrToBool.parse">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#runtimepy.util.StrToBool" title="runtimepy.util.StrToBool"><span class="pre">StrToBool</span></a></span></span><a class="reference internal" href="_modules/runtimepy/util.html#StrToBool.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.StrToBool.parse" title="Link to this definition">#</a></dt>
+<dd><p>Parse a string to boolean.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.util.StrToBool.result">
+<span class="sig-name descname"><span class="pre">result</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#runtimepy.util.StrToBool.result" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="runtimepy.util.StrToBool.valid">
+<span class="sig-name descname"><span class="pre">valid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#runtimepy.util.StrToBool.valid" title="Link to this definition">#</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.util.import_str_and_item">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.util.</span></span><span class="sig-name descname"><span class="pre">import_str_and_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/util.html#import_str_and_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.import_str_and_item" title="Link to this definition">#</a></dt>
+<dd><p>Treat the last entry in a ‘.’ delimited string as the item to import from
+the module in the string preceding it.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="runtimepy.util.name_search">
+<span class="sig-prename descclassname"><span class="pre">runtimepy.util.</span></span><span class="sig-name descname"><span class="pre">name_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/runtimepy/util.html#name_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.util.name_search" title="Link to this definition">#</a></dt>
+<dd><p>A simple name searching method.</p>
+</dd></dl>
+
+</section>
 <section id="module-runtimepy">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy" title="Permalink to this heading">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy" title="Link to this heading">#</a></h2>
 <p>Useful defaults and other package metadata.</p>
 </section>
 </section>
@@ -1281,11 +1820,10 @@ data.</p>
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -1305,10 +1843,7 @@ data.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1316,6 +1851,7 @@ data.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1344,6 +1880,7 @@ data.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mapping.TwoWayNameMapping.load_name_to_key"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.load_name_to_key()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mapping.TwoWayNameMapping.name"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.name()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mapping.TwoWayNameMapping.names"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.mapping.TwoWayNameMapping.search"><code class="docutils literal notranslate"><span class="pre">TwoWayNameMapping.search()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1353,6 +1890,26 @@ data.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.schemas.RuntimepyDictCodec.default_schemas"><code class="docutils literal notranslate"><span class="pre">RuntimepyDictCodec.default_schemas</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.util">runtimepy.util module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.Identifier"><code class="docutils literal notranslate"><span class="pre">Identifier</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger"><code class="docutils literal notranslate"><span class="pre">ListLogger</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.create"><code class="docutils literal notranslate"><span class="pre">ListLogger.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.drain"><code class="docutils literal notranslate"><span class="pre">ListLogger.drain()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.drain_str"><code class="docutils literal notranslate"><span class="pre">ListLogger.drain_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.emit"><code class="docutils literal notranslate"><span class="pre">ListLogger.emit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.ListLogger.log_messages"><code class="docutils literal notranslate"><span class="pre">ListLogger.log_messages</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.StrToBool"><code class="docutils literal notranslate"><span class="pre">StrToBool</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.StrToBool.parse"><code class="docutils literal notranslate"><span class="pre">StrToBool.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.StrToBool.result"><code class="docutils literal notranslate"><span class="pre">StrToBool.result</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.StrToBool.valid"><code class="docutils literal notranslate"><span class="pre">StrToBool.valid</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.import_str_and_item"><code class="docutils literal notranslate"><span class="pre">import_str_and_item()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.util.name_search"><code class="docutils literal notranslate"><span class="pre">name_search()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy">Module contents</a></li>
@@ -1377,9 +1934,10 @@ By Vaughn Kottler
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023, Vaughn Kottler.
+      © Copyright 2024, Vaughn Kottler.
       <br/>
     
   </p>
@@ -1403,8 +1961,8 @@ By Vaughn Kottler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

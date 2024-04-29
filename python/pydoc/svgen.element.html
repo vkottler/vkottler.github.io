@@ -17,10 +17,11 @@
     
 <tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><table><tr><td class="multicolumn"><a href="svgen.element.circle.html">circle</a><br>
+<a href="svgen.element.html.html"><strong>html</strong>&nbsp;(package)</a><br>
 </td><td class="multicolumn"><a href="svgen.element.line.html">line</a><br>
-</td><td class="multicolumn"><a href="svgen.element.rect.html">rect</a><br>
+<a href="svgen.element.rect.html">rect</a><br>
 </td><td class="multicolumn"><a href="svgen.element.svg.html">svg</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
@@ -40,14 +41,20 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="Element">class <strong>Element</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Element">Element</a>(tag:&nbsp;str&nbsp;=&nbsp;None,&nbsp;text:&nbsp;str&nbsp;=&nbsp;'',&nbsp;attrib:&nbsp;List[svgen.attribute.Attribute]&nbsp;=&nbsp;None,&nbsp;children:&nbsp;List[ForwardRef('<a href="#Element">Element</a>')]&nbsp;=&nbsp;None,&nbsp;**extra)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Element">Element</a>(tag:&nbsp;str&nbsp;=&nbsp;None,&nbsp;text:&nbsp;str&nbsp;=&nbsp;'',&nbsp;attrib:&nbsp;List[svgen.attribute.Attribute]&nbsp;=&nbsp;None,&nbsp;children:&nbsp;List[ForwardRef('<a href="#Element">Element</a>')]&nbsp;=&nbsp;None,&nbsp;allow_no_end_tag:&nbsp;bool&nbsp;=&nbsp;True,&nbsp;class_str:&nbsp;str&nbsp;=&nbsp;None,&nbsp;**extra)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;basic&nbsp;interface&nbsp;for&nbsp;an&nbsp;SVG&nbsp;element.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="Element-__init__"><strong>__init__</strong></a>(self, tag: str = None, text: str = '', attrib: List[svgen.attribute.Attribute] = None, children: List[ForwardRef('Element')] = None, **extra) -&gt; None</dt><dd><span class="code">Construct&nbsp;a&nbsp;new&nbsp;SVG&nbsp;element.</span></dd></dl>
+<dl><dt><a name="Element-__getitem__"><strong>__getitem__</strong></a>(self, tag: str) -&gt; str</dt><dd><span class="code">Get&nbsp;an&nbsp;attibute&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
-<dl><dt><a name="Element-add_attribute"><strong>add_attribute</strong></a>(self, attr: svgen.attribute.Attribute) -&gt; 'Element'</dt><dd><span class="code">Add&nbsp;an&nbsp;attribute&nbsp;to&nbsp;this&nbsp;element.</span></dd></dl>
+<dl><dt><a name="Element-__init__"><strong>__init__</strong></a>(self, tag: str = None, text: str = '', attrib: List[svgen.attribute.Attribute] = None, children: List[ForwardRef('Element')] = None, allow_no_end_tag: bool = True, class_str: str = None, **extra) -&gt; None</dt><dd><span class="code">Construct&nbsp;a&nbsp;new&nbsp;SVG&nbsp;element.</span></dd></dl>
+
+<dl><dt><a name="Element-__setitem__"><strong>__setitem__</strong></a>(self, tag: str, value: Union[str, int, float, bool]) -&gt; None</dt><dd><span class="code">Allow&nbsp;adding&nbsp;attributes&nbsp;dict-set&nbsp;style.</span></dd></dl>
+
+<dl><dt><a name="Element-add_attribute"><strong>add_attribute</strong></a>(self, attr: svgen.attribute.Attribute, strict: bool = True) -&gt; 'Element'</dt><dd><span class="code">Add&nbsp;an&nbsp;attribute&nbsp;to&nbsp;this&nbsp;element.</span></dd></dl>
+
+<dl><dt><a name="Element-add_class"><strong>add_class</strong></a>(self, *data: str) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;class&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="Element-closing"><strong>closing</strong></a>(self, indent: int = 0) -&gt; str</dt><dd><span class="code">Create&nbsp;a&nbsp;string&nbsp;to&nbsp;close&nbsp;this&nbsp;element.</span></dd></dl>
 
@@ -66,10 +73,10 @@ Readonly properties defined here:<br>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -77,7 +84,8 @@ Data descriptors defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>Dict</strong> = typing.Dict<br>
+<td class="singlecolumn"><strong>AttributeValue</strong> = typing.Union[str, int, float, bool]<br>
+<strong>Dict</strong> = typing.Dict<br>
 <strong>INDENT</strong> = 2<br>
 <strong>List</strong> = typing.List<br>
 <strong>__annotations__</strong> = {'INDENT': &lt;class 'int'&gt;}</td></tr></table>

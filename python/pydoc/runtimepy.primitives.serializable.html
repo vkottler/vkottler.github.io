@@ -65,8 +65,6 @@ Methods defined here:<br>
 
 <dl><dt><a name="FixedChunk-update"><strong>update</strong></a>(self, data: bytes) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;bytes&nbsp;instance.</span></dd></dl>
 
-<dl><dt><a name="FixedChunk-update_str"><strong>update_str</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;chunk&nbsp;from&nbsp;a&nbsp;string.</span></dd></dl>
-
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
@@ -77,17 +75,23 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
 <dl><dt><a name="FixedChunk-__copy__"><strong>__copy__</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;serializable.</span></dd></dl>
 
-<dl><dt><a name="FixedChunk-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
+<dl><dt><a name="FixedChunk-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T, array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
-<dl><dt><a name="FixedChunk-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
+<dl><dt><a name="FixedChunk-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; int</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
 
 <dl><dt><a name="FixedChunk-copy"><strong>copy</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Create&nbsp;a&nbsp;copy&nbsp;of&nbsp;a&nbsp;serializable&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="FixedChunk-copy_without_chain"><strong>copy_without_chain</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;copying&nbsp;instances&nbsp;without&nbsp;chain&nbsp;references.</span></dd></dl>
 
 <dl><dt><a name="FixedChunk-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;stream.</span></dd></dl>
 
 <dl><dt><a name="FixedChunk-length"><strong>length</strong></a>(self) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;full&nbsp;length&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
+<dl><dt><a name="FixedChunk-length_trace"><strong>length_trace</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;length-tracing&nbsp;string&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="FixedChunk-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Write&nbsp;this&nbsp;serializable&nbsp;to&nbsp;a&nbsp;stream.</span></dd></dl>
+
+<dl><dt><a name="FixedChunk-update_str"><strong>update_str</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;string&nbsp;data.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
@@ -97,10 +101,10 @@ Readonly properties inherited from <a href="runtimepy.primitives.serializable.ba
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table> <p>
 <table class="section">
@@ -126,11 +130,11 @@ Methods defined here:<br>
 
 <dl><dt><a name="PrefixedChunk-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;chunk&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
-<dl><dt><a name="PrefixedChunk-update_str"><strong>update_str</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;chunk&nbsp;from&nbsp;a&nbsp;string.</span></dd></dl>
+<dl><dt><a name="PrefixedChunk-update"><strong>update</strong></a>(self, data: bytes) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;bytes&nbsp;instance.</span></dd></dl>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="PrefixedChunk-create"><strong>create</strong></a>(prefix: Union[Type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = 'uint16', chain: runtimepy.primitives.serializable.base.Serializable = None) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;prefixed&nbsp;chunk.</span></dd></dl>
+<dl><dt><a name="PrefixedChunk-create"><strong>create</strong></a>(prefix: Union[type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = 'uint16', chain: runtimepy.primitives.serializable.base.Serializable = None) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;prefixed&nbsp;chunk.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -142,19 +146,23 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
 <dl><dt><a name="PrefixedChunk-__copy__"><strong>__copy__</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;serializable.</span></dd></dl>
 
-<dl><dt><a name="PrefixedChunk-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
+<dl><dt><a name="PrefixedChunk-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T, array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
-<dl><dt><a name="PrefixedChunk-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
+<dl><dt><a name="PrefixedChunk-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; int</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
 
 <dl><dt><a name="PrefixedChunk-copy"><strong>copy</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Create&nbsp;a&nbsp;copy&nbsp;of&nbsp;a&nbsp;serializable&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="PrefixedChunk-copy_without_chain"><strong>copy_without_chain</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;copying&nbsp;instances&nbsp;without&nbsp;chain&nbsp;references.</span></dd></dl>
 
 <dl><dt><a name="PrefixedChunk-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;stream.</span></dd></dl>
 
 <dl><dt><a name="PrefixedChunk-length"><strong>length</strong></a>(self) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;full&nbsp;length&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
+<dl><dt><a name="PrefixedChunk-length_trace"><strong>length_trace</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;length-tracing&nbsp;string&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="PrefixedChunk-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Write&nbsp;this&nbsp;serializable&nbsp;to&nbsp;a&nbsp;stream.</span></dd></dl>
 
-<dl><dt><a name="PrefixedChunk-update"><strong>update</strong></a>(self, data: bytes) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;bytes&nbsp;instance.</span></dd></dl>
+<dl><dt><a name="PrefixedChunk-update_str"><strong>update_str</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;string&nbsp;data.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
@@ -164,10 +172,10 @@ Readonly properties inherited from <a href="runtimepy.primitives.serializable.ba
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table> <p>
 <table class="section">
@@ -192,19 +200,25 @@ Methods defined here:<br>
 
 <dl><dt><a name="Serializable-__init__"><strong>__init__</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;, chain: ~T = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt><a name="Serializable-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
+<dl><dt><a name="Serializable-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T, array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
-<dl><dt><a name="Serializable-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
+<dl><dt><a name="Serializable-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; int</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
 
 <dl><dt><a name="Serializable-copy"><strong>copy</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Create&nbsp;a&nbsp;copy&nbsp;of&nbsp;a&nbsp;serializable&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Serializable-copy_without_chain"><strong>copy_without_chain</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;copying&nbsp;instances&nbsp;without&nbsp;chain&nbsp;references.</span></dd></dl>
 
 <dl><dt><a name="Serializable-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;stream.</span></dd></dl>
 
 <dl><dt><a name="Serializable-length"><strong>length</strong></a>(self) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;full&nbsp;length&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
+<dl><dt><a name="Serializable-length_trace"><strong>length_trace</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;length-tracing&nbsp;string&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="Serializable-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Write&nbsp;this&nbsp;serializable&nbsp;to&nbsp;a&nbsp;stream.</span></dd></dl>
 
 <dl><dt><a name="Serializable-update"><strong>update</strong></a>(self, data: bytes) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;bytes&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Serializable-update_str"><strong>update_str</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;string&nbsp;data.</span></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -214,14 +228,14 @@ Readonly properties defined here:<br>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__abstractmethods__</strong> = frozenset({'__bytes__', '_copy_impl'})</dl>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'__bytes__', '_copy_impl', 'update'})</dl>
 
 <dl><dt><strong>__annotations__</strong> = {'size': &lt;class 'int'&gt;}</dl>
 
@@ -231,6 +245,6 @@ Data and other attributes defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>SerializableMap</strong> = typing.Dict[str, runtimepy.primitives.serializable.base.Serializable]<br>
+<td class="singlecolumn"><strong>SerializableMap</strong> = dict[str, runtimepy.primitives.serializable.base.Serializable]<br>
 <strong>__all__</strong> = ['Serializable', 'SerializableMap', 'FixedChunk', 'PrefixedChunk']</td></tr></table>
 </body></html>

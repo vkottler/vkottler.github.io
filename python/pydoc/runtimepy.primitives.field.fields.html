@@ -49,11 +49,13 @@ Methods defined here:<br>
 
 <dl><dt><a name="BitFields-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><span class="code">Get&nbsp;these&nbsp;bit&nbsp;fields&nbsp;as&nbsp;a&nbsp;dictionary.</span></dd></dl>
 
-<dl><dt><a name="BitFields-field"><strong>field</strong></a>(self, name: str, width: int, index: int = None, enum: Union[str, int] = None) -&gt; runtimepy.primitives.field.BitField</dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;bit&nbsp;field.</span></dd></dl>
+<dl><dt><a name="BitFields-claim_field"><strong>claim_field</strong></a>(self, field: runtimepy.primitives.field.BitField) -&gt; runtimepy.primitives.field.BitField</dt><dd><span class="code">Claim&nbsp;a&nbsp;bit&nbsp;field.</span></dd></dl>
+
+<dl><dt><a name="BitFields-field"><strong>field</strong></a>(self, name: str, width: int, index: int = None, enum: Union[str, int] = None, description: str = None, **kwargs) -&gt; runtimepy.primitives.field.BitField</dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;bit&nbsp;field.</span></dd></dl>
 
 <dl><dt><a name="BitFields-finalize"><strong>finalize</strong></a>(self) -&gt; None</dt><dd><span class="code">Finalize&nbsp;the&nbsp;fields&nbsp;so&nbsp;that&nbsp;new&nbsp;fields&nbsp;can't&nbsp;be&nbsp;added.</span></dd></dl>
 
-<dl><dt><a name="BitFields-flag"><strong>flag</strong></a>(self, name: str, index: int = None, enum: Union[str, int] = None) -&gt; runtimepy.primitives.field.BitFlag</dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;bit&nbsp;flag.</span></dd></dl>
+<dl><dt><a name="BitFields-flag"><strong>flag</strong></a>(self, name: str, index: int = None, enum: Union[str, int] = None, description: str = None, **kwargs) -&gt; runtimepy.primitives.field.BitFlag</dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;bit&nbsp;flag.</span></dd></dl>
 
 <dl><dt><a name="BitFields-get_field"><strong>get_field</strong></a>(self, key: Union[str, int]) -&gt; Optional[runtimepy.primitives.field.BitField]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;bit-field&nbsp;from&nbsp;this&nbsp;entity.</span></dd></dl>
 
@@ -63,7 +65,7 @@ Methods defined here:<br>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="BitFields-new"><strong>new</strong></a>(value: Union[Type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = 'uint8') -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;bit-field&nbsp;storage&nbsp;entity.</span></dd></dl>
+<dl><dt><a name="BitFields-new"><strong>new</strong></a>(value: Union[type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str] = 'uint8') -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;bit-field&nbsp;storage&nbsp;entity.</span></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -78,7 +80,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.schemas.html#RuntimepyDictCodec">runtimepy.schemas.RuntimepyDictCodec</a>:<br>
-<dl><dt><strong>default_schemas</strong> = {'BitFields': &lt;vcorelib.schemas.json.JsonSchema ...chemas.json.JsonSchema object at 0x7efecf1f8a10&gt;}</dl>
+<dl><dt><strong>default_schemas</strong> = {'StructConfig': &lt;vcorelib.schemas.json.JsonSche...chemas.json.JsonSchema object at 0x7fc2553047d0&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.dict.codec.html#DictCodec">vcorelib.dict.codec.DictCodec</a>:<br>
@@ -97,21 +99,23 @@ Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dic
 <dl><dt><a name="BitFields-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</span></dd></dl>
 
-<dl><dt><a name="BitFields-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7efed0130850&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="BitFields-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7fc255eb0b30&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
-<dl><dt><a name="BitFields-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7efed0130850&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="BitFields-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7fc255eb0b30&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, require_success: bool = True, default_data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+
+<dl><dt><a name="BitFields-file_cache"><strong>file_cache</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7fc255eb0b30&gt;, encode_kwargs: Dict[str, Any] = None, require_success: bool = False, **kwargs) -&gt; Iterator[~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Manage&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class&nbsp;as&nbsp;a&nbsp;disk-backed&nbsp;file.</span></dd></dl>
 
 <dl><dt><a name="BitFields-normalize"><strong>normalize</strong></a>(data: Union[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], ~T]) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Ensure&nbsp;that&nbsp;some&nbsp;object&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>

@@ -59,6 +59,10 @@ Methods defined here:<br>
 
 <dl><dt><a name="SourceTranslator-output"><strong>output</strong></a>(self, path: pathlib.Path) -&gt; pathlib.Path</dt><dd><span class="code">Get&nbsp;the&nbsp;output&nbsp;file&nbsp;from&nbsp;a&nbsp;given&nbsp;path.</span></dd></dl>
 
+<dl><dt><a name="SourceTranslator-translate"><strong>translate</strong></a>(self, path: pathlib.Path) -&gt; pathlib.Path</dt><dd><span class="code">Translate&nbsp;a&nbsp;path&nbsp;by&nbsp;changing&nbsp;its&nbsp;suffix.</span></dd></dl>
+
+<dl><dt><a name="SourceTranslator-write"><strong>write</strong></a>(self, stream: &lt;class 'TextIO'&gt;, out: pathlib.Path, source: str, rule: str = 'build', wasm: bool = False) -&gt; None</dt><dd><span class="code">Write&nbsp;a&nbsp;ninja&nbsp;rule&nbsp;to&nbsp;the&nbsp;stream.</span></dd></dl>
+
 <hr>
 Class methods defined here:<br>
 <dl><dt><a name="SourceTranslator-_make"><strong>_make</strong></a>(iterable)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Make&nbsp;a&nbsp;new&nbsp;<a href="#SourceTranslator">SourceTranslator</a>&nbsp;object&nbsp;from&nbsp;a&nbsp;sequence&nbsp;or&nbsp;iterable</span></dd></dl>
@@ -103,7 +107,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="SourceTranslator-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="SourceTranslator-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="SourceTranslator-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="SourceTranslator-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 
@@ -161,5 +165,6 @@ Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<b
 <strong>DEFAULT</strong> = SourceTranslator(rule='cc', output_extension='.o', dest=PosixPath('$build_dir'))<br>
 <strong>HEADER_EXTENSIONS</strong> = {'.h', '.hpp'}<br>
 <strong>Optional</strong> = typing.Optional<br>
-<strong>SOURCES</strong> = {'.S': SourceTranslator(rule='cc', output_extension='.o', dest=PosixPath('$build_dir')), '.c': SourceTranslator(rule='cc', output_extension='.o', dest=PosixPath('$build_dir')), '.cc': SourceTranslator(rule='cxx', output_extension='.o', dest=PosixPath('$build_dir')), '.cpp': SourceTranslator(rule='cxx', output_extension='.o', dest=PosixPath('$build_dir')), '.pio': SourceTranslator(rule='pio', output_extension='.h', dest=PosixPath('$generated_dir'))}</td></tr></table>
+<strong>SOURCES</strong> = {'.S': SourceTranslator(rule='cc', output_extension='.o', dest=PosixPath('$build_dir')), '.c': SourceTranslator(rule='cc', output_extension='.o', dest=PosixPath('$build_dir')), '.cc': SourceTranslator(rule='cxx', output_extension='.o', dest=PosixPath('$build_dir')), '.cpp': SourceTranslator(rule='cxx', output_extension='.o', dest=PosixPath('$build_dir')), '.pio': SourceTranslator(rule='pio', output_extension='.h', dest=PosixPath('$generated_dir'))}<br>
+<strong>linesep</strong> = '<span class="repr">\n</span>'</td></tr></table>
 </body></html>

@@ -46,6 +46,10 @@ The&nbsp;top-level&nbsp;configuration&nbsp;object&nbsp;for&nbsp;the&nbsp;package
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
+Methods defined here:<br>
+<dl><dt><a name="Native-has_variant"><strong>has_variant</strong></a>(self, name: str) -&gt; bool</dt><dd><span class="code">Determine&nbsp;whether&nbsp;or&nbsp;not</span></dd></dl>
+
+<hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
 
@@ -68,7 +72,7 @@ Readonly properties inherited from <a href="yambs.config.common.html#CommonConfi
 </dl>
 <hr>
 Data and other attributes inherited from <a href="yambs.schemas.html#YambsDictCodec">yambs.schemas.YambsDictCodec</a>:<br>
-<dl><dt><strong>default_schemas</strong> = {'Architecture': &lt;vcorelib.schemas.json.JsonSche...chemas.json.JsonSchema object at 0x7f1b766415d0&gt;}</dl>
+<dl><dt><strong>default_schemas</strong> = {'Variant': &lt;vcorelib.schemas.json.JsonSchema ob...chemas.json.JsonSchema object at 0x7f1734ab6780&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.dict.codec.html#BasicDictCodec">vcorelib.dict.codec.BasicDictCodec</a>:<br>
@@ -91,21 +95,23 @@ Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dic
 <dl><dt><a name="Native-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</span></dd></dl>
 
-<dl><dt><a name="Native-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f1b77797c90&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Native-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f17355de270&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
-<dl><dt><a name="Native-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f1b77797c90&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Native-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f17355de270&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, require_success: bool = True, default_data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+
+<dl><dt><a name="Native-file_cache"><strong>file_cache</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f17355de270&gt;, encode_kwargs: Dict[str, Any] = None, require_success: bool = False, **kwargs) -&gt; Iterator[~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Manage&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class&nbsp;as&nbsp;a&nbsp;disk-backed&nbsp;file.</span></dd></dl>
 
 <dl><dt><a name="Native-normalize"><strong>normalize</strong></a>(data: Union[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], ~T]) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Ensure&nbsp;that&nbsp;some&nbsp;object&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>

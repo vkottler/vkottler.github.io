@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module conntextual.ui.channel.plot</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="conntextual.html" class="white">conntextual</a>.<a href="conntextual.ui.html" class="white">ui</a>.<a href="conntextual.ui.channel.html" class="white">channel</a>.plot</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/conntextual/conntextual/ui/channel/plot.py">/home/vkottler/src/vkottler/workspace/conntextual/conntextual/ui/channel/plot.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;plot&nbsp;widget.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="textual_plotext.plotext_plot.html#PlotextPlot">textual_plotext.plotext_plot.PlotextPlot</a>(<a href="textual.widget.html#Widget">textual.widget.Widget</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="conntextual.ui.channel.plot.html#Plot">Plot</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Plot">class <strong>Plot</strong></a>(<a href="textual_plotext.plotext_plot.html#PlotextPlot">textual_plotext.plotext_plot.PlotextPlot</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Plot">Plot</a>(x:&nbsp;Union[collections.abc.Buffer,&nbsp;numpy._typing._array_like._SupportsArray[numpy.dtype[Any]],&nbsp;numpy._typing._nested_sequence._NestedSequence[numpy._typing._array_like._SupportsArray[numpy.dtype[Any]]],&nbsp;bool,&nbsp;int,&nbsp;float,&nbsp;complex,&nbsp;str,&nbsp;bytes,&nbsp;numpy._typing._nested_sequence._NestedSequence[Union[bool,&nbsp;int,&nbsp;float,&nbsp;complex,&nbsp;str,&nbsp;bytes]]],&nbsp;y:&nbsp;Union[collections.abc.Buffer,&nbsp;numpy._typing._array_like._SupportsArray[numpy.dtype[Any]],&nbsp;numpy._typing._nested_sequence._NestedSequence[numpy._typing._array_like._SupportsArray[numpy.dtype[Any]]],&nbsp;bool,&nbsp;int,&nbsp;float,&nbsp;complex,&nbsp;str,&nbsp;bytes,&nbsp;numpy._typing._nested_sequence._NestedSequence[Union[bool,&nbsp;int,&nbsp;float,&nbsp;complex,&nbsp;str,&nbsp;bytes]]],&nbsp;theme:&nbsp;str,&nbsp;marker:&nbsp;str,&nbsp;*args,&nbsp;title:&nbsp;str&nbsp;=&nbsp;'under&nbsp;construction',&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;plot&nbsp;widget.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="conntextual.ui.channel.plot.html#Plot">Plot</a></dd>
+<dd><a href="textual_plotext.plotext_plot.html#PlotextPlot">textual_plotext.plotext_plot.PlotextPlot</a></dd>
+<dd><a href="textual.widget.html#Widget">textual.widget.Widget</a></dd>
+<dd><a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a></dd>
+<dd><a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Plot-__init__"><strong>__init__</strong></a>(self, x: Union[collections.abc.Buffer, numpy._typing._array_like._SupportsArray[numpy.dtype[Any]], numpy._typing._nested_sequence._NestedSequence[numpy._typing._array_like._SupportsArray[numpy.dtype[Any]]], bool, int, float, complex, str, bytes, numpy._typing._nested_sequence._NestedSequence[Union[bool, int, float, complex, str, bytes]]], y: Union[collections.abc.Buffer, numpy._typing._array_like._SupportsArray[numpy.dtype[Any]], numpy._typing._nested_sequence._NestedSequence[numpy._typing._array_like._SupportsArray[numpy.dtype[Any]]], bool, int, float, complex, str, bytes, numpy._typing._nested_sequence._NestedSequence[Union[bool, int, float, complex, str, bytes]]], theme: str, marker: str, *args, title: str = 'under construction', **kwargs) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Plot-dispatch"><strong>dispatch</strong></a>(self) -&gt; None</dt><dd><span class="code">Draw&nbsp;a&nbsp;new&nbsp;instance&nbsp;of&nbsp;the&nbsp;plot.</span></dd></dl>
+
+<dl><dt><a name="Plot-on_mount"><strong>on_mount</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;the&nbsp;plot.</span></dd></dl>
+
+<dl><dt><a name="Plot-on_resize"><strong>on_resize</strong></a>(self) -&gt; None</dt><dd><span class="code">Handle&nbsp;re-size.</span></dd></dl>
+
+<dl><dt><a name="Plot-on_show"><strong>on_show</strong></a>(self) -&gt; None</dt><dd><span class="code">Handle&nbsp;showing&nbsp;the&nbsp;plot.</span></dd></dl>
+
+<dl><dt><a name="Plot-set_data"><strong>set_data</strong></a>(self, x: Union[collections.abc.Buffer, numpy._typing._array_like._SupportsArray[numpy.dtype[Any]], numpy._typing._nested_sequence._NestedSequence[numpy._typing._array_like._SupportsArray[numpy.dtype[Any]]], bool, int, float, complex, str, bytes, numpy._typing._nested_sequence._NestedSequence[Union[bool, int, float, complex, str, bytes]]], y: Union[collections.abc.Buffer, numpy._typing._array_like._SupportsArray[numpy.dtype[Any]], numpy._typing._nested_sequence._NestedSequence[numpy._typing._array_like._SupportsArray[numpy.dtype[Any]]], bool, int, float, complex, str, bytes, numpy._typing._nested_sequence._NestedSequence[Union[bool, int, float, complex, str, bytes]]]) -&gt; None</dt><dd><span class="code">Assign&nbsp;new&nbsp;data.</span></dd></dl>
+
+<dl><dt><a name="Plot-update_title"><strong>update_title</strong></a>(self, name: str = None) -&gt; None</dt><dd><span class="code">Update&nbsp;the&nbsp;plot's&nbsp;title.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<dl><dt><strong>can_focus</strong> = False</dl>
+
+<dl><dt><strong>can_focus_children</strong> = True</dl>
+
+<hr>
+Methods inherited from <a href="textual_plotext.plotext_plot.html#PlotextPlot">textual_plotext.plotext_plot.PlotextPlot</a>:<br>
+<dl><dt><a name="Plot-render"><strong>render</strong></a>(self) -&gt; 'RenderResult'</dt><dd><span class="code">Render&nbsp;the&nbsp;plot.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;renderable&nbsp;for&nbsp;displaying&nbsp;the&nbsp;plot.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="textual_plotext.plotext_plot.html#PlotextPlot">textual_plotext.plotext_plot.PlotextPlot</a>:<br>
+<dl><dt><strong>plt</strong></dt>
+<dd><span class="code">The&nbsp;Plotext&nbsp;plotting&nbsp;object.<br>
+&nbsp;<br>
+Whereas&nbsp;normally&nbsp;Plotext-using&nbsp;code&nbsp;would&nbsp;so&nbsp;something&nbsp;like&nbsp;this:<br>
+&nbsp;<br>
+```python<br>
+import&nbsp;plotext&nbsp;as&nbsp;plt<br>
+&nbsp;<br>
+...<br>
+&nbsp;<br>
+plt.some_call()<br>
+plt.some_other_call()<br>
+```<br>
+&nbsp;<br>
+use&nbsp;this&nbsp;`plt`&nbsp;property&nbsp;instead&nbsp;of&nbsp;importing&nbsp;`plotext`.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="textual_plotext.plotext_plot.html#PlotextPlot">textual_plotext.plotext_plot.PlotextPlot</a>:<br>
+<dl><dt><strong>auto_theme</strong></dt>
+</dl>
+<dl><dt><strong>dark_mode_theme</strong></dt>
+</dl>
+<dl><dt><strong>light_mode_theme</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="textual_plotext.plotext_plot.html#PlotextPlot">textual_plotext.plotext_plot.PlotextPlot</a>:<br>
+<dl><dt><strong>DEFAULT_CSS</strong> = '<span class="repr">\n</span>    PlotextPlot {<span class="repr">\n</span>        width: 1fr;<span class="repr">\n</span>        height: 1fr;<span class="repr">\n</span>    }<span class="repr">\n</span>    '</dl>
+
+<hr>
+Methods inherited from <a href="textual.widget.html#Widget">textual.widget.Widget</a>:<br>
+<dl><dt><a name="Plot-__enter__"><strong>__enter__</strong></a>(self) -&gt; 'Self'</dt><dd><span class="code">Use&nbsp;as&nbsp;context&nbsp;manager&nbsp;when&nbsp;composing.</span></dd></dl>
+
+<dl><dt><a name="Plot-__exit__"><strong>__exit__</strong></a>(self, exc_type: 'type[BaseException] | None', exc_val: 'BaseException | None', exc_tb: 'TracebackType | None') -&gt; 'None'</dt><dd><span class="code">Exit&nbsp;compose&nbsp;context&nbsp;manager.</span></dd></dl>
+
+<dl><dt><a name="Plot-__repr__"><strong>__repr__</strong></a> = auto_repr(self: ~T) -&gt; str</dt><dd><span class="code">Return&nbsp;repr(self)</span></dd></dl>
+
+<dl><dt><a name="Plot-__rich_repr__"><strong>__rich_repr__</strong></a>(self) -&gt; 'rich.repr.Result'</dt></dl>
+
+<dl><dt><a name="Plot-action_page_down"><strong>action_page_down</strong></a>(self) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-action_page_up"><strong>action_page_up</strong></a>(self) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-action_scroll_down"><strong>action_scroll_down</strong></a>(self) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-action_scroll_end"><strong>action_scroll_end</strong></a>(self) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-action_scroll_home"><strong>action_scroll_home</strong></a>(self) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-action_scroll_left"><strong>action_scroll_left</strong></a>(self) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-action_scroll_right"><strong>action_scroll_right</strong></a>(self) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-action_scroll_up"><strong>action_scroll_up</strong></a>(self) -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-allow_focus"><strong>allow_focus</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;the&nbsp;widget&nbsp;is&nbsp;permitted&nbsp;to&nbsp;focus.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;returns&nbsp;[`can_focus`][textual.widget.Widget.can_focus].<br>
+This&nbsp;method&nbsp;maybe&nbsp;overridden&nbsp;if&nbsp;additional&nbsp;logic&nbsp;is&nbsp;required.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;widget&nbsp;may&nbsp;be&nbsp;focused,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;it&nbsp;may&nbsp;not&nbsp;be&nbsp;focused.</span></dd></dl>
+
+<dl><dt><a name="Plot-allow_focus_children"><strong>allow_focus_children</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;widget's&nbsp;children&nbsp;may&nbsp;be&nbsp;focused.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;returns&nbsp;[`can_focus_children`][textual.widget.Widget.can_focus_children].<br>
+This&nbsp;method&nbsp;maybe&nbsp;overridden&nbsp;if&nbsp;additional&nbsp;logic&nbsp;is&nbsp;required.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;widget's&nbsp;children&nbsp;may&nbsp;be&nbsp;focused,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;the&nbsp;widget's&nbsp;children&nbsp;may&nbsp;not&nbsp;be&nbsp;focused.</span></dd></dl>
+
+<dl><dt><a name="Plot-animate"><strong>animate</strong></a>(self, attribute: 'str', value: 'float | Animatable', *, final_value: 'object' = Ellipsis, duration: 'float | None' = None, speed: 'float | None' = None, delay: 'float' = 0.0, easing: 'EasingFunction | str' = 'in_out_cubic', on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'full') -&gt; 'None'</dt><dd><span class="code">Animate&nbsp;an&nbsp;attribute.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute&nbsp;to&nbsp;animate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;The&nbsp;value&nbsp;to&nbsp;animate&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;final_value:&nbsp;The&nbsp;final&nbsp;value&nbsp;of&nbsp;the&nbsp;animation.&nbsp;Defaults&nbsp;to&nbsp;`value`&nbsp;if&nbsp;not&nbsp;set.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;The&nbsp;duration&nbsp;(in&nbsp;seconds)&nbsp;of&nbsp;the&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;The&nbsp;speed&nbsp;of&nbsp;the&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;A&nbsp;delay&nbsp;(in&nbsp;seconds)&nbsp;before&nbsp;the&nbsp;animation&nbsp;starts.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-batch"><strong>batch</strong></a>(self) -&gt; 'AsyncGenerator[None, None]'</dt><dd><span class="code">Async&nbsp;context&nbsp;manager&nbsp;that&nbsp;combines&nbsp;widget&nbsp;locking&nbsp;and&nbsp;update&nbsp;batching.<br>
+&nbsp;<br>
+Use&nbsp;this&nbsp;async&nbsp;context&nbsp;manager&nbsp;whenever&nbsp;you&nbsp;want&nbsp;to&nbsp;acquire&nbsp;the&nbsp;widget&nbsp;lock&nbsp;and<br>
+batch&nbsp;app&nbsp;updates&nbsp;at&nbsp;the&nbsp;same&nbsp;time.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;async&nbsp;with&nbsp;container.<a href="#Plot-batch">batch</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;container.<a href="#Plot-remove_children">remove_children</a>(Button)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;container.<a href="#Plot-mount">mount</a>(Label("All&nbsp;buttons&nbsp;are&nbsp;gone."))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd></dl>
+
+<dl><dt><a name="Plot-begin_capture_print"><strong>begin_capture_print</strong></a>(self, stdout: 'bool' = True, stderr: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Capture&nbsp;text&nbsp;from&nbsp;print&nbsp;statements&nbsp;(or&nbsp;writes&nbsp;to&nbsp;stdout&nbsp;/&nbsp;stderr).<br>
+&nbsp;<br>
+If&nbsp;printing&nbsp;is&nbsp;captured,&nbsp;the&nbsp;widget&nbsp;will&nbsp;be&nbsp;sent&nbsp;an&nbsp;[`events.Print`][textual.events.Print]&nbsp;message.<br>
+&nbsp;<br>
+Call&nbsp;[`end_capture_print`][textual.widget.Widget.end_capture_print]&nbsp;to&nbsp;disable&nbsp;print&nbsp;capture.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stdout:&nbsp;Whether&nbsp;to&nbsp;capture&nbsp;stdout.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stderr:&nbsp;Whether&nbsp;to&nbsp;capture&nbsp;stderr.</span></dd></dl>
+
+<dl><dt><a name="Plot-blur"><strong>blur</strong></a>(self) -&gt; 'Self'</dt><dd><span class="code">Blur&nbsp;(un-focus)&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Focus&nbsp;will&nbsp;be&nbsp;moved&nbsp;to&nbsp;the&nbsp;next&nbsp;available&nbsp;widget&nbsp;in&nbsp;the&nbsp;focus&nbsp;chain..<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;`Widget`&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-broker_event"><strong>broker_event</strong></a>(self, event_name: 'str', event: 'events.Event') -&gt; 'bool'</dt></dl>
+
+<dl><dt><a name="Plot-can_view"><strong>can_view</strong></a>(self, widget: 'Widget') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;given&nbsp;widget&nbsp;is&nbsp;in&nbsp;the&nbsp;current&nbsp;view&nbsp;(scrollable&nbsp;area).<br>
+&nbsp;<br>
+Note:&nbsp;This&nbsp;doesn't&nbsp;necessarily&nbsp;equate&nbsp;to&nbsp;a&nbsp;widget&nbsp;being&nbsp;visible.<br>
+There&nbsp;are&nbsp;other&nbsp;reasons&nbsp;why&nbsp;a&nbsp;widget&nbsp;may&nbsp;not&nbsp;be&nbsp;visible.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;widget&nbsp;that&nbsp;is&nbsp;a&nbsp;descendant&nbsp;of&nbsp;self.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;entire&nbsp;widget&nbsp;is&nbsp;in&nbsp;view,&nbsp;False&nbsp;if&nbsp;it&nbsp;is&nbsp;partially&nbsp;visible&nbsp;or&nbsp;not&nbsp;in&nbsp;view.</span></dd></dl>
+
+<dl><dt><a name="Plot-capture_mouse"><strong>capture_mouse</strong></a>(self, capture: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Capture&nbsp;(or&nbsp;release)&nbsp;the&nbsp;mouse.<br>
+&nbsp;<br>
+When&nbsp;captured,&nbsp;mouse&nbsp;events&nbsp;will&nbsp;go&nbsp;to&nbsp;this&nbsp;widget&nbsp;even&nbsp;when&nbsp;the&nbsp;pointer&nbsp;is&nbsp;not&nbsp;directly&nbsp;over&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;capture:&nbsp;True&nbsp;to&nbsp;capture&nbsp;or&nbsp;False&nbsp;to&nbsp;release.</span></dd></dl>
+
+<dl><dt><a name="Plot-check_message_enabled"><strong>check_message_enabled</strong></a>(self, message: 'Message') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;given&nbsp;message&nbsp;is&nbsp;enabled&nbsp;(allowed&nbsp;to&nbsp;be&nbsp;sent).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;A&nbsp;message&nbsp;object<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;message&nbsp;will&nbsp;be&nbsp;sent,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;it&nbsp;is&nbsp;disabled.</span></dd></dl>
+
+<dl><dt><a name="Plot-clear_cached_dimensions"><strong>clear_cached_dimensions</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Clear&nbsp;cached&nbsp;results&nbsp;of&nbsp;`get_content_width`&nbsp;and&nbsp;`get_content_height`.<br>
+&nbsp;<br>
+Call&nbsp;if&nbsp;the&nbsp;widget's&nbsp;renderable&nbsp;changes&nbsp;size&nbsp;after&nbsp;the&nbsp;widget&nbsp;has&nbsp;been&nbsp;created.<br>
+&nbsp;<br>
+!!!&nbsp;note<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;not&nbsp;required&nbsp;if&nbsp;you&nbsp;are&nbsp;extending&nbsp;[`Static`][textual.widgets.Static].</span></dd></dl>
+
+<dl><dt><a name="Plot-compose"><strong>compose</strong></a>(self) -&gt; 'ComposeResult'</dt><dd><span class="code">Called&nbsp;by&nbsp;Textual&nbsp;to&nbsp;create&nbsp;child&nbsp;widgets.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;widget&nbsp;is&nbsp;mounted&nbsp;or&nbsp;by&nbsp;setting&nbsp;`recompose=True`&nbsp;when<br>
+calling&nbsp;[`<a href="#Plot-refresh">refresh</a>()`][textual.widget.Widget.refresh].<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;you&nbsp;don't&nbsp;typically&nbsp;need&nbsp;to&nbsp;explicitly&nbsp;call&nbsp;this&nbsp;method.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;<a href="#Plot-compose">compose</a>(self)&nbsp;-&gt;&nbsp;ComposeResult:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;Header()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;Label("Press&nbsp;the&nbsp;button&nbsp;below:")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;Button()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;Footer()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd></dl>
+
+<dl><dt><a name="Plot-compose_add_child"><strong>compose_add_child</strong></a>(self, widget: 'Widget') -&gt; 'None'</dt><dd><span class="code">Add&nbsp;a&nbsp;node&nbsp;to&nbsp;children.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;by&nbsp;the&nbsp;compose&nbsp;process&nbsp;when&nbsp;it&nbsp;adds&nbsp;children.<br>
+There&nbsp;is&nbsp;no&nbsp;need&nbsp;to&nbsp;use&nbsp;it&nbsp;directly,&nbsp;but&nbsp;you&nbsp;may&nbsp;want&nbsp;to&nbsp;override&nbsp;it&nbsp;in&nbsp;a&nbsp;subclass<br>
+if&nbsp;you&nbsp;want&nbsp;children&nbsp;to&nbsp;be&nbsp;attached&nbsp;to&nbsp;a&nbsp;different&nbsp;node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;Widget&nbsp;to&nbsp;add.</span></dd></dl>
+
+<dl><dt><a name="Plot-end_capture_print"><strong>end_capture_print</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">End&nbsp;print&nbsp;capture&nbsp;(set&nbsp;with&nbsp;[`begin_capture_print`][textual.widget.Widget.begin_capture_print]).</span></dd></dl>
+
+<dl><dt><a name="Plot-focus"><strong>focus</strong></a>(self, scroll_visible: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Give&nbsp;focus&nbsp;to&nbsp;this&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scroll_visible:&nbsp;Scroll&nbsp;parent&nbsp;to&nbsp;make&nbsp;this&nbsp;widget&nbsp;visible.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;`Widget`&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_child_by_id"><strong>get_child_by_id</strong></a>(self, id: 'str', expect_type: 'type[ExpectType] | None' = None) -&gt; 'ExpectType | Widget'</dt><dd><span class="code">Return&nbsp;the&nbsp;first&nbsp;child&nbsp;(immediate&nbsp;descendent)&nbsp;of&nbsp;this&nbsp;node&nbsp;with&nbsp;the&nbsp;given&nbsp;ID.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;child.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;any&nbsp;type.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;child&nbsp;of&nbsp;this&nbsp;node&nbsp;with&nbsp;the&nbsp;ID.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;if&nbsp;no&nbsp;children&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;this&nbsp;ID<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WrongType:&nbsp;if&nbsp;the&nbsp;wrong&nbsp;type&nbsp;was&nbsp;found.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_child_by_type"><strong>get_child_by_type</strong></a>(self, expect_type: 'type[ExpectType]') -&gt; 'ExpectType'</dt><dd><span class="code">Get&nbsp;the&nbsp;first&nbsp;immediate&nbsp;child&nbsp;of&nbsp;a&nbsp;given&nbsp;type.<br>
+&nbsp;<br>
+Only&nbsp;returns&nbsp;exact&nbsp;matches,&nbsp;and&nbsp;so&nbsp;will&nbsp;not&nbsp;match&nbsp;subclasses&nbsp;of&nbsp;the&nbsp;given&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;The&nbsp;type&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;search&nbsp;for.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;matching&nbsp;child&nbsp;is&nbsp;found.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;immediate&nbsp;child&nbsp;widget&nbsp;with&nbsp;the&nbsp;expected&nbsp;type.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_component_rich_style"><strong>get_component_rich_style</strong></a>(self, name: 'str', *, partial: 'bool' = False) -&gt; 'Style'</dt><dd><span class="code">Get&nbsp;a&nbsp;*Rich*&nbsp;style&nbsp;for&nbsp;a&nbsp;component.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;component.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;partial:&nbsp;Return&nbsp;a&nbsp;partial&nbsp;style&nbsp;(not&nbsp;combined&nbsp;with&nbsp;parent).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Rich&nbsp;style&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_content_height"><strong>get_content_height</strong></a>(self, container: 'Size', viewport: 'Size', width: 'int') -&gt; 'int'</dt><dd><span class="code">Called&nbsp;by&nbsp;Textual&nbsp;to&nbsp;get&nbsp;the&nbsp;height&nbsp;of&nbsp;the&nbsp;content&nbsp;area.&nbsp;May&nbsp;be&nbsp;overridden&nbsp;in&nbsp;a&nbsp;subclass.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;container:&nbsp;Size&nbsp;of&nbsp;the&nbsp;container&nbsp;(immediate&nbsp;parent)&nbsp;widget.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;viewport:&nbsp;Size&nbsp;of&nbsp;the&nbsp;viewport.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;Width&nbsp;of&nbsp;renderable.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;height&nbsp;of&nbsp;the&nbsp;content.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_content_width"><strong>get_content_width</strong></a>(self, container: 'Size', viewport: 'Size') -&gt; 'int'</dt><dd><span class="code">Called&nbsp;by&nbsp;textual&nbsp;to&nbsp;get&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;content&nbsp;area.&nbsp;May&nbsp;be&nbsp;overridden&nbsp;in&nbsp;a&nbsp;subclass.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;container:&nbsp;Size&nbsp;of&nbsp;the&nbsp;container&nbsp;(immediate&nbsp;parent)&nbsp;widget.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;viewport:&nbsp;Size&nbsp;of&nbsp;the&nbsp;viewport.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;optimal&nbsp;width&nbsp;of&nbsp;the&nbsp;content.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_loading_widget"><strong>get_loading_widget</strong></a>(self) -&gt; 'Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;widget&nbsp;to&nbsp;display&nbsp;a&nbsp;loading&nbsp;indicator.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;will&nbsp;defer&nbsp;to&nbsp;App.get_loading_widget.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;in&nbsp;place&nbsp;of&nbsp;this&nbsp;widget&nbsp;to&nbsp;indicate&nbsp;a&nbsp;loading.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_pseudo_class_state"><strong>get_pseudo_class_state</strong></a>(self) -&gt; 'PseudoClasses'</dt><dd><span class="code">Get&nbsp;an&nbsp;object&nbsp;describing&nbsp;whether&nbsp;each&nbsp;pseudo&nbsp;class&nbsp;is&nbsp;present&nbsp;on&nbsp;this&nbsp;object&nbsp;or&nbsp;not.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;PseudoClasses&nbsp;object&nbsp;describing&nbsp;the&nbsp;pseudo&nbsp;classes&nbsp;that&nbsp;are&nbsp;present.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_pseudo_classes"><strong>get_pseudo_classes</strong></a>(self) -&gt; 'Iterable[str]'</dt><dd><span class="code">Pseudo&nbsp;classes&nbsp;for&nbsp;a&nbsp;widget.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Names&nbsp;of&nbsp;the&nbsp;pseudo&nbsp;classes.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_style_at"><strong>get_style_at</strong></a>(self, x: 'int', y: 'int') -&gt; 'Style'</dt><dd><span class="code">Get&nbsp;the&nbsp;Rich&nbsp;style&nbsp;in&nbsp;a&nbsp;widget&nbsp;at&nbsp;a&nbsp;given&nbsp;relative&nbsp;offset.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;X&nbsp;coordinate&nbsp;relative&nbsp;to&nbsp;the&nbsp;widget.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:&nbsp;Y&nbsp;coordinate&nbsp;relative&nbsp;to&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;rich&nbsp;Style&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_widget_by_id"><strong>get_widget_by_id</strong></a>(self, id: 'str', expect_type: 'type[ExpectType] | None' = None) -&gt; 'ExpectType | Widget'</dt><dd><span class="code">Return&nbsp;the&nbsp;first&nbsp;descendant&nbsp;widget&nbsp;with&nbsp;the&nbsp;given&nbsp;ID.<br>
+&nbsp;<br>
+Performs&nbsp;a&nbsp;depth-first&nbsp;search&nbsp;rooted&nbsp;at&nbsp;this&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;The&nbsp;ID&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;subtree.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;any&nbsp;type.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;descendant&nbsp;encountered&nbsp;with&nbsp;this&nbsp;ID.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;if&nbsp;no&nbsp;children&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;this&nbsp;ID.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WrongType:&nbsp;if&nbsp;the&nbsp;wrong&nbsp;type&nbsp;was&nbsp;found.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-handle_key"><strong>handle_key</strong></a>(self, event: 'events.Key') -&gt; 'bool'</dt></dl>
+
+<dl><dt><a name="Plot-mount"><strong>mount</strong></a>(self, *widgets: 'Widget', before: 'int | str | Widget | None' = None, after: 'int | str | Widget | None' = None) -&gt; 'AwaitMount'</dt><dd><span class="code">Mount&nbsp;widgets&nbsp;below&nbsp;this&nbsp;widget&nbsp;(making&nbsp;this&nbsp;widget&nbsp;a&nbsp;container).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*widgets:&nbsp;The&nbsp;widget(s)&nbsp;to&nbsp;mount.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;before:&nbsp;Optional&nbsp;location&nbsp;to&nbsp;mount&nbsp;before.&nbsp;An&nbsp;`int`&nbsp;is&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;mount&nbsp;before,&nbsp;a&nbsp;`str`&nbsp;is&nbsp;a&nbsp;`query_one`&nbsp;query&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;the&nbsp;widget&nbsp;to&nbsp;mount&nbsp;before.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;after:&nbsp;Optional&nbsp;location&nbsp;to&nbsp;mount&nbsp;after.&nbsp;An&nbsp;`int`&nbsp;is&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;mount&nbsp;after,&nbsp;a&nbsp;`str`&nbsp;is&nbsp;a&nbsp;`query_one`&nbsp;query&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;the&nbsp;widget&nbsp;to&nbsp;mount&nbsp;after.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;widgets&nbsp;to&nbsp;be&nbsp;mounted.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MountError:&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;problem&nbsp;with&nbsp;the&nbsp;mount&nbsp;request.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;``before``&nbsp;or&nbsp;``after``&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;both&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;provided&nbsp;a&nbsp;``MountError``&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
+
+<dl><dt><a name="Plot-mount_all"><strong>mount_all</strong></a>(self, widgets: 'Iterable[Widget]', *, before: 'int | str | Widget | None' = None, after: 'int | str | Widget | None' = None) -&gt; 'AwaitMount'</dt><dd><span class="code">Mount&nbsp;widgets&nbsp;from&nbsp;an&nbsp;iterable.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widgets:&nbsp;An&nbsp;iterable&nbsp;of&nbsp;widgets.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;before:&nbsp;Optional&nbsp;location&nbsp;to&nbsp;mount&nbsp;before.&nbsp;An&nbsp;`int`&nbsp;is&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;mount&nbsp;before,&nbsp;a&nbsp;`str`&nbsp;is&nbsp;a&nbsp;`query_one`&nbsp;query&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;the&nbsp;widget&nbsp;to&nbsp;mount&nbsp;before.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;after:&nbsp;Optional&nbsp;location&nbsp;to&nbsp;mount&nbsp;after.&nbsp;An&nbsp;`int`&nbsp;is&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;mount&nbsp;after,&nbsp;a&nbsp;`str`&nbsp;is&nbsp;a&nbsp;`query_one`&nbsp;query&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find&nbsp;the&nbsp;widget&nbsp;to&nbsp;mount&nbsp;after.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;widgets&nbsp;to&nbsp;be&nbsp;mounted.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MountError:&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;problem&nbsp;with&nbsp;the&nbsp;mount&nbsp;request.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;``before``&nbsp;or&nbsp;``after``&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;both&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;provided&nbsp;a&nbsp;``MountError``&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-mount_composed_widgets"><strong>mount_composed_widgets</strong></a>(self, widgets: 'list[Widget]') -&gt; 'None'</dt><dd><span class="code">Called&nbsp;by&nbsp;Textual&nbsp;to&nbsp;mount&nbsp;widgets&nbsp;after&nbsp;compose.<br>
+&nbsp;<br>
+There&nbsp;is&nbsp;generally&nbsp;no&nbsp;need&nbsp;to&nbsp;implement&nbsp;this&nbsp;method&nbsp;in&nbsp;your&nbsp;application.<br>
+See&nbsp;[Lazy][textual.lazy.Lazy]&nbsp;for&nbsp;a&nbsp;class&nbsp;which&nbsp;uses&nbsp;this&nbsp;method&nbsp;to&nbsp;implement<br>
+*lazy*&nbsp;mounting.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widgets:&nbsp;A&nbsp;list&nbsp;of&nbsp;child&nbsp;widgets.</span></dd></dl>
+
+<dl><dt><a name="Plot-move_child"><strong>move_child</strong></a>(self, child: 'int | Widget', *, before: 'int | Widget | None' = None, after: 'int | Widget | None' = None) -&gt; 'None'</dt><dd><span class="code">Move&nbsp;a&nbsp;child&nbsp;widget&nbsp;within&nbsp;its&nbsp;parent's&nbsp;list&nbsp;of&nbsp;children.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;The&nbsp;child&nbsp;widget&nbsp;to&nbsp;move.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;before:&nbsp;Child&nbsp;widget&nbsp;or&nbsp;location&nbsp;index&nbsp;to&nbsp;move&nbsp;before.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;after:&nbsp;Child&nbsp;widget&nbsp;or&nbsp;location&nbsp;index&nbsp;to&nbsp;move&nbsp;after.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WidgetError:&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;problem&nbsp;with&nbsp;the&nbsp;child&nbsp;or&nbsp;target.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;`before`&nbsp;or&nbsp;`after`&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;neither<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;both&nbsp;are&nbsp;provided&nbsp;a&nbsp;`WidgetError`&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
+
+<dl><dt><a name="Plot-notify"><strong>notify</strong></a>(self, message: 'str', *, title: 'str' = '', severity: 'SeverityLevel' = 'information', timeout: 'float' = 5) -&gt; 'None'</dt><dd><span class="code">Create&nbsp;a&nbsp;notification.<br>
+&nbsp;<br>
+!!!&nbsp;tip<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;method&nbsp;is&nbsp;thread-safe.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;The&nbsp;message&nbsp;for&nbsp;the&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;The&nbsp;title&nbsp;for&nbsp;the&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;severity:&nbsp;The&nbsp;severity&nbsp;of&nbsp;the&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;The&nbsp;timeout&nbsp;(in&nbsp;seconds)&nbsp;for&nbsp;the&nbsp;notification.<br>
+&nbsp;<br>
+See&nbsp;[`App.notify`][textual.app.App.notify]&nbsp;for&nbsp;the&nbsp;full<br>
+documentation&nbsp;for&nbsp;this&nbsp;method.</span></dd></dl>
+
+<dl><dt><a name="Plot-notify_style_update"><strong>notify_style_update</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Called&nbsp;after&nbsp;styles&nbsp;are&nbsp;updated.<br>
+&nbsp;<br>
+Implement&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;clear&nbsp;any&nbsp;cached&nbsp;data&nbsp;when&nbsp;the&nbsp;CSS&nbsp;is&nbsp;reloaded.</span></dd></dl>
+
+<dl><dt><a name="Plot-post_message"><strong>post_message</strong></a>(self, message: 'Message') -&gt; 'bool'</dt><dd><span class="code">Post&nbsp;a&nbsp;message&nbsp;to&nbsp;this&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;Message&nbsp;to&nbsp;post.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;message&nbsp;was&nbsp;posted,&nbsp;False&nbsp;if&nbsp;this&nbsp;widget&nbsp;was&nbsp;closed&nbsp;/&nbsp;closing.</span></dd></dl>
+
+<dl><dt><a name="Plot-post_render"><strong>post_render</strong></a>(self, renderable: 'RenderableType') -&gt; 'ConsoleRenderable'</dt><dd><span class="code">Applies&nbsp;style&nbsp;attributes&nbsp;to&nbsp;the&nbsp;default&nbsp;renderable.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;new&nbsp;renderable.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-recompose"><strong>recompose</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Recompose&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Recomposing&nbsp;will&nbsp;remove&nbsp;children&nbsp;and&nbsp;call&nbsp;`self.<strong>compose</strong>`&nbsp;again&nbsp;to&nbsp;remount.</span></dd></dl>
+
+<dl><dt><a name="Plot-refresh"><strong>refresh</strong></a>(self, *regions: 'Region', repaint: 'bool' = True, layout: 'bool' = False, recompose: 'bool' = False) -&gt; 'Self'</dt><dd><span class="code">Initiate&nbsp;a&nbsp;refresh&nbsp;of&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;sets&nbsp;an&nbsp;internal&nbsp;flag&nbsp;to&nbsp;perform&nbsp;a&nbsp;refresh,&nbsp;which&nbsp;will&nbsp;be&nbsp;done&nbsp;on&nbsp;the<br>
+next&nbsp;idle&nbsp;event.&nbsp;Only&nbsp;one&nbsp;refresh&nbsp;will&nbsp;be&nbsp;done&nbsp;even&nbsp;if&nbsp;this&nbsp;method&nbsp;is&nbsp;called&nbsp;multiple&nbsp;times.<br>
+&nbsp;<br>
+By&nbsp;default&nbsp;this&nbsp;method&nbsp;will&nbsp;cause&nbsp;the&nbsp;content&nbsp;of&nbsp;the&nbsp;widget&nbsp;to&nbsp;refresh,&nbsp;but&nbsp;not&nbsp;change&nbsp;its&nbsp;size.&nbsp;You&nbsp;can&nbsp;also<br>
+set&nbsp;`layout=True`&nbsp;to&nbsp;perform&nbsp;a&nbsp;layout.<br>
+&nbsp;<br>
+!!!&nbsp;warning<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;is&nbsp;rarely&nbsp;necessary&nbsp;to&nbsp;call&nbsp;this&nbsp;method&nbsp;explicitly.&nbsp;Updating&nbsp;styles&nbsp;or&nbsp;reactive&nbsp;attributes&nbsp;will<br>
+&nbsp;&nbsp;&nbsp;&nbsp;do&nbsp;this&nbsp;automatically.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*regions:&nbsp;Additional&nbsp;screen&nbsp;regions&nbsp;to&nbsp;mark&nbsp;as&nbsp;dirty.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repaint:&nbsp;Repaint&nbsp;the&nbsp;widget&nbsp;(will&nbsp;call&nbsp;<a href="#Plot-render">render</a>()&nbsp;again).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;layout:&nbsp;Also&nbsp;layout&nbsp;widgets&nbsp;in&nbsp;the&nbsp;view.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;recompose:&nbsp;Re-compose&nbsp;the&nbsp;widget&nbsp;(will&nbsp;remove&nbsp;and&nbsp;re-mount&nbsp;children).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;`Widget`&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Plot-release_mouse"><strong>release_mouse</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Release&nbsp;the&nbsp;mouse.<br>
+&nbsp;<br>
+Mouse&nbsp;events&nbsp;will&nbsp;only&nbsp;be&nbsp;sent&nbsp;when&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;widget.</span></dd></dl>
+
+<dl><dt><a name="Plot-remove"><strong>remove</strong></a>(self) -&gt; 'AwaitRemove'</dt><dd><span class="code">Remove&nbsp;the&nbsp;Widget&nbsp;from&nbsp;the&nbsp;DOM&nbsp;(effectively&nbsp;deleting&nbsp;it).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;the&nbsp;widget&nbsp;to&nbsp;be&nbsp;removed.</span></dd></dl>
+
+<dl><dt><a name="Plot-remove_children"><strong>remove_children</strong></a>(self, selector: 'str | type[QueryType]' = '*') -&gt; 'AwaitRemove'</dt><dd><span class="code">Remove&nbsp;the&nbsp;immediate&nbsp;children&nbsp;of&nbsp;this&nbsp;Widget&nbsp;from&nbsp;the&nbsp;DOM.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector&nbsp;to&nbsp;specify&nbsp;which&nbsp;direct&nbsp;children&nbsp;to&nbsp;remove.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;the&nbsp;direct&nbsp;children&nbsp;to&nbsp;be&nbsp;removed.</span></dd></dl>
+
+<dl><dt><a name="Plot-render_line"><strong>render_line</strong></a>(self, y: 'int') -&gt; 'Strip'</dt><dd><span class="code">Render&nbsp;a&nbsp;line&nbsp;of&nbsp;content.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:&nbsp;Y&nbsp;Coordinate&nbsp;of&nbsp;line.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;rendered&nbsp;line.</span></dd></dl>
+
+<dl><dt><a name="Plot-render_lines"><strong>render_lines</strong></a>(self, crop: 'Region') -&gt; 'list[Strip]'</dt><dd><span class="code">Render&nbsp;the&nbsp;widget&nbsp;in&nbsp;to&nbsp;lines.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;crop:&nbsp;Region&nbsp;within&nbsp;visible&nbsp;area&nbsp;to&nbsp;render.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;list&nbsp;of&nbsp;segments.</span></dd></dl>
+
+<dl><dt><a name="Plot-render_str"><strong>render_str</strong></a>(self, text_content: 'str | Text') -&gt; 'Text'</dt><dd><span class="code">Convert&nbsp;str&nbsp;in&nbsp;to&nbsp;a&nbsp;Text&nbsp;object.<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;pass&nbsp;in&nbsp;an&nbsp;existing&nbsp;Text&nbsp;object&nbsp;it&nbsp;will&nbsp;be&nbsp;returned&nbsp;unaltered.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text_content:&nbsp;Text&nbsp;or&nbsp;str.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;text&nbsp;object.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-run_action"><strong>run_action</strong></a>(self, action: 'str') -&gt; 'None'</dt><dd><span class="code">Perform&nbsp;a&nbsp;given&nbsp;action,&nbsp;with&nbsp;this&nbsp;widget&nbsp;as&nbsp;the&nbsp;default&nbsp;namespace.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;action:&nbsp;Action&nbsp;encoded&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_down"><strong>scroll_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;down.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_end"><strong>scroll_end</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;container.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_home"><strong>scroll_home</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;home&nbsp;position.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;duration.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_left"><strong>scroll_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;left.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_page_down"><strong>scroll_page_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;down.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_page_left"><strong>scroll_page_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;left.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_page_right"><strong>scroll_page_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;right.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_page_up"><strong>scroll_page_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;up.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_relative"><strong>scroll_relative</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;relative&nbsp;to&nbsp;current&nbsp;position.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;X&nbsp;distance&nbsp;(columns)&nbsp;to&nbsp;scroll,&nbsp;or&nbsp;``None``&nbsp;for&nbsp;no&nbsp;change.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:&nbsp;Y&nbsp;distance&nbsp;(rows)&nbsp;to&nbsp;scroll,&nbsp;or&nbsp;``None``&nbsp;for&nbsp;no&nbsp;change.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;to&nbsp;new&nbsp;scroll&nbsp;position.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`.&nbsp;Or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`&nbsp;and&nbsp;speed&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_right"><strong>scroll_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;right.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_to"><strong>scroll_to</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;a&nbsp;given&nbsp;(absolute)&nbsp;coordinate,&nbsp;optionally&nbsp;animating.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;X&nbsp;coordinate&nbsp;(column)&nbsp;to&nbsp;scroll&nbsp;to,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;no&nbsp;change.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:&nbsp;Y&nbsp;coordinate&nbsp;(row)&nbsp;to&nbsp;scroll&nbsp;to,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;no&nbsp;change.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;to&nbsp;new&nbsp;scroll&nbsp;position.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;call&nbsp;to&nbsp;scroll&nbsp;is&nbsp;made&nbsp;after&nbsp;the&nbsp;next&nbsp;refresh.</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_to_center"><strong>scroll_to_center</strong></a>(self, widget: 'Widget', animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, origin_visible: 'bool' = True, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;this&nbsp;widget&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;self.<br>
+&nbsp;<br>
+The&nbsp;center&nbsp;of&nbsp;the&nbsp;widget&nbsp;will&nbsp;be&nbsp;scrolled&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;the&nbsp;container.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;The&nbsp;widget&nbsp;to&nbsp;scroll&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;self.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Whether&nbsp;to&nbsp;animate&nbsp;the&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;corner&nbsp;of&nbsp;the&nbsp;widget&nbsp;remains&nbsp;visible&nbsp;after&nbsp;the&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_to_region"><strong>scroll_to_region</strong></a>(self, region: 'Region', *, spacing: 'Spacing | None' = None, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'Offset'</dt><dd><span class="code">Scrolls&nbsp;a&nbsp;given&nbsp;region&nbsp;in&nbsp;to&nbsp;view,&nbsp;if&nbsp;required.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;will&nbsp;scroll&nbsp;the&nbsp;least&nbsp;distance&nbsp;required&nbsp;to&nbsp;move&nbsp;`region`&nbsp;fully&nbsp;within<br>
+the&nbsp;scrollable&nbsp;area.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;region:&nbsp;A&nbsp;region&nbsp;that&nbsp;should&nbsp;be&nbsp;visible.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;spacing:&nbsp;Optional&nbsp;spacing&nbsp;around&nbsp;the&nbsp;region.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;`True`&nbsp;to&nbsp;animate,&nbsp;or&nbsp;`False`&nbsp;to&nbsp;jump.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;top:&nbsp;Scroll&nbsp;`region`&nbsp;to&nbsp;top&nbsp;of&nbsp;container.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;of&nbsp;the&nbsp;widget&nbsp;is&nbsp;within&nbsp;the&nbsp;window.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;distance&nbsp;that&nbsp;was&nbsp;scrolled.</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_to_widget"><strong>scroll_to_widget</strong></a>(self, widget: 'Widget', *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'bool'</dt><dd><span class="code">Scroll&nbsp;scrolling&nbsp;to&nbsp;bring&nbsp;a&nbsp;widget&nbsp;in&nbsp;to&nbsp;view.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;descendant&nbsp;widget.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;`True`&nbsp;to&nbsp;animate,&nbsp;or&nbsp;`False`&nbsp;to&nbsp;jump.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;top:&nbsp;Scroll&nbsp;widget&nbsp;to&nbsp;top&nbsp;of&nbsp;container.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;of&nbsp;the&nbsp;widget&nbsp;is&nbsp;within&nbsp;the&nbsp;window.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;any&nbsp;scrolling&nbsp;has&nbsp;occurred&nbsp;in&nbsp;any&nbsp;descendant,&nbsp;otherwise&nbsp;`False`.</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_up"><strong>scroll_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;up.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;speed&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-scroll_visible"><strong>scroll_visible</strong></a>(self, animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, top: 'bool' = False, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;the&nbsp;container&nbsp;to&nbsp;make&nbsp;this&nbsp;widget&nbsp;visible.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;Speed&nbsp;of&nbsp;scroll&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;use&nbsp;`duration`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;top:&nbsp;Scroll&nbsp;to&nbsp;top&nbsp;of&nbsp;container.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="Plot-set_loading"><strong>set_loading</strong></a>(self, loading: 'bool') -&gt; 'Awaitable'</dt><dd><span class="code">Set&nbsp;or&nbsp;reset&nbsp;the&nbsp;loading&nbsp;state&nbsp;of&nbsp;this&nbsp;widget.<br>
+&nbsp;<br>
+A&nbsp;widget&nbsp;in&nbsp;a&nbsp;loading&nbsp;state&nbsp;will&nbsp;display&nbsp;a&nbsp;LoadingIndicator&nbsp;that&nbsp;obscures&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;loading:&nbsp;`True`&nbsp;to&nbsp;put&nbsp;the&nbsp;widget&nbsp;into&nbsp;a&nbsp;loading&nbsp;state,&nbsp;or&nbsp;`False`&nbsp;to&nbsp;reset&nbsp;the&nbsp;loading&nbsp;state.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;optional&nbsp;awaitable.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-stop_animation"><strong>stop_animation</strong></a>(self, attribute: 'str', complete: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Stop&nbsp;an&nbsp;animation&nbsp;on&nbsp;an&nbsp;attribute.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute&nbsp;whose&nbsp;animation&nbsp;should&nbsp;be&nbsp;stopped.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;complete:&nbsp;Should&nbsp;the&nbsp;animation&nbsp;be&nbsp;set&nbsp;to&nbsp;its&nbsp;final&nbsp;value?<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;animation&nbsp;scheduled&nbsp;or&nbsp;running,&nbsp;this&nbsp;is&nbsp;a&nbsp;no-op.</span></dd></dl>
+
+<dl><dt><a name="Plot-validate_scroll_target_x"><strong>validate_scroll_target_x</strong></a>(self, value: 'float') -&gt; 'float'</dt></dl>
+
+<dl><dt><a name="Plot-validate_scroll_target_y"><strong>validate_scroll_target_y</strong></a>(self, value: 'float') -&gt; 'float'</dt></dl>
+
+<dl><dt><a name="Plot-validate_scroll_x"><strong>validate_scroll_x</strong></a>(self, value: 'float') -&gt; 'float'</dt></dl>
+
+<dl><dt><a name="Plot-validate_scroll_y"><strong>validate_scroll_y</strong></a>(self, value: 'float') -&gt; 'float'</dt></dl>
+
+<dl><dt><a name="Plot-watch_disabled"><strong>watch_disabled</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Update&nbsp;the&nbsp;styles&nbsp;of&nbsp;the&nbsp;widget&nbsp;and&nbsp;its&nbsp;children&nbsp;when&nbsp;disabled&nbsp;is&nbsp;toggled.</span></dd></dl>
+
+<dl><dt><a name="Plot-watch_has_focus"><strong>watch_has_focus</strong></a>(self, value: 'bool') -&gt; 'None'</dt><dd><span class="code">Update&nbsp;from&nbsp;CSS&nbsp;if&nbsp;has&nbsp;focus&nbsp;state&nbsp;changes.</span></dd></dl>
+
+<dl><dt><a name="Plot-watch_hover_style"><strong>watch_hover_style</strong></a>(self, previous_hover_style: 'Style', hover_style: 'Style') -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-watch_mouse_over"><strong>watch_mouse_over</strong></a>(self, value: 'bool') -&gt; 'None'</dt><dd><span class="code">Update&nbsp;from&nbsp;CSS&nbsp;if&nbsp;mouse&nbsp;over&nbsp;state&nbsp;changes.</span></dd></dl>
+
+<dl><dt><a name="Plot-watch_scroll_x"><strong>watch_scroll_x</strong></a>(self, old_value: 'float', new_value: 'float') -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-watch_scroll_y"><strong>watch_scroll_y</strong></a>(self, old_value: 'float', new_value: 'float') -&gt; 'None'</dt></dl>
+
+<hr>
+Class methods inherited from <a href="textual.widget.html#Widget">textual.widget.Widget</a>:<br>
+<dl><dt><a name="Plot-__init_subclass__"><strong>__init_subclass__</strong></a>(can_focus: 'bool | None' = None, can_focus_children: 'bool | None' = None, inherit_css: 'bool' = True, inherit_bindings: 'bool' = True) -&gt; 'None'<span class="grey"><span class="heading-text"> from <a href="textual.message_pump.html#_MessagePumpMeta">textual.message_pump._MessagePumpMeta</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
+overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="textual.widget.html#Widget">textual.widget.Widget</a>:<br>
+<dl><dt><strong>allow_horizontal_scroll</strong></dt>
+<dd><span class="code">Check&nbsp;if&nbsp;horizontal&nbsp;scroll&nbsp;is&nbsp;permitted.<br>
+&nbsp;<br>
+May&nbsp;be&nbsp;overridden&nbsp;if&nbsp;you&nbsp;want&nbsp;different&nbsp;logic&nbsp;regarding&nbsp;allowing&nbsp;scrolling.</span></dd>
+</dl>
+<dl><dt><strong>allow_vertical_scroll</strong></dt>
+<dd><span class="code">Check&nbsp;if&nbsp;vertical&nbsp;scroll&nbsp;is&nbsp;permitted.<br>
+&nbsp;<br>
+May&nbsp;be&nbsp;overridden&nbsp;if&nbsp;you&nbsp;want&nbsp;different&nbsp;logic&nbsp;regarding&nbsp;allowing&nbsp;scrolling.</span></dd>
+</dl>
+<dl><dt><strong>container_size</strong></dt>
+<dd><span class="code">The&nbsp;size&nbsp;of&nbsp;the&nbsp;container&nbsp;(parent&nbsp;widget).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Container&nbsp;size.</span></dd>
+</dl>
+<dl><dt><strong>container_viewport</strong></dt>
+<dd><span class="code">The&nbsp;viewport&nbsp;region&nbsp;(parent&nbsp;window).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;region&nbsp;that&nbsp;contains&nbsp;this&nbsp;widget.</span></dd>
+</dl>
+<dl><dt><strong>content_offset</strong></dt>
+<dd><span class="code">An&nbsp;offset&nbsp;from&nbsp;the&nbsp;Widget&nbsp;origin&nbsp;where&nbsp;the&nbsp;content&nbsp;begins.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Offset&nbsp;from&nbsp;widget's&nbsp;origin.</span></dd>
+</dl>
+<dl><dt><strong>content_region</strong></dt>
+<dd><span class="code">Gets&nbsp;an&nbsp;absolute&nbsp;region&nbsp;containing&nbsp;the&nbsp;content&nbsp;(minus&nbsp;padding&nbsp;and&nbsp;border).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Screen&nbsp;region&nbsp;that&nbsp;contains&nbsp;a&nbsp;widget's&nbsp;content.</span></dd>
+</dl>
+<dl><dt><strong>content_size</strong></dt>
+<dd><span class="code">The&nbsp;size&nbsp;of&nbsp;the&nbsp;content&nbsp;area.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Content&nbsp;area&nbsp;size.</span></dd>
+</dl>
+<dl><dt><strong>dock_gutter</strong></dt>
+<dd><span class="code">Space&nbsp;allocated&nbsp;to&nbsp;docks&nbsp;in&nbsp;the&nbsp;parent.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Space&nbsp;to&nbsp;be&nbsp;subtracted&nbsp;from&nbsp;scrollable&nbsp;area.</span></dd>
+</dl>
+<dl><dt><strong>focusable</strong></dt>
+<dd><span class="code">Can&nbsp;this&nbsp;widget&nbsp;currently&nbsp;be&nbsp;focused?</span></dd>
+</dl>
+<dl><dt><strong>gutter</strong></dt>
+<dd><span class="code">Spacing&nbsp;for&nbsp;padding&nbsp;/&nbsp;border&nbsp;/&nbsp;scrollbars.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Additional&nbsp;spacing&nbsp;around&nbsp;content&nbsp;area.</span></dd>
+</dl>
+<dl><dt><strong>horizontal_scrollbar</strong></dt>
+<dd><span class="code">The&nbsp;horizontal&nbsp;scrollbar.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;*create*&nbsp;a&nbsp;scrollbar&nbsp;if&nbsp;one&nbsp;doesn't&nbsp;exist.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ScrollBar&nbsp;Widget.</span></dd>
+</dl>
+<dl><dt><strong>is_container</strong></dt>
+<dd><span class="code">Is&nbsp;this&nbsp;widget&nbsp;a&nbsp;container&nbsp;(contains&nbsp;other&nbsp;widgets)?</span></dd>
+</dl>
+<dl><dt><strong>is_horizontal_scroll_end</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;horizontal&nbsp;scroll&nbsp;position&nbsp;at&nbsp;the&nbsp;maximum?</span></dd>
+</dl>
+<dl><dt><strong>is_horizontal_scrollbar_grabbed</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;user&nbsp;dragging&nbsp;the&nbsp;vertical&nbsp;scrollbar?</span></dd>
+</dl>
+<dl><dt><strong>is_mounted</strong></dt>
+<dd><span class="code">Check&nbsp;if&nbsp;this&nbsp;widget&nbsp;is&nbsp;mounted.</span></dd>
+</dl>
+<dl><dt><strong>is_scrollable</strong></dt>
+<dd><span class="code">Can&nbsp;this&nbsp;widget&nbsp;be&nbsp;scrolled?</span></dd>
+</dl>
+<dl><dt><strong>is_vertical_scroll_end</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;vertical&nbsp;scroll&nbsp;position&nbsp;at&nbsp;the&nbsp;maximum?</span></dd>
+</dl>
+<dl><dt><strong>is_vertical_scrollbar_grabbed</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;user&nbsp;dragging&nbsp;the&nbsp;vertical&nbsp;scrollbar?</span></dd>
+</dl>
+<dl><dt><strong>layer</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;name&nbsp;of&nbsp;this&nbsp;widgets&nbsp;layer.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;of&nbsp;layer.</span></dd>
+</dl>
+<dl><dt><strong>layers</strong></dt>
+<dd><span class="code">Layers&nbsp;of&nbsp;from&nbsp;parent.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Tuple&nbsp;of&nbsp;layer&nbsp;names.</span></dd>
+</dl>
+<dl><dt><strong>link_style</strong></dt>
+<dd><span class="code">Style&nbsp;of&nbsp;links.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rich&nbsp;style.</span></dd>
+</dl>
+<dl><dt><strong>link_style_hover</strong></dt>
+<dd><span class="code">Style&nbsp;of&nbsp;links&nbsp;underneath&nbsp;the&nbsp;mouse&nbsp;cursor.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rich&nbsp;Style.</span></dd>
+</dl>
+<dl><dt><strong>max_scroll_x</strong></dt>
+<dd><span class="code">The&nbsp;maximum&nbsp;value&nbsp;of&nbsp;`scroll_x`.</span></dd>
+</dl>
+<dl><dt><strong>max_scroll_y</strong></dt>
+<dd><span class="code">The&nbsp;maximum&nbsp;value&nbsp;of&nbsp;`scroll_y`.</span></dd>
+</dl>
+<dl><dt><strong>opacity</strong></dt>
+<dd><span class="code">Total&nbsp;opacity&nbsp;of&nbsp;widget.</span></dd>
+</dl>
+<dl><dt><strong>outer_size</strong></dt>
+<dd><span class="code">The&nbsp;size&nbsp;of&nbsp;the&nbsp;widget&nbsp;(including&nbsp;padding&nbsp;and&nbsp;border).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Outer&nbsp;size.</span></dd>
+</dl>
+<dl><dt><strong>region</strong></dt>
+<dd><span class="code">The&nbsp;region&nbsp;occupied&nbsp;by&nbsp;this&nbsp;widget,&nbsp;relative&nbsp;to&nbsp;the&nbsp;Screen.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoScreen:&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;errors.NoWidget:&nbsp;If&nbsp;the&nbsp;widget&nbsp;is&nbsp;not&nbsp;on&nbsp;the&nbsp;screen.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Region&nbsp;within&nbsp;screen&nbsp;occupied&nbsp;by&nbsp;widget.</span></dd>
+</dl>
+<dl><dt><strong>scroll_offset</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;scroll&nbsp;offset.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Offset&nbsp;a&nbsp;container&nbsp;has&nbsp;been&nbsp;scrolled&nbsp;by.</span></dd>
+</dl>
+<dl><dt><strong>scrollable_content_region</strong></dt>
+<dd><span class="code">Gets&nbsp;an&nbsp;absolute&nbsp;region&nbsp;containing&nbsp;the&nbsp;scrollable&nbsp;content&nbsp;(minus&nbsp;padding,&nbsp;border,&nbsp;and&nbsp;scrollbars).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Screen&nbsp;region&nbsp;that&nbsp;contains&nbsp;a&nbsp;widget's&nbsp;content.</span></dd>
+</dl>
+<dl><dt><strong>scrollbar_corner</strong></dt>
+<dd><span class="code">The&nbsp;scrollbar&nbsp;corner.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;*create*&nbsp;a&nbsp;scrollbar&nbsp;corner&nbsp;if&nbsp;one&nbsp;doesn't&nbsp;exist.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ScrollBarCorner&nbsp;Widget.</span></dd>
+</dl>
+<dl><dt><strong>scrollbar_gutter</strong></dt>
+<dd><span class="code">Spacing&nbsp;required&nbsp;to&nbsp;fit&nbsp;scrollbar(s).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Scrollbar&nbsp;gutter&nbsp;spacing.</span></dd>
+</dl>
+<dl><dt><strong>scrollbar_size_horizontal</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;height&nbsp;used&nbsp;by&nbsp;the&nbsp;*horizontal*&nbsp;scrollbar.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Number&nbsp;of&nbsp;rows&nbsp;in&nbsp;the&nbsp;horizontal&nbsp;scrollbar.</span></dd>
+</dl>
+<dl><dt><strong>scrollbar_size_vertical</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;width&nbsp;used&nbsp;by&nbsp;the&nbsp;*vertical*&nbsp;scrollbar.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Number&nbsp;of&nbsp;columns&nbsp;in&nbsp;the&nbsp;vertical&nbsp;scrollbar.</span></dd>
+</dl>
+<dl><dt><strong>scrollbars_enabled</strong></dt>
+<dd><span class="code">A&nbsp;tuple&nbsp;of&nbsp;booleans&nbsp;that&nbsp;indicate&nbsp;if&nbsp;scrollbars&nbsp;are&nbsp;enabled.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;tuple&nbsp;of&nbsp;(&lt;vertical&nbsp;scrollbar&nbsp;enabled&gt;,&nbsp;&lt;horizontal&nbsp;scrollbar&nbsp;enabled&gt;)</span></dd>
+</dl>
+<dl><dt><strong>scrollbars_space</strong></dt>
+<dd><span class="code">The&nbsp;number&nbsp;of&nbsp;cells&nbsp;occupied&nbsp;by&nbsp;scrollbars&nbsp;for&nbsp;width&nbsp;and&nbsp;height</span></dd>
+</dl>
+<dl><dt><strong>siblings</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;widget's&nbsp;siblings&nbsp;(self&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;return&nbsp;list).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;siblings.</span></dd>
+</dl>
+<dl><dt><strong>size</strong></dt>
+<dd><span class="code">The&nbsp;size&nbsp;of&nbsp;the&nbsp;content&nbsp;area.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Content&nbsp;area&nbsp;size.</span></dd>
+</dl>
+<dl><dt><strong>vertical_scrollbar</strong></dt>
+<dd><span class="code">The&nbsp;vertical&nbsp;scrollbar&nbsp;(create&nbsp;if&nbsp;necessary).<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;*create*&nbsp;a&nbsp;scrollbar&nbsp;if&nbsp;one&nbsp;doesn't&nbsp;exist.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ScrollBar&nbsp;Widget.</span></dd>
+</dl>
+<dl><dt><strong>virtual_region</strong></dt>
+<dd><span class="code">The&nbsp;widget&nbsp;region&nbsp;relative&nbsp;to&nbsp;it's&nbsp;container&nbsp;(which&nbsp;may&nbsp;not&nbsp;be&nbsp;visible,<br>
+depending&nbsp;on&nbsp;scroll&nbsp;offset).<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;virtual&nbsp;region.</span></dd>
+</dl>
+<dl><dt><strong>virtual_region_with_margin</strong></dt>
+<dd><span class="code">The&nbsp;widget&nbsp;region&nbsp;relative&nbsp;to&nbsp;its&nbsp;container&nbsp;(*including&nbsp;margin*),&nbsp;which&nbsp;may&nbsp;not&nbsp;be&nbsp;visible,<br>
+depending&nbsp;on&nbsp;the&nbsp;scroll&nbsp;offset.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;virtual&nbsp;region&nbsp;of&nbsp;the&nbsp;Widget,&nbsp;inclusive&nbsp;of&nbsp;its&nbsp;margin.</span></dd>
+</dl>
+<dl><dt><strong>visible_siblings</strong></dt>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;siblings&nbsp;which&nbsp;will&nbsp;be&nbsp;shown.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;of&nbsp;siblings.</span></dd>
+</dl>
+<dl><dt><strong>window_region</strong></dt>
+<dd><span class="code">The&nbsp;region&nbsp;within&nbsp;the&nbsp;scrollable&nbsp;area&nbsp;that&nbsp;is&nbsp;currently&nbsp;visible.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;region.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="textual.widget.html#Widget">textual.widget.Widget</a>:<br>
+<dl><dt><strong>auto_links</strong></dt>
+</dl>
+<dl><dt><strong>border_subtitle</strong></dt>
+</dl>
+<dl><dt><strong>border_title</strong></dt>
+</dl>
+<dl><dt><strong>disabled</strong></dt>
+</dl>
+<dl><dt><strong>expand</strong></dt>
+</dl>
+<dl><dt><strong>has_focus</strong></dt>
+</dl>
+<dl><dt><strong>highlight_link_id</strong></dt>
+</dl>
+<dl><dt><strong>hover_style</strong></dt>
+</dl>
+<dl><dt><strong>loading</strong></dt>
+</dl>
+<dl><dt><strong>mouse_over</strong></dt>
+</dl>
+<dl><dt><strong>offset</strong></dt>
+<dd><span class="code">Widget&nbsp;offset&nbsp;from&nbsp;origin.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Relative&nbsp;offset.</span></dd>
+</dl>
+<dl><dt><strong>scroll_target_x</strong></dt>
+</dl>
+<dl><dt><strong>scroll_target_y</strong></dt>
+</dl>
+<dl><dt><strong>scroll_x</strong></dt>
+</dl>
+<dl><dt><strong>scroll_y</strong></dt>
+</dl>
+<dl><dt><strong>show_horizontal_scrollbar</strong></dt>
+</dl>
+<dl><dt><strong>show_vertical_scrollbar</strong></dt>
+</dl>
+<dl><dt><strong>shrink</strong></dt>
+</dl>
+<dl><dt><strong>tooltip</strong></dt>
+<dd><span class="code">Tooltip&nbsp;for&nbsp;the&nbsp;widget,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;no&nbsp;tooltip.</span></dd>
+</dl>
+<dl><dt><strong>virtual_size</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="textual.widget.html#Widget">textual.widget.Widget</a>:<br>
+<dl><dt><strong>BORDER_SUBTITLE</strong> = ''</dl>
+
+<dl><dt><strong>BORDER_TITLE</strong> = ''</dl>
+
+<dl><dt><strong>COMPONENT_CLASSES</strong> = set()</dl>
+
+<dl><dt><strong>ExpectType</strong> = ~ExpectType</dl>
+
+<hr>
+Methods inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
+<dl><dt>async <a name="Plot-action_toggle"><strong>action_toggle</strong></a>(self, attribute_name: 'str') -&gt; 'None'</dt><dd><span class="code">Toggle&nbsp;an&nbsp;attribute&nbsp;on&nbsp;the&nbsp;node.<br>
+&nbsp;<br>
+Assumes&nbsp;the&nbsp;attribute&nbsp;is&nbsp;a&nbsp;bool.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute_name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute.</span></dd></dl>
+
+<dl><dt><a name="Plot-add_class"><strong>add_class</strong></a>(self, *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;class&nbsp;names&nbsp;to&nbsp;this&nbsp;Node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;add.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Plot-data_bind"><strong>data_bind</strong></a>(self, *reactives: 'Reactive[Any]', **bind_vars: 'Reactive[Any] | object') -&gt; 'Self'</dt><dd><span class="code">Bind&nbsp;reactive&nbsp;data&nbsp;so&nbsp;that&nbsp;changes&nbsp;to&nbsp;a&nbsp;reactive&nbsp;automatically&nbsp;change&nbsp;the&nbsp;reactive&nbsp;on&nbsp;another&nbsp;widget.<br>
+&nbsp;<br>
+Reactives&nbsp;may&nbsp;be&nbsp;given&nbsp;as&nbsp;positional&nbsp;arguments&nbsp;or&nbsp;keyword&nbsp;arguments.<br>
+See&nbsp;the&nbsp;[guide&nbsp;on&nbsp;data&nbsp;binding](/guide/reactivity#data-binding).<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;<a href="#Plot-compose">compose</a>(self)&nbsp;-&gt;&nbsp;ComposeResult:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Europe/London").<a href="#Plot-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Europe/Paris").<a href="#Plot-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Asia/Tokyo").<a href="#Plot-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReactiveError:&nbsp;If&nbsp;the&nbsp;data&nbsp;wasn't&nbsp;bound.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Plot-get_component_styles"><strong>get_component_styles</strong></a>(self, name: 'str') -&gt; 'RenderStyles'</dt><dd><span class="code">Get&nbsp;a&nbsp;"component"&nbsp;styles&nbsp;object&nbsp;(must&nbsp;be&nbsp;defined&nbsp;in&nbsp;COMPONENT_CLASSES&nbsp;classvar).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;component.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;KeyError:&nbsp;If&nbsp;the&nbsp;component&nbsp;class&nbsp;doesn't&nbsp;exist.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Styles&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Plot-has_class"><strong>has_class</strong></a>(self, *class_names: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;the&nbsp;Node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;class&nbsp;names.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;check.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;``True``&nbsp;if&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;class&nbsp;names,&nbsp;otherwise&nbsp;``False``.</span></dd></dl>
+
+<dl><dt><a name="Plot-has_pseudo_class"><strong>has_pseudo_class</strong></a>(self, class_name: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;the&nbsp;node&nbsp;has&nbsp;the&nbsp;given&nbsp;pseudo&nbsp;class.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_name:&nbsp;The&nbsp;pseudo&nbsp;class&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;DOM&nbsp;node&nbsp;has&nbsp;the&nbsp;pseudo&nbsp;class,&nbsp;`False`&nbsp;if&nbsp;not.</span></dd></dl>
+
+<dl><dt><a name="Plot-has_pseudo_classes"><strong>has_pseudo_classes</strong></a>(self, class_names: 'set[str]') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;pseudo&nbsp;classes.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names:&nbsp;Set&nbsp;of&nbsp;class&nbsp;names&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;all&nbsp;pseudo&nbsp;class&nbsp;names&nbsp;are&nbsp;present.</span></dd></dl>
+
+<dl><dt><a name="Plot-query"><strong>query</strong></a>(self, selector: 'str | type[QueryType] | None' = None) -&gt; 'DOMQuery[Widget] | DOMQuery[QueryType]'</dt><dd><span class="code">Query&nbsp;the&nbsp;DOM&nbsp;for&nbsp;children&nbsp;that&nbsp;match&nbsp;a&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector,&nbsp;widget&nbsp;type,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;all&nbsp;nodes.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;query&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Plot-query_one"><strong>query_one</strong></a>(self, selector: 'str | type[QueryType]', expect_type: 'type[QueryType] | None' = None) -&gt; 'QueryType | Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;widget&nbsp;from&nbsp;this&nbsp;widget's&nbsp;children&nbsp;that&nbsp;matches&nbsp;a&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;any&nbsp;type.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WrongType:&nbsp;If&nbsp;the&nbsp;wrong&nbsp;type&nbsp;was&nbsp;found.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;node&nbsp;matches&nbsp;the&nbsp;query.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TooManyMatches:&nbsp;If&nbsp;there&nbsp;is&nbsp;more&nbsp;than&nbsp;one&nbsp;matching&nbsp;node&nbsp;in&nbsp;the&nbsp;query.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;matching&nbsp;the&nbsp;selector.</span></dd></dl>
+
+<dl><dt><a name="Plot-remove_class"><strong>remove_class</strong></a>(self, *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Remove&nbsp;class&nbsp;names&nbsp;from&nbsp;this&nbsp;Node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;remove.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Plot-reset_styles"><strong>reset_styles</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Reset&nbsp;styles&nbsp;back&nbsp;to&nbsp;their&nbsp;initial&nbsp;state.</span></dd></dl>
+
+<dl><dt><a name="Plot-run_worker"><strong>run_worker</strong></a>(self, work: 'WorkType[ResultType]', name: 'str | None' = '', group: 'str' = 'default', description: 'str' = '', exit_on_error: 'bool' = True, start: 'bool' = True, exclusive: 'bool' = False, thread: 'bool' = False) -&gt; 'Worker[ResultType]'</dt><dd><span class="code">Run&nbsp;work&nbsp;in&nbsp;a&nbsp;worker.<br>
+&nbsp;<br>
+A&nbsp;worker&nbsp;runs&nbsp;a&nbsp;function,&nbsp;coroutine,&nbsp;or&nbsp;awaitable,&nbsp;in&nbsp;the&nbsp;*background*&nbsp;as&nbsp;an&nbsp;async&nbsp;task&nbsp;or&nbsp;as&nbsp;a&nbsp;thread.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;work:&nbsp;A&nbsp;function,&nbsp;async&nbsp;function,&nbsp;or&nbsp;an&nbsp;awaitable&nbsp;object&nbsp;to&nbsp;run&nbsp;in&nbsp;a&nbsp;worker.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;A&nbsp;short&nbsp;string&nbsp;to&nbsp;identify&nbsp;the&nbsp;worker&nbsp;(in&nbsp;logs&nbsp;and&nbsp;debugging).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;A&nbsp;short&nbsp;string&nbsp;to&nbsp;identify&nbsp;a&nbsp;group&nbsp;of&nbsp;workers.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;description:&nbsp;A&nbsp;longer&nbsp;string&nbsp;to&nbsp;store&nbsp;longer&nbsp;information&nbsp;on&nbsp;the&nbsp;worker.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exit_on_error:&nbsp;Exit&nbsp;the&nbsp;app&nbsp;if&nbsp;the&nbsp;worker&nbsp;raises&nbsp;an&nbsp;error.&nbsp;Set&nbsp;to&nbsp;`False`&nbsp;to&nbsp;suppress&nbsp;exceptions.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;start:&nbsp;Start&nbsp;the&nbsp;worker&nbsp;immediately.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exclusive:&nbsp;Cancel&nbsp;all&nbsp;workers&nbsp;in&nbsp;the&nbsp;same&nbsp;group.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;thread:&nbsp;Mark&nbsp;the&nbsp;worker&nbsp;as&nbsp;a&nbsp;thread&nbsp;worker.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;Worker&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Plot-set_class"><strong>set_class</strong></a>(self, add: 'bool', *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;or&nbsp;remove&nbsp;class(es)&nbsp;based&nbsp;on&nbsp;a&nbsp;condition.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;add:&nbsp;Add&nbsp;the&nbsp;classes&nbsp;if&nbsp;True,&nbsp;otherwise&nbsp;remove&nbsp;them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Plot-set_classes"><strong>set_classes</strong></a>(self, classes: 'str | Iterable[str]') -&gt; 'Self'</dt><dd><span class="code">Replace&nbsp;all&nbsp;classes.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;classes:&nbsp;A&nbsp;string&nbsp;containing&nbsp;space&nbsp;separated&nbsp;classes,&nbsp;or&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iterable&nbsp;of&nbsp;class&nbsp;names.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Plot-set_reactive"><strong>set_reactive</strong></a>(self, reactive: 'Reactive[ReactiveType]', value: 'ReactiveType') -&gt; 'None'</dt><dd><span class="code">Sets&nbsp;a&nbsp;reactive&nbsp;value&nbsp;*without*&nbsp;invoking&nbsp;validators&nbsp;or&nbsp;watchers.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#Plot-set_reactive">set_reactive</a>(App.dark_mode,&nbsp;True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;reactive&nbsp;attribute.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;New&nbsp;value&nbsp;of&nbsp;reactive.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError:&nbsp;If&nbsp;the&nbsp;first&nbsp;argument&nbsp;is&nbsp;not&nbsp;a&nbsp;reactive.</span></dd></dl>
+
+<dl><dt><a name="Plot-set_styles"><strong>set_styles</strong></a>(self, css: 'str | None' = None, **update_styles: 'Any') -&gt; 'Self'</dt><dd><span class="code">Set&nbsp;custom&nbsp;styles&nbsp;on&nbsp;this&nbsp;object.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;css:&nbsp;Styles&nbsp;in&nbsp;CSS&nbsp;format.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update_styles:&nbsp;Keyword&nbsp;arguments&nbsp;map&nbsp;style&nbsp;names&nbsp;onto&nbsp;style&nbsp;values.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Plot-sort_children"><strong>sort_children</strong></a>(self, *, key: 'Callable[[Widget], SupportsRichComparison] | None' = None, reverse: 'bool' = False) -&gt; 'None'</dt><dd><span class="code">Sort&nbsp;child&nbsp;widgets&nbsp;with&nbsp;an&nbsp;optional&nbsp;key&nbsp;function.<br>
+&nbsp;<br>
+If&nbsp;`key`&nbsp;is&nbsp;not&nbsp;provided&nbsp;then&nbsp;widgets&nbsp;will&nbsp;be&nbsp;sorted&nbsp;in&nbsp;the&nbsp;order&nbsp;they&nbsp;are&nbsp;constructed.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Sort&nbsp;widgets&nbsp;by&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen.<a href="#Plot-sort_children">sort_children</a>(key=lambda&nbsp;widget:&nbsp;widget.name&nbsp;or&nbsp;"")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key:&nbsp;A&nbsp;callable&nbsp;which&nbsp;accepts&nbsp;a&nbsp;widget&nbsp;and&nbsp;returns&nbsp;something&nbsp;that&nbsp;can&nbsp;be&nbsp;sorted,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;sort&nbsp;without&nbsp;a&nbsp;key&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reverse:&nbsp;Sort&nbsp;in&nbsp;descending&nbsp;order.</span></dd></dl>
+
+<dl><dt><a name="Plot-toggle_class"><strong>toggle_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Toggle&nbsp;class&nbsp;names&nbsp;on&nbsp;this&nbsp;Node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;toggle.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Plot-walk_children"><strong>walk_children</strong></a>(self, filter_type: 'type[WalkType] | None' = None, *, with_self: 'bool' = False, method: 'WalkMethod' = 'depth', reverse: 'bool' = False) -&gt; 'list[DOMNode] | list[WalkType]'</dt><dd><span class="code">Walk&nbsp;the&nbsp;subtree&nbsp;rooted&nbsp;at&nbsp;this&nbsp;node,&nbsp;and&nbsp;return&nbsp;every&nbsp;descendant&nbsp;encountered&nbsp;in&nbsp;a&nbsp;list.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filter_type:&nbsp;Filter&nbsp;only&nbsp;this&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;no&nbsp;filter.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with_self:&nbsp;Also&nbsp;yield&nbsp;self&nbsp;in&nbsp;addition&nbsp;to&nbsp;descendants.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;method:&nbsp;One&nbsp;of&nbsp;"depth"&nbsp;or&nbsp;"breadth".<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reverse:&nbsp;Reverse&nbsp;the&nbsp;order&nbsp;(bottom&nbsp;up).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd></dl>
+
+<dl><dt><a name="Plot-watch"><strong>watch</strong></a>(self, obj: 'DOMNode', attribute_name: 'str', callback: 'WatchCallbackType', init: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Watches&nbsp;for&nbsp;modifications&nbsp;to&nbsp;reactive&nbsp;attributes&nbsp;on&nbsp;another&nbsp;object.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Here's&nbsp;how&nbsp;you&nbsp;could&nbsp;detect&nbsp;when&nbsp;the&nbsp;app&nbsp;changes&nbsp;from&nbsp;dark&nbsp;to&nbsp;light&nbsp;mode&nbsp;(and&nbsp;vice&nbsp;versa).<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;on_dark_change(old_value:bool,&nbsp;new_value:bool):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Called&nbsp;when&nbsp;app.dark&nbsp;changes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("App.dark&nbsp;when&nbsp;from&nbsp;{old_value}&nbsp;to&nbsp;{new_value}")<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#Plot-watch">watch</a>(self.<strong>app</strong>,&nbsp;"dark",&nbsp;self.<strong>on_dark_change</strong>,&nbsp;init=False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj:&nbsp;Object&nbsp;containing&nbsp;attribute&nbsp;to&nbsp;watch.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute_name:&nbsp;Attribute&nbsp;to&nbsp;watch.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;A&nbsp;callback&nbsp;to&nbsp;run&nbsp;when&nbsp;attribute&nbsp;changes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;init:&nbsp;Check&nbsp;watchers&nbsp;on&nbsp;first&nbsp;call.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
+<dl><dt><strong>ancestors</strong></dt>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;found&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
+</dl>
+<dl><dt><strong>ancestors_with_self</strong></dt>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;found&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;inclusive&nbsp;of&nbsp;``self``.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
+</dl>
+<dl><dt><strong>background_colors</strong></dt>
+<dd><span class="code">The&nbsp;background&nbsp;color&nbsp;and&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;parent's&nbsp;background.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`(&lt;background&nbsp;color&gt;,&nbsp;&lt;color&gt;)`</span></dd>
+</dl>
+<dl><dt><strong>children</strong></dt>
+<dd><span class="code">A&nbsp;view&nbsp;on&nbsp;to&nbsp;the&nbsp;children.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;node's&nbsp;children.</span></dd>
+</dl>
+<dl><dt><strong>colors</strong></dt>
+<dd><span class="code">The&nbsp;widget's&nbsp;background&nbsp;and&nbsp;foreground&nbsp;colors,&nbsp;and&nbsp;the&nbsp;parent's&nbsp;background&nbsp;and&nbsp;foreground&nbsp;colors.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`(&lt;parent&nbsp;background&gt;,&nbsp;&lt;parent&nbsp;color&gt;,&nbsp;&lt;background&gt;,&nbsp;&lt;color&gt;)`</span></dd>
+</dl>
+<dl><dt><strong>css_identifier</strong></dt>
+<dd><span class="code">A&nbsp;CSS&nbsp;selector&nbsp;that&nbsp;identifies&nbsp;this&nbsp;DOM&nbsp;node.</span></dd>
+</dl>
+<dl><dt><strong>css_identifier_styled</strong></dt>
+<dd><span class="code">A&nbsp;syntax&nbsp;highlighted&nbsp;CSS&nbsp;identifier.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Rich&nbsp;Text&nbsp;object.</span></dd>
+</dl>
+<dl><dt><strong>css_path_nodes</strong></dt>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;nodes&nbsp;from&nbsp;the&nbsp;App&nbsp;to&nbsp;this&nbsp;node,&nbsp;forming&nbsp;a&nbsp;"path".<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes,&nbsp;where&nbsp;the&nbsp;first&nbsp;item&nbsp;is&nbsp;the&nbsp;App,&nbsp;and&nbsp;the&nbsp;last&nbsp;is&nbsp;this&nbsp;node.</span></dd>
+</dl>
+<dl><dt><strong>css_tree</strong></dt>
+<dd><span class="code">A&nbsp;Rich&nbsp;tree&nbsp;to&nbsp;display&nbsp;the&nbsp;DOM,&nbsp;annotated&nbsp;with&nbsp;the&nbsp;node's&nbsp;CSS.<br>
+&nbsp;<br>
+Log&nbsp;this&nbsp;to&nbsp;visualize&nbsp;your&nbsp;app&nbsp;in&nbsp;the&nbsp;textual&nbsp;console.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.log(self.<strong>css_tree</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Tree&nbsp;renderable.</span></dd>
+</dl>
+<dl><dt><strong>displayed_children</strong></dt>
+<dd><span class="code">The&nbsp;child&nbsp;nodes&nbsp;which&nbsp;will&nbsp;be&nbsp;displayed.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
+</dl>
+<dl><dt><strong>is_modal</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;node&nbsp;a&nbsp;modal?</span></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+<dd><span class="code">The&nbsp;name&nbsp;of&nbsp;the&nbsp;node.</span></dd>
+</dl>
+<dl><dt><strong>parent</strong></dt>
+<dd><span class="code">The&nbsp;parent&nbsp;node.<br>
+&nbsp;<br>
+All&nbsp;nodes&nbsp;have&nbsp;parent&nbsp;once&nbsp;added&nbsp;to&nbsp;the&nbsp;DOM,&nbsp;with&nbsp;the&nbsp;exception&nbsp;of&nbsp;the&nbsp;App&nbsp;which&nbsp;is&nbsp;the&nbsp;*root*&nbsp;node.</span></dd>
+</dl>
+<dl><dt><strong>pseudo_classes</strong></dt>
+<dd><span class="code">A&nbsp;(frozen)&nbsp;set&nbsp;of&nbsp;all&nbsp;pseudo&nbsp;classes.</span></dd>
+</dl>
+<dl><dt><strong>rich_style</strong></dt>
+<dd><span class="code">Get&nbsp;a&nbsp;Rich&nbsp;Style&nbsp;object&nbsp;for&nbsp;this&nbsp;DOMNode.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Rich&nbsp;style.</span></dd>
+</dl>
+<dl><dt><strong>screen</strong></dt>
+<dd><span class="code">The&nbsp;screen&nbsp;containing&nbsp;this&nbsp;node.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;screen&nbsp;object.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoScreen:&nbsp;If&nbsp;this&nbsp;node&nbsp;isn't&nbsp;mounted&nbsp;(and&nbsp;has&nbsp;no&nbsp;screen).</span></dd>
+</dl>
+<dl><dt><strong>text_style</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;text&nbsp;style&nbsp;object.<br>
+&nbsp;<br>
+A&nbsp;widget's&nbsp;style&nbsp;is&nbsp;influenced&nbsp;by&nbsp;its&nbsp;parent.&nbsp;for&nbsp;instance&nbsp;if&nbsp;a&nbsp;parent&nbsp;is&nbsp;bold,&nbsp;then<br>
+the&nbsp;child&nbsp;will&nbsp;also&nbsp;be&nbsp;bold.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Rich&nbsp;Style.</span></dd>
+</dl>
+<dl><dt><strong>tree</strong></dt>
+<dd><span class="code">A&nbsp;Rich&nbsp;tree&nbsp;to&nbsp;display&nbsp;the&nbsp;DOM.<br>
+&nbsp;<br>
+Log&nbsp;this&nbsp;to&nbsp;visualize&nbsp;your&nbsp;app&nbsp;in&nbsp;the&nbsp;textual&nbsp;console.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.log(self.<strong>tree</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Tree&nbsp;renderable.</span></dd>
+</dl>
+<dl><dt><strong>workers</strong></dt>
+<dd><span class="code">The&nbsp;app's&nbsp;worker&nbsp;manager.&nbsp;Shortcut&nbsp;for&nbsp;`self.<strong>app</strong>.workers`.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
+<dl><dt><strong>auto_refresh</strong></dt>
+<dd><span class="code">Number&nbsp;of&nbsp;seconds&nbsp;between&nbsp;automatic&nbsp;refresh,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;no&nbsp;automatic&nbsp;refresh.</span></dd>
+</dl>
+<dl><dt><strong>classes</strong></dt>
+</dl>
+<dl><dt><strong>display</strong></dt>
+<dd><span class="code">Should&nbsp;the&nbsp;DOM&nbsp;node&nbsp;be&nbsp;displayed?<br>
+&nbsp;<br>
+May&nbsp;be&nbsp;set&nbsp;to&nbsp;a&nbsp;boolean&nbsp;to&nbsp;show&nbsp;or&nbsp;hide&nbsp;the&nbsp;node,&nbsp;or&nbsp;to&nbsp;any&nbsp;valid&nbsp;value&nbsp;for&nbsp;the&nbsp;`display`&nbsp;rule.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;my_widget.display&nbsp;=&nbsp;False&nbsp;&nbsp;#&nbsp;Hide&nbsp;my_widget<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd>
+</dl>
+<dl><dt><strong>id</strong></dt>
+<dd><span class="code">The&nbsp;ID&nbsp;of&nbsp;this&nbsp;node,&nbsp;or&nbsp;None&nbsp;if&nbsp;the&nbsp;node&nbsp;has&nbsp;no&nbsp;ID.</span></dd>
+</dl>
+<dl><dt><strong>visible</strong></dt>
+<dd><span class="code">Is&nbsp;this&nbsp;widget&nbsp;visible&nbsp;in&nbsp;the&nbsp;DOM?<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;widget&nbsp;hasn't&nbsp;had&nbsp;its&nbsp;visibility&nbsp;set&nbsp;explicitly,&nbsp;then&nbsp;it&nbsp;inherits&nbsp;it&nbsp;from&nbsp;its<br>
+DOM&nbsp;ancestors.<br>
+&nbsp;<br>
+This&nbsp;may&nbsp;be&nbsp;set&nbsp;explicitly&nbsp;to&nbsp;override&nbsp;inherited&nbsp;values.<br>
+The&nbsp;valid&nbsp;values&nbsp;include&nbsp;the&nbsp;valid&nbsp;values&nbsp;for&nbsp;the&nbsp;`visibility`&nbsp;rule&nbsp;and&nbsp;the&nbsp;booleans<br>
+`True`&nbsp;or&nbsp;`False`,&nbsp;to&nbsp;set&nbsp;the&nbsp;widget&nbsp;to&nbsp;be&nbsp;visible&nbsp;or&nbsp;invisible,&nbsp;respectively.<br>
+&nbsp;<br>
+When&nbsp;a&nbsp;node&nbsp;is&nbsp;invisible,&nbsp;Textual&nbsp;will&nbsp;reserve&nbsp;space&nbsp;for&nbsp;it,&nbsp;but&nbsp;won't&nbsp;display&nbsp;anything.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
+<dl><dt><strong>BINDINGS</strong> = []</dl>
+
+<dl><dt><strong>DEFAULT_CLASSES</strong> = ''</dl>
+
+<dl><dt><strong>SCOPED_CSS</strong> = True</dl>
+
+<dl><dt><strong>WalkType</strong> = ~WalkType</dl>
+
+<hr>
+Methods inherited from <a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a>:<br>
+<dl><dt><a name="Plot-call_after_refresh"><strong>call_after_refresh</strong></a>(self, callback: 'Callback', *args: 'Any', **kwargs: 'Any') -&gt; 'bool'</dt><dd><span class="code">Schedule&nbsp;a&nbsp;callback&nbsp;to&nbsp;run&nbsp;after&nbsp;all&nbsp;messages&nbsp;are&nbsp;processed&nbsp;and&nbsp;the&nbsp;screen<br>
+has&nbsp;been&nbsp;refreshed.&nbsp;Positional&nbsp;and&nbsp;keyword&nbsp;arguments&nbsp;are&nbsp;passed&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;A&nbsp;callable.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;callback&nbsp;was&nbsp;scheduled,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;the&nbsp;callback&nbsp;could&nbsp;not&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduled&nbsp;(may&nbsp;occur&nbsp;if&nbsp;the&nbsp;message&nbsp;pump&nbsp;was&nbsp;closed&nbsp;or&nbsp;closing).</span></dd></dl>
+
+<dl><dt><a name="Plot-call_later"><strong>call_later</strong></a>(self, callback: 'Callback', *args: 'Any', **kwargs: 'Any') -&gt; 'bool'</dt><dd><span class="code">Schedule&nbsp;a&nbsp;callback&nbsp;to&nbsp;run&nbsp;after&nbsp;all&nbsp;messages&nbsp;are&nbsp;processed&nbsp;in&nbsp;this&nbsp;object.<br>
+Positional&nbsp;and&nbsp;keywords&nbsp;arguments&nbsp;are&nbsp;passed&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callable&nbsp;to&nbsp;call&nbsp;next.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*args:&nbsp;Positional&nbsp;arguments&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**kwargs:&nbsp;Keyword&nbsp;arguments&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;callback&nbsp;was&nbsp;scheduled,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;the&nbsp;callback&nbsp;could&nbsp;not&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheduled&nbsp;(may&nbsp;occur&nbsp;if&nbsp;the&nbsp;message&nbsp;pump&nbsp;was&nbsp;closed&nbsp;or&nbsp;closing).</span></dd></dl>
+
+<dl><dt><a name="Plot-call_next"><strong>call_next</strong></a>(self, callback: 'Callback', *args: 'Any', **kwargs: 'Any') -&gt; 'None'</dt><dd><span class="code">Schedule&nbsp;a&nbsp;callback&nbsp;to&nbsp;run&nbsp;immediately&nbsp;after&nbsp;processing&nbsp;the&nbsp;current&nbsp;message.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callable&nbsp;to&nbsp;run&nbsp;after&nbsp;current&nbsp;event.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*args:&nbsp;Positional&nbsp;arguments&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;callable.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**kwargs:&nbsp;Keyword&nbsp;arguments&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;callable.</span></dd></dl>
+
+<dl><dt><a name="Plot-check_idle"><strong>check_idle</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Prompt&nbsp;the&nbsp;message&nbsp;pump&nbsp;to&nbsp;call&nbsp;idle&nbsp;if&nbsp;the&nbsp;queue&nbsp;is&nbsp;empty.</span></dd></dl>
+
+<dl><dt><a name="Plot-disable_messages"><strong>disable_messages</strong></a>(self, *messages: 'type[Message]') -&gt; 'None'</dt><dd><span class="code">Disable&nbsp;message&nbsp;types&nbsp;from&nbsp;being&nbsp;processed.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-dispatch_key"><strong>dispatch_key</strong></a>(self, event: 'events.Key') -&gt; 'bool'</dt><dd><span class="code">Dispatch&nbsp;a&nbsp;key&nbsp;event&nbsp;to&nbsp;method.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;will&nbsp;call&nbsp;the&nbsp;method&nbsp;named&nbsp;'key_&lt;event.key&gt;'&nbsp;if&nbsp;it&nbsp;exists.<br>
+Some&nbsp;keys&nbsp;have&nbsp;aliases.&nbsp;The&nbsp;first&nbsp;alias&nbsp;found&nbsp;will&nbsp;be&nbsp;invoked&nbsp;if&nbsp;it&nbsp;exists.<br>
+If&nbsp;multiple&nbsp;handlers&nbsp;exist&nbsp;that&nbsp;match&nbsp;the&nbsp;key,&nbsp;an&nbsp;exception&nbsp;is&nbsp;raised.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;A&nbsp;key&nbsp;event.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;key&nbsp;was&nbsp;handled,&nbsp;otherwise&nbsp;False.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DuplicateKeyHandlers:&nbsp;When&nbsp;there's&nbsp;more&nbsp;than&nbsp;1&nbsp;handler&nbsp;that&nbsp;could&nbsp;handle&nbsp;this&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="Plot-enable_messages"><strong>enable_messages</strong></a>(self, *messages: 'type[Message]') -&gt; 'None'</dt><dd><span class="code">Enable&nbsp;processing&nbsp;of&nbsp;messages&nbsp;types.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-on_callback"><strong>on_callback</strong></a>(self, event: 'events.Callback') -&gt; 'None'</dt></dl>
+
+<dl><dt>async <a name="Plot-on_event"><strong>on_event</strong></a>(self, event: 'events.Event') -&gt; 'None'</dt><dd><span class="code">Called&nbsp;to&nbsp;process&nbsp;an&nbsp;event.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;An&nbsp;Event&nbsp;object.</span></dd></dl>
+
+<dl><dt>async <a name="Plot-on_timer"><strong>on_timer</strong></a>(self, event: 'events.Timer') -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Plot-prevent"><strong>prevent</strong></a>(self, *message_types: 'type[Message]') -&gt; 'Generator[None, None, None]'</dt><dd><span class="code">A&nbsp;context&nbsp;manager&nbsp;to&nbsp;*temporarily*&nbsp;prevent&nbsp;the&nbsp;given&nbsp;message&nbsp;types&nbsp;from&nbsp;being&nbsp;posted.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;=&nbsp;self.<a href="#Plot-query_one">query_one</a>(Input)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;self.<a href="#Plot-prevent">prevent</a>(Input.Changed):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input.value&nbsp;=&nbsp;"foo"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd></dl>
+
+<dl><dt><a name="Plot-set_interval"><strong>set_interval</strong></a>(self, interval: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, repeat: 'int' = 0, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Call&nbsp;a&nbsp;function&nbsp;at&nbsp;periodic&nbsp;intervals.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interval:&nbsp;Time&nbsp;(in&nbsp;seconds)&nbsp;between&nbsp;calls.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Function&nbsp;to&nbsp;call.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat:&nbsp;Number&nbsp;of&nbsp;times&nbsp;to&nbsp;repeat&nbsp;the&nbsp;call&nbsp;or&nbsp;0&nbsp;for&nbsp;continuous.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pause:&nbsp;Start&nbsp;the&nbsp;timer&nbsp;paused.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;timer&nbsp;object.</span></dd></dl>
+
+<dl><dt><a name="Plot-set_timer"><strong>set_timer</strong></a>(self, delay: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Make&nbsp;a&nbsp;function&nbsp;call&nbsp;after&nbsp;a&nbsp;delay.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;Time&nbsp;(in&nbsp;seconds)&nbsp;to&nbsp;wait&nbsp;before&nbsp;invoking&nbsp;callback.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callback&nbsp;to&nbsp;call&nbsp;after&nbsp;time&nbsp;has&nbsp;expired.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;(for&nbsp;debug).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pause:&nbsp;Start&nbsp;timer&nbsp;paused.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;timer&nbsp;object.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a>:<br>
+<dl><dt><strong>app</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;app.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;current&nbsp;app.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoActiveAppError:&nbsp;if&nbsp;no&nbsp;active&nbsp;app&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;the&nbsp;current&nbsp;asyncio&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>has_parent</strong></dt>
+<dd><span class="code">Does&nbsp;this&nbsp;object&nbsp;have&nbsp;a&nbsp;parent?</span></dd>
+</dl>
+<dl><dt><strong>is_attached</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;node&nbsp;attached&nbsp;to&nbsp;the&nbsp;app&nbsp;via&nbsp;the&nbsp;DOM?</span></dd>
+</dl>
+<dl><dt><strong>is_parent_active</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;parent&nbsp;active?</span></dd>
+</dl>
+<dl><dt><strong>is_running</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;message&nbsp;pump&nbsp;running&nbsp;(potentially&nbsp;processing&nbsp;messages)?</span></dd>
+</dl>
+<dl><dt><strong>log</strong></dt>
+<dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;for&nbsp;this&nbsp;object.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;logger.</span></dd>
+</dl>
+<dl><dt><strong>message_queue_size</strong></dt>
+<dd><span class="code">The&nbsp;current&nbsp;size&nbsp;of&nbsp;the&nbsp;message&nbsp;queue.</span></dd>
+</dl>
+<dl><dt><strong>task</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from <a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ArrayLike</strong> = typing.Union[collections.abc.Buffer, numpy._typi...ng.Union[bool, int, float, complex, str, bytes]]]</td></tr></table>
+</body></html>

@@ -36,7 +36,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="FileExtension">class <strong>FileExtension</strong></a>(<a href="enum.html#Enum">enum.Enum</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#FileExtension">FileExtension</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FileExtension">FileExtension</a>(*values)<br>
 &nbsp;<br>
 A&nbsp;mapping&nbsp;of&nbsp;expected&nbsp;encoding&nbsp;type&nbsp;to&nbsp;file&nbsp;extensions.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -73,11 +73,11 @@ Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
 </dl>
 <hr>
 Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
-<dl><dt><a name="FileExtension-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
-raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+<dl><dt><a name="FileExtension-__contains__"><strong>__contains__</strong></a>(value)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;`value`&nbsp;is&nbsp;in&nbsp;`cls`.<br>
 &nbsp;<br>
-note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
-returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+`value`&nbsp;is&nbsp;in&nbsp;`cls`&nbsp;if:<br>
+1)&nbsp;`value`&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;`cls`,&nbsp;or<br>
+2)&nbsp;`value`&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;`cls`'s&nbsp;members.</span></dd></dl>
 
 <dl><dt><a name="FileExtension-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
 
@@ -111,6 +111,8 @@ whether&nbsp;or&nbsp;not&nbsp;it&nbsp;succeeded.<br>&nbsp;</span></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
+<dl><dt><a name="LoadResult-__bool__"><strong>__bool__</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
 <dl><dt><a name="LoadResult-__eq__"><strong>__eq__</strong></a>(self, other: object) -&gt; bool</dt><dd><span class="code">Don't&nbsp;compare&nbsp;timing&nbsp;when&nbsp;checking&nbsp;equivalence.</span></dd></dl>
 
 <dl><dt><a name="LoadResult-__getnewargs__"><strong>__getnewargs__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;self&nbsp;as&nbsp;a&nbsp;plain&nbsp;<a href="builtins.html#tuple">tuple</a>.&nbsp;&nbsp;Used&nbsp;by&nbsp;copy&nbsp;and&nbsp;pickle.</span></dd></dl>
@@ -160,7 +162,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="LoadResult-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="LoadResult-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="LoadResult-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="LoadResult-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self&gt;=value.</span></dd></dl>
 
@@ -204,15 +206,15 @@ Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<b
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>DEFAULT_ARCHIVE_EXT</strong> = 'tar.gz'<br>
 <strong>DEFAULT_DATA_EXT</strong> = 'json'<br>
-<strong>DataDecoder</strong> = typing.Callable[[typing.Union[typing.TextIO, _io...ng.LoggerAdapter]], vcorelib.io.types.LoadResult]<br>
-<strong>DataEncoder</strong> = typing.Callable[[typing.Dict[str, typing.Union[s...ion[logging.Logger, logging.LoggerAdapter]], int]<br>
+<strong>DataDecoder</strong> = typing.Callable[[typing.Union[typing.TextIO, _io...pter[typing.Any]]], vcorelib.io.types.LoadResult]<br>
+<strong>DataEncoder</strong> = typing.Callable[[typing.Dict[str, typing.Union[s...Logger, logging.LoggerAdapter[typing.Any]]], int]<br>
 <strong>DataStream</strong> = typing.Union[typing.TextIO, _io.StringIO]<br>
 <strong>EncodeResult</strong> = typing.Tuple[bool, int]<br>
 <strong>JsonArray</strong> = typing.List[typing.Union[str, int, float, bool, ...[typing.Union[str, int, float, bool, NoneType]]]]<br>
 <strong>JsonObject</strong> = typing.Dict[str, typing.Union[str, int, float, b...[typing.Union[str, int, float, bool, NoneType]]]]<br>
 <strong>JsonPrimitive</strong> = typing.Union[str, int, float, bool, NoneType]<br>
 <strong>JsonValue</strong> = typing.Union[str, int, float, bool, NoneType, ty...t[typing.Union[str, int, float, bool, NoneType]]]<br>
-<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
 <strong>StreamProcessor</strong> = typing.Callable[[typing.Union[typing.TextIO, _io...gIO]], typing.Union[typing.TextIO, _io.StringIO]]<br>
 <strong>YAML_INTERFACE</strong> = &lt;ruamel.yaml.main.YAML object&gt;</td></tr></table>
 </body></html>

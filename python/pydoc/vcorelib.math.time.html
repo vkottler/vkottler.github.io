@@ -37,7 +37,7 @@ A&nbsp;class&nbsp;for&nbsp;measuring&nbsp;and&nbsp;logging&nbsp;how&nbsp;long&nb
 <td class="singlecolumn">Methods defined here:<br>
 <dl><dt><a name="Timer-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;timer.</span></dd></dl>
 
-<dl><dt><a name="Timer-log"><strong>log</strong></a>(self, log: Union[logging.Logger, logging.LoggerAdapter], message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">Log&nbsp;how&nbsp;long&nbsp;the&nbsp;caller's&nbsp;context&nbsp;took&nbsp;to&nbsp;execute.</span></dd></dl>
+<dl><dt><a name="Timer-log"><strong>log</strong></a>(self, log: Union[logging.Logger, logging.LoggerAdapter[Any]], message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">Log&nbsp;how&nbsp;long&nbsp;the&nbsp;caller's&nbsp;context&nbsp;took&nbsp;to&nbsp;execute.</span></dd></dl>
 
 <dl><dt><a name="Timer-measure_ns"><strong>measure_ns</strong></a>(self) -&gt; Iterator[int]</dt><dd><span class="code">Compute&nbsp;the&nbsp;time&nbsp;that&nbsp;the&nbsp;caller's&nbsp;context&nbsp;takes,&nbsp;provides&nbsp;an&nbsp;integer<br>
 token&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;query&nbsp;for&nbsp;the&nbsp;result&nbsp;afterwards.</span></dd></dl>
@@ -47,10 +47,10 @@ token&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;query&nbsp;for&nbsp;the&
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -72,6 +72,6 @@ left&nbsp;over.</span></dd></dl>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
 <strong>TIMER</strong> = &lt;vcorelib.math.time.Timer object&gt;</td></tr></table>
 </body></html>

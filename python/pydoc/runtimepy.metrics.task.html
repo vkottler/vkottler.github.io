@@ -30,7 +30,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="PeriodicTaskMetrics">class <strong>PeriodicTaskMetrics</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#PeriodicTaskMetrics">PeriodicTaskMetrics</a>(dispatches:&nbsp;runtimepy.primitives.int.Uint32Primitive,&nbsp;rate_hz:&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;average_s:&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;max_s:&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;min_s:&nbsp;runtimepy.primitives.float.FloatPrimitive)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#PeriodicTaskMetrics">PeriodicTaskMetrics</a>(dispatches:&nbsp;runtimepy.primitives.int.Uint32Primitive,&nbsp;rate_hz:&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;average_s:&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;max_s:&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;min_s:&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;overruns:&nbsp;runtimepy.primitives.int.Uint16Primitive)<br>
 &nbsp;<br>
 Metrics&nbsp;for&nbsp;a&nbsp;periodic&nbsp;tasks.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -49,7 +49,7 @@ Methods defined here:<br>
 
 <dl><dt><a name="PeriodicTaskMetrics-_replace"><strong>_replace</strong></a>(self, /, **kwds)</dt><dd><span class="code">Return&nbsp;a&nbsp;new&nbsp;<a href="#PeriodicTaskMetrics">PeriodicTaskMetrics</a>&nbsp;object&nbsp;replacing&nbsp;specified&nbsp;fields&nbsp;with&nbsp;new&nbsp;values</span></dd></dl>
 
-<dl><dt><a name="PeriodicTaskMetrics-measure"><strong>measure</strong></a>(self, eloop: asyncio.events.AbstractEventLoop, rate: vcorelib.math.analysis.rate.RateTracker, dispatch: vcorelib.math.analysis.average.MovingAverage, iter_time: runtimepy.primitives.float.DoublePrimitive) -&gt; Iterator[NoneType]</dt><dd><span class="code">Measure&nbsp;the&nbsp;time&nbsp;spent&nbsp;yielding&nbsp;and&nbsp;update&nbsp;data.</span></dd></dl>
+<dl><dt><a name="PeriodicTaskMetrics-measure"><strong>measure</strong></a>(self, eloop: asyncio.events.AbstractEventLoop, rate: vcorelib.math.analysis.rate.RateTracker, dispatch: vcorelib.math.analysis.average.MovingAverage, iter_time: runtimepy.primitives.float.DoublePrimitive, period_s: float) -&gt; Iterator[NoneType]</dt><dd><span class="code">Measure&nbsp;the&nbsp;time&nbsp;spent&nbsp;yielding&nbsp;and&nbsp;update&nbsp;data.</span></dd></dl>
 
 <hr>
 Class methods defined here:<br>
@@ -57,7 +57,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="PeriodicTaskMetrics-__new__"><strong>__new__</strong></a>(_cls, dispatches: runtimepy.primitives.int.Uint32Primitive, rate_hz: runtimepy.primitives.float.FloatPrimitive, average_s: runtimepy.primitives.float.FloatPrimitive, max_s: runtimepy.primitives.float.FloatPrimitive, min_s: runtimepy.primitives.float.FloatPrimitive)</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#PeriodicTaskMetrics">PeriodicTaskMetrics</a>(dispatches,&nbsp;rate_hz,&nbsp;average_s,&nbsp;max_s,&nbsp;min_s)</span></dd></dl>
+<dl><dt><a name="PeriodicTaskMetrics-__new__"><strong>__new__</strong></a>(_cls, dispatches: runtimepy.primitives.int.Uint32Primitive, rate_hz: runtimepy.primitives.float.FloatPrimitive, average_s: runtimepy.primitives.float.FloatPrimitive, max_s: runtimepy.primitives.float.FloatPrimitive, min_s: runtimepy.primitives.float.FloatPrimitive, overruns: runtimepy.primitives.int.Uint16Primitive)</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#PeriodicTaskMetrics">PeriodicTaskMetrics</a>(dispatches,&nbsp;rate_hz,&nbsp;average_s,&nbsp;max_s,&nbsp;min_s,&nbsp;overruns)</span></dd></dl>
 
 <dl><dt><a name="PeriodicTaskMetrics-create"><strong>create</strong></a>() -&gt; 'PeriodicTaskMetrics'</dt><dd><span class="code">Create&nbsp;a&nbsp;new&nbsp;metrics&nbsp;instance.</span></dd></dl>
 
@@ -78,23 +78,26 @@ Data descriptors defined here:<br>
 <dl><dt><strong>min_s</strong></dt>
 <dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;4</span></dd>
 </dl>
+<dl><dt><strong>overruns</strong></dt>
+<dd><span class="code">Alias&nbsp;for&nbsp;field&nbsp;number&nbsp;5</span></dd>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'average_s': &lt;class 'runtimepy.primitives.float.FloatPrimitive'&gt;, 'dispatches': &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;, 'max_s': &lt;class 'runtimepy.primitives.float.FloatPrimitive'&gt;, 'min_s': &lt;class 'runtimepy.primitives.float.FloatPrimitive'&gt;, 'rate_hz': &lt;class 'runtimepy.primitives.float.FloatPrimitive'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'average_s': &lt;class 'runtimepy.primitives.float.FloatPrimitive'&gt;, 'dispatches': &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;, 'max_s': &lt;class 'runtimepy.primitives.float.FloatPrimitive'&gt;, 'min_s': &lt;class 'runtimepy.primitives.float.FloatPrimitive'&gt;, 'overruns': &lt;class 'runtimepy.primitives.int.Uint16Primitive'&gt;, 'rate_hz': &lt;class 'runtimepy.primitives.float.FloatPrimitive'&gt;}</dl>
 
-<dl><dt><strong>__match_args__</strong> = ('dispatches', 'rate_hz', 'average_s', 'max_s', 'min_s')</dl>
+<dl><dt><strong>__match_args__</strong> = ('dispatches', 'rate_hz', 'average_s', 'max_s', 'min_s', 'overruns')</dl>
 
 <dl><dt><strong>__orig_bases__</strong> = (&lt;function NamedTuple&gt;,)</dl>
 
 <dl><dt><strong>_field_defaults</strong> = {}</dl>
 
-<dl><dt><strong>_fields</strong> = ('dispatches', 'rate_hz', 'average_s', 'max_s', 'min_s')</dl>
+<dl><dt><strong>_fields</strong> = ('dispatches', 'rate_hz', 'average_s', 'max_s', 'min_s', 'overruns')</dl>
 
 <hr>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="PeriodicTaskMetrics-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="PeriodicTaskMetrics-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="PeriodicTaskMetrics-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="PeriodicTaskMetrics-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 

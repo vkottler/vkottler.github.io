@@ -16,7 +16,9 @@
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
     
 <tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><table><tr><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="vcorelib.namespace.base.html">base</a><br>
+</td><td class="multicolumn"><a href="vcorelib.namespace.mixin.html">mixin</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
@@ -26,8 +28,8 @@
 <dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
 </dt><dd>
 <dl>
-<dt class="heading-text"><a href="vcorelib.namespace.html#Namespace">Namespace</a>
-</dt><dt class="heading-text"><a href="vcorelib.namespace.html#NamespaceMixin">NamespaceMixin</a>
+<dt class="heading-text"><a href="vcorelib.namespace.base.html#Namespace">vcorelib.namespace.base.Namespace</a>
+</dt><dt class="heading-text"><a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a>
 </dt></dl>
 </dd>
 </dl>
@@ -46,6 +48,8 @@ A&nbsp;class&nbsp;for&nbsp;implementing&nbsp;a&nbsp;basic&nbsp;namespace&nbsp;in
 
 <dl><dt><a name="Namespace-child"><strong>child</strong></a>(self, *names: str) -&gt; 'Namespace'</dt><dd><span class="code">Create&nbsp;a&nbsp;child&nbsp;namespace&nbsp;from&nbsp;this&nbsp;one.</span></dd></dl>
 
+<dl><dt><a name="Namespace-length_sorted_suggestions"><strong>length_sorted_suggestions</strong></a>(self, data: str, delta: bool = True) -&gt; List[str]</dt><dd><span class="code">Get&nbsp;suggestions&nbsp;(based&nbsp;on&nbsp;data)&nbsp;sorted&nbsp;by&nbsp;length.</span></dd></dl>
+
 <dl><dt><a name="Namespace-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, track: bool = True) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;namespace&nbsp;string&nbsp;with&nbsp;or&nbsp;without&nbsp;an&nbsp;additional&nbsp;name<br>
 applied.</span></dd></dl>
 
@@ -60,6 +64,9 @@ context.</span></dd></dl>
 
 <dl><dt><a name="Namespace-suggest"><strong>suggest</strong></a>(self, data: str, delta: bool = True) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
 
+<dl><dt><a name="Namespace-suggestions"><strong>suggestions</strong></a>(self, data: str, delta: bool = True) -&gt; Iterator[str]</dt><dd><span class="code">Iterate&nbsp;over&nbsp;un-ordered&nbsp;suggestions&nbsp;for&nbsp;a&nbsp;data&nbsp;string&nbsp;that&nbsp;is&nbsp;a<br>
+sub-string&nbsp;of&nbsp;one&nbsp;or&nbsp;more&nbsp;names&nbsp;in&nbsp;this&nbsp;namespace.</span></dd></dl>
+
 <hr>
 Readonly properties defined here:<br>
 <dl><dt><strong>parents</strong></dt>
@@ -68,10 +75,10 @@ Readonly properties defined here:<br>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table> <p>
 <table class="section">
@@ -79,34 +86,39 @@ Data descriptors defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><a name="NamespaceMixin">class <strong>NamespaceMixin</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#NamespaceMixin">NamespaceMixin</a>(namespace:&nbsp;vcorelib.namespace.<a href="#Namespace">Namespace</a>&nbsp;=&nbsp;None,&nbsp;namespace_delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#NamespaceMixin">NamespaceMixin</a>(namespace:&nbsp;vcorelib.namespace.base.<a href="#Namespace">Namespace</a>&nbsp;=&nbsp;None,&nbsp;namespace_delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;giving&nbsp;arbitrary&nbsp;objects&nbsp;namespace&nbsp;capabilities.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="NamespaceMixin-__init__"><strong>__init__</strong></a>(self, namespace: vcorelib.namespace.Namespace = None, namespace_delim: str = '.') -&gt; None</dt><dd><span class="code">Initialize&nbsp;a&nbsp;namespace&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</span></dd></dl>
+<dl><dt><a name="NamespaceMixin-__init__"><strong>__init__</strong></a>(self, namespace: vcorelib.namespace.base.Namespace = None, namespace_delim: str = '.') -&gt; None</dt><dd><span class="code">Initialize&nbsp;a&nbsp;namespace&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</span></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; vcorelib.namespace.Namespace</dt><dd><span class="code">Obtain&nbsp;a&nbsp;child&nbsp;namespace.</span></dd></dl>
+<dl><dt><a name="NamespaceMixin-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; vcorelib.namespace.base.Namespace</dt><dd><span class="code">Obtain&nbsp;a&nbsp;child&nbsp;namespace.</span></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;<a href="builtins.html#object">object</a>'s&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+<dl><dt><a name="NamespaceMixin-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;<a href="builtins.html#object">object</a>'s&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</span></dd></dl>
+<dl><dt><a name="NamespaceMixin-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</span></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
+<dl><dt><a name="NamespaceMixin-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.base.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
+<dl><dt><a name="NamespaceMixin-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.base.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
+<dl><dt><a name="NamespaceMixin-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
 
-<dl><dt><a name="NamespaceMixin-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
+<dl><dt><a name="NamespaceMixin-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
 
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>ns</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;instance's&nbsp;namespace.</span></dd>
+</dl>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -115,5 +127,6 @@ Data descriptors defined here:<br>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>CPP_DELIM</strong> = '::'<br>
-<strong>DEFAULT_DELIM</strong> = '.'</td></tr></table>
+<strong>DEFAULT_DELIM</strong> = '.'<br>
+<strong>__all__</strong> = ['DEFAULT_DELIM', 'CPP_DELIM', 'Namespace', 'NamespaceMixin']</td></tr></table>
 </body></html>

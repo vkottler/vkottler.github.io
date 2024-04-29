@@ -23,7 +23,7 @@
 <dt class="heading-text"><a href="runtimepy.channel.environment.array.html#ChannelArray">ChannelArray</a>
 </dt></dl>
 </dd>
-<dt class="heading-text"><a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>(<a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>)
+<dt class="heading-text"><a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>(<a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a>, <a href="runtimepy.mixins.finalize.html#FinalizeMixin">runtimepy.mixins.finalize.FinalizeMixin</a>)
 </dt><dd>
 <dl>
 <dt class="heading-text"><a href="runtimepy.channel.environment.array.html#ArrayChannelEnvironment">ArrayChannelEnvironment</a>
@@ -36,14 +36,15 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="ArrayChannelEnvironment">class <strong>ArrayChannelEnvironment</strong></a>(<a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#ArrayChannelEnvironment">ArrayChannelEnvironment</a>(channels:&nbsp;runtimepy.channel.registry.ChannelRegistry&nbsp;=&nbsp;None,&nbsp;enums:&nbsp;runtimepy.enum.registry.EnumRegistry&nbsp;=&nbsp;None,&nbsp;values:&nbsp;Dict[Union[str,&nbsp;int],&nbsp;Union[bool,&nbsp;int,&nbsp;float,&nbsp;str]]&nbsp;=&nbsp;None,&nbsp;fields:&nbsp;Iterable[runtimepy.primitives.field.fields.BitFields]&nbsp;=&nbsp;None,&nbsp;namespace:&nbsp;vcorelib.namespace.Namespace&nbsp;=&nbsp;None,&nbsp;namespace_delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ArrayChannelEnvironment">ArrayChannelEnvironment</a>(channels:&nbsp;runtimepy.channel.registry.ChannelRegistry&nbsp;=&nbsp;None,&nbsp;enums:&nbsp;runtimepy.enum.registry.EnumRegistry&nbsp;=&nbsp;None,&nbsp;values:&nbsp;dict[typing.Union[str,&nbsp;int],&nbsp;typing.Union[bool,&nbsp;int,&nbsp;float,&nbsp;str]]&nbsp;=&nbsp;None,&nbsp;fields:&nbsp;Iterable[runtimepy.primitives.field.fields.BitFields]&nbsp;=&nbsp;None,&nbsp;namespace:&nbsp;vcorelib.namespace.base.Namespace&nbsp;=&nbsp;None,&nbsp;namespace_delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;channel-environment&nbsp;extension&nbsp;for&nbsp;working&nbsp;with&nbsp;arrays&nbsp;of&nbsp;primitives.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn"><dl><dt>Method resolution order:</dt>
 <dd><a href="runtimepy.channel.environment.array.html#ArrayChannelEnvironment">ArrayChannelEnvironment</a></dd>
 <dd><a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a></dd>
-<dd><a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a></dd>
+<dd><a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a></dd>
+<dd><a href="runtimepy.mixins.finalize.html#FinalizeMixin">runtimepy.mixins.finalize.FinalizeMixin</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
@@ -54,53 +55,81 @@ Methods defined here:<br>
 Methods inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
 <dl><dt><a name="ArrayChannelEnvironment-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;two&nbsp;channel&nbsp;environments&nbsp;are&nbsp;equivalent.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-__getitem__"><strong>__getitem__</strong></a>(self, key: Union[str, int]) -&gt; Tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], Optional[runtimepy.enum.RuntimeEnum]]</dt><dd><span class="code">Get&nbsp;a&nbsp;channel&nbsp;and&nbsp;its&nbsp;enumeration.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-__getitem__"><strong>__getitem__</strong></a>(self, key: Union[str, int]) -&gt; tuple[typing.Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], typing.Optional[runtimepy.enum.RuntimeEnum]]</dt><dd><span class="code">Get&nbsp;a&nbsp;channel&nbsp;and&nbsp;its&nbsp;enumeration.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-__init__"><strong>__init__</strong></a>(self, channels: runtimepy.channel.registry.ChannelRegistry = None, enums: runtimepy.enum.registry.EnumRegistry = None, values: Dict[Union[str, int], Union[bool, int, float, str]] = None, fields: Iterable[runtimepy.primitives.field.fields.BitFields] = None, namespace: vcorelib.namespace.Namespace = None, namespace_delim: str = '.') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;channel&nbsp;environment.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-__init__"><strong>__init__</strong></a>(self, channels: runtimepy.channel.registry.ChannelRegistry = None, enums: runtimepy.enum.registry.EnumRegistry = None, values: dict[typing.Union[str, int], typing.Union[bool, int, float, str]] = None, fields: Iterable[runtimepy.primitives.field.fields.BitFields] = None, namespace: vcorelib.namespace.base.Namespace = None, namespace_delim: str = '.') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;channel&nbsp;environment.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-apply"><strong>apply</strong></a>(self, values: Dict[Union[str, int], Union[bool, int, float, str]]) -&gt; None</dt><dd><span class="code">Apply&nbsp;a&nbsp;map&nbsp;of&nbsp;values&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-__setitem__"><strong>__setitem__</strong></a>(self, key: Union[str, int], value: Union[bool, int, float, str]) -&gt; None</dt><dd><span class="code">Mapping-set&nbsp;interface.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-get"><strong>get</strong></a>(self, val: Union[str, int]) -&gt; Optional[Tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], Optional[runtimepy.enum.RuntimeEnum]]]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;channel&nbsp;and&nbsp;its&nbsp;enumeration&nbsp;(if&nbsp;it&nbsp;has&nbsp;one).</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-add_field"><strong>add_field</strong></a>(self, field: runtimepy.primitives.field.BitField, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Add&nbsp;a&nbsp;bit&nbsp;field&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-get_bool"><strong>get_bool</strong></a>(self, key: Union[str, int]) -&gt; Tuple[runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive], Optional[runtimepy.enum.RuntimeEnum]]</dt><dd><span class="code">Get&nbsp;a&nbsp;boolean&nbsp;channel.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-add_int"><strong>add_int</strong></a>(self, key: Union[str, int], amount: int) -&gt; int</dt><dd><span class="code">Modify&nbsp;an&nbsp;integer&nbsp;channel.</span></dd></dl>
+
+<dl><dt><a name="ArrayChannelEnvironment-age_ns"><strong>age_ns</strong></a>(self, key: Union[str, int]) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;an&nbsp;entity&nbsp;based&nbsp;on&nbsp;registry&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="ArrayChannelEnvironment-apply"><strong>apply</strong></a>(self, values: dict[typing.Union[str, int], typing.Union[bool, int, float, str]]) -&gt; None</dt><dd><span class="code">Apply&nbsp;a&nbsp;map&nbsp;of&nbsp;values&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
+<dl><dt><a name="ArrayChannelEnvironment-exists"><strong>exists</strong></a>(self, val: Union[str, int]) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;a&nbsp;channel&nbsp;exists.</span></dd></dl>
+
+<dl><dt><a name="ArrayChannelEnvironment-field_or_channel"><strong>field_or_channel</strong></a>(self, val: Union[str, int]) -&gt; Union[runtimepy.primitives.field.BitField, runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive], NoneType]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;look&nbsp;up&nbsp;a&nbsp;field&nbsp;or&nbsp;channel&nbsp;for&nbsp;a&nbsp;given&nbsp;registry&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="ArrayChannelEnvironment-finalize"><strong>finalize</strong></a>(self, strict: bool = True) -&gt; None</dt><dd><span class="code">Finalize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="ArrayChannelEnvironment-get"><strong>get</strong></a>(self, val: Union[str, int]) -&gt; Optional[tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], Optional[runtimepy.enum.RuntimeEnum]]]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;channel&nbsp;and&nbsp;its&nbsp;enumeration&nbsp;(if&nbsp;it&nbsp;has&nbsp;one).</span></dd></dl>
+
+<dl><dt><a name="ArrayChannelEnvironment-get_bool"><strong>get_bool</strong></a>(self, key: Union[str, int]) -&gt; tuple[runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive], typing.Optional[runtimepy.enum.RuntimeEnum]]</dt><dd><span class="code">Get&nbsp;a&nbsp;boolean&nbsp;channel.</span></dd></dl>
 
 <dl><dt><a name="ArrayChannelEnvironment-get_float"><strong>get_float</strong></a>(self, key: Union[str, int]) -&gt; Union[runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive]]</dt><dd><span class="code">Get&nbsp;a&nbsp;floating-point&nbsp;channel.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-get_int"><strong>get_int</strong></a>(self, key: Union[str, int]) -&gt; Tuple[Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive]], Optional[runtimepy.enum.RuntimeEnum]]</dt><dd><span class="code">Get&nbsp;an&nbsp;integer&nbsp;channel.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-get_int"><strong>get_int</strong></a>(self, key: Union[str, int]) -&gt; tuple[typing.Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive]], typing.Optional[runtimepy.enum.RuntimeEnum]]</dt><dd><span class="code">Get&nbsp;an&nbsp;integer&nbsp;channel.</span></dd></dl>
 
 <dl><dt><a name="ArrayChannelEnvironment-set"><strong>set</strong></a>(self, key: Union[str, int], value: Union[bool, int, float, str]) -&gt; None</dt><dd><span class="code">Attempt&nbsp;to&nbsp;set&nbsp;an&nbsp;arbitrary&nbsp;channel&nbsp;value.</span></dd></dl>
 
 <dl><dt><a name="ArrayChannelEnvironment-value"><strong>value</strong></a>(self, key: Union[str, int], resolve_enum: bool = True) -&gt; Union[bool, int, float, str]</dt><dd><span class="code">Attempt&nbsp;to&nbsp;get&nbsp;a&nbsp;channel's&nbsp;current&nbsp;value.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[Union[str, int], Union[bool, int, float, str]]</dt><dd><span class="code">Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;channel&nbsp;values.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; dict[typing.Union[str, int], typing.Union[bool, int, float, str]]</dt><dd><span class="code">Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;channel&nbsp;values.</span></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.channel.environment.base.html#BaseChannelEnvironment">runtimepy.channel.environment.base.BaseChannelEnvironment</a>:<br>
 <dl><dt><strong>__hash__</strong> = None</dl>
 
 <hr>
-Methods inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>:<br>
-<dl><dt><a name="ArrayChannelEnvironment-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; vcorelib.namespace.Namespace</dt><dd><span class="code">Obtain&nbsp;a&nbsp;child&nbsp;namespace.</span></dd></dl>
+Methods inherited from <a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a>:<br>
+<dl><dt><a name="ArrayChannelEnvironment-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; vcorelib.namespace.base.Namespace</dt><dd><span class="code">Obtain&nbsp;a&nbsp;child&nbsp;namespace.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;object's&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;object's&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;object.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;object.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.base.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.base.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
 
-<dl><dt><a name="ArrayChannelEnvironment-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
+<dl><dt><a name="ArrayChannelEnvironment-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
 
 <hr>
-Data descriptors inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>:<br>
+Readonly properties inherited from <a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a>:<br>
+<dl><dt><strong>ns</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;instance's&nbsp;namespace.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.finalize.html#FinalizeMixin">runtimepy.mixins.finalize.FinalizeMixin</a>:<br>
+<dl><dt>async <a name="ArrayChannelEnvironment-wait_finalized"><strong>wait_finalized</strong></a>(self) -&gt; None</dt><dd><span class="code">Wait&nbsp;for&nbsp;this&nbsp;instance&nbsp;to&nbsp;be&nbsp;finalized.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.mixins.finalize.html#FinalizeMixin">runtimepy.mixins.finalize.FinalizeMixin</a>:<br>
+<dl><dt><strong>finalized</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;finalized&nbsp;or&nbsp;not.</span></dd>
 </dl>
 </td></tr></table> <p>
 <table class="section">
@@ -108,7 +137,7 @@ Data descriptors inherited from <a href="vcorelib.namespace.html#NamespaceMixin"
 <td class="section-title" colspan=3>&nbsp;<br><a name="ChannelArray">class <strong>ChannelArray</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#ChannelArray">ChannelArray</a>(names:&nbsp;List[str],&nbsp;array:&nbsp;runtimepy.primitives.array.PrimitiveArray)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ChannelArray">ChannelArray</a>(names:&nbsp;list[str],&nbsp;array:&nbsp;runtimepy.primitives.array.PrimitiveArray)<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;managing&nbsp;an&nbsp;array&nbsp;of&nbsp;channels&nbsp;and&nbsp;bit-fields.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -133,7 +162,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="ChannelArray-__new__"><strong>__new__</strong></a>(_cls, names: List[str], array: runtimepy.primitives.array.PrimitiveArray)</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#ChannelArray">ChannelArray</a>(names,&nbsp;array)</span></dd></dl>
+<dl><dt><a name="ChannelArray-__new__"><strong>__new__</strong></a>(_cls, names: list[str], array: runtimepy.primitives.array.PrimitiveArray)</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#ChannelArray">ChannelArray</a>(names,&nbsp;array)</span></dd></dl>
 
 <dl><dt><a name="ChannelArray-create"><strong>create</strong></a>() -&gt; 'ChannelArray'</dt><dd><span class="code">Create&nbsp;a&nbsp;new,&nbsp;empty&nbsp;channel&nbsp;array.</span></dd></dl>
 
@@ -147,7 +176,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'array': &lt;class 'runtimepy.primitives.array.PrimitiveArray'&gt;, 'names': typing.List[str]}</dl>
+<dl><dt><strong>__annotations__</strong> = {'array': &lt;class 'runtimepy.primitives.array.PrimitiveArray'&gt;, 'names': list[str]}</dl>
 
 <dl><dt><strong>__match_args__</strong> = ('names', 'array')</dl>
 
@@ -161,7 +190,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="ChannelArray-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="ChannelArray-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="ChannelArray-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="ChannelArray-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 

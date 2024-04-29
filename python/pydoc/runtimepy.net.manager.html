@@ -24,7 +24,7 @@
     
 <tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><dl>
-<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+<dt class="heading-text"><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>(<a href="builtins.html#object">builtins.object</a>)
 </dt><dd>
 <dl>
 <dt class="heading-text"><a href="runtimepy.net.manager.html#ConnectionManager">ConnectionManager</a>
@@ -34,15 +34,23 @@
  <p>
 <table class="section">
 <tr class="decor title-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><a name="ConnectionManager">class <strong>ConnectionManager</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+<td class="section-title" colspan=3>&nbsp;<br><a name="ConnectionManager">class <strong>ConnectionManager</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
 <td class="decor title-decor" colspan=2><span class="code"><a href="#ConnectionManager">ConnectionManager</a>()&nbsp;-&amp;gt;&nbsp;'None'<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;managing&nbsp;connection&nbsp;processing&nbsp;at&nbsp;runtime.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
-<td class="singlecolumn">Methods defined here:<br>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.manager.html#ConnectionManager">ConnectionManager</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
 <dl><dt><a name="ConnectionManager-__init__"><strong>__init__</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection&nbsp;manager.</span></dd></dl>
+
+<dl><dt><a name="ConnectionManager-by_type"><strong>by_type</strong></a>(self, kind: 'type[T]') -&gt; '_Iterator[T]'</dt><dd><span class="code">Iterate&nbsp;over&nbsp;connections&nbsp;of&nbsp;a&nbsp;specific&nbsp;type.</span></dd></dl>
 
 <dl><dt>async <a name="ConnectionManager-manage"><strong>manage</strong></a>(self, stop_sig: '_asyncio.Event') -&gt; 'None'</dt><dd><span class="code">Handle&nbsp;incoming&nbsp;connections&nbsp;until&nbsp;the&nbsp;stop&nbsp;signal&nbsp;is&nbsp;set.</span></dd></dl>
 
@@ -56,12 +64,26 @@ Readonly properties defined here:<br>
 <dd><span class="code">Return&nbsp;the&nbsp;number&nbsp;of&nbsp;managed&nbsp;connections.</span></dd>
 </dl>
 <hr>
-Data descriptors defined here:<br>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="ConnectionManager-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
-</td></tr></table></td></tr></table>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>T</strong> = ~T</td></tr></table>
 </body></html>

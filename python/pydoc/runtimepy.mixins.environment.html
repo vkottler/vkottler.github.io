@@ -37,6 +37,8 @@ A&nbsp;simple&nbsp;channel-environment&nbsp;mixin.<br>&nbsp;</span></td></tr>
 <td class="singlecolumn">Methods defined here:<br>
 <dl><dt><a name="ChannelEnvironmentMixin-__init__"><strong>__init__</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment = None, **kwargs) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
+<dl><dt><a name="ChannelEnvironmentMixin-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="ChannelEnvironmentMixin-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentMixin-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -44,10 +46,10 @@ A&nbsp;simple&nbsp;channel-environment&nbsp;mixin.<br>&nbsp;</span></td></tr>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
@@ -59,5 +61,6 @@ Data and other attributes defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>METRICS_NAME</strong> = 'metrics'</td></tr></table>
+<td class="singlecolumn"><strong>METRICS_MIN_PERIOD_S</strong> = 0.1<br>
+<strong>METRICS_NAME</strong> = 'metrics'</td></tr></table>
 </body></html>

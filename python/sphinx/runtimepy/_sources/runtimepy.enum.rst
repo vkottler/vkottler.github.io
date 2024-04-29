@@ -12,10 +12,10 @@ runtimepy.enum.registry module
    :undoc-members:
    :show-inheritance:
 
-runtimepy.enum.type module
---------------------------
+runtimepy.enum.types module
+---------------------------
 
-.. automodule:: runtimepy.enum.type
+.. automodule:: runtimepy.enum.types
    :members:
    :undoc-members:
    :show-inheritance:

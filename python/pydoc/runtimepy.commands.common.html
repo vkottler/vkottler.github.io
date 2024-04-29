@@ -12,10 +12,30 @@
     <p><span class="code">A&nbsp;module&nbsp;for&nbsp;package&nbsp;command-line&nbsp;argument&nbsp;interfaces.</span></p>
 <p>
 <table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="curses.html">curses</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
 <tr class="decor functions-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-arbiter_args"><strong>arbiter_args</strong></a>(parser: argparse.ArgumentParser, nargs: str = '+') -&gt; None</dt><dd><span class="code">Add&nbsp;common&nbsp;connection-arbiter&nbsp;parameters..</span></dd></dl>
-</td></tr></table>
+<td class="singlecolumn"><dl><dt><a name="-arbiter_args"><strong>arbiter_args</strong></a>(parser: argparse.ArgumentParser, nargs: str = '+') -&gt; Iterator[NoneType]</dt><dd><span class="code">Add&nbsp;common&nbsp;connection-arbiter&nbsp;parameters.</span></dd></dl>
+ <dl><dt><a name="-arbiter_flags"><strong>arbiter_flags</strong></a>(parser: argparse.ArgumentParser) -&gt; None</dt><dd><span class="code">Add&nbsp;arbiter&nbsp;command-line&nbsp;flag&nbsp;arguments.</span></dd></dl>
+ <dl><dt><a name="-cmd_with_jit"><strong>cmd_with_jit</strong></a>(command: Callable[[argparse.Namespace], int], args: argparse.Namespace, data: dict[str, typing.Any]) -&gt; int</dt><dd><span class="code">Run&nbsp;an&nbsp;'arbiter'&nbsp;command&nbsp;with&nbsp;custom&nbsp;data&nbsp;inserted.</span></dd></dl>
+ <dl><dt><a name="-curses_wrap_if"><strong>curses_wrap_if</strong></a>(method: Callable[[argparse.Namespace], int], args: argparse.Namespace) -&gt; int</dt><dd><span class="code">Run&nbsp;a&nbsp;method&nbsp;in&nbsp;TUI&nbsp;mode&nbsp;if&nbsp;a&nbsp;condition&nbsp;is&nbsp;met.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ARBITER</strong> = &lt;vcorelib.io.arbiter.DataArbiter object&gt;<br>
+<strong>DEFAULT_EXT</strong> = 'yaml'<br>
+<strong>FACTORIES</strong> = 'package://runtimepy/factories.yaml'<br>
+<strong>Iterator</strong> = typing.Iterator<br>
+<strong>PKG_NAME</strong> = 'runtimepy'</td></tr></table>
 </body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module vcorelib.namespace.mixin</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="vcorelib.html" class="white">vcorelib</a>.<a href="vcorelib.namespace.html" class="white">namespace</a>.mixin</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/namespace/mixin.py">/home/vkottler/src/vkottler/workspace/vcorelib/vcorelib/namespace/mixin.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;simple&nbsp;namespace&nbsp;mixin&nbsp;class.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="vcorelib.namespace.mixin.html#NamespaceMixin">NamespaceMixin</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="NamespaceMixin">class <strong>NamespaceMixin</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#NamespaceMixin">NamespaceMixin</a>(namespace:&nbsp;vcorelib.namespace.base.Namespace&nbsp;=&nbsp;None,&nbsp;namespace_delim:&nbsp;str&nbsp;=&nbsp;'.')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;giving&nbsp;arbitrary&nbsp;objects&nbsp;namespace&nbsp;capabilities.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="NamespaceMixin-__init__"><strong>__init__</strong></a>(self, namespace: vcorelib.namespace.base.Namespace = None, namespace_delim: str = '.') -&gt; None</dt><dd><span class="code">Initialize&nbsp;a&nbsp;namespace&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</span></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; vcorelib.namespace.base.Namespace</dt><dd><span class="code">Obtain&nbsp;a&nbsp;child&nbsp;namespace.</span></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;<a href="builtins.html#object">object</a>'s&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.</span></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.base.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.base.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
+
+<dl><dt><a name="NamespaceMixin-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>ns</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;instance's&nbsp;namespace.</span></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_DELIM</strong> = '.'</td></tr></table>
+</body></html>

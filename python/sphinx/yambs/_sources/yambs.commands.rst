@@ -36,6 +36,14 @@ yambs.commands.dist module
    :undoc-members:
    :show-inheritance:
 
+yambs.commands.download module
+------------------------------
+
+.. automodule:: yambs.commands.download
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yambs.commands.gen module
 -------------------------
 

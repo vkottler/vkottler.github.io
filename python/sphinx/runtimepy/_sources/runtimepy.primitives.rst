@@ -10,7 +10,7 @@ Subpackages
    runtimepy.primitives.array
    runtimepy.primitives.field
    runtimepy.primitives.serializable
-   runtimepy.primitives.type
+   runtimepy.primitives.types
 
 Submodules
 ----------
@@ -51,6 +51,14 @@ runtimepy.primitives.int module
 -------------------------------
 
 .. automodule:: runtimepy.primitives.int
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+runtimepy.primitives.scaling module
+-----------------------------------
+
+.. automodule:: runtimepy.primitives.scaling
    :members:
    :undoc-members:
    :show-inheritance:

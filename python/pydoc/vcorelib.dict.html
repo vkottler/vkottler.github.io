@@ -40,7 +40,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="MergeStrategy">class <strong>MergeStrategy</strong></a>(<a href="enum.html#Enum">enum.Enum</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#MergeStrategy">MergeStrategy</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#MergeStrategy">MergeStrategy</a>(*values)<br>
 &nbsp;<br>
 An&nbsp;enumeration&nbsp;describing&nbsp;strategies&nbsp;for&nbsp;combining&nbsp;various&nbsp;data&nbsp;structures.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -65,11 +65,11 @@ Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
 </dl>
 <hr>
 Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
-<dl><dt><a name="MergeStrategy-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
-raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+<dl><dt><a name="MergeStrategy-__contains__"><strong>__contains__</strong></a>(value)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;`value`&nbsp;is&nbsp;in&nbsp;`cls`.<br>
 &nbsp;<br>
-note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
-returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+`value`&nbsp;is&nbsp;in&nbsp;`cls`&nbsp;if:<br>
+1)&nbsp;`value`&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;`cls`,&nbsp;or<br>
+2)&nbsp;`value`&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;`cls`'s&nbsp;members.</span></dd></dl>
 
 <dl><dt><a name="MergeStrategy-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
 
@@ -94,10 +94,10 @@ is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.<
 <td class="singlecolumn"><dl><dt><a name="-consume"><strong>consume</strong></a>(data: Dict[Any, Any], key: Any, default: Any = None) -&gt; Any</dt><dd><span class="code">Attempt&nbsp;to&nbsp;obtain&nbsp;dictionary&nbsp;data&nbsp;via&nbsp;key,&nbsp;removing&nbsp;the&nbsp;data&nbsp;if&nbsp;it&nbsp;was<br>
 present.</span></dd></dl>
  <dl><dt><a name="-limited"><strong>limited</strong></a>(data: Dict[Any, Any], key: Any, value: Any = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Ensure&nbsp;that&nbsp;dictionary&nbsp;data&nbsp;is&nbsp;only&nbsp;temporarily&nbsp;added.</span></dd></dl>
- <dl><dt><a name="-merge"><strong>merge</strong></a>(dict_a: Dict[Any, Any], dict_b: Dict[Any, Any], path: List[str] = None, expect_overwrite: bool = False, logger: Union[logging.Logger, logging.LoggerAdapter] = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; Dict[Any, Any]</dt><dd><span class="code">Combine&nbsp;two&nbsp;dictionaries&nbsp;based&nbsp;on&nbsp;a&nbsp;provided&nbsp;merge&nbsp;strategy.</span></dd></dl>
- <dl><dt><a name="-merge_dicts"><strong>merge_dicts</strong></a>(dicts: List[Dict[Any, Any]], expect_overwrite: bool = False, logger: Union[logging.Logger, logging.LoggerAdapter] = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; Dict[Any, Any]</dt><dd><span class="code">Merge&nbsp;a&nbsp;list&nbsp;of&nbsp;dictionary&nbsp;data&nbsp;into&nbsp;a&nbsp;single&nbsp;set&nbsp;(mutates&nbsp;the&nbsp;first<br>
+ <dl><dt><a name="-merge"><strong>merge</strong></a>(dict_a: Dict[Any, Any], dict_b: Dict[Any, Any], path: List[str] = None, expect_overwrite: bool = False, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; Dict[Any, Any]</dt><dd><span class="code">Combine&nbsp;two&nbsp;dictionaries&nbsp;based&nbsp;on&nbsp;a&nbsp;provided&nbsp;merge&nbsp;strategy.</span></dd></dl>
+ <dl><dt><a name="-merge_dicts"><strong>merge_dicts</strong></a>(dicts: List[Dict[Any, Any]], expect_overwrite: bool = False, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; Dict[Any, Any]</dt><dd><span class="code">Merge&nbsp;a&nbsp;list&nbsp;of&nbsp;dictionary&nbsp;data&nbsp;into&nbsp;a&nbsp;single&nbsp;set&nbsp;(mutates&nbsp;the&nbsp;first<br>
 element).</span></dd></dl>
- <dl><dt><a name="-merge_recursive"><strong>merge_recursive</strong></a>(dict_a: Dict[Any, Any], dict_b: Dict[Any, Any], path: List[str] = None, expect_overwrite: bool = False, logger: Union[logging.Logger, logging.LoggerAdapter] = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; Dict[Any, Any]</dt><dd><span class="code">Combine&nbsp;two&nbsp;dictionaries&nbsp;recursively,&nbsp;prefers&nbsp;dict_a&nbsp;in&nbsp;a&nbsp;conflict.&nbsp;For<br>
+ <dl><dt><a name="-merge_recursive"><strong>merge_recursive</strong></a>(dict_a: Dict[Any, Any], dict_b: Dict[Any, Any], path: List[str] = None, expect_overwrite: bool = False, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None, strategy: vcorelib.dict.MergeStrategy = &lt;MergeStrategy.RECURSIVE: 1&gt;) -&gt; Dict[Any, Any]</dt><dd><span class="code">Combine&nbsp;two&nbsp;dictionaries&nbsp;recursively,&nbsp;prefers&nbsp;dict_a&nbsp;in&nbsp;a&nbsp;conflict.&nbsp;For<br>
 values&nbsp;of&nbsp;the&nbsp;same&nbsp;key&nbsp;that&nbsp;are&nbsp;lists,&nbsp;the&nbsp;lists&nbsp;are&nbsp;combined.&nbsp;Otherwise<br>
 the&nbsp;resulting&nbsp;dictionary&nbsp;is&nbsp;cleanly&nbsp;merged.</span></dd></dl>
  <dl><dt><a name="-set_if_not"><strong>set_if_not</strong></a>(data: Dict[Any, Any], key: Any, value: Any = None) -&gt; Any</dt><dd><span class="code">Set&nbsp;a&nbsp;value&nbsp;in&nbsp;a&nbsp;dictionary&nbsp;if&nbsp;one&nbsp;wasn't&nbsp;already&nbsp;set&nbsp;and&nbsp;return&nbsp;the&nbsp;value<br>
@@ -110,5 +110,5 @@ that&nbsp;ends&nbsp;up&nbsp;at&nbsp;that&nbsp;key.</span></dd></dl>
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>GenericDict</strong> = typing.Dict[typing.Any, typing.Any]<br>
 <strong>GenericStrDict</strong> = typing.Dict[str, typing.Any]<br>
-<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]</td></tr></table>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]</td></tr></table>
 </body></html>

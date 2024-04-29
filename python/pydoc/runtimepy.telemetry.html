@@ -36,7 +36,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="MessageType">class <strong>MessageType</strong></a>(<a href="runtimepy.enum.registry.html#RuntimeIntEnum">runtimepy.enum.registry.RuntimeIntEnum</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#MessageType">MessageType</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#MessageType">MessageType</a>(*values)<br>
 &nbsp;<br>
 An&nbsp;enumeration&nbsp;of&nbsp;viable&nbsp;message&nbsp;types.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -51,7 +51,7 @@ An&nbsp;enumeration&nbsp;of&nbsp;viable&nbsp;message&nbsp;types.<br>&nbsp;</span
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="MessageType-__format__"><strong>__format__</strong></a>(self, format_spec, /)</dt><dd><span class="code">Default&nbsp;object&nbsp;formatter.</span></dd></dl>
+<dl><dt><a name="MessageType-__format__"><strong>__format__</strong></a>(self, format_spec, /)</dt><dd><span class="code">Convert&nbsp;to&nbsp;a&nbsp;string&nbsp;according&nbsp;to&nbsp;format_spec.</span></dd></dl>
 
 <dl><dt><a name="MessageType-__new__"><strong>__new__</strong></a>(cls, value)</dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
 
@@ -167,10 +167,9 @@ Rounding&nbsp;with&nbsp;an&nbsp;ndigits&nbsp;argument&nbsp;also&nbsp;returns&nbs
 
 <dl><dt><a name="MessageType-__xor__"><strong>__xor__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self^value.</span></dd></dl>
 
-<dl><dt><a name="MessageType-as_integer_ratio"><strong>as_integer_ratio</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;integer&nbsp;ratio.<br>
+<dl><dt><a name="MessageType-as_integer_ratio"><strong>as_integer_ratio</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;a&nbsp;pair&nbsp;of&nbsp;integers,&nbsp;whose&nbsp;ratio&nbsp;is&nbsp;equal&nbsp;to&nbsp;the&nbsp;original&nbsp;int.<br>
 &nbsp;<br>
-Return&nbsp;a&nbsp;pair&nbsp;of&nbsp;integers,&nbsp;whose&nbsp;ratio&nbsp;is&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;original&nbsp;int<br>
-and&nbsp;with&nbsp;a&nbsp;positive&nbsp;denominator.<br>
+The&nbsp;ratio&nbsp;is&nbsp;in&nbsp;lowest&nbsp;terms&nbsp;and&nbsp;has&nbsp;a&nbsp;positive&nbsp;denominator.<br>
 &nbsp;<br>
 &gt;&gt;&gt;&nbsp;(10).<a href="#MessageType-as_integer_ratio">as_integer_ratio</a>()<br>
 (10,&nbsp;1)<br>
@@ -196,6 +195,8 @@ Also&nbsp;known&nbsp;as&nbsp;the&nbsp;population&nbsp;count.<br>
 6</span></dd></dl>
 
 <dl><dt><a name="MessageType-conjugate"><strong>conjugate</strong></a>(...)</dt><dd><span class="code">Returns&nbsp;self,&nbsp;the&nbsp;complex&nbsp;conjugate&nbsp;of&nbsp;any&nbsp;int.</span></dd></dl>
+
+<dl><dt><a name="MessageType-is_integer"><strong>is_integer</strong></a>(self, /)</dt><dd><span class="code">Returns&nbsp;True.&nbsp;Exists&nbsp;for&nbsp;duck&nbsp;type&nbsp;compatibility&nbsp;with&nbsp;float.is_integer.</span></dd></dl>
 
 <dl><dt><a name="MessageType-to_bytes"><strong>to_bytes</strong></a>(self, /, length=1, byteorder='big', *, signed=False)</dt><dd><span class="code">Return&nbsp;an&nbsp;array&nbsp;of&nbsp;bytes&nbsp;representing&nbsp;an&nbsp;integer.<br>
 &nbsp;<br>
@@ -248,7 +249,7 @@ Data descriptors inherited from <a href="builtins.html#int">builtins.int</a>:<br
 </dl>
 <hr>
 Methods inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
-<dl><dt><a name="MessageType-__dir__"><strong>__dir__</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;all&nbsp;members&nbsp;and&nbsp;all&nbsp;public&nbsp;methods</span></dd></dl>
+<dl><dt><a name="MessageType-__dir__"><strong>__dir__</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;public&nbsp;methods&nbsp;and&nbsp;other&nbsp;interesting&nbsp;attributes.</span></dd></dl>
 
 <dl><dt><a name="MessageType-__init__"><strong>__init__</strong></a>(self, *args, **kwds)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
 
@@ -264,11 +265,11 @@ Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
 </dl>
 <hr>
 Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
-<dl><dt><a name="MessageType-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
-raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+<dl><dt><a name="MessageType-__contains__"><strong>__contains__</strong></a>(value)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;`value`&nbsp;is&nbsp;in&nbsp;`cls`.<br>
 &nbsp;<br>
-note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
-returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+`value`&nbsp;is&nbsp;in&nbsp;`cls`&nbsp;if:<br>
+1)&nbsp;`value`&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;`cls`,&nbsp;or<br>
+2)&nbsp;`value`&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;`cls`'s&nbsp;members.</span></dd></dl>
 
 <dl><dt><a name="MessageType-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
 

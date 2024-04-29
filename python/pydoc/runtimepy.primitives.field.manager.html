@@ -48,11 +48,11 @@ A&nbsp;class&nbsp;for&nbsp;managing&nbsp;multiple&nbsp;bit-fields&nbsp;objects.<
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="BitFieldsManager-export_json"><strong>export_json</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[str, Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]</dt><dd><span class="code">Export&nbsp;this&nbsp;manager's&nbsp;data&nbsp;to&nbsp;JSON.</span></dd></dl>
+<dl><dt><a name="BitFieldsManager-export_json"><strong>export_json</strong></a>(self, resolve_enum: bool = True) -&gt; dict[str, typing.Dict[str, typing.Union[str, int, float, bool, NoneType, typing.Dict[str, typing.Union[str, int, float, bool, NoneType]], typing.List[typing.Union[str, int, float, bool, NoneType]]]]]</dt><dd><span class="code">Export&nbsp;this&nbsp;manager's&nbsp;data&nbsp;to&nbsp;JSON.</span></dd></dl>
 
 <hr>
 Class methods defined here:<br>
-<dl><dt><a name="BitFieldsManager-import_json"><strong>import_json</strong></a>(data: Dict[str, Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]]) -&gt; 'BitFieldsManager'<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;bit-fields&nbsp;manager&nbsp;from&nbsp;JSON&nbsp;data.</span></dd></dl>
+<dl><dt><a name="BitFieldsManager-import_json"><strong>import_json</strong></a>(data: dict[str, typing.Dict[str, typing.Union[str, int, float, bool, NoneType, typing.Dict[str, typing.Union[str, int, float, bool, NoneType]], typing.List[typing.Union[str, int, float, bool, NoneType]]]]]) -&gt; 'BitFieldsManager'<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;bit-fields&nbsp;manager&nbsp;from&nbsp;JSON&nbsp;data.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.primitives.field.manager.base.html#BitFieldsManagerBase">runtimepy.primitives.field.manager.base.BitFieldsManagerBase</a>:<br>
@@ -64,6 +64,8 @@ primitives.</span></dd></dl>
 <dl><dt><a name="BitFieldsManager-__init__"><strong>__init__</strong></a>(self, registry: runtimepy.registry.name.NameRegistry, enums: runtimepy.enum.registry.EnumRegistry, fields: Iterable[runtimepy.primitives.field.fields.BitFields] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;bit-fields&nbsp;manager.</span></dd></dl>
 
 <dl><dt><a name="BitFieldsManager-add"><strong>add</strong></a>(self, fields: runtimepy.primitives.field.fields.BitFields) -&gt; int</dt><dd><span class="code">Add&nbsp;new&nbsp;bit-fields&nbsp;to&nbsp;manage.</span></dd></dl>
+
+<dl><dt><a name="BitFieldsManager-add_field"><strong>add_field</strong></a>(self, field: runtimepy.primitives.field.BitField) -&gt; Optional[runtimepy.primitives.field.fields.BitFields]</dt><dd><span class="code">Add&nbsp;a&nbsp;bit&nbsp;field&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
 
 <dl><dt><a name="BitFieldsManager-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><span class="code">Get&nbsp;this&nbsp;bit-fields&nbsp;manager&nbsp;as&nbsp;a&nbsp;JSON&nbsp;object.</span></dd></dl>
 
@@ -81,15 +83,15 @@ primitives.</span></dd></dl>
 
 <dl><dt><a name="BitFieldsManager-set"><strong>set</strong></a>(self, key: Union[str, int], value: Union[int, bool, str]) -&gt; None</dt><dd><span class="code">Set&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;field.</span></dd></dl>
 
-<dl><dt><a name="BitFieldsManager-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[str, Union[str, int]]</dt><dd><span class="code">Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;field&nbsp;values.</span></dd></dl>
+<dl><dt><a name="BitFieldsManager-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; dict[str, typing.Union[str, int]]</dt><dd><span class="code">Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;field&nbsp;values.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.field.manager.base.html#BitFieldsManagerBase">runtimepy.primitives.field.manager.base.BitFieldsManagerBase</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">

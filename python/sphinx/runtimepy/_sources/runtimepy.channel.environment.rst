@@ -1,6 +1,14 @@
 runtimepy.channel.environment package
 =====================================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   runtimepy.channel.environment.command
+
 Submodules
 ----------
 
@@ -36,10 +44,18 @@ runtimepy.channel.environment.file module
    :undoc-members:
    :show-inheritance:
 
-runtimepy.channel.environment.names module
-------------------------------------------
+runtimepy.channel.environment.sample module
+-------------------------------------------
 
-.. automodule:: runtimepy.channel.environment.names
+.. automodule:: runtimepy.channel.environment.sample
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+runtimepy.channel.environment.telemetry module
+----------------------------------------------
+
+.. automodule:: runtimepy.channel.environment.telemetry
    :members:
    :undoc-members:
    :show-inheritance:

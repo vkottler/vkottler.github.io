@@ -36,7 +36,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="SourceKind">class <strong>SourceKind</strong></a>(<a href="enum.html#Enum">enum.Enum</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#SourceKind">SourceKind</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SourceKind">SourceKind</a>(*values)<br>
 &nbsp;<br>
 An&nbsp;enumeration&nbsp;describing&nbsp;kinds&nbsp;of&nbsp;sources.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -61,11 +61,11 @@ Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
 </dl>
 <hr>
 Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
-<dl><dt><a name="SourceKind-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
-raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+<dl><dt><a name="SourceKind-__contains__"><strong>__contains__</strong></a>(value)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;`value`&nbsp;is&nbsp;in&nbsp;`cls`.<br>
 &nbsp;<br>
-note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
-returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+`value`&nbsp;is&nbsp;in&nbsp;`cls`&nbsp;if:<br>
+1)&nbsp;`value`&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;`cls`,&nbsp;or<br>
+2)&nbsp;`value`&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;`cls`'s&nbsp;members.</span></dd></dl>
 
 <dl><dt><a name="SourceKind-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
 
@@ -105,10 +105,10 @@ Static methods defined here:<br>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
@@ -116,7 +116,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__dataclass_fields__</strong> = {'attributes': Field(name='attributes',type=typing.Dict[str, ty...appingproxy({}),kw_only=False,_field_type=_FIELD), 'host': Field(name='host',type=&lt;class 'str'&gt;,default=&lt;da...appingproxy({}),kw_only=False,_field_type=_FIELD), 'kind': Field(name='kind',type=&lt;enum 'SourceKind'&gt;,defau...appingproxy({}),kw_only=False,_field_type=_FIELD), 'port': Field(name='port',type=typing.Optional[int],defa...appingproxy({}),kw_only=False,_field_type=_FIELD), 'protocol': Field(name='protocol',type=&lt;class 'str'&gt;,default...appingproxy({}),kw_only=False,_field_type=_FIELD), 'suffix': Field(name='suffix',type=&lt;class 'str'&gt;,default=&lt;...appingproxy({}),kw_only=False,_field_type=_FIELD), 'user': Field(name='user',type=&lt;class 'str'&gt;,default=&lt;da...appingproxy({}),kw_only=False,_field_type=_FIELD)}</dl>
 
-<dl><dt><strong>__dataclass_params__</strong> = _DataclassParams(init=True,repr=True,eq=True,order=False,unsafe_hash=False,frozen=False)</dl>
+<dl><dt><strong>__dataclass_params__</strong> = _DataclassParams(init=True,repr=True,eq=True,ord...rue,kw_only=False,slots=False,weakref_slot=False)</dl>
 
 <dl><dt><strong>__hash__</strong> = None</dl>
 

@@ -12,6 +12,14 @@ Subpackages
 Submodules
 ----------
 
+vcorelib.math.constants module
+------------------------------
+
+.. automodule:: vcorelib.math.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 vcorelib.math.time module
 -------------------------
 

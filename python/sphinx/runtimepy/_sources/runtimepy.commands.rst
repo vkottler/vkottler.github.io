@@ -28,6 +28,22 @@ runtimepy.commands.common module
    :undoc-members:
    :show-inheritance:
 
+runtimepy.commands.server module
+--------------------------------
+
+.. automodule:: runtimepy.commands.server
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+runtimepy.commands.task module
+------------------------------
+
+.. automodule:: runtimepy.commands.task
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 runtimepy.commands.tui module
 -----------------------------
 

@@ -12,6 +12,13 @@
     <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;user&nbsp;interface&nbsp;elements&nbsp;for&nbsp;channel&nbsp;environments.</span></p>
 <p>
 <table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="random.html">random</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
     
@@ -44,15 +51,27 @@ A&nbsp;channel-environment&nbsp;interface&nbsp;element.<br>&nbsp;</span></td></t
 </dl>
 <hr>
 Methods defined here:<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-add_channel"><strong>add_channel</strong></a>(self, name: str, chan: Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], enum: Optional[runtimepy.enum.RuntimeEnum]) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;channel&nbsp;to&nbsp;the&nbsp;table.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-add_field"><strong>add_field</strong></a>(self, name: str) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;bit-field&nbsp;row&nbsp;entry.</span></dd></dl>
+
 <dl><dt><a name="ChannelEnvironmentDisplay-compose"><strong>compose</strong></a>(self) -&gt; Iterable[textual.widget.Widget]</dt><dd><span class="code">Create&nbsp;child&nbsp;nodes.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-handle_cell_selected"><strong>handle_cell_selected</strong></a>(self, event: textual.widgets._data_table.DataTable.CellSelected) -&gt; None</dt><dd><span class="code">Handle&nbsp;input&nbsp;submission.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-on_mount"><strong>on_mount</strong></a>(self) -&gt; None</dt><dd><span class="code">Populate&nbsp;channel&nbsp;table.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-update_channels"><strong>update_channels</strong></a>(self) -&gt; None</dt><dd><span class="code">Update&nbsp;all&nbsp;channel&nbsp;values.</span></dd></dl>
+<dl><dt><a name="ChannelEnvironmentDisplay-random_channel"><strong>random_channel</strong></a>(self) -&gt; None</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;random&nbsp;channel.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-reset_plot"><strong>reset_plot</strong></a>(self) -&gt; None</dt><dd><span class="code">Reset&nbsp;the&nbsp;selected&nbsp;plot.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-switch_to_channel"><strong>switch_to_channel</strong></a>(self, row: int) -&gt; None</dt><dd><span class="code">Switch&nbsp;the&nbsp;plot&nbsp;to&nbsp;a&nbsp;channel&nbsp;at&nbsp;the&nbsp;specified&nbsp;row.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-update_channels"><strong>update_channels</strong></a>(self, max_plot_samples: int, update_table: bool = True, update_log: bool = True, update_plot: bool = True) -&gt; None</dt><dd><span class="code">Update&nbsp;all&nbsp;channel&nbsp;values.</span></dd></dl>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="ChannelEnvironmentDisplay-create"><strong>create</strong></a>(name: str, env: runtimepy.channel.environment.ChannelEnvironment, source: conntextual.ui.channel.model.ChannelEnvironmentSource, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; 'ChannelEnvironmentDisplay'</dt><dd><span class="code">Create&nbsp;a&nbsp;channel-environment&nbsp;display.</span></dd></dl>
+<dl><dt><a name="ChannelEnvironmentDisplay-create"><strong>create</strong></a>(name: str, command: runtimepy.channel.environment.command.processor.ChannelCommandProcessor, source: conntextual.ui.channel.model.ChannelEnvironmentSource, logger: Union[logging.Logger, logging.LoggerAdapter[Any]], app: runtimepy.net.arbiter.info.AppInfo, channel_pattern: conntextual.ui.channel.pattern.PatternPair) -&gt; 'ChannelEnvironmentDisplay'</dt><dd><span class="code">Create&nbsp;a&nbsp;channel-environment&nbsp;display.</span></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -61,13 +80,11 @@ Readonly properties defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'by_index': typing.List[typing.Tuple[textual.coordinate.Coor...el[runtimepy.primitives.bool.BooleanPrimitive]]]], 'model': &lt;class 'conntextual.ui.channel.model.Model'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'by_index': typing.List[typing.Tuple[textual.coordinate.Coordinate, typing.Union[str, int]]], 'channel_pattern': &lt;class 'conntextual.ui.channel.pattern.PatternPair'&gt;, 'channels_by_row': typing.Dict[int, conntextual.ui.channel.selected.SelectedChannel], 'model': &lt;class 'conntextual.ui.channel.model.Model'&gt;, 'row_idx': &lt;class 'int'&gt;, 'selected': &lt;class 'conntextual.ui.channel.selected.SelectedChannel'&gt;}</dl>
 
 <dl><dt><strong>can_focus</strong> = False</dl>
 
 <dl><dt><strong>can_focus_children</strong> = True</dl>
-
-<dl><dt><strong>columns</strong> = ['id', 'type', 'name', 'value']</dl>
 
 <hr>
 Methods inherited from <a href="textual.widgets._static.html#Static">textual.widgets._static.Static</a>:<br>
@@ -80,7 +97,7 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;classes:&nbsp;The&nbsp;CSS&nbsp;classes&nbsp;for&nbsp;the&nbsp;widget.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;disabled:&nbsp;Whether&nbsp;the&nbsp;widget&nbsp;is&nbsp;disabled&nbsp;or&nbsp;not.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-render"><strong>render</strong></a>(self) -&gt; 'RenderableType'</dt><dd><span class="code">Get&nbsp;a&nbsp;rich&nbsp;renderable&nbsp;for&nbsp;the&nbsp;widget's&nbsp;content.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-render"><strong>render</strong></a>(self) -&gt; 'RenderResult'</dt><dd><span class="code">Get&nbsp;a&nbsp;rich&nbsp;renderable&nbsp;for&nbsp;the&nbsp;widget's&nbsp;content.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;rich&nbsp;renderable.</span></dd></dl>
@@ -124,27 +141,56 @@ Methods inherited from <a href="textual.widget.html#Widget">textual.widget.Widge
 
 <dl><dt><a name="ChannelEnvironmentDisplay-action_scroll_up"><strong>action_scroll_up</strong></a>(self) -&gt; 'None'</dt></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-animate"><strong>animate</strong></a>(self, attribute: 'str', value: 'float | Animatable', *, final_value: 'object' = Ellipsis, duration: 'float | None' = None, speed: 'float | None' = None, delay: 'float' = 0.0, easing: 'EasingFunction | str' = 'in_out_cubic', on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Animate&nbsp;an&nbsp;attribute.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-allow_focus"><strong>allow_focus</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;the&nbsp;widget&nbsp;is&nbsp;permitted&nbsp;to&nbsp;focus.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;returns&nbsp;[`can_focus`][textual.widget.Widget.can_focus].<br>
+This&nbsp;method&nbsp;maybe&nbsp;overridden&nbsp;if&nbsp;additional&nbsp;logic&nbsp;is&nbsp;required.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;widget&nbsp;may&nbsp;be&nbsp;focused,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;it&nbsp;may&nbsp;not&nbsp;be&nbsp;focused.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-allow_focus_children"><strong>allow_focus_children</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;widget's&nbsp;children&nbsp;may&nbsp;be&nbsp;focused.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;returns&nbsp;[`can_focus_children`][textual.widget.Widget.can_focus_children].<br>
+This&nbsp;method&nbsp;maybe&nbsp;overridden&nbsp;if&nbsp;additional&nbsp;logic&nbsp;is&nbsp;required.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;widget's&nbsp;children&nbsp;may&nbsp;be&nbsp;focused,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;the&nbsp;widget's&nbsp;children&nbsp;may&nbsp;not&nbsp;be&nbsp;focused.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-animate"><strong>animate</strong></a>(self, attribute: 'str', value: 'float | Animatable', *, final_value: 'object' = Ellipsis, duration: 'float | None' = None, speed: 'float | None' = None, delay: 'float' = 0.0, easing: 'EasingFunction | str' = 'in_out_cubic', on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'full') -&gt; 'None'</dt><dd><span class="code">Animate&nbsp;an&nbsp;attribute.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;attribute:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute&nbsp;to&nbsp;animate.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;The&nbsp;value&nbsp;to&nbsp;animate&nbsp;to.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;final_value:&nbsp;The&nbsp;final&nbsp;value&nbsp;of&nbsp;the&nbsp;animation.&nbsp;Defaults&nbsp;to&nbsp;`value`&nbsp;if&nbsp;not&nbsp;set.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;The&nbsp;duration&nbsp;of&nbsp;the&nbsp;animate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;The&nbsp;duration&nbsp;(in&nbsp;seconds)&nbsp;of&nbsp;the&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;The&nbsp;speed&nbsp;of&nbsp;the&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;A&nbsp;delay&nbsp;(in&nbsp;seconds)&nbsp;before&nbsp;the&nbsp;animation&nbsp;starts.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-batch"><strong>batch</strong></a>(self) -&gt; 'AsyncGenerator[None, None]'</dt><dd><span class="code">Async&nbsp;context&nbsp;manager&nbsp;that&nbsp;combines&nbsp;widget&nbsp;locking&nbsp;and&nbsp;update&nbsp;batching.<br>
+&nbsp;<br>
+Use&nbsp;this&nbsp;async&nbsp;context&nbsp;manager&nbsp;whenever&nbsp;you&nbsp;want&nbsp;to&nbsp;acquire&nbsp;the&nbsp;widget&nbsp;lock&nbsp;and<br>
+batch&nbsp;app&nbsp;updates&nbsp;at&nbsp;the&nbsp;same&nbsp;time.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;async&nbsp;with&nbsp;container.<a href="#ChannelEnvironmentDisplay-batch">batch</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;container.<a href="#ChannelEnvironmentDisplay-remove_children">remove_children</a>(Button)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;container.<a href="#ChannelEnvironmentDisplay-mount">mount</a>(Label("All&nbsp;buttons&nbsp;are&nbsp;gone."))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-begin_capture_print"><strong>begin_capture_print</strong></a>(self, stdout: 'bool' = True, stderr: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Capture&nbsp;text&nbsp;from&nbsp;print&nbsp;statements&nbsp;(or&nbsp;writes&nbsp;to&nbsp;stdout&nbsp;/&nbsp;stderr).<br>
 &nbsp;<br>
-If&nbsp;printing&nbsp;is&nbsp;captured,&nbsp;the&nbsp;widget&nbsp;will&nbsp;be&nbsp;send&nbsp;an&nbsp;[events.Print][textual.events.Print]&nbsp;message.<br>
+If&nbsp;printing&nbsp;is&nbsp;captured,&nbsp;the&nbsp;widget&nbsp;will&nbsp;be&nbsp;sent&nbsp;an&nbsp;[`events.Print`][textual.events.Print]&nbsp;message.<br>
 &nbsp;<br>
-Call&nbsp;[end_capture_print][textual.widget.Widget.end_capture_print]&nbsp;to&nbsp;disable&nbsp;print&nbsp;capture.<br>
+Call&nbsp;[`end_capture_print`][textual.widget.Widget.end_capture_print]&nbsp;to&nbsp;disable&nbsp;print&nbsp;capture.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;stdout:&nbsp;Capture&nbsp;stdout.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;stderr:&nbsp;Capture&nbsp;stderr.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;stdout:&nbsp;Whether&nbsp;to&nbsp;capture&nbsp;stdout.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stderr:&nbsp;Whether&nbsp;to&nbsp;capture&nbsp;stderr.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-blur"><strong>blur</strong></a>(self) -&gt; 'Self'</dt><dd><span class="code">Blur&nbsp;(un-focus)&nbsp;the&nbsp;widget.<br>
 &nbsp;<br>
@@ -181,7 +227,24 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;message&nbsp;will&nbsp;be&nbsp;sent,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;it&nbsp;is&nbsp;disabled.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-end_capture_print"><strong>end_capture_print</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">End&nbsp;print&nbsp;capture&nbsp;(set&nbsp;with&nbsp;[capture_print][textual.widget.Widget.capture_print]).</span></dd></dl>
+<dl><dt><a name="ChannelEnvironmentDisplay-clear_cached_dimensions"><strong>clear_cached_dimensions</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Clear&nbsp;cached&nbsp;results&nbsp;of&nbsp;`get_content_width`&nbsp;and&nbsp;`get_content_height`.<br>
+&nbsp;<br>
+Call&nbsp;if&nbsp;the&nbsp;widget's&nbsp;renderable&nbsp;changes&nbsp;size&nbsp;after&nbsp;the&nbsp;widget&nbsp;has&nbsp;been&nbsp;created.<br>
+&nbsp;<br>
+!!!&nbsp;note<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;not&nbsp;required&nbsp;if&nbsp;you&nbsp;are&nbsp;extending&nbsp;[`<a href="textual.widgets._static.html#Static">Static</a>`][textual.widgets.<a href="textual.widgets._static.html#Static">Static</a>].</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-compose_add_child"><strong>compose_add_child</strong></a>(self, widget: 'Widget') -&gt; 'None'</dt><dd><span class="code">Add&nbsp;a&nbsp;node&nbsp;to&nbsp;children.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;by&nbsp;the&nbsp;compose&nbsp;process&nbsp;when&nbsp;it&nbsp;adds&nbsp;children.<br>
+There&nbsp;is&nbsp;no&nbsp;need&nbsp;to&nbsp;use&nbsp;it&nbsp;directly,&nbsp;but&nbsp;you&nbsp;may&nbsp;want&nbsp;to&nbsp;override&nbsp;it&nbsp;in&nbsp;a&nbsp;subclass<br>
+if&nbsp;you&nbsp;want&nbsp;children&nbsp;to&nbsp;be&nbsp;attached&nbsp;to&nbsp;a&nbsp;different&nbsp;node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;Widget&nbsp;to&nbsp;add.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-end_capture_print"><strong>end_capture_print</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">End&nbsp;print&nbsp;capture&nbsp;(set&nbsp;with&nbsp;[`begin_capture_print`][textual.widget.Widget.begin_capture_print]).</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-focus"><strong>focus</strong></a>(self, scroll_visible: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Give&nbsp;focus&nbsp;to&nbsp;this&nbsp;widget.<br>
 &nbsp;<br>
@@ -204,16 +267,18 @@ Raises:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;if&nbsp;no&nbsp;children&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;this&nbsp;ID<br>
 &nbsp;&nbsp;&nbsp;&nbsp;WrongType:&nbsp;if&nbsp;the&nbsp;wrong&nbsp;type&nbsp;was&nbsp;found.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-get_child_by_type"><strong>get_child_by_type</strong></a>(self, expect_type: 'type[ExpectType]') -&gt; 'ExpectType'</dt><dd><span class="code">Get&nbsp;a&nbsp;child&nbsp;of&nbsp;a&nbsp;give&nbsp;type.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-get_child_by_type"><strong>get_child_by_type</strong></a>(self, expect_type: 'type[ExpectType]') -&gt; 'ExpectType'</dt><dd><span class="code">Get&nbsp;the&nbsp;first&nbsp;immediate&nbsp;child&nbsp;of&nbsp;a&nbsp;given&nbsp;type.<br>
+&nbsp;<br>
+Only&nbsp;returns&nbsp;exact&nbsp;matches,&nbsp;and&nbsp;so&nbsp;will&nbsp;not&nbsp;match&nbsp;subclasses&nbsp;of&nbsp;the&nbsp;given&nbsp;type.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;The&nbsp;type&nbsp;of&nbsp;the&nbsp;expected&nbsp;child.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;The&nbsp;type&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;search&nbsp;for.<br>
 &nbsp;<br>
 Raises:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;valid&nbsp;child&nbsp;is&nbsp;found.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;matching&nbsp;child&nbsp;is&nbsp;found.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;immediate&nbsp;child&nbsp;widget&nbsp;with&nbsp;the&nbsp;expected&nbsp;type.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-get_component_rich_style"><strong>get_component_rich_style</strong></a>(self, name: 'str', *, partial: 'bool' = False) -&gt; 'Style'</dt><dd><span class="code">Get&nbsp;a&nbsp;*Rich*&nbsp;style&nbsp;for&nbsp;a&nbsp;component.<br>
 &nbsp;<br>
@@ -242,6 +307,13 @@ Args:<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;optimal&nbsp;width&nbsp;of&nbsp;the&nbsp;content.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-get_loading_widget"><strong>get_loading_widget</strong></a>(self) -&gt; 'Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;widget&nbsp;to&nbsp;display&nbsp;a&nbsp;loading&nbsp;indicator.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;will&nbsp;defer&nbsp;to&nbsp;App.get_loading_widget.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;in&nbsp;place&nbsp;of&nbsp;this&nbsp;widget&nbsp;to&nbsp;indicate&nbsp;a&nbsp;loading.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-get_pseudo_class_state"><strong>get_pseudo_class_state</strong></a>(self) -&gt; 'PseudoClasses'</dt><dd><span class="code">Get&nbsp;an&nbsp;object&nbsp;describing&nbsp;whether&nbsp;each&nbsp;pseudo&nbsp;class&nbsp;is&nbsp;present&nbsp;on&nbsp;this&nbsp;object&nbsp;or&nbsp;not.<br>
 &nbsp;<br>
@@ -321,7 +393,16 @@ Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;``before``&nbsp;or&nbsp;``after``&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;both&nbsp;are<br>
 &nbsp;&nbsp;&nbsp;&nbsp;provided&nbsp;a&nbsp;``MountError``&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-move_child"><strong>move_child</strong></a>(self, child: 'int | Widget', before: 'int | Widget | None' = None, after: 'int | Widget | None' = None) -&gt; 'None'</dt><dd><span class="code">Move&nbsp;a&nbsp;child&nbsp;widget&nbsp;within&nbsp;its&nbsp;parent's&nbsp;list&nbsp;of&nbsp;children.<br>
+<dl><dt>async <a name="ChannelEnvironmentDisplay-mount_composed_widgets"><strong>mount_composed_widgets</strong></a>(self, widgets: 'list[Widget]') -&gt; 'None'</dt><dd><span class="code">Called&nbsp;by&nbsp;Textual&nbsp;to&nbsp;mount&nbsp;widgets&nbsp;after&nbsp;compose.<br>
+&nbsp;<br>
+There&nbsp;is&nbsp;generally&nbsp;no&nbsp;need&nbsp;to&nbsp;implement&nbsp;this&nbsp;method&nbsp;in&nbsp;your&nbsp;application.<br>
+See&nbsp;[Lazy][textual.lazy.Lazy]&nbsp;for&nbsp;a&nbsp;class&nbsp;which&nbsp;uses&nbsp;this&nbsp;method&nbsp;to&nbsp;implement<br>
+*lazy*&nbsp;mounting.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widgets:&nbsp;A&nbsp;list&nbsp;of&nbsp;child&nbsp;widgets.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-move_child"><strong>move_child</strong></a>(self, child: 'int | Widget', *, before: 'int | Widget | None' = None, after: 'int | Widget | None' = None) -&gt; 'None'</dt><dd><span class="code">Move&nbsp;a&nbsp;child&nbsp;widget&nbsp;within&nbsp;its&nbsp;parent's&nbsp;list&nbsp;of&nbsp;children.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;The&nbsp;child&nbsp;widget&nbsp;to&nbsp;move.<br>
@@ -335,16 +416,17 @@ Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;`before`&nbsp;or&nbsp;`after`&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;neither<br>
 &nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;both&nbsp;are&nbsp;provided&nbsp;a&nbsp;`WidgetError`&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-notify"><strong>notify</strong></a>(self, message: 'str', *, title: 'str' = '', severity: 'SeverityLevel' = 'information', timeout: 'float' = 3) -&gt; 'Notification'</dt><dd><span class="code">Create&nbsp;a&nbsp;notification.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-notify"><strong>notify</strong></a>(self, message: 'str', *, title: 'str' = '', severity: 'SeverityLevel' = 'information', timeout: 'float' = 5) -&gt; 'None'</dt><dd><span class="code">Create&nbsp;a&nbsp;notification.<br>
+&nbsp;<br>
+!!!&nbsp;tip<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;method&nbsp;is&nbsp;thread-safe.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;The&nbsp;message&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;The&nbsp;title&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;severity:&nbsp;The&nbsp;severity&nbsp;of&nbsp;the&nbsp;notification.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;The&nbsp;timeout&nbsp;for&nbsp;the&nbsp;notification.<br>
-&nbsp;<br>
-Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;new&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;The&nbsp;timeout&nbsp;(in&nbsp;seconds)&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;<br>
 See&nbsp;[`App.notify`][textual.app.App.notify]&nbsp;for&nbsp;the&nbsp;full<br>
 documentation&nbsp;for&nbsp;this&nbsp;method.</span></dd></dl>
@@ -366,7 +448,11 @@ Returns:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;new&nbsp;renderable.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-refresh"><strong>refresh</strong></a>(self, *regions: 'Region', repaint: 'bool' = True, layout: 'bool' = False) -&gt; 'Self'</dt><dd><span class="code">Initiate&nbsp;a&nbsp;refresh&nbsp;of&nbsp;the&nbsp;widget.<br>
+<dl><dt>async <a name="ChannelEnvironmentDisplay-recompose"><strong>recompose</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Recompose&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Recomposing&nbsp;will&nbsp;remove&nbsp;children&nbsp;and&nbsp;call&nbsp;`self.<strong>compose</strong>`&nbsp;again&nbsp;to&nbsp;remount.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-refresh"><strong>refresh</strong></a>(self, *regions: 'Region', repaint: 'bool' = True, layout: 'bool' = False, recompose: 'bool' = False) -&gt; 'Self'</dt><dd><span class="code">Initiate&nbsp;a&nbsp;refresh&nbsp;of&nbsp;the&nbsp;widget.<br>
 &nbsp;<br>
 This&nbsp;method&nbsp;sets&nbsp;an&nbsp;internal&nbsp;flag&nbsp;to&nbsp;perform&nbsp;a&nbsp;refresh,&nbsp;which&nbsp;will&nbsp;be&nbsp;done&nbsp;on&nbsp;the<br>
 next&nbsp;idle&nbsp;event.&nbsp;Only&nbsp;one&nbsp;refresh&nbsp;will&nbsp;be&nbsp;done&nbsp;even&nbsp;if&nbsp;this&nbsp;method&nbsp;is&nbsp;called&nbsp;multiple&nbsp;times.<br>
@@ -383,6 +469,7 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*regions:&nbsp;Additional&nbsp;screen&nbsp;regions&nbsp;to&nbsp;mark&nbsp;as&nbsp;dirty.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;repaint:&nbsp;Repaint&nbsp;the&nbsp;widget&nbsp;(will&nbsp;call&nbsp;<a href="#ChannelEnvironmentDisplay-render">render</a>()&nbsp;again).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;layout:&nbsp;Also&nbsp;layout&nbsp;widgets&nbsp;in&nbsp;the&nbsp;view.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;recompose:&nbsp;Re-compose&nbsp;the&nbsp;widget&nbsp;(will&nbsp;remove&nbsp;and&nbsp;re-mount&nbsp;children).<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;`Widget`&nbsp;instance.</span></dd></dl>
@@ -396,10 +483,13 @@ Mouse&nbsp;events&nbsp;will&nbsp;only&nbsp;be&nbsp;sent&nbsp;when&nbsp;the&nbsp;
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;the&nbsp;widget&nbsp;to&nbsp;be&nbsp;removed.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-remove_children"><strong>remove_children</strong></a>(self) -&gt; 'AwaitRemove'</dt><dd><span class="code">Remove&nbsp;all&nbsp;children&nbsp;of&nbsp;this&nbsp;Widget&nbsp;from&nbsp;the&nbsp;DOM.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-remove_children"><strong>remove_children</strong></a>(self, selector: 'str | type[QueryType]' = '*') -&gt; 'AwaitRemove'</dt><dd><span class="code">Remove&nbsp;the&nbsp;immediate&nbsp;children&nbsp;of&nbsp;this&nbsp;Widget&nbsp;from&nbsp;the&nbsp;DOM.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector&nbsp;to&nbsp;specify&nbsp;which&nbsp;direct&nbsp;children&nbsp;to&nbsp;remove.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;the&nbsp;children&nbsp;to&nbsp;be&nbsp;removed.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;the&nbsp;direct&nbsp;children&nbsp;to&nbsp;be&nbsp;removed.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-render_line"><strong>render_line</strong></a>(self, y: 'int') -&gt; 'Strip'</dt><dd><span class="code">Render&nbsp;a&nbsp;line&nbsp;of&nbsp;content.<br>
 &nbsp;<br>
@@ -432,7 +522,7 @@ Returns:<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;action:&nbsp;Action&nbsp;encoded&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_down"><strong>scroll_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;down.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_down"><strong>scroll_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;down.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -440,9 +530,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_end"><strong>scroll_end</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;container.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_end"><strong>scroll_end</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;container.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -450,9 +541,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_home"><strong>scroll_home</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;home&nbsp;position.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_home"><strong>scroll_home</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;home&nbsp;position.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -460,9 +552,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_left"><strong>scroll_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;left.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_left"><strong>scroll_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;left.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -470,9 +563,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_down"><strong>scroll_page_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;down.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_down"><strong>scroll_page_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;down.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -480,9 +574,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_left"><strong>scroll_page_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;left.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_left"><strong>scroll_page_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;left.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -490,9 +585,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_right"><strong>scroll_page_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;right.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_right"><strong>scroll_page_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;right.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -500,9 +596,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_up"><strong>scroll_page_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;up.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_up"><strong>scroll_page_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;up.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -510,9 +607,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_relative"><strong>scroll_relative</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;relative&nbsp;to&nbsp;current&nbsp;position.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_relative"><strong>scroll_relative</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;relative&nbsp;to&nbsp;current&nbsp;position.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;X&nbsp;distance&nbsp;(columns)&nbsp;to&nbsp;scroll,&nbsp;or&nbsp;``None``&nbsp;for&nbsp;no&nbsp;change.<br>
@@ -522,9 +620,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`&nbsp;and&nbsp;speed&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_right"><strong>scroll_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;right.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_right"><strong>scroll_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;right.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -532,9 +631,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to"><strong>scroll_to</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;a&nbsp;given&nbsp;(absolute)&nbsp;coordinate,&nbsp;optionally&nbsp;animating.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to"><strong>scroll_to</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;a&nbsp;given&nbsp;(absolute)&nbsp;coordinate,&nbsp;optionally&nbsp;animating.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;X&nbsp;coordinate&nbsp;(column)&nbsp;to&nbsp;scroll&nbsp;to,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;no&nbsp;change.<br>
@@ -545,11 +645,12 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
 &nbsp;<br>
 Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;call&nbsp;to&nbsp;scroll&nbsp;is&nbsp;made&nbsp;after&nbsp;the&nbsp;next&nbsp;refresh.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_center"><strong>scroll_to_center</strong></a>(self, widget: 'Widget', animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, origin_visible: 'bool' = True, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;this&nbsp;widget&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;self.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_center"><strong>scroll_to_center</strong></a>(self, widget: 'Widget', animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, origin_visible: 'bool' = True, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;this&nbsp;widget&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;self.<br>
 &nbsp;<br>
 The&nbsp;center&nbsp;of&nbsp;the&nbsp;widget&nbsp;will&nbsp;be&nbsp;scrolled&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;the&nbsp;container.<br>
 &nbsp;<br>
@@ -561,9 +662,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;corner&nbsp;of&nbsp;the&nbsp;widget&nbsp;remains&nbsp;visible&nbsp;after&nbsp;the&nbsp;scroll.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_region"><strong>scroll_to_region</strong></a>(self, region: 'Region', *, spacing: 'Spacing | None' = None, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'Offset'</dt><dd><span class="code">Scrolls&nbsp;a&nbsp;given&nbsp;region&nbsp;in&nbsp;to&nbsp;view,&nbsp;if&nbsp;required.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_region"><strong>scroll_to_region</strong></a>(self, region: 'Region', *, spacing: 'Spacing | None' = None, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'Offset'</dt><dd><span class="code">Scrolls&nbsp;a&nbsp;given&nbsp;region&nbsp;in&nbsp;to&nbsp;view,&nbsp;if&nbsp;required.<br>
 &nbsp;<br>
 This&nbsp;method&nbsp;will&nbsp;scroll&nbsp;the&nbsp;least&nbsp;distance&nbsp;required&nbsp;to&nbsp;move&nbsp;`region`&nbsp;fully&nbsp;within<br>
 the&nbsp;scrollable&nbsp;area.<br>
@@ -579,11 +681,12 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;of&nbsp;the&nbsp;widget&nbsp;is&nbsp;within&nbsp;the&nbsp;window.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;distance&nbsp;that&nbsp;was&nbsp;scrolled.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_widget"><strong>scroll_to_widget</strong></a>(self, widget: 'Widget', *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'bool'</dt><dd><span class="code">Scroll&nbsp;scrolling&nbsp;to&nbsp;bring&nbsp;a&nbsp;widget&nbsp;in&nbsp;to&nbsp;view.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_widget"><strong>scroll_to_widget</strong></a>(self, widget: 'Widget', *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'bool'</dt><dd><span class="code">Scroll&nbsp;scrolling&nbsp;to&nbsp;bring&nbsp;a&nbsp;widget&nbsp;in&nbsp;to&nbsp;view.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;descendant&nbsp;widget.<br>
@@ -595,11 +698,12 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;of&nbsp;the&nbsp;widget&nbsp;is&nbsp;within&nbsp;the&nbsp;window.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;any&nbsp;scrolling&nbsp;has&nbsp;occurred&nbsp;in&nbsp;any&nbsp;descendant,&nbsp;otherwise&nbsp;`False`.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_up"><strong>scroll_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;up.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_up"><strong>scroll_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;up.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -607,9 +711,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;speed&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_visible"><strong>scroll_visible</strong></a>(self, animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, top: 'bool' = False, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;the&nbsp;container&nbsp;to&nbsp;make&nbsp;this&nbsp;widget&nbsp;visible.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_visible"><strong>scroll_visible</strong></a>(self, animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, top: 'bool' = False, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;the&nbsp;container&nbsp;to&nbsp;make&nbsp;this&nbsp;widget&nbsp;visible.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -618,7 +723,18 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;top:&nbsp;Scroll&nbsp;to&nbsp;top&nbsp;of&nbsp;container.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-set_loading"><strong>set_loading</strong></a>(self, loading: 'bool') -&gt; 'Awaitable'</dt><dd><span class="code">Set&nbsp;or&nbsp;reset&nbsp;the&nbsp;loading&nbsp;state&nbsp;of&nbsp;this&nbsp;widget.<br>
+&nbsp;<br>
+A&nbsp;widget&nbsp;in&nbsp;a&nbsp;loading&nbsp;state&nbsp;will&nbsp;display&nbsp;a&nbsp;LoadingIndicator&nbsp;that&nbsp;obscures&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;loading:&nbsp;`True`&nbsp;to&nbsp;put&nbsp;the&nbsp;widget&nbsp;into&nbsp;a&nbsp;loading&nbsp;state,&nbsp;or&nbsp;`False`&nbsp;to&nbsp;reset&nbsp;the&nbsp;loading&nbsp;state.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;optional&nbsp;awaitable.</span></dd></dl>
 
 <dl><dt>async <a name="ChannelEnvironmentDisplay-stop_animation"><strong>stop_animation</strong></a>(self, attribute: 'str', complete: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Stop&nbsp;an&nbsp;animation&nbsp;on&nbsp;an&nbsp;attribute.<br>
 &nbsp;<br>
@@ -714,7 +830,7 @@ Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Additional&nbsp;spacing&nbsp;around&nbsp;content&nbsp;area.</span></dd>
 </dl>
 <dl><dt><strong>horizontal_scrollbar</strong></dt>
-<dd><span class="code">The&nbsp;a&nbsp;horizontal&nbsp;scrollbar.<br>
+<dd><span class="code">The&nbsp;horizontal&nbsp;scrollbar.<br>
 &nbsp;<br>
 Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;*create*&nbsp;a&nbsp;scrollbar&nbsp;if&nbsp;one&nbsp;doesn't&nbsp;exist.<br>
@@ -730,6 +846,9 @@ Returns:<br>
 </dl>
 <dl><dt><strong>is_horizontal_scrollbar_grabbed</strong></dt>
 <dd><span class="code">Is&nbsp;the&nbsp;user&nbsp;dragging&nbsp;the&nbsp;vertical&nbsp;scrollbar?</span></dd>
+</dl>
+<dl><dt><strong>is_mounted</strong></dt>
+<dd><span class="code">Check&nbsp;if&nbsp;this&nbsp;widget&nbsp;is&nbsp;mounted.</span></dd>
 </dl>
 <dl><dt><strong>is_scrollable</strong></dt>
 <dd><span class="code">Can&nbsp;this&nbsp;widget&nbsp;be&nbsp;scrolled?</span></dd>
@@ -752,17 +871,17 @@ Returns:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Tuple&nbsp;of&nbsp;layer&nbsp;names.</span></dd>
 </dl>
-<dl><dt><strong>link_hover_style</strong></dt>
-<dd><span class="code">Style&nbsp;of&nbsp;links&nbsp;underneath&nbsp;the&nbsp;mouse&nbsp;cursor.<br>
-&nbsp;<br>
-Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Rich&nbsp;Style.</span></dd>
-</dl>
 <dl><dt><strong>link_style</strong></dt>
 <dd><span class="code">Style&nbsp;of&nbsp;links.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Rich&nbsp;style.</span></dd>
+</dl>
+<dl><dt><strong>link_style_hover</strong></dt>
+<dd><span class="code">Style&nbsp;of&nbsp;links&nbsp;underneath&nbsp;the&nbsp;mouse&nbsp;cursor.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rich&nbsp;Style.</span></dd>
 </dl>
 <dl><dt><strong>max_scroll_x</strong></dt>
 <dd><span class="code">The&nbsp;maximum&nbsp;value&nbsp;of&nbsp;`scroll_x`.</span></dd>
@@ -903,6 +1022,8 @@ Data descriptors inherited from <a href="textual.widget.html#Widget">textual.wid
 </dl>
 <dl><dt><strong>hover_style</strong></dt>
 </dl>
+<dl><dt><strong>loading</strong></dt>
+</dl>
 <dl><dt><strong>mouse_over</strong></dt>
 </dl>
 <dl><dt><strong>offset</strong></dt>
@@ -942,22 +1063,40 @@ Data and other attributes inherited from <a href="textual.widget.html#Widget">te
 
 <hr>
 Methods inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
-<dl><dt><a name="ChannelEnvironmentDisplay-add_class"><strong>add_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;class&nbsp;names&nbsp;to&nbsp;this&nbsp;Node.<br>
+<dl><dt>async <a name="ChannelEnvironmentDisplay-action_toggle"><strong>action_toggle</strong></a>(self, attribute_name: 'str') -&gt; 'None'</dt><dd><span class="code">Toggle&nbsp;an&nbsp;attribute&nbsp;on&nbsp;the&nbsp;node.<br>
+&nbsp;<br>
+Assumes&nbsp;the&nbsp;attribute&nbsp;is&nbsp;a&nbsp;bool.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute_name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-add_class"><strong>add_class</strong></a>(self, *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;class&nbsp;names&nbsp;to&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;add.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-compose_add_child"><strong>compose_add_child</strong></a>(self, widget: 'Widget') -&gt; 'None'</dt><dd><span class="code">Add&nbsp;a&nbsp;node&nbsp;to&nbsp;children.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-data_bind"><strong>data_bind</strong></a>(self, *reactives: 'Reactive[Any]', **bind_vars: 'Reactive[Any] | object') -&gt; 'Self'</dt><dd><span class="code">Bind&nbsp;reactive&nbsp;data&nbsp;so&nbsp;that&nbsp;changes&nbsp;to&nbsp;a&nbsp;reactive&nbsp;automatically&nbsp;change&nbsp;the&nbsp;reactive&nbsp;on&nbsp;another&nbsp;widget.<br>
 &nbsp;<br>
-This&nbsp;is&nbsp;used&nbsp;by&nbsp;the&nbsp;compose&nbsp;process&nbsp;when&nbsp;it&nbsp;adds&nbsp;children.<br>
-There&nbsp;is&nbsp;no&nbsp;need&nbsp;to&nbsp;use&nbsp;it&nbsp;directly,&nbsp;but&nbsp;you&nbsp;may&nbsp;want&nbsp;to&nbsp;override&nbsp;it&nbsp;in&nbsp;a&nbsp;subclass<br>
-if&nbsp;you&nbsp;want&nbsp;children&nbsp;to&nbsp;be&nbsp;attached&nbsp;to&nbsp;a&nbsp;different&nbsp;node.<br>
+Reactives&nbsp;may&nbsp;be&nbsp;given&nbsp;as&nbsp;positional&nbsp;arguments&nbsp;or&nbsp;keyword&nbsp;arguments.<br>
+See&nbsp;the&nbsp;[guide&nbsp;on&nbsp;data&nbsp;binding](/guide/reactivity#data-binding).<br>
 &nbsp;<br>
-Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;Widget&nbsp;to&nbsp;add.</span></dd></dl>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;<a href="#ChannelEnvironmentDisplay-compose">compose</a>(self)&nbsp;-&gt;&nbsp;ComposeResult:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Europe/London").<a href="#ChannelEnvironmentDisplay-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Europe/Paris").<a href="#ChannelEnvironmentDisplay-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Asia/Tokyo").<a href="#ChannelEnvironmentDisplay-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReactiveError:&nbsp;If&nbsp;the&nbsp;data&nbsp;wasn't&nbsp;bound.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-get_component_styles"><strong>get_component_styles</strong></a>(self, name: 'str') -&gt; 'RenderStyles'</dt><dd><span class="code">Get&nbsp;a&nbsp;"component"&nbsp;styles&nbsp;object&nbsp;(must&nbsp;be&nbsp;defined&nbsp;in&nbsp;COMPONENT_CLASSES&nbsp;classvar).<br>
 &nbsp;<br>
@@ -978,26 +1117,34 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;``True``&nbsp;if&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;class&nbsp;names,&nbsp;otherwise&nbsp;``False``.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-has_pseudo_class"><strong>has_pseudo_class</strong></a>(self, *class_names: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;for&nbsp;pseudo&nbsp;classes&nbsp;(such&nbsp;as&nbsp;hover,&nbsp;focus&nbsp;etc)<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-has_pseudo_class"><strong>has_pseudo_class</strong></a>(self, class_name: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;the&nbsp;node&nbsp;has&nbsp;the&nbsp;given&nbsp;pseudo&nbsp;class.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;The&nbsp;pseudo&nbsp;classes&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_name:&nbsp;The&nbsp;pseudo&nbsp;class&nbsp;to&nbsp;check&nbsp;for.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;DOM&nbsp;node&nbsp;has&nbsp;those&nbsp;pseudo&nbsp;classes,&nbsp;`False`&nbsp;if&nbsp;not.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;DOM&nbsp;node&nbsp;has&nbsp;the&nbsp;pseudo&nbsp;class,&nbsp;`False`&nbsp;if&nbsp;not.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-query"><strong>query</strong></a>(self, selector: 'str | type[QueryType] | None' = None) -&gt; 'DOMQuery[Widget] | DOMQuery[QueryType]'</dt><dd><span class="code">Get&nbsp;a&nbsp;DOM&nbsp;query&nbsp;matching&nbsp;a&nbsp;selector.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-has_pseudo_classes"><strong>has_pseudo_classes</strong></a>(self, class_names: 'set[str]') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;pseudo&nbsp;classes.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector&nbsp;or&nbsp;`None`&nbsp;for&nbsp;all&nbsp;nodes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names:&nbsp;Set&nbsp;of&nbsp;class&nbsp;names&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;all&nbsp;pseudo&nbsp;class&nbsp;names&nbsp;are&nbsp;present.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-query"><strong>query</strong></a>(self, selector: 'str | type[QueryType] | None' = None) -&gt; 'DOMQuery[Widget] | DOMQuery[QueryType]'</dt><dd><span class="code">Query&nbsp;the&nbsp;DOM&nbsp;for&nbsp;children&nbsp;that&nbsp;match&nbsp;a&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector,&nbsp;widget&nbsp;type,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;all&nbsp;nodes.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;query&nbsp;object.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-query_one"><strong>query_one</strong></a>(self, selector: 'str | type[QueryType]', expect_type: 'type[QueryType] | None' = None) -&gt; 'QueryType | Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;single&nbsp;Widget&nbsp;matching&nbsp;the&nbsp;given&nbsp;selector&nbsp;or&nbsp;selector&nbsp;type.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-query_one"><strong>query_one</strong></a>(self, selector: 'str | type[QueryType]', expect_type: 'type[QueryType] | None' = None) -&gt; 'QueryType | Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;widget&nbsp;from&nbsp;this&nbsp;widget's&nbsp;children&nbsp;that&nbsp;matches&nbsp;a&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;selector.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;any&nbsp;type.<br>
 &nbsp;<br>
 Raises:<br>
@@ -1008,10 +1155,11 @@ Raises:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;matching&nbsp;the&nbsp;selector.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-remove_class"><strong>remove_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Remove&nbsp;class&nbsp;names&nbsp;from&nbsp;this&nbsp;Node.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-remove_class"><strong>remove_class</strong></a>(self, *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Remove&nbsp;class&nbsp;names&nbsp;from&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;remove.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
@@ -1035,10 +1183,11 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;Worker&nbsp;instance.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-set_class"><strong>set_class</strong></a>(self, add: 'bool', *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;or&nbsp;remove&nbsp;class(es)&nbsp;based&nbsp;on&nbsp;a&nbsp;condition.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-set_class"><strong>set_class</strong></a>(self, add: 'bool', *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;or&nbsp;remove&nbsp;class(es)&nbsp;based&nbsp;on&nbsp;a&nbsp;condition.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;add:&nbsp;Add&nbsp;the&nbsp;classes&nbsp;if&nbsp;True,&nbsp;otherwise&nbsp;remove&nbsp;them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
@@ -1052,14 +1201,43 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-set_styles"><strong>set_styles</strong></a>(self, css: 'str | None' = None, **update_styles) -&gt; 'Self'</dt><dd><span class="code">Set&nbsp;custom&nbsp;styles&nbsp;on&nbsp;this&nbsp;object.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-set_reactive"><strong>set_reactive</strong></a>(self, reactive: 'Reactive[ReactiveType]', value: 'ReactiveType') -&gt; 'None'</dt><dd><span class="code">Sets&nbsp;a&nbsp;reactive&nbsp;value&nbsp;*without*&nbsp;invoking&nbsp;validators&nbsp;or&nbsp;watchers.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#ChannelEnvironmentDisplay-set_reactive">set_reactive</a>(App.dark_mode,&nbsp;True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;reactive&nbsp;attribute.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;New&nbsp;value&nbsp;of&nbsp;reactive.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError:&nbsp;If&nbsp;the&nbsp;first&nbsp;argument&nbsp;is&nbsp;not&nbsp;a&nbsp;reactive.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-set_styles"><strong>set_styles</strong></a>(self, css: 'str | None' = None, **update_styles: 'Any') -&gt; 'Self'</dt><dd><span class="code">Set&nbsp;custom&nbsp;styles&nbsp;on&nbsp;this&nbsp;object.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;css:&nbsp;Styles&nbsp;in&nbsp;CSS&nbsp;format.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;**update_styles:&nbsp;Keyword&nbsp;arguments&nbsp;map&nbsp;style&nbsp;names&nbsp;on&nbsp;to&nbsp;style.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update_styles:&nbsp;Keyword&nbsp;arguments&nbsp;map&nbsp;style&nbsp;names&nbsp;onto&nbsp;style&nbsp;values.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-sort_children"><strong>sort_children</strong></a>(self, *, key: 'Callable[[Widget], SupportsRichComparison] | None' = None, reverse: 'bool' = False) -&gt; 'None'</dt><dd><span class="code">Sort&nbsp;child&nbsp;widgets&nbsp;with&nbsp;an&nbsp;optional&nbsp;key&nbsp;function.<br>
+&nbsp;<br>
+If&nbsp;`key`&nbsp;is&nbsp;not&nbsp;provided&nbsp;then&nbsp;widgets&nbsp;will&nbsp;be&nbsp;sorted&nbsp;in&nbsp;the&nbsp;order&nbsp;they&nbsp;are&nbsp;constructed.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Sort&nbsp;widgets&nbsp;by&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen.<a href="#ChannelEnvironmentDisplay-sort_children">sort_children</a>(key=lambda&nbsp;widget:&nbsp;widget.name&nbsp;or&nbsp;"")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key:&nbsp;A&nbsp;callable&nbsp;which&nbsp;accepts&nbsp;a&nbsp;widget&nbsp;and&nbsp;returns&nbsp;something&nbsp;that&nbsp;can&nbsp;be&nbsp;sorted,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;sort&nbsp;without&nbsp;a&nbsp;key&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reverse:&nbsp;Sort&nbsp;in&nbsp;descending&nbsp;order.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-toggle_class"><strong>toggle_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Toggle&nbsp;class&nbsp;names&nbsp;on&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
@@ -1103,13 +1281,13 @@ Args:<br>
 <hr>
 Readonly properties inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
 <dl><dt><strong>ancestors</strong></dt>
-<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;Nodes&nbsp;by&nbsp;tracing&nbsp;ancestors&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;found&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
 </dl>
 <dl><dt><strong>ancestors_with_self</strong></dt>
-<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;Nodes&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;found&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
 &nbsp;<br>
 Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;inclusive&nbsp;of&nbsp;``self``.<br>
@@ -1261,6 +1439,8 @@ Data and other attributes inherited from <a href="textual.dom.html#DOMNode">text
 
 <dl><dt><strong>DEFAULT_CLASSES</strong> = ''</dl>
 
+<dl><dt><strong>SCOPED_CSS</strong> = True</dl>
+
 <dl><dt><strong>WalkType</strong> = ~WalkType</dl>
 
 <hr>
@@ -1336,7 +1516,7 @@ Example:<br>
 <dl><dt><a name="ChannelEnvironmentDisplay-set_interval"><strong>set_interval</strong></a>(self, interval: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, repeat: 'int' = 0, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Call&nbsp;a&nbsp;function&nbsp;at&nbsp;periodic&nbsp;intervals.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;interval:&nbsp;Time&nbsp;between&nbsp;calls.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interval:&nbsp;Time&nbsp;(in&nbsp;seconds)&nbsp;between&nbsp;calls.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Function&nbsp;to&nbsp;call.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;object.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;repeat:&nbsp;Number&nbsp;of&nbsp;times&nbsp;to&nbsp;repeat&nbsp;the&nbsp;call&nbsp;or&nbsp;0&nbsp;for&nbsp;continuous.<br>
@@ -1348,7 +1528,7 @@ Returns:<br>
 <dl><dt><a name="ChannelEnvironmentDisplay-set_timer"><strong>set_timer</strong></a>(self, delay: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Make&nbsp;a&nbsp;function&nbsp;call&nbsp;after&nbsp;a&nbsp;delay.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;Time&nbsp;to&nbsp;wait&nbsp;before&nbsp;invoking&nbsp;callback.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;Time&nbsp;(in&nbsp;seconds)&nbsp;to&nbsp;wait&nbsp;before&nbsp;invoking&nbsp;callback.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callback&nbsp;to&nbsp;call&nbsp;after&nbsp;time&nbsp;has&nbsp;expired.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;(for&nbsp;debug).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;pause:&nbsp;Start&nbsp;timer&nbsp;paused.<br>
@@ -1385,15 +1565,18 @@ Raises:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;logger.</span></dd>
 </dl>
+<dl><dt><strong>message_queue_size</strong></dt>
+<dd><span class="code">The&nbsp;current&nbsp;size&nbsp;of&nbsp;the&nbsp;message&nbsp;queue.</span></dd>
+</dl>
 <dl><dt><strong>task</strong></dt>
 </dl>
 <hr>
 Data descriptors inherited from <a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">

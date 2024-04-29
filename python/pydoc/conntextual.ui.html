@@ -17,10 +17,11 @@
     
 <tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><table><tr><td class="multicolumn"><a href="conntextual.ui.base.html">base</a><br>
-</td><td class="multicolumn"><a href="conntextual.ui.channel.html"><strong>channel</strong>&nbsp;(package)</a><br>
-</td><td class="multicolumn"><a href="conntextual.ui.model.html">model</a><br>
-</td><td class="multicolumn"><a href="conntextual.ui.sample.html">sample</a><br>
-</td></tr></table></td></tr></table><p>
+<a href="conntextual.ui.channel.html"><strong>channel</strong>&nbsp;(package)</a><br>
+</td><td class="multicolumn"><a href="conntextual.ui.footer.html">footer</a><br>
+<a href="conntextual.ui.model.html">model</a><br>
+</td><td class="multicolumn"><a href="conntextual.ui.task.html">task</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
@@ -66,25 +67,43 @@ A&nbsp;simple&nbsp;textual&nbsp;application.<br>&nbsp;</span></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
+<dl><dt>async <a name="Base-action_quit"><strong>action_quit</strong></a>(self) -&gt; None</dt><dd><span class="code">Stop&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;application&nbsp;when&nbsp;quitting.</span></dd></dl>
+
+<dl><dt><a name="Base-action_random_channel"><strong>action_random_channel</strong></a>(self) -&gt; None</dt><dd><span class="code">Randomize&nbsp;the&nbsp;channel&nbsp;on&nbsp;the&nbsp;current&nbsp;tab.</span></dd></dl>
+
+<dl><dt><a name="Base-action_refresh_plot"><strong>action_refresh_plot</strong></a>(self) -&gt; None</dt><dd><span class="code">Refresh&nbsp;the&nbsp;current&nbsp;plot.</span></dd></dl>
+
 <dl><dt><a name="Base-action_tab"><strong>action_tab</strong></a>(self, forward: bool) -&gt; None</dt><dd><span class="code">Change&nbsp;the&nbsp;active&nbsp;tab.</span></dd></dl>
+
+<dl><dt><a name="Base-action_toggle_pause"><strong>action_toggle_pause</strong></a>(self) -&gt; None</dt><dd><span class="code">Toggle&nbsp;pause&nbsp;state.</span></dd></dl>
 
 <dl><dt><a name="Base-compose"><strong>compose</strong></a>(self) -&gt; Iterable[textual.widget.Widget]</dt><dd><span class="code">Create&nbsp;child&nbsp;nodes.</span></dd></dl>
 
 <dl><dt><a name="Base-compose_app"><strong>compose_app</strong></a>(self) -&gt; Iterable[textual.widget.Widget]</dt><dd><span class="code">Application-specific&nbsp;interface&nbsp;creation.</span></dd></dl>
 
-<dl><dt><a name="Base-dispatch"><strong>dispatch</strong></a>(self) -&gt; None</dt><dd><span class="code">Update&nbsp;channel&nbsp;values.</span></dd></dl>
+<dl><dt><a name="Base-dispatch"><strong>dispatch</strong></a>(self, max_plot_samples: int, update_table: bool = True, update_log: bool = True, update_plot: bool = True) -&gt; None</dt><dd><span class="code">Update&nbsp;channel&nbsp;values.</span></dd></dl>
+
+<dl><dt><a name="Base-ui_enabled"><strong>ui_enabled</strong></a>(self, name: str) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;a&nbsp;task&nbsp;tab&nbsp;should&nbsp;be&nbsp;created&nbsp;for&nbsp;a&nbsp;task&nbsp;with&nbsp;a&nbsp;given&nbsp;name.</span></dd></dl>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="Base-create"><strong>create</strong></a>(app: runtimepy.net.arbiter.info.AppInfo, handle_debug: bool = True) -&gt; 'Base'</dt><dd><span class="code">Create&nbsp;an&nbsp;application&nbsp;instance.</span></dd></dl>
+<dl><dt><a name="Base-create"><strong>create</strong></a>(app: runtimepy.net.arbiter.info.AppInfo, env: runtimepy.channel.environment.ChannelEnvironment, handle_debug: bool = True) -&gt; 'Base'</dt><dd><span class="code">Create&nbsp;an&nbsp;application&nbsp;instance.</span></dd></dl>
 
 <hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>current_channel_environment</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;channel-environment&nbsp;display.</span></dd>
+</dl>
+<dl><dt><strong>tabs</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;tab&nbsp;container.</span></dd>
+</dl>
+<hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>BINDINGS</strong> = [('q', 'quit', 'Quit'), ('d', 'toggle_dark', 'Toggle dark mode'), Binding(key=&lt;Keys.Tab: 'tab'&gt;, action='tab(True)...tab', show=True, key_display=None, priority=True), Binding(key=&lt;Keys.BackTab: 'shift+tab'&gt;, action=...tab', show=True, key_display=None, priority=True)]</dl>
+<dl><dt><strong>BINDINGS</strong> = [('q', 'quit'), (&lt;Keys.Escape: 'escape'&gt;, 'quit', '(or q) quit'), ('space', 'toggle_pause', 'toggle pause'), ('d', 'toggle_dark', 'toggle dark mode'), ('g', 'screenshot', 'take a screenshot'), ('r', 'refresh_plot', 'refresh plot'), ('R', 'random_channel', 'plot random channel'), Binding(key=&lt;Keys.Tab: 'tab'&gt;, action='tab(True)...tab', show=True, key_display=None, priority=True), Binding(key=&lt;Keys.BackTab: 'shift+tab'&gt;, action=...tab', show=True, key_display=None, priority=True)]</dl>
 
-<dl><dt><strong>CSS_PATH</strong> = 'base.tcss'</dl>
+<dl><dt><strong>CSS_PATH</strong> = PosixPath('/home/vkottler/src/vkottler/workspace/conntextual/conntextual/data/tcss/base.tcss')</dl>
 
-<dl><dt><strong>__annotations__</strong> = {'model': &lt;class 'conntextual.ui.model.Model'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'composed': &lt;class 'asyncio.locks.Event'&gt;, 'model': &lt;class 'conntextual.ui.model.Model'&gt;, 'tab_pattern': &lt;class 'conntextual.ui.channel.pattern.PatternPair'&gt;}</dl>
 
 <dl><dt><strong>__orig_bases__</strong> = (textual.app.App[NoneType],)</dl>
 
@@ -130,6 +149,8 @@ Note:<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;key:&nbsp;The&nbsp;key&nbsp;to&nbsp;process.</span></dd></dl>
 
+<dl><dt><a name="Base-action_command_palette"><strong>action_command_palette</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Show&nbsp;the&nbsp;Textual&nbsp;command&nbsp;palette.</span></dd></dl>
+
 <dl><dt>async <a name="Base-action_focus"><strong>action_focus</strong></a>(self, widget_id: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;focus&nbsp;the&nbsp;given&nbsp;widget.<br>
 &nbsp;<br>
 Args:<br>
@@ -146,8 +167,6 @@ Args:<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;Name&nbsp;of&nbsp;the&nbsp;screen.</span></dd></dl>
 
-<dl><dt>async <a name="Base-action_quit"><strong>action_quit</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;quit&nbsp;the&nbsp;app&nbsp;as&nbsp;soon&nbsp;as&nbsp;possible.</span></dd></dl>
-
 <dl><dt>async <a name="Base-action_remove_class"><strong>action_remove_class</strong></a>(self, selector: 'str', class_name: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;to&nbsp;remove&nbsp;a&nbsp;CSS&nbsp;class&nbsp;from&nbsp;the&nbsp;selected&nbsp;widget.<br>
 &nbsp;<br>
 Args:<br>
@@ -159,6 +178,13 @@ Args:<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;filename:&nbsp;Filename&nbsp;of&nbsp;screenshot,&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-generate.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;path:&nbsp;Path&nbsp;to&nbsp;directory.&nbsp;Defaults&nbsp;to&nbsp;current&nbsp;working&nbsp;directory.</span></dd></dl>
+
+<dl><dt><a name="Base-action_suspend_process"><strong>action_suspend_process</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Suspend&nbsp;the&nbsp;process&nbsp;into&nbsp;the&nbsp;background.<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Unix&nbsp;and&nbsp;Unix-like&nbsp;systems&nbsp;a&nbsp;`SIGTSTP`&nbsp;is&nbsp;sent&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;application's&nbsp;process.&nbsp;Currently&nbsp;on&nbsp;Windows&nbsp;and&nbsp;when&nbsp;running<br>
+&nbsp;&nbsp;&nbsp;&nbsp;under&nbsp;Textual&nbsp;Web&nbsp;this&nbsp;is&nbsp;a&nbsp;non-operation.</span></dd></dl>
 
 <dl><dt>async <a name="Base-action_switch_mode"><strong>action_switch_mode</strong></a>(self, mode: 'str') -&gt; 'None'</dt><dd><span class="code">An&nbsp;[action](/guide/actions)&nbsp;that&nbsp;switches&nbsp;to&nbsp;the&nbsp;given&nbsp;mode..</span></dd></dl>
 
@@ -184,7 +210,7 @@ Args:<br>
 Raises:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;InvalidModeError:&nbsp;If&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;mode&nbsp;is&nbsp;not&nbsp;valid/duplicated.</span></dd></dl>
 
-<dl><dt><a name="Base-animate"><strong>animate</strong></a>(self, attribute: 'str', value: 'float | Animatable', *, final_value: 'object' = Ellipsis, duration: 'float | None' = None, speed: 'float | None' = None, delay: 'float' = 0.0, easing: 'EasingFunction | str' = 'in_out_cubic', on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Animate&nbsp;an&nbsp;attribute.<br>
+<dl><dt><a name="Base-animate"><strong>animate</strong></a>(self, attribute: 'str', value: 'float | Animatable', *, final_value: 'object' = Ellipsis, duration: 'float | None' = None, speed: 'float | None' = None, delay: 'float' = 0.0, easing: 'EasingFunction | str' = 'in_out_cubic', on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'full') -&gt; 'None'</dt><dd><span class="code">Animate&nbsp;an&nbsp;attribute.<br>
 &nbsp;<br>
 See&nbsp;the&nbsp;guide&nbsp;for&nbsp;how&nbsp;to&nbsp;use&nbsp;the&nbsp;[animation](/guide/animation)&nbsp;system.<br>
 &nbsp;<br>
@@ -192,17 +218,18 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;attribute:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute&nbsp;to&nbsp;animate.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;The&nbsp;value&nbsp;to&nbsp;animate&nbsp;to.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;final_value:&nbsp;The&nbsp;final&nbsp;value&nbsp;of&nbsp;the&nbsp;animation.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;The&nbsp;duration&nbsp;of&nbsp;the&nbsp;animate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;The&nbsp;duration&nbsp;(in&nbsp;seconds)&nbsp;of&nbsp;the&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;The&nbsp;speed&nbsp;of&nbsp;the&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;A&nbsp;delay&nbsp;(in&nbsp;seconds)&nbsp;before&nbsp;the&nbsp;animation&nbsp;starts.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
 <dl><dt><a name="Base-batch_update"><strong>batch_update</strong></a>(self) -&gt; 'Generator[None, None, None]'</dt><dd><span class="code">A&nbsp;context&nbsp;manager&nbsp;to&nbsp;suspend&nbsp;all&nbsp;repaints&nbsp;until&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;batch.</span></dd></dl>
 
 <dl><dt><a name="Base-begin_capture_print"><strong>begin_capture_print</strong></a>(self, target: 'MessageTarget', stdout: 'bool' = True, stderr: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Capture&nbsp;content&nbsp;that&nbsp;is&nbsp;printed&nbsp;(or&nbsp;written&nbsp;to&nbsp;stdout&nbsp;/&nbsp;stderr).<br>
 &nbsp;<br>
-If&nbsp;printing&nbsp;is&nbsp;captured,&nbsp;the&nbsp;`target`&nbsp;will&nbsp;be&nbsp;send&nbsp;an&nbsp;[events.Print][textual.events.Print]&nbsp;message.<br>
+If&nbsp;printing&nbsp;is&nbsp;captured,&nbsp;the&nbsp;`target`&nbsp;will&nbsp;be&nbsp;sent&nbsp;an&nbsp;[events.Print][textual.events.Print]&nbsp;message.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;target:&nbsp;The&nbsp;widget&nbsp;where&nbsp;print&nbsp;content&nbsp;will&nbsp;be&nbsp;sent.<br>
@@ -223,7 +250,7 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;show:&nbsp;Show&nbsp;key&nbsp;in&nbsp;UI.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;key_display:&nbsp;Replacement&nbsp;text&nbsp;for&nbsp;key,&nbsp;or&nbsp;None&nbsp;to&nbsp;use&nbsp;default.</span></dd></dl>
 
-<dl><dt><a name="Base-call_from_thread"><strong>call_from_thread</strong></a>(self, callback: 'Callable[..., CallThreadReturnType | Awaitable[CallThreadReturnType]]', *args: 'object', **kwargs: 'object') -&gt; 'CallThreadReturnType'</dt><dd><span class="code">Run&nbsp;a&nbsp;callable&nbsp;from&nbsp;another&nbsp;thread,&nbsp;and&nbsp;return&nbsp;the&nbsp;result.<br>
+<dl><dt><a name="Base-call_from_thread"><strong>call_from_thread</strong></a>(self, callback: 'Callable[..., CallThreadReturnType | Awaitable[CallThreadReturnType]]', *args: 'Any', **kwargs: 'Any') -&gt; 'CallThreadReturnType'</dt><dd><span class="code">Run&nbsp;a&nbsp;callable&nbsp;from&nbsp;another&nbsp;thread,&nbsp;and&nbsp;return&nbsp;the&nbsp;result.<br>
 &nbsp;<br>
 Like&nbsp;asyncio&nbsp;apps&nbsp;in&nbsp;general,&nbsp;Textual&nbsp;apps&nbsp;are&nbsp;not&nbsp;thread-safe.&nbsp;If&nbsp;you&nbsp;call&nbsp;methods<br>
 or&nbsp;set&nbsp;attributes&nbsp;on&nbsp;Textual&nbsp;objects&nbsp;from&nbsp;a&nbsp;thread,&nbsp;you&nbsp;may&nbsp;get&nbsp;unpredictable&nbsp;results.<br>
@@ -264,6 +291,15 @@ Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;key&nbsp;was&nbsp;handled&nbsp;by&nbsp;a&nbsp;binding,&nbsp;otherwise&nbsp;False</span></dd></dl>
 
 <dl><dt><a name="Base-clear_notifications"><strong>clear_notifications</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Clear&nbsp;all&nbsp;the&nbsp;current&nbsp;notifications.</span></dd></dl>
+
+<dl><dt><a name="Base-copy_to_clipboard"><strong>copy_to_clipboard</strong></a>(self, text: 'str') -&gt; 'None'</dt><dd><span class="code">Copy&nbsp;text&nbsp;to&nbsp;the&nbsp;clipboard.<br>
+&nbsp;<br>
+!!!&nbsp;note<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;does&nbsp;not&nbsp;work&nbsp;on&nbsp;macOS&nbsp;Terminal,&nbsp;but&nbsp;will&nbsp;work&nbsp;on&nbsp;most&nbsp;other&nbsp;terminals.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;Text&nbsp;you&nbsp;wish&nbsp;to&nbsp;copy&nbsp;to&nbsp;the&nbsp;clipboard.</span></dd></dl>
 
 <dl><dt><a name="Base-end_capture_print"><strong>end_capture_print</strong></a>(self, target: 'MessageTarget') -&gt; 'None'</dt><dd><span class="code">End&nbsp;capturing&nbsp;of&nbsp;prints.<br>
 &nbsp;<br>
@@ -337,6 +373,13 @@ Args:<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;display&nbsp;string&nbsp;for&nbsp;the&nbsp;input&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="Base-get_loading_widget"><strong>get_loading_widget</strong></a>(self) -&gt; 'Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;widget&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;loading&nbsp;indicator.<br>
+&nbsp;<br>
+Extend&nbsp;this&nbsp;method&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;display&nbsp;the&nbsp;loading&nbsp;state&nbsp;a&nbsp;little&nbsp;differently.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;to&nbsp;display&nbsp;a&nbsp;loading&nbsp;state.</span></dd></dl>
 
 <dl><dt><a name="Base-get_screen"><strong>get_screen</strong></a>(self, screen: 'Screen | str') -&gt; 'Screen'</dt><dd><span class="code">Get&nbsp;an&nbsp;installed&nbsp;screen.<br>
 &nbsp;<br>
@@ -450,16 +493,18 @@ Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;``before``&nbsp;or&nbsp;``after``&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;both&nbsp;are<br>
 &nbsp;&nbsp;&nbsp;&nbsp;provided&nbsp;a&nbsp;``MountError``&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
 
-<dl><dt><a name="Base-notify"><strong>notify</strong></a>(self, message: 'str', *, title: 'str' = '', severity: 'SeverityLevel' = 'information', timeout: 'float' = 3) -&gt; 'Notification'</dt><dd><span class="code">Create&nbsp;a&nbsp;notification.<br>
+<dl><dt><a name="Base-notify"><strong>notify</strong></a>(self, message: 'str', *, title: 'str' = '', severity: 'SeverityLevel' = 'information', timeout: 'float' = 5) -&gt; 'None'</dt><dd><span class="code">Create&nbsp;a&nbsp;notification.<br>
+&nbsp;<br>
+!!!&nbsp;tip<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;method&nbsp;is&nbsp;thread-safe.<br>
+&nbsp;<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;The&nbsp;message&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;The&nbsp;title&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;severity:&nbsp;The&nbsp;severity&nbsp;of&nbsp;the&nbsp;notification.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;The&nbsp;timeout&nbsp;for&nbsp;the&nbsp;notification.<br>
-&nbsp;<br>
-Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;new&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;The&nbsp;timeout&nbsp;(in&nbsp;seconds)&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;<br>
 The&nbsp;`notify`&nbsp;method&nbsp;is&nbsp;used&nbsp;to&nbsp;create&nbsp;an&nbsp;application-wide<br>
 notification,&nbsp;shown&nbsp;in&nbsp;a&nbsp;[`Toast`][textual.widgets._toast.Toast],<br>
@@ -514,16 +559,44 @@ Returns:<br>
 
 <dl><dt><a name="Base-post_display_hook"><strong>post_display_hook</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Called&nbsp;immediately&nbsp;after&nbsp;a&nbsp;display&nbsp;is&nbsp;done.&nbsp;Used&nbsp;in&nbsp;tests.</span></dd></dl>
 
-<dl><dt><a name="Base-push_screen"><strong>push_screen</strong></a>(self, screen: 'Screen[ScreenResultType] | str', callback: 'ScreenResultCallbackType[ScreenResultType] | None' = None) -&gt; 'AwaitMount'</dt><dd><span class="code">Push&nbsp;a&nbsp;new&nbsp;[screen](/guide/screens)&nbsp;on&nbsp;the&nbsp;screen&nbsp;stack,&nbsp;making&nbsp;it&nbsp;the&nbsp;current&nbsp;screen.<br>
+<dl><dt><a name="Base-push_screen"><strong>push_screen</strong></a>(self, screen: 'Screen[ScreenResultType] | str', callback: 'ScreenResultCallbackType[ScreenResultType] | None' = None, wait_for_dismiss: 'bool' = False) -&gt; 'AwaitMount | asyncio.Future[ScreenResultType]'</dt><dd><span class="code">Push&nbsp;a&nbsp;new&nbsp;[screen](/guide/screens)&nbsp;on&nbsp;the&nbsp;screen&nbsp;stack,&nbsp;making&nbsp;it&nbsp;the&nbsp;current&nbsp;screen.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;A&nbsp;Screen&nbsp;instance&nbsp;or&nbsp;the&nbsp;name&nbsp;of&nbsp;an&nbsp;installed&nbsp;screen.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;An&nbsp;optional&nbsp;callback&nbsp;function&nbsp;that&nbsp;will&nbsp;be&nbsp;called&nbsp;if&nbsp;the&nbsp;screen&nbsp;is&nbsp;[dismissed][textual.screen.Screen.dismiss]&nbsp;with&nbsp;a&nbsp;result.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wait_for_dismiss:&nbsp;If&nbsp;`True`,&nbsp;awaiting&nbsp;this&nbsp;method&nbsp;will&nbsp;return&nbsp;the&nbsp;dismiss&nbsp;value&nbsp;from&nbsp;the&nbsp;screen.&nbsp;When&nbsp;set&nbsp;to&nbsp;`False`,&nbsp;awaiting<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;method&nbsp;will&nbsp;wait&nbsp;for&nbsp;the&nbsp;screen&nbsp;to&nbsp;be&nbsp;mounted.&nbsp;Note&nbsp;that&nbsp;`wait_for_dismiss`&nbsp;should&nbsp;only&nbsp;be&nbsp;set&nbsp;to&nbsp;`True`&nbsp;when&nbsp;running&nbsp;in&nbsp;a&nbsp;worker.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoActiveWorker:&nbsp;If&nbsp;using&nbsp;`wait_for_dismiss`&nbsp;outside&nbsp;of&nbsp;a&nbsp;worker.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;optional&nbsp;awaitable&nbsp;that&nbsp;awaits&nbsp;the&nbsp;mounting&nbsp;of&nbsp;the&nbsp;screen&nbsp;and&nbsp;its&nbsp;children.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;optional&nbsp;awaitable&nbsp;that&nbsp;awaits&nbsp;the&nbsp;mounting&nbsp;of&nbsp;the&nbsp;screen&nbsp;and&nbsp;its&nbsp;children,&nbsp;or&nbsp;an&nbsp;asyncio&nbsp;Future<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;await&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;screen.</span></dd></dl>
 
-<dl><dt><a name="Base-refresh"><strong>refresh</strong></a>(self, *, repaint: 'bool' = True, layout: 'bool' = False) -&gt; 'None'</dt></dl>
+<dl><dt>async <a name="Base-push_screen_wait"><strong>push_screen_wait</strong></a>(self, screen: 'Screen[ScreenResultType] | str') -&gt; 'ScreenResultType | Any'</dt><dd><span class="code">Push&nbsp;a&nbsp;screen&nbsp;and&nbsp;wait&nbsp;for&nbsp;the&nbsp;result&nbsp;(received&nbsp;from&nbsp;[`Screen.dismiss`][textual.screen.Screen.dismiss]).<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;this&nbsp;method&nbsp;may&nbsp;only&nbsp;be&nbsp;called&nbsp;when&nbsp;running&nbsp;in&nbsp;a&nbsp;worker.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen:&nbsp;A&nbsp;screen&nbsp;or&nbsp;the&nbsp;name&nbsp;of&nbsp;an&nbsp;installed&nbsp;screen.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;screen's&nbsp;result.</span></dd></dl>
+
+<dl><dt>async <a name="Base-recompose"><strong>recompose</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Recompose&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Recomposing&nbsp;will&nbsp;remove&nbsp;children&nbsp;and&nbsp;call&nbsp;`self.<strong>compose</strong>`&nbsp;again&nbsp;to&nbsp;remount.</span></dd></dl>
+
+<dl><dt><a name="Base-refresh"><strong>refresh</strong></a>(self, *, repaint: 'bool' = True, layout: 'bool' = False, recompose: 'bool' = False) -&gt; 'Self'</dt><dd><span class="code">Refresh&nbsp;the&nbsp;entire&nbsp;screen.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repaint:&nbsp;Repaint&nbsp;the&nbsp;widget&nbsp;(will&nbsp;call&nbsp;<a href="#Base-render">render</a>()&nbsp;again).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;layout:&nbsp;Also&nbsp;layout&nbsp;widgets&nbsp;in&nbsp;the&nbsp;view.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;recompose:&nbsp;Re-compose&nbsp;the&nbsp;widget&nbsp;(will&nbsp;remove&nbsp;and&nbsp;re-mount&nbsp;children).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;`<a href="textual.app.html#App">App</a>`&nbsp;instance.</span></dd></dl>
 
 <dl><dt><a name="Base-refresh_css"><strong>refresh_css</strong></a>(self, animate: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Refresh&nbsp;CSS.<br>
 &nbsp;<br>
@@ -541,12 +614,17 @@ Raises:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ActiveModeError:&nbsp;If&nbsp;trying&nbsp;to&nbsp;remove&nbsp;the&nbsp;active&nbsp;mode.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;UnknownModeError:&nbsp;If&nbsp;trying&nbsp;to&nbsp;remove&nbsp;an&nbsp;unknown&nbsp;mode.</span></dd></dl>
 
-<dl><dt><a name="Base-render"><strong>render</strong></a>(self) -&gt; 'RenderableType'</dt></dl>
+<dl><dt><a name="Base-render"><strong>render</strong></a>(self) -&gt; 'RenderResult'</dt><dd><span class="code">Render&nbsp;method&nbsp;inherited&nbsp;from&nbsp;widget,&nbsp;to&nbsp;render&nbsp;the&nbsp;screen's&nbsp;background.<br>
+&nbsp;<br>
+May&nbsp;be&nbsp;override&nbsp;to&nbsp;customize&nbsp;background&nbsp;visuals.</span></dd></dl>
 
-<dl><dt><a name="Base-run"><strong>run</strong></a>(self, *, headless: 'bool' = False, size: 'tuple[int, int] | None' = None, auto_pilot: 'AutopilotCallbackType | None' = None) -&gt; 'ReturnType | None'</dt><dd><span class="code">Run&nbsp;the&nbsp;app.<br>
+<dl><dt><a name="Base-run"><strong>run</strong></a>(self, *, headless: 'bool' = False, inline: 'bool' = False, inline_no_clear: 'bool' = False, mouse: 'bool' = True, size: 'tuple[int, int] | None' = None, auto_pilot: 'AutopilotCallbackType | None' = None) -&gt; 'ReturnType | None'</dt><dd><span class="code">Run&nbsp;the&nbsp;app.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;headless:&nbsp;Run&nbsp;in&nbsp;headless&nbsp;mode&nbsp;(no&nbsp;output).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline:&nbsp;Run&nbsp;the&nbsp;app&nbsp;inline&nbsp;(under&nbsp;the&nbsp;prompt).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline_no_clear:&nbsp;Don't&nbsp;clear&nbsp;the&nbsp;app&nbsp;output&nbsp;when&nbsp;exiting&nbsp;an&nbsp;inline&nbsp;app.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mouse:&nbsp;Enable&nbsp;mouse&nbsp;support.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;size:&nbsp;Force&nbsp;terminal&nbsp;size&nbsp;to&nbsp;`(WIDTH,&nbsp;HEIGHT)`,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-detect.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;auto_pilot:&nbsp;An&nbsp;auto&nbsp;pilot&nbsp;coroutine.<br>
@@ -566,10 +644,13 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;event&nbsp;has&nbsp;been&nbsp;handled.</span></dd></dl>
 
-<dl><dt>async <a name="Base-run_async"><strong>run_async</strong></a>(self, *, headless: 'bool' = False, size: 'tuple[int, int] | None' = None, auto_pilot: 'AutopilotCallbackType | None' = None) -&gt; 'ReturnType | None'</dt><dd><span class="code">Run&nbsp;the&nbsp;app&nbsp;asynchronously.<br>
+<dl><dt>async <a name="Base-run_async"><strong>run_async</strong></a>(self, *, headless: 'bool' = False, inline: 'bool' = False, inline_no_clear: 'bool' = False, mouse: 'bool' = True, size: 'tuple[int, int] | None' = None, auto_pilot: 'AutopilotCallbackType | None' = None) -&gt; 'ReturnType | None'</dt><dd><span class="code">Run&nbsp;the&nbsp;app&nbsp;asynchronously.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;headless:&nbsp;Run&nbsp;in&nbsp;headless&nbsp;mode&nbsp;(no&nbsp;output).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline:&nbsp;Run&nbsp;the&nbsp;app&nbsp;inline&nbsp;(under&nbsp;the&nbsp;prompt).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline_no_clear:&nbsp;Don't&nbsp;clear&nbsp;the&nbsp;app&nbsp;output&nbsp;when&nbsp;exiting&nbsp;an&nbsp;inline&nbsp;app.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mouse:&nbsp;Enable&nbsp;mouse&nbsp;support.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;size:&nbsp;Force&nbsp;terminal&nbsp;size&nbsp;to&nbsp;`(WIDTH,&nbsp;HEIGHT)`,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-detect.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;auto_pilot:&nbsp;An&nbsp;auto&nbsp;pilot&nbsp;coroutine.<br>
@@ -577,9 +658,13 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="textual.app.html#App">App</a>&nbsp;return&nbsp;value.</span></dd></dl>
 
-<dl><dt><a name="Base-run_test"><strong>run_test</strong></a>(self, *, headless: 'bool' = True, size: 'tuple[int, int] | None' = (80, 24), tooltips: 'bool' = False, notifications: 'bool' = False, message_hook: 'Callable[[Message], None] | None' = None) -&gt; 'AsyncGenerator[Pilot, None]'</dt><dd><span class="code">An&nbsp;asynchronous&nbsp;context&nbsp;manager&nbsp;for&nbsp;testing&nbsp;app.<br>
+<dl><dt><a name="Base-run_test"><strong>run_test</strong></a>(self, *, headless: 'bool' = True, size: 'tuple[int, int] | None' = (80, 24), tooltips: 'bool' = False, notifications: 'bool' = False, message_hook: 'Callable[[Message], None] | None' = None) -&gt; 'AsyncGenerator[Pilot[ReturnType], None]'</dt><dd><span class="code">An&nbsp;asynchronous&nbsp;context&nbsp;manager&nbsp;for&nbsp;testing&nbsp;apps.<br>
 &nbsp;<br>
-Use&nbsp;this&nbsp;to&nbsp;run&nbsp;your&nbsp;app&nbsp;in&nbsp;"headless"&nbsp;(no&nbsp;output)&nbsp;mode&nbsp;and&nbsp;driver&nbsp;the&nbsp;app&nbsp;via&nbsp;a&nbsp;[Pilot][textual.pilot.Pilot]&nbsp;object.<br>
+!!!&nbsp;tip<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;See&nbsp;the&nbsp;guide&nbsp;for&nbsp;[testing](/guide/testing)&nbsp;Textual&nbsp;apps.<br>
+&nbsp;<br>
+Use&nbsp;this&nbsp;to&nbsp;run&nbsp;your&nbsp;app&nbsp;in&nbsp;"headless"&nbsp;mode&nbsp;(no&nbsp;output)&nbsp;and&nbsp;drive&nbsp;the&nbsp;app&nbsp;via&nbsp;a&nbsp;[Pilot][textual.pilot.Pilot]&nbsp;object.<br>
 &nbsp;<br>
 Example:<br>
 &nbsp;<br>
@@ -595,9 +680,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-detect.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;tooltips:&nbsp;Enable&nbsp;tooltips&nbsp;when&nbsp;testing.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;notifications:&nbsp;Enable&nbsp;notifications&nbsp;when&nbsp;testing.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;message_hook:&nbsp;An&nbsp;optional&nbsp;callback&nbsp;that&nbsp;will&nbsp;called&nbsp;with&nbsp;every&nbsp;message&nbsp;going&nbsp;through&nbsp;the&nbsp;app.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;message_hook:&nbsp;An&nbsp;optional&nbsp;callback&nbsp;that&nbsp;will&nbsp;be&nbsp;called&nbsp;each&nbsp;time&nbsp;any&nbsp;message&nbsp;arrives&nbsp;at&nbsp;any<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message&nbsp;pump&nbsp;in&nbsp;the&nbsp;app.</span></dd></dl>
 
-<dl><dt><a name="Base-save_screenshot"><strong>save_screenshot</strong></a>(self, filename: 'str | None' = None, path: 'str' = './', time_format: 'str | None' = None) -&gt; 'str'</dt><dd><span class="code">Save&nbsp;an&nbsp;SVG&nbsp;screenshot&nbsp;of&nbsp;the&nbsp;current&nbsp;screen.<br>
+<dl><dt><a name="Base-save_screenshot"><strong>save_screenshot</strong></a>(self, filename: 'str | None' = None, path: 'str | None' = None, time_format: 'str | None' = None) -&gt; 'str'</dt><dd><span class="code">Save&nbsp;an&nbsp;SVG&nbsp;screenshot&nbsp;of&nbsp;the&nbsp;current&nbsp;screen.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;filename:&nbsp;Filename&nbsp;of&nbsp;SVG&nbsp;screenshot,&nbsp;or&nbsp;None&nbsp;to&nbsp;auto-generate<br>
@@ -624,10 +710,36 @@ Args:<br>
 Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;animation&nbsp;scheduled&nbsp;or&nbsp;running,&nbsp;this&nbsp;is&nbsp;a&nbsp;no-op.</span></dd></dl>
 
-<dl><dt><a name="Base-switch_mode"><strong>switch_mode</strong></a>(self, mode: 'str') -&gt; 'None'</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;given&nbsp;mode.<br>
+<dl><dt><a name="Base-suspend"><strong>suspend</strong></a>(self) -&gt; 'Iterator[None]'</dt><dd><span class="code">A&nbsp;context&nbsp;manager&nbsp;that&nbsp;temporarily&nbsp;suspends&nbsp;the&nbsp;app.<br>
+&nbsp;<br>
+While&nbsp;inside&nbsp;the&nbsp;`with`&nbsp;block,&nbsp;the&nbsp;app&nbsp;will&nbsp;stop&nbsp;reading&nbsp;input&nbsp;and<br>
+emitting&nbsp;output.&nbsp;Other&nbsp;applications&nbsp;will&nbsp;have&nbsp;full&nbsp;control&nbsp;of&nbsp;the<br>
+terminal,&nbsp;configured&nbsp;as&nbsp;it&nbsp;was&nbsp;before&nbsp;the&nbsp;app&nbsp;started&nbsp;running.&nbsp;When<br>
+the&nbsp;`with`&nbsp;block&nbsp;ends,&nbsp;the&nbsp;application&nbsp;will&nbsp;start&nbsp;reading&nbsp;input&nbsp;and<br>
+emitting&nbsp;output&nbsp;again.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;self.<a href="#Base-suspend">suspend</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;os.system("emacs&nbsp;-nw")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SuspendNotSupported:&nbsp;If&nbsp;the&nbsp;environment&nbsp;doesn't&nbsp;support&nbsp;suspending.<br>
+&nbsp;<br>
+!!!&nbsp;note<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Suspending&nbsp;the&nbsp;application&nbsp;is&nbsp;currently&nbsp;only&nbsp;supported&nbsp;on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Unix-like&nbsp;operating&nbsp;systems&nbsp;and&nbsp;Microsoft&nbsp;Windows.&nbsp;Suspending&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;not&nbsp;supported&nbsp;in&nbsp;Textual&nbsp;Web.</span></dd></dl>
+
+<dl><dt><a name="Base-switch_mode"><strong>switch_mode</strong></a>(self, mode: 'str') -&gt; 'AwaitMount'</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;given&nbsp;mode.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;mode:&nbsp;The&nbsp;mode&nbsp;to&nbsp;switch&nbsp;to.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;optionally&nbsp;awaitable&nbsp;object&nbsp;which&nbsp;waits&nbsp;for&nbsp;the&nbsp;screen&nbsp;associated<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;the&nbsp;mode&nbsp;to&nbsp;be&nbsp;mounted.<br>
 &nbsp;<br>
 Raises:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;UnknownModeError:&nbsp;If&nbsp;trying&nbsp;to&nbsp;switch&nbsp;to&nbsp;an&nbsp;unknown&nbsp;mode.</span></dd></dl>
@@ -651,12 +763,6 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;screen&nbsp;that&nbsp;was&nbsp;uninstalled,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;screen&nbsp;was&nbsp;uninstalled.</span></dd></dl>
 
-<dl><dt><a name="Base-unnotify"><strong>unnotify</strong></a>(self, notification: 'Notification', refresh: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Remove&nbsp;a&nbsp;notification&nbsp;from&nbsp;the&nbsp;notification&nbsp;collection.<br>
-&nbsp;<br>
-Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;notification:&nbsp;The&nbsp;notification&nbsp;to&nbsp;remove.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;refresh:&nbsp;Flag&nbsp;to&nbsp;say&nbsp;if&nbsp;the&nbsp;display&nbsp;of&nbsp;notifications&nbsp;should&nbsp;be&nbsp;refreshed.</span></dd></dl>
-
 <dl><dt><a name="Base-update_styles"><strong>update_styles</strong></a>(self, node: 'DOMNode') -&gt; 'None'</dt><dd><span class="code">Immediately&nbsp;update&nbsp;the&nbsp;styles&nbsp;of&nbsp;this&nbsp;node&nbsp;and&nbsp;all&nbsp;descendant&nbsp;nodes.<br>
 &nbsp;<br>
 Should&nbsp;be&nbsp;called&nbsp;whenever&nbsp;CSS&nbsp;classes&nbsp;/&nbsp;pseudo&nbsp;classes&nbsp;change.<br>
@@ -668,6 +774,10 @@ will&nbsp;be&nbsp;added,&nbsp;and&nbsp;this&nbsp;method&nbsp;is&nbsp;called&nbsp
 
 <dl><dt><a name="Base-validate_title"><strong>validate_title</strong></a>(self, title: 'Any') -&gt; 'str'</dt><dd><span class="code">Make&nbsp;sure&nbsp;the&nbsp;title&nbsp;is&nbsp;set&nbsp;to&nbsp;a&nbsp;string.</span></dd></dl>
 
+<dl><dt><a name="Base-watch_ansi_theme_dark"><strong>watch_ansi_theme_dark</strong></a>(self, theme: 'TerminalTheme') -&gt; 'None'</dt></dl>
+
+<dl><dt><a name="Base-watch_ansi_theme_light"><strong>watch_ansi_theme_light</strong></a>(self, theme: 'TerminalTheme') -&gt; 'None'</dt></dl>
+
 <dl><dt><a name="Base-watch_dark"><strong>watch_dark</strong></a>(self, dark: 'bool') -&gt; 'None'</dt><dd><span class="code">Watches&nbsp;the&nbsp;dark&nbsp;bool.<br>
 &nbsp;<br>
 This&nbsp;method&nbsp;handles&nbsp;the&nbsp;transition&nbsp;between&nbsp;light&nbsp;and&nbsp;dark&nbsp;mode&nbsp;when&nbsp;you<br>
@@ -676,6 +786,13 @@ change&nbsp;the&nbsp;[dark][textual.app.<a href="textual.app.html#App">App</a>.d
 <hr>
 Readonly properties inherited from <a href="textual.app.html#App">textual.app.App</a>:<br>
 <dl><dt><strong>animator</strong></dt>
+<dd><span class="code">The&nbsp;animator&nbsp;object.</span></dd>
+</dl>
+<dl><dt><strong>ansi_theme</strong></dt>
+<dd><span class="code">The&nbsp;ANSI&nbsp;TerminalTheme&nbsp;currently&nbsp;being&nbsp;used.<br>
+&nbsp;<br>
+Defines&nbsp;how&nbsp;colors&nbsp;defined&nbsp;as&nbsp;ANSI&nbsp;(e.g.&nbsp;`magenta`)&nbsp;inside&nbsp;Rich&nbsp;renderables<br>
+are&nbsp;mapped&nbsp;to&nbsp;hex&nbsp;codes.</span></dd>
 </dl>
 <dl><dt><strong>children</strong></dt>
 <dd><span class="code">A&nbsp;view&nbsp;onto&nbsp;the&nbsp;app's&nbsp;immediate&nbsp;children.<br>
@@ -702,9 +819,12 @@ Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;currently&nbsp;focused&nbsp;widget,&nbsp;or&nbsp;`None`&nbsp;if&nbsp;nothing&nbsp;is&nbsp;focused.</span></dd>
 </dl>
 <dl><dt><strong>is_headless</strong></dt>
-<dd><span class="code">Is&nbsp;the&nbsp;driver&nbsp;running&nbsp;in&nbsp;'headless'&nbsp;mode?<br>
+<dd><span class="code">Is&nbsp;the&nbsp;app&nbsp;running&nbsp;in&nbsp;'headless'&nbsp;mode?<br>
 &nbsp;<br>
 Headless&nbsp;mode&nbsp;is&nbsp;used&nbsp;when&nbsp;running&nbsp;tests&nbsp;with&nbsp;[run_test][textual.app.App.run_test].</span></dd>
+</dl>
+<dl><dt><strong>is_inline</strong></dt>
+<dd><span class="code">Is&nbsp;the&nbsp;app&nbsp;running&nbsp;in&nbsp;'inline'&nbsp;mode?</span></dd>
 </dl>
 <dl><dt><strong>log</strong></dt>
 <dd><span class="code">The&nbsp;textual&nbsp;logger.<br>
@@ -727,7 +847,7 @@ If&nbsp;a&nbsp;widget&nbsp;is&nbsp;focused,&nbsp;then&nbsp;any&nbsp;bindings&nbs
 This&nbsp;property&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;inspect&nbsp;current&nbsp;bindings.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;mapping&nbsp;of&nbsp;keys&nbsp;onto&nbsp;pairs&nbsp;of&nbsp;nodes&nbsp;and&nbsp;bindings.</span></dd>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;map&nbsp;of&nbsp;keys&nbsp;to&nbsp;a&nbsp;tuple&nbsp;containing&nbsp;the&nbsp;DOMNode&nbsp;and&nbsp;Binding&nbsp;that&nbsp;key&nbsp;corresponds&nbsp;to.</span></dd>
 </dl>
 <dl><dt><strong>return_code</strong></dt>
 <dd><span class="code">The&nbsp;return&nbsp;code&nbsp;with&nbsp;which&nbsp;the&nbsp;app&nbsp;exited.<br>
@@ -770,7 +890,7 @@ Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Size&nbsp;of&nbsp;the&nbsp;terminal.</span></dd>
 </dl>
 <dl><dt><strong>workers</strong></dt>
-<dd><span class="code">The&nbsp;[worker](guide/workers/)&nbsp;manager.<br>
+<dd><span class="code">The&nbsp;[worker](/guide/workers/)&nbsp;manager.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;object&nbsp;to&nbsp;manage&nbsp;workers.</span></dd>
@@ -778,10 +898,16 @@ Returns:<br>
 <hr>
 Data descriptors inherited from <a href="textual.app.html#App">textual.app.App</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<dl><dt><strong>ansi_theme_dark</strong></dt>
+</dl>
+<dl><dt><strong>ansi_theme_light</strong></dt>
+</dl>
+<dl><dt><strong>app_focus</strong></dt>
 </dl>
 <dl><dt><strong>dark</strong></dt>
 </dl>
@@ -793,9 +919,13 @@ Data descriptors inherited from <a href="textual.app.html#App">textual.app.App</
 Data and other attributes inherited from <a href="textual.app.html#App">textual.app.App</a>:<br>
 <dl><dt><strong>AUTO_FOCUS</strong> = '*'</dl>
 
+<dl><dt><strong>COMMANDS</strong> = {&lt;function get_system_commands&gt;}</dl>
+
 <dl><dt><strong>CSS</strong> = ''</dl>
 
-<dl><dt><strong>DEFAULT_CSS</strong> = '<span class="repr">\n</span>    App {<span class="repr">\n</span>        background: $background;<span class="repr">\n</span>    ...led:can-focus {<span class="repr">\n</span>        opacity: 0.7;<span class="repr">\n\n</span>    }<span class="repr">\n</span>    '</dl>
+<dl><dt><strong>DEFAULT_CSS</strong> = '<span class="repr">\n</span>    App {<span class="repr">\n</span>        background: $background;<span class="repr">\n</span>    ...bled:can-focus {<span class="repr">\n</span>        opacity: 0.7;<span class="repr">\n</span>    }<span class="repr">\n</span>    '</dl>
+
+<dl><dt><strong>ENABLE_COMMAND_PALETTE</strong> = True</dl>
 
 <dl><dt><strong>ExpectType</strong> = ~ExpectType</dl>
 
@@ -809,26 +939,31 @@ Data and other attributes inherited from <a href="textual.app.html#App">textual.
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="Base-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="textual.message_pump.html#_MessagePumpMeta">textual.message_pump._MessagePumpMeta</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="Base-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="textual.message_pump.html#_MessagePumpMeta">textual.message_pump._MessagePumpMeta</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="Base-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="textual.message_pump.html#_MessagePumpMeta">textual.message_pump._MessagePumpMeta</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="Base-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="textual.message_pump.html#_MessagePumpMeta">textual.message_pump._MessagePumpMeta</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
-<dl><dt><a name="Base-add_class"><strong>add_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;class&nbsp;names&nbsp;to&nbsp;this&nbsp;Node.<br>
+<dl><dt>async <a name="Base-action_toggle"><strong>action_toggle</strong></a>(self, attribute_name: 'str') -&gt; 'None'</dt><dd><span class="code">Toggle&nbsp;an&nbsp;attribute&nbsp;on&nbsp;the&nbsp;node.<br>
+&nbsp;<br>
+Assumes&nbsp;the&nbsp;attribute&nbsp;is&nbsp;a&nbsp;bool.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute_name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute.</span></dd></dl>
+
+<dl><dt><a name="Base-add_class"><strong>add_class</strong></a>(self, *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;class&nbsp;names&nbsp;to&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;add.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
@@ -841,6 +976,25 @@ if&nbsp;you&nbsp;want&nbsp;children&nbsp;to&nbsp;be&nbsp;attached&nbsp;to&nbsp;a
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;Widget&nbsp;to&nbsp;add.</span></dd></dl>
+
+<dl><dt><a name="Base-data_bind"><strong>data_bind</strong></a>(self, *reactives: 'Reactive[Any]', **bind_vars: 'Reactive[Any] | object') -&gt; 'Self'</dt><dd><span class="code">Bind&nbsp;reactive&nbsp;data&nbsp;so&nbsp;that&nbsp;changes&nbsp;to&nbsp;a&nbsp;reactive&nbsp;automatically&nbsp;change&nbsp;the&nbsp;reactive&nbsp;on&nbsp;another&nbsp;widget.<br>
+&nbsp;<br>
+Reactives&nbsp;may&nbsp;be&nbsp;given&nbsp;as&nbsp;positional&nbsp;arguments&nbsp;or&nbsp;keyword&nbsp;arguments.<br>
+See&nbsp;the&nbsp;[guide&nbsp;on&nbsp;data&nbsp;binding](/guide/reactivity#data-binding).<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;<a href="#Base-compose">compose</a>(self)&nbsp;-&gt;&nbsp;ComposeResult:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Europe/London").<a href="#Base-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Europe/Paris").<a href="#Base-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Asia/Tokyo").<a href="#Base-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReactiveError:&nbsp;If&nbsp;the&nbsp;data&nbsp;wasn't&nbsp;bound.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
 
 <dl><dt><a name="Base-get_component_styles"><strong>get_component_styles</strong></a>(self, name: 'str') -&gt; 'RenderStyles'</dt><dd><span class="code">Get&nbsp;a&nbsp;"component"&nbsp;styles&nbsp;object&nbsp;(must&nbsp;be&nbsp;defined&nbsp;in&nbsp;COMPONENT_CLASSES&nbsp;classvar).<br>
 &nbsp;<br>
@@ -866,30 +1020,38 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;``True``&nbsp;if&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;class&nbsp;names,&nbsp;otherwise&nbsp;``False``.</span></dd></dl>
 
-<dl><dt><a name="Base-has_pseudo_class"><strong>has_pseudo_class</strong></a>(self, *class_names: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;for&nbsp;pseudo&nbsp;classes&nbsp;(such&nbsp;as&nbsp;hover,&nbsp;focus&nbsp;etc)<br>
+<dl><dt><a name="Base-has_pseudo_class"><strong>has_pseudo_class</strong></a>(self, class_name: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;the&nbsp;node&nbsp;has&nbsp;the&nbsp;given&nbsp;pseudo&nbsp;class.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;The&nbsp;pseudo&nbsp;classes&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_name:&nbsp;The&nbsp;pseudo&nbsp;class&nbsp;to&nbsp;check&nbsp;for.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;DOM&nbsp;node&nbsp;has&nbsp;those&nbsp;pseudo&nbsp;classes,&nbsp;`False`&nbsp;if&nbsp;not.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;DOM&nbsp;node&nbsp;has&nbsp;the&nbsp;pseudo&nbsp;class,&nbsp;`False`&nbsp;if&nbsp;not.</span></dd></dl>
+
+<dl><dt><a name="Base-has_pseudo_classes"><strong>has_pseudo_classes</strong></a>(self, class_names: 'set[str]') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;pseudo&nbsp;classes.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names:&nbsp;Set&nbsp;of&nbsp;class&nbsp;names&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;all&nbsp;pseudo&nbsp;class&nbsp;names&nbsp;are&nbsp;present.</span></dd></dl>
 
 <dl><dt><a name="Base-notify_style_update"><strong>notify_style_update</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Called&nbsp;after&nbsp;styles&nbsp;are&nbsp;updated.<br>
 &nbsp;<br>
 Implement&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;clear&nbsp;any&nbsp;cached&nbsp;data&nbsp;when&nbsp;the&nbsp;CSS&nbsp;is&nbsp;reloaded.</span></dd></dl>
 
-<dl><dt><a name="Base-query"><strong>query</strong></a>(self, selector: 'str | type[QueryType] | None' = None) -&gt; 'DOMQuery[Widget] | DOMQuery[QueryType]'</dt><dd><span class="code">Get&nbsp;a&nbsp;DOM&nbsp;query&nbsp;matching&nbsp;a&nbsp;selector.<br>
+<dl><dt><a name="Base-query"><strong>query</strong></a>(self, selector: 'str | type[QueryType] | None' = None) -&gt; 'DOMQuery[Widget] | DOMQuery[QueryType]'</dt><dd><span class="code">Query&nbsp;the&nbsp;DOM&nbsp;for&nbsp;children&nbsp;that&nbsp;match&nbsp;a&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector&nbsp;or&nbsp;`None`&nbsp;for&nbsp;all&nbsp;nodes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector,&nbsp;widget&nbsp;type,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;all&nbsp;nodes.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;query&nbsp;object.</span></dd></dl>
 
-<dl><dt><a name="Base-query_one"><strong>query_one</strong></a>(self, selector: 'str | type[QueryType]', expect_type: 'type[QueryType] | None' = None) -&gt; 'QueryType | Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;single&nbsp;Widget&nbsp;matching&nbsp;the&nbsp;given&nbsp;selector&nbsp;or&nbsp;selector&nbsp;type.<br>
+<dl><dt><a name="Base-query_one"><strong>query_one</strong></a>(self, selector: 'str | type[QueryType]', expect_type: 'type[QueryType] | None' = None) -&gt; 'QueryType | Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;widget&nbsp;from&nbsp;this&nbsp;widget's&nbsp;children&nbsp;that&nbsp;matches&nbsp;a&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;selector.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;any&nbsp;type.<br>
 &nbsp;<br>
 Raises:<br>
@@ -900,10 +1062,11 @@ Raises:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;matching&nbsp;the&nbsp;selector.</span></dd></dl>
 
-<dl><dt><a name="Base-remove_class"><strong>remove_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Remove&nbsp;class&nbsp;names&nbsp;from&nbsp;this&nbsp;Node.<br>
+<dl><dt><a name="Base-remove_class"><strong>remove_class</strong></a>(self, *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Remove&nbsp;class&nbsp;names&nbsp;from&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;remove.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
@@ -927,10 +1090,11 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;Worker&nbsp;instance.</span></dd></dl>
 
-<dl><dt><a name="Base-set_class"><strong>set_class</strong></a>(self, add: 'bool', *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;or&nbsp;remove&nbsp;class(es)&nbsp;based&nbsp;on&nbsp;a&nbsp;condition.<br>
+<dl><dt><a name="Base-set_class"><strong>set_class</strong></a>(self, add: 'bool', *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;or&nbsp;remove&nbsp;class(es)&nbsp;based&nbsp;on&nbsp;a&nbsp;condition.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;add:&nbsp;Add&nbsp;the&nbsp;classes&nbsp;if&nbsp;True,&nbsp;otherwise&nbsp;remove&nbsp;them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
@@ -944,14 +1108,43 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
 
-<dl><dt><a name="Base-set_styles"><strong>set_styles</strong></a>(self, css: 'str | None' = None, **update_styles) -&gt; 'Self'</dt><dd><span class="code">Set&nbsp;custom&nbsp;styles&nbsp;on&nbsp;this&nbsp;object.<br>
+<dl><dt><a name="Base-set_reactive"><strong>set_reactive</strong></a>(self, reactive: 'Reactive[ReactiveType]', value: 'ReactiveType') -&gt; 'None'</dt><dd><span class="code">Sets&nbsp;a&nbsp;reactive&nbsp;value&nbsp;*without*&nbsp;invoking&nbsp;validators&nbsp;or&nbsp;watchers.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#Base-set_reactive">set_reactive</a>(<a href="textual.app.html#App">App</a>.dark_mode,&nbsp;True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;reactive&nbsp;attribute.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;New&nbsp;value&nbsp;of&nbsp;reactive.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError:&nbsp;If&nbsp;the&nbsp;first&nbsp;argument&nbsp;is&nbsp;not&nbsp;a&nbsp;reactive.</span></dd></dl>
+
+<dl><dt><a name="Base-set_styles"><strong>set_styles</strong></a>(self, css: 'str | None' = None, **update_styles: 'Any') -&gt; 'Self'</dt><dd><span class="code">Set&nbsp;custom&nbsp;styles&nbsp;on&nbsp;this&nbsp;object.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;css:&nbsp;Styles&nbsp;in&nbsp;CSS&nbsp;format.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;**update_styles:&nbsp;Keyword&nbsp;arguments&nbsp;map&nbsp;style&nbsp;names&nbsp;on&nbsp;to&nbsp;style.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update_styles:&nbsp;Keyword&nbsp;arguments&nbsp;map&nbsp;style&nbsp;names&nbsp;onto&nbsp;style&nbsp;values.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="Base-sort_children"><strong>sort_children</strong></a>(self, *, key: 'Callable[[Widget], SupportsRichComparison] | None' = None, reverse: 'bool' = False) -&gt; 'None'</dt><dd><span class="code">Sort&nbsp;child&nbsp;widgets&nbsp;with&nbsp;an&nbsp;optional&nbsp;key&nbsp;function.<br>
+&nbsp;<br>
+If&nbsp;`key`&nbsp;is&nbsp;not&nbsp;provided&nbsp;then&nbsp;widgets&nbsp;will&nbsp;be&nbsp;sorted&nbsp;in&nbsp;the&nbsp;order&nbsp;they&nbsp;are&nbsp;constructed.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Sort&nbsp;widgets&nbsp;by&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen.<a href="#Base-sort_children">sort_children</a>(key=lambda&nbsp;widget:&nbsp;widget.name&nbsp;or&nbsp;"")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key:&nbsp;A&nbsp;callable&nbsp;which&nbsp;accepts&nbsp;a&nbsp;widget&nbsp;and&nbsp;returns&nbsp;something&nbsp;that&nbsp;can&nbsp;be&nbsp;sorted,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;sort&nbsp;without&nbsp;a&nbsp;key&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reverse:&nbsp;Sort&nbsp;in&nbsp;descending&nbsp;order.</span></dd></dl>
 
 <dl><dt><a name="Base-toggle_class"><strong>toggle_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Toggle&nbsp;class&nbsp;names&nbsp;on&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
@@ -995,13 +1188,13 @@ Args:<br>
 <hr>
 Readonly properties inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
 <dl><dt><strong>ancestors</strong></dt>
-<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;Nodes&nbsp;by&nbsp;tracing&nbsp;ancestors&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;found&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
 </dl>
 <dl><dt><strong>ancestors_with_self</strong></dt>
-<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;Nodes&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;found&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
 &nbsp;<br>
 Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;inclusive&nbsp;of&nbsp;``self``.<br>
@@ -1135,6 +1328,8 @@ Data and other attributes inherited from <a href="textual.dom.html#DOMNode">text
 
 <dl><dt><strong>DEFAULT_CLASSES</strong> = ''</dl>
 
+<dl><dt><strong>SCOPED_CSS</strong> = True</dl>
+
 <dl><dt><strong>WalkType</strong> = ~WalkType</dl>
 
 <hr>
@@ -1221,7 +1416,7 @@ Example:<br>
 <dl><dt><a name="Base-set_interval"><strong>set_interval</strong></a>(self, interval: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, repeat: 'int' = 0, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Call&nbsp;a&nbsp;function&nbsp;at&nbsp;periodic&nbsp;intervals.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;interval:&nbsp;Time&nbsp;between&nbsp;calls.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interval:&nbsp;Time&nbsp;(in&nbsp;seconds)&nbsp;between&nbsp;calls.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Function&nbsp;to&nbsp;call.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;object.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;repeat:&nbsp;Number&nbsp;of&nbsp;times&nbsp;to&nbsp;repeat&nbsp;the&nbsp;call&nbsp;or&nbsp;0&nbsp;for&nbsp;continuous.<br>
@@ -1233,7 +1428,7 @@ Returns:<br>
 <dl><dt><a name="Base-set_timer"><strong>set_timer</strong></a>(self, delay: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Make&nbsp;a&nbsp;function&nbsp;call&nbsp;after&nbsp;a&nbsp;delay.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;Time&nbsp;to&nbsp;wait&nbsp;before&nbsp;invoking&nbsp;callback.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;Time&nbsp;(in&nbsp;seconds)&nbsp;to&nbsp;wait&nbsp;before&nbsp;invoking&nbsp;callback.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callback&nbsp;to&nbsp;call&nbsp;after&nbsp;time&nbsp;has&nbsp;expired.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;(for&nbsp;debug).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;pause:&nbsp;Start&nbsp;timer&nbsp;paused.<br>
@@ -1264,6 +1459,9 @@ Raises:<br>
 <dl><dt><strong>is_running</strong></dt>
 <dd><span class="code">Is&nbsp;the&nbsp;message&nbsp;pump&nbsp;running&nbsp;(potentially&nbsp;processing&nbsp;messages)?</span></dd>
 </dl>
+<dl><dt><strong>message_queue_size</strong></dt>
+<dd><span class="code">The&nbsp;current&nbsp;size&nbsp;of&nbsp;the&nbsp;message&nbsp;queue.</span></dd>
+</dl>
 <dl><dt><strong>task</strong></dt>
 </dl>
 </td></tr></table> <p>
@@ -1286,15 +1484,27 @@ A&nbsp;channel-environment&nbsp;interface&nbsp;element.<br>&nbsp;</span></td></t
 </dl>
 <hr>
 Methods defined here:<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-add_channel"><strong>add_channel</strong></a>(self, name: str, chan: Union[runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive]], enum: Optional[runtimepy.enum.RuntimeEnum]) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;channel&nbsp;to&nbsp;the&nbsp;table.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-add_field"><strong>add_field</strong></a>(self, name: str) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;bit-field&nbsp;row&nbsp;entry.</span></dd></dl>
+
 <dl><dt><a name="ChannelEnvironmentDisplay-compose"><strong>compose</strong></a>(self) -&gt; Iterable[textual.widget.Widget]</dt><dd><span class="code">Create&nbsp;child&nbsp;nodes.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-handle_cell_selected"><strong>handle_cell_selected</strong></a>(self, event: textual.widgets._data_table.DataTable.CellSelected) -&gt; None</dt><dd><span class="code">Handle&nbsp;input&nbsp;submission.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-on_mount"><strong>on_mount</strong></a>(self) -&gt; None</dt><dd><span class="code">Populate&nbsp;channel&nbsp;table.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-update_channels"><strong>update_channels</strong></a>(self) -&gt; None</dt><dd><span class="code">Update&nbsp;all&nbsp;channel&nbsp;values.</span></dd></dl>
+<dl><dt><a name="ChannelEnvironmentDisplay-random_channel"><strong>random_channel</strong></a>(self) -&gt; None</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;random&nbsp;channel.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-reset_plot"><strong>reset_plot</strong></a>(self) -&gt; None</dt><dd><span class="code">Reset&nbsp;the&nbsp;selected&nbsp;plot.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-switch_to_channel"><strong>switch_to_channel</strong></a>(self, row: int) -&gt; None</dt><dd><span class="code">Switch&nbsp;the&nbsp;plot&nbsp;to&nbsp;a&nbsp;channel&nbsp;at&nbsp;the&nbsp;specified&nbsp;row.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-update_channels"><strong>update_channels</strong></a>(self, max_plot_samples: int, update_table: bool = True, update_log: bool = True, update_plot: bool = True) -&gt; None</dt><dd><span class="code">Update&nbsp;all&nbsp;channel&nbsp;values.</span></dd></dl>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="ChannelEnvironmentDisplay-create"><strong>create</strong></a>(name: str, env: runtimepy.channel.environment.ChannelEnvironment, source: conntextual.ui.channel.model.ChannelEnvironmentSource, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; 'ChannelEnvironmentDisplay'</dt><dd><span class="code">Create&nbsp;a&nbsp;channel-environment&nbsp;display.</span></dd></dl>
+<dl><dt><a name="ChannelEnvironmentDisplay-create"><strong>create</strong></a>(name: str, command: runtimepy.channel.environment.command.processor.ChannelCommandProcessor, source: conntextual.ui.channel.model.ChannelEnvironmentSource, logger: Union[logging.Logger, logging.LoggerAdapter[Any]], app: runtimepy.net.arbiter.info.AppInfo, channel_pattern: conntextual.ui.channel.pattern.PatternPair) -&gt; 'ChannelEnvironmentDisplay'</dt><dd><span class="code">Create&nbsp;a&nbsp;channel-environment&nbsp;display.</span></dd></dl>
 
 <hr>
 Readonly properties defined here:<br>
@@ -1303,13 +1513,11 @@ Readonly properties defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'by_index': typing.List[typing.Tuple[textual.coordinate.Coor...el[runtimepy.primitives.bool.BooleanPrimitive]]]], 'model': &lt;class 'conntextual.ui.channel.model.Model'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'by_index': typing.List[typing.Tuple[textual.coordinate.Coordinate, typing.Union[str, int]]], 'channel_pattern': &lt;class 'conntextual.ui.channel.pattern.PatternPair'&gt;, 'channels_by_row': typing.Dict[int, conntextual.ui.channel.selected.SelectedChannel], 'model': &lt;class 'conntextual.ui.channel.model.Model'&gt;, 'row_idx': &lt;class 'int'&gt;, 'selected': &lt;class 'conntextual.ui.channel.selected.SelectedChannel'&gt;}</dl>
 
 <dl><dt><strong>can_focus</strong> = False</dl>
 
 <dl><dt><strong>can_focus_children</strong> = True</dl>
-
-<dl><dt><strong>columns</strong> = ['id', 'type', 'name', 'value']</dl>
 
 <hr>
 Methods inherited from <a href="textual.widgets._static.html#Static">textual.widgets._static.Static</a>:<br>
@@ -1322,7 +1530,7 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;classes:&nbsp;The&nbsp;CSS&nbsp;classes&nbsp;for&nbsp;the&nbsp;widget.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;disabled:&nbsp;Whether&nbsp;the&nbsp;widget&nbsp;is&nbsp;disabled&nbsp;or&nbsp;not.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-render"><strong>render</strong></a>(self) -&gt; 'RenderableType'</dt><dd><span class="code">Get&nbsp;a&nbsp;rich&nbsp;renderable&nbsp;for&nbsp;the&nbsp;widget's&nbsp;content.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-render"><strong>render</strong></a>(self) -&gt; 'RenderResult'</dt><dd><span class="code">Get&nbsp;a&nbsp;rich&nbsp;renderable&nbsp;for&nbsp;the&nbsp;widget's&nbsp;content.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;rich&nbsp;renderable.</span></dd></dl>
@@ -1366,27 +1574,56 @@ Methods inherited from <a href="textual.widget.html#Widget">textual.widget.Widge
 
 <dl><dt><a name="ChannelEnvironmentDisplay-action_scroll_up"><strong>action_scroll_up</strong></a>(self) -&gt; 'None'</dt></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-animate"><strong>animate</strong></a>(self, attribute: 'str', value: 'float | Animatable', *, final_value: 'object' = Ellipsis, duration: 'float | None' = None, speed: 'float | None' = None, delay: 'float' = 0.0, easing: 'EasingFunction | str' = 'in_out_cubic', on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Animate&nbsp;an&nbsp;attribute.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-allow_focus"><strong>allow_focus</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;the&nbsp;widget&nbsp;is&nbsp;permitted&nbsp;to&nbsp;focus.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;returns&nbsp;[`can_focus`][textual.widget.Widget.can_focus].<br>
+This&nbsp;method&nbsp;maybe&nbsp;overridden&nbsp;if&nbsp;additional&nbsp;logic&nbsp;is&nbsp;required.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;widget&nbsp;may&nbsp;be&nbsp;focused,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;it&nbsp;may&nbsp;not&nbsp;be&nbsp;focused.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-allow_focus_children"><strong>allow_focus_children</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;if&nbsp;a&nbsp;widget's&nbsp;children&nbsp;may&nbsp;be&nbsp;focused.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;returns&nbsp;[`can_focus_children`][textual.widget.Widget.can_focus_children].<br>
+This&nbsp;method&nbsp;maybe&nbsp;overridden&nbsp;if&nbsp;additional&nbsp;logic&nbsp;is&nbsp;required.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;widget's&nbsp;children&nbsp;may&nbsp;be&nbsp;focused,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;the&nbsp;widget's&nbsp;children&nbsp;may&nbsp;not&nbsp;be&nbsp;focused.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-animate"><strong>animate</strong></a>(self, attribute: 'str', value: 'float | Animatable', *, final_value: 'object' = Ellipsis, duration: 'float | None' = None, speed: 'float | None' = None, delay: 'float' = 0.0, easing: 'EasingFunction | str' = 'in_out_cubic', on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'full') -&gt; 'None'</dt><dd><span class="code">Animate&nbsp;an&nbsp;attribute.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;attribute:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute&nbsp;to&nbsp;animate.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;The&nbsp;value&nbsp;to&nbsp;animate&nbsp;to.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;final_value:&nbsp;The&nbsp;final&nbsp;value&nbsp;of&nbsp;the&nbsp;animation.&nbsp;Defaults&nbsp;to&nbsp;`value`&nbsp;if&nbsp;not&nbsp;set.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;The&nbsp;duration&nbsp;of&nbsp;the&nbsp;animate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;The&nbsp;duration&nbsp;(in&nbsp;seconds)&nbsp;of&nbsp;the&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;The&nbsp;speed&nbsp;of&nbsp;the&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;A&nbsp;delay&nbsp;(in&nbsp;seconds)&nbsp;before&nbsp;the&nbsp;animation&nbsp;starts.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-batch"><strong>batch</strong></a>(self) -&gt; 'AsyncGenerator[None, None]'</dt><dd><span class="code">Async&nbsp;context&nbsp;manager&nbsp;that&nbsp;combines&nbsp;widget&nbsp;locking&nbsp;and&nbsp;update&nbsp;batching.<br>
+&nbsp;<br>
+Use&nbsp;this&nbsp;async&nbsp;context&nbsp;manager&nbsp;whenever&nbsp;you&nbsp;want&nbsp;to&nbsp;acquire&nbsp;the&nbsp;widget&nbsp;lock&nbsp;and<br>
+batch&nbsp;app&nbsp;updates&nbsp;at&nbsp;the&nbsp;same&nbsp;time.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;async&nbsp;with&nbsp;container.<a href="#ChannelEnvironmentDisplay-batch">batch</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;container.<a href="#ChannelEnvironmentDisplay-remove_children">remove_children</a>(Button)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;container.<a href="#ChannelEnvironmentDisplay-mount">mount</a>(Label("All&nbsp;buttons&nbsp;are&nbsp;gone."))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-begin_capture_print"><strong>begin_capture_print</strong></a>(self, stdout: 'bool' = True, stderr: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Capture&nbsp;text&nbsp;from&nbsp;print&nbsp;statements&nbsp;(or&nbsp;writes&nbsp;to&nbsp;stdout&nbsp;/&nbsp;stderr).<br>
 &nbsp;<br>
-If&nbsp;printing&nbsp;is&nbsp;captured,&nbsp;the&nbsp;widget&nbsp;will&nbsp;be&nbsp;send&nbsp;an&nbsp;[events.Print][textual.events.Print]&nbsp;message.<br>
+If&nbsp;printing&nbsp;is&nbsp;captured,&nbsp;the&nbsp;widget&nbsp;will&nbsp;be&nbsp;sent&nbsp;an&nbsp;[`events.Print`][textual.events.Print]&nbsp;message.<br>
 &nbsp;<br>
-Call&nbsp;[end_capture_print][textual.widget.Widget.end_capture_print]&nbsp;to&nbsp;disable&nbsp;print&nbsp;capture.<br>
+Call&nbsp;[`end_capture_print`][textual.widget.Widget.end_capture_print]&nbsp;to&nbsp;disable&nbsp;print&nbsp;capture.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;stdout:&nbsp;Capture&nbsp;stdout.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;stderr:&nbsp;Capture&nbsp;stderr.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;stdout:&nbsp;Whether&nbsp;to&nbsp;capture&nbsp;stdout.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stderr:&nbsp;Whether&nbsp;to&nbsp;capture&nbsp;stderr.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-blur"><strong>blur</strong></a>(self) -&gt; 'Self'</dt><dd><span class="code">Blur&nbsp;(un-focus)&nbsp;the&nbsp;widget.<br>
 &nbsp;<br>
@@ -1423,7 +1660,24 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;message&nbsp;will&nbsp;be&nbsp;sent,&nbsp;or&nbsp;`False`&nbsp;if&nbsp;it&nbsp;is&nbsp;disabled.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-end_capture_print"><strong>end_capture_print</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">End&nbsp;print&nbsp;capture&nbsp;(set&nbsp;with&nbsp;[capture_print][textual.widget.Widget.capture_print]).</span></dd></dl>
+<dl><dt><a name="ChannelEnvironmentDisplay-clear_cached_dimensions"><strong>clear_cached_dimensions</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Clear&nbsp;cached&nbsp;results&nbsp;of&nbsp;`get_content_width`&nbsp;and&nbsp;`get_content_height`.<br>
+&nbsp;<br>
+Call&nbsp;if&nbsp;the&nbsp;widget's&nbsp;renderable&nbsp;changes&nbsp;size&nbsp;after&nbsp;the&nbsp;widget&nbsp;has&nbsp;been&nbsp;created.<br>
+&nbsp;<br>
+!!!&nbsp;note<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;not&nbsp;required&nbsp;if&nbsp;you&nbsp;are&nbsp;extending&nbsp;[`<a href="textual.widgets._static.html#Static">Static</a>`][textual.widgets.<a href="textual.widgets._static.html#Static">Static</a>].</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-compose_add_child"><strong>compose_add_child</strong></a>(self, widget: 'Widget') -&gt; 'None'</dt><dd><span class="code">Add&nbsp;a&nbsp;node&nbsp;to&nbsp;children.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;by&nbsp;the&nbsp;compose&nbsp;process&nbsp;when&nbsp;it&nbsp;adds&nbsp;children.<br>
+There&nbsp;is&nbsp;no&nbsp;need&nbsp;to&nbsp;use&nbsp;it&nbsp;directly,&nbsp;but&nbsp;you&nbsp;may&nbsp;want&nbsp;to&nbsp;override&nbsp;it&nbsp;in&nbsp;a&nbsp;subclass<br>
+if&nbsp;you&nbsp;want&nbsp;children&nbsp;to&nbsp;be&nbsp;attached&nbsp;to&nbsp;a&nbsp;different&nbsp;node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;Widget&nbsp;to&nbsp;add.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-end_capture_print"><strong>end_capture_print</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">End&nbsp;print&nbsp;capture&nbsp;(set&nbsp;with&nbsp;[`begin_capture_print`][textual.widget.Widget.begin_capture_print]).</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-focus"><strong>focus</strong></a>(self, scroll_visible: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Give&nbsp;focus&nbsp;to&nbsp;this&nbsp;widget.<br>
 &nbsp;<br>
@@ -1446,16 +1700,18 @@ Raises:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;if&nbsp;no&nbsp;children&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;this&nbsp;ID<br>
 &nbsp;&nbsp;&nbsp;&nbsp;WrongType:&nbsp;if&nbsp;the&nbsp;wrong&nbsp;type&nbsp;was&nbsp;found.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-get_child_by_type"><strong>get_child_by_type</strong></a>(self, expect_type: 'type[ExpectType]') -&gt; 'ExpectType'</dt><dd><span class="code">Get&nbsp;a&nbsp;child&nbsp;of&nbsp;a&nbsp;give&nbsp;type.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-get_child_by_type"><strong>get_child_by_type</strong></a>(self, expect_type: 'type[ExpectType]') -&gt; 'ExpectType'</dt><dd><span class="code">Get&nbsp;the&nbsp;first&nbsp;immediate&nbsp;child&nbsp;of&nbsp;a&nbsp;given&nbsp;type.<br>
+&nbsp;<br>
+Only&nbsp;returns&nbsp;exact&nbsp;matches,&nbsp;and&nbsp;so&nbsp;will&nbsp;not&nbsp;match&nbsp;subclasses&nbsp;of&nbsp;the&nbsp;given&nbsp;type.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;The&nbsp;type&nbsp;of&nbsp;the&nbsp;expected&nbsp;child.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;The&nbsp;type&nbsp;of&nbsp;the&nbsp;child&nbsp;to&nbsp;search&nbsp;for.<br>
 &nbsp;<br>
 Raises:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;valid&nbsp;child&nbsp;is&nbsp;found.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NoMatches:&nbsp;If&nbsp;no&nbsp;matching&nbsp;child&nbsp;is&nbsp;found.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;immediate&nbsp;child&nbsp;widget&nbsp;with&nbsp;the&nbsp;expected&nbsp;type.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-get_component_rich_style"><strong>get_component_rich_style</strong></a>(self, name: 'str', *, partial: 'bool' = False) -&gt; 'Style'</dt><dd><span class="code">Get&nbsp;a&nbsp;*Rich*&nbsp;style&nbsp;for&nbsp;a&nbsp;component.<br>
 &nbsp;<br>
@@ -1484,6 +1740,13 @@ Args:<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;optimal&nbsp;width&nbsp;of&nbsp;the&nbsp;content.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-get_loading_widget"><strong>get_loading_widget</strong></a>(self) -&gt; 'Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;widget&nbsp;to&nbsp;display&nbsp;a&nbsp;loading&nbsp;indicator.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;will&nbsp;defer&nbsp;to&nbsp;<a href="textual.app.html#App">App</a>.get_loading_widget.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;in&nbsp;place&nbsp;of&nbsp;this&nbsp;widget&nbsp;to&nbsp;indicate&nbsp;a&nbsp;loading.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-get_pseudo_class_state"><strong>get_pseudo_class_state</strong></a>(self) -&gt; 'PseudoClasses'</dt><dd><span class="code">Get&nbsp;an&nbsp;object&nbsp;describing&nbsp;whether&nbsp;each&nbsp;pseudo&nbsp;class&nbsp;is&nbsp;present&nbsp;on&nbsp;this&nbsp;object&nbsp;or&nbsp;not.<br>
 &nbsp;<br>
@@ -1563,7 +1826,16 @@ Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;``before``&nbsp;or&nbsp;``after``&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;both&nbsp;are<br>
 &nbsp;&nbsp;&nbsp;&nbsp;provided&nbsp;a&nbsp;``MountError``&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-move_child"><strong>move_child</strong></a>(self, child: 'int | Widget', before: 'int | Widget | None' = None, after: 'int | Widget | None' = None) -&gt; 'None'</dt><dd><span class="code">Move&nbsp;a&nbsp;child&nbsp;widget&nbsp;within&nbsp;its&nbsp;parent's&nbsp;list&nbsp;of&nbsp;children.<br>
+<dl><dt>async <a name="ChannelEnvironmentDisplay-mount_composed_widgets"><strong>mount_composed_widgets</strong></a>(self, widgets: 'list[Widget]') -&gt; 'None'</dt><dd><span class="code">Called&nbsp;by&nbsp;Textual&nbsp;to&nbsp;mount&nbsp;widgets&nbsp;after&nbsp;compose.<br>
+&nbsp;<br>
+There&nbsp;is&nbsp;generally&nbsp;no&nbsp;need&nbsp;to&nbsp;implement&nbsp;this&nbsp;method&nbsp;in&nbsp;your&nbsp;application.<br>
+See&nbsp;[Lazy][textual.lazy.Lazy]&nbsp;for&nbsp;a&nbsp;class&nbsp;which&nbsp;uses&nbsp;this&nbsp;method&nbsp;to&nbsp;implement<br>
+*lazy*&nbsp;mounting.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widgets:&nbsp;A&nbsp;list&nbsp;of&nbsp;child&nbsp;widgets.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-move_child"><strong>move_child</strong></a>(self, child: 'int | Widget', *, before: 'int | Widget | None' = None, after: 'int | Widget | None' = None) -&gt; 'None'</dt><dd><span class="code">Move&nbsp;a&nbsp;child&nbsp;widget&nbsp;within&nbsp;its&nbsp;parent's&nbsp;list&nbsp;of&nbsp;children.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;child:&nbsp;The&nbsp;child&nbsp;widget&nbsp;to&nbsp;move.<br>
@@ -1577,16 +1849,17 @@ Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Only&nbsp;one&nbsp;of&nbsp;`before`&nbsp;or&nbsp;`after`&nbsp;can&nbsp;be&nbsp;provided.&nbsp;If&nbsp;neither<br>
 &nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;both&nbsp;are&nbsp;provided&nbsp;a&nbsp;`WidgetError`&nbsp;will&nbsp;be&nbsp;raised.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-notify"><strong>notify</strong></a>(self, message: 'str', *, title: 'str' = '', severity: 'SeverityLevel' = 'information', timeout: 'float' = 3) -&gt; 'Notification'</dt><dd><span class="code">Create&nbsp;a&nbsp;notification.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-notify"><strong>notify</strong></a>(self, message: 'str', *, title: 'str' = '', severity: 'SeverityLevel' = 'information', timeout: 'float' = 5) -&gt; 'None'</dt><dd><span class="code">Create&nbsp;a&nbsp;notification.<br>
+&nbsp;<br>
+!!!&nbsp;tip<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;method&nbsp;is&nbsp;thread-safe.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;The&nbsp;message&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;The&nbsp;title&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;severity:&nbsp;The&nbsp;severity&nbsp;of&nbsp;the&nbsp;notification.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;The&nbsp;timeout&nbsp;for&nbsp;the&nbsp;notification.<br>
-&nbsp;<br>
-Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;new&nbsp;notification.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:&nbsp;The&nbsp;timeout&nbsp;(in&nbsp;seconds)&nbsp;for&nbsp;the&nbsp;notification.<br>
 &nbsp;<br>
 See&nbsp;[`<a href="textual.app.html#App">App</a>.notify`][textual.app.<a href="textual.app.html#App">App</a>.notify]&nbsp;for&nbsp;the&nbsp;full<br>
 documentation&nbsp;for&nbsp;this&nbsp;method.</span></dd></dl>
@@ -1608,7 +1881,11 @@ Returns:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;new&nbsp;renderable.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-refresh"><strong>refresh</strong></a>(self, *regions: 'Region', repaint: 'bool' = True, layout: 'bool' = False) -&gt; 'Self'</dt><dd><span class="code">Initiate&nbsp;a&nbsp;refresh&nbsp;of&nbsp;the&nbsp;widget.<br>
+<dl><dt>async <a name="ChannelEnvironmentDisplay-recompose"><strong>recompose</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Recompose&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Recomposing&nbsp;will&nbsp;remove&nbsp;children&nbsp;and&nbsp;call&nbsp;`self.<strong>compose</strong>`&nbsp;again&nbsp;to&nbsp;remount.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-refresh"><strong>refresh</strong></a>(self, *regions: 'Region', repaint: 'bool' = True, layout: 'bool' = False, recompose: 'bool' = False) -&gt; 'Self'</dt><dd><span class="code">Initiate&nbsp;a&nbsp;refresh&nbsp;of&nbsp;the&nbsp;widget.<br>
 &nbsp;<br>
 This&nbsp;method&nbsp;sets&nbsp;an&nbsp;internal&nbsp;flag&nbsp;to&nbsp;perform&nbsp;a&nbsp;refresh,&nbsp;which&nbsp;will&nbsp;be&nbsp;done&nbsp;on&nbsp;the<br>
 next&nbsp;idle&nbsp;event.&nbsp;Only&nbsp;one&nbsp;refresh&nbsp;will&nbsp;be&nbsp;done&nbsp;even&nbsp;if&nbsp;this&nbsp;method&nbsp;is&nbsp;called&nbsp;multiple&nbsp;times.<br>
@@ -1625,6 +1902,7 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*regions:&nbsp;Additional&nbsp;screen&nbsp;regions&nbsp;to&nbsp;mark&nbsp;as&nbsp;dirty.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;repaint:&nbsp;Repaint&nbsp;the&nbsp;widget&nbsp;(will&nbsp;call&nbsp;<a href="#ChannelEnvironmentDisplay-render">render</a>()&nbsp;again).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;layout:&nbsp;Also&nbsp;layout&nbsp;widgets&nbsp;in&nbsp;the&nbsp;view.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;recompose:&nbsp;Re-compose&nbsp;the&nbsp;widget&nbsp;(will&nbsp;remove&nbsp;and&nbsp;re-mount&nbsp;children).<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;`Widget`&nbsp;instance.</span></dd></dl>
@@ -1638,10 +1916,13 @@ Mouse&nbsp;events&nbsp;will&nbsp;only&nbsp;be&nbsp;sent&nbsp;when&nbsp;the&nbsp;
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;the&nbsp;widget&nbsp;to&nbsp;be&nbsp;removed.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-remove_children"><strong>remove_children</strong></a>(self) -&gt; 'AwaitRemove'</dt><dd><span class="code">Remove&nbsp;all&nbsp;children&nbsp;of&nbsp;this&nbsp;Widget&nbsp;from&nbsp;the&nbsp;DOM.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-remove_children"><strong>remove_children</strong></a>(self, selector: 'str | type[QueryType]' = '*') -&gt; 'AwaitRemove'</dt><dd><span class="code">Remove&nbsp;the&nbsp;immediate&nbsp;children&nbsp;of&nbsp;this&nbsp;Widget&nbsp;from&nbsp;the&nbsp;DOM.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector&nbsp;to&nbsp;specify&nbsp;which&nbsp;direct&nbsp;children&nbsp;to&nbsp;remove.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;the&nbsp;children&nbsp;to&nbsp;be&nbsp;removed.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;awaitable&nbsp;object&nbsp;that&nbsp;waits&nbsp;for&nbsp;the&nbsp;direct&nbsp;children&nbsp;to&nbsp;be&nbsp;removed.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-render_line"><strong>render_line</strong></a>(self, y: 'int') -&gt; 'Strip'</dt><dd><span class="code">Render&nbsp;a&nbsp;line&nbsp;of&nbsp;content.<br>
 &nbsp;<br>
@@ -1674,7 +1955,7 @@ Returns:<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;action:&nbsp;Action&nbsp;encoded&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_down"><strong>scroll_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;down.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_down"><strong>scroll_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;down.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1682,9 +1963,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_end"><strong>scroll_end</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;container.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_end"><strong>scroll_end</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;container.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1692,9 +1974,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_home"><strong>scroll_home</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;home&nbsp;position.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_home"><strong>scroll_home</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;home&nbsp;position.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1702,9 +1985,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_left"><strong>scroll_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;left.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_left"><strong>scroll_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;left.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1712,9 +1996,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_down"><strong>scroll_page_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;down.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_down"><strong>scroll_page_down</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;down.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1722,9 +2007,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_left"><strong>scroll_page_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;left.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_left"><strong>scroll_page_left</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;left.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1732,9 +2018,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_right"><strong>scroll_page_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;right.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_right"><strong>scroll_page_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;right.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1742,9 +2029,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_up"><strong>scroll_page_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;up.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_page_up"><strong>scroll_page_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;page&nbsp;up.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1752,9 +2040,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_relative"><strong>scroll_relative</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;relative&nbsp;to&nbsp;current&nbsp;position.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_relative"><strong>scroll_relative</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;relative&nbsp;to&nbsp;current&nbsp;position.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;X&nbsp;distance&nbsp;(columns)&nbsp;to&nbsp;scroll,&nbsp;or&nbsp;``None``&nbsp;for&nbsp;no&nbsp;change.<br>
@@ -1764,9 +2053,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;animate&nbsp;is&nbsp;`True`&nbsp;and&nbsp;speed&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_right"><strong>scroll_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;right.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_right"><strong>scroll_right</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;cell&nbsp;right.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1774,9 +2064,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;`speed`&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to"><strong>scroll_to</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;a&nbsp;given&nbsp;(absolute)&nbsp;coordinate,&nbsp;optionally&nbsp;animating.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to"><strong>scroll_to</strong></a>(self, x: 'float | None' = None, y: 'float | None' = None, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;to&nbsp;a&nbsp;given&nbsp;(absolute)&nbsp;coordinate,&nbsp;optionally&nbsp;animating.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x:&nbsp;X&nbsp;coordinate&nbsp;(column)&nbsp;to&nbsp;scroll&nbsp;to,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;no&nbsp;change.<br>
@@ -1787,11 +2078,12 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
 &nbsp;<br>
 Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;call&nbsp;to&nbsp;scroll&nbsp;is&nbsp;made&nbsp;after&nbsp;the&nbsp;next&nbsp;refresh.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_center"><strong>scroll_to_center</strong></a>(self, widget: 'Widget', animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, origin_visible: 'bool' = True, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;this&nbsp;widget&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;self.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_center"><strong>scroll_to_center</strong></a>(self, widget: 'Widget', animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, origin_visible: 'bool' = True, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;this&nbsp;widget&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;self.<br>
 &nbsp;<br>
 The&nbsp;center&nbsp;of&nbsp;the&nbsp;widget&nbsp;will&nbsp;be&nbsp;scrolled&nbsp;to&nbsp;the&nbsp;center&nbsp;of&nbsp;the&nbsp;container.<br>
 &nbsp;<br>
@@ -1803,9 +2095,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;corner&nbsp;of&nbsp;the&nbsp;widget&nbsp;remains&nbsp;visible&nbsp;after&nbsp;the&nbsp;scroll.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_region"><strong>scroll_to_region</strong></a>(self, region: 'Region', *, spacing: 'Spacing | None' = None, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'Offset'</dt><dd><span class="code">Scrolls&nbsp;a&nbsp;given&nbsp;region&nbsp;in&nbsp;to&nbsp;view,&nbsp;if&nbsp;required.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_region"><strong>scroll_to_region</strong></a>(self, region: 'Region', *, spacing: 'Spacing | None' = None, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'Offset'</dt><dd><span class="code">Scrolls&nbsp;a&nbsp;given&nbsp;region&nbsp;in&nbsp;to&nbsp;view,&nbsp;if&nbsp;required.<br>
 &nbsp;<br>
 This&nbsp;method&nbsp;will&nbsp;scroll&nbsp;the&nbsp;least&nbsp;distance&nbsp;required&nbsp;to&nbsp;move&nbsp;`region`&nbsp;fully&nbsp;within<br>
 the&nbsp;scrollable&nbsp;area.<br>
@@ -1821,11 +2114,12 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;of&nbsp;the&nbsp;widget&nbsp;is&nbsp;within&nbsp;the&nbsp;window.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;distance&nbsp;that&nbsp;was&nbsp;scrolled.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_widget"><strong>scroll_to_widget</strong></a>(self, widget: 'Widget', *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'bool'</dt><dd><span class="code">Scroll&nbsp;scrolling&nbsp;to&nbsp;bring&nbsp;a&nbsp;widget&nbsp;in&nbsp;to&nbsp;view.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_to_widget"><strong>scroll_to_widget</strong></a>(self, widget: 'Widget', *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, center: 'bool' = False, top: 'bool' = False, origin_visible: 'bool' = True, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'bool'</dt><dd><span class="code">Scroll&nbsp;scrolling&nbsp;to&nbsp;bring&nbsp;a&nbsp;widget&nbsp;in&nbsp;to&nbsp;view.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;descendant&nbsp;widget.<br>
@@ -1837,11 +2131,12 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;origin_visible:&nbsp;Ensure&nbsp;that&nbsp;the&nbsp;top&nbsp;left&nbsp;of&nbsp;the&nbsp;widget&nbsp;is&nbsp;within&nbsp;the&nbsp;window.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;any&nbsp;scrolling&nbsp;has&nbsp;occurred&nbsp;in&nbsp;any&nbsp;descendant,&nbsp;otherwise&nbsp;`False`.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_up"><strong>scroll_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;up.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_up"><strong>scroll_up</strong></a>(self, *, animate: 'bool' = True, speed: 'float | None' = None, duration: 'float | None' = None, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;one&nbsp;line&nbsp;up.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1849,9 +2144,10 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;animation,&nbsp;if&nbsp;`animate`&nbsp;is&nbsp;`True`&nbsp;and&nbsp;speed&nbsp;is&nbsp;`None`.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-scroll_visible"><strong>scroll_visible</strong></a>(self, animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, top: 'bool' = False, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None) -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;the&nbsp;container&nbsp;to&nbsp;make&nbsp;this&nbsp;widget&nbsp;visible.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-scroll_visible"><strong>scroll_visible</strong></a>(self, animate: 'bool' = True, *, speed: 'float | None' = None, duration: 'float | None' = None, top: 'bool' = False, easing: 'EasingFunction | str | None' = None, force: 'bool' = False, on_complete: 'CallbackType | None' = None, level: 'AnimationLevel' = 'basic') -&gt; 'None'</dt><dd><span class="code">Scroll&nbsp;the&nbsp;container&nbsp;to&nbsp;make&nbsp;this&nbsp;widget&nbsp;visible.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;animate:&nbsp;Animate&nbsp;scroll.<br>
@@ -1860,7 +2156,18 @@ Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;top:&nbsp;Scroll&nbsp;to&nbsp;top&nbsp;of&nbsp;container.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;easing:&nbsp;An&nbsp;easing&nbsp;method&nbsp;for&nbsp;the&nbsp;scrolling&nbsp;animation.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;force:&nbsp;Force&nbsp;scrolling&nbsp;even&nbsp;when&nbsp;prohibited&nbsp;by&nbsp;overflow&nbsp;styling.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;on_complete:&nbsp;A&nbsp;callable&nbsp;to&nbsp;invoke&nbsp;when&nbsp;the&nbsp;animation&nbsp;is&nbsp;finished.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;Minimum&nbsp;level&nbsp;required&nbsp;for&nbsp;the&nbsp;animation&nbsp;to&nbsp;take&nbsp;place&nbsp;(inclusive).</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-set_loading"><strong>set_loading</strong></a>(self, loading: 'bool') -&gt; 'Awaitable'</dt><dd><span class="code">Set&nbsp;or&nbsp;reset&nbsp;the&nbsp;loading&nbsp;state&nbsp;of&nbsp;this&nbsp;widget.<br>
+&nbsp;<br>
+A&nbsp;widget&nbsp;in&nbsp;a&nbsp;loading&nbsp;state&nbsp;will&nbsp;display&nbsp;a&nbsp;LoadingIndicator&nbsp;that&nbsp;obscures&nbsp;the&nbsp;widget.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;loading:&nbsp;`True`&nbsp;to&nbsp;put&nbsp;the&nbsp;widget&nbsp;into&nbsp;a&nbsp;loading&nbsp;state,&nbsp;or&nbsp;`False`&nbsp;to&nbsp;reset&nbsp;the&nbsp;loading&nbsp;state.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;optional&nbsp;awaitable.</span></dd></dl>
 
 <dl><dt>async <a name="ChannelEnvironmentDisplay-stop_animation"><strong>stop_animation</strong></a>(self, attribute: 'str', complete: 'bool' = True) -&gt; 'None'</dt><dd><span class="code">Stop&nbsp;an&nbsp;animation&nbsp;on&nbsp;an&nbsp;attribute.<br>
 &nbsp;<br>
@@ -1956,7 +2263,7 @@ Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Additional&nbsp;spacing&nbsp;around&nbsp;content&nbsp;area.</span></dd>
 </dl>
 <dl><dt><strong>horizontal_scrollbar</strong></dt>
-<dd><span class="code">The&nbsp;a&nbsp;horizontal&nbsp;scrollbar.<br>
+<dd><span class="code">The&nbsp;horizontal&nbsp;scrollbar.<br>
 &nbsp;<br>
 Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;will&nbsp;*create*&nbsp;a&nbsp;scrollbar&nbsp;if&nbsp;one&nbsp;doesn't&nbsp;exist.<br>
@@ -1972,6 +2279,9 @@ Returns:<br>
 </dl>
 <dl><dt><strong>is_horizontal_scrollbar_grabbed</strong></dt>
 <dd><span class="code">Is&nbsp;the&nbsp;user&nbsp;dragging&nbsp;the&nbsp;vertical&nbsp;scrollbar?</span></dd>
+</dl>
+<dl><dt><strong>is_mounted</strong></dt>
+<dd><span class="code">Check&nbsp;if&nbsp;this&nbsp;widget&nbsp;is&nbsp;mounted.</span></dd>
 </dl>
 <dl><dt><strong>is_scrollable</strong></dt>
 <dd><span class="code">Can&nbsp;this&nbsp;widget&nbsp;be&nbsp;scrolled?</span></dd>
@@ -1994,17 +2304,17 @@ Returns:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Tuple&nbsp;of&nbsp;layer&nbsp;names.</span></dd>
 </dl>
-<dl><dt><strong>link_hover_style</strong></dt>
-<dd><span class="code">Style&nbsp;of&nbsp;links&nbsp;underneath&nbsp;the&nbsp;mouse&nbsp;cursor.<br>
-&nbsp;<br>
-Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Rich&nbsp;Style.</span></dd>
-</dl>
 <dl><dt><strong>link_style</strong></dt>
 <dd><span class="code">Style&nbsp;of&nbsp;links.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Rich&nbsp;style.</span></dd>
+</dl>
+<dl><dt><strong>link_style_hover</strong></dt>
+<dd><span class="code">Style&nbsp;of&nbsp;links&nbsp;underneath&nbsp;the&nbsp;mouse&nbsp;cursor.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rich&nbsp;Style.</span></dd>
 </dl>
 <dl><dt><strong>max_scroll_x</strong></dt>
 <dd><span class="code">The&nbsp;maximum&nbsp;value&nbsp;of&nbsp;`scroll_x`.</span></dd>
@@ -2145,6 +2455,8 @@ Data descriptors inherited from <a href="textual.widget.html#Widget">textual.wid
 </dl>
 <dl><dt><strong>hover_style</strong></dt>
 </dl>
+<dl><dt><strong>loading</strong></dt>
+</dl>
 <dl><dt><strong>mouse_over</strong></dt>
 </dl>
 <dl><dt><strong>offset</strong></dt>
@@ -2184,22 +2496,40 @@ Data and other attributes inherited from <a href="textual.widget.html#Widget">te
 
 <hr>
 Methods inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
-<dl><dt><a name="ChannelEnvironmentDisplay-add_class"><strong>add_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;class&nbsp;names&nbsp;to&nbsp;this&nbsp;Node.<br>
+<dl><dt>async <a name="ChannelEnvironmentDisplay-action_toggle"><strong>action_toggle</strong></a>(self, attribute_name: 'str') -&gt; 'None'</dt><dd><span class="code">Toggle&nbsp;an&nbsp;attribute&nbsp;on&nbsp;the&nbsp;node.<br>
+&nbsp;<br>
+Assumes&nbsp;the&nbsp;attribute&nbsp;is&nbsp;a&nbsp;bool.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attribute_name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;attribute.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-add_class"><strong>add_class</strong></a>(self, *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;class&nbsp;names&nbsp;to&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;add.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-compose_add_child"><strong>compose_add_child</strong></a>(self, widget: 'Widget') -&gt; 'None'</dt><dd><span class="code">Add&nbsp;a&nbsp;node&nbsp;to&nbsp;children.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-data_bind"><strong>data_bind</strong></a>(self, *reactives: 'Reactive[Any]', **bind_vars: 'Reactive[Any] | object') -&gt; 'Self'</dt><dd><span class="code">Bind&nbsp;reactive&nbsp;data&nbsp;so&nbsp;that&nbsp;changes&nbsp;to&nbsp;a&nbsp;reactive&nbsp;automatically&nbsp;change&nbsp;the&nbsp;reactive&nbsp;on&nbsp;another&nbsp;widget.<br>
 &nbsp;<br>
-This&nbsp;is&nbsp;used&nbsp;by&nbsp;the&nbsp;compose&nbsp;process&nbsp;when&nbsp;it&nbsp;adds&nbsp;children.<br>
-There&nbsp;is&nbsp;no&nbsp;need&nbsp;to&nbsp;use&nbsp;it&nbsp;directly,&nbsp;but&nbsp;you&nbsp;may&nbsp;want&nbsp;to&nbsp;override&nbsp;it&nbsp;in&nbsp;a&nbsp;subclass<br>
-if&nbsp;you&nbsp;want&nbsp;children&nbsp;to&nbsp;be&nbsp;attached&nbsp;to&nbsp;a&nbsp;different&nbsp;node.<br>
+Reactives&nbsp;may&nbsp;be&nbsp;given&nbsp;as&nbsp;positional&nbsp;arguments&nbsp;or&nbsp;keyword&nbsp;arguments.<br>
+See&nbsp;the&nbsp;[guide&nbsp;on&nbsp;data&nbsp;binding](/guide/reactivity#data-binding).<br>
 &nbsp;<br>
-Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;widget:&nbsp;A&nbsp;Widget&nbsp;to&nbsp;add.</span></dd></dl>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;<a href="#ChannelEnvironmentDisplay-compose">compose</a>(self)&nbsp;-&gt;&nbsp;ComposeResult:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Europe/London").<a href="#ChannelEnvironmentDisplay-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Europe/Paris").<a href="#ChannelEnvironmentDisplay-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield&nbsp;WorldClock("Asia/Tokyo").<a href="#ChannelEnvironmentDisplay-data_bind">data_bind</a>(WorldClockApp.time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ReactiveError:&nbsp;If&nbsp;the&nbsp;data&nbsp;wasn't&nbsp;bound.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-get_component_styles"><strong>get_component_styles</strong></a>(self, name: 'str') -&gt; 'RenderStyles'</dt><dd><span class="code">Get&nbsp;a&nbsp;"component"&nbsp;styles&nbsp;object&nbsp;(must&nbsp;be&nbsp;defined&nbsp;in&nbsp;COMPONENT_CLASSES&nbsp;classvar).<br>
 &nbsp;<br>
@@ -2220,26 +2550,34 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;``True``&nbsp;if&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;class&nbsp;names,&nbsp;otherwise&nbsp;``False``.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-has_pseudo_class"><strong>has_pseudo_class</strong></a>(self, *class_names: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;for&nbsp;pseudo&nbsp;classes&nbsp;(such&nbsp;as&nbsp;hover,&nbsp;focus&nbsp;etc)<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-has_pseudo_class"><strong>has_pseudo_class</strong></a>(self, class_name: 'str') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;the&nbsp;node&nbsp;has&nbsp;the&nbsp;given&nbsp;pseudo&nbsp;class.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;The&nbsp;pseudo&nbsp;classes&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_name:&nbsp;The&nbsp;pseudo&nbsp;class&nbsp;to&nbsp;check&nbsp;for.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;DOM&nbsp;node&nbsp;has&nbsp;those&nbsp;pseudo&nbsp;classes,&nbsp;`False`&nbsp;if&nbsp;not.</span></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;the&nbsp;DOM&nbsp;node&nbsp;has&nbsp;the&nbsp;pseudo&nbsp;class,&nbsp;`False`&nbsp;if&nbsp;not.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-query"><strong>query</strong></a>(self, selector: 'str | type[QueryType] | None' = None) -&gt; 'DOMQuery[Widget] | DOMQuery[QueryType]'</dt><dd><span class="code">Get&nbsp;a&nbsp;DOM&nbsp;query&nbsp;matching&nbsp;a&nbsp;selector.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-has_pseudo_classes"><strong>has_pseudo_classes</strong></a>(self, class_names: 'set[str]') -&gt; 'bool'</dt><dd><span class="code">Check&nbsp;the&nbsp;node&nbsp;has&nbsp;all&nbsp;the&nbsp;given&nbsp;pseudo&nbsp;classes.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector&nbsp;or&nbsp;`None`&nbsp;for&nbsp;all&nbsp;nodes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class_names:&nbsp;Set&nbsp;of&nbsp;class&nbsp;names&nbsp;to&nbsp;check&nbsp;for.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`True`&nbsp;if&nbsp;all&nbsp;pseudo&nbsp;class&nbsp;names&nbsp;are&nbsp;present.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-query"><strong>query</strong></a>(self, selector: 'str | type[QueryType] | None' = None) -&gt; 'DOMQuery[Widget] | DOMQuery[QueryType]'</dt><dd><span class="code">Query&nbsp;the&nbsp;DOM&nbsp;for&nbsp;children&nbsp;that&nbsp;match&nbsp;a&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;CSS&nbsp;selector,&nbsp;widget&nbsp;type,&nbsp;or&nbsp;`None`&nbsp;for&nbsp;all&nbsp;nodes.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;query&nbsp;object.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-query_one"><strong>query_one</strong></a>(self, selector: 'str | type[QueryType]', expect_type: 'type[QueryType] | None' = None) -&gt; 'QueryType | Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;single&nbsp;Widget&nbsp;matching&nbsp;the&nbsp;given&nbsp;selector&nbsp;or&nbsp;selector&nbsp;type.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-query_one"><strong>query_one</strong></a>(self, selector: 'str | type[QueryType]', expect_type: 'type[QueryType] | None' = None) -&gt; 'QueryType | Widget'</dt><dd><span class="code">Get&nbsp;a&nbsp;widget&nbsp;from&nbsp;this&nbsp;widget's&nbsp;children&nbsp;that&nbsp;matches&nbsp;a&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;selector.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selector:&nbsp;A&nbsp;selector&nbsp;or&nbsp;widget&nbsp;type.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;expect_type:&nbsp;Require&nbsp;the&nbsp;object&nbsp;be&nbsp;of&nbsp;the&nbsp;supplied&nbsp;type,&nbsp;or&nbsp;None&nbsp;for&nbsp;any&nbsp;type.<br>
 &nbsp;<br>
 Raises:<br>
@@ -2250,10 +2588,11 @@ Raises:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;widget&nbsp;matching&nbsp;the&nbsp;selector.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-remove_class"><strong>remove_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Remove&nbsp;class&nbsp;names&nbsp;from&nbsp;this&nbsp;Node.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-remove_class"><strong>remove_class</strong></a>(self, *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Remove&nbsp;class&nbsp;names&nbsp;from&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*class_names:&nbsp;CSS&nbsp;class&nbsp;names&nbsp;to&nbsp;remove.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
@@ -2277,10 +2616,11 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;Worker&nbsp;instance.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-set_class"><strong>set_class</strong></a>(self, add: 'bool', *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;or&nbsp;remove&nbsp;class(es)&nbsp;based&nbsp;on&nbsp;a&nbsp;condition.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-set_class"><strong>set_class</strong></a>(self, add: 'bool', *class_names: 'str', update: 'bool' = True) -&gt; 'Self'</dt><dd><span class="code">Add&nbsp;or&nbsp;remove&nbsp;class(es)&nbsp;based&nbsp;on&nbsp;a&nbsp;condition.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;add:&nbsp;Add&nbsp;the&nbsp;classes&nbsp;if&nbsp;True,&nbsp;otherwise&nbsp;remove&nbsp;them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update:&nbsp;Also&nbsp;update&nbsp;styles.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
@@ -2294,14 +2634,43 @@ Args:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentDisplay-set_styles"><strong>set_styles</strong></a>(self, css: 'str | None' = None, **update_styles) -&gt; 'Self'</dt><dd><span class="code">Set&nbsp;custom&nbsp;styles&nbsp;on&nbsp;this&nbsp;object.<br>
+<dl><dt><a name="ChannelEnvironmentDisplay-set_reactive"><strong>set_reactive</strong></a>(self, reactive: 'Reactive[ReactiveType]', value: 'ReactiveType') -&gt; 'None'</dt><dd><span class="code">Sets&nbsp;a&nbsp;reactive&nbsp;value&nbsp;*without*&nbsp;invoking&nbsp;validators&nbsp;or&nbsp;watchers.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<a href="#ChannelEnvironmentDisplay-set_reactive">set_reactive</a>(<a href="textual.app.html#App">App</a>.dark_mode,&nbsp;True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;reactive&nbsp;attribute.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;New&nbsp;value&nbsp;of&nbsp;reactive.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError:&nbsp;If&nbsp;the&nbsp;first&nbsp;argument&nbsp;is&nbsp;not&nbsp;a&nbsp;reactive.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-set_styles"><strong>set_styles</strong></a>(self, css: 'str | None' = None, **update_styles: 'Any') -&gt; 'Self'</dt><dd><span class="code">Set&nbsp;custom&nbsp;styles&nbsp;on&nbsp;this&nbsp;object.<br>
 &nbsp;<br>
 Args:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;css:&nbsp;Styles&nbsp;in&nbsp;CSS&nbsp;format.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;**update_styles:&nbsp;Keyword&nbsp;arguments&nbsp;map&nbsp;style&nbsp;names&nbsp;on&nbsp;to&nbsp;style.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update_styles:&nbsp;Keyword&nbsp;arguments&nbsp;map&nbsp;style&nbsp;names&nbsp;onto&nbsp;style&nbsp;values.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Self.</span></dd></dl>
+
+<dl><dt><a name="ChannelEnvironmentDisplay-sort_children"><strong>sort_children</strong></a>(self, *, key: 'Callable[[Widget], SupportsRichComparison] | None' = None, reverse: 'bool' = False) -&gt; 'None'</dt><dd><span class="code">Sort&nbsp;child&nbsp;widgets&nbsp;with&nbsp;an&nbsp;optional&nbsp;key&nbsp;function.<br>
+&nbsp;<br>
+If&nbsp;`key`&nbsp;is&nbsp;not&nbsp;provided&nbsp;then&nbsp;widgets&nbsp;will&nbsp;be&nbsp;sorted&nbsp;in&nbsp;the&nbsp;order&nbsp;they&nbsp;are&nbsp;constructed.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Sort&nbsp;widgets&nbsp;by&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;screen.<a href="#ChannelEnvironmentDisplay-sort_children">sort_children</a>(key=lambda&nbsp;widget:&nbsp;widget.name&nbsp;or&nbsp;"")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;```<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;key:&nbsp;A&nbsp;callable&nbsp;which&nbsp;accepts&nbsp;a&nbsp;widget&nbsp;and&nbsp;returns&nbsp;something&nbsp;that&nbsp;can&nbsp;be&nbsp;sorted,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;`None`&nbsp;to&nbsp;sort&nbsp;without&nbsp;a&nbsp;key&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reverse:&nbsp;Sort&nbsp;in&nbsp;descending&nbsp;order.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentDisplay-toggle_class"><strong>toggle_class</strong></a>(self, *class_names: 'str') -&gt; 'Self'</dt><dd><span class="code">Toggle&nbsp;class&nbsp;names&nbsp;on&nbsp;this&nbsp;Node.<br>
 &nbsp;<br>
@@ -2345,13 +2714,13 @@ Args:<br>
 <hr>
 Readonly properties inherited from <a href="textual.dom.html#DOMNode">textual.dom.DOMNode</a>:<br>
 <dl><dt><strong>ancestors</strong></dt>
-<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;Nodes&nbsp;by&nbsp;tracing&nbsp;ancestors&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;found&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
 &nbsp;<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;nodes.</span></dd>
 </dl>
 <dl><dt><strong>ancestors_with_self</strong></dt>
-<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;Nodes&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
+<dd><span class="code">A&nbsp;list&nbsp;of&nbsp;ancestor&nbsp;nodes&nbsp;found&nbsp;by&nbsp;tracing&nbsp;a&nbsp;path&nbsp;all&nbsp;the&nbsp;way&nbsp;back&nbsp;to&nbsp;App.<br>
 &nbsp;<br>
 Note:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;inclusive&nbsp;of&nbsp;``self``.<br>
@@ -2503,6 +2872,8 @@ Data and other attributes inherited from <a href="textual.dom.html#DOMNode">text
 
 <dl><dt><strong>DEFAULT_CLASSES</strong> = ''</dl>
 
+<dl><dt><strong>SCOPED_CSS</strong> = True</dl>
+
 <dl><dt><strong>WalkType</strong> = ~WalkType</dl>
 
 <hr>
@@ -2578,7 +2949,7 @@ Example:<br>
 <dl><dt><a name="ChannelEnvironmentDisplay-set_interval"><strong>set_interval</strong></a>(self, interval: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, repeat: 'int' = 0, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Call&nbsp;a&nbsp;function&nbsp;at&nbsp;periodic&nbsp;intervals.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;interval:&nbsp;Time&nbsp;between&nbsp;calls.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interval:&nbsp;Time&nbsp;(in&nbsp;seconds)&nbsp;between&nbsp;calls.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Function&nbsp;to&nbsp;call.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;object.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;repeat:&nbsp;Number&nbsp;of&nbsp;times&nbsp;to&nbsp;repeat&nbsp;the&nbsp;call&nbsp;or&nbsp;0&nbsp;for&nbsp;continuous.<br>
@@ -2590,7 +2961,7 @@ Returns:<br>
 <dl><dt><a name="ChannelEnvironmentDisplay-set_timer"><strong>set_timer</strong></a>(self, delay: 'float', callback: 'TimerCallback | None' = None, *, name: 'str | None' = None, pause: 'bool' = False) -&gt; 'Timer'</dt><dd><span class="code">Make&nbsp;a&nbsp;function&nbsp;call&nbsp;after&nbsp;a&nbsp;delay.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;Time&nbsp;to&nbsp;wait&nbsp;before&nbsp;invoking&nbsp;callback.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;Time&nbsp;(in&nbsp;seconds)&nbsp;to&nbsp;wait&nbsp;before&nbsp;invoking&nbsp;callback.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;Callback&nbsp;to&nbsp;call&nbsp;after&nbsp;time&nbsp;has&nbsp;expired.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;Name&nbsp;of&nbsp;the&nbsp;timer&nbsp;(for&nbsp;debug).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;pause:&nbsp;Start&nbsp;timer&nbsp;paused.<br>
@@ -2627,15 +2998,18 @@ Raises:<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;logger.</span></dd>
 </dl>
+<dl><dt><strong>message_queue_size</strong></dt>
+<dd><span class="code">The&nbsp;current&nbsp;size&nbsp;of&nbsp;the&nbsp;message&nbsp;queue.</span></dd>
+</dl>
 <dl><dt><strong>task</strong></dt>
 </dl>
 <hr>
 Data descriptors inherited from <a href="textual.message_pump.html#MessagePump">textual.message_pump.MessagePump</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table> <p>
 <table class="section">
@@ -2643,7 +3017,7 @@ Data descriptors inherited from <a href="textual.message_pump.html#MessagePump">
 <td class="section-title" colspan=3>&nbsp;<br><a name="ChannelEnvironmentSource">class <strong>ChannelEnvironmentSource</strong></a>(<a href="enum.html#StrEnum">enum.StrEnum</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#ChannelEnvironmentSource">ChannelEnvironmentSource</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ChannelEnvironmentSource">ChannelEnvironmentSource</a>(*values)<br>
 &nbsp;<br>
 Possible&nbsp;sources&nbsp;of&nbsp;channel&nbsp;environments.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -2671,8 +3045,6 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>TASK</strong> = &lt;ChannelEnvironmentSource.TASK: 'task'&gt;</dl>
 
-<dl><dt><strong>UI</strong> = &lt;ChannelEnvironmentSource.UI: 'ui'&gt;</dl>
-
 <hr>
 Methods inherited from <a href="enum.html#StrEnum">enum.StrEnum</a>:<br>
 <dl><dt><a name="ChannelEnvironmentSource-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
@@ -2681,7 +3053,7 @@ Methods inherited from <a href="enum.html#StrEnum">enum.StrEnum</a>:<br>
 Methods inherited from <a href="builtins.html#str">builtins.str</a>:<br>
 <dl><dt><a name="ChannelEnvironmentSource-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="ChannelEnvironmentSource-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="ChannelEnvironmentSource-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentSource-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 
@@ -2923,10 +3295,10 @@ and&nbsp;the&nbsp;original&nbsp;string.</span></dd></dl>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;separator&nbsp;used&nbsp;to&nbsp;split&nbsp;the&nbsp;string.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;set&nbsp;to&nbsp;None&nbsp;(the&nbsp;default&nbsp;value),&nbsp;will&nbsp;split&nbsp;on&nbsp;any&nbsp;whitespace<br>
-&nbsp;&nbsp;&nbsp;&nbsp;character&nbsp;(including&nbsp;\\n&nbsp;\\r&nbsp;\\t&nbsp;\\f&nbsp;and&nbsp;spaces)&nbsp;and&nbsp;will&nbsp;discard<br>
+&nbsp;&nbsp;&nbsp;&nbsp;character&nbsp;(including&nbsp;\n&nbsp;\r&nbsp;\t&nbsp;\f&nbsp;and&nbsp;spaces)&nbsp;and&nbsp;will&nbsp;discard<br>
 &nbsp;&nbsp;&nbsp;&nbsp;empty&nbsp;strings&nbsp;from&nbsp;the&nbsp;result.<br>
 &nbsp;&nbsp;maxsplit<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;splits&nbsp;(starting&nbsp;from&nbsp;the&nbsp;left).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;splits.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;(the&nbsp;default&nbsp;value)&nbsp;means&nbsp;no&nbsp;limit.<br>
 &nbsp;<br>
 Splitting&nbsp;starts&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;string&nbsp;and&nbsp;works&nbsp;to&nbsp;the&nbsp;front.</span></dd></dl>
@@ -2941,11 +3313,13 @@ If&nbsp;chars&nbsp;is&nbsp;given&nbsp;and&nbsp;not&nbsp;None,&nbsp;remove&nbsp;c
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;separator&nbsp;used&nbsp;to&nbsp;split&nbsp;the&nbsp;string.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;set&nbsp;to&nbsp;None&nbsp;(the&nbsp;default&nbsp;value),&nbsp;will&nbsp;split&nbsp;on&nbsp;any&nbsp;whitespace<br>
-&nbsp;&nbsp;&nbsp;&nbsp;character&nbsp;(including&nbsp;\\n&nbsp;\\r&nbsp;\\t&nbsp;\\f&nbsp;and&nbsp;spaces)&nbsp;and&nbsp;will&nbsp;discard<br>
+&nbsp;&nbsp;&nbsp;&nbsp;character&nbsp;(including&nbsp;\n&nbsp;\r&nbsp;\t&nbsp;\f&nbsp;and&nbsp;spaces)&nbsp;and&nbsp;will&nbsp;discard<br>
 &nbsp;&nbsp;&nbsp;&nbsp;empty&nbsp;strings&nbsp;from&nbsp;the&nbsp;result.<br>
 &nbsp;&nbsp;maxsplit<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;splits&nbsp;(starting&nbsp;from&nbsp;the&nbsp;left).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;splits.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;(the&nbsp;default&nbsp;value)&nbsp;means&nbsp;no&nbsp;limit.<br>
+&nbsp;<br>
+Splitting&nbsp;starts&nbsp;at&nbsp;the&nbsp;front&nbsp;of&nbsp;the&nbsp;string&nbsp;and&nbsp;works&nbsp;to&nbsp;the&nbsp;end.<br>
 &nbsp;<br>
 Note,&nbsp;str.<a href="#ChannelEnvironmentSource-split">split</a>()&nbsp;is&nbsp;mainly&nbsp;useful&nbsp;for&nbsp;data&nbsp;that&nbsp;has&nbsp;been&nbsp;intentionally<br>
 delimited.&nbsp;&nbsp;With&nbsp;natural&nbsp;text&nbsp;that&nbsp;includes&nbsp;punctuation,&nbsp;consider&nbsp;using<br>
@@ -3004,7 +3378,7 @@ must&nbsp;be&nbsp;a&nbsp;string,&nbsp;whose&nbsp;characters&nbsp;will&nbsp;be&nb
 
 <hr>
 Methods inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
-<dl><dt><a name="ChannelEnvironmentSource-__dir__"><strong>__dir__</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;all&nbsp;members&nbsp;and&nbsp;all&nbsp;public&nbsp;methods</span></dd></dl>
+<dl><dt><a name="ChannelEnvironmentSource-__dir__"><strong>__dir__</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;public&nbsp;methods&nbsp;and&nbsp;other&nbsp;interesting&nbsp;attributes.</span></dd></dl>
 
 <dl><dt><a name="ChannelEnvironmentSource-__init__"><strong>__init__</strong></a>(self, *args, **kwds)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
 
@@ -3032,12 +3406,12 @@ is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.<
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt>async <a name="-run"><strong>run</strong></a>(app: runtimepy.net.arbiter.info.AppInfo) -&gt; int</dt><dd><span class="code">Run&nbsp;a&nbsp;textual&nbsp;application.</span></dd></dl>
+<td class="singlecolumn"><dl><dt>async <a name="-test"><strong>test</strong></a>(app: runtimepy.net.arbiter.info.AppInfo) -&gt; int</dt><dd><span class="code">Run&nbsp;a&nbsp;textual&nbsp;application.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>__all__</strong> = ['Base', 'run', 'ChannelEnvironmentDisplay', 'ChannelEnvironmentSource']</td></tr></table>
+<td class="singlecolumn"><strong>__all__</strong> = ['Base', 'test', 'ChannelEnvironmentDisplay', 'ChannelEnvironmentSource']</td></tr></table>
 </body></html>

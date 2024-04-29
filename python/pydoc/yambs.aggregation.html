@@ -22,10 +22,10 @@
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-collect_files"><strong>collect_files</strong></a>(root: pathlib.Path, recurse: bool = True) -&gt; Dict[str, Set[pathlib.Path]]</dt><dd><span class="code">Collect&nbsp;files&nbsp;(by&nbsp;suffix)&nbsp;from&nbsp;a&nbsp;starting&nbsp;directory.</span></dd></dl>
+<td class="singlecolumn"><dl><dt><a name="-collect_files"><strong>collect_files</strong></a>(root: pathlib.Path, recurse: bool = True, files: Dict[str, Set[pathlib.Path]] = None) -&gt; Dict[str, Set[pathlib.Path]]</dt><dd><span class="code">Collect&nbsp;files&nbsp;(by&nbsp;suffix)&nbsp;from&nbsp;a&nbsp;starting&nbsp;directory.</span></dd></dl>
  <dl><dt><a name="-compile_sources"><strong>compile_sources</strong></a>(paths: Dict[str, Set[pathlib.Path]]) -&gt; Set[pathlib.Path]</dt><dd><span class="code">Get&nbsp;all&nbsp;sources&nbsp;that&nbsp;require&nbsp;compilation.</span></dd></dl>
  <dl><dt><a name="-headers"><strong>headers</strong></a>(paths: Dict[str, Set[pathlib.Path]]) -&gt; Set[pathlib.Path]</dt><dd><span class="code">Get&nbsp;header&nbsp;files.</span></dd></dl>
- <dl><dt><a name="-populate_sources"><strong>populate_sources</strong></a>(paths: Dict[str, Set[pathlib.Path]], src_root: pathlib.Path, apps: Set[pathlib.Path], regular: Set[pathlib.Path]) -&gt; None</dt><dd><span class="code">Populate&nbsp;application&nbsp;and&nbsp;regular&nbsp;sources&nbsp;from&nbsp;a&nbsp;group&nbsp;of&nbsp;paths.</span></dd></dl>
+ <dl><dt><a name="-populate_sources"><strong>populate_sources</strong></a>(paths: Dict[str, Set[pathlib.Path]], src_root: pathlib.Path, apps: Set[pathlib.Path], regular: Set[pathlib.Path], third_party: Set[pathlib.Path]) -&gt; None</dt><dd><span class="code">Populate&nbsp;application&nbsp;and&nbsp;regular&nbsp;sources&nbsp;from&nbsp;a&nbsp;group&nbsp;of&nbsp;paths.</span></dd></dl>
  <dl><dt><a name="-sources_headers"><strong>sources_headers</strong></a>(paths: Dict[str, Set[pathlib.Path]]) -&gt; Set[pathlib.Path]</dt><dd><span class="code">Get&nbsp;sources&nbsp;and&nbsp;header&nbsp;files.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">

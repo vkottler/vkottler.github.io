@@ -71,10 +71,10 @@ Readonly properties defined here:<br>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
@@ -88,7 +88,7 @@ Data and other attributes defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><a name="SimpleAttribute">class <strong>SimpleAttribute</strong></a>(<a href="svgen.attribute.html#Attribute">Attribute</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#SimpleAttribute">SimpleAttribute</a>(name:&nbsp;str,&nbsp;value:&nbsp;Union[str,&nbsp;int])&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SimpleAttribute">SimpleAttribute</a>(name:&nbsp;str,&nbsp;value:&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool])&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple,&nbsp;concrete&nbsp;implementation&nbsp;for&nbsp;attribute.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -100,7 +100,7 @@ A&nbsp;simple,&nbsp;concrete&nbsp;implementation&nbsp;for&nbsp;attribute.<br>&nb
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="SimpleAttribute-__init__"><strong>__init__</strong></a>(self, name: str, value: Union[str, int]) -&gt; None</dt><dd><span class="code">Construct&nbsp;a&nbsp;simple&nbsp;attribute,&nbsp;one&nbsp;with&nbsp;just&nbsp;a&nbsp;key&nbsp;(name)&nbsp;and&nbsp;value.</span></dd></dl>
+<dl><dt><a name="SimpleAttribute-__init__"><strong>__init__</strong></a>(self, name: str, value: Union[str, int, float, bool]) -&gt; None</dt><dd><span class="code">Construct&nbsp;a&nbsp;simple&nbsp;attribute,&nbsp;one&nbsp;with&nbsp;just&nbsp;a&nbsp;key&nbsp;(name)&nbsp;and&nbsp;value.</span></dd></dl>
 
 <hr>
 Class methods defined here:<br>
@@ -133,10 +133,10 @@ Readonly properties inherited from <a href="svgen.attribute.html#Attribute">Attr
 <hr>
 Data descriptors inherited from <a href="svgen.attribute.html#Attribute">Attribute</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="svgen.attribute.html#Attribute">Attribute</a>:<br>
@@ -148,7 +148,7 @@ Data and other attributes inherited from <a href="svgen.attribute.html#Attribute
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-attributes"><strong>attributes</strong></a>(data: Union[Dict[str, Union[str, int, float]], List[svgen.attribute.Attribute], svgen.attribute.Attribute] = None) -&gt; List[svgen.attribute.Attribute]</dt><dd><span class="code">Get&nbsp;attributes&nbsp;from&nbsp;either&nbsp;an&nbsp;existing&nbsp;list&nbsp;of&nbsp;attributes,&nbsp;or&nbsp;dictionary<br>
+<td class="singlecolumn"><dl><dt><a name="-attributes"><strong>attributes</strong></a>(data: Union[Dict[str, Union[str, int, float, bool]], List[svgen.attribute.Attribute], svgen.attribute.Attribute] = None) -&gt; List[svgen.attribute.Attribute]</dt><dd><span class="code">Get&nbsp;attributes&nbsp;from&nbsp;either&nbsp;an&nbsp;existing&nbsp;list&nbsp;of&nbsp;attributes,&nbsp;or&nbsp;dictionary<br>
 data.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
@@ -156,7 +156,8 @@ data.</span></dd></dl>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>Dict</strong> = typing.Dict<br>
+<td class="singlecolumn"><strong>AttributeValue</strong> = typing.Union[str, int, float, bool]<br>
+<strong>Dict</strong> = typing.Dict<br>
 <strong>List</strong> = typing.List<br>
 <strong>PossibleAttributes</strong> = typing.Union[typing.Dict[str, typing.Union[str, ....attribute.Attribute], svgen.attribute.Attribute]<br>
 <strong>T</strong> = ~T<br>

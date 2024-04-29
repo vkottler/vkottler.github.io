@@ -32,7 +32,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><strong>Double</strong> = <a name="Double">class DoublePrimitive</a>(<a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Double">Double</a>(value:&nbsp;float&nbsp;=&nbsp;0.0)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Double">Double</a>(value:&nbsp;float&nbsp;=&nbsp;0.0,&nbsp;scaling:&nbsp;list[typing.Union[float,&nbsp;int]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;double-precision&nbsp;floating-point.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -44,7 +44,7 @@ A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;double-precision&nbsp;floa
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="DoublePrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
+<dl><dt><a name="DoublePrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0, scaling: list[typing.Union[float, int]] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -54,7 +54,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
-<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.float.DoubleType object&gt;</dl>
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.types.float.DoubleType object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
@@ -68,7 +68,13 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="DoublePrimitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</span></dd></dl>
 
+<dl><dt><a name="DoublePrimitive-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">A&nbsp;hash&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="DoublePrimitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="DoublePrimitive-age_ns"><strong>age_ns</strong></a>(self, now: int = None) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;in&nbsp;nanoseconds.</span></dd></dl>
+
+<dl><dt><a name="DoublePrimitive-age_str"><strong>age_str</strong></a>(self, now: int = None) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="DoublePrimitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</span></dd></dl>
 
@@ -102,35 +108,33 @@ Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primi
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<dl><dt><strong>scaled</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;primitive&nbsp;as&nbsp;a&nbsp;scaled&nbsp;value.</span></dd>
 </dl>
 <dl><dt><strong>value</strong></dt>
 <dd><span class="code">Obtain&nbsp;the&nbsp;underlying&nbsp;value.</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
-<dl><dt><strong>__hash__</strong> = None</dl>
-
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="DoublePrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="DoublePrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="DoublePrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="DoublePrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
 </td></tr></table> <p>
 <table class="section">
@@ -138,7 +142,7 @@ overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
 <td class="section-title" colspan=3>&nbsp;<br><a name="DoublePrimitive">class <strong>DoublePrimitive</strong></a>(<a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#DoublePrimitive">DoublePrimitive</a>(value:&nbsp;float&nbsp;=&nbsp;0.0)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DoublePrimitive">DoublePrimitive</a>(value:&nbsp;float&nbsp;=&nbsp;0.0,&nbsp;scaling:&nbsp;list[typing.Union[float,&nbsp;int]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;double-precision&nbsp;floating-point.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -150,7 +154,7 @@ A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;double-precision&nbsp;floa
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="DoublePrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
+<dl><dt><a name="DoublePrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0, scaling: list[typing.Union[float, int]] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -160,7 +164,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
-<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.float.DoubleType object&gt;</dl>
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.types.float.DoubleType object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
@@ -174,7 +178,13 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="DoublePrimitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</span></dd></dl>
 
+<dl><dt><a name="DoublePrimitive-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">A&nbsp;hash&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="DoublePrimitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="DoublePrimitive-age_ns"><strong>age_ns</strong></a>(self, now: int = None) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;in&nbsp;nanoseconds.</span></dd></dl>
+
+<dl><dt><a name="DoublePrimitive-age_str"><strong>age_str</strong></a>(self, now: int = None) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="DoublePrimitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</span></dd></dl>
 
@@ -208,35 +218,33 @@ Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primi
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<dl><dt><strong>scaled</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;primitive&nbsp;as&nbsp;a&nbsp;scaled&nbsp;value.</span></dd>
 </dl>
 <dl><dt><strong>value</strong></dt>
 <dd><span class="code">Obtain&nbsp;the&nbsp;underlying&nbsp;value.</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
-<dl><dt><strong>__hash__</strong> = None</dl>
-
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="DoublePrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="DoublePrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="DoublePrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="DoublePrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
 </td></tr></table> <p>
 <table class="section">
@@ -244,7 +252,7 @@ overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
 <td class="section-title" colspan=3>&nbsp;<br><strong>Float</strong> = <a name="Float">class FloatPrimitive</a>(<a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Float">Float</a>(value:&nbsp;float&nbsp;=&nbsp;0.0)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Float">Float</a>(value:&nbsp;float&nbsp;=&nbsp;0.0,&nbsp;scaling:&nbsp;list[typing.Union[float,&nbsp;int]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -256,7 +264,7 @@ A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floa
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FloatPrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
+<dl><dt><a name="FloatPrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0, scaling: list[typing.Union[float, int]] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -266,7 +274,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
-<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.float.FloatType object&gt;</dl>
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.types.float.FloatType object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
@@ -280,7 +288,13 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="FloatPrimitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</span></dd></dl>
 
+<dl><dt><a name="FloatPrimitive-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">A&nbsp;hash&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="FloatPrimitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="FloatPrimitive-age_ns"><strong>age_ns</strong></a>(self, now: int = None) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;in&nbsp;nanoseconds.</span></dd></dl>
+
+<dl><dt><a name="FloatPrimitive-age_str"><strong>age_str</strong></a>(self, now: int = None) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="FloatPrimitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</span></dd></dl>
 
@@ -314,35 +328,33 @@ Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primi
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<dl><dt><strong>scaled</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;primitive&nbsp;as&nbsp;a&nbsp;scaled&nbsp;value.</span></dd>
 </dl>
 <dl><dt><strong>value</strong></dt>
 <dd><span class="code">Obtain&nbsp;the&nbsp;underlying&nbsp;value.</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
-<dl><dt><strong>__hash__</strong> = None</dl>
-
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="FloatPrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="FloatPrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="FloatPrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="FloatPrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
 </td></tr></table> <p>
 <table class="section">
@@ -350,7 +362,7 @@ overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
 <td class="section-title" colspan=3>&nbsp;<br><a name="FloatPrimitive">class <strong>FloatPrimitive</strong></a>(<a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#FloatPrimitive">FloatPrimitive</a>(value:&nbsp;float&nbsp;=&nbsp;0.0)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#FloatPrimitive">FloatPrimitive</a>(value:&nbsp;float&nbsp;=&nbsp;0.0,&nbsp;scaling:&nbsp;list[typing.Union[float,&nbsp;int]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -362,7 +374,7 @@ A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floa
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FloatPrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
+<dl><dt><a name="FloatPrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0, scaling: list[typing.Union[float, int]] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -372,7 +384,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
-<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.float.FloatType object&gt;</dl>
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.types.float.FloatType object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
@@ -386,7 +398,13 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="FloatPrimitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</span></dd></dl>
 
+<dl><dt><a name="FloatPrimitive-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">A&nbsp;hash&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="FloatPrimitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="FloatPrimitive-age_ns"><strong>age_ns</strong></a>(self, now: int = None) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;in&nbsp;nanoseconds.</span></dd></dl>
+
+<dl><dt><a name="FloatPrimitive-age_str"><strong>age_str</strong></a>(self, now: int = None) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="FloatPrimitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</span></dd></dl>
 
@@ -420,35 +438,33 @@ Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primi
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<dl><dt><strong>scaled</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;primitive&nbsp;as&nbsp;a&nbsp;scaled&nbsp;value.</span></dd>
 </dl>
 <dl><dt><strong>value</strong></dt>
 <dd><span class="code">Obtain&nbsp;the&nbsp;underlying&nbsp;value.</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
-<dl><dt><strong>__hash__</strong> = None</dl>
-
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="FloatPrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="FloatPrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="FloatPrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="FloatPrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
 </td></tr></table> <p>
 <table class="section">
@@ -456,7 +472,7 @@ overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
 <td class="section-title" colspan=3>&nbsp;<br><strong>Half</strong> = <a name="Half">class HalfPrimitive</a>(<a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Half">Half</a>(value:&nbsp;float&nbsp;=&nbsp;0.0)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Half">Half</a>(value:&nbsp;float&nbsp;=&nbsp;0.0,&nbsp;scaling:&nbsp;list[typing.Union[float,&nbsp;int]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -468,7 +484,7 @@ A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floa
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="HalfPrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
+<dl><dt><a name="HalfPrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0, scaling: list[typing.Union[float, int]] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -478,7 +494,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
-<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.float.HalfType object&gt;</dl>
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.types.float.HalfType object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
@@ -492,7 +508,13 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="HalfPrimitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</span></dd></dl>
 
+<dl><dt><a name="HalfPrimitive-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">A&nbsp;hash&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="HalfPrimitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="HalfPrimitive-age_ns"><strong>age_ns</strong></a>(self, now: int = None) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;in&nbsp;nanoseconds.</span></dd></dl>
+
+<dl><dt><a name="HalfPrimitive-age_str"><strong>age_str</strong></a>(self, now: int = None) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="HalfPrimitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</span></dd></dl>
 
@@ -526,35 +548,33 @@ Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primi
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<dl><dt><strong>scaled</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;primitive&nbsp;as&nbsp;a&nbsp;scaled&nbsp;value.</span></dd>
 </dl>
 <dl><dt><strong>value</strong></dt>
 <dd><span class="code">Obtain&nbsp;the&nbsp;underlying&nbsp;value.</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
-<dl><dt><strong>__hash__</strong> = None</dl>
-
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="HalfPrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="HalfPrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="HalfPrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="HalfPrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
 </td></tr></table> <p>
 <table class="section">
@@ -562,7 +582,7 @@ overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
 <td class="section-title" colspan=3>&nbsp;<br><a name="HalfPrimitive">class <strong>HalfPrimitive</strong></a>(<a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#HalfPrimitive">HalfPrimitive</a>(value:&nbsp;float&nbsp;=&nbsp;0.0)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#HalfPrimitive">HalfPrimitive</a>(value:&nbsp;float&nbsp;=&nbsp;0.0,&nbsp;scaling:&nbsp;list[typing.Union[float,&nbsp;int]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -574,7 +594,7 @@ A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floa
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="HalfPrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
+<dl><dt><a name="HalfPrimitive-__init__"><strong>__init__</strong></a>(self, value: float = 0.0, scaling: list[typing.Union[float, int]] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;floating-point&nbsp;primitive.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -584,7 +604,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>__parameters__</strong> = ()</dl>
 
-<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.type.float.HalfType object&gt;</dl>
+<dl><dt><strong>kind</strong> = &lt;runtimepy.primitives.types.float.HalfType object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
@@ -598,7 +618,13 @@ Methods inherited from <a href="runtimepy.primitives.base.html#Primitive">runtim
 
 <dl><dt><a name="HalfPrimitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</span></dd></dl>
 
+<dl><dt><a name="HalfPrimitive-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">A&nbsp;hash&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="HalfPrimitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="HalfPrimitive-age_ns"><strong>age_ns</strong></a>(self, now: int = None) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;in&nbsp;nanoseconds.</span></dd></dl>
+
+<dl><dt><a name="HalfPrimitive-age_str"><strong>age_str</strong></a>(self, now: int = None) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="HalfPrimitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</span></dd></dl>
 
@@ -632,35 +658,39 @@ Readonly properties inherited from <a href="runtimepy.primitives.base.html#Primi
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<dl><dt><strong>scaled</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;primitive&nbsp;as&nbsp;a&nbsp;scaled&nbsp;value.</span></dd>
 </dl>
 <dl><dt><strong>value</strong></dt>
 <dd><span class="code">Obtain&nbsp;the&nbsp;underlying&nbsp;value.</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="runtimepy.primitives.base.html#Primitive">runtimepy.primitives.base.Primitive</a>:<br>
-<dl><dt><strong>__hash__</strong> = None</dl>
-
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="HalfPrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="HalfPrimitive-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="HalfPrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="HalfPrimitive-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
-</td></tr></table></td></tr></table>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>ChannelScaling</strong> = list[typing.Union[float, int]]</td></tr></table>
 </body></html>

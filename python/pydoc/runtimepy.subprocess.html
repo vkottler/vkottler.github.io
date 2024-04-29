@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package runtimepy.subprocess</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.subprocess</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/subprocess/__init__.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/subprocess/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;subprocess&nbsp;management&nbsp;interface.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="runtimepy.subprocess.interface.html">interface</a><br>
+</td><td class="multicolumn"><a href="runtimepy.subprocess.peer.html">peer</a><br>
+</td><td class="multicolumn"><a href="runtimepy.subprocess.program.html">program</a><br>
+</td><td class="multicolumn"><a href="runtimepy.subprocess.protocol.html">protocol</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>async <a name="-close_protocol"><strong>close_protocol</strong></a>(protocol: runtimepy.subprocess.protocol.RuntimepySubprocessProtocol, poll_rate: float = 2.0, stdout: asyncio.queues.Queue[bytes] = None, stderr: asyncio.queues.Queue[bytes] = None, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = &lt;Logger runtimepy.subprocess (WARNING)&gt;) -&gt; None</dt><dd><span class="code">Shutdown&nbsp;a&nbsp;protocol&nbsp;instance.</span></dd></dl>
+ <dl><dt><a name="-get_running_loop"><strong>get_running_loop</strong></a>()</dt><dd><span class="code">Return&nbsp;the&nbsp;running&nbsp;event&nbsp;loop.&nbsp;&nbsp;Raise&nbsp;a&nbsp;RuntimeError&nbsp;if&nbsp;there&nbsp;is&nbsp;none.<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;is&nbsp;thread-specific.</span></dd></dl>
+ <dl><dt>async <a name="-shutdown_protocol"><strong>shutdown_protocol</strong></a>(protocol: runtimepy.subprocess.protocol.RuntimepySubprocessProtocol, poll_rate: float = 2.0, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = &lt;Logger runtimepy.subprocess (WARNING)&gt;) -&gt; None</dt><dd><span class="code">Shutdown&nbsp;a&nbsp;subprocess&nbsp;protocol&nbsp;instance.</span></dd></dl>
+ <dl><dt><a name="-spawn_exec"><strong>spawn_exec</strong></a>(*args: str, stdout: asyncio.queues.Queue[bytes] = None, stderr: asyncio.queues.Queue[bytes] = None, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = &lt;Logger runtimepy.subprocess (WARNING)&gt;, **kwargs) -&gt; AsyncIterator[runtimepy.subprocess.protocol.RuntimepySubprocessProtocol]</dt><dd><span class="code">Create&nbsp;a&nbsp;subprocess.</span></dd></dl>
+ <dl><dt><a name="-spawn_shell"><strong>spawn_shell</strong></a>(cmd: str, stdout: asyncio.queues.Queue[bytes] = None, stderr: asyncio.queues.Queue[bytes] = None, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = &lt;Logger runtimepy.subprocess (WARNING)&gt;, **kwargs) -&gt; AsyncIterator[runtimepy.subprocess.protocol.RuntimepySubprocessProtocol]</dt><dd><span class="code">Create&nbsp;a&nbsp;shell&nbsp;subprocess.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>AsyncIterator</strong> = typing.AsyncIterator<br>
+<strong>LOG</strong> = &lt;Logger runtimepy.subprocess (WARNING)&gt;<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
+<strong>POLL_RATE</strong> = 2.0</td></tr></table>
+</body></html>

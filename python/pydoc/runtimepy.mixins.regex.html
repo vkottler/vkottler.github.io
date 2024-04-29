@@ -34,21 +34,21 @@ validate&nbsp;names&nbsp;with.</span></p>
 <td class="decor title-decor" colspan=2><span class="code">A&nbsp;simple&nbsp;class&nbsp;mixin&nbsp;for&nbsp;validating&nbsp;names.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Class methods defined here:<br>
-<dl><dt><a name="RegexMixin-validate_name"><strong>validate_name</strong></a>(name: str) -&gt; bool<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Determine&nbsp;if&nbsp;a&nbsp;name&nbsp;is&nbsp;valid&nbsp;for&nbsp;this&nbsp;class.</span></dd></dl>
+<dl><dt><a name="RegexMixin-validate_name"><strong>validate_name</strong></a>(name: str, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None) -&gt; bool<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Determine&nbsp;if&nbsp;a&nbsp;name&nbsp;is&nbsp;valid&nbsp;for&nbsp;this&nbsp;class.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'name_regex': &lt;class 're.Pattern'&gt;}</dl>
+<dl><dt><strong>__annotations__</strong> = {'name_regex': typing.Optional[re.Pattern]}</dl>
 
-<dl><dt><strong>name_regex</strong> = re.compile('^[\\w\\:-_.]+$')</dl>
+<dl><dt><strong>name_regex</strong> = re.compile('^[\\w\\:.-]+$')</dl>
 
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -56,6 +56,8 @@ Data and other attributes defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>CHANNEL_PATTERN</strong> = re.compile('^[a-z0-9-_.]+$')<br>
-<strong>DEFAULT_PATTERN</strong> = re.compile('^[\\w\\:-_.]+$')</td></tr></table>
+<td class="singlecolumn"><strong>CHANNEL_PATTERN</strong> = re.compile('^[a-z0-9_.-]+$')<br>
+<strong>DEFAULT_PATTERN</strong> = re.compile('^[\\w\\:.-]+$')<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
+<strong>Optional</strong> = typing.Optional</td></tr></table>
 </body></html>

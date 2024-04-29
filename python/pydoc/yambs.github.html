@@ -64,7 +64,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Data and other attributes inherited from <a href="yambs.schemas.html#YambsDictCodec">yambs.schemas.YambsDictCodec</a>:<br>
-<dl><dt><strong>default_schemas</strong> = {'Architecture': &lt;vcorelib.schemas.json.JsonSche...chemas.json.JsonSchema object at 0x7ff2808081d0&gt;}</dl>
+<dl><dt><strong>default_schemas</strong> = {'Variant': &lt;vcorelib.schemas.json.JsonSchema ob...chemas.json.JsonSchema object at 0x7f0995b21a30&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="vcorelib.dict.codec.html#BasicDictCodec">vcorelib.dict.codec.BasicDictCodec</a>:<br>
@@ -89,21 +89,23 @@ Methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dic
 <dl><dt><a name="Github-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Use&nbsp;the&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;instance&nbsp;for&nbsp;string<br>
 representation.</span></dd></dl>
 
-<dl><dt><a name="Github-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7ff281217190&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Github-encode"><strong>encode</strong></a>(self, pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f0994d5b140&gt;, **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;object&nbsp;instance&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
-<dl><dt><a name="Github-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7ff281217190&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+<dl><dt><a name="Github-decode"><strong>decode</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f0994d5b140&gt;, schemas: vcorelib.schemas.base.SchemaMap = None, dest_attr: str = 'data', verify: bool = True, require_success: bool = True, default_data: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Decode&nbsp;an&nbsp;object&nbsp;instance&nbsp;from&nbsp;data&nbsp;loaded&nbsp;from&nbsp;a&nbsp;file.</span></dd></dl>
+
+<dl><dt><a name="Github-file_cache"><strong>file_cache</strong></a>(pathlike: Union[pathlib.Path, str, NoneType], arbiter: vcorelib.io.arbiter.DataArbiter = &lt;vcorelib.io.arbiter.DataArbiter object at 0x7f0994d5b140&gt;, encode_kwargs: Dict[str, Any] = None, require_success: bool = False, **kwargs) -&gt; Iterator[~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Manage&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class&nbsp;as&nbsp;a&nbsp;disk-backed&nbsp;file.</span></dd></dl>
 
 <dl><dt><a name="Github-normalize"><strong>normalize</strong></a>(data: Union[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], ~T]) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Ensure&nbsp;that&nbsp;some&nbsp;object&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes inherited from <a href="vcorelib.dict.codec.html#JsonCodec">vcorelib.dict.codec.JsonCodec</a>:<br>
@@ -125,8 +127,8 @@ Class methods inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><dl><dt><a name="-check_api_token"><strong>check_api_token</strong></a>() -&gt; None</dt><dd><span class="code">Check&nbsp;for&nbsp;a&nbsp;GitHub&nbsp;API&nbsp;token&nbsp;set&nbsp;via&nbsp;the&nbsp;environment.</span></dd></dl>
  <dl><dt><a name="-github_url"><strong>github_url</strong></a>(netloc_prefix: str = '', scheme: str = 'https', path: str = '', params: str = '', query: str = '', fragment: str = '') -&gt; urllib.parse.ParseResult</dt><dd><span class="code">See:&nbsp;<a href="https://docs.python.org/3/library/urllib.parse.html">https://docs.python.org/3/library/urllib.parse.html</a>.</span></dd></dl>
- <dl><dt><a name="-latest_release_data"><strong>latest_release_data</strong></a>(owner: str, repo: str, *args, timeout: float = None, **kwargs) -&gt; Dict[str, Any]</dt><dd><span class="code">Get&nbsp;latest-release&nbsp;data.</span></dd></dl>
- <dl><dt><a name="-latest_repo_release_api_url"><strong>latest_repo_release_api_url</strong></a>(owner: str, repo: str) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;URL&nbsp;string&nbsp;for&nbsp;a&nbsp;repository's&nbsp;latest&nbsp;release.</span></dd></dl>
+ <dl><dt><a name="-release_data"><strong>release_data</strong></a>(owner: str, repo: str, *args, version: str = 'latest', timeout: float = None, **kwargs) -&gt; Dict[str, Any]</dt><dd><span class="code">Get&nbsp;latest-release&nbsp;data.</span></dd></dl>
+ <dl><dt><a name="-repo_release_api_url"><strong>repo_release_api_url</strong></a>(owner: str, repo: str, version: str = 'latest') -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;URL&nbsp;string&nbsp;for&nbsp;a&nbsp;repository's&nbsp;latest&nbsp;release.</span></dd></dl>
  <dl><dt><a name="-validate_release"><strong>validate_release</strong></a>(data: Dict[str, Any]) -&gt; bool</dt><dd><span class="code">Ensure&nbsp;that&nbsp;GitHub&nbsp;release&nbsp;data&nbsp;actually&nbsp;contains&nbsp;data.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
@@ -134,7 +136,8 @@ Class methods inherited from <a href="vcorelib.schemas.mixins.html#SchemaMixin">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>Dict</strong> = typing.Dict<br>
+<td class="singlecolumn"><strong>DEFAULT_RELEASE</strong> = 'latest'<br>
+<strong>Dict</strong> = typing.Dict<br>
 <strong>GIHTUB_HEADERS</strong> = {'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28'}<br>
 <strong>ReleaseData</strong> = typing.Dict[str, typing.Any]</td></tr></table>
 </body></html>

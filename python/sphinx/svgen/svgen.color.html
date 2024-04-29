@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>svgen.color package &#8212; svgen  documentation</title>
   
@@ -19,27 +18,28 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'svgen.color';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -54,7 +54,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -89,11 +97,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -108,6 +119,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -116,10 +128,22 @@
   
   
   
+  
     <p class="title logo__title">svgen  documentation</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
@@ -133,7 +157,10 @@
 <li class="toctree-l3"><a class="reference internal" href="svgen.color.theme.html">svgen.color.theme package</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="svgen.element.html">svgen.element package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="svgen.element.html">svgen.element package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="svgen.element.html.html">svgen.element.html package</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="svgen.generation.html">svgen.generation package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="svgen.shapes.html">svgen.shapes package</a></li>
 </ul>
@@ -244,20 +271,22 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -367,12 +396,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="svgen-color-package">
-<h1>svgen.color package<a class="headerlink" href="#svgen-color-package" title="Permalink to this heading">#</a></h1>
+<h1>svgen.color package<a class="headerlink" href="#svgen-color-package" title="Link to this heading">#</a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="svgen.color.theme.html">svgen.color.theme package</a><ul>
@@ -417,19 +446,19 @@ document.write(`
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-svgen.color.alpha">
-<span id="svgen-color-alpha-module"></span><h2>svgen.color.alpha module<a class="headerlink" href="#module-svgen.color.alpha" title="Permalink to this heading">#</a></h2>
+<span id="svgen-color-alpha-module"></span><h2>svgen.color.alpha module<a class="headerlink" href="#module-svgen.color.alpha" title="Link to this heading">#</a></h2>
 <p>svgen - A module for working with alpha channels for colors.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.color.alpha.Alpha">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.alpha.</span></span><span class="sig-name descname"><span class="pre">Alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/alpha.html#Alpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.alpha.Alpha" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.alpha.</span></span><span class="sig-name descname"><span class="pre">Alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/alpha.html#Alpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.alpha.Alpha" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
 <p>A class describing the transparency of a color.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.color.alpha.Alpha.hex_str">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hex_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#svgen.color.alpha.Alpha.hex_str" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hex_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#svgen.color.alpha.Alpha.hex_str" title="Link to this definition">#</a></dt>
 <dd><p>Convert this alpha value to a hex string.</p>
 </dd></dl>
 
@@ -437,66 +466,66 @@ document.write(`
 
 </section>
 <section id="module-svgen.color.conversion">
-<span id="svgen-color-conversion-module"></span><h2>svgen.color.conversion module<a class="headerlink" href="#module-svgen.color.conversion" title="Permalink to this heading">#</a></h2>
+<span id="svgen-color-conversion-module"></span><h2>svgen.color.conversion module<a class="headerlink" href="#module-svgen.color.conversion" title="Link to this heading">#</a></h2>
 <p>svgen - A module for converting colors from some form to some other.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.conversion.hsl_to_rgb">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.conversion.</span></span><span class="sig-name descname"><span class="pre">hsl_to_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/conversion.html#hsl_to_rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.conversion.hsl_to_rgb" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.conversion.</span></span><span class="sig-name descname"><span class="pre">hsl_to_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/conversion.html#hsl_to_rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.conversion.hsl_to_rgb" title="Link to this definition">#</a></dt>
 <dd><p>Convert an hsl color to rgb.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.conversion.rgb_to_hsl">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.conversion.</span></span><span class="sig-name descname"><span class="pre">rgb_to_hsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></span><a class="reference internal" href="_modules/svgen/color/conversion.html#rgb_to_hsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.conversion.rgb_to_hsl" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.conversion.</span></span><span class="sig-name descname"><span class="pre">rgb_to_hsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></span><a class="reference internal" href="_modules/svgen/color/conversion.html#rgb_to_hsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.conversion.rgb_to_hsl" title="Link to this definition">#</a></dt>
 <dd><p>Convert an rgb color to an hsl color.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.color.hsl">
-<span id="svgen-color-hsl-module"></span><h2>svgen.color.hsl module<a class="headerlink" href="#module-svgen.color.hsl" title="Permalink to this heading">#</a></h2>
+<span id="svgen-color-hsl-module"></span><h2>svgen.color.hsl module<a class="headerlink" href="#module-svgen.color.hsl" title="Link to this heading">#</a></h2>
 <p>svgen - Common interfaces for hsl colors. See also:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://www.w3schools.com/colors/colors_hsl.asp">https://www.w3schools.com/colors/colors_hsl.asp</a></p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.color.hsl.DegreePrimitive">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">DegreePrimitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/hsl.html#DegreePrimitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.DegreePrimitive" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">DegreePrimitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/hsl.html#DegreePrimitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.DegreePrimitive" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
 <p>A class to manage integer primitives for degrees within a 0 and 360 range.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.color.hsl.Hsl">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">Hsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.DegreePrimitive" title="svgen.color.hsl.DegreePrimitive"><span class="pre">DegreePrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.PercentPrimitive" title="svgen.color.hsl.PercentPrimitive"><span class="pre">PercentPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.PercentPrimitive" title="svgen.color.hsl.PercentPrimitive"><span class="pre">PercentPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.alpha.Alpha" title="svgen.color.alpha.Alpha"><span class="pre">Alpha</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/hsl.html#Hsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.Hsl" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">Hsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.DegreePrimitive" title="svgen.color.hsl.DegreePrimitive"><span class="pre">DegreePrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.PercentPrimitive" title="svgen.color.hsl.PercentPrimitive"><span class="pre">PercentPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.PercentPrimitive" title="svgen.color.hsl.PercentPrimitive"><span class="pre">PercentPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.alpha.Alpha" title="svgen.color.alpha.Alpha"><span class="pre">Alpha</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/hsl.html#Hsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.Hsl" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A definition of an hsl color.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.hsl.Hsl.alpha">
-<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.alpha.Alpha" title="svgen.color.alpha.Alpha"><span class="pre">Alpha</span></a></em><a class="headerlink" href="#svgen.color.hsl.Hsl.alpha" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.alpha.Alpha" title="svgen.color.alpha.Alpha"><span class="pre">Alpha</span></a></em><a class="headerlink" href="#svgen.color.hsl.Hsl.alpha" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.color.hsl.Hsl.from_ctor">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></span><a class="reference internal" href="_modules/svgen/color/hsl.html#Hsl.from_ctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.Hsl.from_ctor" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></span><a class="reference internal" href="_modules/svgen/color/hsl.html#Hsl.from_ctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.Hsl.from_ctor" title="Link to this definition">#</a></dt>
 <dd><p>Get an hsl color from a constructor string.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.hsl.Hsl.hue">
-<span class="sig-name descname"><span class="pre">hue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.DegreePrimitive" title="svgen.color.hsl.DegreePrimitive"><span class="pre">DegreePrimitive</span></a></em><a class="headerlink" href="#svgen.color.hsl.Hsl.hue" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">hue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.DegreePrimitive" title="svgen.color.hsl.DegreePrimitive"><span class="pre">DegreePrimitive</span></a></em><a class="headerlink" href="#svgen.color.hsl.Hsl.hue" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.hsl.Hsl.lightness">
-<span class="sig-name descname"><span class="pre">lightness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.PercentPrimitive" title="svgen.color.hsl.PercentPrimitive"><span class="pre">PercentPrimitive</span></a></em><a class="headerlink" href="#svgen.color.hsl.Hsl.lightness" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">lightness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.PercentPrimitive" title="svgen.color.hsl.PercentPrimitive"><span class="pre">PercentPrimitive</span></a></em><a class="headerlink" href="#svgen.color.hsl.Hsl.lightness" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.hsl.Hsl.saturation">
-<span class="sig-name descname"><span class="pre">saturation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.PercentPrimitive" title="svgen.color.hsl.PercentPrimitive"><span class="pre">PercentPrimitive</span></a></em><a class="headerlink" href="#svgen.color.hsl.Hsl.saturation" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">saturation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.PercentPrimitive" title="svgen.color.hsl.PercentPrimitive"><span class="pre">PercentPrimitive</span></a></em><a class="headerlink" href="#svgen.color.hsl.Hsl.saturation" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
@@ -504,12 +533,12 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.color.hsl.PercentPrimitive">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">PercentPrimitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/hsl.html#PercentPrimitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.PercentPrimitive" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">PercentPrimitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/hsl.html#PercentPrimitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.PercentPrimitive" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
 <p>A class for integer percentages.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.color.hsl.PercentPrimitive.ratio">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.color.hsl.PercentPrimitive.ratio" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.color.hsl.PercentPrimitive.ratio" title="Link to this definition">#</a></dt>
 <dd><p>Get this percentage as a ratio between 0 and 1.</p>
 </dd></dl>
 
@@ -517,99 +546,99 @@ document.write(`
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.hsl.hsl">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">hsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></span><a class="reference internal" href="_modules/svgen/color/hsl.html#hsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.hsl" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">hsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></span><a class="reference internal" href="_modules/svgen/color/hsl.html#hsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.hsl" title="Link to this definition">#</a></dt>
 <dd><p>Create a new hsl color.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.hsl.hsla">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">hsla</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></span><a class="reference internal" href="_modules/svgen/color/hsl.html#hsla"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.hsla" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.hsl.</span></span><span class="sig-name descname"><span class="pre">hsla</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></span><a class="reference internal" href="_modules/svgen/color/hsl.html#hsla"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.hsl.hsla" title="Link to this definition">#</a></dt>
 <dd><p>Create a new hsl color with a transparency value.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.color.numbers">
-<span id="svgen-color-numbers-module"></span><h2>svgen.color.numbers module<a class="headerlink" href="#module-svgen.color.numbers" title="Permalink to this heading">#</a></h2>
+<span id="svgen-color-numbers-module"></span><h2>svgen.color.numbers module<a class="headerlink" href="#module-svgen.color.numbers" title="Link to this heading">#</a></h2>
 <p>svgen - A module for working with number primitives.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.numbers.css_number_to_ratio">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.numbers.</span></span><span class="sig-name descname"><span class="pre">css_number_to_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/svgen/color/numbers.html#css_number_to_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.numbers.css_number_to_ratio" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.numbers.</span></span><span class="sig-name descname"><span class="pre">css_number_to_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/svgen/color/numbers.html#css_number_to_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.numbers.css_number_to_ratio" title="Link to this definition">#</a></dt>
 <dd><p>Given a few possible types of input, return a ratio between 0.0 and 1.0.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.numbers.parse_ctor">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.numbers.</span></span><span class="sig-name descname"><span class="pre">parse_ctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/svgen/color/numbers.html#parse_ctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.numbers.parse_ctor" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.numbers.</span></span><span class="sig-name descname"><span class="pre">parse_ctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/svgen/color/numbers.html#parse_ctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.numbers.parse_ctor" title="Link to this definition">#</a></dt>
 <dd><p>Parse individual arguments out of some color constructor.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.color.resolve">
-<span id="svgen-color-resolve-module"></span><h2>svgen.color.resolve module<a class="headerlink" href="#module-svgen.color.resolve" title="Permalink to this heading">#</a></h2>
+<span id="svgen-color-resolve-module"></span><h2>svgen.color.resolve module<a class="headerlink" href="#module-svgen.color.resolve" title="Link to this heading">#</a></h2>
 <p>A module for resolving colors.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.resolve.get_color">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.resolve.</span></span><span class="sig-name descname"><span class="pre">get_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.color.theme.html#svgen.color.theme.manager.ColorThemeManager" title="svgen.color.theme.manager.ColorThemeManager"><span class="pre">ColorThemeManager</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color/resolve.html#get_color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.resolve.get_color" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.resolve.</span></span><span class="sig-name descname"><span class="pre">get_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="svgen.color.theme.html#svgen.color.theme.manager.ColorThemeManager" title="svgen.color.theme.manager.ColorThemeManager"><span class="pre">ColorThemeManager</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color/resolve.html#get_color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.resolve.get_color" title="Link to this definition">#</a></dt>
 <dd><p>Resolve a color using the theme manager.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.color.rgb">
-<span id="svgen-color-rgb-module"></span><h2>svgen.color.rgb module<a class="headerlink" href="#module-svgen.color.rgb" title="Permalink to this heading">#</a></h2>
+<span id="svgen-color-rgb-module"></span><h2>svgen.color.rgb module<a class="headerlink" href="#module-svgen.color.rgb" title="Link to this heading">#</a></h2>
 <p>svgen - Common interfaces for rgb colors. See also:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://www.w3schools.com/colors/colors_rgb.asp">https://www.w3schools.com/colors/colors_rgb.asp</a></p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.rgb.</span></span><span class="sig-name descname"><span class="pre">Rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.alpha.Alpha" title="svgen.color.alpha.Alpha"><span class="pre">Alpha</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/rgb.html#Rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.Rgb" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.rgb.</span></span><span class="sig-name descname"><span class="pre">Rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.alpha.Alpha" title="svgen.color.alpha.Alpha"><span class="pre">Alpha</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/rgb.html#Rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.Rgb" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A definition of an rgb color.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb.alpha">
-<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.alpha.Alpha" title="svgen.color.alpha.Alpha"><span class="pre">Alpha</span></a></em><a class="headerlink" href="#svgen.color.rgb.Rgb.alpha" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.alpha.Alpha" title="svgen.color.alpha.Alpha"><span class="pre">Alpha</span></a></em><a class="headerlink" href="#svgen.color.rgb.Rgb.alpha" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb.blue">
-<span class="sig-name descname"><span class="pre">blue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></em><a class="headerlink" href="#svgen.color.rgb.Rgb.blue" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">blue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></em><a class="headerlink" href="#svgen.color.rgb.Rgb.blue" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb.from_ctor">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/rgb.html#Rgb.from_ctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.Rgb.from_ctor" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/rgb.html#Rgb.from_ctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.Rgb.from_ctor" title="Link to this definition">#</a></dt>
 <dd><p>Get an rgb color from a constructor string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb.from_hex">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/rgb.html#Rgb.from_hex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.Rgb.from_hex" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/rgb.html#Rgb.from_hex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.Rgb.from_hex" title="Link to this definition">#</a></dt>
 <dd><p>Get an rgb color from a hex string.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb.green">
-<span class="sig-name descname"><span class="pre">green</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></em><a class="headerlink" href="#svgen.color.rgb.Rgb.green" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">green</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></em><a class="headerlink" href="#svgen.color.rgb.Rgb.green" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb.red">
-<span class="sig-name descname"><span class="pre">red</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></em><a class="headerlink" href="#svgen.color.rgb.Rgb.red" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">red</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.RgbPrimitive" title="svgen.color.rgb.RgbPrimitive"><span class="pre">RgbPrimitive</span></a></em><a class="headerlink" href="#svgen.color.rgb.Rgb.red" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb.rgb">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rgb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#svgen.color.rgb.Rgb.rgb" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rgb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#svgen.color.rgb.Rgb.rgb" title="Link to this definition">#</a></dt>
 <dd><p>Get this color as an ‘rgb’ constructor.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.color.rgb.Rgb.rgba">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rgba</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#svgen.color.rgb.Rgb.rgba" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rgba</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#svgen.color.rgb.Rgb.rgba" title="Link to this definition">#</a></dt>
 <dd><p>Get this color as an ‘rgba’ constructor.</p>
 </dd></dl>
 
@@ -617,12 +646,12 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.color.rgb.RgbPrimitive">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.rgb.</span></span><span class="sig-name descname"><span class="pre">RgbPrimitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/rgb.html#RgbPrimitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.RgbPrimitive" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.rgb.</span></span><span class="sig-name descname"><span class="pre">RgbPrimitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color/rgb.html#RgbPrimitive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.RgbPrimitive" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
 <p>An integer type for rgb values.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="svgen.color.rgb.RgbPrimitive.ratio">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.color.rgb.RgbPrimitive.ratio" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#svgen.color.rgb.RgbPrimitive.ratio" title="Link to this definition">#</a></dt>
 <dd><p>Get this color as a ratio between 0 and 1.</p>
 </dd></dl>
 
@@ -630,64 +659,64 @@ document.write(`
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.rgb.rgb">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.rgb.</span></span><span class="sig-name descname"><span class="pre">rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/rgb.html#rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.rgb" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.rgb.</span></span><span class="sig-name descname"><span class="pre">rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/rgb.html#rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.rgb" title="Link to this definition">#</a></dt>
 <dd><p>Create a new RGB color.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="svgen.color.rgb.rgba">
-<span class="sig-prename descclassname"><span class="pre">svgen.color.rgb.</span></span><span class="sig-name descname"><span class="pre">rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/rgb.html#rgba"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.rgba" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">svgen.color.rgb.</span></span><span class="sig-name descname"><span class="pre">rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></span><a class="reference internal" href="_modules/svgen/color/rgb.html#rgba"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.rgb.rgba" title="Link to this definition">#</a></dt>
 <dd><p>Create a new RGB color with a transparency value.</p>
 </dd></dl>
 
 </section>
 <section id="module-svgen.color">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-svgen.color" title="Permalink to this heading">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-svgen.color" title="Link to this heading">#</a></h2>
 <p>svgen - A module for working with colors.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="svgen.color.Color">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.</span></span><span class="sig-name descname"><span class="pre">Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color.html#Color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">svgen.color.</span></span><span class="sig-name descname"><span class="pre">Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/svgen/color.html#Color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>A definition of a color.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.color.Color.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.create" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.create" title="Link to this definition">#</a></dt>
 <dd><p>Create a color from a variety of possible sources.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.color.Color.from_ctor">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.from_ctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.from_ctor" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ctor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.from_ctor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.from_ctor" title="Link to this definition">#</a></dt>
 <dd><p>Create a color from an hsl or rgb constructor string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.color.Color.from_hex">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.from_hex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.from_hex" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.from_hex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.from_hex" title="Link to this definition">#</a></dt>
 <dd><p>Create a color from a hex value.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.color.Color.from_hsl">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.from_hsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.from_hsl" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.from_hsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.from_hsl" title="Link to this definition">#</a></dt>
 <dd><p>Create a color from an hsl object.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="svgen.color.Color.from_rgb">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.from_rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.from_rgb" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#svgen.color.Color" title="svgen.color.Color"><span class="pre">Color</span></a></span></span><a class="reference internal" href="_modules/svgen/color.html#Color.from_rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#svgen.color.Color.from_rgb" title="Link to this definition">#</a></dt>
 <dd><p>Create a color from an rgb object.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.Color.hsl">
-<span class="sig-name descname"><span class="pre">hsl</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></em><a class="headerlink" href="#svgen.color.Color.hsl" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">hsl</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.hsl.Hsl" title="svgen.color.hsl.Hsl"><span class="pre">Hsl</span></a></em><a class="headerlink" href="#svgen.color.Color.hsl" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="svgen.color.Color.rgb">
-<span class="sig-name descname"><span class="pre">rgb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></em><a class="headerlink" href="#svgen.color.Color.rgb" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">rgb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#svgen.color.rgb.Rgb" title="svgen.color.rgb.Rgb"><span class="pre">Rgb</span></a></em><a class="headerlink" href="#svgen.color.Color.rgb" title="Link to this definition">#</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -702,11 +731,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="svgen.cartesian.rectangle.html"
@@ -726,10 +754,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -737,6 +762,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -839,9 +865,10 @@ By Vaughn Kottler
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023, Vaughn Kottler.
+      © Copyright 2024, Vaughn Kottler.
       <br/>
     
   </p>
@@ -865,8 +892,8 @@ By Vaughn Kottler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

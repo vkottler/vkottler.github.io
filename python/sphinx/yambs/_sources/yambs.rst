@@ -37,6 +37,14 @@ yambs.entry module
    :undoc-members:
    :show-inheritance:
 
+yambs.paths module
+------------------
+
+.. automodule:: yambs.paths
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yambs.schemas module
 --------------------
 

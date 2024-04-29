@@ -91,7 +91,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="ProcessResult-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="ProcessResult-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="ProcessResult-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="ProcessResult-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 
@@ -135,17 +135,17 @@ Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<b
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt>async <a name="-create_subprocess_shell_log"><strong>create_subprocess_shell_log</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter], command: str, stdout: int = None, stderr: int = None, **kwargs) -&gt; asyncio.subprocess.Process</dt><dd><span class="code">Create&nbsp;a&nbsp;shell&nbsp;process&nbsp;and&nbsp;log&nbsp;information&nbsp;about&nbsp;the&nbsp;created&nbsp;process.</span></dd></dl>
- <dl><dt>async <a name="-handle_process_cancel"><strong>handle_process_cancel</strong></a>(proc: asyncio.subprocess.Process, name: str, logger: Union[logging.Logger, logging.LoggerAdapter], stdin: bytes = None, signal: int = None) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Communicate&nbsp;with&nbsp;a&nbsp;process&nbsp;and&nbsp;send&nbsp;a&nbsp;signal&nbsp;to&nbsp;it&nbsp;if&nbsp;this&nbsp;task&nbsp;gets<br>
+<td class="singlecolumn"><dl><dt>async <a name="-create_subprocess_shell_log"><strong>create_subprocess_shell_log</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter[Any]], command: str, stdout: int = None, stderr: int = None, **kwargs) -&gt; asyncio.subprocess.Process</dt><dd><span class="code">Create&nbsp;a&nbsp;shell&nbsp;process&nbsp;and&nbsp;log&nbsp;information&nbsp;about&nbsp;the&nbsp;created&nbsp;process.</span></dd></dl>
+ <dl><dt>async <a name="-handle_process_cancel"><strong>handle_process_cancel</strong></a>(proc: asyncio.subprocess.Process, name: str, logger: Union[logging.Logger, logging.LoggerAdapter[Any]], stdin: bytes = None, signal: int = None) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Communicate&nbsp;with&nbsp;a&nbsp;process&nbsp;and&nbsp;send&nbsp;a&nbsp;signal&nbsp;to&nbsp;it&nbsp;if&nbsp;this&nbsp;task&nbsp;gets<br>
 cancelled.</span></dd></dl>
- <dl><dt>async <a name="-run_command"><strong>run_command</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter], *args: str, stdin: bytes = None, stdout: int = None, stderr: int = None, signal: int = None, **kwargs) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Run&nbsp;a&nbsp;subprocess&nbsp;and&nbsp;return&nbsp;the&nbsp;completed&nbsp;process.</span></dd></dl>
- <dl><dt>async <a name="-run_shell"><strong>run_shell</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter], *args: str, stdin: bytes = None, stdout: int = None, stderr: int = None, signal: int = None, **kwargs) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Run&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;the&nbsp;completed&nbsp;process.</span></dd></dl>
+ <dl><dt>async <a name="-run_command"><strong>run_command</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter[Any]], *args: str, stdin: bytes = None, stdout: int = None, stderr: int = None, signal: int = None, **kwargs) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Run&nbsp;a&nbsp;subprocess&nbsp;and&nbsp;return&nbsp;the&nbsp;completed&nbsp;process.</span></dd></dl>
+ <dl><dt>async <a name="-run_shell"><strong>run_shell</strong></a>(logger: Union[logging.Logger, logging.LoggerAdapter[Any]], *args: str, stdin: bytes = None, stdout: int = None, stderr: int = None, signal: int = None, **kwargs) -&gt; vcorelib.asyncio.cli.ProcessResult</dt><dd><span class="code">Run&nbsp;a&nbsp;shell&nbsp;command&nbsp;and&nbsp;return&nbsp;the&nbsp;completed&nbsp;process.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<td class="singlecolumn"><strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
 <strong>Optional</strong> = typing.Optional</td></tr></table>
 </body></html>

@@ -20,6 +20,14 @@ conntextual.ui.base module
    :undoc-members:
    :show-inheritance:
 
+conntextual.ui.footer module
+----------------------------
+
+.. automodule:: conntextual.ui.footer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 conntextual.ui.model module
 ---------------------------
 
@@ -28,10 +36,10 @@ conntextual.ui.model module
    :undoc-members:
    :show-inheritance:
 
-conntextual.ui.sample module
-----------------------------
+conntextual.ui.task module
+--------------------------
 
-.. automodule:: conntextual.ui.sample
+.. automodule:: conntextual.ui.task
    :members:
    :undoc-members:
    :show-inheritance:

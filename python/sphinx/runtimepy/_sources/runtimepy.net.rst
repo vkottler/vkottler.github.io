@@ -10,6 +10,8 @@ Subpackages
    runtimepy.net.apps
    runtimepy.net.arbiter
    runtimepy.net.factories
+   runtimepy.net.http
+   runtimepy.net.server
    runtimepy.net.stream
    runtimepy.net.tcp
    runtimepy.net.udp
@@ -17,6 +19,14 @@ Subpackages
 
 Submodules
 ----------
+
+runtimepy.net.backoff module
+----------------------------
+
+.. automodule:: runtimepy.net.backoff
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 runtimepy.net.connection module
 -------------------------------

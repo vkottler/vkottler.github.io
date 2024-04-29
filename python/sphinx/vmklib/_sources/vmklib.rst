@@ -28,14 +28,6 @@ vmklib.entry module
    :undoc-members:
    :show-inheritance:
 
-vmklib.resources module
------------------------
-
-.. automodule:: vmklib.resources
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 

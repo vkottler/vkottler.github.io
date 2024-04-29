@@ -42,7 +42,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="DataHandle">class <strong>DataHandle</strong></a>(<a href="builtins.html#tuple">builtins.tuple</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#DataHandle">DataHandle</a>(decoder:&nbsp;Callable[[Union[TextIO,&nbsp;_io.StringIO],&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]],&nbsp;vcorelib.io.types.LoadResult],&nbsp;encoder:&nbsp;Callable[[Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]],&nbsp;Union[TextIO,&nbsp;_io.StringIO],&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]],&nbsp;int])<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DataHandle">DataHandle</a>(decoder:&nbsp;Callable[[Union[TextIO,&nbsp;_io.StringIO],&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter[Any]]],&nbsp;vcorelib.io.types.LoadResult],&nbsp;encoder:&nbsp;Callable[[Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]],&nbsp;Union[TextIO,&nbsp;_io.StringIO],&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter[Any]]],&nbsp;int])<br>
 &nbsp;<br>
 A&nbsp;description&nbsp;of&nbsp;a&nbsp;data&nbsp;type.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -67,7 +67,7 @@ Class methods defined here:<br>
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="DataHandle-__new__"><strong>__new__</strong></a>(_cls, decoder: Callable[[Union[TextIO, _io.StringIO], Union[logging.Logger, logging.LoggerAdapter]], vcorelib.io.types.LoadResult], encoder: Callable[[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], Union[TextIO, _io.StringIO], Union[logging.Logger, logging.LoggerAdapter]], int])</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#DataHandle">DataHandle</a>(decoder,&nbsp;encoder)</span></dd></dl>
+<dl><dt><a name="DataHandle-__new__"><strong>__new__</strong></a>(_cls, decoder: Callable[[Union[TextIO, _io.StringIO], Union[logging.Logger, logging.LoggerAdapter[Any]]], vcorelib.io.types.LoadResult], encoder: Callable[[Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], Union[TextIO, _io.StringIO], Union[logging.Logger, logging.LoggerAdapter[Any]]], int])</dt><dd><span class="code">Create&nbsp;new&nbsp;instance&nbsp;of&nbsp;<a href="#DataHandle">DataHandle</a>(decoder,&nbsp;encoder)</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -79,7 +79,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'decoder': typing.Callable[[typing.Union[typing.TextIO, _io...ng.LoggerAdapter]], vcorelib.io.types.LoadResult], 'encoder': typing.Callable[[typing.Dict[str, typing.Union[s...ion[logging.Logger, logging.LoggerAdapter]], int]}</dl>
+<dl><dt><strong>__annotations__</strong> = {'decoder': typing.Callable[[typing.Union[typing.TextIO, _io...pter[typing.Any]]], vcorelib.io.types.LoadResult], 'encoder': typing.Callable[[typing.Dict[str, typing.Union[s...Logger, logging.LoggerAdapter[typing.Any]]], int]}</dl>
 
 <dl><dt><strong>__match_args__</strong> = ('decoder', 'encoder')</dl>
 
@@ -93,7 +93,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="DataHandle-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="DataHandle-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="DataHandle-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="DataHandle-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 
@@ -148,14 +148,14 @@ that&nbsp;most-likely&nbsp;indicate&nbsp;the&nbsp;desire&nbsp;for&nbsp;that&nbsp
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>mapping</strong> = {&lt;FileExtension.INI: ['ini', 'cfg']&gt;: &lt;DataType.INI: DataHandle(decoder=&lt;function deco...encoder=&lt;function encode_ini at 0x7fdd4e575a80&gt;)&gt;, &lt;FileExtension.JSON: ['json']&gt;: &lt;DataType.JSON: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_json at 0x7fdd4e5758a0&gt;)&gt;, &lt;FileExtension.YAML: ['yaml', 'yml', 'eyaml']&gt;: &lt;DataType.YAML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_yaml at 0x7fdd4e5759e0&gt;)&gt;, &lt;FileExtension.TOML: ['toml']&gt;: &lt;DataType.TOML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_toml at 0x7fdd4e575b20&gt;)&gt;}</dl>
+<dl><dt><strong>mapping</strong> = {&lt;FileExtension.INI: ['ini', 'cfg']&gt;: &lt;DataType.INI: DataHandle(decoder=&lt;function deco...encoder=&lt;function encode_ini at 0x7fc39d319940&gt;)&gt;, &lt;FileExtension.JSON: ['json']&gt;: &lt;DataType.JSON: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_json at 0x7fc39d319760&gt;)&gt;, &lt;FileExtension.YAML: ['yaml', 'yml', 'eyaml']&gt;: &lt;DataType.YAML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_yaml at 0x7fc39d3198a0&gt;)&gt;, &lt;FileExtension.TOML: ['toml']&gt;: &lt;DataType.TOML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_toml at 0x7fc39d3199e0&gt;)&gt;}</dl>
 
 </td></tr></table> <p>
 <table class="section">
@@ -163,7 +163,7 @@ Data and other attributes defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><a name="DataType">class <strong>DataType</strong></a>(<a href="enum.html#Enum">enum.Enum</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#DataType">DataType</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#DataType">DataType</a>(*values)<br>
 &nbsp;<br>
 An&nbsp;aggregation&nbsp;of&nbsp;all&nbsp;known&nbsp;data&nbsp;types.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -174,13 +174,13 @@ An&nbsp;aggregation&nbsp;of&nbsp;all&nbsp;known&nbsp;data&nbsp;types.<br>&nbsp;<
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>INI</strong> = &lt;DataType.INI: DataHandle(decoder=&lt;function deco...encoder=&lt;function encode_ini at 0x7fdd4e575a80&gt;)&gt;</dl>
+<dl><dt><strong>INI</strong> = &lt;DataType.INI: DataHandle(decoder=&lt;function deco...encoder=&lt;function encode_ini at 0x7fc39d319940&gt;)&gt;</dl>
 
-<dl><dt><strong>JSON</strong> = &lt;DataType.JSON: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_json at 0x7fdd4e5758a0&gt;)&gt;</dl>
+<dl><dt><strong>JSON</strong> = &lt;DataType.JSON: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_json at 0x7fc39d319760&gt;)&gt;</dl>
 
-<dl><dt><strong>TOML</strong> = &lt;DataType.TOML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_toml at 0x7fdd4e575b20&gt;)&gt;</dl>
+<dl><dt><strong>TOML</strong> = &lt;DataType.TOML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_toml at 0x7fc39d3199e0&gt;)&gt;</dl>
 
-<dl><dt><strong>YAML</strong> = &lt;DataType.YAML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_yaml at 0x7fdd4e5759e0&gt;)&gt;</dl>
+<dl><dt><strong>YAML</strong> = &lt;DataType.YAML: DataHandle(decoder=&lt;function dec...ncoder=&lt;function encode_yaml at 0x7fc39d3198a0&gt;)&gt;</dl>
 
 <hr>
 Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
@@ -192,11 +192,11 @@ Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
 </dl>
 <hr>
 Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
-<dl><dt><a name="DataType-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
-raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+<dl><dt><a name="DataType-__contains__"><strong>__contains__</strong></a>(value)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;`value`&nbsp;is&nbsp;in&nbsp;`cls`.<br>
 &nbsp;<br>
-note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
-returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+`value`&nbsp;is&nbsp;in&nbsp;`cls`&nbsp;if:<br>
+1)&nbsp;`value`&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;`cls`,&nbsp;or<br>
+2)&nbsp;`value`&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;`cls`'s&nbsp;members.</span></dd></dl>
 
 <dl><dt><a name="DataType-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
 

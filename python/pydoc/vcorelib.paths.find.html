@@ -23,9 +23,9 @@
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-find_file"><strong>find_file</strong></a>(path: Union[pathlib.Path, str, NoneType], *parts: Union[str, pathlib.Path], search_paths: Iterable[Union[pathlib.Path, str, NoneType]] = None, include_cwd: bool = False, relative_to: Union[pathlib.Path, str, NoneType] = None, package: str = None, package_subdir: str = 'data', logger: logging.Logger = None) -&gt; Optional[pathlib.Path]</dt><dd><span class="code">Combines&nbsp;a&nbsp;few&nbsp;simple&nbsp;strategies&nbsp;to&nbsp;locate&nbsp;a&nbsp;file&nbsp;on&nbsp;disk.</span></dd></dl>
- <dl><dt><a name="-find_package_file"><strong>find_package_file</strong></a>(parsed: urllib.parse.ParseResult, package_subdir: str, logger: Optional[logging.Logger]) -&gt; Optional[pathlib.Path]</dt><dd><span class="code">Find&nbsp;a&nbsp;file&nbsp;from&nbsp;a&nbsp;package.</span></dd></dl>
- <dl><dt><a name="-register_file_finder"><strong>register_file_finder</strong></a>(scheme: str, finder: Callable[[urllib.parse.ParseResult, str, Optional[logging.Logger]], Optional[pathlib.Path]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;custom,&nbsp;runtime&nbsp;file&nbsp;finder&nbsp;(for&nbsp;URI&nbsp;paths).</span></dd></dl>
+<td class="singlecolumn"><dl><dt><a name="-find_file"><strong>find_file</strong></a>(path: Union[pathlib.Path, str, NoneType], *parts: Union[str, pathlib.Path], search_paths: Iterable[Union[pathlib.Path, str, NoneType]] = None, include_cwd: bool = False, relative_to: Union[pathlib.Path, str, NoneType] = None, package: str = None, package_subdir: str = 'data', logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None, strict: bool = False) -&gt; Optional[pathlib.Path]</dt><dd><span class="code">Combines&nbsp;a&nbsp;few&nbsp;simple&nbsp;strategies&nbsp;to&nbsp;locate&nbsp;a&nbsp;file&nbsp;on&nbsp;disk.</span></dd></dl>
+ <dl><dt><a name="-find_package_file"><strong>find_package_file</strong></a>(parsed: urllib.parse.ParseResult, package_subdir: str, logger: Union[logging.Logger, logging.LoggerAdapter[Any], NoneType]) -&gt; Optional[pathlib.Path]</dt><dd><span class="code">Find&nbsp;a&nbsp;file&nbsp;from&nbsp;a&nbsp;package.</span></dd></dl>
+ <dl><dt><a name="-register_file_finder"><strong>register_file_finder</strong></a>(scheme: str, finder: Callable[[urllib.parse.ParseResult, str, Union[logging.Logger, logging.LoggerAdapter[Any], NoneType]], Optional[pathlib.Path]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;custom,&nbsp;runtime&nbsp;file&nbsp;finder&nbsp;(for&nbsp;URI&nbsp;paths).</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
@@ -33,7 +33,8 @@
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>FINDERS</strong> = {'package': &lt;function find_package_file&gt;}<br>
-<strong>FileFinder</strong> = typing.Callable[[urllib.parse.ParseResult, str, ...[logging.Logger]], typing.Optional[pathlib.Path]]<br>
+<strong>FileFinder</strong> = typing.Callable[[urllib.parse.ParseResult, str, ....Any], NoneType]], typing.Optional[pathlib.Path]]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
 <strong>Pathlike</strong> = typing.Union[pathlib.Path, str, NoneType]<br>
-<strong>__annotations__</strong> = {'FINDERS': typing.Dict[str, typing.Callable[[urllib.parse.P...logging.Logger]], typing.Optional[pathlib.Path]]]}</td></tr></table>
+<strong>__annotations__</strong> = {'FINDERS': typing.Dict[str, typing.Callable[[urllib.parse.P...Any], NoneType]], typing.Optional[pathlib.Path]]]}</td></tr></table>
 </body></html>

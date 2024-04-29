@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package runtimepy.message</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.message</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/message/__init__.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/message/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;message-stream&nbsp;processing&nbsp;interface.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="runtimepy.message.handlers.html">handlers</a><br>
+</td><td class="multicolumn"><a href="runtimepy.message.interface.html">interface</a><br>
+</td><td class="multicolumn"><a href="runtimepy.message.types.html">types</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.message.html#MessageProcessor">MessageProcessor</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="MessageProcessor">class <strong>MessageProcessor</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#MessageProcessor">MessageProcessor</a>(byte_order:&nbsp;runtimepy.primitives.byte_order.ByteOrder&nbsp;=&nbsp;&amp;lt;ByteOrder.NETWORK:&nbsp;4&amp;gt;)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;parsing&nbsp;size-delimited&nbsp;messages.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="MessageProcessor-__init__"><strong>__init__</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="MessageProcessor-encode"><strong>encode</strong></a>(self, stream: _io.BytesIO, data: bytes | str) -&gt; None</dt><dd><span class="code">Encode&nbsp;a&nbsp;message&nbsp;to&nbsp;a&nbsp;stream.</span></dd></dl>
+
+<dl><dt><a name="MessageProcessor-encode_json"><strong>encode_json</strong></a>(self, stream: _io.BytesIO, data: dict[str, typing.Any]) -&gt; None</dt><dd><span class="code">Encode&nbsp;a&nbsp;message&nbsp;as&nbsp;JSON.</span></dd></dl>
+
+<dl><dt><a name="MessageProcessor-messages"><strong>messages</strong></a>(self, data: bytes) -&gt; Iterator[dict[str, Any]]</dt><dd><span class="code">Iterate&nbsp;over&nbsp;incoming&nbsp;messages.</span></dd></dl>
+
+<dl><dt><a name="MessageProcessor-process"><strong>process</strong></a>(self, data: bytes) -&gt; Iterator[bytes]</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'message_length_kind': type[typing.Union[runtimepy.primitives.int.Uint8...itive, runtimepy.primitives.int.Uint64Primitive]]}</dl>
+
+<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;integer&nbsp;primitives.</span></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_BYTE_ORDER</strong> = &lt;ByteOrder.NETWORK: 4&gt;<br>
+<strong>JsonMessage</strong> = dict[str, typing.Any]<br>
+<strong>UnsignedInt</strong> = typing.Union[runtimepy.primitives.int.Uint8Primi...mitive, runtimepy.primitives.int.Uint64Primitive]</td></tr></table>
+</body></html>

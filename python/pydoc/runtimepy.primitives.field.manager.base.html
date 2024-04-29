@@ -44,6 +44,8 @@ primitives.</span></dd></dl>
 
 <dl><dt><a name="BitFieldsManagerBase-add"><strong>add</strong></a>(self, fields: runtimepy.primitives.field.fields.BitFields) -&gt; int</dt><dd><span class="code">Add&nbsp;new&nbsp;bit-fields&nbsp;to&nbsp;manage.</span></dd></dl>
 
+<dl><dt><a name="BitFieldsManagerBase-add_field"><strong>add_field</strong></a>(self, field: runtimepy.primitives.field.BitField) -&gt; Optional[runtimepy.primitives.field.fields.BitFields]</dt><dd><span class="code">Add&nbsp;a&nbsp;bit&nbsp;field&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
 <dl><dt><a name="BitFieldsManagerBase-asdict"><strong>asdict</strong></a>(self) -&gt; Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]</dt><dd><span class="code">Get&nbsp;this&nbsp;bit-fields&nbsp;manager&nbsp;as&nbsp;a&nbsp;JSON&nbsp;<a href="builtins.html#object">object</a>.</span></dd></dl>
 
 <dl><dt><a name="BitFieldsManagerBase-encode"><strong>encode</strong></a>(self, path: Union[pathlib.Path, str, NoneType], **kwargs) -&gt; Tuple[bool, int]</dt><dd><span class="code">Encode&nbsp;this&nbsp;bit-fields&nbsp;manager&nbsp;to&nbsp;a&nbsp;file.</span></dd></dl>
@@ -60,15 +62,15 @@ primitives.</span></dd></dl>
 
 <dl><dt><a name="BitFieldsManagerBase-set"><strong>set</strong></a>(self, key: Union[str, int], value: Union[int, bool, str]) -&gt; None</dt><dd><span class="code">Set&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;field.</span></dd></dl>
 
-<dl><dt><a name="BitFieldsManagerBase-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; Dict[str, Union[str, int]]</dt><dd><span class="code">Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;field&nbsp;values.</span></dd></dl>
+<dl><dt><a name="BitFieldsManagerBase-values"><strong>values</strong></a>(self, resolve_enum: bool = True) -&gt; dict[str, typing.Union[str, int]]</dt><dd><span class="code">Get&nbsp;a&nbsp;new&nbsp;dictionary&nbsp;of&nbsp;current&nbsp;field&nbsp;values.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -84,5 +86,6 @@ Data descriptors defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>T</strong> = ~T</td></tr></table>
+<td class="singlecolumn"><strong>AnyPrimitive</strong> = typing.Union[runtimepy.primitives.int.Int8Primit...tive, runtimepy.primitives.bool.BooleanPrimitive]<br>
+<strong>T</strong> = ~T</td></tr></table>
 </body></html>

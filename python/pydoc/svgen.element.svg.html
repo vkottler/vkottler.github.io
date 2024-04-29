@@ -45,7 +45,13 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="svgen.element.html#Element">svgen.element.Element</a>:<br>
-<dl><dt><a name="Svg-add_attribute"><strong>add_attribute</strong></a>(self, attr: svgen.attribute.Attribute) -&gt; 'Element'</dt><dd><span class="code">Add&nbsp;an&nbsp;attribute&nbsp;to&nbsp;this&nbsp;element.</span></dd></dl>
+<dl><dt><a name="Svg-__getitem__"><strong>__getitem__</strong></a>(self, tag: str) -&gt; str</dt><dd><span class="code">Get&nbsp;an&nbsp;attibute&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="Svg-__setitem__"><strong>__setitem__</strong></a>(self, tag: str, value: Union[str, int, float, bool]) -&gt; None</dt><dd><span class="code">Allow&nbsp;adding&nbsp;attributes&nbsp;dict-set&nbsp;style.</span></dd></dl>
+
+<dl><dt><a name="Svg-add_attribute"><strong>add_attribute</strong></a>(self, attr: svgen.attribute.Attribute, strict: bool = True) -&gt; 'Element'</dt><dd><span class="code">Add&nbsp;an&nbsp;attribute&nbsp;to&nbsp;this&nbsp;element.</span></dd></dl>
+
+<dl><dt><a name="Svg-add_class"><strong>add_class</strong></a>(self, *data: str) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;class&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="Svg-closing"><strong>closing</strong></a>(self, indent: int = 0) -&gt; str</dt><dd><span class="code">Create&nbsp;a&nbsp;string&nbsp;to&nbsp;close&nbsp;this&nbsp;element.</span></dd></dl>
 
@@ -64,10 +70,10 @@ Readonly properties inherited from <a href="svgen.element.html#Element">svgen.el
 <hr>
 Data descriptors inherited from <a href="svgen.element.html#Element">svgen.element.Element</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.primitives.types.bool</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.primitives.html" class="white">primitives</a>.<a href="runtimepy.primitives.types.html" class="white">types</a>.bool</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/primitives/types/bool.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/primitives/types/bool.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;type&nbsp;interface&nbsp;for&nbsp;booleans.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.primitives.types.base.html#PrimitiveType">runtimepy.primitives.types.base.PrimitiveType</a>(<a href="typing.html#Generic">typing.Generic</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.primitives.types.bool.html#BooleanType">BooleanType</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="BooleanType">class <strong>BooleanType</strong></a>(<a href="runtimepy.primitives.types.base.html#PrimitiveType">runtimepy.primitives.types.base.PrimitiveType</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#BooleanType">BooleanType</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;simple&nbsp;type&nbsp;interface&nbsp;for&nbsp;booleans.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.primitives.types.bool.html#BooleanType">BooleanType</a></dd>
+<dd><a href="runtimepy.primitives.types.base.html#PrimitiveType">runtimepy.primitives.types.base.PrimitiveType</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BooleanType-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;type.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<dl><dt><strong>__orig_bases__</strong> = (runtimepy.primitives.types.base.PrimitiveType[ctypes.c_bool],)</dl>
+
+<dl><dt><strong>__parameters__</strong> = ()</dl>
+
+<dl><dt><strong>c_type</strong> = &lt;class 'ctypes.c_bool'&gt;</dl>
+
+<dl><dt><strong>name</strong> = 'bool'</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.primitives.types.base.html#PrimitiveType">runtimepy.primitives.types.base.PrimitiveType</a>:<br>
+<dl><dt><a name="BooleanType-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;two&nbsp;types&nbsp;are&nbsp;equal.</span></dd></dl>
+
+<dl><dt><a name="BooleanType-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">Get&nbsp;a&nbsp;hash&nbsp;for&nbsp;this&nbsp;type.</span></dd></dl>
+
+<dl><dt><a name="BooleanType-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;type&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="BooleanType-decode"><strong>decode</strong></a>(self, data: bytes, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><span class="code">Decode&nbsp;primitive&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</span></dd></dl>
+
+<dl><dt><a name="BooleanType-encode"><strong>encode</strong></a>(self, value: Union[bool, int, float], byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; bytes</dt><dd><span class="code">Encode&nbsp;a&nbsp;primitive&nbsp;value.</span></dd></dl>
+
+<dl><dt><a name="BooleanType-read"><strong>read</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; Union[bool, int, float]</dt><dd><span class="code">Read&nbsp;a&nbsp;primitive&nbsp;from&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</span></dd></dl>
+
+<dl><dt><a name="BooleanType-write"><strong>write</strong></a>(self, value: Union[bool, int, float], stream: &lt;class 'BinaryIO'&gt;, byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;) -&gt; int</dt><dd><span class="code">Write&nbsp;a&nbsp;primitive&nbsp;to&nbsp;a&nbsp;stream&nbsp;based&nbsp;on&nbsp;this&nbsp;type.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.primitives.types.base.html#PrimitiveType">runtimepy.primitives.types.base.PrimitiveType</a>:<br>
+<dl><dt><a name="BooleanType-instance"><strong>instance</strong></a>() -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Get&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;primitive&nbsp;type.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.primitives.types.base.html#PrimitiveType">runtimepy.primitives.types.base.PrimitiveType</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="BooleanType-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+&nbsp;<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+&nbsp;<br>
+However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
+
+<dl><dt><a name="BooleanType-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Bool</strong> = &lt;runtimepy.primitives.types.bool.BooleanType object&gt;</td></tr></table>
+</body></html>

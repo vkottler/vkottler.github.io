@@ -52,6 +52,7 @@ A&nbsp;task&nbsp;for&nbsp;logging&nbsp;metrics.<br>&nbsp;</span></td></tr>
 <dd><a href="runtimepy.net.arbiter.housekeeping.html#ConnectionMetricsLogger">ConnectionMetricsLogger</a></dd>
 <dd><a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a></dd>
 <dd><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -70,6 +71,10 @@ Data and other attributes defined here:<br>
 <dl><dt><strong>__annotations__</strong> = {'app': &lt;class 'runtimepy.net.arbiter.info.AppInfo'&gt;}</dl>
 
 <hr>
+Data and other attributes inherited from <a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a>:<br>
+<dl><dt><strong>auto_finalize</strong> = False</dl>
+
+<hr>
 Methods inherited from <a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>:<br>
 <dl><dt><a name="ConnectionMetricsLogger-__init__"><strong>__init__</strong></a>(self, name: 'str', average_depth: 'int' = 10, metrics: 'PeriodicTaskMetrics' = None, period_s: 'float' = 1.0, env: 'ChannelEnvironment' = None) -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task.</span></dd></dl>
 
@@ -82,22 +87,30 @@ until&nbsp;a&nbsp;dispatch&nbsp;iteration&nbsp;fails&nbsp;or&nbsp;the&nbsp;task&
 
 <dl><dt>async <a name="ConnectionMetricsLogger-stop"><strong>stop</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Wait&nbsp;for&nbsp;this&nbsp;task&nbsp;to&nbsp;stop&nbsp;running&nbsp;(if&nbsp;it&nbsp;is).</span></dd></dl>
 
+<dl><dt>async <a name="ConnectionMetricsLogger-stop_extra"><strong>stop_extra</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Extra&nbsp;actions&nbsp;to&nbsp;perform&nbsp;when&nbsp;this&nbsp;task&nbsp;is&nbsp;stopping.</span></dd></dl>
+
 <dl><dt>async <a name="ConnectionMetricsLogger-task"><strong>task</strong></a>(self, period_s: 'float' = None, stop_sig: '_asyncio.Event' = None) -&gt; '_asyncio.Task[None]'</dt><dd><span class="code">Create&nbsp;an&nbsp;event-loop&nbsp;task&nbsp;for&nbsp;this&nbsp;periodic.</span></dd></dl>
 
 <hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="ConnectionMetricsLogger-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
+<hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="ConnectionMetricsLogger-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="ConnectionMetricsLogger-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="ConnectionMetricsLogger-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="ConnectionMetricsLogger-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="ConnectionMetricsLogger-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -129,26 +142,23 @@ Data and other attributes defined here:<br>
 <hr>
 Data descriptors inherited from <a href="runtimepy.net.arbiter.task.html#TaskFactory">runtimepy.net.arbiter.task.TaskFactory</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="ConnectionMetricsLoggerFactory-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="ConnectionMetricsLoggerFactory-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(Generic[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="ConnectionMetricsLoggerFactory-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="ConnectionMetricsLoggerFactory-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
 </td></tr></table> <p>
 <table class="section">
@@ -164,6 +174,7 @@ A&nbsp;class&nbsp;that&nbsp;periodically&nbsp;polls&nbsp;connection&nbsp;metrics
 <dd><a href="runtimepy.net.arbiter.housekeeping.html#ConnectionMetricsPoller">ConnectionMetricsPoller</a></dd>
 <dd><a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a></dd>
 <dd><a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -186,6 +197,10 @@ Methods inherited from <a href="runtimepy.net.arbiter.task.html#ArbiterTask">run
 <dl><dt>async <a name="ConnectionMetricsPoller-init"><strong>init</strong></a>(self, app: runtimepy.net.arbiter.info.AppInfo) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;task&nbsp;with&nbsp;application&nbsp;information.</span></dd></dl>
 
 <hr>
+Data and other attributes inherited from <a href="runtimepy.net.arbiter.task.html#ArbiterTask">runtimepy.net.arbiter.task.ArbiterTask</a>:<br>
+<dl><dt><strong>auto_finalize</strong> = False</dl>
+
+<hr>
 Methods inherited from <a href="runtimepy.task.basic.periodic.html#PeriodicTask">runtimepy.task.basic.periodic.PeriodicTask</a>:<br>
 <dl><dt><a name="ConnectionMetricsPoller-disable"><strong>disable</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Disable&nbsp;this&nbsp;task,&nbsp;return&nbsp;whether&nbsp;or&nbsp;not&nbsp;any&nbsp;action&nbsp;was&nbsp;taken.</span></dd></dl>
 
@@ -196,22 +211,30 @@ until&nbsp;a&nbsp;dispatch&nbsp;iteration&nbsp;fails&nbsp;or&nbsp;the&nbsp;task&
 
 <dl><dt>async <a name="ConnectionMetricsPoller-stop"><strong>stop</strong></a>(self) -&gt; 'bool'</dt><dd><span class="code">Wait&nbsp;for&nbsp;this&nbsp;task&nbsp;to&nbsp;stop&nbsp;running&nbsp;(if&nbsp;it&nbsp;is).</span></dd></dl>
 
+<dl><dt>async <a name="ConnectionMetricsPoller-stop_extra"><strong>stop_extra</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Extra&nbsp;actions&nbsp;to&nbsp;perform&nbsp;when&nbsp;this&nbsp;task&nbsp;is&nbsp;stopping.</span></dd></dl>
+
 <dl><dt>async <a name="ConnectionMetricsPoller-task"><strong>task</strong></a>(self, period_s: 'float' = None, stop_sig: '_asyncio.Event' = None) -&gt; '_asyncio.Task[None]'</dt><dd><span class="code">Create&nbsp;an&nbsp;event-loop&nbsp;task&nbsp;for&nbsp;this&nbsp;periodic.</span></dd></dl>
 
 <hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="ConnectionMetricsPoller-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
+<hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="ConnectionMetricsPoller-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="ConnectionMetricsPoller-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="ConnectionMetricsPoller-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="ConnectionMetricsPoller-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="ConnectionMetricsPoller-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -222,6 +245,6 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-metrics_poller"><strong>metrics_poller</strong></a>(manager: runtimepy.net.manager.ConnectionManager, period_s: float = 0.5) -&gt; runtimepy.net.arbiter.housekeeping.ConnectionMetricsPoller</dt><dd><span class="code">Create&nbsp;a&nbsp;metrics-polling&nbsp;task.</span></dd></dl>
+<td class="singlecolumn"><dl><dt><a name="-metrics_poller"><strong>metrics_poller</strong></a>(manager: runtimepy.net.manager.ConnectionManager, period_s: float = 0.1) -&gt; runtimepy.net.arbiter.housekeeping.ConnectionMetricsPoller</dt><dd><span class="code">Create&nbsp;a&nbsp;metrics-polling&nbsp;task.</span></dd></dl>
 </td></tr></table>
 </body></html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.sample.program</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.sample.html" class="white">sample</a>.program</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/sample/program.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/sample/program.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;a&nbsp;sample&nbsp;peer-program&nbsp;interface.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="asyncio.html">asyncio</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.subprocess.program.html#PeerProgram">runtimepy.subprocess.program.PeerProgram</a>(<a href="runtimepy.subprocess.interface.html#RuntimepyPeerInterface">runtimepy.subprocess.interface.RuntimepyPeerInterface</a>, <a href="runtimepy.mixins.psutil.html#PsutilMixin">runtimepy.mixins.psutil.PsutilMixin</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.sample.program.html#SampleProgram">SampleProgram</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SampleProgram">class <strong>SampleProgram</strong></a>(<a href="runtimepy.subprocess.program.html#PeerProgram">runtimepy.subprocess.program.PeerProgram</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SampleProgram">SampleProgram</a>(name:&nbsp;str,&nbsp;config:&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]])&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;sample&nbsp;peer&nbsp;program.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.sample.program.html#SampleProgram">SampleProgram</a></dd>
+<dd><a href="runtimepy.subprocess.program.html#PeerProgram">runtimepy.subprocess.program.PeerProgram</a></dd>
+<dd><a href="runtimepy.subprocess.interface.html#RuntimepyPeerInterface">runtimepy.subprocess.interface.RuntimepyPeerInterface</a></dd>
+<dd><a href="runtimepy.message.interface.html#JsonMessageInterface">runtimepy.message.interface.JsonMessageInterface</a></dd>
+<dd><a href="runtimepy.mixins.async_command.html#AsyncCommandProcessingMixin">runtimepy.mixins.async_command.AsyncCommandProcessingMixin</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="runtimepy.mixins.psutil.html#PsutilMixin">runtimepy.mixins.psutil.PsutilMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt>async <a name="SampleProgram-cleanup"><strong>cleanup</strong></a>(self) -&gt; None</dt><dd><span class="code">Runs&nbsp;when&nbsp;program&nbsp;'running'&nbsp;context&nbsp;exits.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-log_message_sender"><strong>log_message_sender</strong></a>(self, poll_period_s: float, did_write: asyncio.locks.Event) -&gt; None</dt><dd><span class="code">Write&nbsp;to&nbsp;stderr&nbsp;periodically.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-pre_environment_exchange"><strong>pre_environment_exchange</strong></a>(self) -&gt; None</dt><dd><span class="code">Perform&nbsp;early&nbsp;initialization&nbsp;tasks.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {'stderr_task': _asyncio.Task[None]}</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.subprocess.program.html#PeerProgram">runtimepy.subprocess.program.PeerProgram</a>:<br>
+<dl><dt>async <a name="SampleProgram-heartbeat_task"><strong>heartbeat_task</strong></a>(self) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;message&nbsp;heartbeat&nbsp;back&nbsp;and&nbsp;forth.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-io_task"><strong>io_task</strong></a>(self, buffer: &lt;class 'BinaryIO'&gt;) -&gt; None</dt><dd><span class="code">Run&nbsp;this&nbsp;peer&nbsp;program's&nbsp;main&nbsp;loop.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-main"><strong>main</strong></a>(self, argv: list[str]) -&gt; None</dt><dd><span class="code">Program&nbsp;entry.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-poll_handler"><strong>poll_handler</strong></a>(self) -&gt; None</dt><dd><span class="code">Handle&nbsp;a&nbsp;'poll'&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-streaming_events"><strong>streaming_events</strong></a>(self) -&gt; Iterator[NoneType]</dt><dd><span class="code">Stream&nbsp;events&nbsp;to&nbsp;the&nbsp;stream&nbsp;output.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-struct_pre_finalize"><strong>struct_pre_finalize</strong></a>(self) -&gt; None</dt><dd><span class="code">Configure&nbsp;struct&nbsp;before&nbsp;finalization.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-write"><strong>write</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Write&nbsp;data.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="runtimepy.subprocess.program.html#PeerProgram">runtimepy.subprocess.program.PeerProgram</a>:<br>
+<dl><dt>async <a name="SampleProgram-run"><strong>run</strong></a>(name: str, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], argv: list[str]) -&gt; None<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;the&nbsp;program.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-run_standard"><strong>run_standard</strong></a>(name: str, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; tuple[_asyncio.Task[None], ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;this&nbsp;program&nbsp;using&nbsp;standard&nbsp;input&nbsp;and&nbsp;output.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-running"><strong>running</strong></a>(name: str, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], argv: list[str]) -&gt; AsyncIterator[tuple[_asyncio.Task[None], _asyncio.Task[None], ~T]]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Provide&nbsp;an&nbsp;interface&nbsp;for&nbsp;managed-context&nbsp;cleanup&nbsp;of&nbsp;the&nbsp;peer&nbsp;process.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-singleton"><strong>singleton</strong></a>() -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Get&nbsp;a&nbsp;shared&nbsp;single&nbsp;instance&nbsp;of&nbsp;a&nbsp;protocol&nbsp;for&nbsp;this&nbsp;class.</span></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="runtimepy.subprocess.program.html#PeerProgram">runtimepy.subprocess.program.PeerProgram</a>:<br>
+<dl><dt><strong>struct_type</strong> = &lt;class 'runtimepy.net.arbiter.info.SampleStruct'&gt;<dd><span class="code">A&nbsp;sample&nbsp;runtime&nbsp;structure.</span></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.subprocess.interface.html#RuntimepyPeerInterface">runtimepy.subprocess.interface.RuntimepyPeerInterface</a>:<br>
+<dl><dt><a name="SampleProgram-__init__"><strong>__init__</strong></a>(self, name: str, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-handle_command"><strong>handle_command</strong></a>(self, args: argparse.Namespace, channel: Union[runtimepy.primitives.field.BitField, runtimepy.channel.Channel[runtimepy.primitives.int.Int8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Int64Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint8Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint16Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint32Primitive], runtimepy.channel.Channel[runtimepy.primitives.int.Uint64Primitive], runtimepy.channel.Channel[runtimepy.primitives.float.FloatPrimitive], runtimepy.channel.Channel[runtimepy.primitives.float.DoublePrimitive], runtimepy.channel.Channel[runtimepy.primitives.bool.BooleanPrimitive], NoneType]) -&gt; None</dt><dd><span class="code">Handle&nbsp;a&nbsp;command.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-handle_log_message"><strong>handle_log_message</strong></a>(self, message: dict[str, typing.Any]) -&gt; None</dt><dd><span class="code">Handle&nbsp;a&nbsp;log&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-handle_stderr"><strong>handle_stderr</strong></a>(self, data: bytes) -&gt; None</dt><dd><span class="code">Forward&nbsp;stderr.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-handle_stdout"><strong>handle_stdout</strong></a>(self, data: bytes) -&gt; None</dt><dd><span class="code">Handle&nbsp;messages&nbsp;from&nbsp;stdout.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-poll_metrics"><strong>poll_metrics</strong></a>(self, time_ns: int = None) -&gt; None</dt><dd><span class="code">Poll&nbsp;channels.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-share_config"><strong>share_config</strong></a>(self, data: dict[str, typing.Any]) -&gt; None</dt><dd><span class="code">Exchange&nbsp;configuration&nbsp;data.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-share_environment"><strong>share_environment</strong></a>(self) -&gt; None</dt><dd><span class="code">Exchange&nbsp;channel&nbsp;environments.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.subprocess.interface.html#RuntimepyPeerInterface">runtimepy.subprocess.interface.RuntimepyPeerInterface</a>:<br>
+<dl><dt><strong>peer_name</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;peer's&nbsp;environment.</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="runtimepy.subprocess.interface.html#RuntimepyPeerInterface">runtimepy.subprocess.interface.RuntimepyPeerInterface</a>:<br>
+<dl><dt><strong>poll_period_s</strong> = 0.01</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.message.interface.html#JsonMessageInterface">runtimepy.message.interface.JsonMessageInterface</a>:<br>
+<dl><dt><a name="SampleProgram-basic_handler"><strong>basic_handler</strong></a>(self, key: str, handler: Callable[[dict[str, Any], dict[str, Any]], Awaitable[NoneType]] = &lt;function loopback_handler at 0x7f0350b0d620&gt;) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;basic&nbsp;handler.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-channel_command"><strong>channel_command</strong></a>(self, command: str, environment: str = 'default', addr: tuple[str, int] = None) -&gt; runtimepy.channel.environment.command.result.CommandResult</dt><dd><span class="code">Send&nbsp;a&nbsp;channel&nbsp;command&nbsp;to&nbsp;an&nbsp;endpoint.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-loopback"><strong>loopback</strong></a>(self, data: dict[str, typing.Any] = None, addr: tuple[str, int] = None, timeout: float = 3) -&gt; bool</dt><dd><span class="code">Perform&nbsp;a&nbsp;simple&nbsp;loopback&nbsp;test&nbsp;on&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-process_json"><strong>process_json</strong></a>(self, data: dict[str, typing.Any], addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-send_json"><strong>send_json</strong></a>(self, data: Union[dict[str, Any], vcorelib.dict.codec.JsonCodec], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-send_poll"><strong>send_poll</strong></a>(self, loopback: int = 1) -&gt; None</dt><dd><span class="code">Send&nbsp;a&nbsp;poll&nbsp;message&nbsp;with&nbsp;a&nbsp;default&nbsp;loopback&nbsp;of&nbsp;1,&nbsp;so&nbsp;that&nbsp;this&nbsp;instance<br>
+will&nbsp;also&nbsp;be&nbsp;polled.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-stage_remote_log"><strong>stage_remote_log</strong></a>(self, msg: str, *args, level: int = 20) -&gt; None</dt><dd><span class="code">Log&nbsp;a&nbsp;message&nbsp;on&nbsp;the&nbsp;remote.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-typed_handler"><strong>typed_handler</strong></a>(self, key: str, kind: type[~T], handler: Callable[[dict[str, Any], ~T], Awaitable[NoneType]]) -&gt; None</dt><dd><span class="code">Register&nbsp;a&nbsp;typed&nbsp;handler.</span></dd></dl>
+
+<dl><dt>async <a name="SampleProgram-wait_json"><strong>wait_json</strong></a>(self, data: Union[dict[str, Any], vcorelib.dict.codec.JsonCodec] = None, addr: tuple[str, int] = None, timeout: float = 3) -&gt; dict[str, typing.Any]</dt><dd><span class="code">Send&nbsp;a&nbsp;JSON&nbsp;message&nbsp;and&nbsp;wait&nbsp;for&nbsp;a&nbsp;response.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="runtimepy.message.interface.html#JsonMessageInterface">runtimepy.message.interface.JsonMessageInterface</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="runtimepy.mixins.async_command.html#AsyncCommandProcessingMixin">runtimepy.mixins.async_command.AsyncCommandProcessingMixin</a>:<br>
+<dl><dt>async <a name="SampleProgram-process_command_queue"><strong>process_command_queue</strong></a>(self) -&gt; None</dt><dd><span class="code">Process&nbsp;any&nbsp;outgoing&nbsp;command&nbsp;requests.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="SampleProgram-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.mixins.psutil.html#PsutilMixin">runtimepy.mixins.psutil.PsutilMixin</a>:<br>
+<dl><dt><a name="SampleProgram-init_psutil"><strong>init_psutil</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment) -&gt; None</dt><dd><span class="code">Initialize&nbsp;psutil-based&nbsp;metrics.</span></dd></dl>
+
+<dl><dt><a name="SampleProgram-poll_psutil"><strong>poll_psutil</strong></a>(self, weight: float) -&gt; None</dt><dd><span class="code">Poll&nbsp;psutil-based&nbsp;metrics.</span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>async <a name="-run"><strong>run</strong></a>(app: runtimepy.net.arbiter.info.AppInfo) -&gt; int</dt><dd><span class="code">A&nbsp;network&nbsp;application&nbsp;that&nbsp;doesn't&nbsp;do&nbsp;anything.</span></dd></dl>
+</td></tr></table>
+</body></html>

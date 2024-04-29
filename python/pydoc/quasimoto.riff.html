@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package quasimoto.riff</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="quasimoto.html" class="white">quasimoto</a>.riff</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/quasimoto/quasimoto/riff/__init__.py">/home/vkottler/src/vkottler/workspace/quasimoto/quasimoto/riff/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;interfaces&nbsp;for&nbsp;RIFF&nbsp;files.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="quasimoto.riff.chunk.html">chunk</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="quasimoto.riff.html#RiffInterface">RiffInterface</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="RiffInterface">class <strong>RiffInterface</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#RiffInterface">RiffInterface</a>(stream:&nbsp;&amp;lt;class&nbsp;'BinaryIO'&amp;gt;,&nbsp;is_writer:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;reading&nbsp;and&nbsp;writing&nbsp;RIFF&nbsp;files.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="quasimoto.riff.html#RiffInterface">RiffInterface</a></dd>
+<dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="RiffInterface-__init__"><strong>__init__</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, is_writer: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="RiffInterface-chunks"><strong>chunks</strong></a>(self) -&gt; Iterator[quasimoto.riff.chunk.Chunk]</dt><dd><span class="code">Read&nbsp;file&nbsp;chunks.</span></dd></dl>
+
+<dl><dt><a name="RiffInterface-finalize"><strong>finalize</strong></a>(self) -&gt; None</dt><dd><span class="code">Finalize&nbsp;the&nbsp;header&nbsp;size.</span></dd></dl>
+
+<dl><dt><a name="RiffInterface-read"><strong>read</strong></a>(self) -&gt; Optional[quasimoto.riff.chunk.Chunk]</dt><dd><span class="code">Read&nbsp;the&nbsp;next&nbsp;chunk.</span></dd></dl>
+
+<dl><dt><a name="RiffInterface-read_size"><strong>read_size</strong></a>(self) -&gt; int</dt><dd><span class="code">Read&nbsp;a&nbsp;size&nbsp;from&nbsp;the&nbsp;stream.</span></dd></dl>
+
+<dl><dt><a name="RiffInterface-write"><strong>write</strong></a>(self, chunk: quasimoto.riff.chunk.Chunk) -&gt; None</dt><dd><span class="code">Write&nbsp;a&nbsp;chunk&nbsp;to&nbsp;the&nbsp;file.</span></dd></dl>
+
+<dl><dt><a name="RiffInterface-write_size"><strong>write_size</strong></a>(self, size: int, seek: int = None) -&gt; None</dt><dd><span class="code">An&nbsp;interface&nbsp;for&nbsp;writing&nbsp;a&nbsp;size&nbsp;field.</span></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="RiffInterface-from_path"><strong>from_path</strong></a>(path: pathlib.Path, is_writer: bool = True) -&gt; Iterator[~T]<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;RIFF&nbsp;interface&nbsp;from&nbsp;a&nbsp;path.</span></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><a name="RiffInterface-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Iterator</strong> = typing.Iterator<br>
+<strong>NULL_BYTE</strong> = b'\x00'<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>T</strong> = ~T<br>
+<strong>Type</strong> = typing.Type</td></tr></table>
+</body></html>

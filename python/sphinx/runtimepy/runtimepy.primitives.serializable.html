@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>runtimepy.primitives.serializable package &#8212; runtimepy  documentation</title>
   
@@ -19,31 +18,32 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'runtimepy.primitives.serializable';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="runtimepy.primitives.type package" href="runtimepy.primitives.type.html" />
+    <link rel="next" title="runtimepy.primitives.types package" href="runtimepy.primitives.types.html" />
     <link rel="prev" title="runtimepy.primitives.field.manager package" href="runtimepy.primitives.field.manager.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -54,7 +54,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -89,11 +97,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -108,6 +119,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -116,41 +128,68 @@
   
   
   
+  
     <p class="title logo__title">runtimepy  documentation</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="runtimepy.html">runtimepy package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.channel.html">runtimepy.channel package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.channel.environment.html">runtimepy.channel.environment package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.channel.environment.command.html">runtimepy.channel.environment.command package</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.channel.event.html">runtimepy.channel.event package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.codec.html">runtimepy.codec package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.protocol.html">runtimepy.codec.protocol package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.codec.system.html">runtimepy.codec.system package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.commands.html">runtimepy.commands package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.enum.html">runtimepy.enum package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.message.html">runtimepy.message package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.metrics.html">runtimepy.metrics package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.mixins.html">runtimepy.mixins package</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.net.html">runtimepy.net package</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.apps.html">runtimepy.net.apps package</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.arbiter.html">runtimepy.net.arbiter package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.config.html">runtimepy.net.arbiter.config package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.factory.html">runtimepy.net.arbiter.factory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.housekeeping.html">runtimepy.net.arbiter.housekeeping package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.imports.html">runtimepy.net.arbiter.imports package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.arbiter.tcp.html">runtimepy.net.arbiter.tcp package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.factories.html">runtimepy.net.factories package</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.net.http.html">runtimepy.net.http package</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.server.html">runtimepy.net.server package</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.app.html">runtimepy.net.server.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.struct.html">runtimepy.net.server.struct package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.server.websocket.html">runtimepy.net.server.websocket package</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.stream.html">runtimepy.net.stream package</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.stream.json.html">runtimepy.net.stream.json package</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.net.tcp.html">runtimepy.net.tcp package</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.http.html">runtimepy.net.tcp.http package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.net.tcp.telnet.html">runtimepy.net.tcp.telnet package</a></li>
 </ul>
 </li>
@@ -158,23 +197,27 @@
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.net.websocket.html">runtimepy.net.websocket package</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="runtimepy.primitives.html">runtimepy.primitives package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.array.html">runtimepy.primitives.array package</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="runtimepy.primitives.field.html">runtimepy.primitives.field package</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="runtimepy.primitives.field.manager.html">runtimepy.primitives.field.manager package</a></li>
 </ul>
 </li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">runtimepy.primitives.serializable package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.type.html">runtimepy.primitives.type package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.primitives.types.html">runtimepy.primitives.types package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.registry.html">runtimepy.registry package</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.sample.html">runtimepy.sample package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.struct.html">runtimepy.struct package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="runtimepy.subprocess.html">runtimepy.subprocess package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.task.html">runtimepy.task package</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.task.basic.html">runtimepy.task.basic package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtimepy.task.trig.html">runtimepy.task.trig package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="runtimepy.telemetry.html">runtimepy.telemetry package</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="runtimepy.tui.html">runtimepy.tui package</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="runtimepy.tui.channels.html">runtimepy.tui.channels package</a></li>
 </ul>
 </li>
@@ -286,20 +329,22 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -332,12 +377,15 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.add_to_end"><code class="docutils literal notranslate"><span class="pre">Serializable.add_to_end()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.assign"><code class="docutils literal notranslate"><span class="pre">Serializable.assign()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.copy"><code class="docutils literal notranslate"><span class="pre">Serializable.copy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.copy_without_chain"><code class="docutils literal notranslate"><span class="pre">Serializable.copy_without_chain()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.end"><code class="docutils literal notranslate"><span class="pre">Serializable.end</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.from_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.from_stream()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.length"><code class="docutils literal notranslate"><span class="pre">Serializable.length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.length_trace"><code class="docutils literal notranslate"><span class="pre">Serializable.length_trace()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.size"><code class="docutils literal notranslate"><span class="pre">Serializable.size</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.to_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.to_stream()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.update"><code class="docutils literal notranslate"><span class="pre">Serializable.update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.update_str"><code class="docutils literal notranslate"><span class="pre">Serializable.update_str()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -345,7 +393,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.primitives.serializable.fixed">runtimepy.primitives.serializable.fixed module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.fixed.FixedChunk"><code class="docutils literal notranslate"><span class="pre">FixedChunk</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.fixed.FixedChunk.update"><code class="docutils literal notranslate"><span class="pre">FixedChunk.update()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.fixed.FixedChunk.update_str"><code class="docutils literal notranslate"><span class="pre">FixedChunk.update_str()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -353,7 +400,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.primitives.serializable.prefixed">runtimepy.primitives.serializable.prefixed module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.create"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.create()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.update_str"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.update_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.update"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.update()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -361,24 +408,26 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.primitives.serializable">Module contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.FixedChunk"><code class="docutils literal notranslate"><span class="pre">FixedChunk</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.FixedChunk.update"><code class="docutils literal notranslate"><span class="pre">FixedChunk.update()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.FixedChunk.update_str"><code class="docutils literal notranslate"><span class="pre">FixedChunk.update_str()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.PrefixedChunk"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.PrefixedChunk.create"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.create()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.PrefixedChunk.update_str"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.update_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.PrefixedChunk.update"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.update()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable"><code class="docutils literal notranslate"><span class="pre">Serializable</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.add_to_end"><code class="docutils literal notranslate"><span class="pre">Serializable.add_to_end()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.assign"><code class="docutils literal notranslate"><span class="pre">Serializable.assign()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.copy"><code class="docutils literal notranslate"><span class="pre">Serializable.copy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.copy_without_chain"><code class="docutils literal notranslate"><span class="pre">Serializable.copy_without_chain()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.end"><code class="docutils literal notranslate"><span class="pre">Serializable.end</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.from_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.from_stream()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.length"><code class="docutils literal notranslate"><span class="pre">Serializable.length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.length_trace"><code class="docutils literal notranslate"><span class="pre">Serializable.length_trace()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.size"><code class="docutils literal notranslate"><span class="pre">Serializable.size</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.to_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.to_stream()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.update"><code class="docutils literal notranslate"><span class="pre">Serializable.update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.update_str"><code class="docutils literal notranslate"><span class="pre">Serializable.update_str()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -392,221 +441,245 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="runtimepy-primitives-serializable-package">
-<h1>runtimepy.primitives.serializable package<a class="headerlink" href="#runtimepy-primitives-serializable-package" title="Permalink to this heading">#</a></h1>
+<h1>runtimepy.primitives.serializable package<a class="headerlink" href="#runtimepy-primitives-serializable-package" title="Link to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-runtimepy.primitives.serializable.base">
-<span id="runtimepy-primitives-serializable-base-module"></span><h2>runtimepy.primitives.serializable.base module<a class="headerlink" href="#module-runtimepy.primitives.serializable.base" title="Permalink to this heading">#</a></h2>
+<span id="runtimepy-primitives-serializable-base-module"></span><h2>runtimepy.primitives.serializable.base module<a class="headerlink" href="#module-runtimepy.primitives.serializable.base" title="Link to this heading">#</a></h2>
 <p>A module defining a base interface fore serializable objects.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.base.</span></span><span class="sig-name descname"><span class="pre">Serializable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.NETWORK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.base.</span></span><span class="sig-name descname"><span class="pre">Serializable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.NETWORK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>An interface for serializable objects.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.add_to_end">
-<span class="sig-name descname"><span class="pre">add_to_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.add_to_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.add_to_end" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_to_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.add_to_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.add_to_end" title="Link to this definition">#</a></dt>
 <dd><p>Add a new serializable to the end of this chain.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.assign">
-<span class="sig-name descname"><span class="pre">assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.assign" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.assign" title="Link to this definition">#</a></dt>
 <dd><p>Assign a next serializable.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.copy" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.copy" title="Link to this definition">#</a></dt>
 <dd><p>Create a copy of a serializable instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.copy_without_chain">
+<span class="sig-name descname"><span class="pre">copy_without_chain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.copy_without_chain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.copy_without_chain" title="Link to this definition">#</a></dt>
+<dd><p>A method for copying instances without chain references.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.end">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></em><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.end" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></em><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.end" title="Link to this definition">#</a></dt>
 <dd><p>Get the end of this chain.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.from_stream">
-<span class="sig-name descname"><span class="pre">from_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.from_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.from_stream" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">from_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.from_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.from_stream" title="Link to this definition">#</a></dt>
 <dd><p>Update this serializable from a stream.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.length">
-<span class="sig-name descname"><span class="pre">length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.length" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.length" title="Link to this definition">#</a></dt>
 <dd><p>Get the full length of this chain.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.length_trace">
+<span class="sig-name descname"><span class="pre">length_trace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.length_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.length_trace" title="Link to this definition">#</a></dt>
+<dd><p>Get a length-tracing string for this instance.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.size">
-<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.size" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.size" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.to_stream">
-<span class="sig-name descname"><span class="pre">to_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.to_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.to_stream" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">to_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.to_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.to_stream" title="Link to this definition">#</a></dt>
 <dd><p>Write this serializable to a stream.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.update" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.update" title="Link to this definition">#</a></dt>
 <dd><p>Update this serializable from a bytes instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.primitives.serializable.base.Serializable.update_str">
+<span class="sig-name descname"><span class="pre">update_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.update_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.base.Serializable.update_str" title="Link to this definition">#</a></dt>
+<dd><p>Update this serializable from string data.</p>
 </dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-runtimepy.primitives.serializable.fixed">
-<span id="runtimepy-primitives-serializable-fixed-module"></span><h2>runtimepy.primitives.serializable.fixed module<a class="headerlink" href="#module-runtimepy.primitives.serializable.fixed" title="Permalink to this heading">#</a></h2>
+<span id="runtimepy-primitives-serializable-fixed-module"></span><h2>runtimepy.primitives.serializable.fixed module<a class="headerlink" href="#module-runtimepy.primitives.serializable.fixed" title="Link to this heading">#</a></h2>
 <p>A module implementing a fixed-size bytes serializable.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.fixed.FixedChunk">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.fixed.</span></span><span class="sig-name descname"><span class="pre">FixedChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.fixed.FixedChunk" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.fixed.</span></span><span class="sig-name descname"><span class="pre">FixedChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.fixed.FixedChunk" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializable</span></code></a></p>
 <p>A simple fixed-size serializable chunk.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.fixed.FixedChunk.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.fixed.FixedChunk.update" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.fixed.FixedChunk.update" title="Link to this definition">#</a></dt>
 <dd><p>Update this serializable from a bytes instance.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="runtimepy.primitives.serializable.fixed.FixedChunk.update_str">
-<span class="sig-name descname"><span class="pre">update_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk.update_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.fixed.FixedChunk.update_str" title="Permalink to this definition">#</a></dt>
-<dd><p>Update this chunk from a string.</p>
 </dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-runtimepy.primitives.serializable.prefixed">
-<span id="runtimepy-primitives-serializable-prefixed-module"></span><h2>runtimepy.primitives.serializable.prefixed module<a class="headerlink" href="#module-runtimepy.primitives.serializable.prefixed" title="Permalink to this heading">#</a></h2>
+<span id="runtimepy-primitives-serializable-prefixed-module"></span><h2>runtimepy.primitives.serializable.prefixed module<a class="headerlink" href="#module-runtimepy.primitives.serializable.prefixed" title="Link to this heading">#</a></h2>
 <p>A module implementing a variable-size bytes serializable, using an integer
 primitive prefix to determine the size of the chunk portion.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.prefixed.PrefixedChunk">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.prefixed.</span></span><span class="sig-name descname"><span class="pre">PrefixedChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.NETWORK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.prefixed.</span></span><span class="sig-name descname"><span class="pre">PrefixedChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.NETWORK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializable</span></code></a></p>
 <p>A simple integer-prefixed chunk serializable.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.prefixed.PrefixedChunk.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int8Primitive" title="runtimepy.primitives.int.Int8Primitive"><span class="pre">Int8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int16Primitive" title="runtimepy.primitives.int.Int16Primitive"><span class="pre">Int16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int32Primitive" title="runtimepy.primitives.int.Int32Primitive"><span class="pre">Int32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int64Primitive" title="runtimepy.primitives.int.Int64Primitive"><span class="pre">Int64Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.HalfPrimitive" title="runtimepy.primitives.float.HalfPrimitive"><span class="pre">HalfPrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.bool.BooleanPrimitive" title="runtimepy.primitives.bool.BooleanPrimitive"><span class="pre">BooleanPrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uint16'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.create" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int8Primitive" title="runtimepy.primitives.int.Int8Primitive"><span class="pre">Int8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int16Primitive" title="runtimepy.primitives.int.Int16Primitive"><span class="pre">Int16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int32Primitive" title="runtimepy.primitives.int.Int32Primitive"><span class="pre">Int32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int64Primitive" title="runtimepy.primitives.int.Int64Primitive"><span class="pre">Int64Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.HalfPrimitive" title="runtimepy.primitives.float.HalfPrimitive"><span class="pre">HalfPrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.bool.BooleanPrimitive" title="runtimepy.primitives.bool.BooleanPrimitive"><span class="pre">BooleanPrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uint16'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.create" title="Link to this definition">#</a></dt>
 <dd><p>Create a prefixed chunk.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="runtimepy.primitives.serializable.prefixed.PrefixedChunk.update_str">
-<span class="sig-name descname"><span class="pre">update_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk.update_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.update_str" title="Permalink to this definition">#</a></dt>
-<dd><p>Update this chunk from a string.</p>
+<dt class="sig sig-object py" id="runtimepy.primitives.serializable.prefixed.PrefixedChunk.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.update" title="Link to this definition">#</a></dt>
+<dd><p>Update this serializable from a bytes instance.</p>
 </dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-runtimepy.primitives.serializable">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.primitives.serializable" title="Permalink to this heading">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-runtimepy.primitives.serializable" title="Link to this heading">#</a></h2>
 <p>A module defining an interface for serializable objects.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.FixedChunk">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.</span></span><span class="sig-name descname"><span class="pre">FixedChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.FixedChunk" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.</span></span><span class="sig-name descname"><span class="pre">FixedChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.FixedChunk" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializable</span></code></a></p>
 <p>A simple fixed-size serializable chunk.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.FixedChunk.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.FixedChunk.update" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.FixedChunk.update" title="Link to this definition">#</a></dt>
 <dd><p>Update this serializable from a bytes instance.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="runtimepy.primitives.serializable.FixedChunk.update_str">
-<span class="sig-name descname"><span class="pre">update_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/fixed.html#FixedChunk.update_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.FixedChunk.update_str" title="Permalink to this definition">#</a></dt>
-<dd><p>Update this chunk from a string.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.PrefixedChunk">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.</span></span><span class="sig-name descname"><span class="pre">PrefixedChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.NETWORK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.PrefixedChunk" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.</span></span><span class="sig-name descname"><span class="pre">PrefixedChunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.NETWORK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.PrefixedChunk" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializable</span></code></a></p>
 <p>A simple integer-prefixed chunk serializable.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.PrefixedChunk.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int8Primitive" title="runtimepy.primitives.int.Int8Primitive"><span class="pre">Int8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int16Primitive" title="runtimepy.primitives.int.Int16Primitive"><span class="pre">Int16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int32Primitive" title="runtimepy.primitives.int.Int32Primitive"><span class="pre">Int32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int64Primitive" title="runtimepy.primitives.int.Int64Primitive"><span class="pre">Int64Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.HalfPrimitive" title="runtimepy.primitives.float.HalfPrimitive"><span class="pre">HalfPrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.bool.BooleanPrimitive" title="runtimepy.primitives.bool.BooleanPrimitive"><span class="pre">BooleanPrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uint16'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.PrefixedChunk.create" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int8Primitive" title="runtimepy.primitives.int.Int8Primitive"><span class="pre">Int8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int16Primitive" title="runtimepy.primitives.int.Int16Primitive"><span class="pre">Int16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int32Primitive" title="runtimepy.primitives.int.Int32Primitive"><span class="pre">Int32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Int64Primitive" title="runtimepy.primitives.int.Int64Primitive"><span class="pre">Int64Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint8Primitive" title="runtimepy.primitives.int.Uint8Primitive"><span class="pre">Uint8Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint16Primitive" title="runtimepy.primitives.int.Uint16Primitive"><span class="pre">Uint16Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint32Primitive" title="runtimepy.primitives.int.Uint32Primitive"><span class="pre">Uint32Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.int.Uint64Primitive" title="runtimepy.primitives.int.Uint64Primitive"><span class="pre">Uint64Primitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.HalfPrimitive" title="runtimepy.primitives.float.HalfPrimitive"><span class="pre">HalfPrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.FloatPrimitive" title="runtimepy.primitives.float.FloatPrimitive"><span class="pre">FloatPrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.float.DoublePrimitive" title="runtimepy.primitives.float.DoublePrimitive"><span class="pre">DoublePrimitive</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.bool.BooleanPrimitive" title="runtimepy.primitives.bool.BooleanPrimitive"><span class="pre">BooleanPrimitive</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uint16'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.PrefixedChunk.create" title="Link to this definition">#</a></dt>
 <dd><p>Create a prefixed chunk.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="runtimepy.primitives.serializable.PrefixedChunk.update_str">
-<span class="sig-name descname"><span class="pre">update_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk.update_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.PrefixedChunk.update_str" title="Permalink to this definition">#</a></dt>
-<dd><p>Update this chunk from a string.</p>
+<dt class="sig sig-object py" id="runtimepy.primitives.serializable.PrefixedChunk.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/prefixed.html#PrefixedChunk.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.PrefixedChunk.update" title="Link to this definition">#</a></dt>
+<dd><p>Update this serializable from a bytes instance.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.</span></span><span class="sig-name descname"><span class="pre">Serializable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.NETWORK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">runtimepy.primitives.serializable.</span></span><span class="sig-name descname"><span class="pre">Serializable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="runtimepy.primitives.html#runtimepy.primitives.byte_order.ByteOrder" title="runtimepy.primitives.byte_order.ByteOrder"><span class="pre">ByteOrder</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ByteOrder.NETWORK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>An interface for serializable objects.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.add_to_end">
-<span class="sig-name descname"><span class="pre">add_to_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.add_to_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.add_to_end" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_to_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.add_to_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.add_to_end" title="Link to this definition">#</a></dt>
 <dd><p>Add a new serializable to the end of this chain.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.assign">
-<span class="sig-name descname"><span class="pre">assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.assign" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.assign" title="Link to this definition">#</a></dt>
 <dd><p>Assign a next serializable.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.copy" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.copy" title="Link to this definition">#</a></dt>
 <dd><p>Create a copy of a serializable instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.copy_without_chain">
+<span class="sig-name descname"><span class="pre">copy_without_chain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.copy_without_chain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.copy_without_chain" title="Link to this definition">#</a></dt>
+<dd><p>A method for copying instances without chain references.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.end">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></em><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.end" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#runtimepy.primitives.serializable.base.Serializable" title="runtimepy.primitives.serializable.base.Serializable"><span class="pre">Serializable</span></a></em><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.end" title="Link to this definition">#</a></dt>
 <dd><p>Get the end of this chain.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.from_stream">
-<span class="sig-name descname"><span class="pre">from_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.from_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.from_stream" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">from_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.from_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.from_stream" title="Link to this definition">#</a></dt>
 <dd><p>Update this serializable from a stream.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.length">
-<span class="sig-name descname"><span class="pre">length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.length" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.length" title="Link to this definition">#</a></dt>
 <dd><p>Get the full length of this chain.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.length_trace">
+<span class="sig-name descname"><span class="pre">length_trace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.length_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.length_trace" title="Link to this definition">#</a></dt>
+<dd><p>Get a length-tracing string for this instance.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.size">
-<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.size" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.size" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.to_stream">
-<span class="sig-name descname"><span class="pre">to_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.to_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.to_stream" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">to_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.to_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.to_stream" title="Link to this definition">#</a></dt>
 <dd><p>Write this serializable to a stream.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.update" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.update" title="Link to this definition">#</a></dt>
 <dd><p>Update this serializable from a bytes instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="runtimepy.primitives.serializable.Serializable.update_str">
+<span class="sig-name descname"><span class="pre">update_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/runtimepy/primitives/serializable/base.html#Serializable.update_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#runtimepy.primitives.serializable.Serializable.update_str" title="Link to this definition">#</a></dt>
+<dd><p>Update this serializable from string data.</p>
 </dd></dl>
 
 </dd></dl>
@@ -620,11 +693,10 @@ primitive prefix to determine the size of the chunk portion.</p>
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="runtimepy.primitives.field.manager.html"
@@ -636,18 +708,15 @@ primitive prefix to determine the size of the chunk portion.</p>
       </div>
     </a>
     <a class="right-next"
-       href="runtimepy.primitives.type.html"
+       href="runtimepy.primitives.types.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">runtimepy.primitives.type package</p>
+        <p class="prev-next-title">runtimepy.primitives.types package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -655,6 +724,7 @@ primitive prefix to determine the size of the chunk portion.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -668,12 +738,15 @@ primitive prefix to determine the size of the chunk portion.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.add_to_end"><code class="docutils literal notranslate"><span class="pre">Serializable.add_to_end()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.assign"><code class="docutils literal notranslate"><span class="pre">Serializable.assign()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.copy"><code class="docutils literal notranslate"><span class="pre">Serializable.copy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.copy_without_chain"><code class="docutils literal notranslate"><span class="pre">Serializable.copy_without_chain()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.end"><code class="docutils literal notranslate"><span class="pre">Serializable.end</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.from_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.from_stream()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.length"><code class="docutils literal notranslate"><span class="pre">Serializable.length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.length_trace"><code class="docutils literal notranslate"><span class="pre">Serializable.length_trace()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.size"><code class="docutils literal notranslate"><span class="pre">Serializable.size</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.to_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.to_stream()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.update"><code class="docutils literal notranslate"><span class="pre">Serializable.update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.base.Serializable.update_str"><code class="docutils literal notranslate"><span class="pre">Serializable.update_str()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -681,7 +754,6 @@ primitive prefix to determine the size of the chunk portion.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.primitives.serializable.fixed">runtimepy.primitives.serializable.fixed module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.fixed.FixedChunk"><code class="docutils literal notranslate"><span class="pre">FixedChunk</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.fixed.FixedChunk.update"><code class="docutils literal notranslate"><span class="pre">FixedChunk.update()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.fixed.FixedChunk.update_str"><code class="docutils literal notranslate"><span class="pre">FixedChunk.update_str()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -689,7 +761,7 @@ primitive prefix to determine the size of the chunk portion.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.primitives.serializable.prefixed">runtimepy.primitives.serializable.prefixed module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.create"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.create()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.update_str"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.update_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.prefixed.PrefixedChunk.update"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.update()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -697,24 +769,26 @@ primitive prefix to determine the size of the chunk portion.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-runtimepy.primitives.serializable">Module contents</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.FixedChunk"><code class="docutils literal notranslate"><span class="pre">FixedChunk</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.FixedChunk.update"><code class="docutils literal notranslate"><span class="pre">FixedChunk.update()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.FixedChunk.update_str"><code class="docutils literal notranslate"><span class="pre">FixedChunk.update_str()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.PrefixedChunk"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.PrefixedChunk.create"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.create()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.PrefixedChunk.update_str"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.update_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.PrefixedChunk.update"><code class="docutils literal notranslate"><span class="pre">PrefixedChunk.update()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable"><code class="docutils literal notranslate"><span class="pre">Serializable</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.add_to_end"><code class="docutils literal notranslate"><span class="pre">Serializable.add_to_end()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.assign"><code class="docutils literal notranslate"><span class="pre">Serializable.assign()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.copy"><code class="docutils literal notranslate"><span class="pre">Serializable.copy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.copy_without_chain"><code class="docutils literal notranslate"><span class="pre">Serializable.copy_without_chain()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.end"><code class="docutils literal notranslate"><span class="pre">Serializable.end</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.from_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.from_stream()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.length"><code class="docutils literal notranslate"><span class="pre">Serializable.length()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.length_trace"><code class="docutils literal notranslate"><span class="pre">Serializable.length_trace()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.size"><code class="docutils literal notranslate"><span class="pre">Serializable.size</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.to_stream"><code class="docutils literal notranslate"><span class="pre">Serializable.to_stream()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.update"><code class="docutils literal notranslate"><span class="pre">Serializable.update()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimepy.primitives.serializable.Serializable.update_str"><code class="docutils literal notranslate"><span class="pre">Serializable.update_str()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -740,9 +814,10 @@ By Vaughn Kottler
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023, Vaughn Kottler.
+      © Copyright 2024, Vaughn Kottler.
       <br/>
     
   </p>
@@ -766,8 +841,8 @@ By Vaughn Kottler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>conntextual.commands package &#8212; conntextual  documentation</title>
   
@@ -19,27 +18,28 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'conntextual.commands';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -54,7 +54,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -89,11 +97,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -108,6 +119,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -116,10 +128,22 @@
   
   
   
+  
     <p class="title logo__title">conntextual  documentation</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
@@ -238,20 +262,22 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -283,6 +309,16 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.all.commands"><code class="docutils literal notranslate"><span class="pre">commands()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.commands.client">conntextual.commands.client module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.client.add_client_cmd"><code class="docutils literal notranslate"><span class="pre">add_client_cmd()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.client.client_cmd"><code class="docutils literal notranslate"><span class="pre">client_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.commands.common">conntextual.commands.common module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.common.common_cli_args"><code class="docutils literal notranslate"><span class="pre">common_cli_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.common.runtimepy_cli_args"><code class="docutils literal notranslate"><span class="pre">runtimepy_cli_args()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.commands.ui">conntextual.commands.ui module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.ui.add_ui_cmd"><code class="docutils literal notranslate"><span class="pre">add_ui_cmd()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.ui.ui_cmd"><code class="docutils literal notranslate"><span class="pre">ui_cmd()</span></code></a></li>
@@ -298,41 +334,73 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="conntextual-commands-package">
-<h1>conntextual.commands package<a class="headerlink" href="#conntextual-commands-package" title="Permalink to this heading">#</a></h1>
+<h1>conntextual.commands package<a class="headerlink" href="#conntextual-commands-package" title="Link to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-conntextual.commands.all">
-<span id="conntextual-commands-all-module"></span><h2>conntextual.commands.all module<a class="headerlink" href="#module-conntextual.commands.all" title="Permalink to this heading">#</a></h2>
+<span id="conntextual-commands-all-module"></span><h2>conntextual.commands.all module<a class="headerlink" href="#module-conntextual.commands.all" title="Link to this heading">#</a></h2>
 <p>A module aggregating package commands.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="conntextual.commands.all.commands">
-<span class="sig-prename descclassname"><span class="pre">conntextual.commands.all.</span></span><span class="sig-name descname"><span class="pre">commands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">ArgumentParser</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/commands/all.html#commands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.all.commands" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">conntextual.commands.all.</span></span><span class="sig-name descname"><span class="pre">commands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">ArgumentParser</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/commands/all.html#commands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.all.commands" title="Link to this definition">#</a></dt>
 <dd><p>Get this package’s commands.</p>
 </dd></dl>
 
 </section>
+<section id="module-conntextual.commands.client">
+<span id="conntextual-commands-client-module"></span><h2>conntextual.commands.client module<a class="headerlink" href="#module-conntextual.commands.client" title="Link to this heading">#</a></h2>
+<p>An entry-point for the ‘client’ command.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.commands.client.add_client_cmd">
+<span class="sig-prename descclassname"><span class="pre">conntextual.commands.client.</span></span><span class="sig-name descname"><span class="pre">add_client_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/commands/client.html#add_client_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.client.add_client_cmd" title="Link to this definition">#</a></dt>
+<dd><p>Add client-command arguments to its parser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.commands.client.client_cmd">
+<span class="sig-prename descclassname"><span class="pre">conntextual.commands.client.</span></span><span class="sig-name descname"><span class="pre">client_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/conntextual/commands/client.html#client_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.client.client_cmd" title="Link to this definition">#</a></dt>
+<dd><p>Execute the client command.</p>
+</dd></dl>
+
+</section>
+<section id="module-conntextual.commands.common">
+<span id="conntextual-commands-common-module"></span><h2>conntextual.commands.common module<a class="headerlink" href="#module-conntextual.commands.common" title="Link to this heading">#</a></h2>
+<p>A module implementing shared argument parsing interfaces.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.commands.common.common_cli_args">
+<span class="sig-prename descclassname"><span class="pre">conntextual.commands.common.</span></span><span class="sig-name descname"><span class="pre">common_cli_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/conntextual/commands/common.html#common_cli_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.common.common_cli_args" title="Link to this definition">#</a></dt>
+<dd><p>Add common command-line options.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conntextual.commands.common.runtimepy_cli_args">
+<span class="sig-prename descclassname"><span class="pre">conntextual.commands.common.</span></span><span class="sig-name descname"><span class="pre">runtimepy_cli_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/commands/common.html#runtimepy_cli_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.common.runtimepy_cli_args" title="Link to this definition">#</a></dt>
+<dd><p>Get base command-line arguments for a runtimepy invocation.</p>
+</dd></dl>
+
+</section>
 <section id="module-conntextual.commands.ui">
-<span id="conntextual-commands-ui-module"></span><h2>conntextual.commands.ui module<a class="headerlink" href="#module-conntextual.commands.ui" title="Permalink to this heading">#</a></h2>
+<span id="conntextual-commands-ui-module"></span><h2>conntextual.commands.ui module<a class="headerlink" href="#module-conntextual.commands.ui" title="Link to this heading">#</a></h2>
 <p>An entry-point for the ‘ui’ command.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="conntextual.commands.ui.add_ui_cmd">
-<span class="sig-prename descclassname"><span class="pre">conntextual.commands.ui.</span></span><span class="sig-name descname"><span class="pre">add_ui_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/commands/ui.html#add_ui_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.ui.add_ui_cmd" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">conntextual.commands.ui.</span></span><span class="sig-name descname"><span class="pre">add_ui_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArgumentParser</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Namespace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/conntextual/commands/ui.html#add_ui_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.ui.add_ui_cmd" title="Link to this definition">#</a></dt>
 <dd><p>Add ui-command arguments to its parser.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="conntextual.commands.ui.ui_cmd">
-<span class="sig-prename descclassname"><span class="pre">conntextual.commands.ui.</span></span><span class="sig-name descname"><span class="pre">ui_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/conntextual/commands/ui.html#ui_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.ui.ui_cmd" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">conntextual.commands.ui.</span></span><span class="sig-name descname"><span class="pre">ui_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Namespace</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/conntextual/commands/ui.html#ui_cmd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#conntextual.commands.ui.ui_cmd" title="Link to this definition">#</a></dt>
 <dd><p>Execute the ui command.</p>
 </dd></dl>
 
 </section>
 <section id="module-conntextual.commands">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-conntextual.commands" title="Permalink to this heading">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-conntextual.commands" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -342,11 +410,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="conntextual.html"
@@ -366,10 +433,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -377,6 +441,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -387,6 +452,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.commands.all">conntextual.commands.all module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.all.commands"><code class="docutils literal notranslate"><span class="pre">commands()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.commands.client">conntextual.commands.client module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.client.add_client_cmd"><code class="docutils literal notranslate"><span class="pre">add_client_cmd()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.client.client_cmd"><code class="docutils literal notranslate"><span class="pre">client_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.commands.common">conntextual.commands.common module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.common.common_cli_args"><code class="docutils literal notranslate"><span class="pre">common_cli_args()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conntextual.commands.common.runtimepy_cli_args"><code class="docutils literal notranslate"><span class="pre">runtimepy_cli_args()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-conntextual.commands.ui">conntextual.commands.ui module</a><ul class="nav section-nav flex-column">
@@ -416,9 +491,10 @@ By Vaughn Kottler
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2023, Vaughn Kottler.
+      © Copyright 2024, Vaughn Kottler.
       <br/>
     
   </p>
@@ -442,8 +518,8 @@ By Vaughn Kottler
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

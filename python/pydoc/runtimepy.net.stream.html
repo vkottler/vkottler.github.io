@@ -26,7 +26,7 @@
     
 <tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><dl>
-<dt class="heading-text"><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>, <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
+<dt class="heading-text"><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>(<a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>, <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>, <a href="abc.html#ABC">abc.ABC</a>)
 </dt><dd>
 <dl>
 <dt class="heading-text"><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>
@@ -63,7 +63,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="EchoMessageConnection">class <strong>EchoMessageConnection</strong></a>(<a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoMessageConnection">EchoMessageConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoMessageConnection">EchoMessageConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter[Any]],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;connection&nbsp;that&nbsp;just&nbsp;echoes&nbsp;what&nbsp;it&nbsp;was&nbsp;sent.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -71,6 +71,7 @@ A&nbsp;connection&nbsp;that&nbsp;just&nbsp;echoes&nbsp;what&nbsp;it&nbsp;was&nbs
 <dd><a href="runtimepy.net.stream.html#EchoMessageConnection">EchoMessageConnection</a></dd>
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -90,19 +91,15 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
 <dl><dt><a name="EchoMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="EchoMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="EchoMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="EchoMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="EchoMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="EchoMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><a name="EchoMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
-<dl><dt><a name="EchoMessageConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="EchoMessageConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter[Any]], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="EchoMessageConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
 
@@ -112,11 +109,16 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="EchoMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="EchoMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="EchoMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="EchoMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="EchoMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="EchoMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<dl><dt>async <a name="EchoMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
 <dl><dt><a name="EchoMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
@@ -124,6 +126,9 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -131,24 +136,34 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
 <dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
 
 <dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
 
 <hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="EchoMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
+<hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="EchoMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="EchoMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="EchoMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="EchoMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="EchoMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -159,7 +174,7 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <td class="section-title" colspan=3>&nbsp;<br><a name="EchoTcpMessageConnection">class <strong>EchoTcpMessageConnection</strong></a>(<a href="runtimepy.net.stream.html#TcpPrefixedMessageConnection">TcpPrefixedMessageConnection</a>, <a href="runtimepy.net.stream.html#EchoMessageConnection">EchoMessageConnection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoTcpMessageConnection">EchoTcpMessageConnection</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.connection.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoTcpMessageConnection">EchoTcpMessageConnection</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.protocol.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;connection&nbsp;that&nbsp;just&nbsp;echoes&nbsp;what&nbsp;it&nbsp;was&nbsp;sent.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -170,6 +185,7 @@ A&nbsp;connection&nbsp;that&nbsp;just&nbsp;echoes&nbsp;what&nbsp;it&nbsp;was&nbs
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -190,21 +206,20 @@ Methods inherited from <a href="runtimepy.net.stream.html#EchoMessageConnection"
 Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
 <dl><dt><a name="EchoTcpMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="EchoTcpMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="EchoTcpMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="EchoTcpMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="EchoTcpMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="EchoTcpMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><a name="EchoTcpMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
-<dl><dt><a name="EchoTcpMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.connection.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="EchoTcpMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.protocol.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="EchoTcpMessageConnection-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="EchoTcpMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
 <dl><dt><a name="EchoTcpMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
@@ -214,14 +229,18 @@ Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection"
 Class methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
 <dl><dt>async <a name="EchoTcpMessageConnection-app"><strong>app</strong></a>(stop_sig: asyncio.locks.Event, callback: Callable[[~T], NoneType] = None, serving_callback: Callable[[Any], NoneType] = None, manager: runtimepy.net.manager.ConnectionManager = None, **kwargs) -&gt; None<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;an&nbsp;application&nbsp;that&nbsp;serves&nbsp;new&nbsp;connections.</span></dd></dl>
 
-<dl><dt>async <a name="EchoTcpMessageConnection-create_connection"><strong>create_connection</strong></a>(**kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="EchoTcpMessageConnection-create_connection"><strong>create_connection</strong></a>(backoff: runtimepy.net.backoff.ExponentialBackoff = None, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="EchoTcpMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; Tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+<dl><dt><a name="EchoTcpMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; AsyncIterator[tuple[~T, ~T]]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
 
 <dl><dt><a name="EchoTcpMessageConnection-serve"><strong>serve</strong></a>(callback: Callable[[~T], NoneType] = None, **kwargs) -&gt; AsyncIterator[Any]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;incoming&nbsp;connections.</span></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><strong>log_alias</strong> = 'TCP'</dl>
+
+<dl><dt><strong>log_prefix</strong> = ''</dl>
+
 <dl><dt><strong>uses_binary_tx_queue</strong> = False</dl>
 
 <dl><dt><strong>uses_text_tx_queue</strong> = False</dl>
@@ -234,14 +253,19 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="EchoTcpMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="EchoTcpMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="EchoTcpMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="EchoTcpMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="EchoTcpMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="EchoTcpMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -249,20 +273,30 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="EchoTcpMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="EchoTcpMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="EchoTcpMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="EchoTcpMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="EchoTcpMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="EchoTcpMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -270,6 +304,8 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <hr>
 Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
 <dl><dt><a name="EchoTcpMessageConnection-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="EchoTcpMessageConnection-set_transport"><strong>set_transport</strong></a>(self, transport: '_asyncio.BaseTransport') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;the&nbsp;transport&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
@@ -282,7 +318,7 @@ Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMi
 <td class="section-title" colspan=3>&nbsp;<br><a name="EchoUdpMessageConnection">class <strong>EchoUdpMessageConnection</strong></a>(<a href="runtimepy.net.stream.html#UdpPrefixedMessageConnection">UdpPrefixedMessageConnection</a>, <a href="runtimepy.net.stream.html#EchoMessageConnection">EchoMessageConnection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoUdpMessageConnection">EchoUdpMessageConnection</a>(transport:&nbsp;'_DatagramTransport',&nbsp;protocol:&nbsp;'UdpQueueProtocol')&nbsp;-&amp;gt;&nbsp;'None'<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#EchoUdpMessageConnection">EchoUdpMessageConnection</a>(transport:&nbsp;asyncio.transports.DatagramTransport,&nbsp;protocol:&nbsp;runtimepy.net.udp.protocol.UdpQueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;connection&nbsp;that&nbsp;just&nbsp;echoes&nbsp;what&nbsp;it&nbsp;was&nbsp;sent.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -293,6 +329,7 @@ A&nbsp;connection&nbsp;that&nbsp;just&nbsp;echoes&nbsp;what&nbsp;it&nbsp;was&nbs
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -317,37 +354,36 @@ Methods inherited from <a href="runtimepy.net.stream.html#EchoMessageConnection"
 Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
 <dl><dt><a name="EchoUdpMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="EchoUdpMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="EchoUdpMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="EchoUdpMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="EchoUdpMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="EchoUdpMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><a name="EchoUdpMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
-<dl><dt><a name="EchoUdpMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: '_DatagramTransport', protocol: 'UdpQueueProtocol') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;UDP&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="EchoUdpMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.DatagramTransport, protocol: runtimepy.net.udp.protocol.UdpQueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;UDP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="EchoUdpMessageConnection-close"><strong>close</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="EchoUdpMessageConnection-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
 
-<dl><dt><a name="EchoUdpMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: '_BinaryMessage') -&gt; 'None'</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+<dl><dt>async <a name="EchoUdpMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
-<dl><dt><a name="EchoUdpMessageConnection-send_text"><strong>send_text</strong></a>(self, data: 'str') -&gt; 'None'</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+<dl><dt><a name="EchoUdpMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
-<dl><dt><a name="EchoUdpMessageConnection-sendto"><strong>sendto</strong></a>(self, data: 'bytes', addr: '_Union[IpHost, _Tuple[str, int]]' = None) -&gt; 'None'</dt><dd><span class="code">Send&nbsp;to&nbsp;a&nbsp;specific&nbsp;address.</span></dd></dl>
+<dl><dt><a name="EchoUdpMessageConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
 
-<dl><dt><a name="EchoUdpMessageConnection-set_remote_address"><strong>set_remote_address</strong></a>(self, addr: 'IpHost') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;remote&nbsp;address.&nbsp;Note&nbsp;that&nbsp;this&nbsp;doesn't&nbsp;interact&nbsp;with&nbsp;or<br>
+<dl><dt><a name="EchoUdpMessageConnection-sendto"><strong>sendto</strong></a>(self, data: bytes, addr: Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host, tuple[str, int]] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;to&nbsp;a&nbsp;specific&nbsp;address.</span></dd></dl>
+
+<dl><dt><a name="EchoUdpMessageConnection-set_remote_address"><strong>set_remote_address</strong></a>(self, addr: Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host]) -&gt; None</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;remote&nbsp;address.&nbsp;Note&nbsp;that&nbsp;this&nbsp;doesn't&nbsp;interact&nbsp;with&nbsp;or<br>
 attempt&nbsp;to&nbsp;'connect'&nbsp;the&nbsp;underlying&nbsp;socket.&nbsp;That&nbsp;should&nbsp;be&nbsp;done&nbsp;at<br>
 creation&nbsp;time.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
-<dl><dt>async <a name="EchoUdpMessageConnection-create_connection"><strong>create_connection</strong></a>(connect: 'bool' = True, **kwargs) -&gt; 'T'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;UDP&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="EchoUdpMessageConnection-create_connection"><strong>create_connection</strong></a>(connect: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;UDP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="EchoUdpMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; '_Tuple[T, T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+<dl><dt>async <a name="EchoUdpMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
@@ -363,14 +399,19 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="EchoUdpMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="EchoUdpMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="EchoUdpMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="EchoUdpMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="EchoUdpMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="EchoUdpMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -378,20 +419,30 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="EchoUdpMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="EchoUdpMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="EchoUdpMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="EchoUdpMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="EchoUdpMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="EchoUdpMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -399,6 +450,8 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <hr>
 Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
 <dl><dt><a name="EchoUdpMessageConnection-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="EchoUdpMessageConnection-set_transport"><strong>set_transport</strong></a>(self, transport: '_asyncio.BaseTransport') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;the&nbsp;transport&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
@@ -411,7 +464,7 @@ Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMi
 <td class="section-title" colspan=3>&nbsp;<br><a name="PrefixedMessageConnection">class <strong>PrefixedMessageConnection</strong></a>(<a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#PrefixedMessageConnection">PrefixedMessageConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#PrefixedMessageConnection">PrefixedMessageConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter[Any]],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;connection&nbsp;for&nbsp;handling&nbsp;inter-frame&nbsp;message&nbsp;size&nbsp;prefixes&nbsp;for&nbsp;some<br>
 stream-oriented&nbsp;protocols.<br>&nbsp;</span></td></tr>
@@ -419,6 +472,7 @@ stream-oriented&nbsp;protocols.<br>&nbsp;</span></td></tr>
 <td class="singlecolumn"><dl><dt>Method resolution order:</dt>
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -428,25 +482,23 @@ stream-oriented&nbsp;protocols.<br>&nbsp;</span></td></tr>
 Methods defined here:<br>
 <dl><dt><a name="PrefixedMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="PrefixedMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="PrefixedMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt>async <a name="PrefixedMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="PrefixedMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="PrefixedMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="PrefixedMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="PrefixedMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
+<dl><dt><a name="PrefixedMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
 
-<dl><dt><strong>__annotations__</strong> = {'message_length_kind': typing.Type[typing.Union[runtimepy.primitives.in...itive, runtimepy.primitives.int.Uint64Primitive]], 'reading_header': &lt;class 'bool'&gt;}</dl>
-
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><strong>__annotations__</strong> = {'processor': &lt;class 'runtimepy.message.MessageProcessor'&gt;}</dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
-<dl><dt><a name="PrefixedMessageConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="PrefixedMessageConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter[Any]], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="PrefixedMessageConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
 
@@ -456,11 +508,16 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="PrefixedMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="PrefixedMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="PrefixedMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="PrefixedMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="PrefixedMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="PrefixedMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<dl><dt>async <a name="PrefixedMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
 <dl><dt><a name="PrefixedMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
@@ -468,6 +525,9 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -475,24 +535,34 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
 <dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
 
 <dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
 
 <hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="PrefixedMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
+<hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="PrefixedMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="PrefixedMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="PrefixedMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="PrefixedMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="PrefixedMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -503,7 +573,7 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <td class="section-title" colspan=3>&nbsp;<br><a name="StringMessageConnection">class <strong>StringMessageConnection</strong></a>(<a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#StringMessageConnection">StringMessageConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#StringMessageConnection">StringMessageConnection</a>(logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter[Any]],&nbsp;env:&nbsp;runtimepy.channel.environment.ChannelEnvironment&nbsp;=&nbsp;None,&nbsp;add_metrics:&nbsp;bool&nbsp;=&nbsp;True)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;string-message&nbsp;sending&nbsp;and&nbsp;processing&nbsp;connection.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -511,6 +581,7 @@ A&nbsp;simple&nbsp;string-message&nbsp;sending&nbsp;and&nbsp;processing&nbsp;con
 <dd><a href="runtimepy.net.stream.string.html#StringMessageConnection">StringMessageConnection</a></dd>
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -532,19 +603,15 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
 <dl><dt><a name="StringMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="StringMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="StringMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="StringMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="StringMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="StringMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><a name="StringMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
-<dl><dt><a name="StringMessageConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="StringMessageConnection-__init__"><strong>__init__</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter[Any]], env: runtimepy.channel.environment.ChannelEnvironment = None, add_metrics: bool = True) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="StringMessageConnection-async_init"><strong>async_init</strong></a>(self) -&gt; bool</dt><dd><span class="code">A&nbsp;runtime&nbsp;initialization&nbsp;routine&nbsp;(executes&nbsp;during&nbsp;'process').</span></dd></dl>
 
@@ -554,11 +621,16 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="StringMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="StringMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="StringMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="StringMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="StringMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="StringMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
+
+<dl><dt>async <a name="StringMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
 <dl><dt><a name="StringMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
@@ -566,6 +638,9 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -573,24 +648,34 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
 <dl><dt><strong>uses_binary_tx_queue</strong> = True</dl>
 
 <dl><dt><strong>uses_text_tx_queue</strong> = True</dl>
 
 <hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="StringMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
+<hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="StringMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="StringMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="StringMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="StringMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="StringMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -601,7 +686,7 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <td class="section-title" colspan=3>&nbsp;<br><a name="TcpPrefixedMessageConnection">class <strong>TcpPrefixedMessageConnection</strong></a>(<a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>, <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#TcpPrefixedMessageConnection">TcpPrefixedMessageConnection</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.connection.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TcpPrefixedMessageConnection">TcpPrefixedMessageConnection</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.protocol.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;TCP&nbsp;implementation&nbsp;for&nbsp;size-prefixed&nbsp;messages.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -610,6 +695,7 @@ A&nbsp;TCP&nbsp;implementation&nbsp;for&nbsp;size-prefixed&nbsp;messages.<br>&nb
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -626,23 +712,22 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
 <dl><dt><a name="TcpPrefixedMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="TcpPrefixedMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="TcpPrefixedMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt>async <a name="TcpPrefixedMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="TcpPrefixedMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="TcpPrefixedMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="TcpPrefixedMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="TcpPrefixedMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><a name="TcpPrefixedMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
-<dl><dt><a name="TcpPrefixedMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.connection.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="TcpPrefixedMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.protocol.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="TcpPrefixedMessageConnection-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="TcpPrefixedMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
 <dl><dt><a name="TcpPrefixedMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
@@ -652,14 +737,18 @@ Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection"
 Class methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
 <dl><dt>async <a name="TcpPrefixedMessageConnection-app"><strong>app</strong></a>(stop_sig: asyncio.locks.Event, callback: Callable[[~T], NoneType] = None, serving_callback: Callable[[Any], NoneType] = None, manager: runtimepy.net.manager.ConnectionManager = None, **kwargs) -&gt; None<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;an&nbsp;application&nbsp;that&nbsp;serves&nbsp;new&nbsp;connections.</span></dd></dl>
 
-<dl><dt>async <a name="TcpPrefixedMessageConnection-create_connection"><strong>create_connection</strong></a>(**kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="TcpPrefixedMessageConnection-create_connection"><strong>create_connection</strong></a>(backoff: runtimepy.net.backoff.ExponentialBackoff = None, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="TcpPrefixedMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; Tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+<dl><dt><a name="TcpPrefixedMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; AsyncIterator[tuple[~T, ~T]]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
 
 <dl><dt><a name="TcpPrefixedMessageConnection-serve"><strong>serve</strong></a>(callback: Callable[[~T], NoneType] = None, **kwargs) -&gt; AsyncIterator[Any]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;incoming&nbsp;connections.</span></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><strong>log_alias</strong> = 'TCP'</dl>
+
+<dl><dt><strong>log_prefix</strong> = ''</dl>
+
 <dl><dt><strong>uses_binary_tx_queue</strong> = False</dl>
 
 <dl><dt><strong>uses_text_tx_queue</strong> = False</dl>
@@ -672,14 +761,19 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="TcpPrefixedMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="TcpPrefixedMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="TcpPrefixedMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="TcpPrefixedMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="TcpPrefixedMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="TcpPrefixedMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -687,20 +781,30 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="TcpPrefixedMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="TcpPrefixedMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="TcpPrefixedMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="TcpPrefixedMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="TcpPrefixedMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="TcpPrefixedMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -708,6 +812,8 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <hr>
 Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
 <dl><dt><a name="TcpPrefixedMessageConnection-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="TcpPrefixedMessageConnection-set_transport"><strong>set_transport</strong></a>(self, transport: '_asyncio.BaseTransport') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;the&nbsp;transport&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
@@ -720,7 +826,7 @@ Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMi
 <td class="section-title" colspan=3>&nbsp;<br><a name="TcpStringMessageConnection">class <strong>TcpStringMessageConnection</strong></a>(<a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>, <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#TcpStringMessageConnection">TcpStringMessageConnection</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.connection.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#TcpStringMessageConnection">TcpStringMessageConnection</a>(transport:&nbsp;asyncio.transports.Transport,&nbsp;protocol:&nbsp;runtimepy.net.tcp.protocol.QueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;string-message&nbsp;sending&nbsp;and&nbsp;processing&nbsp;connection&nbsp;using&nbsp;TCP.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -730,6 +836,7 @@ A&nbsp;simple&nbsp;string-message&nbsp;sending&nbsp;and&nbsp;processing&nbsp;con
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -752,21 +859,20 @@ Methods inherited from <a href="runtimepy.net.stream.string.html#StringMessageCo
 Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
 <dl><dt><a name="TcpStringMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="TcpStringMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="TcpStringMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="TcpStringMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="TcpStringMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="TcpStringMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><a name="TcpStringMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
-<dl><dt><a name="TcpStringMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.connection.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="TcpStringMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.Transport, protocol: runtimepy.net.tcp.protocol.QueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;TCP&nbsp;connection.</span></dd></dl>
 
 <dl><dt>async <a name="TcpStringMessageConnection-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt>async <a name="TcpStringMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
 <dl><dt><a name="TcpStringMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
@@ -776,14 +882,18 @@ Methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection"
 Class methods inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
 <dl><dt>async <a name="TcpStringMessageConnection-app"><strong>app</strong></a>(stop_sig: asyncio.locks.Event, callback: Callable[[~T], NoneType] = None, serving_callback: Callable[[Any], NoneType] = None, manager: runtimepy.net.manager.ConnectionManager = None, **kwargs) -&gt; None<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Run&nbsp;an&nbsp;application&nbsp;that&nbsp;serves&nbsp;new&nbsp;connections.</span></dd></dl>
 
-<dl><dt>async <a name="TcpStringMessageConnection-create_connection"><strong>create_connection</strong></a>(**kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="TcpStringMessageConnection-create_connection"><strong>create_connection</strong></a>(backoff: runtimepy.net.backoff.ExponentialBackoff = None, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;TCP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="TcpStringMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; Tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+<dl><dt><a name="TcpStringMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; AsyncIterator[tuple[~T, ~T]]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
 
 <dl><dt><a name="TcpStringMessageConnection-serve"><strong>serve</strong></a>(callback: Callable[[~T], NoneType] = None, **kwargs) -&gt; AsyncIterator[Any]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Serve&nbsp;incoming&nbsp;connections.</span></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.net.tcp.connection.html#TcpConnection">runtimepy.net.tcp.connection.TcpConnection</a>:<br>
+<dl><dt><strong>log_alias</strong> = 'TCP'</dl>
+
+<dl><dt><strong>log_prefix</strong> = ''</dl>
+
 <dl><dt><strong>uses_binary_tx_queue</strong> = False</dl>
 
 <dl><dt><strong>uses_text_tx_queue</strong> = False</dl>
@@ -796,14 +906,19 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="TcpStringMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="TcpStringMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="TcpStringMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="TcpStringMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="TcpStringMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="TcpStringMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -811,20 +926,30 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="TcpStringMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="TcpStringMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="TcpStringMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="TcpStringMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="TcpStringMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="TcpStringMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -832,6 +957,8 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <hr>
 Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
 <dl><dt><a name="TcpStringMessageConnection-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="TcpStringMessageConnection-set_transport"><strong>set_transport</strong></a>(self, transport: '_asyncio.BaseTransport') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;the&nbsp;transport&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
@@ -844,7 +971,7 @@ Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMi
 <td class="section-title" colspan=3>&nbsp;<br><a name="UdpPrefixedMessageConnection">class <strong>UdpPrefixedMessageConnection</strong></a>(<a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>, <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#UdpPrefixedMessageConnection">UdpPrefixedMessageConnection</a>(transport:&nbsp;'_DatagramTransport',&nbsp;protocol:&nbsp;'UdpQueueProtocol')&nbsp;-&amp;gt;&nbsp;'None'<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#UdpPrefixedMessageConnection">UdpPrefixedMessageConnection</a>(transport:&nbsp;asyncio.transports.DatagramTransport,&nbsp;protocol:&nbsp;runtimepy.net.udp.protocol.UdpQueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;UDP&nbsp;implementation&nbsp;for&nbsp;size-prefixed&nbsp;messages.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -853,6 +980,7 @@ A&nbsp;UDP&nbsp;implementation&nbsp;for&nbsp;size-prefixed&nbsp;messages.<br>&nb
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -873,39 +1001,38 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
 <dl><dt><a name="UdpPrefixedMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="UdpPrefixedMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="UdpPrefixedMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt>async <a name="UdpPrefixedMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="UdpPrefixedMessageConnection-process_single"><strong>process_single</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;single&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="UdpPrefixedMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="UdpPrefixedMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="UdpPrefixedMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><a name="UdpPrefixedMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
-<dl><dt><a name="UdpPrefixedMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: '_DatagramTransport', protocol: 'UdpQueueProtocol') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;UDP&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="UdpPrefixedMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.DatagramTransport, protocol: runtimepy.net.udp.protocol.UdpQueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;UDP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="UdpPrefixedMessageConnection-close"><strong>close</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="UdpPrefixedMessageConnection-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
 
-<dl><dt><a name="UdpPrefixedMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: '_BinaryMessage') -&gt; 'None'</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+<dl><dt>async <a name="UdpPrefixedMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
-<dl><dt><a name="UdpPrefixedMessageConnection-send_text"><strong>send_text</strong></a>(self, data: 'str') -&gt; 'None'</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+<dl><dt><a name="UdpPrefixedMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
-<dl><dt><a name="UdpPrefixedMessageConnection-sendto"><strong>sendto</strong></a>(self, data: 'bytes', addr: '_Union[IpHost, _Tuple[str, int]]' = None) -&gt; 'None'</dt><dd><span class="code">Send&nbsp;to&nbsp;a&nbsp;specific&nbsp;address.</span></dd></dl>
+<dl><dt><a name="UdpPrefixedMessageConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
 
-<dl><dt><a name="UdpPrefixedMessageConnection-set_remote_address"><strong>set_remote_address</strong></a>(self, addr: 'IpHost') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;remote&nbsp;address.&nbsp;Note&nbsp;that&nbsp;this&nbsp;doesn't&nbsp;interact&nbsp;with&nbsp;or<br>
+<dl><dt><a name="UdpPrefixedMessageConnection-sendto"><strong>sendto</strong></a>(self, data: bytes, addr: Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host, tuple[str, int]] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;to&nbsp;a&nbsp;specific&nbsp;address.</span></dd></dl>
+
+<dl><dt><a name="UdpPrefixedMessageConnection-set_remote_address"><strong>set_remote_address</strong></a>(self, addr: Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host]) -&gt; None</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;remote&nbsp;address.&nbsp;Note&nbsp;that&nbsp;this&nbsp;doesn't&nbsp;interact&nbsp;with&nbsp;or<br>
 attempt&nbsp;to&nbsp;'connect'&nbsp;the&nbsp;underlying&nbsp;socket.&nbsp;That&nbsp;should&nbsp;be&nbsp;done&nbsp;at<br>
 creation&nbsp;time.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
-<dl><dt>async <a name="UdpPrefixedMessageConnection-create_connection"><strong>create_connection</strong></a>(connect: 'bool' = True, **kwargs) -&gt; 'T'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;UDP&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="UdpPrefixedMessageConnection-create_connection"><strong>create_connection</strong></a>(connect: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;UDP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="UdpPrefixedMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; '_Tuple[T, T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+<dl><dt>async <a name="UdpPrefixedMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
@@ -921,14 +1048,19 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="UdpPrefixedMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="UdpPrefixedMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="UdpPrefixedMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="UdpPrefixedMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="UdpPrefixedMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="UdpPrefixedMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -936,20 +1068,30 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="UdpPrefixedMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="UdpPrefixedMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="UdpPrefixedMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="UdpPrefixedMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="UdpPrefixedMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="UdpPrefixedMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -957,6 +1099,8 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <hr>
 Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
 <dl><dt><a name="UdpPrefixedMessageConnection-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="UdpPrefixedMessageConnection-set_transport"><strong>set_transport</strong></a>(self, transport: '_asyncio.BaseTransport') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;the&nbsp;transport&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
@@ -969,7 +1113,7 @@ Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMi
 <td class="section-title" colspan=3>&nbsp;<br><a name="UdpStringMessageConnection">class <strong>UdpStringMessageConnection</strong></a>(<a href="runtimepy.net.stream.string.html#StringMessageConnection">runtimepy.net.stream.string.StringMessageConnection</a>, <a href="runtimepy.net.stream.html#UdpPrefixedMessageConnection">UdpPrefixedMessageConnection</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#UdpStringMessageConnection">UdpStringMessageConnection</a>(transport:&nbsp;'_DatagramTransport',&nbsp;protocol:&nbsp;'UdpQueueProtocol')&nbsp;-&amp;gt;&nbsp;'None'<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#UdpStringMessageConnection">UdpStringMessageConnection</a>(transport:&nbsp;asyncio.transports.DatagramTransport,&nbsp;protocol:&nbsp;runtimepy.net.udp.protocol.UdpQueueProtocol)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;string-message&nbsp;sending&nbsp;and&nbsp;processing&nbsp;connection&nbsp;using&nbsp;UDP.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -980,6 +1124,7 @@ A&nbsp;simple&nbsp;string-message&nbsp;sending&nbsp;and&nbsp;processing&nbsp;con
 <dd><a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a></dd>
 <dd><a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a></dd>
 <dd><a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a></dd>
+<dd><a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a></dd>
 <dd><a href="abc.html#ABC">abc.ABC</a></dd>
@@ -1006,37 +1151,36 @@ Methods inherited from <a href="runtimepy.net.stream.html#UdpPrefixedMessageConn
 Methods inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
 <dl><dt><a name="UdpStringMessageConnection-init"><strong>init</strong></a>(self) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
-<dl><dt>async <a name="UdpStringMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: Tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
+<dl><dt>async <a name="UdpStringMessageConnection-process_binary"><strong>process_binary</strong></a>(self, data: bytes, addr: tuple[str, int] = None) -&gt; bool</dt><dd><span class="code">Process&nbsp;an&nbsp;incoming&nbsp;message.</span></dd></dl>
 
-<dl><dt><a name="UdpStringMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
+<dl><dt><a name="UdpStringMessageConnection-send_message"><strong>send_message</strong></a>(self, data: Union[bytes, bytearray, memoryview], addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Handle&nbsp;inter-message&nbsp;prefixes&nbsp;for&nbsp;outgoing&nbsp;messages.</span></dd></dl>
 
-<dl><dt><a name="UdpStringMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: Tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="runtimepy.net.stream.base.html#PrefixedMessageConnection">runtimepy.net.stream.base.PrefixedMessageConnection</a>:<br>
-<dl><dt><strong>message_length_kind</strong> = &lt;class 'runtimepy.primitives.int.Uint32Primitive'&gt;<dd><span class="code">A&nbsp;simple&nbsp;primitive&nbsp;class&nbsp;for&nbsp;single-precision&nbsp;floating-point.</span></dl>
+<dl><dt><a name="UdpStringMessageConnection-send_message_str"><strong>send_message_str</strong></a>(self, data: str, addr: tuple[str, int] = None) -&gt; None</dt><dd><span class="code">Convert&nbsp;a&nbsp;message&nbsp;to&nbsp;bytes&nbsp;before&nbsp;sending.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
-<dl><dt><a name="UdpStringMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: '_DatagramTransport', protocol: 'UdpQueueProtocol') -&gt; 'None'</dt><dd><span class="code">Initialize&nbsp;this&nbsp;UDP&nbsp;connection.</span></dd></dl>
+<dl><dt><a name="UdpStringMessageConnection-__init__"><strong>__init__</strong></a>(self, transport: asyncio.transports.DatagramTransport, protocol: runtimepy.net.udp.protocol.UdpQueueProtocol) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;UDP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="UdpStringMessageConnection-close"><strong>close</strong></a>(self) -&gt; 'None'</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="UdpStringMessageConnection-close"><strong>close</strong></a>(self) -&gt; None</dt><dd><span class="code">Close&nbsp;this&nbsp;connection.</span></dd></dl>
 
-<dl><dt><a name="UdpStringMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: '_BinaryMessage') -&gt; 'None'</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
+<dl><dt>async <a name="UdpStringMessageConnection-restart"><strong>restart</strong></a>(self) -&gt; bool</dt><dd><span class="code">Reset&nbsp;necessary&nbsp;underlying&nbsp;state&nbsp;for&nbsp;this&nbsp;connection&nbsp;to&nbsp;'process'<br>
+again.</span></dd></dl>
 
-<dl><dt><a name="UdpStringMessageConnection-send_text"><strong>send_text</strong></a>(self, data: 'str') -&gt; 'None'</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
+<dl><dt><a name="UdpStringMessageConnection-send_binary"><strong>send_binary</strong></a>(self, data: Union[bytes, bytearray, memoryview]) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;binary&nbsp;message&nbsp;tos&nbsp;end.</span></dd></dl>
 
-<dl><dt><a name="UdpStringMessageConnection-sendto"><strong>sendto</strong></a>(self, data: 'bytes', addr: '_Union[IpHost, _Tuple[str, int]]' = None) -&gt; 'None'</dt><dd><span class="code">Send&nbsp;to&nbsp;a&nbsp;specific&nbsp;address.</span></dd></dl>
+<dl><dt><a name="UdpStringMessageConnection-send_text"><strong>send_text</strong></a>(self, data: str) -&gt; None</dt><dd><span class="code">Enqueue&nbsp;a&nbsp;text&nbsp;message&nbsp;to&nbsp;send.</span></dd></dl>
 
-<dl><dt><a name="UdpStringMessageConnection-set_remote_address"><strong>set_remote_address</strong></a>(self, addr: 'IpHost') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;remote&nbsp;address.&nbsp;Note&nbsp;that&nbsp;this&nbsp;doesn't&nbsp;interact&nbsp;with&nbsp;or<br>
+<dl><dt><a name="UdpStringMessageConnection-sendto"><strong>sendto</strong></a>(self, data: bytes, addr: Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host, tuple[str, int]] = None) -&gt; None</dt><dd><span class="code">Send&nbsp;to&nbsp;a&nbsp;specific&nbsp;address.</span></dd></dl>
+
+<dl><dt><a name="UdpStringMessageConnection-set_remote_address"><strong>set_remote_address</strong></a>(self, addr: Union[runtimepy.net.util.IPv4Host, runtimepy.net.util.IPv6Host]) -&gt; None</dt><dd><span class="code">Set&nbsp;a&nbsp;new&nbsp;remote&nbsp;address.&nbsp;Note&nbsp;that&nbsp;this&nbsp;doesn't&nbsp;interact&nbsp;with&nbsp;or<br>
 attempt&nbsp;to&nbsp;'connect'&nbsp;the&nbsp;underlying&nbsp;socket.&nbsp;That&nbsp;should&nbsp;be&nbsp;done&nbsp;at<br>
 creation&nbsp;time.</span></dd></dl>
 
 <hr>
 Class methods inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
-<dl><dt>async <a name="UdpStringMessageConnection-create_connection"><strong>create_connection</strong></a>(connect: 'bool' = True, **kwargs) -&gt; 'T'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;UDP&nbsp;connection.</span></dd></dl>
+<dl><dt>async <a name="UdpStringMessageConnection-create_connection"><strong>create_connection</strong></a>(connect: bool = True, **kwargs) -&gt; ~T<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;UDP&nbsp;connection.</span></dd></dl>
 
-<dl><dt>async <a name="UdpStringMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; '_Tuple[T, T]'<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
+<dl><dt>async <a name="UdpStringMessageConnection-create_pair"><strong>create_pair</strong></a>() -&gt; tuple[~T, ~T]<span class="grey"><span class="heading-text"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></span></span></dt><dd><span class="code">Create&nbsp;a&nbsp;connection&nbsp;pair.</span></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="runtimepy.net.udp.connection.html#UdpConnection">runtimepy.net.udp.connection.UdpConnection</a>:<br>
@@ -1052,14 +1196,19 @@ Methods inherited from <a href="runtimepy.net.connection.html#Connection">runtim
 
 <dl><dt><a name="UdpStringMessageConnection-disable_extra"><strong>disable_extra</strong></a>(self) -&gt; None</dt><dd><span class="code">Additional&nbsp;tasks&nbsp;to&nbsp;perform&nbsp;when&nbsp;disabling.</span></dd></dl>
 
+<dl><dt>async <a name="UdpStringMessageConnection-disable_in"><strong>disable_in</strong></a>(self, time: float) -&gt; None</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;disabling&nbsp;a&nbsp;connection&nbsp;after&nbsp;some&nbsp;delay.</span></dd></dl>
+
 <dl><dt><a name="UdpStringMessageConnection-log_metrics"><strong>log_metrics</strong></a>(self, label: str = 'conn') -&gt; None</dt><dd><span class="code">Log&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
-<dl><dt>async <a name="UdpStringMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
+<dl><dt>async <a name="UdpStringMessageConnection-process"><strong>process</strong></a>(self, stop_sig: asyncio.locks.Event = None, disable_time: float = None, backoff: runtimepy.net.backoff.ExponentialBackoff = None) -&gt; None</dt><dd><span class="code">Process&nbsp;tasks&nbsp;for&nbsp;this&nbsp;connection&nbsp;while&nbsp;the&nbsp;connection&nbsp;is&nbsp;active.</span></dd></dl>
 
 <dl><dt>async <a name="UdpStringMessageConnection-process_text"><strong>process_text</strong></a>(self, data: str) -&gt; bool</dt><dd><span class="code">Process&nbsp;a&nbsp;text&nbsp;frame.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
+<dl><dt><strong>auto_restart</strong></dt>
+<dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;should&nbsp;be&nbsp;automatically&nbsp;restarted.</span></dd>
+</dl>
 <dl><dt><strong>disabled</strong></dt>
 <dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;connection&nbsp;is&nbsp;disabled.</span></dd>
 </dl>
@@ -1067,20 +1216,30 @@ Readonly properties inherited from <a href="runtimepy.net.connection.html#Connec
 Data and other attributes inherited from <a href="runtimepy.net.connection.html#Connection">runtimepy.net.connection.Connection</a>:<br>
 <dl><dt><strong>byte_order</strong> = &lt;ByteOrder.NETWORK: 4&gt;</dl>
 
+<dl><dt><strong>connected</strong> = True</dl>
+
+<dl><dt><strong>default_auto_restart</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.mixins.logging.html#LoggerMixinLevelControl">runtimepy.mixins.logging.LoggerMixinLevelControl</a>:<br>
+<dl><dt><a name="UdpStringMessageConnection-setup_level_channel"><strong>setup_level_channel</strong></a>(self, env: runtimepy.channel.environment.ChannelEnvironment, name: str = 'log_level', initial: str = 'info', description: str = 'Text-log level filter for this environment.') -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;commandable&nbsp;log-level&nbsp;channel&nbsp;to&nbsp;the&nbsp;environment.</span></dd></dl>
+
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="UdpStringMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="UdpStringMessageConnection-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnvironmentMixin">runtimepy.mixins.environment.ChannelEnvironmentMixin</a>:<br>
+<dl><dt><a name="UdpStringMessageConnection-register_channel_metrics"><strong>register_channel_metrics</strong></a>(self, name: str, channel: runtimepy.metrics.channel.ChannelMetrics, verb: str) -&gt; None</dt><dd><span class="code">Register&nbsp;individual&nbsp;channel&nbsp;metrics.</span></dd></dl>
+
 <dl><dt><a name="UdpStringMessageConnection-register_connection_metrics"><strong>register_connection_metrics</strong></a>(self, metrics: runtimepy.metrics.connection.ConnectionMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;connection&nbsp;metrics.</span></dd></dl>
 
 <dl><dt><a name="UdpStringMessageConnection-register_task_metrics"><strong>register_task_metrics</strong></a>(self, metrics: runtimepy.metrics.task.PeriodicTaskMetrics, namespace: str = 'metrics') -&gt; None</dt><dd><span class="code">Register&nbsp;periodic&nbsp;task&nbsp;metrics.</span></dd></dl>
@@ -1088,6 +1247,8 @@ Methods inherited from <a href="runtimepy.mixins.environment.html#ChannelEnviron
 <hr>
 Methods inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>
 <dl><dt><a name="UdpStringMessageConnection-logger_name"><strong>logger_name</strong></a>(self, prefix: 'str' = '') -&gt; 'str'</dt><dd><span class="code">Get&nbsp;a&nbsp;logger&nbsp;name&nbsp;for&nbsp;this&nbsp;connection.</span></dd></dl>
+
+<dl><dt><a name="UdpStringMessageConnection-set_transport"><strong>set_transport</strong></a>(self, transport: '_asyncio.BaseTransport') -&gt; 'None'</dt><dd><span class="code">Set&nbsp;the&nbsp;transport&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.net.mixin.html#TransportMixin">runtimepy.net.mixin.TransportMixin</a>:<br>

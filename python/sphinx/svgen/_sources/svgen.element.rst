@@ -1,6 +1,14 @@
 svgen.element package
 =====================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   svgen.element.html
+
 Submodules
 ----------
 

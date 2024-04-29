@@ -22,10 +22,34 @@ conntextual.app module
    :undoc-members:
    :show-inheritance:
 
+conntextual.client module
+-------------------------
+
+.. automodule:: conntextual.client
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 conntextual.entry module
 ------------------------
 
 .. automodule:: conntextual.entry
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+conntextual.server module
+-------------------------
+
+.. automodule:: conntextual.server
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+conntextual.util module
+-----------------------
+
+.. automodule:: conntextual.util
    :members:
    :undoc-members:
    :show-inheritance:

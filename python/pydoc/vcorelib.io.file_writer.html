@@ -12,6 +12,13 @@
     <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;an&nbsp;interface&nbsp;for&nbsp;writing&nbsp;to&nbsp;variably&nbsp;indented&nbsp;files.</span></p>
 <p>
 <table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
     
@@ -36,7 +43,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="CommentStyle">class <strong>CommentStyle</strong></a>(<a href="enum.html#Enum">enum.Enum</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#CommentStyle">CommentStyle</a>(value,&nbsp;names=None,&nbsp;*,&nbsp;module=None,&nbsp;qualname=None,&nbsp;type=None,&nbsp;start=1,&nbsp;boundary=None)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CommentStyle">CommentStyle</a>(*values)<br>
 &nbsp;<br>
 An&nbsp;enumeration&nbsp;describing&nbsp;different&nbsp;comment&nbsp;styles.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -65,11 +72,11 @@ Data descriptors inherited from <a href="enum.html#Enum">enum.Enum</a>:<br>
 </dl>
 <hr>
 Methods inherited from <a href="enum.html#EnumType">enum.EnumType</a>:<br>
-<dl><dt><a name="CommentStyle-__contains__"><strong>__contains__</strong></a>(member)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;member&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;this&nbsp;enum<br>
-raises&nbsp;TypeError&nbsp;if&nbsp;member&nbsp;is&nbsp;not&nbsp;an&nbsp;enum&nbsp;member<br>
+<dl><dt><a name="CommentStyle-__contains__"><strong>__contains__</strong></a>(value)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;True&nbsp;if&nbsp;`value`&nbsp;is&nbsp;in&nbsp;`cls`.<br>
 &nbsp;<br>
-note:&nbsp;in&nbsp;3.12&nbsp;TypeError&nbsp;will&nbsp;no&nbsp;longer&nbsp;be&nbsp;raised,&nbsp;and&nbsp;True&nbsp;will&nbsp;also&nbsp;be<br>
-returned&nbsp;if&nbsp;member&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;a&nbsp;member&nbsp;in&nbsp;this&nbsp;enum</span></dd></dl>
+`value`&nbsp;is&nbsp;in&nbsp;`cls`&nbsp;if:<br>
+1)&nbsp;`value`&nbsp;is&nbsp;a&nbsp;member&nbsp;of&nbsp;`cls`,&nbsp;or<br>
+2)&nbsp;`value`&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;`cls`'s&nbsp;members.</span></dd></dl>
 
 <dl><dt><a name="CommentStyle-__getitem__"><strong>__getitem__</strong></a>(name)<span class="grey"><span class="heading-text"> from <a href="enum.html#EnumType">enum.EnumType</a></span></span></dt><dd><span class="code">Return&nbsp;the&nbsp;member&nbsp;matching&nbsp;`name`.</span></dd></dl>
 
@@ -91,12 +98,12 @@ is&nbsp;a&nbsp;read-only&nbsp;view&nbsp;of&nbsp;the&nbsp;internal&nbsp;mapping.<
 <td class="section-title" colspan=3>&nbsp;<br><a name="IndentedFileWriter">class <strong>IndentedFileWriter</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#IndentedFileWriter">IndentedFileWriter</a>(stream:&nbsp;&amp;lt;class&nbsp;'TextIO'&amp;gt;,&nbsp;space:&nbsp;str&nbsp;=&nbsp;'&nbsp;',&nbsp;per_indent:&nbsp;int&nbsp;=&nbsp;1,&nbsp;prefix:&nbsp;str&nbsp;=&nbsp;'',&nbsp;suffix:&nbsp;str&nbsp;=&nbsp;'')&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#IndentedFileWriter">IndentedFileWriter</a>(stream:&nbsp;&amp;lt;class&nbsp;'TextIO'&amp;gt;,&nbsp;space:&nbsp;str&nbsp;=&nbsp;'&nbsp;',&nbsp;per_indent:&nbsp;int&nbsp;=&nbsp;1,&nbsp;prefix:&nbsp;str&nbsp;=&nbsp;'',&nbsp;suffix:&nbsp;str&nbsp;=&nbsp;'',&nbsp;linesep:&nbsp;str&nbsp;=&nbsp;'\n')&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;writing&nbsp;lines&nbsp;to&nbsp;a&nbsp;file&nbsp;and&nbsp;tracking&nbsp;indentation.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="IndentedFileWriter-__init__"><strong>__init__</strong></a>(self, stream: &lt;class 'TextIO'&gt;, space: str = ' ', per_indent: int = 1, prefix: str = '', suffix: str = '') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+<dl><dt><a name="IndentedFileWriter-__init__"><strong>__init__</strong></a>(self, stream: &lt;class 'TextIO'&gt;, space: str = ' ', per_indent: int = 1, prefix: str = '', suffix: str = '', linesep: str = '\n') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
 
 <dl><dt><a name="IndentedFileWriter-c_comment"><strong>c_comment</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">A&nbsp;helper&nbsp;for&nbsp;writing&nbsp;C-style&nbsp;comments.</span></dd></dl>
 
@@ -134,19 +141,19 @@ then&nbsp;writes&nbsp;a&nbsp;newline&nbsp;character&nbsp;(os.linesep).</span></d
 
 <hr>
 Static methods defined here:<br>
-<dl><dt><a name="IndentedFileWriter-from_path"><strong>from_path</strong></a>(path: pathlib.Path, space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;from&nbsp;a&nbsp;path&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+<dl><dt><a name="IndentedFileWriter-from_path"><strong>from_path</strong></a>(path: pathlib.Path, space: str = ' ', per_indent: int = 1, **kwargs) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;from&nbsp;a&nbsp;path&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
 
 <dl><dt><a name="IndentedFileWriter-string"><strong>string</strong></a>(space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;for&nbsp;a&nbsp;string.</span></dd></dl>
 
-<dl><dt><a name="IndentedFileWriter-temporary"><strong>temporary</strong></a>(space: str = ' ', per_indent: int = 1) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;from&nbsp;a&nbsp;temporary&nbsp;file&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+<dl><dt><a name="IndentedFileWriter-temporary"><strong>temporary</strong></a>(space: str = ' ', per_indent: int = 1, **kwargs) -&gt; Iterator[ForwardRef('IndentedFileWriter')]</dt><dd><span class="code">Create&nbsp;an&nbsp;instance&nbsp;from&nbsp;a&nbsp;temporary&nbsp;file&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -160,6 +167,5 @@ Data descriptors defined here:<br>
 <strong>LinesWithComments</strong> = typing.List[typing.Tuple[str, typing.Optional[str]]]<br>
 <strong>List</strong> = typing.List<br>
 <strong>Optional</strong> = typing.Optional<br>
-<strong>Tuple</strong> = typing.Tuple<br>
-<strong>linesep</strong> = '<span class="repr">\n</span>'</td></tr></table>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
 </body></html>

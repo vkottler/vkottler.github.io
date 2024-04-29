@@ -30,7 +30,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="Primitive">class <strong>Primitive</strong></a>(<a href="typing.html#Generic">typing.Generic</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Primitive">Primitive</a>(value:&nbsp;~T&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Primitive">Primitive</a>(value:&nbsp;~T&nbsp;=&nbsp;None,&nbsp;scaling:&nbsp;list[typing.Union[float,&nbsp;int]]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;simple&nbsp;class&nbsp;for&nbsp;storing&nbsp;and&nbsp;underlying&nbsp;primitive&nbsp;value.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -51,9 +51,15 @@ Methods defined here:<br>
 
 <dl><dt><a name="Primitive-__eq__"><strong>__eq__</strong></a>(self, other) -&gt; bool</dt><dd><span class="code">Determine&nbsp;if&nbsp;this&nbsp;instance&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;provided&nbsp;argument.</span></dd></dl>
 
-<dl><dt><a name="Primitive-__init__"><strong>__init__</strong></a>(self, value: ~T = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;primitive.</span></dd></dl>
+<dl><dt><a name="Primitive-__hash__"><strong>__hash__</strong></a>(self) -&gt; int</dt><dd><span class="code">A&nbsp;hash&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Primitive-__init__"><strong>__init__</strong></a>(self, value: ~T = None, scaling: list[typing.Union[float, int]] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;primitive.</span></dd></dl>
 
 <dl><dt><a name="Primitive-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="Primitive-age_ns"><strong>age_ns</strong></a>(self, now: int = None) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;in&nbsp;nanoseconds.</span></dd></dl>
+
+<dl><dt><a name="Primitive-age_str"><strong>age_str</strong></a>(self, now: int = None) -&gt; str</dt><dd><span class="code">Get&nbsp;the&nbsp;age&nbsp;of&nbsp;this&nbsp;primitive's&nbsp;value&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
 
 <dl><dt><a name="Primitive-binary"><strong>binary</strong></a>(self, byte_order: runtimepy.primitives.byte_order.ByteOrder = None) -&gt; bytes</dt><dd><span class="code">Convert&nbsp;this&nbsp;instance&nbsp;to&nbsp;a&nbsp;byte&nbsp;array.</span></dd></dl>
 
@@ -87,19 +93,20 @@ Readonly properties defined here:<br>
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<dl><dt><strong>scaled</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;primitive&nbsp;as&nbsp;a&nbsp;scaled&nbsp;value.</span></dd>
 </dl>
 <dl><dt><strong>value</strong></dt>
 <dd><span class="code">Obtain&nbsp;the&nbsp;underlying&nbsp;value.</span></dd>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.type.int.Int8T...Type, runtimepy.primitives.type.bool.BooleanType]}</dl>
-
-<dl><dt><strong>__hash__</strong> = None</dl>
+<dl><dt><strong>__annotations__</strong> = {'byte_order': &lt;enum 'ByteOrder'&gt;, 'kind': typing.Union[runtimepy.primitives.types.int.Int8...ype, runtimepy.primitives.types.bool.BooleanType]}</dl>
 
 <dl><dt><strong>__orig_bases__</strong> = (typing.Generic[~T],)</dl>
 
@@ -109,19 +116,16 @@ Data and other attributes defined here:<br>
 
 <hr>
 Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
-<dl><dt><a name="Primitive-__class_getitem__"><strong>__class_getitem__</strong></a>(params)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+<dl><dt><a name="Primitive-__class_getitem__"><strong>__class_getitem__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
 &nbsp;<br>
-At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this&nbsp;method<br>
-does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called&nbsp;when&nbsp;we<br>
-do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
 &nbsp;<br>
 However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
-classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo(<a href="typing.html#Generic">Generic</a>[T]):&nbsp;...`.</span></dd></dl>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
 
-<dl><dt><a name="Primitive-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">This&nbsp;method&nbsp;is&nbsp;called&nbsp;when&nbsp;a&nbsp;class&nbsp;is&nbsp;subclassed.<br>
-&nbsp;<br>
-The&nbsp;default&nbsp;implementation&nbsp;does&nbsp;nothing.&nbsp;It&nbsp;may&nbsp;be<br>
-overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
+<dl><dt><a name="Primitive-__init_subclass__"><strong>__init_subclass__</strong></a>(...)<span class="grey"><span class="heading-text"> from <a href="builtins.html#type">builtins.type</a></span></span></dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -129,6 +133,9 @@ overridden&nbsp;to&nbsp;extend&nbsp;subclasses.</span></dd></dl>
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>PrimitiveChangeCallaback</strong> = typing.Callable[[~T, ~T], NoneType]<br>
+<td class="singlecolumn"><strong>ChannelScaling</strong> = list[typing.Union[float, int]]<br>
+<strong>IDENT</strong> = &lt;runtimepy.util.Identifier object&gt;<br>
+<strong>Numeric</strong> = typing.Union[float, int]<br>
+<strong>PrimitiveChangeCallaback</strong> = typing.Callable[[~T, ~T], NoneType]<br>
 <strong>T</strong> = ~T</td></tr></table>
 </body></html>

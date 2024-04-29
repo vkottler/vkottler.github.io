@@ -2,16 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Python: module runtimepy.net.arbiter.imports</title>
+<title>Python: package runtimepy.net.arbiter.imports</title>
 </head><body>
 
 <table class="heading">
 <tr class="heading-text decor">
 <td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.arbiter.html" class="white">arbiter</a>.imports</strong></td>
-<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/imports.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/imports.py</a></td></tr></table>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/imports/__init__.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/arbiter/imports/__init__.py</a></td></tr></table>
     <p><span class="code">A&nbsp;module&nbsp;extending&nbsp;capability&nbsp;of&nbsp;the&nbsp;connection&nbsp;arbiter&nbsp;using&nbsp;Python&nbsp;import<br>
 machinery.</span></p>
 <p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="runtimepy.net.arbiter.imports.util.html">util</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
 <table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
@@ -37,7 +44,7 @@ machinery.</span></p>
 <td class="section-title" colspan=3>&nbsp;<br><a name="ImportConnectionArbiter">class <strong>ImportConnectionArbiter</strong></a>(<a href="runtimepy.net.arbiter.factory.connection.html#FactoryConnectionArbiter">runtimepy.net.arbiter.factory.connection.FactoryConnectionArbiter</a>, <a href="runtimepy.net.arbiter.factory.task.html#TaskConnectionArbiter">runtimepy.net.arbiter.factory.task.TaskConnectionArbiter</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#ImportConnectionArbiter">ImportConnectionArbiter</a>(manager:&nbsp;runtimepy.net.manager.ConnectionManager&nbsp;=&nbsp;None,&nbsp;stop_sig:&nbsp;asyncio.locks.Event&nbsp;=&nbsp;None,&nbsp;namespace:&nbsp;vcorelib.namespace.Namespace&nbsp;=&nbsp;None,&nbsp;logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter]&nbsp;=&nbsp;None,&nbsp;app:&nbsp;Union[Callable[[runtimepy.net.arbiter.info.AppInfo],&nbsp;Awaitable[int]],&nbsp;List[Callable[[runtimepy.net.arbiter.info.AppInfo],&nbsp;Awaitable[int]]]]&nbsp;=&nbsp;None,&nbsp;config:&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]]&nbsp;=&nbsp;None,&nbsp;window:&nbsp;Optional[Any]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ImportConnectionArbiter">ImportConnectionArbiter</a>(manager:&nbsp;runtimepy.net.manager.ConnectionManager&nbsp;=&nbsp;None,&nbsp;stop_sig:&nbsp;asyncio.locks.Event&nbsp;=&nbsp;None,&nbsp;namespace:&nbsp;vcorelib.namespace.base.Namespace&nbsp;=&nbsp;None,&nbsp;logger:&nbsp;Union[logging.Logger,&nbsp;logging.LoggerAdapter[Any]]&nbsp;=&nbsp;None,&nbsp;app:&nbsp;Union[Callable[[runtimepy.net.arbiter.info.AppInfo],&nbsp;Awaitable[int]],&nbsp;list[Callable[[runtimepy.net.arbiter.info.AppInfo],&nbsp;Awaitable[int]]]]&nbsp;=&nbsp;None,&nbsp;config:&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType,&nbsp;Dict[str,&nbsp;Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]],&nbsp;List[Union[str,&nbsp;int,&nbsp;float,&nbsp;bool,&nbsp;NoneType]]]]&nbsp;=&nbsp;None,&nbsp;window:&nbsp;Optional[Any]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;implementing&nbsp;extensions&nbsp;to&nbsp;the&nbsp;connection&nbsp;arbiter&nbsp;for&nbsp;working&nbsp;with<br>
 arbitrary&nbsp;Python&nbsp;modules.<br>&nbsp;</span></td></tr>
@@ -47,16 +54,22 @@ arbitrary&nbsp;Python&nbsp;modules.<br>&nbsp;</span></td></tr>
 <dd><a href="runtimepy.net.arbiter.factory.connection.html#FactoryConnectionArbiter">runtimepy.net.arbiter.factory.connection.FactoryConnectionArbiter</a></dd>
 <dd><a href="runtimepy.net.arbiter.factory.task.html#TaskConnectionArbiter">runtimepy.net.arbiter.factory.task.TaskConnectionArbiter</a></dd>
 <dd><a href="runtimepy.net.arbiter.base.html#BaseConnectionArbiter">runtimepy.net.arbiter.base.BaseConnectionArbiter</a></dd>
-<dd><a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a></dd>
+<dd><a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a></dd>
 <dd><a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a></dd>
 <dd><a href="runtimepy.tui.mixin.html#TuiMixin">runtimepy.tui.mixin.TuiMixin</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
+<dl><dt><a name="ImportConnectionArbiter-factory_process"><strong>factory_process</strong></a>(self, factory: str, name: str, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]], program: str) -&gt; bool</dt><dd><span class="code">Register&nbsp;a&nbsp;runtime&nbsp;process.</span></dd></dl>
+
+<dl><dt><a name="ImportConnectionArbiter-factory_struct"><strong>factory_struct</strong></a>(self, factory: str, name: str, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]]) -&gt; bool</dt><dd><span class="code">Register&nbsp;a&nbsp;runtime&nbsp;structure&nbsp;from&nbsp;factory&nbsp;and&nbsp;name.</span></dd></dl>
+
 <dl><dt><a name="ImportConnectionArbiter-register_module_factory"><strong>register_module_factory</strong></a>(self, module_path: str, *namespaces: str, **kwargs) -&gt; bool</dt><dd><span class="code">Attempt&nbsp;to&nbsp;register&nbsp;a&nbsp;factory&nbsp;class&nbsp;based&nbsp;on&nbsp;its&nbsp;module&nbsp;path.</span></dd></dl>
 
-<dl><dt><a name="ImportConnectionArbiter-set_app"><strong>set_app</strong></a>(self, module_path: Union[str, List[str]]) -&gt; None</dt><dd><span class="code">Attempt&nbsp;to&nbsp;update&nbsp;the&nbsp;application&nbsp;method&nbsp;from&nbsp;the&nbsp;provided&nbsp;string.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-register_peer_factory"><strong>register_peer_factory</strong></a>(self, factory: type[runtimepy.subprocess.peer.RuntimepyPeer], *namespaces: str) -&gt; bool</dt><dd><span class="code">Attempt&nbsp;to&nbsp;register&nbsp;a&nbsp;subprocess&nbsp;peer&nbsp;factory.</span></dd></dl>
+
+<dl><dt><a name="ImportConnectionArbiter-register_struct_factory"><strong>register_struct_factory</strong></a>(self, factory: type[runtimepy.net.arbiter.info.RuntimeStruct], *namespaces: str) -&gt; bool</dt><dd><span class="code">Attempt&nbsp;to&nbsp;register&nbsp;a&nbsp;struct&nbsp;factory.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -78,41 +91,46 @@ Methods inherited from <a href="runtimepy.net.arbiter.factory.task.html#TaskConn
 
 <hr>
 Methods inherited from <a href="runtimepy.net.arbiter.base.html#BaseConnectionArbiter">runtimepy.net.arbiter.base.BaseConnectionArbiter</a>:<br>
-<dl><dt><a name="ImportConnectionArbiter-__init__"><strong>__init__</strong></a>(self, manager: runtimepy.net.manager.ConnectionManager = None, stop_sig: asyncio.locks.Event = None, namespace: vcorelib.namespace.Namespace = None, logger: Union[logging.Logger, logging.LoggerAdapter] = None, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], List[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, window: Optional[Any] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection&nbsp;arbiter.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-__init__"><strong>__init__</strong></a>(self, manager: runtimepy.net.manager.ConnectionManager = None, stop_sig: asyncio.locks.Event = None, namespace: vcorelib.namespace.base.Namespace = None, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], list[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, window: Optional[Any] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;connection&nbsp;arbiter.</span></dd></dl>
 
-<dl><dt>async <a name="ImportConnectionArbiter-app"><strong>app</strong></a>(self, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], List[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, check_connections: bool = True, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None) -&gt; int</dt><dd><span class="code">Run&nbsp;the&nbsp;application&nbsp;alongside&nbsp;the&nbsp;connection&nbsp;manager&nbsp;and&nbsp;server&nbsp;tasks.</span></dd></dl>
+<dl><dt>async <a name="ImportConnectionArbiter-app"><strong>app</strong></a>(self, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], list[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, check_connections: bool = True, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None) -&gt; int</dt><dd><span class="code">Run&nbsp;the&nbsp;application&nbsp;alongside&nbsp;the&nbsp;connection&nbsp;manager&nbsp;and&nbsp;server&nbsp;tasks.</span></dd></dl>
 
 <dl><dt><a name="ImportConnectionArbiter-register_connection"><strong>register_connection</strong></a>(self, connection: Union[runtimepy.net.connection.Connection, Awaitable[runtimepy.net.connection.Connection]], *names: str, delim: str = None) -&gt; bool</dt><dd><span class="code">Attempt&nbsp;to&nbsp;register&nbsp;a&nbsp;connection&nbsp;object.</span></dd></dl>
 
-<dl><dt><a name="ImportConnectionArbiter-run"><strong>run</strong></a>(self, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], List[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, eloop: asyncio.events.AbstractEventLoop = None, signals: Iterable[int] = None, check_connections: bool = True, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, enable_uvloop: bool = True) -&gt; int</dt><dd><span class="code">Run&nbsp;the&nbsp;application&nbsp;until&nbsp;the&nbsp;stop&nbsp;signal&nbsp;is&nbsp;set.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-run"><strong>run</strong></a>(self, app: Union[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]], list[Callable[[runtimepy.net.arbiter.info.AppInfo], Awaitable[int]]]] = None, eloop: asyncio.events.AbstractEventLoop = None, signals: Iterable[int] = None, check_connections: bool = True, config: Dict[str, Union[str, int, float, bool, NoneType, Dict[str, Union[str, int, float, bool, NoneType]], List[Union[str, int, float, bool, NoneType]]]] = None, enable_uvloop: bool = True) -&gt; int</dt><dd><span class="code">Run&nbsp;the&nbsp;application&nbsp;until&nbsp;the&nbsp;stop&nbsp;signal&nbsp;is&nbsp;set.</span></dd></dl>
 
 <hr>
-Methods inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>:<br>
-<dl><dt><a name="ImportConnectionArbiter-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; vcorelib.namespace.Namespace</dt><dd><span class="code">Obtain&nbsp;a&nbsp;child&nbsp;namespace.</span></dd></dl>
+Methods inherited from <a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a>:<br>
+<dl><dt><a name="ImportConnectionArbiter-child_namespace"><strong>child_namespace</strong></a>(self, *names: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; vcorelib.namespace.base.Namespace</dt><dd><span class="code">Obtain&nbsp;a&nbsp;child&nbsp;namespace.</span></dd></dl>
 
-<dl><dt><a name="ImportConnectionArbiter-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;object's&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-names_pushed"><strong>names_pushed</strong></a>(self, *names: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; Iterator[NoneType]</dt><dd><span class="code">Apply&nbsp;some&nbsp;names&nbsp;to&nbsp;this&nbsp;object's&nbsp;namespace&nbsp;as&nbsp;a&nbsp;managed&nbsp;context.</span></dd></dl>
 
-<dl><dt><a name="ImportConnectionArbiter-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;object.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-namespace"><strong>namespace</strong></a>(self, name: str = None, delim: str = None, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;namespace&nbsp;string&nbsp;for&nbsp;this&nbsp;object.</span></dd></dl>
 
-<dl><dt><a name="ImportConnectionArbiter-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-namespace_search"><strong>namespace_search</strong></a>(self, *names: str, pattern: str = '.*', namespace: vcorelib.namespace.base.Namespace = None) -&gt; Iterator[str]</dt><dd><span class="code">Perform&nbsp;a&nbsp;search&nbsp;on&nbsp;the&nbsp;namespace.</span></dd></dl>
 
-<dl><dt><a name="ImportConnectionArbiter-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-namespace_suggest"><strong>namespace_suggest</strong></a>(self, data: str, delta: bool = True, namespace: vcorelib.namespace.base.Namespace = None) -&gt; Optional[str]</dt><dd><span class="code">Find&nbsp;the&nbsp;shortest&nbsp;name&nbsp;suggestion.</span></dd></dl>
 
-<dl><dt><a name="ImportConnectionArbiter-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-pop_name"><strong>pop_name</strong></a>(self, name: str = None, namespace: vcorelib.namespace.base.Namespace = None) -&gt; str</dt><dd><span class="code">Pop&nbsp;the&nbsp;latest&nbsp;name&nbsp;off&nbsp;the&nbsp;stack.</span></dd></dl>
 
-<dl><dt><a name="ImportConnectionArbiter-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-push_name"><strong>push_name</strong></a>(self, name: str, namespace: vcorelib.namespace.base.Namespace = None) -&gt; None</dt><dd><span class="code">Push&nbsp;a&nbsp;name&nbsp;onto&nbsp;the&nbsp;stack.</span></dd></dl>
 
 <hr>
-Data descriptors inherited from <a href="vcorelib.namespace.html#NamespaceMixin">vcorelib.namespace.NamespaceMixin</a>:<br>
+Readonly properties inherited from <a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a>:<br>
+<dl><dt><strong>ns</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;instance's&nbsp;namespace.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="vcorelib.namespace.mixin.html#NamespaceMixin">vcorelib.namespace.mixin.NamespaceMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="ImportConnectionArbiter-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="ImportConnectionArbiter-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Methods inherited from <a href="runtimepy.tui.mixin.html#TuiMixin">runtimepy.tui.mixin.TuiMixin</a>:<br>
@@ -129,13 +147,5 @@ Readonly properties inherited from <a href="runtimepy.tui.mixin.html#TuiMixin">r
 <dl><dt><strong>window</strong></dt>
 <dd><span class="code">Get&nbsp;the&nbsp;window&nbsp;for&nbsp;this&nbsp;instance.</span></dd>
 </dl>
-</td></tr></table></td></tr></table><p>
-<table class="section">
-<tr class="decor functions-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
-    
-<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-import_str_and_item"><strong>import_str_and_item</strong></a>(module_path: str) -&gt; Tuple[str, str]</dt><dd><span class="code">Treat&nbsp;the&nbsp;last&nbsp;entry&nbsp;in&nbsp;a&nbsp;'.'&nbsp;delimited&nbsp;string&nbsp;as&nbsp;the&nbsp;item&nbsp;to&nbsp;import&nbsp;from<br>
-the&nbsp;module&nbsp;in&nbsp;the&nbsp;string&nbsp;preceding&nbsp;it.</span></dd></dl>
-</td></tr></table>
+</td></tr></table></td></tr></table>
 </body></html>

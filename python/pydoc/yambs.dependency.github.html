@@ -12,6 +12,13 @@
     <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;GitHub&nbsp;dependency&nbsp;interactions.</span></p>
 <p>
 <table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="requests.html">requests</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
 <tr class="decor index-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
     
@@ -30,7 +37,7 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="GithubDependency">class <strong>GithubDependency</strong></a>(<a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#GithubDependency">GithubDependency</a>(owner:&nbsp;str,&nbsp;repo:&nbsp;str,&nbsp;*args,&nbsp;data:&nbsp;Dict[str,&nbsp;Any]&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#GithubDependency">GithubDependency</a>(owner:&nbsp;str,&nbsp;repo:&nbsp;str,&nbsp;*args,&nbsp;version:&nbsp;str&nbsp;=&nbsp;'latest',&nbsp;data:&nbsp;Dict[str,&nbsp;Any]&nbsp;=&nbsp;None,&nbsp;**kwargs)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;managing&nbsp;GitHub&nbsp;dependencies.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -41,7 +48,9 @@ A&nbsp;class&nbsp;for&nbsp;managing&nbsp;GitHub&nbsp;dependencies.<br>&nbsp;</sp
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="GithubDependency-__init__"><strong>__init__</strong></a>(self, owner: str, repo: str, *args, data: Dict[str, Any] = None, **kwargs) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+<dl><dt><a name="GithubDependency-__init__"><strong>__init__</strong></a>(self, owner: str, repo: str, *args, version: str = 'latest', data: Dict[str, Any] = None, **kwargs) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="GithubDependency-download_release_assets"><strong>download_release_assets</strong></a>(self, filt: Callable[[dict[str, Any]], Optional[pathlib.Path]], extract: bool = True) -&gt; None</dt><dd><span class="code">Ensure&nbsp;release&nbsp;assets&nbsp;are&nbsp;downloaded.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -49,22 +58,36 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="GithubDependency-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="GithubDependency-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-default_filt"><strong>default_filt</strong></a>(output: pathlib.Path, pattern: str = '.*', mkdir: bool = True) -&gt; Callable[[dict[str, Any]], Optional[pathlib.Path]]</dt><dd><span class="code">Create&nbsp;a&nbsp;default&nbsp;release-asset&nbsp;filter&nbsp;method.</span></dd></dl>
+ <dl><dt><a name="-download_file_if_missing"><strong>download_file_if_missing</strong></a>(uri: str, dest: pathlib.Path, timeout: float = 10.0, chunk_size: int = 4096) -&gt; None</dt><dd><span class="code">Download&nbsp;a&nbsp;file&nbsp;if&nbsp;necessary.</span></dd></dl>
+ <dl><dt><a name="-ensure_extracted"><strong>ensure_extracted</strong></a>(path: pathlib.Path, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None) -&gt; None</dt><dd><span class="code">Ensure&nbsp;that&nbsp;all&nbsp;archive&nbsp;files&nbsp;in&nbsp;a&nbsp;directory&nbsp;are&nbsp;extracted.</span></dd></dl>
+</td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>Dict</strong> = typing.Dict<br>
+<td class="singlecolumn"><strong>AssetFilter</strong> = typing.Callable[[dict[str, typing.Any]], typing.Optional[pathlib.Path]]<br>
+<strong>Callable</strong> = typing.Callable<br>
+<strong>DEFAULT_RELEASE</strong> = 'latest'<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
+<strong>Optional</strong> = typing.Optional<br>
 <strong>ReleaseData</strong> = typing.Dict[str, typing.Any]</td></tr></table>
 </body></html>

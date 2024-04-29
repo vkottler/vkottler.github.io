@@ -47,13 +47,15 @@ Methods defined here:<br>
 
 <dl><dt><a name="NativeBuildEnvironment-render"><strong>render</strong></a>(self, root: pathlib.Path, name: str) -&gt; None</dt><dd><span class="code">Render&nbsp;a&nbsp;template.</span></dd></dl>
 
-<dl><dt><a name="NativeBuildEnvironment-write_app_rules"><strong>write_app_rules</strong></a>(self, stream: &lt;class 'TextIO'&gt;, outputs: Set[pathlib.Path]) -&gt; Dict[pathlib.Path, pathlib.Path]</dt><dd><span class="code">Write&nbsp;app&nbsp;rules.</span></dd></dl>
+<dl><dt><a name="NativeBuildEnvironment-write_app_rules"><strong>write_app_rules</strong></a>(self, stream: &lt;class 'TextIO'&gt;, outputs: Set[pathlib.Path], uf2_family: str = None, wasm: bool = False) -&gt; Dict[pathlib.Path, pathlib.Path]</dt><dd><span class="code">Write&nbsp;app&nbsp;rules.</span></dd></dl>
 
-<dl><dt><a name="NativeBuildEnvironment-write_compile_line"><strong>write_compile_line</strong></a>(self, stream: &lt;class 'TextIO'&gt;, path: pathlib.Path) -&gt; pathlib.Path</dt><dd><span class="code">Write&nbsp;a&nbsp;single&nbsp;source-compile&nbsp;line.</span></dd></dl>
+<dl><dt><a name="NativeBuildEnvironment-write_compile_line"><strong>write_compile_line</strong></a>(self, stream: &lt;class 'TextIO'&gt;, path: pathlib.Path, wasm: bool = False) -&gt; pathlib.Path</dt><dd><span class="code">Write&nbsp;a&nbsp;single&nbsp;source-compile&nbsp;line.</span></dd></dl>
 
-<dl><dt><a name="NativeBuildEnvironment-write_source_rules"><strong>write_source_rules</strong></a>(self, stream: &lt;class 'TextIO'&gt;) -&gt; Set[pathlib.Path]</dt><dd><span class="code">Write&nbsp;source&nbsp;rules.</span></dd></dl>
+<dl><dt><a name="NativeBuildEnvironment-write_source_rules"><strong>write_source_rules</strong></a>(self, stream: &lt;class 'TextIO'&gt;, wasm: bool = False) -&gt; Set[pathlib.Path]</dt><dd><span class="code">Write&nbsp;source&nbsp;rules.</span></dd></dl>
 
 <dl><dt><a name="NativeBuildEnvironment-write_static_library_rule"><strong>write_static_library_rule</strong></a>(self, stream: &lt;class 'TextIO'&gt;, outputs: Set[pathlib.Path]) -&gt; pathlib.Path</dt><dd><span class="code">Create&nbsp;a&nbsp;rule&nbsp;for&nbsp;a&nbsp;static&nbsp;library&nbsp;output.</span></dd></dl>
+
+<dl><dt><a name="NativeBuildEnvironment-write_third_party_line"><strong>write_third_party_line</strong></a>(self, stream: &lt;class 'TextIO'&gt;, path: pathlib.Path, wasm: bool = False) -&gt; Optional[pathlib.Path]</dt><dd><span class="code">Write&nbsp;a&nbsp;single&nbsp;source-compile&nbsp;line&nbsp;for&nbsp;a&nbsp;third-party&nbsp;source.</span></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -61,32 +63,27 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
-<dl><dt><a name="NativeBuildEnvironment-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
+<dl><dt><a name="NativeBuildEnvironment-log_time"><strong>log_time</strong></a>(self, message: str, *args, level: int = 20, reminder: bool = False, **kwargs) -&gt; Iterator[NoneType]</dt><dd><span class="code">A&nbsp;simple&nbsp;wrapper.</span></dd></dl>
 
 <hr>
 Data descriptors inherited from <a href="vcorelib.logging.html#LoggerMixin">vcorelib.logging.LoggerMixin</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
-<table class="section">
-<tr class="decor functions-decor heading-text">
-<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
-    
-<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-resolve_build_dir"><strong>resolve_build_dir</strong></a>(build_root: pathlib.Path, variant: str, path: pathlib.Path) -&gt; pathlib.Path</dt><dd><span class="code">Resolve&nbsp;the&nbsp;build-directory&nbsp;variable&nbsp;in&nbsp;a&nbsp;path.</span></dd></dl>
-</td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><strong>ARBITER</strong> = &lt;vcorelib.io.arbiter.DataArbiter object&gt;<br>
+<td class="singlecolumn"><strong>APP_ROOT</strong> = 'apps'<br>
+<strong>ARBITER</strong> = &lt;vcorelib.io.arbiter.DataArbiter object&gt;<br>
 <strong>BUILD_DIR_PATH</strong> = PosixPath('$build_dir')<br>
 <strong>Dict</strong> = typing.Dict<br>
+<strong>Optional</strong> = typing.Optional<br>
 <strong>Set</strong> = typing.Set<br>
 <strong>linesep</strong> = '<span class="repr">\n</span>'</td></tr></table>
 </body></html>

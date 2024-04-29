@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package svgen.element.html</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="svgen.html" class="white">svgen</a>.<a href="svgen.element.html" class="white">element</a>.html</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/svgen/svgen/element/html/__init__.py">/home/vkottler/src/vkottler/workspace/svgen/svgen/element/html/__init__.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;for&nbsp;html-related&nbsp;elements.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="svgen.element.html#Element">svgen.element.Element</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="svgen.element.html.html#Html">Html</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Html">class <strong>Html</strong></a>(<a href="svgen.element.html#Element">svgen.element.Element</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Html">Html</a>(title:&nbsp;str,&nbsp;viewport:&nbsp;str&nbsp;=&nbsp;'width=device-width,&nbsp;initial-scale=1',&nbsp;charset:&nbsp;str&nbsp;=&nbsp;'utf-8',&nbsp;lang:&nbsp;str&nbsp;=&nbsp;'en')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;for&nbsp;html&nbsp;elements.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="svgen.element.html.html#Html">Html</a></dd>
+<dd><a href="svgen.element.html#Element">svgen.element.Element</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Html-__init__"><strong>__init__</strong></a>(self, title: str, viewport: str = 'width=device-width, initial-scale=1', charset: str = 'utf-8', lang: str = 'en') -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="Html-render"><strong>render</strong></a>(self, stream: &lt;class 'TextIO'&gt;) -&gt; None</dt><dd><span class="code">Render&nbsp;a&nbsp;full&nbsp;HTML&nbsp;document&nbsp;to&nbsp;the&nbsp;stream.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="svgen.element.html#Element">svgen.element.Element</a>:<br>
+<dl><dt><a name="Html-__getitem__"><strong>__getitem__</strong></a>(self, tag: str) -&gt; str</dt><dd><span class="code">Get&nbsp;an&nbsp;attibute&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="Html-__setitem__"><strong>__setitem__</strong></a>(self, tag: str, value: Union[str, int, float, bool]) -&gt; None</dt><dd><span class="code">Allow&nbsp;adding&nbsp;attributes&nbsp;dict-set&nbsp;style.</span></dd></dl>
+
+<dl><dt><a name="Html-add_attribute"><strong>add_attribute</strong></a>(self, attr: svgen.attribute.Attribute, strict: bool = True) -&gt; 'Element'</dt><dd><span class="code">Add&nbsp;an&nbsp;attribute&nbsp;to&nbsp;this&nbsp;element.</span></dd></dl>
+
+<dl><dt><a name="Html-add_class"><strong>add_class</strong></a>(self, *data: str) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;class&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="Html-closing"><strong>closing</strong></a>(self, indent: int = 0) -&gt; str</dt><dd><span class="code">Create&nbsp;a&nbsp;string&nbsp;to&nbsp;close&nbsp;this&nbsp;element.</span></dd></dl>
+
+<dl><dt><a name="Html-encode"><strong>encode</strong></a>(self, output: &lt;class 'TextIO'&gt;, quote: str = '"', indent: int = 0, newlines: bool = True) -&gt; None</dt><dd><span class="code">Encode&nbsp;this&nbsp;element&nbsp;to&nbsp;a&nbsp;string&nbsp;stream.</span></dd></dl>
+
+<dl><dt><a name="Html-encode_str"><strong>encode_str</strong></a>(self, quote: str = '"', indent: int = 0, newlines: bool = True) -&gt; str</dt><dd><span class="code">Encode&nbsp;this&nbsp;element&nbsp;to&nbsp;a&nbsp;string.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="svgen.element.html#Element">svgen.element.Element</a>:<br>
+<dl><dt><strong>style</strong></dt>
+<dd><span class="code">Get&nbsp;the&nbsp;style&nbsp;attribute&nbsp;for&nbsp;this&nbsp;element.</span></dd>
+</dl>
+<dl><dt><strong>xml</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;element&nbsp;as&nbsp;an&nbsp;xml&nbsp;element.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="svgen.element.html#Element">svgen.element.Element</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-div"><strong>div</strong></a>(tag: str = 'div', parent: svgen.element.Element = None, allow_no_end_tag: bool = False, **kwargs) -&gt; svgen.element.Element</dt><dd><span class="code">Get&nbsp;a&nbsp;new&nbsp;'div'&nbsp;element.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_ENCODING</strong> = 'utf-8'<br>
+<strong>DEFAULT_VIEWPORT</strong> = 'width=device-width, initial-scale=1'</td></tr></table>
+</body></html>

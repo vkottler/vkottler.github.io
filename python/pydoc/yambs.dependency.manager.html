@@ -39,17 +39,17 @@ A&nbsp;class&nbsp;for&nbsp;managing&nbsp;project&nbsp;dependencies.<br>&nbsp;</s
 
 <dl><dt><a name="DependencyManager-audit"><strong>audit</strong></a>(self, dep: yambs.dependency.config.Dependency) -&gt; yambs.dependency.state.DependencyState</dt><dd><span class="code">Interact&nbsp;with&nbsp;a&nbsp;dependency&nbsp;if&nbsp;needed.</span></dd></dl>
 
-<dl><dt><a name="DependencyManager-info"><strong>info</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter]) -&gt; None</dt><dd><span class="code">Log&nbsp;some&nbsp;information.</span></dd></dl>
+<dl><dt><a name="DependencyManager-info"><strong>info</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter[Any]]) -&gt; None</dt><dd><span class="code">Log&nbsp;some&nbsp;information.</span></dd></dl>
 
-<dl><dt><a name="DependencyManager-save"><strong>save</strong></a>(self, script: pathlib.Path, logger: Union[logging.Logger, logging.LoggerAdapter] = None) -&gt; None</dt><dd><span class="code">Save&nbsp;state&nbsp;data&nbsp;and&nbsp;create&nbsp;the&nbsp;third-party&nbsp;build&nbsp;script.</span></dd></dl>
+<dl><dt><a name="DependencyManager-save"><strong>save</strong></a>(self, script: pathlib.Path, logger: Union[logging.Logger, logging.LoggerAdapter[Any]] = None) -&gt; None</dt><dd><span class="code">Save&nbsp;state&nbsp;data&nbsp;and&nbsp;create&nbsp;the&nbsp;third-party&nbsp;build&nbsp;script.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table class="section">
@@ -69,6 +69,6 @@ third-party&nbsp;commands.</span></dd></dl>
 <strong>DependencyData</strong> = typing.Dict[str, typing.Any]<br>
 <strong>HANDLERS</strong> = {&lt;DependencyKind.YAMBS: 'yambs'&gt;: &lt;function yambs_handler&gt;}<br>
 <strong>List</strong> = typing.List<br>
-<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]<br>
 <strong>Set</strong> = typing.Set</td></tr></table>
 </body></html>

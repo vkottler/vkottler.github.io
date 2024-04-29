@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.net.http.header</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.http.html" class="white">http</a>.header</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/http/header.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/http/header.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;implementing&nbsp;interfaces&nbsp;for&nbsp;HTTP&nbsp;headers.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="http.html">http</a><br>
+</td><td class="multicolumn"><a href="logging.html">logging</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="runtimepy.net.http.common.html#HeadersMixin">runtimepy.net.http.common.HeadersMixin</a>(<a href="abc.html#ABC">abc.ABC</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.http.header.html#RequestHeader">RequestHeader</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="RequestHeader">class <strong>RequestHeader</strong></a>(<a href="runtimepy.net.http.common.html#HeadersMixin">runtimepy.net.http.common.HeadersMixin</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#RequestHeader">RequestHeader</a>(method:&nbsp;Union[str,&nbsp;http.HTTPMethod]&nbsp;=&nbsp;&amp;lt;HTTPMethod.GET&amp;gt;,&nbsp;target:&nbsp;str&nbsp;=&nbsp;'/',&nbsp;major:&nbsp;int&nbsp;=&nbsp;1,&nbsp;minor:&nbsp;int&nbsp;=&nbsp;1)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;implementing&nbsp;an&nbsp;HTTP-request&nbsp;header.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.http.header.html#RequestHeader">RequestHeader</a></dd>
+<dd><a href="runtimepy.net.http.common.html#HeadersMixin">runtimepy.net.http.common.HeadersMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="RequestHeader-__init__"><strong>__init__</strong></a>(self, method: Union[str, http.HTTPMethod] = &lt;HTTPMethod.GET&gt;, target: str = '/', major: int = 1, minor: int = 1) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="RequestHeader-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;request&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="RequestHeader-from_lines"><strong>from_lines</strong></a>(self, lines: list[str]) -&gt; None</dt><dd><span class="code">Update&nbsp;this&nbsp;request&nbsp;from&nbsp;line&nbsp;data.</span></dd></dl>
+
+<dl><dt><a name="RequestHeader-log"><strong>log</strong></a>(self, logger: Union[logging.Logger, logging.LoggerAdapter[Any]], out: bool, level: int = 10) -&gt; None</dt><dd><span class="code">Log&nbsp;information&nbsp;about&nbsp;this&nbsp;request&nbsp;header.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>request_line</strong></dt>
+<dd><span class="code">Get&nbsp;this&nbsp;response's&nbsp;status&nbsp;line.</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="runtimepy.net.http.common.html#HeadersMixin">runtimepy.net.http.common.HeadersMixin</a>:<br>
+<dl><dt><a name="RequestHeader-__bytes__"><strong>__bytes__</strong></a>(self) -&gt; bytes</dt><dd><span class="code">Get&nbsp;this&nbsp;instances&nbsp;as&nbsp;bytes.</span></dd></dl>
+
+<dl><dt><a name="RequestHeader-__getitem__"><strong>__getitem__</strong></a>(self, key: str) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;header&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="RequestHeader-__setitem__"><strong>__setitem__</strong></a>(self, key: str, value: str) -&gt; None</dt><dd><span class="code">Set&nbsp;a&nbsp;header&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="RequestHeader-get"><strong>get</strong></a>(self, key: str, default: str = None) -&gt; Optional[str]</dt><dd><span class="code">Get&nbsp;a&nbsp;possible&nbsp;header&nbsp;value.</span></dd></dl>
+
+<dl><dt><a name="RequestHeader-write_field_lines"><strong>write_field_lines</strong></a>(self, stream: &lt;class 'TextIO'&gt;) -&gt; None</dt><dd><span class="code">Write&nbsp;field&nbsp;lines&nbsp;to&nbsp;a&nbsp;stream.</span></dd></dl>
+
+<hr>
+Readonly properties inherited from <a href="runtimepy.net.http.common.html#HeadersMixin">runtimepy.net.http.common.HeadersMixin</a>:<br>
+<dl><dt><strong>content_length</strong></dt>
+<dd><span class="code">Get&nbsp;a&nbsp;value&nbsp;for&nbsp;context&nbsp;length.</span></dd>
+</dl>
+<hr>
+Data descriptors inherited from <a href="runtimepy.net.http.common.html#HeadersMixin">runtimepy.net.http.common.HeadersMixin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_MAJOR</strong> = 1<br>
+<strong>DEFAULT_MINOR</strong> = 1<br>
+<strong>HEADER_LINESEP</strong> = '<span class="repr">\r\n</span>'<br>
+<strong>HTTPMethodlike</strong> = typing.Union[str, http.HTTPMethod]<br>
+<strong>LoggerType</strong> = typing.Union[logging.Logger, logging.LoggerAdapter[typing.Any]]</td></tr></table>
+</body></html>

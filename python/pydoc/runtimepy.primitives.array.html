@@ -99,7 +99,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<br>
 <dl><dt><a name="ArrayFragmentSpec-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self+value.</span></dd></dl>
 
-<dl><dt><a name="ArrayFragmentSpec-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;key&nbsp;in&nbsp;self.</span></dd></dl>
+<dl><dt><a name="ArrayFragmentSpec-__contains__"><strong>__contains__</strong></a>(self, key, /)</dt><dd><span class="code">Return&nbsp;bool(key&nbsp;in&nbsp;self).</span></dd></dl>
 
 <dl><dt><a name="ArrayFragmentSpec-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
 
@@ -143,7 +143,7 @@ Class methods inherited from <a href="builtins.html#tuple">builtins.tuple</a>:<b
 <td class="section-title" colspan=3>&nbsp;<br><a name="PrimitiveArray">class <strong>PrimitiveArray</strong></a>(<a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#PrimitiveArray">PrimitiveArray</a>(*primitives:&nbsp;Union[runtimepy.primitives.int.Int8Primitive,&nbsp;runtimepy.primitives.int.Int16Primitive,&nbsp;runtimepy.primitives.int.Int32Primitive,&nbsp;runtimepy.primitives.int.Int64Primitive,&nbsp;runtimepy.primitives.int.Uint8Primitive,&nbsp;runtimepy.primitives.int.Uint16Primitive,&nbsp;runtimepy.primitives.int.Uint32Primitive,&nbsp;runtimepy.primitives.int.Uint64Primitive,&nbsp;runtimepy.primitives.float.HalfPrimitive,&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;runtimepy.primitives.float.DoublePrimitive,&nbsp;runtimepy.primitives.bool.BooleanPrimitive],&nbsp;byte_order:&nbsp;runtimepy.primitives.byte_order.ByteOrder&nbsp;=&nbsp;&amp;lt;ByteOrder.NETWORK:&nbsp;4&amp;gt;,&nbsp;fragments:&nbsp;List[runtimepy.primitives.array.<a href="#ArrayFragmentSpec">ArrayFragmentSpec</a>]&nbsp;=&nbsp;None,&nbsp;chain:&nbsp;runtimepy.primitives.serializable.base.<a href="runtimepy.primitives.serializable.base.html#Serializable">Serializable</a>&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#PrimitiveArray">PrimitiveArray</a>(*primitives:&nbsp;Union[runtimepy.primitives.int.Int8Primitive,&nbsp;runtimepy.primitives.int.Int16Primitive,&nbsp;runtimepy.primitives.int.Int32Primitive,&nbsp;runtimepy.primitives.int.Int64Primitive,&nbsp;runtimepy.primitives.int.Uint8Primitive,&nbsp;runtimepy.primitives.int.Uint16Primitive,&nbsp;runtimepy.primitives.int.Uint32Primitive,&nbsp;runtimepy.primitives.int.Uint64Primitive,&nbsp;runtimepy.primitives.float.HalfPrimitive,&nbsp;runtimepy.primitives.float.FloatPrimitive,&nbsp;runtimepy.primitives.float.DoublePrimitive,&nbsp;runtimepy.primitives.bool.BooleanPrimitive],&nbsp;byte_order:&nbsp;runtimepy.primitives.byte_order.ByteOrder&nbsp;=&nbsp;&amp;lt;ByteOrder.NETWORK:&nbsp;4&amp;gt;,&nbsp;fragments:&nbsp;list[runtimepy.primitives.array.<a href="#ArrayFragmentSpec">ArrayFragmentSpec</a>]&nbsp;=&nbsp;None,&nbsp;chain:&nbsp;runtimepy.primitives.serializable.base.<a href="runtimepy.primitives.serializable.base.html#Serializable">Serializable</a>&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
 &nbsp;<br>
 A&nbsp;class&nbsp;for&nbsp;managing&nbsp;primitives&nbsp;as&nbsp;arrays.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
@@ -159,11 +159,11 @@ Methods defined here:<br>
 
 <dl><dt><a name="PrimitiveArray-__getitem__"><strong>__getitem__</strong></a>(self, index: int) -&gt; Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]</dt><dd><span class="code">Access&nbsp;underlying&nbsp;primitives&nbsp;by&nbsp;index.</span></dd></dl>
 
-<dl><dt><a name="PrimitiveArray-__init__"><strong>__init__</strong></a>(self, *primitives: Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive], byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;, fragments: List[runtimepy.primitives.array.ArrayFragmentSpec] = None, chain: runtimepy.primitives.serializable.base.Serializable = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;primitive&nbsp;array.</span></dd></dl>
+<dl><dt><a name="PrimitiveArray-__init__"><strong>__init__</strong></a>(self, *primitives: Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive], byte_order: runtimepy.primitives.byte_order.ByteOrder = &lt;ByteOrder.NETWORK: 4&gt;, fragments: list[runtimepy.primitives.array.ArrayFragmentSpec] = None, chain: runtimepy.primitives.serializable.base.Serializable = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;primitive&nbsp;array.</span></dd></dl>
 
-<dl><dt><a name="PrimitiveArray-add"><strong>add</strong></a>(self, primitive: Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]) -&gt; int</dt><dd><span class="code">Add&nbsp;another&nbsp;primitive&nbsp;to&nbsp;manage.</span></dd></dl>
+<dl><dt><a name="PrimitiveArray-add"><strong>add</strong></a>(self, primitive: Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive], array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;another&nbsp;primitive&nbsp;to&nbsp;manage.</span></dd></dl>
 
-<dl><dt><a name="PrimitiveArray-add_primitive"><strong>add_primitive</strong></a>(self, kind: Union[Type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str]) -&gt; int</dt><dd><span class="code">Add&nbsp;to&nbsp;the&nbsp;array&nbsp;by&nbsp;specifying&nbsp;the&nbsp;type&nbsp;of&nbsp;element&nbsp;to&nbsp;add.</span></dd></dl>
+<dl><dt><a name="PrimitiveArray-add_primitive"><strong>add_primitive</strong></a>(self, kind: Union[type[Union[runtimepy.primitives.int.Int8Primitive, runtimepy.primitives.int.Int16Primitive, runtimepy.primitives.int.Int32Primitive, runtimepy.primitives.int.Int64Primitive, runtimepy.primitives.int.Uint8Primitive, runtimepy.primitives.int.Uint16Primitive, runtimepy.primitives.int.Uint32Primitive, runtimepy.primitives.int.Uint64Primitive, runtimepy.primitives.float.HalfPrimitive, runtimepy.primitives.float.FloatPrimitive, runtimepy.primitives.float.DoublePrimitive, runtimepy.primitives.bool.BooleanPrimitive]], str], array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;to&nbsp;the&nbsp;array&nbsp;by&nbsp;specifying&nbsp;the&nbsp;type&nbsp;of&nbsp;element&nbsp;to&nbsp;add.</span></dd></dl>
 
 <dl><dt><a name="PrimitiveArray-byte_at_index"><strong>byte_at_index</strong></a>(self, index: int) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;byte&nbsp;index&nbsp;that&nbsp;a&nbsp;primitive&nbsp;at&nbsp;the&nbsp;provided&nbsp;index&nbsp;starts&nbsp;at.<br>
 This&nbsp;can&nbsp;also&nbsp;be&nbsp;thought&nbsp;of&nbsp;as&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;array&nbsp;leading&nbsp;up&nbsp;to<br>
@@ -202,17 +202,23 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
 <dl><dt><a name="PrimitiveArray-__copy__"><strong>__copy__</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Make&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;serializable.</span></dd></dl>
 
-<dl><dt><a name="PrimitiveArray-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
+<dl><dt><a name="PrimitiveArray-add_to_end"><strong>add_to_end</strong></a>(self, chain: ~T, array_length: int = None) -&gt; int</dt><dd><span class="code">Add&nbsp;a&nbsp;new&nbsp;serializable&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
-<dl><dt><a name="PrimitiveArray-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; None</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
+<dl><dt><a name="PrimitiveArray-assign"><strong>assign</strong></a>(self, chain: ~T) -&gt; int</dt><dd><span class="code">Assign&nbsp;a&nbsp;next&nbsp;serializable.</span></dd></dl>
 
 <dl><dt><a name="PrimitiveArray-copy"><strong>copy</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">Create&nbsp;a&nbsp;copy&nbsp;of&nbsp;a&nbsp;serializable&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="PrimitiveArray-copy_without_chain"><strong>copy_without_chain</strong></a>(self: ~T) -&gt; ~T</dt><dd><span class="code">A&nbsp;method&nbsp;for&nbsp;copying&nbsp;instances&nbsp;without&nbsp;chain&nbsp;references.</span></dd></dl>
 
 <dl><dt><a name="PrimitiveArray-from_stream"><strong>from_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;a&nbsp;stream.</span></dd></dl>
 
 <dl><dt><a name="PrimitiveArray-length"><strong>length</strong></a>(self) -&gt; int</dt><dd><span class="code">Get&nbsp;the&nbsp;full&nbsp;length&nbsp;of&nbsp;this&nbsp;chain.</span></dd></dl>
 
+<dl><dt><a name="PrimitiveArray-length_trace"><strong>length_trace</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;length-tracing&nbsp;string&nbsp;for&nbsp;this&nbsp;instance.</span></dd></dl>
+
 <dl><dt><a name="PrimitiveArray-to_stream"><strong>to_stream</strong></a>(self, stream: &lt;class 'BinaryIO'&gt;) -&gt; int</dt><dd><span class="code">Write&nbsp;this&nbsp;serializable&nbsp;to&nbsp;a&nbsp;stream.</span></dd></dl>
+
+<dl><dt><a name="PrimitiveArray-update_str"><strong>update_str</strong></a>(self, data: str) -&gt; int</dt><dd><span class="code">Update&nbsp;this&nbsp;serializable&nbsp;from&nbsp;string&nbsp;data.</span></dd></dl>
 
 <hr>
 Readonly properties inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
@@ -222,10 +228,10 @@ Readonly properties inherited from <a href="runtimepy.primitives.serializable.ba
 <hr>
 Data descriptors inherited from <a href="runtimepy.primitives.serializable.base.html#Serializable">runtimepy.primitives.serializable.base.Serializable</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
-<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
 </dl>
 <dl><dt><strong>__weakref__</strong></dt>
-<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
 </dl>
 </td></tr></table></td></tr></table>
 </body></html>

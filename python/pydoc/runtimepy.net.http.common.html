@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module runtimepy.net.http.common</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="runtimepy.html" class="white">runtimepy</a>.<a href="runtimepy.net.html" class="white">net</a>.<a href="runtimepy.net.http.html" class="white">http</a>.common</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/http/common.py">/home/vkottler/src/vkottler/workspace/runtimepy/runtimepy/net/http/common.py</a></td></tr></table>
+    <p><span class="code">A&nbsp;module&nbsp;containing&nbsp;shared&nbsp;interfaces&nbsp;for&nbsp;HTTP.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="http.html">http</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="runtimepy.net.http.common.html#HeadersMixin">HeadersMixin</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="HeadersMixin">class <strong>HeadersMixin</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#HeadersMixin">HeadersMixin</a>(lines:&nbsp;list[str]&nbsp;=&nbsp;None)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;implementing&nbsp;a&nbsp;mixin&nbsp;for&nbsp;HTTP&nbsp;header&nbsp;fields.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="runtimepy.net.http.common.html#HeadersMixin">HeadersMixin</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="HeadersMixin-__bytes__"><strong>__bytes__</strong></a>(self) -&gt; bytes</dt><dd><span class="code">Get&nbsp;this&nbsp;instances&nbsp;as&nbsp;bytes.</span></dd></dl>
+
+<dl><dt><a name="HeadersMixin-__getitem__"><strong>__getitem__</strong></a>(self, key: str) -&gt; str</dt><dd><span class="code">Get&nbsp;a&nbsp;header&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="HeadersMixin-__init__"><strong>__init__</strong></a>(self, lines: list[str] = None) -&gt; None</dt><dd><span class="code">Initialize&nbsp;this&nbsp;instance.</span></dd></dl>
+
+<dl><dt><a name="HeadersMixin-__setitem__"><strong>__setitem__</strong></a>(self, key: str, value: str) -&gt; None</dt><dd><span class="code">Set&nbsp;a&nbsp;header&nbsp;key.</span></dd></dl>
+
+<dl><dt><a name="HeadersMixin-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Get&nbsp;this&nbsp;response&nbsp;as&nbsp;a&nbsp;string.</span></dd></dl>
+
+<dl><dt><a name="HeadersMixin-from_lines"><strong>from_lines</strong></a>(self, lines: list[str]) -&gt; None</dt><dd><span class="code">Update&nbsp;this&nbsp;request&nbsp;from&nbsp;line&nbsp;data.</span></dd></dl>
+
+<dl><dt><a name="HeadersMixin-get"><strong>get</strong></a>(self, key: str, default: str = None) -&gt; Optional[str]</dt><dd><span class="code">Get&nbsp;a&nbsp;possible&nbsp;header&nbsp;value.</span></dd></dl>
+
+<dl><dt><a name="HeadersMixin-write_field_lines"><strong>write_field_lines</strong></a>(self, stream: &lt;class 'TextIO'&gt;) -&gt; None</dt><dd><span class="code">Write&nbsp;field&nbsp;lines&nbsp;to&nbsp;a&nbsp;stream.</span></dd></dl>
+
+<hr>
+Readonly properties defined here:<br>
+<dl><dt><strong>content_length</strong></dt>
+<dd><span class="code">Get&nbsp;a&nbsp;value&nbsp;for&nbsp;context&nbsp;length.</span></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'__str__', 'from_lines'})</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-normalize_method"><strong>normalize_method</strong></a>(data: Union[str, http.HTTPMethod]) -&gt; http.HTTPMethod</dt><dd><span class="code">Normalize&nbsp;HTTP&nbsp;method&nbsp;data.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_ENCODING</strong> = 'utf-8'<br>
+<strong>HEADER_LINESEP</strong> = '<span class="repr">\r\n</span>'<br>
+<strong>HTTPMethodlike</strong> = typing.Union[str, http.HTTPMethod]<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>Union</strong> = typing.Union</td></tr></table>
+</body></html>
